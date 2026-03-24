@@ -47,12 +47,13 @@ export default function Contact() {
     setFormState((s) => ({ ...s, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    setLoading(true)
-    // Simulate async submission
-    await new Promise((r) => setTimeout(r, 1200))
-    setLoading(false)
+    const subject = encodeURIComponent(`New Project Inquiry from ${formState.name}`)
+    const body = encodeURIComponent(
+      `Name: ${formState.name}\nEmail: ${formState.email}\nService: ${formState.service}\nBudget: ${formState.budget}\n\nMessage:\n${formState.message}`
+    )
+    window.location.href = `mailto:jtfasulo7@gmail.com?subject=${subject}&body=${body}`
     setStatus('success')
     setFormState({ name: '', email: '', service: '', budget: '', message: '' })
   }
@@ -172,7 +173,7 @@ export default function Contact() {
                   <label className="block text-[10px] tracking-[0.2em] uppercase text-text-dim mb-2">
                     Project Budget
                   </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2">
                     {budgets.map((b) => (
                       <button
                         key={b}
@@ -246,7 +247,7 @@ export default function Contact() {
               <ContactInfo
                 icon={<Mail size={16} />}
                 label="Email"
-                value="jt@jtfasulo.com"
+                value="jtfasulo7@gmail.com"
               />
               <ContactInfo
                 icon={<MapPin size={16} />}

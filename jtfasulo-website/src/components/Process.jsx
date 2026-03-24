@@ -147,33 +147,6 @@ export default function Process() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-20 p-8 lg:p-10 border border-accent/20 bg-accent/[0.03]"
-        >
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div>
-              <div className="text-white font-bold text-lg mb-1">Typical Engagement Timeline</div>
-              <div className="text-text-muted text-sm">Most campaigns go from kickoff to first results in under 2 weeks.</div>
-            </div>
-            <div className="flex items-center gap-8">
-              {[
-                { label: 'Kickoff', time: 'Day 1' },
-                { label: 'Live', time: 'Day 10' },
-                { label: 'First Data', time: 'Day 14' },
-              ].map((item, i) => (
-                <div key={item.label} className="flex flex-col items-center text-center">
-                  <div className="text-accent font-bold text-sm mb-0.5">{item.time}</div>
-                  <div className="text-text-dim text-[10px] tracking-widest uppercase">{item.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

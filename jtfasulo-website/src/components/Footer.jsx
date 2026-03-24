@@ -58,11 +58,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-7 h-7 relative flex-shrink-0">
-                <div className="absolute inset-0 bg-accent rounded-sm rotate-45" />
-                <div className="absolute inset-1.5 bg-background rounded-sm rotate-45" />
-              </div>
+            <div className="flex items-center mb-4">
               <span className="text-white font-semibold tracking-tight">JT Fasulo</span>
             </div>
             <p className="text-text-muted text-sm leading-relaxed mb-6 max-w-xs">

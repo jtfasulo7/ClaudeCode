@@ -3,25 +3,18 @@ import { motion, useInView } from 'framer-motion'
 import { CheckCircle2, ExternalLink } from 'lucide-react'
 
 const credentials = [
-  '5+ years in digital marketing and brand strategy',
-  'Pioneer in AI-generated campaign creatives',
-  'Worked with 50+ brands across DTC, fintech, wellness, and B2B',
-  'Certified in Meta Ads, Google Performance, and TikTok Ads',
-  'Deep expertise in Midjourney, DALL-E, Runway, and Sora',
-  'Regular speaker on AI in creative marketing',
+  '200+ hours spent using AI-generative systems',
+  '150+ hours spent using agentic AI systems',
+  'Over 100,000 views generated on my own page in the first 50 days',
 ]
 
 const tools = [
-  { name: 'Midjourney', category: 'AI Image' },
-  { name: 'DALL-E 4', category: 'AI Image' },
-  { name: 'Runway', category: 'AI Video' },
-  { name: 'ElevenLabs', category: 'AI Audio' },
-  { name: 'Sora', category: 'AI Video' },
+  { name: 'Claude', category: 'AI Model' },
+  { name: 'Claude Code', category: 'AI Dev Tool' },
+  { name: 'Nano Banana Pro', category: 'Creative' },
+  { name: 'Kling 3.0', category: 'AI Video' },
   { name: 'Meta Ads', category: 'Paid Social' },
-  { name: 'TikTok Ads', category: 'Paid Social' },
-  { name: 'Google Analytics', category: 'Analytics' },
-  { name: 'Figma', category: 'Design' },
-  { name: 'Notion', category: 'Strategy' },
+  { name: 'ElevenLabs', category: 'AI Audio' },
 ]
 
 export default function About() {
@@ -70,9 +63,9 @@ export default function About() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] overflow-hidden">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&auto=format&fit=crop&crop=face"
+                src="/jt-fasulo.jpeg"
                 alt="JT Fasulo"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               />
@@ -108,9 +101,8 @@ export default function About() {
                 intersection of artificial intelligence and high-performance marketing.
               </p>
               <p className="text-text-muted leading-relaxed">
-                My work started in traditional digital marketing, but I made an early bet on generative AI
-                as the defining shift in creative production. That bet has paid off for every brand I've
-                worked with since.
+                My work started in mechanical engineering, but I had an early vision that generative AI
+                is the defining shift in creative production.
               </p>
               <p className="text-text-muted leading-relaxed">
                 Today, I help brands, agencies, and founders harness AI-powered creative systems to
@@ -125,7 +117,6 @@ export default function About() {
 
             {/* Credentials */}
             <div className="mb-10">
-              <div className="text-xs tracking-[0.25em] uppercase text-text-dim mb-5">Credentials</div>
               <ul className="space-y-3">
                 {credentials.map((cred, i) => (
                   <motion.li

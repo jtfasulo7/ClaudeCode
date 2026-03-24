@@ -1,0 +1,136 @@
+Build me a premium personal brand website that positions me as an AI creative strategist. 
+Here are the specifications:
+
+## BRAND IDENTITY & CONTENT
+
+**Brand Profile:**
+- Name: JT Fasulo
+- Current website: jtfasulo.com
+- Core services:
+  1. Campaign Creatives Made with AI (primary offering - cutting-edge, data-driven visual content creation)
+  2. Social Media Strategy Services (secondary offering - audience growth, content calendars, engagement optimization)
+- Target audience: Brands, agencies, and entrepreneurs looking for premium, AI-powered creative solutions
+- Brand positioning: Cutting-edge AI creative technologist + strategic brand partner
+
+**Content to Include:**
+- Homepage hero section with compelling headline about AI-powered campaign creatives
+- Clear service offerings with detailed descriptions
+- Portfolio/case studies section (use placeholder data initially - I'll update with real work)
+- About section highlighting expertise in both AI creatives and social strategy
+- CTA buttons for booking consultations or viewing case studies
+- Contact/lead capture form
+
+## DESIGN AESTHETIC & INSPIRATION
+
+**Style Reference: WorldQuant Foundry (worldquantfoundry.com)**
+
+Replicate these premium design qualities:
+- **Color Palette**: Dark, sophisticated theme (blacks, deep grays, whites) with strategic accent colors - consider gold, electric blue, or premium cyan for highlighting AI/tech elements
+- **Typography**: Elegant, sans-serif fonts (large, bold headlines for impact; clean body text)
+- **Layout**: Maximalist white space, grid-based structure, asymmetrical sections
+- **Visual Hierarchy**: Clear section divisions, numbered sections (01/04, 02/04 style), bold statement sections
+- **Premium feel**: Minimal clutter, high-quality imagery, professional photography-style sections
+
+## INTERACTIVE ELEMENTS & ANIMATIONS
+
+**Scroll-based interactions** (premium animations as user scrolls):
+- Fade-in animations on section headlines
+- Staggered entrance animations for service cards (slide in from left/right as they come into view)
+- Smooth parallax effects on background elements
+- Reveal animations on portfolio items (images/cards slide up with slight delay)
+- Animated counter/stat sections (numbers animate as they come into view)
+- Smooth scroll-triggered opacity transitions on background layers
+- Animated underlines or borders on hover for interactive elements
+- Smooth transitions between sections with subtle slide or fade effects
+
+**Interactive Sections:**
+- Service cards that expand or reveal more info on hover
+- Interactive portfolio grid that filters by category (AI Creatives, Social Strategy, etc.)
+- Testimonials carousel with smooth transitions
+- Interactive CTA buttons with hover effects (background shifts, text glows, subtle animation)
+- Animated form with field-by-field reveal
+
+## STRUCTURE & SECTIONS
+
+1. **Header/Navigation**
+   - Fixed or sticky nav with smooth scrolling to sections
+   - Dark premium look with clear section links
+   - Logo/name on left, nav on right
+
+2. **Hero Section**
+   - Compelling headline: Something like "AI-Powered Campaign Creatives That Convert"
+   - Subheading highlighting both services
+   - High-quality background (subtle animation or gradient)
+   - Prominent CTA button
+
+3. **Services Section** (4 service cards similar to WQF style)
+   - Campaign Creatives (with icon/graphic)
+   - Social Media Strategy
+   - Add 2 supporting services (e.g., "Content Optimization" or "Strategy Consulting")
+   - Use numbered style (01/04, 02/04, etc.)
+   - Each card with description and icon
+
+4. **Portfolio/Case Studies Section**
+   - 3-6 case studies with before/after or results-focused layout
+   - Project cards with image, title, results metrics
+   - Hover effects reveal more details
+   - Filter functionality by service type
+
+5. **Process/Approach Section**
+   - How you work with clients
+   - Step-by-step visual breakdown of your creative process
+   - Could include: Discovery → Strategy → Creation → Optimization → Results
+
+6. **Testimonials Section**
+   - 3-5 client testimonials
+   - Client name, title, company, quote
+   - Small circular avatar images
+   - Auto-rotating or interactive carousel
+
+7. **About Section**
+   - Brief bio highlighting expertise in AI + creative strategy
+   - Why clients work with you
+   - Key achievements/credentials
+
+8. **Contact/CTA Section**
+   - Lead capture form (name, email, service interested in, message)
+   - Contact info (email, social links)
+   - Clear CTA: "Let's Build Something Great"
+
+## TECHNICAL REQUIREMENTS
+
+- **Framework**: React with Tailwind CSS
+- **Animations**: Use Framer Motion for scroll-triggered animations and transitions
+- **Responsiveness**: Fully mobile responsive, looks premium on all screen sizes
+- **Performance**: Optimized images, smooth animations that don't feel sluggish
+- **Forms**: Functional contact form (can integrate with email service later)
+- **Accessibility**: WCAG compliant, semantic HTML
+
+## SPECIFIC DESIGN DETAILS
+
+- **Spacing**: Generous white space, large margins between sections
+- **Images**: Use professional placeholder images (Unsplash, Pexels) that suggest AI, creativity, strategy
+- **Accent Colors**: Pick 1-2 accent colors that suggest AI/tech (electric blue, cyan, or gold)
+- **Buttons**: Premium-looking CTAs with subtle hover animations (glow, background shift, slight scale)
+- **Dividers**: Consider subtle animated lines or gradients between sections instead of harsh breaks
+- **Icons**: Clean, minimal icon set for service categories
+
+## NICE-TO-HAVE EXTRAS
+
+- Animated SVG graphics (code visualization, network nodes, or abstract AI-themed graphics)
+- Subtle background animations that don't distract (moving gradients, floating particles)
+- Video background in hero (looping AI/creative-themed video or abstract motion)
+- Dark mode toggle (optional but premium)
+- Smooth page transitions between internal links
+
+## SUCCESS CRITERIA
+
+When finished, this website should:
+1. Feel premium and sophisticated (matching WQF's aesthetic)
+2. Clearly communicate both AI campaign creatives AND social strategy services
+3. Have smooth, polished animations throughout
+4. Be fully functional and production-ready
+5. Showcase personality while maintaining professionalism
+6. Convert visitors into leads (clear CTAs, contact form)
+
+Start building now and show me a preview at localhost once it's running.

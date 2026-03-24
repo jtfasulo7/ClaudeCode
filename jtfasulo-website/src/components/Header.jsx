@@ -50,12 +50,8 @@ export default function Header() {
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-              className="group flex items-center gap-3"
+              className="group flex items-center"
             >
-              <div className="w-8 h-8 relative">
-                <div className="absolute inset-0 bg-accent rounded-sm rotate-45 transform group-hover:rotate-[225deg] transition-transform duration-700" />
-                <div className="absolute inset-1.5 bg-background rounded-sm rotate-45" />
-              </div>
               <span className="text-white font-semibold text-base tracking-tight">
                 JT Fasulo
               </span>

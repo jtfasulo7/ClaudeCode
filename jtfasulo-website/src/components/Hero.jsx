@@ -1,13 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Sparkles, TrendingUp, Zap } from 'lucide-react'
-
-const stats = [
-  { value: '150+', label: 'Campaigns Delivered' },
-  { value: '3.2x', label: 'Avg. Engagement Lift' },
-  { value: '50+', label: 'Brands Served' },
-  { value: '98%', label: 'Client Retention' },
-]
+import FluidGrid from './FluidGrid'
 
 export default function Hero() {
   const ref = useRef(null)
@@ -21,8 +15,8 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden hero-gradient"
     >
-      {/* Grid overlay */}
-      <div className="absolute inset-0 grid-overlay opacity-100 pointer-events-none" />
+      {/* Fluid grid canvas */}
+      <FluidGrid />
 
       {/* Animated orbs */}
       <motion.div
@@ -50,7 +44,7 @@ export default function Hero() {
       {/* Main content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-16"
+        className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-12 sm:pb-16"
       >
         {/* Pre-headline tag */}
         <motion.div
@@ -59,7 +53,7 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-3 mb-8"
         >
-          <div className="flex items-center gap-2 border border-accent/30 bg-accent/5 px-4 py-2 text-xs text-accent tracking-[0.25em] uppercase font-medium">
+          <div className="flex items-center gap-2 border border-accent/30 bg-accent/5 px-4 py-2 text-xs text-accent tracking-[0.25em] uppercase font-medium rounded-full">
             <Sparkles size={12} className="text-accent" />
             AI Creative Technologist
           </div>
@@ -70,16 +64,31 @@ export default function Hero() {
         </motion.div>
 
         {/* Headline */}
-        <div className="overflow-hidden mb-6">
+        <div className="mb-6">
           <motion.h1
             initial={{ y: 120, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="text-[clamp(2.8rem,8vw,7rem)] font-black leading-[0.92] tracking-tight"
+            className="text-[clamp(2.8rem,8vw,7rem)] font-black leading-[1.05] tracking-tight"
           >
-            <span className="text-white block">AI-Powered</span>
-            <span className="text-gradient block">Campaign</span>
-            <span className="text-white block">Creatives</span>
+            <motion.span
+              className="text-white block cursor-default"
+              whileHover={{ x: 8, transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] } }}
+            >
+              AI-Powered
+            </motion.span>
+            <motion.span
+              className="text-gradient block pb-2 cursor-default"
+              whileHover={{ x: 8, filter: 'brightness(1.3)', transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] } }}
+            >
+              Campaign
+            </motion.span>
+            <motion.span
+              className="text-white block cursor-default"
+              whileHover={{ x: 8, transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] } }}
+            >
+              Creatives
+            </motion.span>
           </motion.h1>
         </div>
 
@@ -98,47 +107,22 @@ export default function Hero() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:ml-auto lg:mb-1">
-            <a href="#contact" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }} className="btn-primary">
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="btn-primary"
+            >
               <span>Start a Project</span>
               <ArrowRight size={16} className="relative z-10" />
             </a>
-            <a href="#portfolio" onClick={(e) => { e.preventDefault(); document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' }) }} className="btn-outline">
+            <a
+              href="#portfolio"
+              onClick={(e) => { e.preventDefault(); document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="btn-outline"
+            >
               View Work
             </a>
           </div>
-        </motion.div>
-
-        {/* Divider */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-          className="divider mb-10 origin-left"
-        />
-
-        {/* Stats row */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.65 + i * 0.08 }}
-              className="flex flex-col gap-1"
-            >
-              <div className="text-3xl lg:text-4xl font-black text-white counter-number">
-                {stat.value}
-              </div>
-              <div className="text-text-dim text-xs tracking-widest uppercase">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* Bottom feature pills */}
@@ -155,7 +139,7 @@ export default function Hero() {
           ].map((pill) => (
             <div
               key={pill.text}
-              className="flex items-center gap-2 text-text-muted text-xs px-4 py-2 border border-border/60 bg-white/[0.02] hover:border-accent/30 hover:text-white transition-all duration-300"
+              className="flex items-center gap-2 text-text-muted text-xs px-4 py-2 border border-border/60 bg-white/[0.02] hover:border-accent/30 hover:text-white transition-all duration-300 rounded-full"
             >
               <span className="text-accent">{pill.icon}</span>
               {pill.text}
