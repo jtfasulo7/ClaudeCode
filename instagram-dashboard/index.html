@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fasulo Studio — JARVIS Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --bg: #080806;
+  --bg-1: #0f0e0b;
+  --bg-2: #141310;
+  --bg-3: #1a1815;
+  --gold: #C8A96E;
+  --gold-bright: #E8C87A;
+  --gold-dim: #7A6840;
+  --gold-border: rgba(200,169,110,0.14);
+  --gold-subtle: rgba(200,169,110,0.06);
+  --text: #F0EBE0;
+  --text-2: #9A9488;
+  --text-3: #4A4840;
+  --red: #E85D3A;
+  --green: #5BAD7E;
+  --blue: #00D4FF;
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* Gold scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ─── Navigation ────────────────────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,6,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--gold-border);
+  height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0;
+  height: 100%;
+}
+
+.nav-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-2);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  height: 100%;
+}
+
+.nav-tab:hover { color: var(--text); }
+.nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+.nav-live {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-2);
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ─── Tab Panels ────────────────────────────────────────────────────────── */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ─── Dashboard Tab ─────────────────────────────────────────────────────── */
+.dashboard-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--gold-border);
+  margin-bottom: 3rem;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  color: var(--gold-bright);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.hero-handle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-2);
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.hero-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.badge-business {
+  background: var(--gold-subtle);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+}
+
+.badge-updated {
+  background: rgba(91,173,126,0.08);
+  border: 1px solid rgba(91,173,126,0.2);
+  color: var(--green);
+}
+
+/* KPI Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--gold-border);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.kpi-card {
+  background: var(--bg-1);
+  padding: 1.75rem 1.5rem;
+  transition: background 0.2s;
+}
+.kpi-card:hover { background: var(--bg-2); }
+
+.kpi-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 0.75rem;
+}
+
+.kpi-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.75rem;
+  font-weight: 300;
+  color: var(--gold-bright);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.kpi-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-3);
+}
+
+/* Section headers */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+/* Chart controls */
+.chart-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ctrl-btn {
+  background: none;
+  border: 1px solid var(--gold-border);
+  color: var(--text-2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: uppercase;
+}
+.ctrl-btn:hover { border-color: var(--gold); color: var(--gold); }
+.ctrl-btn.active { background: var(--gold-subtle); border-color: var(--gold); color: var(--gold); }
+
+.ctrl-select {
+  background: var(--bg-1);
+  border: 1px solid var(--gold-border);
+  color: var(--text-2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+}
+.ctrl-select:focus { border-color: var(--gold); }
+
+/* Main layout */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+@media (max-width: 1024px) { .main-layout { grid-template-columns: 1fr; } }
+
+/* Chart area */
+.chart-wrap {
+  background: var(--bg-1);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.chart-container {
+  position: relative;
+  height: 320px;
+}
+
+/* Top Posts */
+.sidebar-title {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--gold-border);
+}
+
+.post-rank-list { display: flex; flex-direction: column; gap: 0; }
+
+.post-rank-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--gold-border);
+  cursor: pointer;
+  transition: background 0.15s;
+  padding-left: 0.5rem;
+}
+.post-rank-item:hover { background: var(--gold-subtle); }
+.post-rank-item:last-child { border-bottom: none; }
+
+.rank-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--text-3);
+  min-width: 24px;
+  line-height: 1;
+  padding-top: 2px;
+}
+.rank-num.top { color: var(--gold); }
+
+.rank-info { flex: 1; min-width: 0; }
+
+.rank-caption {
+  font-size: 0.78rem;
+  color: var(--text);
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 0.35rem;
+}
+
+.rank-stats {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-3);
+}
+
+/* Hashtag section */
+.hashtag-section { margin-bottom: 3rem; }
+
+.hashtag-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 768px) { .hashtag-grid { grid-template-columns: 1fr; } }
+
+.hashtag-chart-wrap {
+  background: var(--bg-1);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.hashtag-chart-container { position: relative; height: 260px; }
+
+.hashtag-table-wrap {
+  background: var(--bg-1);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+th {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--gold-border);
+  background: var(--bg-2);
+}
+
+td {
+  padding: 0.625rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-2);
+  border-bottom: 1px solid rgba(200,169,110,0.05);
+}
+
+tbody tr:hover td { background: var(--gold-subtle); color: var(--text); }
+tbody tr:last-child td { border-bottom: none; }
+
+.bar-cell { padding-right: 1rem; }
+
+.bar-track {
+  background: var(--bg-3);
+  border-radius: 2px;
+  height: 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  background: var(--gold);
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Reels Tab ─────────────────────────────────────────────────────────── */
+.reels-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.reels-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.reels-filter-bar label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.search-input {
+  background: var(--bg-1);
+  border: 1px solid var(--gold-border);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 7px 12px;
+  border-radius: 3px;
+  outline: none;
+  width: 220px;
+  transition: border-color 0.15s;
+}
+.search-input:focus { border-color: var(--gold); }
+.search-input::placeholder { color: var(--text-3); }
+
+.reel-count {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-3);
+}
+
+/* Reel grid */
+.reel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--gold-border);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.reel-card {
+  background: var(--bg-1);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.reel-card:hover {
+  transform: translateY(-3px);
+  border: 1px solid var(--gold);
+  z-index: 2;
+  box-shadow: 0 8px 30px rgba(200,169,110,0.12);
+}
+
+.reel-thumb {
+  height: 160px;
+  background: linear-gradient(135deg, #0f0e0b 0%, #1a1815 50%, #0a0a12 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.reel-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 30%, rgba(200,169,110,0.06) 0%, transparent 60%);
+}
+
+.reel-date-overlay {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+.reel-type-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  padding: 3px 7px;
+  border-radius: 2px;
+  background: rgba(200,169,110,0.15);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  z-index: 1;
+}
+
+.reel-body { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
+
+.reel-caption {
+  font-size: 0.8rem;
+  color: var(--text);
+  line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 0.875rem;
+  flex: 1;
+}
+
+.reel-stats {
+  display: flex;
+  gap: 0.875rem;
+  align-items: center;
+}
+
+.stat-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Comparison section */
+.comparison-section {
+  background: var(--bg-1);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.comparison-selects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.comparison-select-wrap label {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 0.5rem;
+}
+
+.compare-select {
+  width: 100%;
+  background: var(--bg-2);
+  border: 1px solid var(--gold-border);
+  color: var(--text-2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  padding: 8px 10px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+.compare-select:focus { border-color: var(--gold); }
+
+/* ─── Detail Panel ──────────────────────────────────────────────────────── */
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,8,6,0.85);
+  backdrop-filter: blur(12px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.detail-overlay.open { opacity: 1; pointer-events: all; }
+
+.detail-panel {
+  background: var(--bg-1);
+  border: 1px solid var(--gold-border);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2rem;
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+.detail-overlay.open .detail-panel { transform: translateY(0); }
+
+.detail-close {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.close-btn {
+  background: none;
+  border: 1px solid var(--gold-border);
+  color: var(--text-2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.close-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+.detail-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.detail-caption {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.detail-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--gold-border);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.detail-stat {
+  background: var(--bg-2);
+  padding: 1rem;
+  text-align: center;
+}
+
+.detail-stat-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--gold-bright);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.detail-stat-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.detail-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hashtag-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+}
+
+.detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-2);
+  text-decoration: none;
+  border: 1px solid var(--gold-border);
+  padding: 8px 16px;
+  border-radius: 3px;
+  transition: all 0.15s;
+}
+.detail-link:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ─── JARVIS Tab ─────────────────────────────────────────────────────────── */
+#tab-jarvis {
+  height: calc(100vh - 57px);
+  overflow: hidden;
+  position: relative;
+  background: #000814;
+}
+
+#jarvis-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.jarvis-ui {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+  padding: 2rem;
+}
+
+.jarvis-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #00D4FF;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  text-shadow: 0 0 40px rgba(0,212,255,0.5);
+}
+
+.jarvis-subtitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(0,212,255,0.45);
+  margin-top: 0.25rem;
+}
+
+.jarvis-status-row {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.jarvis-state-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C8A96E;
+  text-shadow: 0 0 20px rgba(200,169,110,0.4);
+  transition: color 0.3s;
+}
+.jarvis-state-label.listening { color: #5BAD7E; text-shadow: 0 0 20px rgba(91,173,126,0.4); }
+.jarvis-state-label.thinking { color: #C8A96E; }
+.jarvis-state-label.speaking { color: #00D4FF; text-shadow: 0 0 20px rgba(0,212,255,0.4); }
+
+.jarvis-transcript {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(240,235,224,0.5);
+  max-width: 500px;
+  text-align: center;
+  min-height: 1.4em;
+  transition: opacity 0.3s;
+}
+
+.jarvis-response-area {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 58%;
+  width: 100%;
+  max-width: 560px;
+  padding: 0 2rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.jarvis-response-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(240,235,224,0.92);
+  line-height: 1.7;
+  text-shadow: 0 0 30px rgba(0,0,0,0.8);
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.jarvis-response-text.visible { opacity: 1; }
+
+.jarvis-hold-space {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,212,255,0.35);
+  animation: blink-gentle 3s ease-in-out infinite;
+  white-space: nowrap;
+  pointer-events: all;
+  text-align: center;
+}
+
+@keyframes blink-gentle {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+
+.jarvis-kb-badge {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(0,212,255,0.3);
+  letter-spacing: 0.05em;
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-3);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Navigation ─────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-brand">Fasulo Studio</div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-tab="dashboard">Dashboard</button>
+    <button class="nav-tab" data-tab="reels">Reels</button>
+    <button class="nav-tab" data-tab="jarvis">JARVIS</button>
+  </div>
+  <div class="nav-live">
+    <div class="live-dot"></div>
+    LIVE
+  </div>
+</nav>
+
+<!-- ─── Tab: Dashboard ─────────────────────────────────────────────────────── -->
+<div id="tab-dashboard" class="tab-panel active">
+  <div class="dashboard-content">
+
+    <section class="hero">
+      <div class="hero-name">JT Fasulo</div>
+      <div class="hero-handle">@fasulostudio</div>
+      <div class="hero-badges">
+        <span class="badge badge-business">Business Account</span>
+        <span class="badge badge-updated" id="hero-updated">Loading…</span>
+      </div>
+    </section>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Followers</div>
+        <div class="kpi-value" id="kpi-followers">—</div>
+        <div class="kpi-sub">@fasulostudio</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Posts</div>
+        <div class="kpi-value" id="kpi-posts">—</div>
+        <div class="kpi-sub">analyzed</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Likes</div>
+        <div class="kpi-value" id="kpi-likes">—</div>
+        <div class="kpi-sub">last 25 posts</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Comments</div>
+        <div class="kpi-value" id="kpi-comments">—</div>
+        <div class="kpi-sub">last 25 posts</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Peak Likes</div>
+        <div class="kpi-value" id="kpi-peak">—</div>
+        <div class="kpi-sub">single post record</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Avg Eng Rate</div>
+        <div class="kpi-value" id="kpi-eng">—</div>
+        <div class="kpi-sub">% per post</div>
+      </div>
+    </div>
+
+    <section style="margin-bottom:3rem">
+      <div class="section-header">
+        <div class="section-title">Performance Trends</div>
+        <div class="chart-controls">
+          <button class="ctrl-btn active" data-chart-type="line">Line</button>
+          <button class="ctrl-btn" data-chart-type="bar">Bar</button>
+          <select class="ctrl-select" id="metric-select">
+            <option value="likes">Likes</option>
+            <option value="comments">Comments</option>
+            <option value="engagement">Engagement</option>
+            <option value="engRate">Eng Rate %</option>
+          </select>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-container">
+          <canvas id="trends-chart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <div class="main-layout">
+      <div><!-- chart already above --></div>
+      <div>
+        <div class="sidebar-title">Top Posts by Likes</div>
+        <div class="post-rank-list" id="top-posts-list">
+          <div class="empty-state">Loading…</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="hashtag-section">
+      <div class="section-header">
+        <div class="section-title">Hashtag Intelligence</div>
+      </div>
+      <div class="hashtag-grid">
+        <div class="hashtag-chart-wrap">
+          <div class="hashtag-chart-container">
+            <canvas id="hashtag-chart"></canvas>
+          </div>
+        </div>
+        <div class="hashtag-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Uses</th>
+                <th>Avg Likes</th>
+                <th style="width:80px">Freq</th>
+              </tr>
+            </thead>
+            <tbody id="hashtag-table-body">
+              <tr><td colspan="4" style="text-align:center;color:var(--text-3)">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ─── Tab: Reels ──────────────────────────────────────────────────────────── -->
+<div id="tab-reels" class="tab-panel">
+  <div class="reels-content">
+
+    <div class="reels-filter-bar">
+      <label>Sort</label>
+      <select class="ctrl-select" id="reel-sort">
+        <option value="likes">By Likes ▾</option>
+        <option value="comments">By Comments</option>
+        <option value="engRate">By Eng Rate</option>
+        <option value="date">By Date</option>
+      </select>
+      <label>Search</label>
+      <input type="text" class="search-input" id="reel-search" placeholder="Filter by caption…">
+      <div class="reel-count" id="reel-count"></div>
+    </div>
+
+    <div class="reel-grid" id="reel-grid">
+      <div class="empty-state" style="grid-column:1/-1">Loading reels…</div>
+    </div>
+
+    <section class="comparison-section">
+      <div class="section-header" style="margin-bottom:1.25rem">
+        <div class="section-title" style="font-size:1.25rem">Reel Comparison</div>
+      </div>
+      <div class="comparison-selects">
+        <div class="comparison-select-wrap">
+          <label>Reel A</label>
+          <select class="compare-select" id="compare-a"></select>
+        </div>
+        <div class="comparison-select-wrap">
+          <label>Reel B</label>
+          <select class="compare-select" id="compare-b"></select>
+        </div>
+      </div>
+      <div class="comparison-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th id="compare-a-head">Reel A</th>
+              <th id="compare-b-head">Reel B</th>
+            </tr>
+          </thead>
+          <tbody id="compare-body">
+            <tr><td colspan="3" style="text-align:center;color:var(--text-3)">Select two reels above</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ─── Tab: JARVIS ─────────────────────────────────────────────────────────── -->
+<div id="tab-jarvis" class="tab-panel">
+  <canvas id="jarvis-canvas"></canvas>
+
+  <div class="jarvis-ui">
+    <div class="jarvis-title">JARVIS</div>
+    <div class="jarvis-subtitle">Analytics System v2.0</div>
+    <div class="jarvis-status-row">
+      <div class="jarvis-state-label" id="jarvis-state">STANDBY</div>
+      <div class="jarvis-transcript" id="jarvis-transcript"></div>
+    </div>
+  </div>
+
+  <div class="jarvis-response-area">
+    <div class="jarvis-response-text" id="jarvis-response"></div>
+  </div>
+
+  <div class="jarvis-hold-space" id="hold-space-hint">HOLD SPACE TO SPEAK</div>
+  <div class="jarvis-kb-badge" id="jarvis-kb-badge"></div>
+</div>
+
+<!-- ─── Detail Overlay ─────────────────────────────────────────────────────── -->
+<div class="detail-overlay" id="detail-overlay">
+  <div class="detail-panel">
+    <div class="detail-close">
+      <button class="close-btn" id="detail-close-btn">&#x2715; CLOSE</button>
+    </div>
+    <div class="detail-date" id="detail-date"></div>
+    <div class="detail-caption" id="detail-caption"></div>
+    <div class="detail-stats-grid">
+      <div class="detail-stat">
+        <div class="detail-stat-val" id="detail-likes"></div>
+        <div class="detail-stat-label">Likes</div>
+      </div>
+      <div class="detail-stat">
+        <div class="detail-stat-val" id="detail-comments"></div>
+        <div class="detail-stat-label">Comments</div>
+      </div>
+      <div class="detail-stat">
+        <div class="detail-stat-val" id="detail-eng"></div>
+        <div class="detail-stat-label">Eng Rate %</div>
+      </div>
+    </div>
+    <div class="detail-hashtags" id="detail-hashtags"></div>
+    <a class="detail-link" id="detail-permalink" href="#" target="_blank">
+      &#x2197; View on Instagram
+    </a>
+  </div>
+</div>
+
+<!-- ─── Script ──────────────────────────────────────────────────────────────── -->
+<script>
+'use strict';
+
+// ─── Fallback data ───────────────────────────────────────────────────────────
+const FALLBACK_POSTS = [
+  { date:"Mar 15", likes:7,   comments:1,  type:"REEL", caption:"Trojan war inspired concept...",                             hashtags:["#nanobananapro","#kling3","#higgsfield","#higgsfieldai","#trojanhorse"], permalink:"https://www.instagram.com/reel/DV695yNkcrK/" },
+  { date:"Mar 16", likes:32,  comments:15, type:"REEL", caption:"Solid foundation for AI 2026...",                            hashtags:["#higgsfield","#kling3","#nanobananapro","#claude","#claudecode"],         permalink:"https://www.instagram.com/reel/DV9eE2CCVAW/" },
+  { date:"Mar 17", likes:516, comments:16, type:"REEL", caption:"All jokes all jokes. Follow @fasulostudio for more!",        hashtags:["#higgsfieldai","#kling3","#nanobananapro","#higgsfield","#nanobanana"],  permalink:"https://www.instagram.com/reel/DWFP4fOCTc2/" },
+  { date:"Mar 18", likes:74,  comments:8,  type:"REEL", caption:"Everything comes with experimentation and taste.",           hashtags:["#kling3","#cinematicvideo","#imagetovideo","#nanobananapro"],             permalink:"https://www.instagram.com/reel/DWCuVGzDX65/" },
+  { date:"Mar 19", likes:45,  comments:8,  type:"REEL", caption:"Yeah we're cooked chat.",                                    hashtags:[],                                                                          permalink:"https://www.instagram.com/reel/DWFP8dTRRrv/" },
+  { date:"Mar 20", likes:10,  comments:5,  type:"REEL", caption:"Follow @fasulostudio for more!",                             hashtags:["#higgsfieldai","#kling3","#nanobananapro","#higgsfield","#nanobanana"],  permalink:"https://www.instagram.com/reel/DWAGVmRCR8x/" },
+  { date:"Mar 21", likes:56,  comments:3,  type:"REEL", caption:"Just how it be.",                                            hashtags:[],                                                                          permalink:"https://www.instagram.com/reel/DWJjIp_pzjk/" },
+  { date:"Mar 22", likes:14,  comments:12, type:"REEL", caption:"These are my personal use cases every day.",                 hashtags:[],                                                                          permalink:"https://www.instagram.com/reel/DWNFHf_Jtbe/" },
+  { date:"Mar 23", likes:12,  comments:8,  type:"REEL", caption:"Cyberpunk set concept for @dj_cheff_tastethebass.",          hashtags:["#cyberpunk","#housemusic","#nanobananapro","#edm","#dj"],                permalink:"https://www.instagram.com/reel/DWPjDqdJSiq/" },
+  { date:"Mar 24", likes:18,  comments:6,  type:"REEL", caption:"Follow @fasulostudio for more!",                             hashtags:["#ai","#nanobananapro","#corporate","#claudecode","#codex"],              permalink:"https://www.instagram.com/reel/DWSH2gUJZA8/" },
+];
+
+// ─── Global state ────────────────────────────────────────────────────────────
+let kb = null;
+let allPosts = [];
+let trendsChart = null;
+let hashtagChart = null;
+let currentChartType = 'line';
+let currentMetric = 'likes';
+let reelsInitialized = false;
+let jarvisInitialized = false;
+let conversationHistory = [];
+let currentTab = 'dashboard';
+
+// ─── KB helpers ──────────────────────────────────────────────────────────────
+function buildFallbackKB(posts) {
+  const totalLikes    = posts.reduce((s, p) => s + p.likes, 0);
+  const totalComments = posts.reduce((s, p) => s + p.comments, 0);
+  const avgLikes      = parseFloat((totalLikes / posts.length).toFixed(1));
+  const avgComments   = parseFloat((totalComments / posts.length).toFixed(1));
+  const avgEngRate    = parseFloat((posts.reduce((s, p) => s + ((p.likes + p.comments) / 108 * 100), 0) / posts.length).toFixed(1));
+  const topPost       = posts.reduce((b, p) => (!b || p.likes > b.likes ? p : b), null);
+  const tagMap = {};
+  posts.forEach(p => (p.hashtags || []).forEach(tag => {
+    if (!tagMap[tag]) tagMap[tag] = { tag, uses: 0, totalLikes: 0 };
+    tagMap[tag].uses++;
+    tagMap[tag].totalLikes += p.likes;
+  }));
+  const hashtags = Object.values(tagMap)
+    .map(t => ({ ...t, avgLikes: parseFloat((t.totalLikes / t.uses).toFixed(1)) }))
+    .sort((a, b) => b.uses - a.uses);
+
+  return {
+    updatedAt: new Date().toISOString(),
+    account: { username: 'fasulostudio', name: 'JT Fasulo', followers: 108, accountType: 'BUSINESS' },
+    posts: posts.map(p => ({
+      ...p,
+      id: p.permalink,
+      engRate: parseFloat(((p.likes + p.comments) / 108 * 100).toFixed(1))
+    })),
+    summary: { postsAnalyzed: posts.length, totalLikes, totalComments, avgLikes, avgComments, avgEngRate, topPost },
+    hashtags
+  };
+}
+
+async function loadKB() {
+  try {
+    const res = await fetch('/api/kb');
+    if (!res.ok) throw new Error('Server error ' + res.status);
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    kb = data;
+    allPosts = kb.posts || [];
+  } catch (err) {
+    console.warn('KB fetch failed, using fallback:', err.message);
+    kb = buildFallbackKB(FALLBACK_POSTS);
+    allPosts = kb.posts;
+  }
+  return kb;
+}
+
+// ─── Tab Navigation ──────────────────────────────────────────────────────────
+document.querySelectorAll('.nav-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    if (tab === currentTab) return;
+    currentTab = tab;
+    document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    if (tab === 'reels' && !reelsInitialized) { reelsInitialized = true; initReels(); }
+    if (tab === 'jarvis' && !jarvisInitialized) { jarvisInitialized = true; initJarvis(); }
+  });
+});
+
+// ─── Count-up ────────────────────────────────────────────────────────────────
+function countUp(el, target, duration, suffix) {
+  duration = duration || 1200;
+  suffix = suffix || '';
+  const start = performance.now();
+  const isFloat = String(target).includes('.');
+  const num = parseFloat(target);
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const val = num * ease;
+    el.textContent = (isFloat ? val.toFixed(1) : Math.round(val).toLocaleString()) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+// ─── Dashboard ───────────────────────────────────────────────────────────────
+function initDashboard() {
+  if (!kb) return;
+  const { account, summary, posts, hashtags } = kb;
+
+  const updated = new Date(kb.updatedAt);
+  document.getElementById('hero-updated').textContent =
+    'Updated ' + updated.toLocaleDateString('en-US', { month:'short', day:'numeric' }) +
+    ' ' + updated.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' });
+
+  setTimeout(function() {
+    countUp(document.getElementById('kpi-followers'), account.followers);
+    countUp(document.getElementById('kpi-posts'),     summary.postsAnalyzed);
+    countUp(document.getElementById('kpi-likes'),     summary.totalLikes);
+    countUp(document.getElementById('kpi-comments'),  summary.totalComments);
+    countUp(document.getElementById('kpi-peak'),      summary.topPost ? summary.topPost.likes : 0);
+    countUp(document.getElementById('kpi-eng'),       summary.avgEngRate, 1200, '%');
+  }, 100);
+
+  buildTrendsChart();
+
+  const sorted = [...posts].sort((a, b) => b.likes - a.likes).slice(0, 7);
+  const list = document.getElementById('top-posts-list');
+  list.innerHTML = sorted.map(function(p, i) {
+    const idx = allPosts.indexOf(p);
+    return '<div class="post-rank-item" onclick="openDetail(' + idx + ')">' +
+      '<div class="rank-num' + (i === 0 ? ' top' : '') + '">' + (i+1) + '</div>' +
+      '<div class="rank-info">' +
+        '<div class="rank-caption">' + escHtml(p.caption || '(no caption)') + '</div>' +
+        '<div class="rank-stats">\u2665 ' + p.likes + ' \u00B7 \uD83D\uDCAC ' + p.comments + ' \u00B7 \u26A1 ' + p.engRate + '%</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  buildHashtagChart(hashtags);
+  buildHashtagTable(hashtags);
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function getMetricData(metric) {
+  switch (metric) {
+    case 'likes':      return kb.posts.map(p => p.likes);
+    case 'comments':   return kb.posts.map(p => p.comments);
+    case 'engagement': return kb.posts.map(p => p.likes + p.comments);
+    case 'engRate':    return kb.posts.map(p => p.engRate);
+    default:           return kb.posts.map(p => p.likes);
+  }
+}
+
+function buildTrendsChart() {
+  const ctx = document.getElementById('trends-chart').getContext('2d');
+  const labels = kb.posts.map(p => p.date);
+  const data   = getMetricData(currentMetric);
+  const sel    = document.getElementById('metric-select');
+  const label  = sel.options[sel.selectedIndex].text;
+
+  Chart.defaults.color       = 'rgba(154,148,136,0.6)';
+  Chart.defaults.borderColor = 'rgba(200,169,110,0.08)';
+
+  if (trendsChart) trendsChart.destroy();
+
+  const isLine = currentChartType === 'line';
+  const maxVal = Math.max(...data) || 1;
+
+  trendsChart = new Chart(ctx, {
+    type: currentChartType,
+    data: {
+      labels,
+      datasets: [{
+        label,
+        data,
+        borderColor:     isLine ? '#C8A96E' : undefined,
+        backgroundColor: isLine
+          ? function(ctx2) {
+              var g = ctx2.chart.ctx.createLinearGradient(0, 0, 0, 300);
+              g.addColorStop(0, 'rgba(200,169,110,0.25)');
+              g.addColorStop(1, 'rgba(200,169,110,0.0)');
+              return g;
+            }
+          : kb.posts.map(function(_, i) { return 'rgba(200,169,110,' + (0.3 + data[i] / maxVal * 0.55).toFixed(2) + ')'; }),
+        borderWidth:      isLine ? 1.5 : 0,
+        fill:             isLine,
+        tension:          0.4,
+        pointRadius:      isLine ? 3 : 0,
+        pointHoverRadius: isLine ? 5 : 0,
+        pointBackgroundColor: '#C8A96E',
+        borderRadius:     isLine ? 0 : 3,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { intersect: false, mode: 'index' },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0f0e0b',
+          borderColor:     'rgba(200,169,110,0.2)',
+          borderWidth:     1,
+          titleColor:      '#C8A96E',
+          bodyColor:       '#F0EBE0',
+          padding:         10,
+          cornerRadius:    3,
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(200,169,110,0.05)' },
+          ticks: { font: { family: 'JetBrains Mono', size: 10 }, maxRotation: 45 }
+        },
+        y: {
+          grid: { color: 'rgba(200,169,110,0.05)' },
+          ticks: { font: { family: 'JetBrains Mono', size: 10 } }
+        }
+      }
+    }
+  });
+}
+
+function buildHashtagChart(hashtags) {
+  const top = hashtags.slice(0, 8);
+  const ctx = document.getElementById('hashtag-chart').getContext('2d');
+  if (hashtagChart) hashtagChart.destroy();
+  hashtagChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: top.map(t => t.tag),
+      datasets: [{
+        label: 'Uses',
+        data: top.map(t => t.uses),
+        backgroundColor: top.map(function(_, i) { return 'rgba(200,169,110,' + (0.3 + i / top.length * 0.5).toFixed(2) + ')'; }),
+        borderRadius: 3,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      indexAxis: 'y',
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0f0e0b', borderColor: 'rgba(200,169,110,0.2)', borderWidth: 1,
+          titleColor: '#C8A96E', bodyColor: '#F0EBE0', padding: 8, cornerRadius: 3
+        }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(200,169,110,0.05)' }, ticks: { font: { family: 'JetBrains Mono', size: 10 } } },
+        y: { grid: { display: false }, ticks: { font: { family: 'JetBrains Mono', size: 10 } } }
+      }
+    }
+  });
+}
+
+function buildHashtagTable(hashtags) {
+  const maxUses = (hashtags[0] && hashtags[0].uses) || 1;
+  const tbody = document.getElementById('hashtag-table-body');
+  tbody.innerHTML = hashtags.slice(0, 15).map(function(t) {
+    return '<tr>' +
+      '<td style="color:var(--gold)">' + escHtml(t.tag) + '</td>' +
+      '<td>' + t.uses + '</td>' +
+      '<td>' + t.avgLikes + '</td>' +
+      '<td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:' + (t.uses/maxUses*100).toFixed(1) + '%"></div></div></td>' +
+    '</tr>';
+  }).join('');
+}
+
+// Chart control listeners
+document.querySelectorAll('[data-chart-type]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    currentChartType = btn.dataset.chartType;
+    document.querySelectorAll('[data-chart-type]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (kb) buildTrendsChart();
+  });
+});
+
+document.getElementById('metric-select').addEventListener('change', function(e) {
+  currentMetric = e.target.value;
+  if (kb) buildTrendsChart();
+});
+
+// ─── Detail Panel ─────────────────────────────────────────────────────────────
+function openDetail(idx) {
+  const p = allPosts[idx];
+  if (!p) return;
+  document.getElementById('detail-date').textContent     = p.date;
+  document.getElementById('detail-caption').textContent  = p.caption || '(no caption)';
+  document.getElementById('detail-likes').textContent    = p.likes;
+  document.getElementById('detail-comments').textContent = p.comments;
+  document.getElementById('detail-eng').textContent      = p.engRate + '%';
+  document.getElementById('detail-hashtags').innerHTML   = (p.hashtags || []).map(h => '<span class="hashtag-chip">' + escHtml(h) + '</span>').join('');
+  document.getElementById('detail-permalink').href       = p.permalink || '#';
+  document.getElementById('detail-overlay').classList.add('open');
+}
+
+document.getElementById('detail-close-btn').addEventListener('click', function() {
+  document.getElementById('detail-overlay').classList.remove('open');
+});
+
+document.getElementById('detail-overlay').addEventListener('click', function(e) {
+  if (e.target === document.getElementById('detail-overlay')) {
+    document.getElementById('detail-overlay').classList.remove('open');
+  }
+});
+
+// ─── Reels Tab ────────────────────────────────────────────────────────────────
+function initReels() {
+  if (!kb) return;
+  renderReelGrid();
+  populateCompareSelects();
+  document.getElementById('reel-sort').addEventListener('change', renderReelGrid);
+  document.getElementById('reel-search').addEventListener('input', renderReelGrid);
+  document.getElementById('compare-a').addEventListener('change', updateComparison);
+  document.getElementById('compare-b').addEventListener('change', updateComparison);
+}
+
+function getSortedFilteredPosts() {
+  const sortKey = document.getElementById('reel-sort').value;
+  const search  = document.getElementById('reel-search').value.toLowerCase();
+  let posts = allPosts.slice();
+  if (search) posts = posts.filter(p => (p.caption || '').toLowerCase().includes(search));
+  posts.sort(function(a, b) {
+    if (sortKey === 'date') return new Date(b.timestamp || 0) - new Date(a.timestamp || 0);
+    return b[sortKey] - a[sortKey];
+  });
+  return posts;
+}
+
+function renderReelGrid() {
+  const posts = getSortedFilteredPosts();
+  document.getElementById('reel-count').textContent = posts.length + ' reels';
+  const grid = document.getElementById('reel-grid');
+  if (!posts.length) {
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">No reels match your filter</div>';
+    return;
+  }
+  grid.innerHTML = posts.map(function(p) {
+    const idx = allPosts.indexOf(p);
+    return '<div class="reel-card" onclick="openDetail(' + idx + ')">' +
+      '<div class="reel-thumb">' +
+        '<div class="reel-type-badge">' + escHtml(p.type || 'REEL') + '</div>' +
+        '<div class="reel-date-overlay">' + escHtml(p.date) + '</div>' +
+      '</div>' +
+      '<div class="reel-body">' +
+        '<div class="reel-caption">' + escHtml(p.caption || '(no caption)') + '</div>' +
+        '<div class="reel-stats">' +
+          '<div class="stat-pill"><span class="stat-icon">\u2665</span>' + p.likes + '</div>' +
+          '<div class="stat-pill"><span class="stat-icon">\uD83D\uDCAC</span>' + p.comments + '</div>' +
+          '<div class="stat-pill"><span class="stat-icon">\u26A1</span>' + p.engRate + '%</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function populateCompareSelects() {
+  const opts = allPosts.map(function(p, i) {
+    return '<option value="' + i + '">' + escHtml(p.date) + ' \u2014 ' + escHtml((p.caption || '').slice(0, 40)) + '</option>';
+  }).join('');
+  document.getElementById('compare-a').innerHTML = opts;
+  document.getElementById('compare-b').innerHTML = opts;
+  if (allPosts.length > 1) document.getElementById('compare-b').selectedIndex = 1;
+  updateComparison();
+}
+
+function updateComparison() {
+  const ai = parseInt(document.getElementById('compare-a').value);
+  const bi = parseInt(document.getElementById('compare-b').value);
+  const a  = allPosts[ai];
+  const b  = allPosts[bi];
+  if (!a || !b) return;
+
+  document.getElementById('compare-a-head').textContent = a.date;
+  document.getElementById('compare-b-head').textContent = b.date;
+
+  const rows = [
+    ['Likes',         a.likes,                      b.likes],
+    ['Comments',      a.comments,                   b.comments],
+    ['Eng Rate',      a.engRate + '%',               b.engRate + '%'],
+    ['Hashtag Count', (a.hashtags||[]).length,       (b.hashtags||[]).length],
+  ];
+
+  document.getElementById('compare-body').innerHTML = rows.map(function(row) {
+    const label = row[0], av = row[1], bv = row[2];
+    const aNum  = parseFloat(av);
+    const bNum  = parseFloat(bv);
+    const aStyle = aNum > bNum ? 'color:var(--green)' : aNum < bNum ? 'color:var(--red)' : '';
+    const bStyle = bNum > aNum ? 'color:var(--green)' : bNum < aNum ? 'color:var(--red)' : '';
+    return '<tr>' +
+      '<td style="color:var(--text-3)">' + label + '</td>' +
+      '<td style="' + aStyle + '">' + av + '</td>' +
+      '<td style="' + bStyle + '">' + bv + '</td>' +
+    '</tr>';
+  }).join('');
+}
+
+// ─── JARVIS Tab ───────────────────────────────────────────────────────────────
+function initJarvis() {
+  initJarvisCanvas();
+  loadJarvisKBBadge();
+  initSpeech();
+  setInterval(loadJarvisKBBadge, 15 * 60 * 1000);
+}
+
+function loadJarvisKBBadge() {
+  fetch('/api/kb').then(function(r) { return r.ok ? r.json() : null; }).then(function(data) {
+    if (data && !data.error) {
+      const t = new Date(data.updatedAt);
+      document.getElementById('jarvis-kb-badge').textContent =
+        'KB Updated: ' + t.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' });
+    }
+  }).catch(function() {});
+}
+
+// ─── JARVIS Canvas ────────────────────────────────────────────────────────────
+function initJarvisCanvas() {
+  const canvas = document.getElementById('jarvis-canvas');
+  const ctx    = canvas.getContext('2d');
+  var t        = 0;
+  var orbState = 'idle';
+
+  var waveHeights = [];
+  var waveTarget  = [];
+  for (var i = 0; i < 32; i++) {
+    waveHeights.push(Math.random() * 30 + 5);
+    waveTarget.push(Math.random() * 30 + 5);
+  }
+
+  window.setJarvisOrbState = function(state) { orbState = state; };
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function drawHexGrid() {
+    var size  = 30;
+    var w     = canvas.width;
+    var h     = canvas.height;
+    var hexW  = size * 2;
+    var hexH  = Math.sqrt(3) * size;
+    ctx.strokeStyle = 'rgba(0,100,200,0.04)';
+    ctx.lineWidth   = 0.5;
+    for (var row = -1; row < h / hexH + 2; row++) {
+      for (var col = -1; col < w / hexW + 2; col++) {
+        var x = col * hexW * 0.75 + (row % 2 === 0 ? 0 : hexW * 0.375);
+        var y = row * hexH;
+        ctx.beginPath();
+        for (var j = 0; j < 6; j++) {
+          var angle = (Math.PI / 3) * j;
+          var px = x + size * Math.cos(angle);
+          var py = y + size * Math.sin(angle);
+          if (j === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Particles
+  var particles = [];
+  for (var pi = 0; pi < 60; pi++) {
+    particles.push({
+      angle:   Math.random() * Math.PI * 2,
+      speed:   (Math.random() - 0.5) * 0.004,
+      size:    1 + Math.random() * 1.5,
+      opacity: 0.15 + Math.random() * 0.35,
+      radiusX: 160 + Math.random() * 40,
+      radiusY: 90  + Math.random() * 40,
+    });
+  }
+
+  function drawParticles(cx, cy) {
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.angle += p.speed;
+      var x = cx + Math.cos(p.angle) * p.radiusX;
+      var y = cy + Math.sin(p.angle) * p.radiusY;
+      ctx.beginPath();
+      ctx.arc(x, y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,190,255,' + p.opacity + ')';
+      ctx.fill();
+    }
+  }
+
+  function drawRing(cx, cy, radius, rotAngle, scaleY, opacity, lineWidth, segCount) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(rotAngle);
+    ctx.scale(1, scaleY);
+    ctx.strokeStyle = 'rgba(0,212,255,' + opacity + ')';
+    ctx.lineWidth   = lineWidth;
+    ctx.shadowColor = '#00D4FF';
+    ctx.shadowBlur  = 8;
+    var gap = (Math.PI * 2) / (segCount * 2);
+    for (var i = 0; i < segCount; i++) {
+      var start = i * Math.PI * 2 / segCount + gap * 0.4;
+      var end   = (i + 1) * Math.PI * 2 / segCount - gap * 0.4;
+      ctx.beginPath();
+      ctx.arc(0, 0, radius, start, end);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function drawOrb(cx, cy) {
+    var cfgs = {
+      idle:      { baseR: 80, pulseSpeed: 1.2, pulseAmp: 3   },
+      listening: { baseR: 85, pulseSpeed: 3.0, pulseAmp: 5   },
+      speaking:  { baseR: 88, pulseSpeed: 2.5, pulseAmp: 4   },
+      thinking:  { baseR: 82, pulseSpeed: 1.8, pulseAmp: 3.5 },
+    };
+    var cfg = cfgs[orbState] || cfgs.idle;
+    var r   = cfg.baseR + Math.sin(t * cfg.pulseSpeed) * cfg.pulseAmp;
+
+    // Outer glow layers
+    var glows = [
+      { r: r*2.8, a: 0.04 },
+      { r: r*2.2, a: 0.06 },
+      { r: r*1.8, a: 0.09 },
+      { r: r*1.4, a: 0.12 },
+      { r: r*1.15,a: 0.18 },
+    ];
+    for (var gi = 0; gi < glows.length; gi++) {
+      var g0 = ctx.createRadialGradient(cx, cy, 0, cx, cy, glows[gi].r);
+      g0.addColorStop(0, 'rgba(0,180,255,' + glows[gi].a + ')');
+      g0.addColorStop(1, 'transparent');
+      ctx.beginPath();
+      ctx.arc(cx, cy, glows[gi].r, 0, Math.PI * 2);
+      ctx.fillStyle = g0;
+      ctx.fill();
+    }
+
+    // Main sphere gradient
+    var sphere = ctx.createRadialGradient(cx - r*0.25, cy - r*0.25, 0, cx, cy, r);
+    sphere.addColorStop(0,    'rgba(180,235,255,0.98)');
+    sphere.addColorStop(0.25, 'rgba(40,180,255,0.92)');
+    sphere.addColorStop(0.6,  'rgba(0,100,255,0.7)');
+    sphere.addColorStop(0.88, 'rgba(0,40,180,0.35)');
+    sphere.addColorStop(1,    'transparent');
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = sphere;
+    ctx.fill();
+
+    // State overlay
+    if (orbState === 'listening' || orbState === 'thinking' || orbState === 'speaking') {
+      var overlayColors = {
+        listening: 'rgba(80,200,120,0.3)',
+        thinking:  'rgba(200,169,110,0.25)',
+        speaking:  'rgba(100,220,255,0.25)',
+      };
+      var ov = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+      ov.addColorStop(0, overlayColors[orbState]);
+      ov.addColorStop(1, 'transparent');
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fillStyle = ov;
+      ctx.fill();
+    }
+
+    // Specular highlight
+    var spec = ctx.createRadialGradient(cx - r*0.3, cy - r*0.35, 0, cx - r*0.3, cy - r*0.35, r*0.45);
+    spec.addColorStop(0, 'rgba(255,255,255,0.55)');
+    spec.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = spec;
+    ctx.fill();
+  }
+
+  function drawWaveform(cx) {
+    if (orbState !== 'listening' && orbState !== 'speaking') return;
+    var barCount = 32;
+    var barW     = 4;
+    var gap      = 3;
+    var totalW   = barCount * (barW + gap);
+    var startX   = cx - totalW / 2;
+    var baseY    = canvas.height * 0.82;
+    var color    = orbState === 'listening' ? 'rgba(80,200,120,0.7)' : 'rgba(0,180,255,0.7)';
+
+    for (var i = 0; i < barCount; i++) {
+      var target = waveTarget[i];
+      waveHeights[i] += (target - waveHeights[i]) * 0.15;
+      if (Math.abs(waveHeights[i] - target) < 1) {
+        waveTarget[i] = Math.random() * 50 + 5;
+      }
+      var bH = waveHeights[i];
+      var x  = startX + i * (barW + gap);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.roundRect(x, baseY - bH / 2, barW, bH, 2);
+      ctx.fill();
+    }
+  }
+
+  function drawHUD(cx, cy) {
+    var armLen  = 25;
+    var w       = canvas.width;
+    var h       = canvas.height;
+    var corners = [[0,0],[w,0],[w,h],[0,h]];
+    var dirs    = [[1,1],[-1,1],[-1,-1],[1,-1]];
+
+    ctx.strokeStyle = 'rgba(0,212,255,0.3)';
+    ctx.lineWidth   = 1.5;
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur  = 0;
+
+    for (var i = 0; i < 4; i++) {
+      var ox = corners[i][0], oy = corners[i][1];
+      var dx = dirs[i][0],    dy = dirs[i][1];
+      ctx.beginPath();
+      ctx.moveTo(ox + dx * armLen, oy);
+      ctx.lineTo(ox, oy);
+      ctx.lineTo(ox, oy + dy * armLen);
+      ctx.stroke();
+    }
+
+    // Sweeping arc
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.strokeStyle = 'rgba(0,212,255,0.12)';
+    ctx.lineWidth   = 1;
+    ctx.shadowColor = '#00D4FF';
+    ctx.shadowBlur  = 4;
+    ctx.beginPath();
+    ctx.arc(0, 0, 250, t * 1.2, t * 1.2 + 0.6);
+    ctx.stroke();
+
+    // Dashed rings
+    ctx.setLineDash([4, 8]);
+    ctx.strokeStyle = 'rgba(0,212,255,0.08)';
+    ctx.lineWidth   = 0.75;
+    ctx.shadowBlur  = 0;
+    ctx.beginPath();
+    ctx.arc(0, 0, 245, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, 260, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+  }
+
+  function frame() {
+    if (!canvas.isConnected) return;
+    t += 0.016;
+    var w  = canvas.width;
+    var h  = canvas.height;
+    var cx = w / 2;
+    var cy = h * 0.42;
+
+    ctx.fillStyle = '#000814';
+    ctx.fillRect(0, 0, w, h);
+
+    drawHexGrid();
+    drawParticles(cx, cy);
+    drawRing(cx, cy, 210, t * 0.35,   0.28, 0.35, 1.5, 4);
+    drawRing(cx, cy, 170, -t * 0.55,  0.42, 0.45, 1.5, 3);
+    drawRing(cx, cy, 138, t * 0.75,   0.38, 0.30, 1.0, 6);
+    drawOrb(cx, cy);
+    drawWaveform(cx);
+    drawHUD(cx, cy);
+
+    requestAnimationFrame(frame);
+  }
+
+  requestAnimationFrame(frame);
+}
+
+// ─── Speech ───────────────────────────────────────────────────────────────────
+function initSpeech() {
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    var hint = document.getElementById('hold-space-hint');
+    if (hint) {
+      hint.textContent = 'Chrome required for voice features';
+      hint.style.animation = 'none';
+      hint.style.color = 'rgba(232,93,58,0.6)';
+    }
+    return;
+  }
+
+  var recognition        = new SpeechRecognition();
+  recognition.continuous     = false;
+  recognition.interimResults = true;
+  recognition.lang           = 'en-US';
+
+  var isListening     = false;
+  var finalTranscript = '';
+  var spaceActive     = false;
+
+  function setJarvisState(state) {
+    var label = document.getElementById('jarvis-state');
+    var hint  = document.getElementById('hold-space-hint');
+    if (!label) return;
+    var labels = { idle:'STANDBY', listening:'LISTENING', thinking:'PROCESSING', speaking:'SPEAKING' };
+    label.textContent = labels[state] || state.toUpperCase();
+    label.className   = 'jarvis-state-label' + (state !== 'idle' ? ' ' + state : '');
+    if (window.setJarvisOrbState) window.setJarvisOrbState(state);
+    if (hint) hint.style.display = state === 'idle' ? 'block' : 'none';
+  }
+
+  function startListening() {
+    if (isListening) return;
+    isListening     = true;
+    finalTranscript = '';
+    setJarvisState('listening');
+    document.getElementById('jarvis-transcript').textContent = '';
+    try { recognition.start(); } catch(e) { console.warn(e); }
+  }
+
+  function stopListening() {
+    if (!isListening) return;
+    isListening = false;
+    try { recognition.stop(); } catch(e) {}
+  }
+
+  recognition.onresult = function(e) {
+    var interim = '';
+    for (var i = e.resultIndex; i < e.results.length; i++) {
+      var txt = e.results[i].transcript;
+      if (e.results[i].isFinal) finalTranscript += txt;
+      else interim += txt;
+    }
+    document.getElementById('jarvis-transcript').textContent = finalTranscript || interim;
+  };
+
+  recognition.onend = function() {
+    isListening = false;
+    if (finalTranscript.trim()) {
+      setJarvisState('thinking');
+      callJarvisAPI(finalTranscript.trim(), setJarvisState);
+    } else {
+      setJarvisState('idle');
+    }
+  };
+
+  recognition.onerror = function(e) {
+    console.warn('Speech recognition error:', e.error);
+    setJarvisState('idle');
+    isListening = false;
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.code !== 'Space') return;
+    if (currentTab !== 'jarvis') return;
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (spaceActive) return;
+    e.preventDefault();
+    spaceActive = true;
+    startListening();
+  });
+
+  document.addEventListener('keyup', function(e) {
+    if (e.code !== 'Space') return;
+    spaceActive = false;
+    if (isListening) stopListening();
+  });
+
+  // Expose speakJarvis for module scope
+  window._jarvisSetState = setJarvisState;
+
+  function speakJarvis(text) {
+    if (!window.speechSynthesis) { setJarvisState('idle'); return; }
+    window.speechSynthesis.cancel();
+
+    var utter   = new SpeechSynthesisUtterance(text);
+    utter.rate  = 0.92;
+    utter.pitch = 0.88;
+    utter.volume= 1;
+
+    function doSpeak() {
+      var voices = window.speechSynthesis.getVoices();
+      var voice  = voices.find(function(v) { return v.name.includes('George') && v.lang.startsWith('en-GB'); })
+                || voices.find(function(v) { return v.lang.startsWith('en-GB'); })
+                || voices.find(function(v) { return v.lang.startsWith('en-US'); })
+                || null;
+      if (voice) utter.voice = voice;
+      utter.onstart = function() { setJarvisState('speaking'); };
+      utter.onend   = function() { setJarvisState('idle'); };
+      utter.onerror = function() { setJarvisState('idle'); };
+      window.speechSynthesis.speak(utter);
+    }
+
+    if (window.speechSynthesis.getVoices().length > 0) {
+      doSpeak();
+    } else {
+      window.speechSynthesis.addEventListener('voiceschanged', doSpeak, { once: true });
+    }
+  }
+
+  async function callJarvisAPI(message, setStateFn) {
+    var responseEl = document.getElementById('jarvis-response');
+    try {
+      var res  = await fetch('/api/jarvis', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ message: message, history: conversationHistory })
+      });
+      var data = await res.json();
+      if (data.error) throw new Error(data.error);
+
+      conversationHistory.push({ role: 'user',      content: message    });
+      conversationHistory.push({ role: 'assistant', content: data.reply });
+      if (conversationHistory.length > 12) conversationHistory = conversationHistory.slice(-12);
+
+      responseEl.textContent = data.reply;
+      responseEl.classList.add('visible');
+      document.getElementById('jarvis-transcript').textContent = '';
+      speakJarvis(data.reply);
+    } catch (err) {
+      console.error('JARVIS API error:', err);
+      var msg = 'I apologize, sir. ';
+      if (err.message && err.message.includes('ANTHROPIC_API_KEY')) {
+        msg = 'Configure ANTHROPIC_API_KEY in .env to enable JARVIS, sir.';
+      } else if (err.message && (err.message.includes('fetch') || err.message.includes('Failed'))) {
+        msg = 'Unable to reach the server, sir. Please run npm start in the dashboard directory.';
+      } else {
+        msg += err.message || 'An unknown error occurred.';
+      }
+      responseEl.textContent = msg;
+      responseEl.classList.add('visible');
+      setStateFn('idle');
+    }
+  }
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', async function() {
+  await loadKB();
+  initDashboard();
+});
+</script>
+</body>
+</html>
