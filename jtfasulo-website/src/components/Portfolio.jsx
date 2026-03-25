@@ -57,7 +57,7 @@ const caseStudies = [
 
 function VideoCard({ study, index }) {
   const cardRef = useRef(null)
-  const inView = useInView(cardRef, { once: true, margin: '-60px' })
+  const inView = useInView(cardRef, { once: true, margin: '-30px' })
   const videoRef = useRef(null)
 
   // IntersectionObserver — plays on scroll into view (works on mobile)
@@ -85,9 +85,9 @@ function VideoCard({ study, index }) {
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: index * 0.08 }}
+      initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+      animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+      transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
       className="group relative border border-border bg-surface/30 overflow-hidden card-hover cursor-default rounded-2xl"
     >
       {/* Video */}

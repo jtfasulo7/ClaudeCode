@@ -58,9 +58,9 @@ export default function About() {
           {/* Left: image */}
           <motion.div
             ref={imgRef}
-            initial={{ opacity: 0, x: -40 }}
-            animate={imgInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, x: -40, filter: 'blur(8px)' }}
+            animate={imgInView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
@@ -90,9 +90,9 @@ export default function About() {
 
           {/* Right: content */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={imgInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+            initial={{ opacity: 0, x: 40, filter: 'blur(8px)' }}
+            animate={imgInView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           >
             {/* Bio */}
             <div className="space-y-4 mb-10">

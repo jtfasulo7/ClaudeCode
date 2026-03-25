@@ -47,14 +47,14 @@ const steps = [
 
 function ProcessStep({ step, index, total }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-30px' })
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
+      initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+      animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+      transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: index * 0.12 }}
       className="relative flex flex-col lg:flex-row items-start gap-6 lg:gap-10"
     >
       {/* Step number + connector */}

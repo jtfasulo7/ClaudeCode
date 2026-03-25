@@ -190,6 +190,9 @@
   },
 
   "change_log": [
+    { "date": "2026-03-24", "change": "FluidGrid: added touchmove/touchend event listeners — touch drag on mobile now creates identical ripple effect as mouse on desktop" },
+    { "date": "2026-03-24", "change": "Hero: headline (AI-Powered / Campaign / Creatives) now continuously floats up/down 10px over 6s loop with easeInOut — premium idle animation" },
+    { "date": "2026-03-24", "change": "All sections: scroll reveal transitions upgraded — added blur(8px)→blur(0px) + y offset with 1.0–1.1s duration and earlier viewport trigger margins (-30 to -40px)" },
     { "date": "2026-03-24", "change": "Initial build — full site created with all sections" },
     { "date": "2026-03-24", "change": "Header: removed diamond logo, text-only 'JT Fasulo'" },
     { "date": "2026-03-24", "change": "Testimonials section removed entirely from App.jsx" },

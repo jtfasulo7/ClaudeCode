@@ -65,6 +65,10 @@ export default function Hero() {
 
         {/* Headline */}
         <div className="mb-6">
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: [0.45, 0, 0.55, 1], repeatType: 'loop' }}
+          >
           <motion.h1
             initial={{ y: 120, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -90,6 +94,7 @@ export default function Hero() {
               Creatives
             </motion.span>
           </motion.h1>
+          </motion.div>
         </div>
 
         {/* Sub-headline row */}

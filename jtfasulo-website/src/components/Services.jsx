@@ -71,14 +71,14 @@ const services = [
 
 function ServiceCard({ service, index }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-40px' })
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
+      initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+      animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+      transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: index * 0.12 }}
       className={`relative group p-8 lg:p-10 border transition-all duration-500 cursor-default card-hover ${
         service.accent
           ? 'border-accent/30 bg-accent/[0.04]'
