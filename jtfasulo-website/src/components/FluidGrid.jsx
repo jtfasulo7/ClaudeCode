@@ -7,6 +7,8 @@ const PRESENCE_RADIUS = 35
 const PRESENCE_STRENGTH = 14
 const WAVE_AMPLITUDE = 38
 const WAVE_SIGMA = 1400
+const DRIFT_X = 0.28
+const DRIFT_Y = 0.18
 
 export default function FluidGrid() {
   const canvasRef = useRef(null)
@@ -21,6 +23,7 @@ export default function FluidGrid() {
     let lastX = -9999
     let lastY = -9999
     let animFrame = null
+    let driftT = 0
 
     const resize = () => {
       canvas.width = canvas.offsetWidth
@@ -127,31 +130,35 @@ export default function FluidGrid() {
       })
       ripples = ripples.filter((r) => r.intensity > 0.008 && r.radius < r.maxRadius)
 
+      driftT++
+      const offsetX = (driftT * DRIFT_X) % GRID
+      const offsetY = (driftT * DRIFT_Y) % GRID
+
       const cols = Math.ceil(width / GRID) + 3
       const rows = Math.ceil(height / GRID) + 3
 
       ctx.strokeStyle = 'rgba(6,182,212,0.1)'
       ctx.lineWidth = 1
 
-      for (let i = -1; i < cols; i++) {
+      for (let i = -2; i < cols; i++) {
         ctx.beginPath()
-        for (let j = -1; j <= rows; j++) {
-          const bx = i * GRID
-          const by = j * GRID
+        for (let j = -2; j <= rows; j++) {
+          const bx = i * GRID + offsetX
+          const by = j * GRID + offsetY
           const { dx, dy } = getDisplacement(bx, by)
-          if (j === -1) ctx.moveTo(bx + dx, by + dy)
+          if (j === -2) ctx.moveTo(bx + dx, by + dy)
           else ctx.lineTo(bx + dx, by + dy)
         }
         ctx.stroke()
       }
 
-      for (let j = -1; j < rows; j++) {
+      for (let j = -2; j < rows; j++) {
         ctx.beginPath()
-        for (let i = -1; i <= cols; i++) {
-          const bx = i * GRID
-          const by = j * GRID
+        for (let i = -2; i <= cols; i++) {
+          const bx = i * GRID + offsetX
+          const by = j * GRID + offsetY
           const { dx, dy } = getDisplacement(bx, by)
-          if (i === -1) ctx.moveTo(bx + dx, by + dy)
+          if (i === -2) ctx.moveTo(bx + dx, by + dy)
           else ctx.lineTo(bx + dx, by + dy)
         }
         ctx.stroke()
