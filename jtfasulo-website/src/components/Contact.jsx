@@ -47,15 +47,24 @@ export default function Contact() {
     setFormState((s) => ({ ...s, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`New Project Inquiry from ${formState.name}`)
-    const body = encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\nService: ${formState.service}\nBudget: ${formState.budget}\n\nMessage:\n${formState.message}`
-    )
-    window.location.href = `mailto:jtfasulo7@gmail.com?subject=${subject}&body=${body}`
-    setStatus('success')
-    setFormState({ name: '', email: '', service: '', budget: '', message: '' })
+    setLoading(true)
+    setStatus(null)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      })
+      if (!res.ok) throw new Error('Failed')
+      setStatus('success')
+      setFormState({ name: '', email: '', service: '', budget: '', message: '' })
+    } catch {
+      setStatus('error')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -227,6 +236,13 @@ export default function Contact() {
                     </>
                   )}
                 </motion.button>
+
+                {status === 'error' && (
+                  <div className="flex items-center gap-2 text-red-400 text-xs justify-center">
+                    <AlertCircle size={14} />
+                    <span>Something went wrong. Please email me directly at jtfasulo7@gmail.com</span>
+                  </div>
+                )}
 
                 <p className="text-text-dim text-xs text-center">
                   Typically respond within 24 hours. All inquiries are confidential.
