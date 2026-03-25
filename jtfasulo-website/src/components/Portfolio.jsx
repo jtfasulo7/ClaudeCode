@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 
@@ -56,32 +56,39 @@ const caseStudies = [
 ]
 
 function VideoCard({ study, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const cardRef = useRef(null)
+  const inView = useInView(cardRef, { once: true, margin: '-60px' })
   const videoRef = useRef(null)
 
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      videoRef.current.play()
-    }
-  }
+  // IntersectionObserver — plays on scroll into view (works on mobile)
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
 
-  const handleMouseLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause()
-      videoRef.current.currentTime = 0
-    }
-  }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {})
+          } else {
+            video.pause()
+          }
+        })
+      },
+      { threshold: 0.4 }
+    )
+
+    observer.observe(video)
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <motion.div
-      ref={ref}
+      ref={cardRef}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: index * 0.08 }}
       className="group relative border border-border bg-surface/30 overflow-hidden card-hover cursor-default rounded-2xl"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {/* Video */}
       <div className="relative aspect-[9/16] overflow-hidden bg-black">
@@ -91,7 +98,8 @@ function VideoCard({ study, index }) {
           muted
           loop
           playsInline
-          preload="metadata"
+          autoPlay
+          preload="auto"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className={`absolute inset-0 bg-gradient-to-b ${study.color} to-surface`} />
@@ -102,11 +110,6 @@ function VideoCard({ study, index }) {
           <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-accent border border-accent/30 bg-background/70 backdrop-blur-sm px-3 py-1.5">
             {study.category}
           </span>
-        </div>
-
-        {/* Play hint */}
-        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="text-[9px] tracking-widest uppercase text-white/60">Playing</div>
         </div>
       </div>
 

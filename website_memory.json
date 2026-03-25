@@ -1,0 +1,215 @@
+{
+  "project": "JT Fasulo Personal Brand Website",
+  "last_updated": "2026-03-24",
+  "repo": "https://github.com/jtfasulo7/ClaudeCode",
+  "local_path": "C:/Users/jtfas/OneDrive/Documents/ClaudeCode/jtfasulo-website",
+  "dev_server": "http://localhost:5173 (run: cd jtfasulo-website && npm run dev)",
+  "mobile_preview": "http://10.0.0.123:5173 (same Wi-Fi required)",
+
+  "stack": {
+    "framework": "React 18 (Vite)",
+    "styling": "Tailwind CSS v3",
+    "animations": "Framer Motion",
+    "icons": "lucide-react",
+    "canvas": "Native HTML5 Canvas (FluidGrid component)",
+    "build_tool": "Vite 8"
+  },
+
+  "deployment": {
+    "platform": "Vercel",
+    "config_file": "vercel.json (repo root)",
+    "build_command": "cd jtfasulo-website && npm install && npm run build",
+    "output_directory": "jtfasulo-website/dist",
+    "spa_rewrite": "all routes rewrite to /index.html",
+    "note": "Project lives in subdirectory — vercel.json at repo root handles routing"
+  },
+
+  "design_system": {
+    "color_background": "#0a0a0a",
+    "color_accent": "#06b6d4 (cyan)",
+    "color_accent_blue": "#3b82f6",
+    "color_text": "#ffffff",
+    "color_text_muted": "rgba(255,255,255,0.5)",
+    "color_text_dim": "rgba(255,255,255,0.25)",
+    "color_border": "rgba(255,255,255,0.08)",
+    "color_surface": "rgba(255,255,255,0.03)",
+    "border_radius": "rounded-xl for buttons/inputs, rounded-2xl for cards and images",
+    "typography": "Inter, system-ui, sans-serif",
+    "headline_size": "clamp(2.8rem, 8vw, 7rem) for hero; clamp(2rem, 5vw, 4rem) for sections",
+    "button_style": "rounded-xl with cyan glow on hover; outline variant with border-white/20"
+  },
+
+  "components": {
+    "Header": {
+      "file": "src/components/Header.jsx",
+      "description": "Sticky nav, transparent until scrolled 40px then bg-background/90 + backdrop-blur",
+      "logo": "Text only — 'JT Fasulo' in white semibold, no icon",
+      "nav_links": ["Services", "Work", "Process", "About", "Contact"],
+      "cta": "Book a Call button (links to #contact)",
+      "mobile": "Hamburger menu with full-screen slide-in overlay",
+      "animation": "Slides down from y:-80 on mount"
+    },
+
+    "Hero": {
+      "file": "src/components/Hero.jsx",
+      "description": "Full-screen landing section with fluid canvas grid and animated headline",
+      "headline": "AI-Powered / Campaign / Creatives (each word on its own line)",
+      "headline_interaction": "Each word slides right 8px on hover; 'Campaign' also brightens gradient",
+      "subheadline": "Cutting-edge visual content that converts...",
+      "cta_buttons": ["Start a Project (→ #contact)", "View Work (→ #portfolio)"],
+      "feature_pills": ["AI-Generated Creatives", "Data-Driven Strategy", "Premium Brand Identity"],
+      "background": "hero-gradient CSS class (radial cyan glow at top)",
+      "grid": "FluidGrid canvas component (see FluidGrid entry)",
+      "orbs": "3 floating blurred orbs with float animation",
+      "scroll_indicator": "Vertical line + SCROLL text at bottom center"
+    },
+
+    "FluidGrid": {
+      "file": "src/components/FluidGrid.jsx",
+      "description": "Canvas-based fluid simulation that physically displaces grid lines based on mouse input",
+      "grid_spacing": "70px",
+      "grid_color": "rgba(6,182,212,0.1) — cyan lines",
+      "wave_speed": 2.8,
+      "wave_decay": 0.976,
+      "wave_amplitude": 38,
+      "presence_radius": 35,
+      "presence_strength": 14,
+      "cursor_glow_radius": 120,
+      "max_ripples": 18,
+      "max_ripple_radius": 2000,
+      "behavior": "Mouse movement spawns expanding pressure waves. Each wave displaces grid vertices via Gaussian bell function centered on wavefront. Cursor continuously parts grid lines outward (cubic falloff). Ripples travel full screen width before fading.",
+      "mouse_events": "Attached to window, checks if cursor is within hero bounds"
+    },
+
+    "Services": {
+      "file": "src/components/Services.jsx",
+      "description": "4 service cards in 2-column grid (1 col on mobile)",
+      "cards": [
+        { "number": "01", "title": "Campaign Creatives Made with AI", "tagline": "Primary Offering", "accent": true },
+        { "number": "02", "title": "Social Media Strategy", "tagline": "Secondary Offering" },
+        { "number": "03", "title": "Content Optimization", "tagline": "Add-On Service" },
+        { "number": "04", "title": "Strategy Consulting", "tagline": "Advisory" }
+      ],
+      "animation": "Slide in from left (even) or right (odd) on scroll"
+    },
+
+    "Portfolio": {
+      "file": "src/components/Portfolio.jsx",
+      "description": "Video portfolio grid — 4 real client videos displayed in 9:16 portrait frames",
+      "videos": [
+        { "title": "Versace", "file": "public/videos/versace.mp4", "category": "AI Creatives" },
+        { "title": "Timberland", "file": "public/videos/timberland.mp4", "category": "AI Creatives" },
+        { "title": "Oakley", "file": "public/videos/jt oakley.mp4", "category": "AI Creatives" },
+        { "title": "Budri Tennis Club", "file": "public/videos/Budri. Tennis Club - FINAL.mp4", "category": "AI Creatives" }
+      ],
+      "aspect_ratio": "9:16 (portrait)",
+      "grid": "2 columns on md+, 1 column on mobile",
+      "filter_categories": ["All", "AI Creatives", "Social Strategy"],
+      "autoplay_strategy": "IntersectionObserver at 40% threshold — calls video.play() on enter, pause() on leave. Works on iOS Safari and Android Chrome. autoPlay + muted + playsInline + preload=auto attributes set on video element.",
+      "removed_sections": ["performance stats/metrics at card bottom"]
+    },
+
+    "Process": {
+      "file": "src/components/Process.jsx",
+      "description": "5-step vertical timeline: Discovery → Strategy → Creation → Optimization → Results",
+      "removed_sections": ["Typical Engagement Timeline box at bottom"],
+      "animation": "Each step fades + slides up; connector lines scale in from top"
+    },
+
+    "About": {
+      "file": "src/components/About.jsx",
+      "description": "Split layout — portrait photo left, bio + credentials + tech stack right",
+      "photo": "public/jt-fasulo.jpeg (provided headshot, white background)",
+      "photo_style": "Grayscale default, color on hover, rounded-2xl corners",
+      "bio": [
+        "I'm JT Fasulo — creative technologist and brand strategist at the intersection of AI and high-performance marketing.",
+        "Work started in mechanical engineering, early vision that generative AI is the defining shift in creative production.",
+        "Today helps brands harness AI-powered creative systems for premium, scalable campaigns.",
+        "Deep in latest AI models, testing new tools, sharing with brand partners."
+      ],
+      "credentials": [
+        "200+ hours spent using AI-generative systems",
+        "150+ hours spent using agentic AI systems",
+        "Over 100,000 views generated on my own page in the first 50 days"
+      ],
+      "credentials_header": "REMOVED — no label above the bullet points",
+      "tech_stack": [
+        { "name": "Claude", "category": "AI Model" },
+        { "name": "Claude Code", "category": "AI Dev Tool" },
+        { "name": "Nano Banana Pro", "category": "Creative" },
+        { "name": "Kling 3.0", "category": "AI Video" },
+        { "name": "Meta Ads", "category": "Paid Social" },
+        { "name": "ElevenLabs", "category": "AI Audio" }
+      ]
+    },
+
+    "Contact": {
+      "file": "src/components/Contact.jsx",
+      "description": "Lead capture form + contact info sidebar",
+      "form_fields": ["Full Name", "Email Address", "Service Needed (dropdown)", "Project Budget (buttons)", "Project Details (textarea)"],
+      "budget_options": ["Under $2,500", "$2,500–$5,000", "$5,000–$15,000", "$15,000+", "Let's discuss"],
+      "submit_action": "Opens mailto:jtfasulo7@gmail.com with subject and body pre-filled from form fields",
+      "displayed_email": "jtfasulo7@gmail.com",
+      "sidebar_info": ["Email: jtfasulo7@gmail.com", "Location: Remote — worldwide", "Response: Within 24 hours"],
+      "what_happens_next": ["Review project details", "Schedule 30-min discovery call", "Send tailored proposal within 48hrs", "Kick off within days"]
+    },
+
+    "Footer": {
+      "file": "src/components/Footer.jsx",
+      "description": "CTA bar + nav/services columns + social icons + copyright",
+      "logo": "Text only — 'JT Fasulo', no icon (matches header)",
+      "cta_text": "Let's build something that converts.",
+      "columns": ["Navigation links", "Services list"],
+      "background_text": "FASULO in giant near-invisible text behind footer",
+      "social_icons": ["Twitter/X", "LinkedIn", "Instagram", "YouTube"]
+    }
+  },
+
+  "removed_sections": [
+    "Testimonials section (entire component removed from App.jsx)",
+    "Typical Engagement Timeline (removed from Process.jsx)",
+    "Stats row in Hero (150+ Campaigns Delivered, 3.2x Engagement Lift, etc.)",
+    "Performance metrics at bottom of Portfolio cards (ROAS, follower counts)",
+    "Logo diamond icon in Header",
+    "Logo diamond icon in Footer"
+  ],
+
+  "files": {
+    "src/App.jsx": "Root component — renders Header, Hero, Services, Portfolio, Process, About, Contact, Footer. Testimonials removed.",
+    "src/index.css": "Global styles — Tailwind directives, custom classes (btn-primary, btn-outline, form-input, card-hover, text-gradient, hero-gradient, grid-overlay, grid-overlay-animated, orb, divider)",
+    "src/components/FluidGrid.jsx": "Standalone canvas fluid simulation",
+    "public/jt-fasulo.jpeg": "JT Fasulo headshot (white background)",
+    "public/videos/versace.mp4": "Versace campaign creative (~43MB)",
+    "public/videos/timberland.mp4": "Timberland campaign creative (~43MB)",
+    "public/videos/jt oakley.mp4": "Oakley campaign creative (~39MB)",
+    "public/videos/Budri. Tennis Club - FINAL.mp4": "Budri Tennis Club creative (~30MB)",
+    "vite.config.js": "Vite config with server.host: true for LAN mobile access",
+    "vercel.json": "Deployment config at REPO ROOT — sets build command, output dir, SPA rewrites",
+    "website.json": "Original build specification/brief",
+    "website_memory.json": "This file — living documentation of all changes"
+  },
+
+  "change_log": [
+    { "date": "2026-03-24", "change": "Initial build — full site created with all sections" },
+    { "date": "2026-03-24", "change": "Header: removed diamond logo, text-only 'JT Fasulo'" },
+    { "date": "2026-03-24", "change": "Testimonials section removed entirely from App.jsx" },
+    { "date": "2026-03-24", "change": "Portfolio: replaced 6 Unsplash image cards with 4 real client videos in 9:16 frames" },
+    { "date": "2026-03-24", "change": "Hero: fixed 'Campaign' text overflow (removed overflow-hidden, added pb-2)" },
+    { "date": "2026-03-24", "change": "Process: removed Typical Engagement Timeline box" },
+    { "date": "2026-03-24", "change": "About: replaced tech stack with Claude/Claude Code/Nano Banana Pro/Kling 3.0/Meta Ads/ElevenLabs" },
+    { "date": "2026-03-24", "change": "Contact: form submits via mailto to jtfasulo7@gmail.com" },
+    { "date": "2026-03-24", "change": "Hero stats row removed (150+ campaigns etc)" },
+    { "date": "2026-03-24", "change": "Portfolio metrics removed from card bottoms" },
+    { "date": "2026-03-24", "change": "Rounded corners applied globally — buttons rounded-xl, cards/images rounded-2xl" },
+    { "date": "2026-03-24", "change": "Hero hover animation — each headline word slides right 8px; Campaign brightens" },
+    { "date": "2026-03-24", "change": "About photo replaced with provided headshot (jt-fasulo.jpeg)" },
+    { "date": "2026-03-24", "change": "FluidGrid canvas component created — full fluid simulation replacing CSS grid" },
+    { "date": "2026-03-24", "change": "FluidGrid presence radius reduced to 35, glow radius to 120, ripple maxRadius set to 2000 (full screen)" },
+    { "date": "2026-03-24", "change": "About bio updated — mechanical engineering origin, generative AI vision" },
+    { "date": "2026-03-24", "change": "About credentials header removed; 3 new stat-based bullets added" },
+    { "date": "2026-03-24", "change": "Contact email updated to jtfasulo7@gmail.com (displayed + mailto)" },
+    { "date": "2026-03-24", "change": "Mobile responsiveness pass — vite host:true, footer logo cleaned, hero padding, contact budget grid" },
+    { "date": "2026-03-24", "change": "vercel.json added at repo root to fix 404 deployment from subdirectory" },
+    { "date": "2026-03-24", "change": "Portfolio videos: switched to IntersectionObserver autoplay (40% threshold) — fixes mobile tap-to-play requirement" }
+  ]
+}
