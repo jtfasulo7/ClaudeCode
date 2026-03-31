@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd jtfasulo-website && npm install && npm run build",
+  "buildCommand": "npm install && cd jtfasulo-website && npm install && npm run build",
   "outputDirectory": "jtfasulo-website/dist",
   "installCommand": "echo 'install handled in buildCommand'",
   "rewrites": [{ "source": "/((?!api).*)", "destination": "/index.html" }],
