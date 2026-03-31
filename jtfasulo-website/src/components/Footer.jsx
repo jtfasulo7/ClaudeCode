@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Globe, Rss, Play, Share2 } from 'lucide-react'
 
@@ -7,6 +8,7 @@ const navLinks = [
   { label: 'Process', href: '#process' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Newsletter', href: '/newsletter' },
 ]
 
 const socialLinks = [
@@ -16,13 +18,27 @@ const socialLinks = [
   { icon: <Play size={16} />, href: '#', label: 'YouTube' },
 ]
 
-const handleNavClick = (e, href) => {
-  e.preventDefault()
-  const target = document.querySelector(href)
-  if (target) target.scrollIntoView({ behavior: 'smooth' })
-}
-
 export default function Footer() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault()
+    if (href.startsWith('/')) {
+      navigate(href)
+      return
+    }
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        const target = document.querySelector(href)
+        if (target) target.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+      return
+    }
+    const target = document.querySelector(href)
+    if (target) target.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <footer className="relative bg-background border-t border-border overflow-hidden">
       {/* Large background text */}

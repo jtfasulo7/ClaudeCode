@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom'
 import './index.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -7,8 +8,9 @@ import Process from './components/Process'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Newsletter from './components/Newsletter'
 
-function App() {
+function Home() {
   return (
     <div className="bg-background text-white min-h-screen">
       <Header />
@@ -22,6 +24,15 @@ function App() {
       </main>
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/newsletter" element={<Newsletter />} />
+    </Routes>
   )
 }
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
@@ -8,6 +9,7 @@ const navLinks = [
   { label: 'Process', href: '#process' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Newsletter', href: '/newsletter' },
 ]
 
 export default function Header() {
@@ -23,8 +25,26 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const location = useLocation()
+  const navigate = useNavigate()
+
   const handleNavClick = (e, href) => {
     e.preventDefault()
+    if (href.startsWith('/')) {
+      navigate(href)
+      setMobileOpen(false)
+      return
+    }
+    // If we're on a sub-page, navigate home first then scroll
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        const target = document.querySelector(href)
+        if (target) target.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+      setMobileOpen(false)
+      return
+    }
     const target = document.querySelector(href)
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' })
@@ -48,8 +68,8 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+              href="/"
+              onClick={(e) => { e.preventDefault(); if (location.pathname !== '/') { navigate('/') } else { window.scrollTo({ top: 0, behavior: 'smooth' }) } }}
               className="group flex items-center"
             >
               <span className="text-white font-semibold text-base tracking-tight">
