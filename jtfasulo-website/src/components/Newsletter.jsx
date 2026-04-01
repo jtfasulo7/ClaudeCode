@@ -328,8 +328,7 @@ export default function Newsletter() {
                 >
                   {[
                     { label: 'Tools reviewed', value: '50+' },
-                    { label: 'Issues sent', value: '12' },
-                    { label: 'Read time', value: '4 min' },
+                    { label: 'Read time', value: '3 min' },
                   ].map((stat, i) => (
                     <div key={i} className="flex items-baseline gap-2">
                       <span className="text-white font-bold text-lg tabular-nums">{stat.value}</span>
