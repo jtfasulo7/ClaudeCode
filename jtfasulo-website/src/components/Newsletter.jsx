@@ -50,7 +50,7 @@ function SampleNewsletter() {
   return (
     <div className="max-w-[600px] mx-auto rounded-xl overflow-hidden border border-[#222222]" style={{ backgroundColor: '#111111' }}>
       <div className="p-8 border-b border-[#222222]">
-        <h3 className="text-xl font-bold text-[#7c3aed] mb-1">JT Fasulo AI Newsletter</h3>
+        <h3 className="text-xl font-bold text-[#06b6d4] mb-1">JT Fasulo AI Newsletter</h3>
         <p className="text-sm text-[#a3a3a3]">Week of {weekDate}</p>
       </div>
 
@@ -58,10 +58,10 @@ function SampleNewsletter() {
         <h4 className="text-lg font-bold text-white mb-6">&#128294; Tool Spotlight</h4>
         {sampleNewsletter.tool_spotlight.map((tool, i) => (
           <div key={i} className="mb-6">
-            <h5 className="text-base font-bold text-[#7c3aed] mb-2">{tool.tool_name}</h5>
+            <h5 className="text-base font-bold text-[#06b6d4] mb-2">{tool.tool_name}</h5>
             <p className="text-sm text-[#a3a3a3] mb-3">{tool.what_it_does}</p>
-            <div className="bg-[#1a1a1a] rounded-lg p-4 mb-3 border-l-[3px] border-[#7c3aed]">
-              <p className="text-[11px] font-semibold text-[#7c3aed] uppercase tracking-wider mb-1">How to use it now</p>
+            <div className="bg-[#1a1a1a] rounded-lg p-4 mb-3 border-l-[3px] border-[#06b6d4]">
+              <p className="text-[11px] font-semibold text-[#06b6d4] uppercase tracking-wider mb-1">How to use it now</p>
               <p className="text-sm text-white leading-relaxed">{tool.how_to_use_it_now}</p>
             </div>
             <p className="text-[13px] text-[#a3a3a3] italic">{tool.why_it_matters}</p>
@@ -85,7 +85,7 @@ function SampleNewsletter() {
         <h4 className="text-lg font-bold text-white mb-5">&#127970; Industry Moves</h4>
         {sampleNewsletter.industry_moves.map((move, i) => (
           <div key={i} className="mb-5 pb-5 border-b border-[#222222] last:border-0 last:mb-0 last:pb-0">
-            <p className="text-[15px] text-white mb-1"><strong className="text-[#7c3aed]">{move.company}</strong></p>
+            <p className="text-[15px] text-white mb-1"><strong className="text-[#06b6d4]">{move.company}</strong></p>
             <p className="text-sm text-white mb-1">{move.what_happened}</p>
             <p className="text-[13px] text-[#a3a3a3]">&rarr; {move.what_it_means_for_you}</p>
           </div>
@@ -95,7 +95,7 @@ function SampleNewsletter() {
       <div className="px-8 py-4 border-t border-[#222222]">
         <p className="text-[11px] text-[#525252]">
           You're receiving this because you subscribed at jtfasulo.com.{' '}
-          <span className="text-[#7c3aed]">Unsubscribe</span>
+          <span className="text-[#06b6d4]">Unsubscribe</span>
         </p>
       </div>
     </div>
@@ -144,16 +144,16 @@ export default function Newsletter() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-[#7c3aed]/15 text-[#7c3aed] border border-[#7c3aed]/30 mb-8">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-[#06b6d4]/15 text-[#06b6d4] border border-[#06b6d4]/30 mb-8">
               Delivered every Sunday
             </span>
             <h1 className="text-4xl lg:text-5xl font-black tracking-tight mb-6">
               The AI Newsletter That Actually{' '}
-              <span className="text-[#7c3aed]">Helps You Do Things</span>
+              <span className="text-[#06b6d4]">Helps You Do Things</span>
             </h1>
             <p className="text-lg text-[#a3a3a3] leading-relaxed max-w-2xl mx-auto">
               Every Sunday, get the newest AI tools, real use cases you can apply immediately, and
-              the moves big AI companies are making — curated and written by AI, reviewed by JT.
+              the moves big AI companies are making — all in your inbox.
             </p>
           </motion.div>
         </section>
@@ -184,7 +184,7 @@ export default function Newsletter() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-[#0a0a0a] border border-[#333333] text-white text-sm placeholder-[#525252] outline-none focus:border-[#7c3aed] transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0a0a0a] border border-[#333333] text-white text-sm placeholder-[#525252] outline-none focus:border-[#06b6d4] transition-colors"
                   />
                   {status === 'error' && (
                     <p className="text-sm text-red-400">{errorMsg}</p>
@@ -193,9 +193,9 @@ export default function Newsletter() {
                     type="submit"
                     disabled={status === 'loading'}
                     className="w-full py-3 rounded-lg font-semibold text-sm text-white transition-all duration-200 disabled:opacity-50"
-                    style={{ backgroundColor: '#7c3aed' }}
-                    onMouseEnter={(e) => { if (status !== 'loading') e.target.style.backgroundColor = '#6d28d9' }}
-                    onMouseLeave={(e) => { e.target.style.backgroundColor = '#7c3aed' }}
+                    style={{ backgroundColor: '#06b6d4' }}
+                    onMouseEnter={(e) => { if (status !== 'loading') e.target.style.backgroundColor = '#0891b2' }}
+                    onMouseLeave={(e) => { e.target.style.backgroundColor = '#06b6d4' }}
                   >
                     {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
                   </button>
