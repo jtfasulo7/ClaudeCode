@@ -1,15 +1,14 @@
 module.exports = async function handler(req, res) {
   const checks = {}
 
-  checks.hasGoogleSheetId = !!process.env.GOOGLE_SHEET_ID
+  checks.sheetId = process.env.GOOGLE_SHEET_ID
+  checks.sheetIdLength = (process.env.GOOGLE_SHEET_ID || '').length
   checks.hasClientId = !!process.env.GOOGLE_CLIENT_ID
-  checks.clientIdPreview = (process.env.GOOGLE_CLIENT_ID || '').substring(0, 15) + '...'
   checks.hasClientSecret = !!process.env.GOOGLE_CLIENT_SECRET
-  checks.secretPreview = (process.env.GOOGLE_CLIENT_SECRET || '').substring(0, 8) + '...'
   checks.hasRefreshToken = !!process.env.GOOGLE_REFRESH_TOKEN
-  checks.refreshPreview = (process.env.GOOGLE_REFRESH_TOKEN || '').substring(0, 10) + '...'
 
-  // Test manual token refresh
+  // Manual token refresh
+  let accessToken = null
   try {
     const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
       method: 'POST',
@@ -22,18 +21,39 @@ module.exports = async function handler(req, res) {
       }),
     })
     const tokenData = await tokenResponse.json()
-    checks.tokenRefresh = tokenData.access_token ? 'OK' : tokenData
+    if (tokenData.access_token) {
+      accessToken = tokenData.access_token
+      checks.tokenRefresh = 'OK'
+      checks.scopes = tokenData.scope
+    } else {
+      checks.tokenRefresh = tokenData
+    }
   } catch (e) {
     checks.tokenRefresh = e.message
   }
 
-  // Test sheets read
+  // Direct Sheets API call (bypass googleapis library)
+  if (accessToken) {
+    try {
+      const sheetId = process.env.GOOGLE_SHEET_ID
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Emails!A1:C1`
+      const r = await fetch(url, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      })
+      const data = await r.json()
+      checks.directApiCall = r.ok ? data : { status: r.status, body: data }
+    } catch (e) {
+      checks.directApiCall = e.message
+    }
+  }
+
+  // Test via lib
   try {
     const { checkDuplicate } = require('../lib/googleSheets')
     const dup = await checkDuplicate('nonexistent@test.com')
-    checks.sheetsRead = 'OK, duplicate=' + dup
+    checks.libCall = 'OK, duplicate=' + dup
   } catch (e) {
-    checks.sheetsRead = e.message
+    checks.libCall = e.message
   }
 
   return res.status(200).json(checks)
