@@ -29,7 +29,7 @@ module.exports = async function handler(req, res) {
 
     // Send welcome email
     await resend.emails.send({
-      from: 'JT Fasulo AI Newsletter <onboarding@resend.dev>',
+      from: 'JT Fasulo AI Newsletter <newsletter@jtfasulo.com>',
       to: email,
       subject: "You're in. Welcome to the JT Fasulo AI Newsletter.",
       html: `
@@ -70,7 +70,7 @@ module.exports = async function handler(req, res) {
     try {
       const newsletterData = await researchNewsletter()
       await resend.emails.send({
-        from: 'JT Fasulo AI Newsletter <onboarding@resend.dev>',
+        from: 'JT Fasulo AI Newsletter <newsletter@jtfasulo.com>',
         to: email,
         subject: newsletterData.subject_line,
         html: renderNewsletterEmail(newsletterData, unsubscribeUrl),
