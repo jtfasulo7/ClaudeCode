@@ -29,48 +29,83 @@ module.exports = async function handler(req, res) {
 
     // Send welcome email
     await resend.emails.send({
-      from: 'JT Fasulo AI Newsletter <newsletter@jtfasulo.com>',
+      from: 'Fasulostudio AI Newsletter <newsletter@jtfasulo.com>',
       to: email,
-      subject: "You're in. Welcome to the JT Fasulo AI Newsletter.",
+      subject: "Welcome to Fasulostudio — You're on the inside now.",
       html: `
-<div style="background-color:#0a0a0a;padding:40px 20px;font-family:system-ui,-apple-system,sans-serif;">
-  <div style="max-width:600px;margin:0 auto;background-color:#111111;border-radius:12px;overflow:hidden;">
-    <div style="padding:40px 32px;border-bottom:1px solid #222222;">
-      <h1 style="margin:0 0 8px;font-size:24px;font-weight:700;color:#7c3aed;">JT Fasulo AI Newsletter</h1>
-      <p style="margin:0;font-size:14px;color:#a3a3a3;">Welcome aboard.</p>
+<div style="background-color:#050505;padding:0;margin:0;font-family:Georgia,'Times New Roman',Times,serif;">
+  <div style="max-width:620px;margin:0 auto;padding:60px 20px;">
+
+    <!-- Masthead -->
+    <div style="text-align:center;padding:48px 0 40px;border-bottom:1px solid #06b6d4;">
+      <p style="margin:0 0 16px;font-size:11px;letter-spacing:0.35em;text-transform:uppercase;color:#06b6d4;">Est. 2026</p>
+      <h1 style="margin:0 0 12px;font-size:36px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:#ffffff;font-family:Georgia,'Times New Roman',Times,serif;">Fasulostudio</h1>
+      <p style="margin:0;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#8a8a8a;">AI Newsletter</p>
     </div>
-    <div style="padding:32px;">
-      <p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#ffffff;">
-        You're officially on the list. Every Sunday, you'll get a curated email with:
+
+    <!-- Welcome Message -->
+    <div style="padding:48px 8px 40px;">
+      <p style="margin:0 0 8px;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#06b6d4;">Private Access Granted</p>
+      <h2 style="margin:0 0 28px;font-size:28px;font-weight:400;line-height:1.3;color:#ffffff;font-family:Georgia,'Times New Roman',Times,serif;">You're on the inside now.</h2>
+      <p style="margin:0 0 32px;font-size:16px;line-height:1.8;color:#b0b0b0;font-family:Georgia,'Times New Roman',Times,serif;">
+        Every Sunday, a curated briefing arrives in your inbox — the tools, strategies, and moves shaping the AI landscape, distilled into what actually matters.
       </p>
-      <div style="background-color:#1a1a1a;border-radius:8px;padding:20px;margin:0 0 24px;">
-        <p style="margin:0 0 12px;font-size:14px;color:#ffffff;">&#128294; <strong>Tool Spotlight</strong> — the newest AI tools with step-by-step instructions</p>
-        <p style="margin:0 0 12px;font-size:14px;color:#ffffff;">&#9889; <strong>Quick Wins</strong> — 5 actionable tips you can apply immediately</p>
-        <p style="margin:0;font-size:14px;color:#ffffff;">&#127970; <strong>Industry Moves</strong> — what the big AI companies did and why it matters to you</p>
+
+      <!-- What You'll Receive -->
+      <div style="border-left:2px solid #06b6d4;padding-left:24px;margin:0 0 36px;">
+        <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:#e0e0e0;font-family:Georgia,'Times New Roman',Times,serif;">
+          <strong style="color:#06b6d4;font-weight:400;letter-spacing:0.05em;">Tool Spotlight</strong><br>
+          <span style="color:#999999;">The newest AI tools with clear, actionable instructions.</span>
+        </p>
+        <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:#e0e0e0;font-family:Georgia,'Times New Roman',Times,serif;">
+          <strong style="color:#06b6d4;font-weight:400;letter-spacing:0.05em;">Quick Wins</strong><br>
+          <span style="color:#999999;">Five things you can apply to your work today.</span>
+        </p>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:#e0e0e0;font-family:Georgia,'Times New Roman',Times,serif;">
+          <strong style="color:#06b6d4;font-weight:400;letter-spacing:0.05em;">Industry Moves</strong><br>
+          <span style="color:#999999;">What the major players did and why it matters to you.</span>
+        </p>
       </div>
-      <p style="margin:0 0 32px;font-size:14px;line-height:1.6;color:#a3a3a3;">
-        No fluff. No hype. Just practical AI content you can actually use.
+
+      <!-- Divider -->
+      <div style="width:40px;height:1px;background-color:#06b6d4;margin:0 0 32px;"></div>
+
+      <p style="margin:0 0 8px;font-size:15px;line-height:1.8;color:#b0b0b0;font-style:italic;font-family:Georgia,'Times New Roman',Times,serif;">
+        No fluff. No hype. Just signal.
       </p>
-      <p style="margin:0;font-size:14px;color:#a3a3a3;">
+      <p style="margin:0;font-size:15px;color:#ffffff;font-family:Georgia,'Times New Roman',Times,serif;">
         — JT
       </p>
     </div>
-    <div style="padding:20px 32px;border-top:1px solid #222222;">
-      <p style="margin:0;font-size:11px;color:#525252;">
-        You're receiving this because you subscribed at jtfasulo.com.
-        <a href="${unsubscribeUrl}" style="color:#7c3aed;text-decoration:none;">Unsubscribe</a>
+
+    <!-- Footer -->
+    <div style="border-top:1px solid #1a1a1a;padding:28px 8px 0;text-align:center;">
+      <p style="margin:0 0 6px;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a3a;">Fasulostudio &middot; jtfasulo.com</p>
+      <p style="margin:0;font-size:10px;color:#3a3a3a;">
+        <a href="${unsubscribeUrl}" style="color:#5a5a5a;text-decoration:none;letter-spacing:0.1em;">UNSUBSCRIBE</a>
       </p>
     </div>
+
   </div>
 </div>
       `,
     })
 
+    // Notify JT of new subscriber
+    try {
+      await resend.emails.send({
+        from: 'Fasulostudio AI Newsletter <newsletter@jtfasulo.com>',
+        to: 'jtfasulo7@gmail.com',
+        subject: `New subscriber: ${email}`,
+        html: `<div style="font-family:Georgia,'Times New Roman',Times,serif;padding:24px;background:#050505;color:#d0d0d0;border:1px solid #1a1a1a;"><p style="margin:0 0 4px;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:#06b6d4;">New Subscriber</p><p style="margin:0;font-size:16px;color:#fff;">${email}</p></div>`,
+      })
+    } catch (_) {}
+
     // Generate and send a real sample newsletter with this week's AI news
     try {
       const newsletterData = await researchNewsletter()
       await resend.emails.send({
-        from: 'JT Fasulo AI Newsletter <newsletter@jtfasulo.com>',
+        from: 'Fasulostudio AI Newsletter <newsletter@jtfasulo.com>',
         to: email,
         subject: newsletterData.subject_line,
         html: renderNewsletterEmail(newsletterData, unsubscribeUrl),

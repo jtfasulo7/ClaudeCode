@@ -28,7 +28,7 @@ module.exports = async function handler(req, res) {
       const [email, , token] = row
       const unsubscribeUrl = `https://jtfasulo.com/api/unsubscribe?token=${token}`
       return {
-        from: 'JT Fasulo AI Newsletter <newsletter@jtfasulo.com>',
+        from: 'Fasulostudio AI Newsletter <newsletter@jtfasulo.com>',
         to: email,
         subject: newsletterData.subject_line,
         html: renderNewsletterEmail(newsletterData, unsubscribeUrl),

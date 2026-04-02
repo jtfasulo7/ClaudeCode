@@ -18,8 +18,22 @@ venv/
 .DS_Store
 Thumbs.db
 
+# Google API credentials
+credentials.json
+client_secret_*.json
+token.json
+scripts/google-auth.js
+scripts/send-email.js
+
 # IDE
 .vscode/
 .idea/
 *.suo
 *.user
+
+.vercel
+
+# MCP config (contains API keys)
+.mcp.json
+
+.env*.local
