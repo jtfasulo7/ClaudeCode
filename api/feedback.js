@@ -22,7 +22,7 @@ module.exports = async function handler(req, res) {
 
     try {
       await resend.emails.send({
-        from: 'Fasulostudio AI Newsletter <newsletter@jtfasulo.com>',
+        from: 'Fasulo Studio AI Newsletter <newsletter@jtfasulo.com>',
         to: 'jtfasulo7@gmail.com',
         subject: 'Newsletter Feedback',
         html: `
@@ -32,7 +32,7 @@ module.exports = async function handler(req, res) {
     <p style="color:#d0d0d0;margin:0;line-height:1.7;white-space:pre-wrap;">${feedback.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
   </div>
   <p style="color:#4a4a4a;font-size:12px;margin:16px 0 0;">
-    Sent from the Fasulostudio newsletter feedback form
+    Sent from the Fasulo Studio newsletter feedback form
   </p>
 </div>
         `,
@@ -54,12 +54,12 @@ function renderForm() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedback — Fasulostudio AI Newsletter</title>
+  <title>Feedback — Fasulo Studio AI Newsletter</title>
 </head>
 <body style="margin:0;padding:0;background-color:#050505;font-family:Georgia,'Times New Roman',Times,serif;min-height:100vh;display:flex;align-items:center;justify-content:center;">
   <div style="max-width:540px;width:100%;margin:0 auto;padding:60px 24px;">
     <div style="text-align:center;margin-bottom:40px;">
-      <h1 style="font-size:28px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:#ffffff;margin:0 0 8px;">Fasulostudio</h1>
+      <h1 style="font-size:28px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:#ffffff;margin:0 0 8px;">Fasulo Studio</h1>
       <p style="font-size:12px;letter-spacing:0.25em;text-transform:uppercase;color:#8a8a8a;margin:0;">Newsletter Feedback</p>
     </div>
     <p style="font-size:15px;line-height:1.7;color:#999;margin:0 0 28px;text-align:center;">
@@ -105,7 +105,7 @@ function renderSuccess() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You — Fasulostudio AI Newsletter</title>
+  <title>Thank You — Fasulo Studio AI Newsletter</title>
 </head>
 <body style="margin:0;padding:0;background-color:#050505;font-family:Georgia,'Times New Roman',Times,serif;min-height:100vh;display:flex;align-items:center;justify-content:center;">
   <div style="max-width:480px;margin:0 auto;padding:60px 24px;text-align:center;">
