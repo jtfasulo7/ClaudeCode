@@ -1,7 +1,6 @@
 const crypto = require('crypto')
 const { Resend } = require('resend')
 const { checkDuplicate, appendSubscriber } = require('../lib/googleSheets')
-const { researchNewsletter, renderNewsletterEmail } = require('../lib/newsletter')
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -100,20 +99,6 @@ module.exports = async function handler(req, res) {
         html: `<div style="font-family:Georgia,'Times New Roman',Times,serif;padding:24px;background:#050505;color:#d0d0d0;border:1px solid #1a1a1a;"><p style="margin:0 0 4px;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:#06b6d4;">New Subscriber</p><p style="margin:0;font-size:16px;color:#fff;">${email}</p></div>`,
       })
     } catch (_) {}
-
-    // Generate and send a real sample newsletter with this week's AI news
-    try {
-      const newsletterData = await researchNewsletter()
-      await resend.emails.send({
-        from: 'Fasulostudio AI Newsletter <newsletter@jtfasulo.com>',
-        to: email,
-        subject: newsletterData.subject_line,
-        html: renderNewsletterEmail(newsletterData, unsubscribeUrl),
-      })
-    } catch (sampleErr) {
-      // Don't fail the whole subscribe if the sample newsletter fails
-      console.error('Sample newsletter send error:', sampleErr)
-    }
 
     return res.status(200).json({ success: true })
   } catch (err) {

@@ -6,10 +6,17 @@ This skill must be referenced any time edits are made to the email newsletter te
 
 **Brand:** Fasulostudio AI Newsletter (formerly "JT Fasulo AI Newsletter")
 **Sender:** `Fasulostudio AI Newsletter <newsletter@jtfasulo.com>`
-**Frequency:** Every Sunday (cron: `0 14 * * 0` UTC)
+**Frequency:** Every Sunday at 9am ET (cron: `0 13 * * 0` UTC)
 **Platform:** Vercel serverless functions + Resend email API
-**Subscriber store:** Google Sheets via googleapis
+**Subscriber store:** Google Sheets (`Emails` sheet) via googleapis
 **Content generation:** Claude API with web search tool
+
+## Automation Flow
+
+1. **Subscribe** — User enters email on jtfasulo.com → `api/subscribe.js` adds them to the `Emails` sheet, sends ONLY the welcome email, and notifies jtfasulo7@gmail.com of the new subscriber. No sample newsletter is sent on signup.
+2. **Weekly send** — Every Sunday at 9am ET, Vercel cron triggers `api/send-newsletter.js?secret=${CRON_SECRET}`. The endpoint reads all active subscribers from the `Emails` sheet, uses Claude API with web search to research the past 7 days of AI news, renders the newsletter HTML, and batch-sends via Resend (max 100 per batch). Results are logged to the `Send Log` sheet.
+3. **Unsubscribe** — User clicks unsubscribe link → `api/unsubscribe.js` validates the token and deletes the entire row from the `Emails` sheet, permanently removing them from future sends.
+4. **Date range** — Each edition covers Sunday-to-Sunday. The April 6 edition covers March 30 – April 5. The research prompt dynamically calculates the 7-day window based on the current date at send time.
 
 ## Key Files
 
