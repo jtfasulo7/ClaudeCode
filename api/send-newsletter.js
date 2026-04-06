@@ -1,8 +1,23 @@
 const { Resend } = require('resend')
-const { getActiveSubscribers, logSend } = require('../lib/googleSheets')
+const { getActiveSubscribers, logSend, getSheetClient } = require('../lib/googleSheets')
 const { researchNewsletter, renderNewsletterEmail } = require('../lib/newsletter')
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+
+async function alreadySentToday() {
+  try {
+    const sheets = await getSheetClient()
+    const res = await sheets.spreadsheets.values.get({
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+      range: 'Send Log!A:D',
+    })
+    const rows = res.data.values || []
+    const today = new Date().toISOString().split('T')[0]
+    return rows.some(row => row[0] === today && !row[3]?.includes('failed'))
+  } catch (_) {
+    return false
+  }
+}
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -15,6 +30,11 @@ module.exports = async function handler(req, res) {
   }
 
   try {
+    // Prevent double-sends if both Vercel cron and backup cron fire
+    if (await alreadySentToday()) {
+      return res.status(200).json({ message: 'Already sent today', skipped: true })
+    }
+
     const subscribers = await getActiveSubscribers()
     if (subscribers.length === 0) {
       console.log('No subscribers found. Skipping send.')
