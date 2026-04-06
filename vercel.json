@@ -7,6 +7,10 @@
     {
       "path": "/api/send-newsletter?secret=${CRON_SECRET}",
       "schedule": "30 12 * * 0"
+    },
+    {
+      "path": "/api/telegram-switch?secret=${CRON_SECRET}",
+      "schedule": "*/10 * * * *"
     }
   ]
 }

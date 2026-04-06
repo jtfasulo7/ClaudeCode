@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s 'https://jtfasulo.com/api/telegram-switch?mode=local&secret=fasulo-studio-newsletter' > /dev/null 2>&1 &"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s 'https://jtfasulo.com/api/telegram-switch?mode=cloud&secret=fasulo-studio-newsletter' > /dev/null 2>&1 &"
+          }
+        ]
+      }
+    ]
+  }
+}
