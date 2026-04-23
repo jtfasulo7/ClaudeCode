@@ -40,8 +40,8 @@ const CANVAS_H = 1350;
 // d3 Albers USA — positioned to center the CONUS in the canvas
 // with room for text above and below the map
 const projection = geoAlbersUsa()
-  .scale(1350)
-  .translate([CANVAS_W / 2, 640]);
+  .scale(1620)
+  .translate([CANVAS_W / 2, 660]);
 
 const pathGen = geoPath(projection);
 
@@ -174,7 +174,9 @@ const Rise: React.FC<RiseProps> = ({ from, duration = 26, distance = 22, childre
 };
 
 // ── composition ────────────────────────────────────────────────
-export const HeroCredentials: React.FC = () => {
+type Props = { bg?: string };
+
+export const HeroCredentials: React.FC<Props> = ({ bg = 'transparent' }) => {
   const frame = useCurrentFrame();
 
   // simple fade-in at start, hold forever after
@@ -239,8 +241,8 @@ export const HeroCredentials: React.FC = () => {
   });
 
   return (
-    <AbsoluteFill style={{ background: C.paper, opacity: fadeIn }}>
-      {/* soft purple wash behind Phoenix — not a rectangle, just atmosphere */}
+    <AbsoluteFill style={{ background: bg, opacity: fadeIn }}>
+      {/* soft purple wash behind Phoenix — radial, fades to transparent so it never reads as a rectangle */}
       <div
         style={{
           position: 'absolute',
@@ -249,9 +251,9 @@ export const HeroCredentials: React.FC = () => {
           left: PHX_X - 450,
           top: PHX_Y - 450,
           background: `radial-gradient(circle, ${C.brand} 0%, transparent 62%)`,
-          opacity: 0.08,
+          opacity: 0.07,
           pointerEvents: 'none',
-          filter: 'blur(20px)',
+          filter: 'blur(22px)',
         }}
       />
 
@@ -297,8 +299,8 @@ export const HeroCredentials: React.FC = () => {
           d={nationPathD}
           fill="none"
           stroke={C.brand}
-          strokeWidth={1.4}
-          strokeOpacity={0.42 * mapDim}
+          strokeWidth={2.4}
+          strokeOpacity={0.52 * mapDim}
           strokeLinejoin="round"
           strokeLinecap="round"
           pathLength={1}
@@ -326,7 +328,7 @@ export const HeroCredentials: React.FC = () => {
                 x2={endX}
                 y2={endY}
                 stroke={C.brand}
-                strokeWidth={0.6}
+                strokeWidth={0.8}
                 strokeOpacity={lineOpacity}
               />
             );
@@ -347,8 +349,8 @@ export const HeroCredentials: React.FC = () => {
                 easing: Easing.out(Easing.back(1.6)),
               }
             );
-            const r = 1.9 * scale;
-            const op = 0.72 * mapDim;
+            const r = 2.2 * scale;
+            const op = 0.78 * mapDim;
             return (
               <circle
                 key={`D${i}`}
