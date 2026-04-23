@@ -242,20 +242,6 @@ export const HeroCredentials: React.FC<Props> = ({ bg = 'transparent' }) => {
 
   return (
     <AbsoluteFill style={{ background: bg, opacity: fadeIn }}>
-      {/* soft purple wash behind Phoenix — radial, fades to transparent so it never reads as a rectangle */}
-      <div
-        style={{
-          position: 'absolute',
-          width: 900,
-          height: 900,
-          left: PHX_X - 450,
-          top: PHX_Y - 450,
-          background: `radial-gradient(circle, ${C.brand} 0%, transparent 62%)`,
-          opacity: 0.07,
-          pointerEvents: 'none',
-          filter: 'blur(22px)',
-        }}
-      />
 
       {/* Main SVG — real US map + dots + lines */}
       <svg
