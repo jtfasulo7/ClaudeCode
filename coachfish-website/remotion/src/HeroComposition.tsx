@@ -1,38 +1,36 @@
 import React from 'react';
 import { AbsoluteFill, interpolate, Easing, useCurrentFrame } from 'remotion';
-import { loadFont as loadFraunces } from '@remotion/google-fonts/Fraunces';
-import { loadFont as loadSans } from '@remotion/google-fonts/InstrumentSans';
-import { loadFont as loadMono } from '@remotion/google-fonts/IBMPlexMono';
+import { loadFont as loadUnbounded } from '@remotion/google-fonts/Unbounded';
+import { loadFont as loadMontserrat } from '@remotion/google-fonts/Montserrat';
+import { loadFont as loadMono } from '@remotion/google-fonts/JetBrainsMono';
 
-const fraunces = loadFraunces('normal', {
-  weights: ['400', '500', '600'],
-  style: 'normal',
+const unbounded = loadUnbounded('normal', {
+  weights: ['400', '500', '600', '700'],
 });
-const frauncesItalic = loadFraunces('normal', {
-  weights: ['400', '500'],
-  style: 'italic',
+const montserrat = loadMontserrat('normal', {
+  weights: ['400', '500', '600', '700'],
 });
-const sans = loadSans('normal', { weights: ['400', '500'] });
 const mono = loadMono('normal', { weights: ['400', '500'] });
 
 const ease = Easing.bezier(0.22, 1, 0.36, 1);
 
-// tokens
+// brand tokens (synced with styles.css)
 const C = {
-  cream: '#F4EFE6',
-  paper: '#FAF7F1',
-  ink: '#0B1D2E',
-  inkSoft: 'rgba(11, 29, 46, 0.7)',
-  inkMuted: 'rgba(11, 29, 46, 0.5)',
-  gold: '#C8A15A',
-  goldDeep: '#9B7B3F',
-  rule: 'rgba(11, 29, 46, 0.14)',
+  white: '#FFFFFF',
+  paper: '#FAFAFC',
+  ink: '#0A0812',
+  inkSoft: 'rgba(10, 8, 18, 0.72)',
+  inkMuted: 'rgba(10, 8, 18, 0.5)',
+  brand: '#251472',
+  brandDeep: '#1A0E52',
+  brandTint: '#F4F3FA',
+  brandSoft: 'rgba(37, 20, 114, 0.12)',
+  rule: 'rgba(10, 8, 18, 0.14)',
 };
 
 const F = {
-  display: fraunces.fontFamily,
-  displayItalic: frauncesItalic.fontFamily,
-  sans: sans.fontFamily,
+  display: unbounded.fontFamily,
+  sans: montserrat.fontFamily,
   mono: mono.fontFamily,
 };
 
@@ -68,14 +66,14 @@ const Grain: React.FC = () => (
   <AbsoluteFill
     style={{
       pointerEvents: 'none',
-      opacity: 0.22,
+      opacity: 0.14,
       mixBlendMode: 'multiply',
     }}
   >
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <filter id="n">
         <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
-        <feColorMatrix values="0 0 0 0 0.043 0 0 0 0 0.113 0 0 0 0 0.18 0 0 0 0.5 0" />
+        <feColorMatrix values="0 0 0 0 0.039 0 0 0 0 0.031 0 0 0 0 0.07 0 0 0 0.5 0" />
       </filter>
       <rect width="100%" height="100%" filter="url(#n)" />
     </svg>
@@ -85,10 +83,10 @@ const Grain: React.FC = () => (
 export const HeroCredentials: React.FC = () => {
   const frame = useCurrentFrame();
 
-  // ambient breathing on the whole composition (extremely subtle)
+  // ambient breathing (very subtle)
   const breath = 1 + Math.sin(frame / 38) * 0.004;
 
-  // overall loop fade-in/out (imperceptible for seamless loop)
+  // loop seamless fade
   const loopFade = interpolate(
     frame,
     [0, 6, 170, 180],
@@ -96,28 +94,42 @@ export const HeroCredentials: React.FC = () => {
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
-  // credentials stagger timings
   const creds = [
     { num: '15', unit: 'YEARS', label: 'Sport evaluation', from: 70 },
     { num: 'NFL', unit: 'SCOUT', label: 'Pro-grade eye', from: 86 },
-    { num: '52,000+', unit: 'NETWORK', label: 'College coaches', from: 102 },
+    { num: '52K+', unit: 'NETWORK', label: 'College coaches', from: 102 },
     { num: 'ALL', unit: 'SPORTS', label: 'Every division', from: 118 },
   ];
 
   return (
-    <AbsoluteFill style={{ background: C.cream, opacity: loopFade }}>
-      {/* Gold hairline inset frame */}
+    <AbsoluteFill style={{ background: C.white, opacity: loopFade }}>
+      {/* brand purple radial glow — subtle top-right */}
+      <AbsoluteFill style={{ pointerEvents: 'none' }}>
+        <div
+          style={{
+            position: 'absolute',
+            width: 800,
+            height: 800,
+            right: -200,
+            top: -260,
+            background: `radial-gradient(circle, ${C.brand} 0%, transparent 60%)`,
+            opacity: 0.12,
+          }}
+        />
+      </AbsoluteFill>
+
+      {/* Brand hairline inset frame */}
       <div
         style={{
           position: 'absolute',
           inset: 36,
-          border: `1px solid ${C.gold}`,
+          border: `1px solid ${C.brand}`,
           opacity: interpolate(frame, [0, 20], [0, 1], { extrapolateRight: 'clamp', easing: ease }),
           pointerEvents: 'none',
         }}
       />
 
-      {/* inner ink frame on frame */}
+      {/* inner hairline */}
       <div
         style={{
           position: 'absolute',
@@ -144,10 +156,11 @@ export const HeroCredentials: React.FC = () => {
             <div
               style={{
                 fontFamily: F.mono,
-                fontSize: 22,
+                fontSize: 20,
                 letterSpacing: '0.22em',
-                color: C.goldDeep,
+                color: C.brand,
                 textTransform: 'uppercase',
+                fontWeight: 500,
               }}
             >
               № 01 &nbsp;·&nbsp; Credentials
@@ -157,12 +170,13 @@ export const HeroCredentials: React.FC = () => {
           <Rise from={10} distance={14}>
             <div
               style={{
-                fontFamily: F.mono,
-                fontSize: 20,
-                letterSpacing: '0.24em',
+                fontFamily: F.sans,
+                fontSize: 18,
+                letterSpacing: '0.22em',
                 color: C.inkMuted,
                 textTransform: 'uppercase',
                 textAlign: 'right',
+                fontWeight: 500,
               }}
             >
               Coach Fish Services
@@ -170,7 +184,7 @@ export const HeroCredentials: React.FC = () => {
                 style={{
                   width: 56,
                   height: 1,
-                  background: C.gold,
+                  background: C.brand,
                   marginTop: 10,
                   marginLeft: 'auto',
                 }}
@@ -185,39 +199,50 @@ export const HeroCredentials: React.FC = () => {
             <div
               style={{
                 fontFamily: F.display,
-                fontVariationSettings: '"opsz" 144, "SOFT" 30',
-                fontWeight: 500,
-                fontSize: 120,
-                lineHeight: 0.9,
-                letterSpacing: '-0.025em',
+                fontWeight: 700,
+                fontSize: 106,
+                lineHeight: 1.0,
+                letterSpacing: '-0.045em',
                 color: C.ink,
               }}
             >
-              Kiyoshi <span style={{ fontFamily: F.displayItalic, fontStyle: 'italic', fontWeight: 400 }}>“Terrell”</span>
+              Kiyoshi
             </div>
             <div
               style={{
                 fontFamily: F.display,
-                fontVariationSettings: '"opsz" 144, "SOFT" 30',
-                fontWeight: 500,
-                fontSize: 120,
-                lineHeight: 0.9,
-                letterSpacing: '-0.025em',
+                fontWeight: 400,
+                fontSize: 106,
+                lineHeight: 1.0,
+                letterSpacing: '-0.045em',
+                color: C.brand,
+                marginTop: 4,
+              }}
+            >
+              “Terrell”
+            </div>
+            <div
+              style={{
+                fontFamily: F.display,
+                fontWeight: 700,
+                fontSize: 106,
+                lineHeight: 1.0,
+                letterSpacing: '-0.045em',
                 color: C.ink,
-                marginTop: 6,
+                marginTop: 4,
               }}
             >
               Fish.
             </div>
           </Rise>
 
-          {/* gold rule */}
+          {/* brand rule */}
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: 28 }}>
             <div
               style={{
-                height: 1,
-                background: C.gold,
-                width: interpolate(frame, [42, 66], [0, 200], {
+                height: 2,
+                background: C.brand,
+                width: interpolate(frame, [42, 66], [0, 220], {
                   extrapolateLeft: 'clamp',
                   extrapolateRight: 'clamp',
                   easing: ease,
@@ -230,12 +255,12 @@ export const HeroCredentials: React.FC = () => {
             <div
               style={{
                 fontFamily: F.sans,
-                fontSize: 22,
+                fontSize: 20,
                 letterSpacing: '0.32em',
                 color: C.inkSoft,
                 textTransform: 'uppercase',
                 marginTop: 28,
-                fontWeight: 500,
+                fontWeight: 600,
               }}
             >
               Independent College Recruiter
@@ -249,11 +274,12 @@ export const HeroCredentials: React.FC = () => {
             <div
               style={{
                 fontFamily: F.mono,
-                fontSize: 16,
-                letterSpacing: '0.22em',
-                color: C.goldDeep,
+                fontSize: 15,
+                letterSpacing: '0.24em',
+                color: C.brand,
                 textTransform: 'uppercase',
                 marginBottom: 20,
+                fontWeight: 500,
               }}
             >
               The record
@@ -298,57 +324,53 @@ export const HeroCredentials: React.FC = () => {
                     transform: `translateY(${rowY}px)`,
                   }}
                 >
-                  {/* left: number */}
                   <div
                     style={{
                       fontFamily: F.display,
-                      fontVariationSettings: '"opsz" 144',
-                      fontWeight: 500,
-                      fontSize: 56,
-                      letterSpacing: '-0.02em',
+                      fontWeight: 600,
+                      fontSize: 52,
+                      letterSpacing: '-0.045em',
                       color: C.ink,
                       lineHeight: 1,
                     }}
                   >
                     {c.num}
                   </div>
-                  {/* middle: unit */}
                   <div
                     style={{
                       fontFamily: F.mono,
-                      fontSize: 13,
-                      letterSpacing: '0.24em',
+                      fontSize: 12,
+                      letterSpacing: '0.26em',
                       textTransform: 'uppercase',
-                      color: C.gold,
+                      color: C.brand,
                       padding: '0 28px',
                       whiteSpace: 'nowrap',
+                      fontWeight: 500,
                     }}
                   >
                     {c.unit}
                   </div>
-                  {/* right: label */}
                   <div
                     style={{
-                      fontFamily: F.display,
-                      fontStyle: 'italic',
-                      fontWeight: 400,
-                      fontSize: 26,
+                      fontFamily: F.sans,
+                      fontWeight: 500,
+                      fontSize: 24,
                       color: C.inkSoft,
                       letterSpacing: '-0.005em',
                     }}
                   >
                     {c.label}
                   </div>
-                  {/* animated reveal rule — left to right accent below each row */}
+                  {/* brand accent rule — animated left to right */}
                   <div
                     style={{
                       position: 'absolute',
                       left: 0,
                       bottom: -1,
-                      height: 1,
-                      background: C.gold,
+                      height: 1.5,
+                      background: C.brand,
                       width: `${ruleWidth}%`,
-                      opacity: 0.55,
+                      opacity: 0.65,
                     }}
                   />
                 </div>
@@ -364,10 +386,11 @@ export const HeroCredentials: React.FC = () => {
               justifyContent: 'space-between',
               alignItems: 'center',
               fontFamily: F.mono,
-              fontSize: 14,
+              fontSize: 13,
               letterSpacing: '0.22em',
               color: C.inkMuted,
               textTransform: 'uppercase',
+              fontWeight: 500,
               opacity: interpolate(frame, [140, 160], [0, 1], {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
