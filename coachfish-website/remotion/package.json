@@ -11,9 +11,14 @@
   "dependencies": {
     "@remotion/cli": "4.0.362",
     "@remotion/google-fonts": "4.0.362",
+    "@types/d3-geo": "^3.1.0",
+    "@types/topojson-client": "^3.1.5",
+    "d3-geo": "^3.1.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "remotion": "4.0.362"
+    "remotion": "4.0.362",
+    "topojson-client": "^3.1.0",
+    "us-atlas": "^3.0.1"
   },
   "devDependencies": {
     "@types/react": "19.0.0",

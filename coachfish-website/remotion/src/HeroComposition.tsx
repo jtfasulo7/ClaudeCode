@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { AbsoluteFill, interpolate, Easing, useCurrentFrame } from 'remotion';
 import { loadFont as loadUnbounded } from '@remotion/google-fonts/Unbounded';
 import { loadFont as loadMontserrat } from '@remotion/google-fonts/Montserrat';
 import { loadFont as loadMono } from '@remotion/google-fonts/JetBrainsMono';
+import { geoAlbersUsa, geoPath, geoContains } from 'd3-geo';
+import { feature } from 'topojson-client';
+// @ts-ignore — us-atlas ships a single json file
+import usNation from 'us-atlas/nation-10m.json';
 
 const unbounded = loadUnbounded('normal', { weights: ['400', '500', '600', '700'] });
 const montserrat = loadMontserrat('normal', { weights: ['400', '500', '600', '700'] });
@@ -11,11 +15,16 @@ const mono = loadMono('normal', { weights: ['400', '500'] });
 const ease = Easing.bezier(0.22, 1, 0.36, 1);
 
 const C = {
+  paper: '#FAFAFC',
   white: '#FFFFFF',
   ink: '#0A0812',
+  inkSoft: 'rgba(10, 8, 18, 0.72)',
+  inkMuted: 'rgba(10, 8, 18, 0.5)',
+  inkFaint: 'rgba(10, 8, 18, 0.3)',
   brand: '#251472',
-  brandLight: '#B5A8E8',
-  brandSoft: '#7A6DB8',
+  brandDeep: '#1A0E52',
+  brandSoft: 'rgba(37, 20, 114, 0.55)',
+  brandHaze: 'rgba(37, 20, 114, 0.18)',
 };
 
 const F = {
@@ -24,46 +33,60 @@ const F = {
   mono: mono.fontFamily,
 };
 
-// Simplified US outline — normalized 0–1 (x goes left→right, y goes top→bottom)
-// Ordered clockwise starting from Pacific NW
-const US_POLYGON: [number, number][] = [
-  [0.05, 0.06], [0.13, 0.03], [0.28, 0.01], [0.44, 0.00], [0.60, 0.01],
-  [0.78, 0.02], [0.82, 0.10], [0.87, 0.17], [0.89, 0.23], [0.93, 0.28],
-  [0.95, 0.32], [0.98, 0.36], [1.00, 0.40], [0.99, 0.43], [0.97, 0.47],
-  [0.95, 0.52], [0.93, 0.58], [0.92, 0.64], [0.91, 0.72], [0.93, 0.80],
-  [0.93, 0.88], [0.88, 0.88], [0.80, 0.87], [0.72, 0.88], [0.63, 0.89],
-  [0.55, 0.90], [0.48, 0.91], [0.43, 0.93], [0.40, 0.96], [0.37, 0.93],
-  [0.32, 0.89], [0.26, 0.86], [0.19, 0.84], [0.13, 0.82], [0.09, 0.80],
-  [0.06, 0.73], [0.05, 0.60], [0.04, 0.44], [0.03, 0.28], [0.04, 0.16],
-  [0.05, 0.06],
-];
+// ── canvas + projection ─────────────────────────────────────────
+const CANVAS_W = 1080;
+const CANVAS_H = 1350;
 
-// Phoenix, AZ — roughly
-const PHOENIX_NORM: [number, number] = [0.21, 0.76];
+// d3 Albers USA — positioned to center the CONUS in the canvas
+// with room for text above and below the map
+const projection = geoAlbersUsa()
+  .scale(1350)
+  .translate([CANVAS_W / 2, 640]);
 
-// Key regional anchor cities to bias dot distribution toward real college density
-// (populous college regions)
+const pathGen = geoPath(projection);
+
+// nation outline geometry (single multipolygon)
+// @ts-ignore — topojson typing is loose
+const nationFeature = feature(usNation, usNation.objects.nation);
+const nationPathD = pathGen(nationFeature) || '';
+
+// ── anchor cities for realistic coach-density distribution ──────
 const ANCHORS: [number, number, number][] = [
-  // [x, y, weight]
-  [0.95, 0.40, 1.4], // NYC / NJ
-  [0.93, 0.45, 1.1], // Philly
-  [0.90, 0.48, 1.0], // DC
-  [0.88, 0.56, 1.0], // Carolinas
-  [0.85, 0.65, 1.0], // Atlanta / GA
-  [0.90, 0.82, 0.9], // FL
-  [0.75, 0.78, 1.1], // TX triangle
-  [0.52, 0.82, 1.0], // Houston / LA
-  [0.70, 0.50, 1.1], // Chicago / Midwest
-  [0.78, 0.42, 1.0], // Detroit / Ohio
-  [0.60, 0.35, 0.9], // Minnesota
-  [0.50, 0.55, 1.0], // KC / MO
-  [0.40, 0.70, 0.8], // Denver
-  [0.22, 0.78, 1.0], // Phoenix / SW
-  [0.12, 0.70, 1.1], // LA / Socal
-  [0.08, 0.45, 1.1], // SF / Bay
-  [0.08, 0.20, 0.9], // PNW
+  // [lng, lat, weight]
+  [-74.0, 40.71, 1.5],   // NYC
+  [-75.17, 39.95, 1.0],  // Philadelphia
+  [-77.04, 38.90, 1.0],  // DC / Baltimore
+  [-71.06, 42.36, 1.0],  // Boston
+  [-80.19, 25.76, 1.0],  // Miami
+  [-82.46, 27.95, 0.9],  // Tampa
+  [-84.39, 33.75, 1.2],  // Atlanta
+  [-81.69, 41.50, 0.9],  // Cleveland
+  [-83.05, 42.33, 0.9],  // Detroit
+  [-87.63, 41.88, 1.3],  // Chicago
+  [-90.2, 38.63, 0.8],   // St. Louis
+  [-93.27, 44.98, 0.9],  // Minneapolis
+  [-96.80, 32.78, 1.1],  // Dallas
+  [-95.37, 29.76, 1.1],  // Houston
+  [-90.07, 29.95, 0.8],  // New Orleans
+  [-86.78, 36.16, 0.9],  // Nashville
+  [-104.99, 39.74, 0.9], // Denver
+  [-111.89, 40.76, 0.6], // Salt Lake City
+  [-112.07, 33.45, 1.0], // Phoenix
+  [-118.24, 34.05, 1.4], // LA
+  [-117.16, 32.72, 0.8], // San Diego
+  [-122.42, 37.77, 1.2], // SF Bay
+  [-122.68, 45.52, 0.7], // Portland
+  [-122.33, 47.60, 0.9], // Seattle
+  [-97.74, 30.27, 0.8],  // Austin
+  [-106.48, 31.76, 0.6], // El Paso
+  [-78.64, 35.78, 0.7],  // Raleigh
+  [-81.66, 30.33, 0.7],  // Jacksonville
+  [-79.99, 40.44, 0.7],  // Pittsburgh
 ];
 
+const PHOENIX_LL: [number, number] = [-112.074, 33.448];
+
+// ── PRNG + dot generation ───────────────────────────────────────
 const seededRandom = (seed: number) => {
   let s = seed;
   return () => {
@@ -72,84 +95,56 @@ const seededRandom = (seed: number) => {
   };
 };
 
-const pointInPolygon = (
-  point: [number, number],
-  polygon: [number, number][]
-): boolean => {
-  const [x, y] = point;
-  let inside = false;
-  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-    const [xi, yi] = polygon[i];
-    const [xj, yj] = polygon[j];
-    if (
-      yi > y !== yj > y &&
-      x < ((xj - xi) * (y - yi)) / (yj - yi) + xi
-    ) {
-      inside = !inside;
-    }
-  }
-  return inside;
-};
+type Dot = { x: number; y: number; lng: number; lat: number };
 
-// Generate weighted dot positions biased toward anchors (college metros)
-const generateDots = (count: number, seed: number): [number, number][] => {
+const generateDots = (count: number, seed: number): Dot[] => {
   const rnd = seededRandom(seed);
-  const dots: [number, number][] = [];
+  const out: Dot[] = [];
   let attempts = 0;
-  while (dots.length < count && attempts < count * 40) {
+  const totalWeight = ANCHORS.reduce((a, b) => a + b[2], 0);
+
+  while (out.length < count && attempts < count * 60) {
     attempts++;
-    // 70% chance: sample near an anchor; 30% uniform for coverage
-    let x: number, y: number;
-    if (rnd() < 0.72) {
-      const a = ANCHORS[Math.floor(rnd() * ANCHORS.length)];
-      const spread = 0.09;
-      x = a[0] + (rnd() - 0.5) * spread * 2;
-      y = a[1] + (rnd() - 0.5) * spread * 2;
+    let lng: number, lat: number;
+    const mode = rnd();
+    if (mode < 0.75) {
+      // cluster around a weighted anchor
+      let pick = rnd() * totalWeight;
+      let a = ANCHORS[0];
+      for (const anchor of ANCHORS) {
+        pick -= anchor[2];
+        if (pick <= 0) { a = anchor; break; }
+      }
+      const spread = 2.4;
+      lng = a[0] + (rnd() - 0.5) * spread * 2;
+      lat = a[1] + (rnd() - 0.5) * spread;
     } else {
-      x = rnd();
-      y = rnd();
+      // uniform across CONUS bounding box for coverage
+      lng = -125 + rnd() * 58;
+      lat = 25 + rnd() * 24;
     }
-    if (x < 0 || x > 1 || y < 0 || y > 1) continue;
-    if (pointInPolygon([x, y], US_POLYGON)) {
-      dots.push([x, y]);
-    }
+    if (!geoContains(nationFeature, [lng, lat])) continue;
+    const p = projection([lng, lat]);
+    if (!p) continue;
+    out.push({ x: p[0], y: p[1], lng, lat });
   }
-  return dots;
+  return out;
 };
 
 const DOT_COUNT = 520;
 const DOTS = generateDots(DOT_COUNT, 42);
 
-// Map layout in canvas pixels — generous centering
-const MAP = { x: 80, y: 360, w: 920, h: 620 };
-const toCanvas = ([nx, ny]: [number, number]): [number, number] => [
-  MAP.x + nx * MAP.w,
-  MAP.y + ny * MAP.h,
-];
+const phxProj = projection(PHOENIX_LL) || [0, 0];
+const PHX_X = phxProj[0];
+const PHX_Y = phxProj[1];
 
-const [PHX_X, PHX_Y] = toCanvas(PHOENIX_NORM);
+// Line targets — every fourth dot, up to ~130, avoiding the Phoenix point
+const LINE_TARGETS = DOTS
+  .filter((_, i) => i % 4 === 0)
+  .filter(d => Math.hypot(d.x - PHX_X, d.y - PHX_Y) > 40)
+  .slice(0, 130);
 
-// Pick line targets: ~130 dots spread across the polygon for connectivity
-const LINE_TARGETS = DOTS.filter((_, i) => i % 4 === 0).slice(0, 130);
-
-// Pre-compute SVG path `d` for US outline
-const usPathD =
-  US_POLYGON
-    .map((p, i) => {
-      const [x, y] = toCanvas(p);
-      return `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`;
-    })
-    .join(' ') + ' Z';
-
-// Pre-compute total approximate polygon perimeter for stroke animation
-const PATH_POINTS = US_POLYGON.map(toCanvas);
-const PATH_LENGTH = PATH_POINTS.reduce((total, p, i) => {
-  if (i === 0) return 0;
-  const [px, py] = PATH_POINTS[i - 1];
-  const [x, y] = p;
-  return total + Math.hypot(x - px, y - py);
-}, 0);
-
+// ── helpers ────────────────────────────────────────────────────
 type RiseProps = {
   from: number;
   duration?: number;
@@ -158,7 +153,7 @@ type RiseProps = {
   style?: React.CSSProperties;
 };
 
-const Rise: React.FC<RiseProps> = ({ from, duration = 26, distance = 24, children, style }) => {
+const Rise: React.FC<RiseProps> = ({ from, duration = 26, distance = 22, children, style }) => {
   const frame = useCurrentFrame();
   const t = interpolate(frame, [from, from + duration], [0, 1], {
     extrapolateLeft: 'clamp',
@@ -178,74 +173,58 @@ const Rise: React.FC<RiseProps> = ({ from, duration = 26, distance = 24, childre
   );
 };
 
-const Grain: React.FC = () => (
-  <AbsoluteFill
-    style={{
-      pointerEvents: 'none',
-      opacity: 0.22,
-      mixBlendMode: 'overlay',
-    }}
-  >
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <filter id="n">
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
-        <feColorMatrix values="0 0 0 0 0.039 0 0 0 0 0.031 0 0 0 0 0.07 0 0 0 0.35 0" />
-      </filter>
-      <rect width="100%" height="100%" filter="url(#n)" />
-    </svg>
-  </AbsoluteFill>
-);
-
+// ── composition ────────────────────────────────────────────────
 export const HeroCredentials: React.FC = () => {
   const frame = useCurrentFrame();
 
-  // seamless loop fade
-  const loopFade = interpolate(frame, [0, 8, 205, 215], [0, 1, 1, 0], {
+  // simple fade-in at start, hold forever after
+  const fadeIn = interpolate(frame, [0, 10], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
 
-  // map outline draw
-  const mapDraw = interpolate(frame, [20, 80], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-    easing: ease,
-  });
-
-  // map fade-down as number resolves
-  const mapDim = interpolate(frame, [150, 185], [1, 0.35], {
+  // map outline draw (0 → 1)
+  const mapDraw = interpolate(frame, [20, 90], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: ease,
   });
 
-  // Phoenix node
+  // map opacity dimming so the final number reads
+  const mapDim = interpolate(frame, [150, 185], [1, 0.4], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+    easing: ease,
+  });
+
+  // Phoenix node reveal
   const phxScale = interpolate(frame, [100, 132], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.back(1.4)),
   });
-  // pulsing rings (three waves)
-  const ringPulse = (offset: number) => {
-    const localFrame = (frame - 130 - offset) % 45;
-    if (frame < 130 + offset) return { r: 0, o: 0 };
-    const r = interpolate(localFrame, [0, 45], [10, 70], { extrapolateRight: 'clamp' });
-    const o = interpolate(localFrame, [0, 45], [0.6, 0], { extrapolateRight: 'clamp' });
+
+  // two pulse rings — finite (don't pulse forever, settle after the last one)
+  const pulseRing = (startFrame: number, duration: number) => {
+    if (frame < startFrame) return { r: 0, o: 0 };
+    if (frame > startFrame + duration) return { r: 0, o: 0 };
+    const local = frame - startFrame;
+    const r = interpolate(local, [0, duration], [12, 60], { extrapolateRight: 'clamp' });
+    const o = interpolate(local, [0, duration], [0.45, 0], { extrapolateRight: 'clamp' });
     return { r, o };
   };
 
-  // Big number reveal
-  const numberOpacity = interpolate(frame, [158, 182], [0, 1], {
+  // Big number reveal + count-up
+  const numberOpacity = interpolate(frame, [158, 184], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: ease,
   });
-  const numberScale = interpolate(frame, [158, 200], [0.72, 1], {
+  const numberScale = interpolate(frame, [158, 200], [0.74, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.cubic),
   });
-  // Count-up animation
   const countProgress = interpolate(frame, [160, 202], [0, 52000], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
@@ -253,181 +232,177 @@ export const HeroCredentials: React.FC = () => {
   });
   const displayedCount = Math.round(countProgress).toLocaleString();
 
-  const subtitleOpacity = interpolate(frame, [190, 210], [0, 1], {
+  const subtitleOpacity = interpolate(frame, [190, 212], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: ease,
   });
 
   return (
-    <AbsoluteFill style={{ background: C.ink, opacity: loopFade, overflow: 'hidden' }}>
-      {/* Ambient purple glow radiating from Phoenix */}
-      <div
-        style={{
-          position: 'absolute',
-          width: 1400,
-          height: 1400,
-          left: PHX_X - 700,
-          top: PHX_Y - 700,
-          background: `radial-gradient(circle, ${C.brand} 0%, transparent 58%)`,
-          opacity: 0.28,
-          pointerEvents: 'none',
-          filter: 'blur(24px)',
-        }}
-      />
-
-      {/* Secondary glow — adds depth */}
+    <AbsoluteFill style={{ background: C.paper, opacity: fadeIn }}>
+      {/* soft purple wash behind Phoenix — not a rectangle, just atmosphere */}
       <div
         style={{
           position: 'absolute',
           width: 900,
           height: 900,
-          right: -260,
-          top: -260,
-          background: `radial-gradient(circle, ${C.brand} 0%, transparent 65%)`,
-          opacity: 0.16,
+          left: PHX_X - 450,
+          top: PHX_Y - 450,
+          background: `radial-gradient(circle, ${C.brand} 0%, transparent 62%)`,
+          opacity: 0.08,
           pointerEvents: 'none',
+          filter: 'blur(20px)',
         }}
       />
 
-      {/* Inset editorial hairline frame */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 36,
-          border: `1px solid ${C.brand}`,
-          opacity: interpolate(frame, [0, 24], [0, 0.6], { extrapolateRight: 'clamp' }),
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* Main SVG stage — map, dots, lines, phoenix */}
+      {/* Main SVG — real US map + dots + lines */}
       <svg
-        width={1080}
-        height={1350}
+        width={CANVAS_W}
+        height={CANVAS_H}
+        viewBox={`0 0 ${CANVAS_W} ${CANVAS_H}`}
         style={{ position: 'absolute', inset: 0 }}
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* US map outline — subtle, behind everything */}
+        <defs>
+          {/* subtle glow for dots */}
+          <filter id="dotGlow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="1.3" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+
+          {/* soft line halo */}
+          <filter id="lineGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="0.8" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+
+          {/* bigger glow on Phoenix node */}
+          <filter id="phxGlow" x="-120%" y="-120%" width="340%" height="340%">
+            <feGaussianBlur stdDeviation="6" />
+            <feMerge>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* US map outline — geographically accurate via d3 Albers */}
         <path
-          d={usPathD}
+          d={nationPathD}
           fill="none"
-          stroke={C.brandLight}
-          strokeWidth={1.3}
-          strokeOpacity={0.32 * mapDim}
-          strokeDasharray={PATH_LENGTH}
-          strokeDashoffset={PATH_LENGTH * (1 - mapDraw)}
+          stroke={C.brand}
+          strokeWidth={1.4}
+          strokeOpacity={0.42 * mapDim}
           strokeLinejoin="round"
           strokeLinecap="round"
+          pathLength={1}
+          strokeDasharray={1}
+          strokeDashoffset={1 - mapDraw}
         />
 
-        {/* Connection lines from Phoenix — drawn outward */}
-        {LINE_TARGETS.map((t, i) => {
-          const [tx, ty] = toCanvas(t);
-          const lineStart = 130 + (i / LINE_TARGETS.length) * 36;
-          const progress = interpolate(frame, [lineStart, lineStart + 18], [0, 1], {
-            extrapolateLeft: 'clamp',
-            extrapolateRight: 'clamp',
-            easing: ease,
-          });
-          const endX = PHX_X + (tx - PHX_X) * progress;
-          const endY = PHX_Y + (ty - PHX_Y) * progress;
-          const lineOpacity = 0.28 * mapDim * (progress > 0.2 ? 1 : progress / 0.2);
-          return (
-            <line
-              key={`L${i}`}
-              x1={PHX_X}
-              y1={PHX_Y}
-              x2={endX}
-              y2={endY}
-              stroke={C.brandLight}
-              strokeWidth={0.7}
-              strokeOpacity={lineOpacity}
-            />
-          );
-        })}
-
-        {/* Dots — bloom across the map */}
-        {DOTS.map((d, i) => {
-          const [x, y] = toCanvas(d);
-          const dotStart = 80 + (i / DOT_COUNT) * 52;
-          const scale = interpolate(
-            frame,
-            [dotStart, dotStart + 14],
-            [0, 1],
-            {
+        {/* Connection lines from Phoenix — subtle halo */}
+        <g filter="url(#lineGlow)">
+          {LINE_TARGETS.map((t, i) => {
+            const lineStart = 130 + (i / LINE_TARGETS.length) * 38;
+            const progress = interpolate(frame, [lineStart, lineStart + 20], [0, 1], {
               extrapolateLeft: 'clamp',
               extrapolateRight: 'clamp',
-              easing: Easing.out(Easing.back(1.8)),
-            }
-          );
-          // subtle breathing after they settle
-          const breath =
-            frame > 150 ? 1 + Math.sin((frame + i * 2.7) / 14) * 0.22 : 1;
-          const baseR = 1.9;
-          const r = baseR * scale * breath;
-          const hue = (i * 37) % 100 > 80 ? C.white : C.brandLight;
-          const op = 0.72 * mapDim;
-          return (
-            <circle
-              key={`D${i}`}
-              cx={x}
-              cy={y}
-              r={r}
-              fill={hue}
-              opacity={op}
-            />
-          );
-        })}
+              easing: ease,
+            });
+            const endX = PHX_X + (t.x - PHX_X) * progress;
+            const endY = PHX_Y + (t.y - PHX_Y) * progress;
+            const lineOpacity = 0.26 * mapDim * (progress > 0.2 ? 1 : progress / 0.2);
+            return (
+              <line
+                key={`L${i}`}
+                x1={PHX_X}
+                y1={PHX_Y}
+                x2={endX}
+                y2={endY}
+                stroke={C.brand}
+                strokeWidth={0.6}
+                strokeOpacity={lineOpacity}
+              />
+            );
+          })}
+        </g>
 
-        {/* Phoenix pulse rings (staggered) */}
-        {[0, 14, 28].map((offset, i) => {
-          const { r, o } = ringPulse(offset);
-          return (
-            <circle
-              key={`R${i}`}
-              cx={PHX_X}
-              cy={PHX_Y}
-              r={r}
-              fill="none"
-              stroke={C.brandLight}
-              strokeWidth={1.4}
-              opacity={o}
-            />
-          );
-        })}
+        {/* Dots — bloom across map, subtle static glow (no pulsing) */}
+        <g filter="url(#dotGlow)">
+          {DOTS.map((d, i) => {
+            const dotStart = 80 + (i / DOT_COUNT) * 52;
+            const scale = interpolate(
+              frame,
+              [dotStart, dotStart + 14],
+              [0, 1],
+              {
+                extrapolateLeft: 'clamp',
+                extrapolateRight: 'clamp',
+                easing: Easing.out(Easing.back(1.6)),
+              }
+            );
+            const r = 1.9 * scale;
+            const op = 0.72 * mapDim;
+            return (
+              <circle
+                key={`D${i}`}
+                cx={d.x}
+                cy={d.y}
+                r={r}
+                fill={C.brand}
+                opacity={op}
+              />
+            );
+          })}
+        </g>
 
-        {/* Phoenix node — glowing center */}
-        <circle
-          cx={PHX_X}
-          cy={PHX_Y}
-          r={14 * phxScale}
-          fill={C.brand}
-          opacity={0.45}
-        />
-        <circle
-          cx={PHX_X}
-          cy={PHX_Y}
-          r={8 * phxScale}
-          fill={C.white}
-        />
-        <circle
-          cx={PHX_X}
-          cy={PHX_Y}
-          r={3.5 * phxScale}
-          fill={C.brand}
-        />
+        {/* Phoenix pulse rings — finite, stop before end */}
+        {[
+          pulseRing(130, 36),
+          pulseRing(150, 38),
+        ].map((ring, i) => (
+          <circle
+            key={`R${i}`}
+            cx={PHX_X}
+            cy={PHX_Y}
+            r={ring.r}
+            fill="none"
+            stroke={C.brand}
+            strokeWidth={1.3}
+            opacity={ring.o}
+          />
+        ))}
 
-        {/* Phoenix label */}
-        <g opacity={interpolate(frame, [132, 158], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }) * mapDim}>
+        {/* Phoenix node — glowing */}
+        <g filter="url(#phxGlow)">
+          <circle cx={PHX_X} cy={PHX_Y} r={11 * phxScale} fill={C.brand} opacity={0.5} />
+        </g>
+        <circle cx={PHX_X} cy={PHX_Y} r={6 * phxScale} fill={C.brand} />
+        <circle cx={PHX_X} cy={PHX_Y} r={3 * phxScale} fill={C.white} />
+
+        {/* Phoenix label (appears once Phoenix lands) */}
+        <g
+          opacity={
+            interpolate(frame, [132, 158], [0, 1], {
+              extrapolateLeft: 'clamp',
+              extrapolateRight: 'clamp',
+            }) * Math.min(mapDim * 1.3, 1)
+          }
+        >
           <line
-            x1={PHX_X - 22}
+            x1={PHX_X - 18}
             y1={PHX_Y + 2}
             x2={PHX_X - 70}
             y2={PHX_Y + 2}
-            stroke={C.brandLight}
+            stroke={C.brand}
             strokeWidth={1}
-            opacity={0.6}
+            opacity={0.7}
           />
           <text
             x={PHX_X - 78}
@@ -435,7 +410,7 @@ export const HeroCredentials: React.FC = () => {
             fontFamily={F.mono}
             fontSize={13}
             fontWeight={500}
-            fill={C.brandLight}
+            fill={C.brand}
             textAnchor="end"
             letterSpacing="2"
           >
@@ -462,7 +437,7 @@ export const HeroCredentials: React.FC = () => {
               fontFamily: F.mono,
               fontSize: 20,
               letterSpacing: '0.22em',
-              color: C.brandLight,
+              color: C.brand,
               textTransform: 'uppercase',
               fontWeight: 500,
             }}
@@ -477,7 +452,7 @@ export const HeroCredentials: React.FC = () => {
               fontFamily: F.sans,
               fontSize: 18,
               letterSpacing: '0.24em',
-              color: 'rgba(255, 255, 255, 0.5)',
+              color: C.inkMuted,
               textTransform: 'uppercase',
               textAlign: 'right',
               fontWeight: 500,
@@ -488,7 +463,7 @@ export const HeroCredentials: React.FC = () => {
               style={{
                 width: 64,
                 height: 1,
-                background: C.brandLight,
+                background: C.brand,
                 marginTop: 10,
                 marginLeft: 'auto',
                 opacity: 0.8,
@@ -498,7 +473,7 @@ export const HeroCredentials: React.FC = () => {
         </Rise>
       </div>
 
-      {/* Mid caption — the story line */}
+      {/* Mid caption */}
       <div
         style={{
           position: 'absolute',
@@ -506,7 +481,10 @@ export const HeroCredentials: React.FC = () => {
           left: 0,
           right: 0,
           textAlign: 'center',
-          opacity: interpolate(frame, [36, 60], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }),
+          opacity: interpolate(frame, [36, 60], [0, 1], {
+            extrapolateLeft: 'clamp',
+            extrapolateRight: 'clamp',
+          }),
         }}
       >
         <div
@@ -514,7 +492,7 @@ export const HeroCredentials: React.FC = () => {
             fontFamily: F.mono,
             fontSize: 13,
             letterSpacing: '0.32em',
-            color: 'rgba(255, 255, 255, 0.55)',
+            color: C.inkMuted,
             textTransform: 'uppercase',
             fontWeight: 500,
           }}
@@ -523,7 +501,7 @@ export const HeroCredentials: React.FC = () => {
         </div>
       </div>
 
-      {/* FINALE — Big number + subtitle, centered over map */}
+      {/* FINALE — 52,000 counts up, holds */}
       <div
         style={{
           position: 'absolute',
@@ -540,39 +518,32 @@ export const HeroCredentials: React.FC = () => {
           style={{
             fontFamily: F.display,
             fontWeight: 700,
-            fontSize: 200,
+            fontSize: 196,
             lineHeight: 0.95,
             letterSpacing: '-0.05em',
-            color: C.white,
-            textShadow: '0 6px 60px rgba(37, 20, 114, 0.75)',
+            color: C.ink,
             fontFeatureSettings: '"tnum" 1',
+            textShadow: `0 4px 28px rgba(37, 20, 114, 0.25)`,
           }}
         >
           {displayedCount}
         </div>
         <div
           style={{
-            marginTop: 12,
+            marginTop: 14,
             display: 'flex',
             justifyContent: 'center',
           }}
         >
-          <div
-            style={{
-              width: 110,
-              height: 2,
-              background: C.brandLight,
-              opacity: numberOpacity,
-            }}
-          />
+          <div style={{ width: 110, height: 2, background: C.brand, opacity: 0.85 }} />
         </div>
         <div
           style={{
-            marginTop: 22,
+            marginTop: 24,
             fontFamily: F.sans,
             fontSize: 22,
             letterSpacing: '0.32em',
-            color: C.brandLight,
+            color: C.brand,
             textTransform: 'uppercase',
             fontWeight: 600,
             opacity: subtitleOpacity,
@@ -586,7 +557,7 @@ export const HeroCredentials: React.FC = () => {
             fontFamily: F.sans,
             fontSize: 15,
             letterSpacing: '0.3em',
-            color: 'rgba(255, 255, 255, 0.55)',
+            color: C.inkMuted,
             textTransform: 'uppercase',
             fontWeight: 500,
             opacity: subtitleOpacity,
@@ -609,7 +580,7 @@ export const HeroCredentials: React.FC = () => {
           fontFamily: F.mono,
           fontSize: 13,
           letterSpacing: '0.22em',
-          color: 'rgba(255, 255, 255, 0.45)',
+          color: C.inkFaint,
           textTransform: 'uppercase',
           fontWeight: 500,
           opacity: interpolate(frame, [148, 178], [0, 1], {
@@ -621,8 +592,6 @@ export const HeroCredentials: React.FC = () => {
         <span>15 Years · Scout-level eye</span>
         <span>Every Sport · Every Division</span>
       </div>
-
-      <Grain />
     </AbsoluteFill>
   );
 };
