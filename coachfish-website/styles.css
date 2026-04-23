@@ -87,8 +87,8 @@ body::before {
 .display {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.8rem, 6.6vw, 6.6rem);
-  line-height: 1.0;
+  font-size: clamp(2.4rem, 5.2vw, 5rem);
+  line-height: 1.02;
   letter-spacing: -0.035em;
   color: var(--ink);
 }
@@ -331,10 +331,9 @@ em, i { font-style: italic; }
 
 .hero__grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(32px, 4.5vw, 72px);
   align-items: center;
-  padding-inline: clamp(0px, 1vw, 24px);
 }
 .hero__text { min-width: 0; }
 .hero__text .eyebrow { margin-bottom: 28px; }

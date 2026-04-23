@@ -40,8 +40,8 @@ const CANVAS_H = 1350;
 // d3 Albers USA — positioned to center the CONUS in the canvas
 // with room for text above and below the map
 const projection = geoAlbersUsa()
-  .scale(1620)
-  .translate([CANVAS_W / 2, 660]);
+  .scale(1380)
+  .translate([CANVAS_W / 2, 650]);
 
 const pathGen = geoPath(projection);
 
