@@ -41,15 +41,19 @@ module.exports = async function handler(req, res) {
   }
 
   // 1) Record the lead in the "Email List" sheet (idempotent — skip on dupe)
+  let sheetSaved = false
+  let sheetError = null
   try {
-    const isDuplicate = await checkDuplicateInEmailList(email).catch(() => false)
-    if (!isDuplicate) {
-      await appendToEmailList(email, 'AI Entrepreneurship Guide').catch((err) => {
-        console.error('Sheet append failed:', err)
-      })
+    const isDuplicate = await checkDuplicateInEmailList(email)
+    if (isDuplicate) {
+      sheetSaved = true // already there — counts as saved
+    } else {
+      await appendToEmailList(email, 'AI Entrepreneurship Guide')
+      sheetSaved = true
     }
   } catch (err) {
-    console.error('Sheet check failed:', err)
+    sheetError = (err && err.message) || String(err)
+    console.error('Sheet write failed:', sheetError)
     // Don't block the user from getting the PDF if Sheets is misconfigured
   }
 
@@ -147,5 +151,5 @@ module.exports = async function handler(req, res) {
     })
   } catch (_) {}
 
-  return res.status(200).json({ success: true, emailSent })
+  return res.status(200).json({ success: true, emailSent, sheetSaved, sheetError })
 }
