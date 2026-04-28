@@ -1,13 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { ArrowUpRight, Globe, Rss, Play, Share2 } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#portfolio' },
-  { label: 'Process', href: '#process' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
   { label: 'Newsletter', href: '/newsletter' },
 ]
 
@@ -26,19 +21,27 @@ export default function Footer() {
     e.preventDefault()
     if (href.startsWith('/')) {
       navigate(href)
-      return
-    }
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        const target = document.querySelector(href)
-        if (target) target.scrollIntoView({ behavior: 'smooth' })
-      }, 100)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
     const target = document.querySelector(href)
     if (target) target.scrollIntoView({ behavior: 'smooth' })
   }
+
+  const handleGuideClick = (e) => {
+    e.preventDefault()
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        document.getElementById('lm-email')?.focus()
+        document.getElementById('lm-email')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 120)
+      return
+    }
+    document.getElementById('lm-email')?.focus()
+    document.getElementById('lm-email')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
   return (
     <footer className="relative bg-background border-t border-border overflow-hidden">
       {/* Large background text */}
@@ -51,18 +54,18 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-16">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div>
-              <div className="section-label mb-3">Ready to Start?</div>
+              <div className="section-label mb-3">Free Guide</div>
               <h3 className="text-3xl lg:text-4xl font-black text-white tracking-tight">
-                Let's build something that<br />
-                <span className="text-gradient">converts.</span>
+                Start your AI journey<br />
+                <span className="text-gradient">the right way.</span>
               </h3>
             </div>
             <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
+              href="#lm-email"
+              onClick={handleGuideClick}
               className="btn-primary text-sm flex-shrink-0"
             >
-              <span>Book a Free Discovery Call</span>
+              <span>Get the Free Guide</span>
               <ArrowUpRight size={16} className="relative z-10" />
             </a>
           </div>
@@ -71,15 +74,15 @@ export default function Footer() {
 
       {/* Main footer */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-14">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-12">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div>
             <div className="flex items-center mb-4">
               <span className="text-white font-semibold tracking-tight">JT Fasulo</span>
             </div>
             <p className="text-text-muted text-sm leading-relaxed mb-6 max-w-xs">
-              AI creative technologist and strategic brand partner. Building the future of campaign
-              creatives, one brand at a time.
+              A free PDF guide for founders getting started with AI in entrepreneurship.
+              Plus a weekly newsletter on what actually matters in AI.
             </p>
             {/* Social links */}
             <div className="flex items-center gap-2">
@@ -112,30 +115,16 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <div className="text-[10px] tracking-[0.25em] uppercase text-text-dim mb-5">Services</div>
-            <ul className="space-y-3">
-              {[
-                'Campaign Creatives Made with AI',
-                'Social Media Strategy',
-                'Content Optimization',
-                'Strategy Consulting',
-              ].map((service) => (
-                <li key={service}>
-                  <a
-                    href="#services"
-                    onClick={(e) => handleNavClick(e, '#services')}
-                    className="text-text-muted text-sm hover:text-white transition-colors duration-200 flex items-center gap-2 group"
-                  >
-                    <span className="w-3 h-px bg-border group-hover:bg-accent group-hover:w-4 transition-all duration-300" />
-                    {service}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="#lm-email"
+                  onClick={handleGuideClick}
+                  className="text-text-muted text-sm hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                >
+                  <span className="w-3 h-px bg-border group-hover:bg-accent group-hover:w-4 transition-all duration-300" />
+                  Get the Guide
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -146,8 +135,6 @@ export default function Footer() {
             © {new Date().getFullYear()} JT Fasulo. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-text-dim text-xs hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="text-text-dim text-xs hover:text-white transition-colors">Terms</a>
             <a
               href="https://jtfasulo.com"
               target="_blank"

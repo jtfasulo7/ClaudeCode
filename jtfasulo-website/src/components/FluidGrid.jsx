@@ -137,7 +137,7 @@ export default function FluidGrid() {
       const cols = Math.ceil(width / GRID) + 3
       const rows = Math.ceil(height / GRID) + 3
 
-      ctx.strokeStyle = 'rgba(6,182,212,0.1)'
+      ctx.strokeStyle = 'rgba(46, 125, 140,0.1)'
       ctx.lineWidth = 1
 
       for (let i = -2; i < cols; i++) {
@@ -166,9 +166,9 @@ export default function FluidGrid() {
 
       if (mouseX > -1000) {
         const grd = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 120)
-        grd.addColorStop(0, 'rgba(6,182,212,0.14)')
-        grd.addColorStop(0.35, 'rgba(6,182,212,0.06)')
-        grd.addColorStop(1, 'rgba(6,182,212,0)')
+        grd.addColorStop(0, 'rgba(46, 125, 140,0.14)')
+        grd.addColorStop(0.35, 'rgba(46, 125, 140,0.06)')
+        grd.addColorStop(1, 'rgba(46, 125, 140,0)')
         ctx.fillStyle = grd
         ctx.fillRect(0, 0, width, height)
       }

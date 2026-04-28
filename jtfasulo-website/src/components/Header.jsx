@@ -4,18 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#portfolio' },
-  { label: 'Process', href: '#process' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
   { label: 'Newsletter', href: '/newsletter' },
 ]
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +29,6 @@ export default function Header() {
       setMobileOpen(false)
       return
     }
-    // If we're on a sub-page, navigate home first then scroll
     if (location.pathname !== '/') {
       navigate('/')
       setTimeout(() => {
@@ -50,6 +43,21 @@ export default function Header() {
       target.scrollIntoView({ behavior: 'smooth' })
       setMobileOpen(false)
     }
+  }
+
+  const handleGuideClick = (e) => {
+    e.preventDefault()
+    setMobileOpen(false)
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        document.getElementById('lm-email')?.focus()
+        document.getElementById('lm-email')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 120)
+      return
+    }
+    document.getElementById('lm-email')?.focus()
+    document.getElementById('lm-email')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
   return (
@@ -91,11 +99,11 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="#contact"
-                onClick={(e) => handleNavClick(e, '#contact')}
+                href="#lm-email"
+                onClick={handleGuideClick}
                 className="ml-4 btn-primary text-xs py-2.5 px-5"
               >
-                <span>Book a Call</span>
+                <span>Get the Guide</span>
               </a>
             </nav>
 
@@ -142,11 +150,11 @@ export default function Header() {
                 className="mt-10"
               >
                 <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, '#contact')}
+                  href="#lm-email"
+                  onClick={handleGuideClick}
                   className="btn-primary text-sm"
                 >
-                  <span>Book a Call</span>
+                  <span>Get the Guide</span>
                 </a>
               </motion.div>
             </div>

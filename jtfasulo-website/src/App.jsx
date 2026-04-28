@@ -1,12 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import './index.css'
 import Header from './components/Header'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import Portfolio from './components/Portfolio'
-import Process from './components/Process'
-import About from './components/About'
-import Contact from './components/Contact'
+import LeadMagnet from './components/LeadMagnet'
 import Footer from './components/Footer'
 import Newsletter from './components/Newsletter'
 
@@ -15,12 +10,7 @@ function Home() {
     <div className="bg-background text-white min-h-screen">
       <Header />
       <main>
-        <Hero />
-        <Services />
-        <Portfolio />
-        <Process />
-        <About />
-        <Contact />
+        <LeadMagnet />
       </main>
       <Footer />
     </div>
