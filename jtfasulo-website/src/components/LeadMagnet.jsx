@@ -224,7 +224,9 @@ export default function LeadMagnet() {
                     )}
 
                     <p className="mt-5 text-[11px] text-text-dim leading-relaxed">
-                      No spam. No course pitch. One PDF, delivered.
+                      By entering your email, you agree to receive the guide and occasional
+                      updates from JT Fasulo / SYBAGO LLC. We don't share your email.
+                      Unsubscribe anytime. <a href="/privacy-policy" className="text-text-muted underline underline-offset-2 hover:text-accent transition-colors">Privacy Policy</a>.
                     </p>
                   </form>
                 )}

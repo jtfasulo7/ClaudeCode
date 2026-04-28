@@ -124,16 +124,46 @@ export default function Footer() {
                   Get the Guide
                 </a>
               </li>
+              <li>
+                <a
+                  href="/privacy-policy"
+                  className="text-text-muted text-sm hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                >
+                  <span className="w-3 h-px bg-border group-hover:bg-accent group-hover:w-4 transition-all duration-300" />
+                  Privacy Policy
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
+        {/* Legal block */}
+        <div className="pt-8 border-t border-border flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10 mb-6">
+          <div className="flex items-center gap-3">
+            <img src="/sybago_logo.png" alt="Sybago" width="36" height="36" className="rounded" />
+            <div>
+              <p className="text-[11px] tracking-[0.22em] uppercase text-white font-semibold">SYBAGO LLC</p>
+              <p className="text-text-dim text-xs mt-1">116 W 9th St, Wilmington, DE 19801</p>
+            </div>
+          </div>
+          <p className="text-text-dim text-xs leading-relaxed lg:max-w-md">
+            jtfasulo.com is operated by SYBAGO LLC. By submitting your email you agree to receive the
+            guide and occasional updates. Unsubscribe anytime via the link in any email we send.
+          </p>
+        </div>
+
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-text-dim text-xs">
-            © {new Date().getFullYear()} JT Fasulo. All rights reserved.
+            © {new Date().getFullYear()} SYBAGO LLC. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
+            <a
+              href="/privacy-policy"
+              className="text-text-dim text-xs hover:text-accent transition-colors"
+            >
+              Privacy Policy
+            </a>
             <a
               href="https://jtfasulo.com"
               target="_blank"
