@@ -123,7 +123,7 @@ export default function LeadMagnet() {
                 initial={{ y: 80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                className="text-[clamp(2.4rem,6.5vw,5.5rem)] font-black leading-[1.05] tracking-tight"
+                className="text-[clamp(2rem,4.6vw,4.1rem)] font-black leading-[1.08] tracking-tight"
               >
                 <span className="text-white block">The Beginner's Guide</span>
                 <span className="text-gradient block pb-2">to AI in</span>
@@ -185,7 +185,7 @@ export default function LeadMagnet() {
               className="relative"
             >
               <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-accent/30 via-accent/10 to-transparent pointer-events-none" />
-              <div className="relative bg-surface border border-border rounded-2xl p-7 sm:p-9 shadow-[0_30px_80px_-20px_rgba(46,125,140,0.25)]">
+              <div className="relative bg-surface border border-border rounded-2xl p-7 sm:p-9 shadow-[0_30px_80px_-20px_rgba(47, 103, 121,0.25)]">
                 <div className="flex items-center gap-2 mb-5">
                   <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                   <span className="text-[10px] tracking-[0.3em] uppercase text-accent font-semibold">

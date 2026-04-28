@@ -219,7 +219,7 @@ function SubscribeForm() {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="h-12 px-6 rounded-xl bg-accent text-background font-semibold text-sm tracking-wide uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(46, 125, 140,0.3)] hover:-translate-y-px disabled:opacity-50 flex items-center justify-center gap-2 flex-shrink-0"
+            className="h-12 px-6 rounded-xl bg-accent text-background font-semibold text-sm tracking-wide uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(47, 103, 121,0.3)] hover:-translate-y-px disabled:opacity-50 flex items-center justify-center gap-2 flex-shrink-0"
           >
             {status === 'loading' ? (
               <div className="w-4 h-4 border-2 border-background/30 border-t-background rounded-full animate-spin" />
@@ -259,7 +259,7 @@ export default function Newsletter() {
           <div
             className="absolute inset-0 pointer-events-none transition-all duration-[2s] ease-out"
             style={{
-              background: `radial-gradient(ellipse 50% 50% at ${30 + mouseX * 40}% ${30 + mouseY * 40}%, rgba(46, 125, 140,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 70% 60%, rgba(0, 0, 0,0.04) 0%, transparent 70%)`,
+              background: `radial-gradient(ellipse 50% 50% at ${30 + mouseX * 40}% ${30 + mouseY * 40}%, rgba(47, 103, 121,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 70% 60%, rgba(0, 0, 0,0.04) 0%, transparent 70%)`,
             }}
           />
 
@@ -503,7 +503,7 @@ export default function Newsletter() {
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: 'radial-gradient(ellipse 50% 60% at 50% 100%, rgba(46, 125, 140,0.06) 0%, transparent 70%)',
+              background: 'radial-gradient(ellipse 50% 60% at 50% 100%, rgba(47, 103, 121,0.06) 0%, transparent 70%)',
             }}
           />
           <div className="relative z-10 max-w-xl mx-auto px-6 lg:px-8 text-center">
