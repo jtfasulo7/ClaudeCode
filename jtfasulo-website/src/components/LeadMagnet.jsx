@@ -26,6 +26,7 @@ export default function LeadMagnet() {
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
   const [email, setEmail] = useState('')
+  const [consent, setConsent] = useState(false)
   const [status, setStatus] = useState('idle') // idle | loading | success | error
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -46,6 +47,12 @@ export default function LeadMagnet() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
       setStatus('error')
       setErrorMessage('Please enter a valid email address.')
+      return
+    }
+
+    if (!consent) {
+      setStatus('error')
+      setErrorMessage('Please agree to the Privacy Policy to receive the guide.')
       return
     }
 
@@ -206,9 +213,54 @@ export default function LeadMagnet() {
                       className="form-input mb-4"
                     />
 
+                    <label
+                      htmlFor="lm-consent"
+                      className="flex items-start gap-3 mb-5 cursor-pointer select-none group"
+                    >
+                      <span className="relative flex-shrink-0 mt-[2px]">
+                        <input
+                          id="lm-consent"
+                          type="checkbox"
+                          checked={consent}
+                          onChange={(e) => {
+                            setConsent(e.target.checked)
+                            if (status === 'error') {
+                              setStatus('idle')
+                              setErrorMessage('')
+                            }
+                          }}
+                          className="peer sr-only"
+                        />
+                        <span
+                          aria-hidden="true"
+                          className="block w-4 h-4 rounded border border-border bg-surface-2 transition-all duration-200 group-hover:border-accent peer-checked:border-accent peer-checked:bg-accent peer-focus-visible:ring-2 peer-focus-visible:ring-accent/40"
+                        />
+                        <Check
+                          size={11}
+                          aria-hidden="true"
+                          className={`absolute inset-0 m-auto text-white transition-opacity duration-200 ${
+                            consent ? 'opacity-100' : 'opacity-0'
+                          }`}
+                          strokeWidth={3}
+                        />
+                      </span>
+                      <span className="text-[12px] leading-relaxed text-text-muted">
+                        I agree to the{' '}
+                        <a
+                          href="/privacy-policy"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-white underline underline-offset-2 hover:text-accent transition-colors"
+                        >
+                          Privacy Policy
+                        </a>{' '}
+                        and consent to receive the guide and occasional updates from
+                        JT Fasulo / SYBAGO LLC.
+                      </span>
+                    </label>
+
                     <button
                       type="submit"
-                      disabled={status === 'loading'}
+                      disabled={status === 'loading' || !consent}
                       className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       <span>
