@@ -106,18 +106,6 @@ export default function LeadMagnet() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* LEFT — pitch */}
           <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="flex items-center gap-3 mb-8"
-            >
-              <div className="flex items-center gap-2 border border-accent/30 bg-accent/5 px-4 py-2 text-xs text-accent tracking-[0.25em] uppercase font-medium rounded-full">
-                <Sparkles size={12} className="text-accent" />
-                Free 2026 Edition · PDF
-              </div>
-            </motion.div>
-
             <div className="mb-7">
               <motion.h1
                 initial={{ y: 80, opacity: 0 }}
@@ -186,13 +174,6 @@ export default function LeadMagnet() {
             >
               <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-accent/30 via-accent/10 to-transparent pointer-events-none" />
               <div className="relative bg-surface border border-border rounded-2xl p-7 sm:p-9 shadow-[0_30px_80px_-20px_rgba(47, 103, 121,0.25)]">
-                <div className="flex items-center gap-2 mb-5">
-                  <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  <span className="text-[10px] tracking-[0.3em] uppercase text-accent font-semibold">
-                    Get the Guide
-                  </span>
-                </div>
-
                 <h2 className="text-2xl sm:text-[1.7rem] font-black text-white leading-tight tracking-tight mb-3">
                   Send me the <span className="text-gradient">free guide</span>.
                 </h2>

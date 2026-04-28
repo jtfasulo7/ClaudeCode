@@ -3,7 +3,6 @@ import { ArrowUpRight, Globe, Rss, Play, Share2 } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Newsletter', href: '/newsletter' },
 ]
 
 const socialLinks = [

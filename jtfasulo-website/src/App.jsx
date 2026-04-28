@@ -3,7 +3,6 @@ import './index.css'
 import Header from './components/Header'
 import LeadMagnet from './components/LeadMagnet'
 import Footer from './components/Footer'
-import Newsletter from './components/Newsletter'
 
 function Home() {
   return (
@@ -21,7 +20,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/newsletter" element={<Newsletter />} />
+      <Route path="*" element={<Home />} />
     </Routes>
   )
 }

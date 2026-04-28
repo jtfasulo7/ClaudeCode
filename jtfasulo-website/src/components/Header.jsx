@@ -3,9 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
-const navLinks = [
-  { label: 'Newsletter', href: '/newsletter' },
-]
+const navLinks = []
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
