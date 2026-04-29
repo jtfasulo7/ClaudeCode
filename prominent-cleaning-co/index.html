@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prominent Cleaning Co — Spotless Homes, Stress-Free Booking</title>
+  <meta name="description" content="Prominent Cleaning Co delivers professional home cleaning across the city. Book online in 60 seconds, choose your day, and come home to a spotless space." />
+  <meta name="theme-color" content="#3DBDB1" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233DBDB1'/%3E%3Ctext x='50%25' y='57%25' text-anchor='middle' dominant-baseline='middle' font-family='sans-serif' font-size='16' font-weight='800' fill='white'%3EP%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="nav" data-nav>
+    <div class="wrap nav__inner">
+      <a class="brand" href="/" aria-label="Prominent Cleaning Co — Home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.3L12 16.8l-5.5 2.8 1-6.3L3 8.9 9 8z"/></svg>
+        </span>
+        <span class="brand__name">Prominent <em>Cleaning Co</em></span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn--primary nav__cta" href="book.html">Book a Cleaning</a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav__mobile" id="mobile-menu" hidden>
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+      <a href="book.html" class="btn btn--primary">Book a Cleaning</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__media" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=80"
+          alt=""
+          loading="eager"
+          decoding="async"
+        />
+        <div class="hero__scrim"></div>
+      </div>
+
+      <div class="wrap hero__inner">
+        <p class="eyebrow eyebrow--light">Trusted by 1,200+ homes citywide</p>
+        <h1 class="display">Cleaning made <em>easy.</em></h1>
+        <p class="hero__lede">
+          Book a vetted cleaner, pick a time, and come home to a spotless space.
+          No hidden fees. Satisfaction guaranteed.
+        </p>
+
+        <form class="hero__form" action="book.html" method="get" novalidate>
+          <label for="hero-zip" class="sr-only">ZIP code</label>
+          <div class="hero__form-row">
+            <input
+              id="hero-zip"
+              name="zip"
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9]{5}"
+              maxlength="5"
+              placeholder="Enter your ZIP code"
+              required
+            />
+            <button type="submit" class="btn btn--primary btn--lg">
+              Continue
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </div>
+          <p class="hero__form-hint">Free instant quote · Takes 30 seconds</p>
+        </form>
+
+        <ul class="hero__trust">
+          <li>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Bonded &amp; insured
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Same-day availability
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            100% happiness guarantee
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SERVICES STRIP -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="wrap">
+        <h2 id="services-heading" class="sr-only">Our cleaning services</h2>
+        <ul class="services__grid">
+          <li class="service-tag">
+            <span class="service-tag__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l2-9h14l2 9"/><path d="M3 12v9h18v-9"/><path d="M8 21v-4h8v4"/></svg>
+            </span>
+            <span class="service-tag__label">Standard Clean</span>
+          </li>
+          <li class="service-tag">
+            <span class="service-tag__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <span class="service-tag__label">Deep Clean</span>
+          </li>
+          <li class="service-tag">
+            <span class="service-tag__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 6V4M16 6V4"/></svg>
+            </span>
+            <span class="service-tag__label">Move-In / Move-Out</span>
+          </li>
+          <li class="service-tag">
+            <span class="service-tag__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>
+            </span>
+            <span class="service-tag__label">Office Cleaning</span>
+          </li>
+          <li class="service-tag">
+            <span class="service-tag__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10h18"/><path d="M5 10v10h14V10"/><path d="M8 6a4 4 0 1 1 8 0v4H8V6z"/></svg>
+            </span>
+            <span class="service-tag__label">Airbnb Turnovers</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how-it-works" aria-labelledby="how-heading">
+      <div class="wrap how__inner">
+        <p class="eyebrow">How it works</p>
+        <h2 class="section-title" id="how-heading">
+          Three steps to a <em>spotless</em> home.
+        </h2>
+        <p class="section-lede">
+          Booking takes a minute. Cleaning takes care of itself.
+        </p>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num mono">01</span>
+            <div class="step__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="16" rx="2"/>
+                <path d="M3 10h18"/>
+                <path d="M8 3v4M16 3v4"/>
+                <text x="12" y="17" text-anchor="middle" font-family="Manrope" font-size="6" font-weight="700" stroke="none" fill="currentColor">15</text>
+              </svg>
+            </div>
+            <h3>Book a Cleaning</h3>
+            <p>Pick the day, time, and home size that fit your schedule.</p>
+          </li>
+          <li class="step">
+            <span class="step__num mono">02</span>
+            <div class="step__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="11" width="16" height="10" rx="2"/>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+                <circle cx="12" cy="16" r="1.4" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Confirm Booking</h3>
+            <p>Lock in your details with a secure deposit. We'll email a receipt.</p>
+          </li>
+          <li class="step">
+            <span class="step__num mono">03</span>
+            <div class="step__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 11l9-7 9 7"/>
+                <path d="M5 10v10h14V10"/>
+                <path d="M9 20v-5h6v5"/>
+              </svg>
+            </div>
+            <h3>We'll Clean It</h3>
+            <p>A vetted Prominent cleaner arrives on time and gets it done right.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="reviews" id="testimonials" aria-labelledby="reviews-heading">
+      <div class="wrap reviews__inner">
+        <p class="eyebrow">Reviews</p>
+        <h2 class="section-title" id="reviews-heading">
+          Don't just take our <em>word</em> for it.
+        </h2>
+        <p class="section-lede">
+          Over 6,000 cleanings completed. 4.9★ average across Yelp, Google, and Nextdoor.
+        </p>
+
+        <div class="reviews__grid">
+          <article class="review">
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="review__quote">
+              "I came home from a long week and walked into a spotless apartment.
+              Booking was the easiest part of my day. Already scheduled my next one."
+            </p>
+            <footer class="review__by">
+              <span class="review__avatar" style="background:#FCE7F3;color:#9D174D;">JM</span>
+              <div>
+                <strong>Jasmine M.</strong>
+                <span>Capitol Hill · Standard Clean</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="review">
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="review__quote">
+              "We hired Prominent for a move-out and they handled the deep clean
+              like pros. Got the full security deposit back. Worth every penny."
+            </p>
+            <footer class="review__by">
+              <span class="review__avatar" style="background:#DBEAFE;color:#1D4ED8;">DR</span>
+              <div>
+                <strong>Daniel R.</strong>
+                <span>Lakeview · Move-Out Clean</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="review">
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="review__quote">
+              "Bi-weekly service for two years and counting. Same trusted cleaner
+              every visit. They notice the little things — that's what keeps me."
+            </p>
+            <footer class="review__by">
+              <span class="review__avatar" style="background:#D1FAE5;color:#065F46;">AS</span>
+              <div>
+                <strong>Alex S.</strong>
+                <span>Riverside · Recurring Bi-Weekly</span>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing" aria-labelledby="pricing-heading">
+      <div class="wrap pricing__inner">
+        <p class="eyebrow">Pricing</p>
+        <h2 class="section-title" id="pricing-heading">
+          Simple, <em>transparent</em> rates.
+        </h2>
+        <p class="section-lede">
+          Flat rates by home size. No upsells. No surprises at checkout.
+        </p>
+
+        <div class="plans">
+          <article class="plan">
+            <header>
+              <span class="plan__tag">Starter</span>
+              <h3>1 Bed · 1 Bath</h3>
+              <p class="plan__price"><span class="plan__currency">$</span>129</p>
+              <p class="plan__per">starting price · per visit</p>
+            </header>
+            <ul class="plan__features">
+              <li>Up to 2 hours of cleaning</li>
+              <li>Kitchen, bathroom, common rooms</li>
+              <li>Eco-friendly supplies included</li>
+              <li>Same trusted cleaner each visit</li>
+            </ul>
+            <a class="btn btn--ghost" href="book.html?plan=starter">Choose Starter</a>
+          </article>
+
+          <article class="plan plan--featured">
+            <span class="plan__badge">Most Popular</span>
+            <header>
+              <span class="plan__tag">Standard</span>
+              <h3>2–3 Bed Home</h3>
+              <p class="plan__price"><span class="plan__currency">$</span>189</p>
+              <p class="plan__per">starting price · per visit</p>
+            </header>
+            <ul class="plan__features">
+              <li>Up to 3.5 hours of cleaning</li>
+              <li>All rooms + interior windows</li>
+              <li>Eco-friendly supplies included</li>
+              <li>Re-clean within 24 hrs if needed</li>
+            </ul>
+            <a class="btn btn--primary" href="book.html?plan=standard">Choose Standard</a>
+          </article>
+
+          <article class="plan">
+            <header>
+              <span class="plan__tag">Deep</span>
+              <h3>Top-to-Bottom</h3>
+              <p class="plan__price"><span class="plan__currency">$</span>329</p>
+              <p class="plan__per">starting price · per visit</p>
+            </header>
+            <ul class="plan__features">
+              <li>Up to 5 hours of cleaning</li>
+              <li>Inside fridge, oven, cabinets</li>
+              <li>Baseboards &amp; window tracks</li>
+              <li>Best for first-time bookings</li>
+            </ul>
+            <a class="btn btn--ghost" href="book.html?plan=deep">Choose Deep</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIG CTA -->
+    <section class="finale" id="contact" aria-labelledby="finale-heading">
+      <div class="wrap finale__inner">
+        <h2 class="section-title" id="finale-heading">
+          Ready for a <em>spotless</em> home?
+        </h2>
+        <p class="section-lede">
+          Book in 60 seconds. We'll handle the rest.
+        </p>
+        <div class="finale__ctas">
+          <a class="btn btn--primary btn--lg" href="book.html">Book a Cleaning</a>
+          <a class="btn btn--link" href="tel:+18007108420">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            Or call (800) 710-8420
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap foot__grid">
+      <div class="foot__brand">
+        <a class="brand brand--foot" href="/" aria-label="Prominent Cleaning Co — Home">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.3L12 16.8l-5.5 2.8 1-6.3L3 8.9 9 8z"/></svg>
+          </span>
+          <span class="brand__name">Prominent <em>Cleaning Co</em></span>
+        </a>
+        <p>Locally owned. Background-checked cleaners. Eco-friendly supplies. Service throughout the metro area.</p>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Standard Clean</a></li>
+          <li><a href="#services">Deep Clean</a></li>
+          <li><a href="#services">Move-In / Move-Out</a></li>
+          <li><a href="#services">Office Cleaning</a></li>
+          <li><a href="#services">Airbnb Turnovers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="book.html">Book Now</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+18007108420">(800) 710-8420</a></li>
+          <li><a href="mailto:hello@prominentcleaning.co">hello@prominentcleaning.co</a></li>
+          <li>Mon–Sat · 7am–8pm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap foot__legal">
+      <span>© <span id="year"></span> Prominent Cleaning Co. All rights reserved.</span>
+      <span class="mono">Bonded · Insured · Licensed</span>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
