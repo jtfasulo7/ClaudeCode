@@ -398,6 +398,44 @@
     </div>
   </footer>
 
+  <!-- CHAT WIDGET -->
+  <div class="cw-root" id="cwRoot">
+    <div class="cw-panel" id="cwPanel" role="dialog" aria-label="Prominent Cleaning Co chat">
+      <div class="cw-header">
+        <span class="cw-header-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.3L12 16.8l-5.5 2.8 1-6.3L3 8.9 9 8z"/></svg>
+        </span>
+        <div class="cw-header-text">
+          <div class="cw-header-title">Prominent Cleaning Co</div>
+          <div class="cw-header-sub"><span class="cw-dot"></span>We typically reply instantly</div>
+        </div>
+        <button class="cw-close" id="cwClose" type="button" aria-label="Close chat">×</button>
+      </div>
+      <div class="cw-body" id="cwBody">
+        <div class="cw-greeting" id="cwGreeting">
+          <h4>Hi there 👋</h4>
+          <p>Ask anything — pricing, hours, services, or how booking works.</p>
+          <div class="cw-suggested">
+            <button class="cw-chip" type="button" data-cw-q="What are your hours?">What are your hours?</button>
+            <button class="cw-chip" type="button" data-cw-q="How much does a cleaning cost?">Cost?</button>
+            <button class="cw-chip" type="button" data-cw-q="Do you bring your own supplies?">Supplies?</button>
+            <button class="cw-chip" type="button" data-cw-q="Do you cover my area?">Area?</button>
+          </div>
+        </div>
+      </div>
+      <form class="cw-input-row" id="cwForm">
+        <input class="cw-input" id="cwInput" type="text" placeholder="Type your message…" autocomplete="off" maxlength="2000" />
+        <button class="cw-send" id="cwSend" type="submit" aria-label="Send message">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-2-7-8-1z"/></svg>
+        </button>
+      </form>
+    </div>
+    <button class="cw-bubble" id="cwBubble" type="button" aria-label="Open chat">
+      <svg class="cw-icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <svg class="cw-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
   <script src="main.js" defer></script>
 </body>
 </html>
