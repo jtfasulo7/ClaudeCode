@@ -216,13 +216,13 @@
 
 /* Long-form legal/article styling */
 .prose-custom {
-  color: #d4d4d4;
+  color: #e0e0e0;
   font-size: 15px;
   line-height: 1.75;
 }
 .prose-custom .lead {
   font-size: 17px;
-  color: #e5e5e5;
+  color: #f0f0f0;
   margin-bottom: 28px;
 }
 .prose-custom h2 {

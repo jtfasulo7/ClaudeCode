@@ -23,7 +23,6 @@ export default function LeadMagnet() {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
   const [email, setEmail] = useState('')
   const [consent, setConsent] = useState(false)
@@ -106,8 +105,7 @@ export default function LeadMagnet() {
       <div className="absolute top-[28%] left-0 right-0 h-px bg-white/[0.03]" />
       <div className="absolute bottom-[25%] left-0 right-0 h-px bg-white/[0.03]" />
 
-      <motion.div
-        style={{ opacity }}
+      <div
         className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-20 sm:pb-24 w-full"
       >
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -286,7 +284,7 @@ export default function LeadMagnet() {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

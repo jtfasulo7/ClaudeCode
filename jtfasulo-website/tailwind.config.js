@@ -14,8 +14,8 @@ export default {
         'accent-blue': '#000000',
         'accent-hover': '#3a7d93',
         text: '#ffffff',
-        'text-muted': '#a3a3a3',
-        'text-dim': '#525252',
+        'text-muted': '#d4d4d4',
+        'text-dim': '#737373',
         border: '#262626',
       },
       fontFamily: {
