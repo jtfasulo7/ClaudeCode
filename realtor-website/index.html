@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ellis Hartley Real Estate · Coastal California Luxury Homes</title>
+<meta name="description" content="Ellis Hartley represents architectural and oceanfront homes along Newport Beach, Laguna Beach, and the South Bay. Quiet expertise, white-glove representation." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+          sans:  ['Inter', 'system-ui', 'sans-serif']
+        },
+        colors: {
+          ink:   '#0f1419',
+          paper: '#f6f2ea',
+          gold:  '#9c8252'
+        },
+        letterSpacing: {
+          brand: '0.32em'
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root { color-scheme: light; }
+  html, body { background: #f6f2ea; color: #0f1419; }
+  body { font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .font-display { font-family: "Cormorant Garamond", Georgia, serif; letter-spacing: -0.012em; }
+
+  /* HERO */
+  .hero-scroll  { position: relative; height: 360vh; }
+  .hero-sticky  { position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; background:#0a0a0a; }
+  .hero-canvas  { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .hero-vignette {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(120% 80% at 50% 30%, transparent 50%, rgba(0,0,0,0.45) 100%),
+      linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0.40) 100%);
+  }
+  .hero-loading-bar {
+    position: absolute; left: 0; bottom: 0; height: 2px; background: rgba(255,255,255,0.7);
+    width: 0; transition: width 0.25s ease-out;
+  }
+
+  /* Reveal text on letters */
+  .reveal { display: inline-block; overflow: hidden; }
+  .reveal > span { display: inline-block; transform: translateY(110%); opacity: 0; animation: revealUp 1s cubic-bezier(0.16,1,0.3,1) forwards; }
+  @keyframes revealUp { to { transform: translateY(0); opacity: 1; } }
+
+  /* REVIEWS columns */
+  .reviews-mask {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  }
+  .col-track { animation: colScroll var(--col-duration, 24s) linear infinite; will-change: transform; }
+  @keyframes colScroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+
+  /* CTA — floating paths */
+  .cta-section { position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: #fffdf9; }
+  .floating-paths-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .flow-path {
+    fill: none;
+    stroke: currentColor;
+    animation: flow var(--dur, 25s) linear infinite;
+  }
+  @keyframes flow {
+    0%   { stroke-dashoffset: 0;     opacity: 0.30; }
+    50%  { stroke-dashoffset: -1500; opacity: 0.65; }
+    100% { stroke-dashoffset: -3000; opacity: 0.30; }
+  }
+
+  /* CTA button */
+  .cta-btn-shell {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.10), rgba(255,255,255,0.10));
+    padding: 1px;
+    border-radius: 1.15rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 18px 40px -16px rgba(15,20,25,0.25);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+  .cta-btn-shell:hover { transform: translateY(-2px); box-shadow: 0 26px 60px -18px rgba(15,20,25,0.35); }
+
+  /* FOOTER wave */
+  .wave-segment { background: #ffffff; transition: transform 0.1s ease; will-change: transform; margin-top: -2px; }
+
+  /* Helpers */
+  .smooth { scroll-behavior: smooth; }
+  ::selection { background: #0f1419; color: #f6f2ea; }
+</style>
+</head>
+
+<body class="font-sans bg-paper text-ink">
+
+<!-- ==================== HERO ==================== -->
+<section id="hero" class="hero-scroll">
+  <div class="hero-sticky">
+    <canvas class="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-vignette"></div>
+
+    <!-- Top bar (brand mark + minimal mark) -->
+    <div class="absolute top-0 left-0 right-0 z-20 px-6 md:px-10 pt-7 flex items-center justify-between text-white/95">
+      <div class="font-display text-xl md:text-2xl tracking-brand uppercase">Ellis&nbsp;Hartley</div>
+      <div class="hidden md:block text-[11px] tracking-[0.28em] uppercase opacity-80">Coastal California · Est. 2014</div>
+    </div>
+
+    <!-- Hero overlay -->
+    <div class="absolute inset-0 z-10 flex flex-col items-center justify-end pb-20 md:pb-28 px-6 text-center text-white">
+      <p class="text-[11px] md:text-xs tracking-[0.42em] uppercase opacity-80 mb-6">Modern Coastal Estates</p>
+      <h1 class="font-display font-light leading-[0.95] text-[15vw] md:text-[8.5rem] lg:text-[10rem] tracking-tight">
+        <span class="reveal"><span style="animation-delay:0.10s">S</span><span style="animation-delay:0.18s">t</span><span style="animation-delay:0.26s">e</span><span style="animation-delay:0.34s">p</span></span>
+        <span class="inline-block w-4 md:w-8"></span>
+        <span class="reveal"><span style="animation-delay:0.46s">i</span><span style="animation-delay:0.54s">n</span><span style="animation-delay:0.62s">s</span><span style="animation-delay:0.70s">i</span><span style="animation-delay:0.78s">d</span><span style="animation-delay:0.86s">e</span><span style="animation-delay:0.94s">.</span></span>
+      </h1>
+      <p class="mt-7 max-w-xl text-sm md:text-base font-light tracking-wide opacity-90">
+        Architectural homes and oceanfront estates from Newport Beach to Manhattan Beach,
+        represented with the discretion they deserve.
+      </p>
+      <div class="mt-10 text-[10px] tracking-[0.42em] uppercase opacity-70 animate-pulse">
+        Scroll
+      </div>
+    </div>
+
+    <div class="hero-loading-bar" id="heroLoadingBar"></div>
+  </div>
+</section>
+
+<!-- ==================== REVIEWS ==================== -->
+<section id="reviews" class="bg-paper relative py-24 md:py-32">
+  <div class="container mx-auto z-10 relative px-6">
+    <div class="flex flex-col items-center justify-center max-w-[640px] mx-auto text-center">
+      <div class="inline-block border border-ink/20 py-1 px-4 rounded-full text-[11px] tracking-[0.32em] uppercase">
+        Testimonials
+      </div>
+      <h2 class="font-display font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight mt-7">
+        What our clients say
+      </h2>
+      <p class="mt-5 text-base opacity-70 max-w-md">
+        A small selection of buyers, sellers, and long-term clients — in their own words.
+      </p>
+    </div>
+
+    <div id="reviewsCols" class="reviews-mask flex justify-center gap-6 mt-16 max-h-[740px] overflow-hidden">
+      <!-- columns injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section id="cta" class="cta-section flex items-center justify-center text-ink">
+  <!-- Floating paths layer A (position = 1) -->
+  <svg class="floating-paths-svg text-ink" viewBox="0 0 696 316" preserveAspectRatio="none" aria-hidden="true">
+    <title>Background Paths</title>
+    <g id="paths-a"></g>
+  </svg>
+  <!-- Floating paths layer B (position = -1, mirrored) -->
+  <svg class="floating-paths-svg text-ink" viewBox="0 0 696 316" preserveAspectRatio="none" aria-hidden="true">
+    <g id="paths-b"></g>
+  </svg>
+
+  <!-- Single button, no other text (per spec) -->
+  <div class="relative z-10 px-6 flex items-center justify-center w-full">
+    <div class="cta-btn-shell group inline-block">
+      <a href="#book"
+         class="inline-flex items-center justify-center rounded-[1.05rem] bg-white/95 hover:bg-white px-9 md:px-12 py-5 md:py-6
+                text-base md:text-lg font-medium tracking-wide text-ink border border-ink/10
+                transition-all duration-300">
+        <span class="opacity-90 group-hover:opacity-100 transition-opacity">Book a call now</span>
+        <span class="ml-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer id="footer" class="bg-black text-white relative flex flex-col w-full h-full justify-between lg:h-screen select-none overflow-hidden">
+  <div class="container mx-auto flex flex-col md:flex-row justify-between w-full gap-10 pb-24 pt-16 px-6">
+
+    <!-- Left: brand + disclosures -->
+    <div class="space-y-6 max-w-md">
+      <div class="font-display text-2xl tracking-brand uppercase">Ellis Hartley</div>
+      <p class="text-sm leading-relaxed text-white/70">
+        Independent representation of architectural and oceanfront homes along the
+        Southern California coast. Affiliated with Coastal &amp; Pacific Properties, a Compass-licensed brokerage.
+      </p>
+      <ul class="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+        <li><a href="#terms"      class="hover:text-sky-400 transition-colors">Terms &amp; policies</a></li>
+        <li><a href="#privacy"    class="hover:text-sky-400 transition-colors">Privacy policy</a></li>
+        <li><a href="#access"     class="hover:text-sky-400 transition-colors">Accessibility</a></li>
+        <li><a href="#fairhousing" class="hover:text-sky-400 transition-colors">Fair Housing</a></li>
+      </ul>
+      <p class="text-xs text-white/50 flex items-center gap-x-2 leading-relaxed">
+        <svg class="size-3 shrink-0" viewBox="0 0 80 80" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"
+            d="M67.4307 11.5693C52.005 -3.85643 26.995 -3.85643 11.5693 11.5693C-3.85643 26.995 -3.85643 52.005 11.5693 67.4307C26.995 82.8564 52.005 82.8564 67.4307 67.4307C82.8564 52.005 82.8564 26.995 67.4307 11.5693ZM17.9332 17.9332C29.8442 6.02225 49.1558 6.02225 61.0668 17.9332C72.9777 29.8442 72.9777 49.1558 61.0668 61.0668C59.7316 62.4019 58.3035 63.5874 56.8032 64.6232L56.8241 64.6023C46.8657 54.6439 46.8657 38.4982 56.8241 28.5398L58.2383 27.1256L51.8744 20.7617L50.4602 22.1759C40.5018 32.1343 24.3561 32.1343 14.3977 22.1759L14.3768 22.1968C15.4126 20.6965 16.5981 19.2684 17.9332 17.9332ZM34.0282 38.6078C25.6372 38.9948 17.1318 36.3344 10.3131 30.6265C7.56889 39.6809 9.12599 49.76 14.9844 57.6517L34.0282 38.6078ZM21.3483 64.0156C29.24 69.874 39.3191 71.4311 48.3735 68.6869C42.6656 61.8682 40.0052 53.3628 40.3922 44.9718L21.3483 64.0156Z" />
+        </svg>
+        Ellis Hartley · DRE #02178452 · Equal Housing Opportunity
+      </p>
+      <p class="text-[11px] text-white/40">© 2026 Ellis Hartley Real Estate. All Rights Reserved.</p>
+    </div>
+
+    <!-- Right: nav + back to top -->
+    <div class="space-y-6 md:text-right">
+      <ul class="flex flex-wrap md:justify-end gap-x-5 gap-y-2 text-sm">
+        <li><a href="#properties" class="hover:text-sky-400 transition-colors">Properties</a></li>
+        <li><a href="#buy"        class="hover:text-sky-400 transition-colors">Buy</a></li>
+        <li><a href="#sell"       class="hover:text-sky-400 transition-colors">Sell</a></li>
+        <li><a href="#journal"    class="hover:text-sky-400 transition-colors">Journal</a></li>
+        <li><a href="#about"      class="hover:text-sky-400 transition-colors">About</a></li>
+        <li><a href="#contact"    class="hover:text-sky-400 transition-colors">Contact</a></li>
+      </ul>
+      <ul class="flex flex-wrap md:justify-end gap-x-5 gap-y-2 text-sm">
+        <li><a href="https://instagram.com/ellishartley"        class="hover:text-sky-400 transition-colors">Instagram</a></li>
+        <li><a href="https://linkedin.com/in/ellishartley"      class="hover:text-sky-400 transition-colors">LinkedIn</a></li>
+        <li><a href="mailto:hello@ellishartley.com"             class="hover:text-sky-400 transition-colors">hello@ellishartley.com</a></li>
+        <li><a href="tel:+19495550144"                          class="hover:text-sky-400 transition-colors">+1 (949) 555&#8209;0144</a></li>
+      </ul>
+      <div class="md:text-right text-xs text-white/60 leading-relaxed">
+        <p>Newport Beach Office</p>
+        <p>1 Newport Center Drive, Suite 1100</p>
+        <p>Newport Beach, CA 92660</p>
+        <p>Mon–Sat, by appointment</p>
+      </div>
+      <div class="md:text-right pt-2">
+        <button id="backToTop" class="text-sm hover:underline inline-flex items-center gap-1.5">
+          Back to top
+          <span aria-hidden="true">↑</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animated wave -->
+  <div id="waveContainer" aria-hidden="true" style="overflow:hidden; height:200px;">
+    <div id="waveInner" style="margin-top:0;"></div>
+  </div>
+</footer>
+
+
+<!-- =================================================================
+     SCRIPT
+================================================================= -->
+<script>
+/* ==========================================================
+   1) SCROLL-SCRUBBED HERO  (120 frames)
+========================================================== */
+(function () {
+  const TOTAL = 120;
+  const heroScroll  = document.querySelector('.hero-scroll');
+  const canvas      = document.querySelector('.hero-canvas');
+  const ctx         = canvas.getContext('2d');
+  const loadingBar  = document.getElementById('heroLoadingBar');
+
+  const images   = new Array(TOTAL);
+  let   loaded   = 0;
+  let   firstReady = false;
+
+  const pad = (n) => String(n).padStart(3, '0');
+
+  function preload() {
+    for (let i = 1; i <= TOTAL; i++) {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = `frames/frame_${pad(i)}.jpg`;
+      img.onload = () => {
+        loaded++;
+        loadingBar.style.width = (loaded / TOTAL * 100) + '%';
+        if (loaded === TOTAL) loadingBar.style.opacity = '0';
+        if (!firstReady) { firstReady = true; render(); }
+      };
+      images[i - 1] = img;
+    }
+  }
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width  = window.innerWidth  * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width  = window.innerWidth  + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function nearestLoaded(idx) {
+    if (images[idx] && images[idx].complete && images[idx].naturalWidth) return images[idx];
+    for (let d = 1; d < TOTAL; d++) {
+      const a = images[idx - d];
+      if (a && a.complete && a.naturalWidth) return a;
+      const b = images[idx + d];
+      if (b && b.complete && b.naturalWidth) return b;
+    }
+    return null;
+  }
+
+  function drawCover(img) {
+    const cw = window.innerWidth, ch = window.innerHeight;
+    const ir = img.naturalWidth / img.naturalHeight;
+    const cr = cw / ch;
+    let dw, dh, dx, dy;
+    if (ir > cr) { dh = ch; dw = ch * ir; dx = (cw - dw) / 2; dy = 0; }
+    else         { dw = cw; dh = cw / ir; dx = 0; dy = (ch - dh) / 2; }
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.drawImage(img, dx, dy, dw, dh);
+  }
+
+  let lastIdx = -1;
+  function render() {
+    const rect  = heroScroll.getBoundingClientRect();
+    const range = rect.height - window.innerHeight;
+    const p     = Math.min(1, Math.max(0, -rect.top / range));
+    const idx   = Math.min(TOTAL - 1, Math.max(0, Math.round(p * (TOTAL - 1))));
+    if (idx === lastIdx) return;
+    lastIdx = idx;
+    const img = nearestLoaded(idx);
+    if (img) drawCover(img);
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { render(); ticking = false; });
+  }
+
+  resize();
+  preload();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { resize(); lastIdx = -1; render(); });
+})();
+
+
+/* ==========================================================
+   2) REVIEWS — 3 vertically-scrolling columns
+========================================================== */
+(function () {
+  const testimonials = [
+    { text: "We toured fourteen homes with Ellis and not once did he push. When the right property finally came up he negotiated it twelve days into escrow and $48,000 below ask. He listens, then he delivers.",
+      name: "Caroline & Michael Tan", role: "Buyers · Newport Beach",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2&w=120&h=120&q=80" },
+
+    { text: "Sold our Laguna home in eleven days at full ask. Ellis arrived with a marketing package that felt like a magazine spread — drone, twilight stills, a private broker preview. Worth every basis point.",
+      name: "Daniel Whitaker", role: "Seller · Laguna Beach",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2&w=120&h=120&q=80" },
+
+    { text: "Three transactions over six years and Ellis still answers his phone on a Sunday. Quiet expertise. No fluff. Exactly the person you want representing the largest line item on your balance sheet.",
+      name: "Priya Mehta", role: "Repeat Client · Crystal Cove",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=facearea&facepad=2&w=120&h=120&q=80" },
+
+    { text: "Relocating from New York with two kids, a dog, and a hard timeline. Ellis previewed seven homes by video tour, narrowed it to three, and we closed remotely. A masterclass in trust.",
+      name: "Olivia & James Reardon", role: "Buyers · Manhattan Beach",
+      image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=facearea&facepad=2&w=120&h=120&q=80" },
+
+    { text: "The off-market introduction Ellis arranged saved us a bidding war and probably eight figures of heartburn. He is wired into this market in a way that surprises even seasoned investors.",
+      name: "Robert Anand", role: "Investor · Corona del Mar",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=facearea&facepad=2&w=120&h=120&q=80" },
+
+    { text: "Calm under pressure, candid when it counted, and aggressive only when our position called for it. Ellis sold our Crystal Cove estate after two prior agents had stalled. Different league.",
+      name: "Helen Forsythe", role: "Seller · Crystal Cove",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=facearea&facepad=2&w=120&h=120&q=80" },
+
+    { text: "Architectural homes are not for every agent. Ellis understood the design language of our property immediately. The buyer pool he assembled was extraordinary.",
+      name: "Marco Velez", role: "Architect & Seller · Palos Verdes",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=facearea&facepad=2&w=120&h=120&q=80" },
+
+    { text: "We interviewed five top agents on the Peninsula. Ellis was the only one who came with a written marketing plan, comparable analysis, and past clients we could call. We hired him on the spot.",
+      name: "Sarah Lim", role: "Buyer · Newport Coast",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=facearea&facepad=2&w=120&h=120&q=80" },
+
+    { text: "Discreet, prepared, impossible to rattle. Our family has trusted Ellis with three generations of property decisions and we will continue to.",
+      name: "Edward Caldwell", role: "Long-time Client · Pacific Palisades",
+      image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=facearea&facepad=2&w=120&h=120&q=80" }
+  ];
+
+  const cols = [
+    { items: testimonials.slice(0, 3), duration: 28, hideBelow: '' },                 // always visible
+    { items: testimonials.slice(3, 6), duration: 34, hideBelow: 'hidden md:block' },  // tablet+
+    { items: testimonials.slice(6, 9), duration: 31, hideBelow: 'hidden lg:block' }   // desktop
+  ];
+
+  const card = (t) => `
+    <div class="p-8 md:p-9 rounded-3xl border border-ink/10 bg-white shadow-[0_18px_40px_-22px_rgba(15,20,25,0.18)] max-w-xs w-full">
+      <p class="text-[15px] leading-relaxed text-ink/85">${t.text}</p>
+      <div class="flex items-center gap-3 mt-6">
+        <img width="40" height="40" src="${t.image}" alt="${t.name}"
+             class="h-10 w-10 rounded-full object-cover" referrerpolicy="no-referrer"
+             onerror="this.style.background='#dcd5c7';this.removeAttribute('src');" />
+        <div class="flex flex-col">
+          <div class="font-medium tracking-tight leading-5 text-ink">${t.name}</div>
+          <div class="leading-5 text-ink/55 tracking-tight text-sm">${t.role}</div>
+        </div>
+      </div>
+    </div>`;
+
+  const colHTML = (items, duration) => {
+    const inner = items.map(card).join('');
+    return `
+      <div class="col-track flex flex-col gap-6 pb-6" style="--col-duration:${duration}s">
+        ${inner}
+        ${inner}
+      </div>`;
+  };
+
+  const root = document.getElementById('reviewsCols');
+  root.innerHTML = cols
+    .map(c => `<div class="${c.hideBelow}">${colHTML(c.items, c.duration)}</div>`)
+    .join('');
+})();
+
+
+/* ==========================================================
+   3) CTA — Floating Paths (vanilla SVG version of BackgroundPaths)
+========================================================== */
+(function () {
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const COUNT  = 36;
+
+  function makePaths(targetId, position) {
+    const target = document.getElementById(targetId);
+    for (let i = 0; i < COUNT; i++) {
+      const x1 = 380 - i * 5 * position;
+      const y1 = 189 + i * 6;
+      const x2 = 312 - i * 5 * position;
+      const y2 = 216 - i * 6;
+      const x3 = 152 - i * 5 * position;
+      const y3 = 343 - i * 6;
+      const x4 = 616 - i * 5 * position;
+      const y4 = 470 - i * 6;
+      const x5 = 684 - i * 5 * position;
+      const y5 = 875 - i * 6;
+      const d = `M-${x1} -${y1}C-${x1} -${y1} -${x2} ${y2} ${x3} ${y3}C${x4} ${y4} ${x5} ${y5} ${x5} ${y5}`;
+
+      const path = document.createElementNS(SVG_NS, 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('class', 'flow-path');
+      path.setAttribute('stroke-width', String(0.5 + i * 0.03));
+      path.setAttribute('stroke-opacity', String(0.10 + i * 0.03));
+      path.setAttribute('stroke-linecap', 'round');
+
+      // dashed segment + per-path duration so they desync naturally
+      const dashLen = 220 + Math.random() * 340;
+      const gapLen  = 1800 + Math.random() * 600;
+      path.style.strokeDasharray = `${dashLen} ${gapLen}`;
+      path.style.setProperty('--dur', (20 + Math.random() * 10).toFixed(2) + 's');
+      path.style.animationDelay  = (-Math.random() * 25).toFixed(2) + 's';
+
+      target.appendChild(path);
+    }
+  }
+  makePaths('paths-a',  1);
+  makePaths('paths-b', -1);
+})();
+
+
+/* ==========================================================
+   4) FOOTER WAVE — sin-driven bars, gated by IntersectionObserver
+========================================================== */
+(function () {
+  const BAR_COUNT = 23;
+  const inner = document.getElementById('waveInner');
+  const footer = document.getElementById('footer');
+
+  const bars = [];
+  for (let i = 0; i < BAR_COUNT; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'wave-segment';
+    bar.style.height = (i + 1) + 'px';
+    inner.appendChild(bar);
+    bars.push(bar);
+  }
+
+  let visible = false, t = 0, raf = null;
+  function tick() {
+    let offset = 0;
+    for (let i = 0; i < bars.length; i++) {
+      offset += Math.max(0, 20 * Math.sin((t + i) * 0.3));
+      bars[i].style.transform = `translateY(${i + offset}px)`;
+    }
+    t += 0.1;
+    raf = requestAnimationFrame(tick);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    visible = entries[0].isIntersecting;
+    if (visible && !raf) tick();
+    else if (!visible && raf) { cancelAnimationFrame(raf); raf = null; }
+  }, { threshold: 0.2 });
+  io.observe(footer);
+
+  document.getElementById('backToTop').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>
