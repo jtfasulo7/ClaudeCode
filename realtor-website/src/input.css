@@ -46,42 +46,31 @@ body { font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antial
 .reviews-stage::before { top: 0;    background: linear-gradient(to bottom, #000, rgba(0,0,0,0)); }
 .reviews-stage::after  { bottom: 0; background: linear-gradient(to top,    #000, rgba(0,0,0,0)); }
 
-/* Compositor-thread marquee: --cycle and --col-duration set inline by JS once. */
+/* Compositor-thread marquee. JS measures the cycle, writes --cycle and
+   --col-duration as inline custom properties, then adds .ready to start
+   the animation. Without the ready gate the keyframe runs against the
+   fallback --cycle for the first beat and visibly drifts before settling. */
 .col-track {
   will-change: transform;
-  animation: colScroll var(--col-duration, 30s) linear infinite;
+  transform: translate3d(0, 0, 0);
+  animation: colScroll var(--col-duration, 30s) linear infinite paused;
 }
+.col-track.ready { animation-play-state: running; }
 @keyframes colScroll {
   from { transform: translate3d(0, 0, 0); }
   to   { transform: translate3d(0, calc(-1 * var(--cycle, 1000px)), 0); }
 }
 
-/* CTA — black bg, white flowing paths. Grid centers the button reliably. */
+/* CTA — black bg, white flowing paths drawn to a single canvas. */
 .cta-section {
   position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: #000;
   display: grid; place-items: center;
 }
-.floating-paths-svg {
+.floating-paths-canvas {
   position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
-  /* Promote SVG layers to their own GPU layer so other repaints don't invalidate them */
-  transform: translateZ(0);
+  display: block;
 }
 .cta-content { position: relative; z-index: 10; padding: 0 1.5rem; }
-.flow-path {
-  fill: none;
-  stroke: currentColor;            /* white via section's text-white */
-  /* dasharray + per-path --cycle/--dur set inline by JS */
-  animation: flow var(--dur, 35s) linear infinite,
-             flowOpacity var(--dur, 35s) ease-in-out infinite;
-}
-@keyframes flow {
-  from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: calc(-1 * var(--cycle, 2800px)); }
-}
-@keyframes flowOpacity {
-  0%, 100% { opacity: 0.45; }
-  50%      { opacity: 0.85; }
-}
 
 /* CTA button shell */
 .cta-btn-shell {
