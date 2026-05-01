@@ -58,26 +58,39 @@
   .reveal > span { display: inline-block; transform: translateY(110%); opacity: 0; animation: revealUp 1s cubic-bezier(0.16,1,0.3,1) forwards; }
   @keyframes revealUp { to { transform: translateY(0); opacity: 1; } }
 
-  /* REVIEWS columns */
-  .reviews-mask {
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
-            mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  /* REVIEWS columns — gradient overlays instead of mask-image (cheaper compositing) */
+  .reviews-stage { position: relative; }
+  .reviews-stage::before,
+  .reviews-stage::after {
+    content: ''; position: absolute; left: 0; right: 0; height: 110px; pointer-events: none; z-index: 2;
   }
-  .col-track { animation: colScroll var(--col-duration, 24s) linear infinite; will-change: transform; }
-  @keyframes colScroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  .reviews-stage::before { top: 0;    background: linear-gradient(to bottom, #f6f2ea, rgba(246,242,234,0)); }
+  .reviews-stage::after  { bottom: 0; background: linear-gradient(to top,    #f6f2ea, rgba(246,242,234,0)); }
+  .col-track { will-change: transform; transform: translate3d(0,0,0); }
 
-  /* CTA — floating paths */
-  .cta-section { position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: #fffdf9; }
-  .floating-paths-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  /* CTA — bulletproof centering via grid (no Tailwind utility race) */
+  .cta-section {
+    position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: #fffdf9;
+    display: grid; place-items: center;
+  }
+  .floating-paths-svg {
+    position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+  }
+  .cta-content { position: relative; z-index: 10; padding: 0 1.5rem; }
   .flow-path {
     fill: none;
     stroke: currentColor;
-    animation: flow var(--dur, 25s) linear infinite;
+    /* dasharray and per-path --cycle/--dur set inline by JS */
+    animation: flow var(--dur, 25s) linear infinite, flowOpacity var(--dur, 25s) ease-in-out infinite;
   }
+  /* one cycle == one (dash + gap), so wrap-around is visually identical */
   @keyframes flow {
-    0%   { stroke-dashoffset: 0;     opacity: 0.30; }
-    50%  { stroke-dashoffset: -1500; opacity: 0.65; }
-    100% { stroke-dashoffset: -3000; opacity: 0.30; }
+    from { stroke-dashoffset: 0; }
+    to   { stroke-dashoffset: calc(-1 * var(--cycle, 2000px)); }
+  }
+  @keyframes flowOpacity {
+    0%, 100% { opacity: 0.30; }
+    50%      { opacity: 0.65; }
   }
 
   /* CTA button */
@@ -150,26 +163,26 @@
       </p>
     </div>
 
-    <div id="reviewsCols" class="reviews-mask flex justify-center gap-6 mt-16 max-h-[740px] overflow-hidden">
+    <div id="reviewsCols" class="reviews-stage flex justify-center gap-6 mt-16 max-h-[740px] overflow-hidden">
       <!-- columns injected by JS -->
     </div>
   </div>
 </section>
 
 <!-- ==================== CTA ==================== -->
-<section id="cta" class="cta-section flex items-center justify-center text-ink">
+<section id="cta" class="cta-section text-ink">
   <!-- Floating paths layer A (position = 1) -->
-  <svg class="floating-paths-svg text-ink" viewBox="0 0 696 316" preserveAspectRatio="none" aria-hidden="true">
+  <svg class="floating-paths-svg" viewBox="0 0 696 316" preserveAspectRatio="none" aria-hidden="true">
     <title>Background Paths</title>
     <g id="paths-a"></g>
   </svg>
   <!-- Floating paths layer B (position = -1, mirrored) -->
-  <svg class="floating-paths-svg text-ink" viewBox="0 0 696 316" preserveAspectRatio="none" aria-hidden="true">
+  <svg class="floating-paths-svg" viewBox="0 0 696 316" preserveAspectRatio="none" aria-hidden="true">
     <g id="paths-b"></g>
   </svg>
 
   <!-- Single button, no other text (per spec) -->
-  <div class="relative z-10 px-6 flex items-center justify-center w-full">
+  <div class="cta-content">
     <div class="cta-btn-shell group inline-block">
       <a href="#book"
          class="inline-flex items-center justify-center rounded-[1.05rem] bg-white/95 hover:bg-white px-9 md:px-12 py-5 md:py-6
@@ -382,9 +395,9 @@
   ];
 
   const cols = [
-    { items: testimonials.slice(0, 3), duration: 28, hideBelow: '' },                 // always visible
-    { items: testimonials.slice(3, 6), duration: 34, hideBelow: 'hidden md:block' },  // tablet+
-    { items: testimonials.slice(6, 9), duration: 31, hideBelow: 'hidden lg:block' }   // desktop
+    { items: testimonials.slice(0, 3), duration: 32, hideBelow: '' },
+    { items: testimonials.slice(3, 6), duration: 38, hideBelow: 'hidden md:block' },
+    { items: testimonials.slice(6, 9), duration: 35, hideBelow: 'hidden lg:block' }
   ];
 
   const card = (t) => `
@@ -401,19 +414,47 @@
       </div>
     </div>`;
 
-  const colHTML = (items, duration) => {
+  const colHTML = (items) => {
     const inner = items.map(card).join('');
-    return `
-      <div class="col-track flex flex-col gap-6 pb-6" style="--col-duration:${duration}s">
-        ${inner}
-        ${inner}
-      </div>`;
+    // Three copies for triple-buffered seamless wrap (forgiving + always visible).
+    return `<div class="col-track flex flex-col gap-6">${inner}${inner}${inner}</div>`;
   };
 
   const root = document.getElementById('reviewsCols');
   root.innerHTML = cols
-    .map(c => `<div class="${c.hideBelow}">${colHTML(c.items, c.duration)}</div>`)
+    .map(c => `<div class="${c.hideBelow}" data-duration="${c.duration}">${colHTML(c.items)}</div>`)
     .join('');
+
+  // --- JS-driven RAF marquee — wraps at exact cycle boundary, no popping ---
+  const tracks = [];
+  root.querySelectorAll('[data-duration]').forEach((wrap) => {
+    const track = wrap.querySelector('.col-track');
+    const duration = parseFloat(wrap.dataset.duration);
+    tracks.push({ track, duration, pos: 0, cycle: 0 });
+  });
+
+  function recalcCycles() {
+    // cycle = height of one set of cards (= 1/3 of total scrollHeight since we triple-buffered)
+    tracks.forEach((t) => { t.cycle = t.track.scrollHeight / 3; });
+  }
+
+  // Wait for fonts/images to settle, then measure
+  if (document.readyState === 'complete') recalcCycles();
+  else window.addEventListener('load', recalcCycles);
+  window.addEventListener('resize', recalcCycles);
+
+  let last = performance.now();
+  function tick(now) {
+    const dt = Math.min(64, now - last) / 1000; // clamp tab-blur jumps
+    last = now;
+    for (const t of tracks) {
+      if (!t.cycle) continue;
+      t.pos = (t.pos + (t.cycle / t.duration) * dt) % t.cycle;
+      t.track.style.transform = `translate3d(0, ${-t.pos}px, 0)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 })();
 
 
@@ -446,12 +487,16 @@
       path.setAttribute('stroke-opacity', String(0.10 + i * 0.03));
       path.setAttribute('stroke-linecap', 'round');
 
-      // dashed segment + per-path duration so they desync naturally
+      // dashed segment + per-path duration so they desync naturally.
+      // The animation translates dashoffset by exactly (dash + gap) per cycle,
+      // so the wrap-around lands on a visually identical pattern (no jump).
       const dashLen = 220 + Math.random() * 340;
       const gapLen  = 1800 + Math.random() * 600;
+      const cycle   = dashLen + gapLen;
       path.style.strokeDasharray = `${dashLen} ${gapLen}`;
-      path.style.setProperty('--dur', (20 + Math.random() * 10).toFixed(2) + 's');
-      path.style.animationDelay  = (-Math.random() * 25).toFixed(2) + 's';
+      path.style.setProperty('--cycle', cycle + 'px');
+      path.style.setProperty('--dur',  (20 + Math.random() * 10).toFixed(2) + 's');
+      path.style.animationDelay = (-Math.random() * 25).toFixed(2) + 's';
 
       target.appendChild(path);
     }
