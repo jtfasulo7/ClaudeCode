@@ -95,3 +95,211 @@ body { font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antial
 }
 
 ::selection { background: #0f1419; color: #f6f2ea; }
+
+
+/* ============================================================
+   ZOOM PARALLAX — featured properties
+============================================================ */
+.zoom-parallax { position: relative; height: 300vh; background: #000; }
+.zoom-sticky   { position: sticky; top: 0; height: 100vh; overflow: hidden; background: #000; }
+
+/* Each .zoom-item is full-viewport, flex-centers its inner .zoom-frame, and
+   scales as a unit. Per-index positions on .zoom-frame override the centered
+   default so each tile lives at a different point on the canvas. */
+.zoom-item {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  will-change: transform;
+  transform: translateZ(0);
+}
+.zoom-frame {
+  position: relative;
+  height: 25vh; width: 25vw;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 30px 60px -30px rgba(0,0,0,0.65);
+}
+.zoom-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.zoom-item[data-i="1"] .zoom-frame { top: -30vh;  left:  5vw;    height: 30vh; width: 35vw; }
+.zoom-item[data-i="2"] .zoom-frame { top: -10vh;  left: -25vw;   height: 45vh; width: 20vw; }
+.zoom-item[data-i="3"] .zoom-frame {              left:  27.5vw; height: 25vh; width: 25vw; }
+.zoom-item[data-i="4"] .zoom-frame { top:  27.5vh; left:  5vw;    height: 25vh; width: 20vw; }
+.zoom-item[data-i="5"] .zoom-frame { top:  27.5vh; left: -22.5vw; height: 25vh; width: 30vw; }
+.zoom-item[data-i="6"] .zoom-frame { top:  22.5vh; left:  25vw;   height: 15vh; width: 15vw; }
+
+/* Overlay text — full-viewport, NOT scaled, fades in as the featured tile
+   zooms behind it. Stays editorial: serif title, kerned eyebrows, asymmetric. */
+.zoom-overlay {
+  position: absolute; inset: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 6vw;
+  pointer-events: none;
+  opacity: 0;
+}
+.zoom-overlay-inner {
+  max-width: 720px; text-align: center; color: #fff;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.55);
+}
+.zo-eyebrow {
+  font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 1.25rem;
+}
+.zo-title {
+  font-weight: 300;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+}
+.zo-spec {
+  font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 2rem;
+}
+.zo-price {
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.005em;
+  margin-bottom: 0.85rem;
+}
+.zo-listed {
+  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+
+/* ============================================================
+   CONTACT CARD — replaces the single CTA button
+============================================================ */
+.contact-card {
+  position: relative;
+  width: min(92vw, 460px);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 24px;
+  padding: 2.5rem 2.25rem 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 30px 80px -30px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+.cf-eyebrow {
+  font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1rem;
+}
+.cf-title {
+  font-weight: 300;
+  font-size: clamp(1.85rem, 3.4vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.012em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.cf-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2rem;
+  line-height: 1.55;
+}
+
+/* Floating-label inputs. Underline-only, no boxy fields — editorial feel. */
+.cf-fields { display: flex; flex-direction: column; gap: 1.6rem; }
+.field {
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+  transition: border-color 220ms ease;
+}
+.field:focus-within { border-color: rgba(255,255,255,0.55); }
+
+.field input,
+.field textarea {
+  width: 100%;
+  background: transparent;
+  border: 0; outline: none;
+  color: #fff;
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 1.15rem 0 0.5rem;
+  letter-spacing: 0.005em;
+}
+.field textarea { resize: none; min-height: 78px; line-height: 1.5; }
+
+.field label {
+  position: absolute; left: 0; top: 1.15rem;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.95rem;
+  pointer-events: none;
+  transition: top 220ms ease, font-size 220ms ease, letter-spacing 220ms ease, color 220ms ease;
+  letter-spacing: 0.005em;
+}
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,
+.field textarea:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+/* Submit — mirrors the original "Book a call now →" pill */
+.cf-submit {
+  margin-top: 2rem;
+  width: 100%;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
+  padding: 1.15rem 1.5rem;
+  background: #fff;
+  color: #0a0a0a;
+  border: 1px solid rgba(255,255,255,0.0);
+  border-radius: 14px;
+  font-size: 0.95rem; font-weight: 500; letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+.cf-submit:hover {
+  background: #fafafa;
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px -16px rgba(255,255,255,0.25);
+}
+.cf-submit .cf-arrow { transition: transform 240ms ease; }
+.cf-submit:hover .cf-arrow { transform: translateX(4px); }
+
+.cf-note {
+  margin-top: 1.25rem;
+  font-size: 11px; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+}
+
+/* Validation shake (CSS-only) */
+@keyframes cfShake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+.cf-shake { animation: cfShake 0.6s cubic-bezier(.36,.07,.19,.97) both; }
+
+/* Sent state — fade fields out, fade success message in */
+.cf-success {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 2.5rem;
+  background: rgba(255,255,255,0.04);
+  opacity: 0; pointer-events: none;
+  transition: opacity 320ms ease;
+}
+.contact-card.sent .cf-fields,
+.contact-card.sent .cf-submit,
+.contact-card.sent .cf-eyebrow,
+.contact-card.sent > .cf-title,
+.contact-card.sent > .cf-sub,
+.contact-card.sent .cf-note { opacity: 0; transition: opacity 200ms ease; pointer-events: none; }
+.contact-card.sent .cf-success { opacity: 1; pointer-events: auto; }

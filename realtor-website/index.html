@@ -69,22 +69,117 @@
   </div>
 </section>
 
-<!-- ==================== CTA ==================== -->
+<!-- ==================== FEATURED HOMES — zoom parallax ==================== -->
+<!-- Intro band -->
+<section class="bg-black text-white pt-24 md:pt-32 pb-10 px-6 text-center">
+  <div class="inline-block border border-white/20 py-1 px-4 rounded-full text-[11px] tracking-[0.32em] uppercase text-white/80">
+    Featured Properties
+  </div>
+  <h2 class="font-display font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight mt-7 text-white">
+    A few we are proud to represent.
+  </h2>
+  <p class="mt-5 text-base text-white/60 max-w-md mx-auto">
+    Architectural, oceanfront, and off-market estates across the Southern California coast.
+  </p>
+  <p class="mt-6 text-[10px] tracking-[0.42em] uppercase opacity-50 animate-pulse">
+    Scroll
+  </p>
+</section>
+
+<section class="zoom-parallax">
+  <div class="zoom-sticky">
+    <!-- 7 zoom items, each scales at a different rate; index 0 is the centered
+         "featured" tile, scales 1 → 4 (fills viewport at end of scroll). -->
+    <div class="zoom-item" data-i="0"><div class="zoom-frame">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&h=1000&fit=crop&auto=format&q=85"
+           alt="Modern oceanfront estate, Crystal Cove" loading="lazy"
+           onerror="this.style.background='#1a1a1a';this.removeAttribute('src');" />
+    </div></div>
+    <div class="zoom-item" data-i="1"><div class="zoom-frame">
+      <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1400&h=900&fit=crop&auto=format&q=85"
+           alt="Hillside contemporary, Pacific Palisades" loading="lazy"
+           onerror="this.style.background='#1a1a1a';this.removeAttribute('src');" />
+    </div></div>
+    <div class="zoom-item" data-i="2"><div class="zoom-frame">
+      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&h=1200&fit=crop&auto=format&q=85"
+           alt="Architectural villa, Newport Coast" loading="lazy"
+           onerror="this.style.background='#1a1a1a';this.removeAttribute('src');" />
+    </div></div>
+    <div class="zoom-item" data-i="3"><div class="zoom-frame">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&h=900&fit=crop&auto=format&q=85"
+           alt="Mid-century modern, Manhattan Beach" loading="lazy"
+           onerror="this.style.background='#1a1a1a';this.removeAttribute('src');" />
+    </div></div>
+    <div class="zoom-item" data-i="4"><div class="zoom-frame">
+      <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&h=1200&fit=crop&auto=format&q=85"
+           alt="Glass-walled retreat, Laguna Beach" loading="lazy"
+           onerror="this.style.background='#1a1a1a';this.removeAttribute('src');" />
+    </div></div>
+    <div class="zoom-item" data-i="5"><div class="zoom-frame">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1400&h=900&fit=crop&auto=format&q=85"
+           alt="Bluff-front compound, Palos Verdes" loading="lazy"
+           onerror="this.style.background='#1a1a1a';this.removeAttribute('src');" />
+    </div></div>
+    <div class="zoom-item" data-i="6"><div class="zoom-frame">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&h=900&fit=crop&auto=format&q=85"
+           alt="Architectural masterpiece, Corona del Mar" loading="lazy"
+           onerror="this.style.background='#1a1a1a';this.removeAttribute('src');" />
+    </div></div>
+
+    <!-- Featured property text — overlays the centered (index 0) image as it
+         zooms to fill the viewport. Stays at 1× while the image scales 4×. -->
+    <div class="zoom-overlay" aria-hidden="true">
+      <div class="zoom-overlay-inner">
+        <p class="zo-eyebrow">Crystal Cove · Newport Beach</p>
+        <h3 class="zo-title font-display">Modern Oceanfront Estate</h3>
+        <p class="zo-spec">5 bd  ·  6.5 ba  ·  8,400 sqft  ·  100 ft of bluff frontage</p>
+        <p class="zo-price font-display">$28,750,000</p>
+        <p class="zo-listed">Privately represented by Ellis Hartley Real Estate</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
 <section id="cta" class="cta-section text-white">
   <!-- Single canvas renders all flowing paths in one redraw per frame -->
   <canvas class="floating-paths-canvas" aria-hidden="true"></canvas>
 
-  <!-- Single button, no other text (per spec) -->
   <div class="cta-content">
-    <div class="cta-btn-shell group inline-block">
-      <a href="#book"
-         class="inline-flex items-center justify-center rounded-[1.05rem] bg-white/95 hover:bg-white px-9 md:px-12 py-5 md:py-6
-                text-base md:text-lg font-medium tracking-wide text-ink border border-ink/10
-                transition-all duration-300">
-        <span class="opacity-90 group-hover:opacity-100 transition-opacity">Book a call now</span>
-        <span class="ml-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300">→</span>
-      </a>
-    </div>
+    <form id="contactForm" class="contact-card" novalidate>
+      <p class="cf-eyebrow">— Private Inquiry —</p>
+      <h2 class="cf-title font-display">Begin a conversation.</h2>
+      <p class="cf-sub">A direct line. No assistants, no auto-replies.</p>
+
+      <div class="cf-fields">
+        <div class="field">
+          <input id="cf-email" name="email" type="email" required placeholder=" " autocomplete="email" />
+          <label for="cf-email">Email address</label>
+        </div>
+        <div class="field">
+          <input id="cf-phone" name="phone" type="tel" placeholder=" " autocomplete="tel" />
+          <label for="cf-phone">Phone (optional)</label>
+        </div>
+        <div class="field">
+          <textarea id="cf-msg" name="message" rows="3" required placeholder=" "></textarea>
+          <label for="cf-msg">How can I help?</label>
+        </div>
+      </div>
+
+      <button type="submit" class="cf-submit group">
+        <span>Send</span>
+        <span class="cf-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <p class="cf-note">Replies typically within the day · all inquiries kept in confidence.</p>
+
+      <!-- Success state — toggled by JS -->
+      <div class="cf-success" role="status" aria-live="polite">
+        <p class="cf-eyebrow">— Sent —</p>
+        <h3 class="cf-title font-display">Thank you.</h3>
+        <p class="cf-sub">I&rsquo;ll be in touch within the day.</p>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -479,6 +574,73 @@
   window.addEventListener('resize', () => { resize(); });
   // Draw a single frame immediately so paths show before first IO callback
   raf = requestAnimationFrame((now) => { last = now; frame(now); });
+})();
+
+
+/* ==========================================================
+   3.5) ZOOM PARALLAX — vanilla replacement for framer-motion useScroll/useTransform
+========================================================== */
+(function () {
+  const container = document.querySelector('.zoom-parallax');
+  if (!container) return;
+  const items   = container.querySelectorAll('.zoom-item');
+  const overlay = container.querySelector('.zoom-overlay');
+
+  // Scale ramp from the original 21st.dev component: [4, 5, 6, 5, 6, 8, 9].
+  // Index 0 is the centered "featured" tile and zooms 1 → 4 to fill the viewport.
+  const SCALES = [4, 5, 6, 5, 6, 8, 9];
+
+  let lastP = -1;
+  function update() {
+    const rect  = container.getBoundingClientRect();
+    const range = rect.height - window.innerHeight;
+    const p     = Math.min(1, Math.max(0, -rect.top / range));
+    if (Math.abs(p - lastP) < 0.001) return;     // skip imperceptible deltas
+    lastP = p;
+
+    for (let i = 0; i < items.length; i++) {
+      const target = SCALES[i % SCALES.length];
+      const s = 1 + (target - 1) * p;
+      items[i].style.transform = `scale(${s})`;
+    }
+    if (overlay) {
+      // Overlay copy fades + lifts in over 0.40 → 0.75 progress
+      const o = Math.min(1, Math.max(0, (p - 0.40) / 0.35));
+      overlay.style.opacity   = o;
+      overlay.style.transform = `translateY(${(1 - o) * 18}px)`;
+    }
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { update(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+
+/* ==========================================================
+   3.6) CONTACT FORM — submit handler
+========================================================== */
+(function () {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = form.email.value.trim();
+    const msg   = form.message.value.trim();
+    if (!email || !msg) {
+      form.classList.add('cf-shake');
+      setTimeout(() => form.classList.remove('cf-shake'), 600);
+      return;
+    }
+    // No backend wired up — just present the success state.
+    form.classList.add('sent');
+  });
 })();
 
 
