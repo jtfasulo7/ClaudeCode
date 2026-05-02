@@ -133,11 +133,11 @@ export default function LiquidMetalHero({
             </motion.div>
           )}
 
-          <motion.div className="space-y-6" variants={itemVariants}>
+          <motion.div className="space-y-10" variants={itemVariants}>
             <motion.h1
               role="heading"
               aria-level={1}
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight"
+              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.18] tracking-tight pb-2"
               variants={itemVariants}
               style={{
                 // High-contrast chrome gradient — bright white top, deeper
