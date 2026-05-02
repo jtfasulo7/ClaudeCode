@@ -43,19 +43,20 @@ export default function Header() {
     }
   }
 
-  const handleGuideClick = (e) => {
+  const handleContactClick = (e) => {
     e.preventDefault()
     setMobileOpen(false)
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        document.getElementById('lm-email')?.focus()
-        document.getElementById('lm-email')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      }, 120)
+    const scrollToContact = () => {
+      const el = document.getElementById('contact')
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      else window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+    }
+    if (location.pathname !== '/home') {
+      navigate('/home')
+      setTimeout(scrollToContact, 120)
       return
     }
-    document.getElementById('lm-email')?.focus()
-    document.getElementById('lm-email')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    scrollToContact()
   }
 
   return (
@@ -97,11 +98,11 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="#lm-email"
-                onClick={handleGuideClick}
+                href="#contact"
+                onClick={handleContactClick}
                 className="ml-4 btn-primary text-xs py-2.5 px-5"
               >
-                <span>Get the Guide</span>
+                <span>Get in touch</span>
               </a>
             </nav>
 
@@ -148,11 +149,11 @@ export default function Header() {
                 className="mt-10"
               >
                 <a
-                  href="#lm-email"
-                  onClick={handleGuideClick}
+                  href="#contact"
+                  onClick={handleContactClick}
                   className="btn-primary text-sm"
                 >
-                  <span>Get the Guide</span>
+                  <span>Get in touch</span>
                 </a>
               </motion.div>
             </div>
