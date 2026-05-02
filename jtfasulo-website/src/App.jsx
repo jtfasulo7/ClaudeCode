@@ -7,6 +7,8 @@ import Splash from './components/Splash'
 import LiquidMetalHero from './components/ui/LiquidMetalHero'
 import FeatureShaderCards from './components/ui/FeatureShaderCards'
 import HologramScroll from './components/ui/HologramScroll'
+import ReviewsSection from './components/ui/ReviewsSection'
+import BookCallCTA from './components/ui/BookCallCTA'
 
 function Home() {
   const scrollToContact = () => {
@@ -34,6 +36,8 @@ function Home() {
         />
         <FeatureShaderCards />
         <HologramScroll />
+        <ReviewsSection />
+        <BookCallCTA />
       </main>
       <Footer />
     </div>

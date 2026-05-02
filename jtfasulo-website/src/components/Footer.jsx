@@ -48,29 +48,6 @@ export default function Footer() {
         FASULO
       </div>
 
-      {/* Top CTA bar */}
-      <div className="relative border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-16">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div>
-              <div className="section-label mb-3">Free Guide</div>
-              <h3 className="text-3xl lg:text-4xl font-black text-white tracking-tight">
-                Start your AI journey<br />
-                <span className="text-gradient">the right way.</span>
-              </h3>
-            </div>
-            <a
-              href="#lm-email"
-              onClick={handleGuideClick}
-              className="btn-primary text-sm flex-shrink-0"
-            >
-              <span>Get the Free Guide</span>
-              <ArrowUpRight size={16} className="relative z-10" />
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main footer */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-12">
