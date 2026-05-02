@@ -98,9 +98,13 @@ export default function LiquidMetalHero({
       <LiquidMetal
         {...baseShader}
         speed={isVisible ? baseShader.speed : 0}
-        maxPixelCount={1024 * 700}
+        // Was 1024×700 ≈ 717K pixels — looked pixelated on DPR-2 displays
+        // because the canvas-backing was being upscaled ~3×. Bumping to
+        // 1920×1080 ≈ 2.07M pixels (~3× more shader work but still
+        // single-layer, GPU has plenty of headroom).
+        maxPixelCount={1920 * 1080}
         minPixelRatio={1}
-        webGlContextAttributes={{ powerPreference: 'high-performance', antialias: false }}
+        webGlContextAttributes={{ powerPreference: 'high-performance', antialias: true }}
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0 }}
       />
 
@@ -206,17 +210,32 @@ export default function LiquidMetalHero({
             <motion.div className="pt-12" variants={itemVariants}>
               <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
                 <Card className="bg-foreground/10 border-foreground/20 backdrop-blur-md shadow-2xl">
-                  <div className="p-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="p-6 md:p-8">
+                    {/* 3-step flow: text → arrow → text → arrow → text.
+                        Stacks vertically on mobile (arrows rotate 90°). */}
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
                       {features.map((feature, index) => (
                         <motion.div
                           key={index}
-                          className="flex items-center justify-center text-center"
+                          className="flex items-center gap-4 md:gap-6"
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                         >
-                          <p className="text-foreground/90 font-medium text-lg">{feature}</p>
+                          <p className="text-foreground/90 font-medium text-base md:text-lg whitespace-nowrap">
+                            {feature}
+                          </p>
+                          {index < features.length - 1 && (
+                            <svg
+                              viewBox="0 0 24 24" fill="none"
+                              stroke="currentColor" strokeWidth="1.5"
+                              strokeLinecap="round" strokeLinejoin="round"
+                              className="w-5 h-5 text-foreground/55 shrink-0 rotate-90 md:rotate-0"
+                              aria-hidden="true"
+                            >
+                              <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                          )}
                         </motion.div>
                       ))}
                     </div>

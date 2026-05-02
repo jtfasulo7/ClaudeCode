@@ -1,19 +1,53 @@
-import { useLocation, useNavigate } from 'react-router-dom'
-import { ArrowUpRight, Globe, Rss, Play, Share2 } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', href: '/' },
 ]
 
+// Brand glyphs. lucide-react deprecated brand icons over trademark concerns,
+// so all three are inlined here. Matched stroke weight (1.5 / 24).
+const ICON_PROPS = {
+  width: 16, height: 16, viewBox: '0 0 24 24',
+  fill: 'none', stroke: 'currentColor', strokeWidth: 1.5,
+  strokeLinecap: 'round', strokeLinejoin: 'round',
+  'aria-hidden': true,
+}
+
+function InstagramIcon() {
+  return (
+    <svg {...ICON_PROPS}>
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  )
+}
+
+function FacebookIcon() {
+  return (
+    <svg {...ICON_PROPS}>
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  )
+}
+
+function TikTokIcon() {
+  // Minimal monoline TikTok mark.
+  return (
+    <svg {...ICON_PROPS}>
+      <path d="M21 8.5a6.5 6.5 0 0 1-5-2.4V16a5 5 0 1 1-5-5" />
+    </svg>
+  )
+}
+
 const socialLinks = [
-  { icon: <Share2 size={16} />, href: '#', label: 'Twitter / X' },
-  { icon: <Globe size={16} />, href: '#', label: 'LinkedIn' },
-  { icon: <Rss size={16} />, href: '#', label: 'Instagram' },
-  { icon: <Play size={16} />, href: '#', label: 'YouTube' },
+  { icon: <InstagramIcon />, href: 'https://www.instagram.com/fasulostudio/',                        label: 'Instagram' },
+  { icon: <FacebookIcon  />, href: 'https://www.facebook.com/profile.php?id=61587073324051',         label: 'Facebook'  },
+  { icon: <TikTokIcon    />, href: 'https://www.tiktok.com/@fasulostudio?lang=en',                   label: 'TikTok'    },
 ]
 
 export default function Footer() {
-  const location = useLocation()
   const navigate = useNavigate()
 
   const handleNavClick = (e, href) => {
@@ -25,20 +59,6 @@ export default function Footer() {
     }
     const target = document.querySelector(href)
     if (target) target.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const handleGuideClick = (e) => {
-    e.preventDefault()
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        document.getElementById('lm-email')?.focus()
-        document.getElementById('lm-email')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      }, 120)
-      return
-    }
-    document.getElementById('lm-email')?.focus()
-    document.getElementById('lm-email')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
   return (
@@ -53,21 +73,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center mb-4">
+            <div className="flex items-center mb-6">
               <span className="text-white font-semibold tracking-tight">JT Fasulo</span>
             </div>
-            <p className="text-text-muted text-sm leading-relaxed mb-6 max-w-xs">
-              A free PDF guide for founders getting started with AI in entrepreneurship.
-              Plus a weekly newsletter on what actually matters in AI.
-            </p>
             {/* Social links */}
             <div className="flex items-center gap-2">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 border border-border flex items-center justify-center text-text-muted hover:border-accent hover:text-accent transition-all duration-300"
+                  className="w-9 h-9 border border-border flex items-center justify-center text-text-muted hover:border-white hover:text-white transition-all duration-300"
                 >
                   {s.icon}
                 </a>
@@ -91,16 +109,6 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-              <li>
-                <a
-                  href="#lm-email"
-                  onClick={handleGuideClick}
-                  className="text-text-muted text-sm hover:text-white transition-colors duration-200 flex items-center gap-2 group"
-                >
-                  <span className="w-3 h-px bg-border group-hover:bg-accent group-hover:w-4 transition-all duration-300" />
-                  Get the Guide
-                </a>
-              </li>
               <li>
                 <a
                   href="/privacy-policy"

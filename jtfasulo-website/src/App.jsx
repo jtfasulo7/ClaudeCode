@@ -25,13 +25,11 @@ function Home() {
           title="Premium websites, designed by you."
           subtitle="Private mentorship from JT Fasulo. I'll teach you how to think about design, build, and ship websites that look like they belong on Apple's homepage — not a template marketplace."
           primaryCtaLabel="Get in touch"
-          secondaryCtaLabel="See my work"
           onPrimaryCtaClick={scrollToContact}
-          onSecondaryCtaClick={() => window.open('https://sybago.ai', '_blank', 'noopener')}
           features={[
-            '1-on-1 weekly sessions',
-            'Real client projects',
-            'Direct portfolio review',
+            'Free discovery call',
+            'Curated onboarding call',
+            'Your own workbook',
           ]}
         />
         <FeatureShaderCards />

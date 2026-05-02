@@ -3,14 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 /* Replaces the Footer's old "Start your AI journey the right way" CTA bar.
    Single-column closing CTA — minimal copy, white pill button. */
 
-function handleClick(e) {
-  e.preventDefault()
-  // Hook this to your scheduler when ready (Calendly / Cal.com / GHL).
-  // For now, scroll to a #contact anchor if present, otherwise the bottom of the page.
-  const target = document.getElementById('contact')
-  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  else window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
-}
+const BOOKING_URL = 'https://api.leadconnectorhq.com/widget/bookings/pro-website-training'
 
 export default function BookCallCTA() {
   return (
@@ -26,8 +19,9 @@ export default function BookCallCTA() {
         </h2>
 
         <a
-          href="#contact"
-          onClick={handleClick}
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn-primary text-sm inline-flex items-center gap-2"
         >
           <span>Book a free call</span>
