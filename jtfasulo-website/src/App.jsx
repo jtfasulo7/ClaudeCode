@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import Splash from './components/Splash'
 import LiquidMetalHero from './components/ui/LiquidMetalHero'
+import FeatureShaderCards from './components/ui/FeatureShaderCards'
 
 function Home() {
   const scrollToContact = () => {
@@ -30,6 +31,7 @@ function Home() {
             'Direct portfolio review',
           ]}
         />
+        <FeatureShaderCards />
       </main>
       <Footer />
     </div>
