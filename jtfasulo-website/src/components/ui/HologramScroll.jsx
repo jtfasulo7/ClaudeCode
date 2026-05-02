@@ -5,7 +5,11 @@ import { useEffect, useRef } from 'react'
    which frame is painted; drawCover() handles aspect-ratio fit; the
    `if (idx === lastIdx) return` is the load-bearing perf line. */
 
-const TOTAL = 120
+// 238 motion-interpolated WebP frames at 1920 wide. Was 120 JPEG frames at
+// 1280 wide — half the per-frame scroll delta, less canvas-upscale blur,
+// and cleaner motion (true synthesized in-betweens rather than duplicated
+// source frames). minterpolate produced 240 → -frames:v truncated to 238.
+const TOTAL = 238
 
 // Four labels, each pointing at one panel of the fully-expanded hologram.
 // `pos` = where the label sits in the sticky viewport (% of width/height).
@@ -69,7 +73,7 @@ export default function HologramScroll() {
     for (let i = 1; i <= TOTAL; i++) {
       const img = new Image()
       img.decoding = 'async'
-      img.src = `/hologram-frames/frame_${String(i).padStart(3, '0')}.jpg`
+      img.src = `/hologram-frames/frame_${String(i).padStart(3, '0')}.webp`
       img.onload = () => { lastIdx = -1; render() }
       images[i - 1] = img
     }
