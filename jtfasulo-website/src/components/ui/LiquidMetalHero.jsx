@@ -1,8 +1,60 @@
-import { LiquidMetal, liquidMetalPresets } from '@paper-design/shaders-react'
+import { LiquidMetal } from '@paper-design/shaders-react'
 import { motion } from 'framer-motion'
 import { Button } from './button'
 import { Badge } from './badge'
 import { Card } from './card'
+
+/* ----------------------------------------------------------------------------
+   Fluid parameters
+   --------------------------------------------------------------------------
+   shape: 'metaballs'  → multiple blobs that organically separate + coalesce.
+                         The other shapes (none/circle/diamond/daisy) all look
+                         like a fixed silhouette.
+   distortion (0.85)   → noise-warps the blob field, producing the chaotic
+                         "pulled taffy" curl that reads as fluid mechanics.
+   softness   (0.92)   → smooths the blob boundaries so merge/split events
+                         look like surface tension instead of pop-in.
+   contour    (0.70)   → strong rim so the metallic edge stays visible while
+                         everything else churns.
+   speed      (1.6)    → fast enough that motion is obvious without being
+                         frantic.
+   repetition (5)      → multiple internal stripes per blob → liquid-chrome
+                         shimmer.
+   shiftRed/Blue       → chromatic aberration → iridescent fringe.
+   ------------------------------------------------------------------------ */
+const baseShader = {
+  shape:      'metaballs',
+  speed:       1.6,
+  scale:       0.7,
+  distortion:  0.85,
+  softness:    0.92,
+  contour:     0.70,
+  repetition:  5,
+  shiftRed:    0.22,
+  shiftBlue:  -0.22,
+  angle:       42,
+  colorBack:  '#000000',
+  colorTint:  '#ffffff',
+  frame:       0,
+}
+
+// A second, smaller, faster field overlaid with `screen` blend gives a second
+// frequency of motion. Where the two fields cross, the metallic surfaces
+// brighten — that's where the eye reads "blobs colliding and merging".
+const accentShader = {
+  ...baseShader,
+  speed:       2.4,
+  scale:       0.42,
+  distortion:  0.95,
+  softness:    0.86,
+  contour:     0.55,
+  repetition:  3,
+  shiftRed:    0.32,
+  shiftBlue:  -0.18,
+  angle:      -25,
+  colorBack:  '#000000',
+  colorTint:  '#cfd6df',  // slightly cooler tint so the layers don't read as one
+}
 
 const containerVariants = {
   hidden:  { opacity: 0 },
@@ -30,13 +82,27 @@ export default function LiquidMetalHero({
   features = [],
 }) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Shader is absolutely positioned inside the section (not fixed to the
-          viewport with z-index -10, which the page's opaque body bg paints
-          over). This keeps the shader visible without touching global styles. */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Two stacked LiquidMetal shaders. The base layer is a slow, large-scale
+          metaball field; the accent layer is faster and smaller, blended on
+          top with `screen` so highlights add. Two frequencies of motion
+          overlapping is what reads as chaotic fluid mechanics — single-layer
+          metaballs feel orderly. */}
       <LiquidMetal
-        {...liquidMetalPresets[2]}
+        {...baseShader}
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0 }}
+      />
+      <LiquidMetal
+        {...accentShader}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1,
+          mixBlendMode: 'screen',
+          opacity: 0.85,
+        }}
       />
 
       <div className="container mx-auto px-6 lg:px-8 max-w-7xl relative z-10">
