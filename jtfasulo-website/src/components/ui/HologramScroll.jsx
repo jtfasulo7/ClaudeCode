@@ -64,6 +64,12 @@ export default function HologramScroll() {
 
     const ctx = canvas.getContext('2d')
     const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    // Default in Chrome is 'low' — costs nothing visible at 1× scale, but the
+    // canvas is upscaling 1920 → ~3400 backing-store, so a better resampler
+    // makes a real difference on fine detail (laptop screen text, hologram
+    // panel edges, "ELEVATE YOUR PLATFORM" type).
+    ctx.imageSmoothingEnabled = true
+    ctx.imageSmoothingQuality = 'high'
 
     /* Preload all frames in parallel. Each load invalidates lastIdx so the
        next render() call paints whatever's now available — without this, the
@@ -96,7 +102,10 @@ export default function HologramScroll() {
       canvas.height = Math.floor(h * dpr)
       canvas.style.width  = w + 'px'
       canvas.style.height = h + 'px'
+      // Setting canvas.width/.height resets context state, so re-apply both:
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      ctx.imageSmoothingEnabled = true
+      ctx.imageSmoothingQuality = 'high'
     }
 
     function drawCover(img) {
