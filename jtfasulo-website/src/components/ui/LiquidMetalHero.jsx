@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { LiquidMetal } from '@paper-design/shaders-react'
 import { motion } from 'framer-motion'
 import { Button } from './button'
@@ -22,35 +23,25 @@ import { Card } from './card'
                          shimmer.
    shiftRed/Blue       → chromatic aberration → iridescent fringe.
    ------------------------------------------------------------------------ */
+// Single-layer config. Previously this was a base + accent layer composited
+// with mix-blend-mode: screen — but every screen-blend over a continuously-
+// animating fixed-position fluid forces a full-viewport recomposition each
+// frame, which is the biggest single cost in the old setup. One slightly
+// richer layer is cheaper AND smoother than two layers screen-blended.
 const baseShader = {
   shape:      'metaballs',
-  speed:       0.85,
-  scale:       0.78,        // slightly larger blobs → fewer in view
-  distortion:  0.32,        // calmer curl — was 0.55
+  speed:       0.9,         // was 0.85 base — bumped slightly to keep visible motion
+  scale:       0.72,
+  distortion:  0.34,
   softness:    0.96,
-  contour:     0.6,
-  repetition:  1.8,         // way fewer internal stripes — was 3
-  shiftRed:    0.14,
-  shiftBlue:  -0.14,
+  contour:     0.62,
+  repetition:  2,           // a bit more internal stripe to compensate for losing accent layer
+  shiftRed:    0.16,
+  shiftBlue:  -0.16,
   angle:       42,
   colorBack:  '#000000',
   colorTint:  '#ffffff',
   frame:       0,
-}
-
-const accentShader = {
-  ...baseShader,
-  speed:       1.05,        // was 1.25
-  scale:       0.55,
-  distortion:  0.38,        // was 0.6
-  softness:    0.93,
-  contour:     0.45,
-  repetition:  1.4,         // was 2
-  shiftRed:    0.18,
-  shiftBlue:  -0.10,
-  angle:      -25,
-  colorBack:  '#000000',
-  colorTint:  '#cfd6df',
 }
 
 const containerVariants = {
@@ -78,33 +69,43 @@ export default function LiquidMetalHero({
   onSecondaryCtaClick,
   features = [],
 }) {
+  // Pause the shader when it scrolls offscreen — there's no point rendering
+  // the WebGL fluid when nobody can see it. Setting speed to 0 stops the time
+  // uniform from advancing; React keeps the canvas alive so resume is instant.
+  const sectionRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(true)
+  useEffect(() => {
+    if (!sectionRef.current) return
+    const io = new IntersectionObserver(
+      (entries) => setIsVisible(entries[0].isIntersecting),
+      { threshold: 0 }
+    )
+    io.observe(sectionRef.current)
+    return () => io.disconnect()
+  }, [])
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Two stacked LiquidMetal shaders. The base layer is a slow, large-scale
-          metaball field; the accent layer is faster and smaller, blended on
-          top with `screen` so highlights add. Two frequencies of motion
-          overlapping is what reads as chaotic fluid mechanics — single-layer
-          metaballs feel orderly. */}
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+    >
+      {/* Single-layer metaball fluid. Capped at ~700K pixels regardless of
+          display DPR — for a soft fluid background, sub-pixel detail is
+          invisible, but uncapped 4K rendering tanks frame rate.
+          - maxPixelCount caps the canvas backing-store size
+          - minPixelRatio: 1 prevents over-rendering on hi-DPI displays
+          - speed is force-zeroed when offscreen via IntersectionObserver */}
       <LiquidMetal
         {...baseShader}
+        speed={isVisible ? baseShader.speed : 0}
+        maxPixelCount={1024 * 700}
+        minPixelRatio={1}
+        webGlContextAttributes={{ powerPreference: 'high-performance', antialias: false }}
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0 }}
       />
-      <LiquidMetal
-        {...accentShader}
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 1,
-          mixBlendMode: 'screen',
-          opacity: 0.42,
-        }}
-      />
 
-      {/* Depth vignette — dims the fluid where text sits, so the headline
-          reads as if it's casting a soft shadow onto the fluid behind it.
-          This is the trick that gives the section a 3D layered feel. */}
+      {/* Depth vignette — pure CSS gradient, free per frame. Dims the fluid
+          where text sits so the headline reads as floating in front. */}
       <div
         aria-hidden="true"
         className="absolute inset-0 z-[2] pointer-events-none"
