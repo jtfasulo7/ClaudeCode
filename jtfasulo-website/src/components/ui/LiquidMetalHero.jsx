@@ -24,36 +24,36 @@ import { Card } from './card'
    ------------------------------------------------------------------------ */
 const baseShader = {
   shape:      'metaballs',
-  speed:       1.6,
-  scale:       0.7,
-  distortion:  0.85,
-  softness:    0.92,
-  contour:     0.70,
-  repetition:  5,
-  shiftRed:    0.22,
-  shiftBlue:  -0.22,
+  speed:       0.85,        // calmer flow — was 1.6
+  scale:       0.75,        // slightly larger blobs (less small-scale clutter)
+  distortion:  0.55,        // less chaotic curl — was 0.85
+  softness:    0.95,        // even smoother merges
+  contour:     0.65,
+  repetition:  3,           // fewer internal stripes — was 5
+  shiftRed:    0.18,
+  shiftBlue:  -0.18,
   angle:       42,
   colorBack:  '#000000',
   colorTint:  '#ffffff',
   frame:       0,
 }
 
-// A second, smaller, faster field overlaid with `screen` blend gives a second
-// frequency of motion. Where the two fields cross, the metallic surfaces
-// brighten — that's where the eye reads "blobs colliding and merging".
+// A second, smaller, slightly faster field overlaid with `screen` blend gives
+// a second frequency of motion. Kept subtler now so the two layers don't read
+// as competing animations.
 const accentShader = {
   ...baseShader,
-  speed:       2.4,
-  scale:       0.42,
-  distortion:  0.95,
-  softness:    0.86,
-  contour:     0.55,
-  repetition:  3,
-  shiftRed:    0.32,
-  shiftBlue:  -0.18,
+  speed:       1.25,        // was 2.4
+  scale:       0.5,
+  distortion:  0.6,         // was 0.95
+  softness:    0.9,
+  contour:     0.5,
+  repetition:  2,           // was 3
+  shiftRed:    0.22,
+  shiftBlue:  -0.14,
   angle:      -25,
   colorBack:  '#000000',
-  colorTint:  '#cfd6df',  // slightly cooler tint so the layers don't read as one
+  colorTint:  '#cfd6df',
 }
 
 const containerVariants = {
@@ -101,7 +101,7 @@ export default function LiquidMetalHero({
           height: '100%',
           zIndex: 1,
           mixBlendMode: 'screen',
-          opacity: 0.85,
+          opacity: 0.55,
         }}
       />
 
