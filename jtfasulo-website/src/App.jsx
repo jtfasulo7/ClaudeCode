@@ -4,6 +4,7 @@ import Header from './components/Header'
 import LeadMagnet from './components/LeadMagnet'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
+import Splash from './components/Splash'
 
 function Home() {
   return (
@@ -20,9 +21,13 @@ function Home() {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      {/* Splash page — visitors land here and pick their path */}
+      <Route path="/" element={<Splash />} />
+      {/* Existing site content moved to /home so the splash can route to it */}
+      <Route path="/home" element={<Home />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="*" element={<Home />} />
+      {/* Anything else falls through to the splash so the entry decision is preserved */}
+      <Route path="*" element={<Splash />} />
     </Routes>
   )
 }
