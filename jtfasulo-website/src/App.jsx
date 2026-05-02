@@ -6,6 +6,7 @@ import PrivacyPolicy from './components/PrivacyPolicy'
 import Splash from './components/Splash'
 import LiquidMetalHero from './components/ui/LiquidMetalHero'
 import FeatureShaderCards from './components/ui/FeatureShaderCards'
+import HologramScroll from './components/ui/HologramScroll'
 
 function Home() {
   const scrollToContact = () => {
@@ -32,6 +33,7 @@ function Home() {
           ]}
         />
         <FeatureShaderCards />
+        <HologramScroll />
       </main>
       <Footer />
     </div>
