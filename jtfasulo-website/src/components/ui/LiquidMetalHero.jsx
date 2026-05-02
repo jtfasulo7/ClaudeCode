@@ -24,33 +24,30 @@ import { Card } from './card'
    ------------------------------------------------------------------------ */
 const baseShader = {
   shape:      'metaballs',
-  speed:       0.85,        // calmer flow — was 1.6
-  scale:       0.75,        // slightly larger blobs (less small-scale clutter)
-  distortion:  0.55,        // less chaotic curl — was 0.85
-  softness:    0.95,        // even smoother merges
-  contour:     0.65,
-  repetition:  3,           // fewer internal stripes — was 5
-  shiftRed:    0.18,
-  shiftBlue:  -0.18,
+  speed:       0.85,
+  scale:       0.78,        // slightly larger blobs → fewer in view
+  distortion:  0.32,        // calmer curl — was 0.55
+  softness:    0.96,
+  contour:     0.6,
+  repetition:  1.8,         // way fewer internal stripes — was 3
+  shiftRed:    0.14,
+  shiftBlue:  -0.14,
   angle:       42,
   colorBack:  '#000000',
   colorTint:  '#ffffff',
   frame:       0,
 }
 
-// A second, smaller, slightly faster field overlaid with `screen` blend gives
-// a second frequency of motion. Kept subtler now so the two layers don't read
-// as competing animations.
 const accentShader = {
   ...baseShader,
-  speed:       1.25,        // was 2.4
-  scale:       0.5,
-  distortion:  0.6,         // was 0.95
-  softness:    0.9,
-  contour:     0.5,
-  repetition:  2,           // was 3
-  shiftRed:    0.22,
-  shiftBlue:  -0.14,
+  speed:       1.05,        // was 1.25
+  scale:       0.55,
+  distortion:  0.38,        // was 0.6
+  softness:    0.93,
+  contour:     0.45,
+  repetition:  1.4,         // was 2
+  shiftRed:    0.18,
+  shiftBlue:  -0.10,
   angle:      -25,
   colorBack:  '#000000',
   colorTint:  '#cfd6df',
@@ -101,7 +98,19 @@ export default function LiquidMetalHero({
           height: '100%',
           zIndex: 1,
           mixBlendMode: 'screen',
-          opacity: 0.55,
+          opacity: 0.42,
+        }}
+      />
+
+      {/* Depth vignette — dims the fluid where text sits, so the headline
+          reads as if it's casting a soft shadow onto the fluid behind it.
+          This is the trick that gives the section a 3D layered feel. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-[2] pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0) 80%)',
         }}
       />
 
@@ -128,15 +137,30 @@ export default function LiquidMetalHero({
             <motion.h1
               role="heading"
               aria-level={1}
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-tight tracking-tight"
+              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight"
               variants={itemVariants}
+              style={{
+                // Chrome-tone gradient fill so the type itself feels metallic.
+                background:
+                  'linear-gradient(180deg, #ffffff 0%, #f3f4f6 50%, #c7ccd4 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                color: 'transparent',
+                WebkitTextFillColor: 'transparent',
+                // Layered drop shadow — sharp inner shadow + soft long shadow.
+                // The long shadow is what reads as "the type is floating in
+                // front of the fluid".
+                filter:
+                  'drop-shadow(0 1px 0 rgba(255,255,255,0.18)) drop-shadow(0 14px 28px rgba(0,0,0,0.55)) drop-shadow(0 4px 8px rgba(0,0,0,0.45))',
+              }}
             >
               {title}
             </motion.h1>
 
             <motion.p
-              className="max-w-3xl mx-auto text-xl sm:text-2xl text-foreground/90 leading-relaxed"
+              className="max-w-3xl mx-auto text-xl sm:text-2xl text-white/95 leading-relaxed"
               variants={itemVariants}
+              style={{ textShadow: '0 2px 16px rgba(0,0,0,0.72), 0 1px 3px rgba(0,0,0,0.55)' }}
             >
               {subtitle}
             </motion.p>
