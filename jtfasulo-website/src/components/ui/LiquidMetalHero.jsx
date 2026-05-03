@@ -222,18 +222,20 @@ export default function LiquidMetalHero({
               <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
                 <Card className="bg-foreground/10 border-foreground/20 backdrop-blur-md shadow-2xl">
                   <div className="p-6 md:p-8">
-                    {/* 3-step flow: text → arrow → text → arrow → text.
-                        Stacks vertically on mobile (arrows rotate 90°). */}
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                    {/* 3-step flow.
+                        Mobile: text on its own centered line, arrow on the
+                        next centered line below — looks like a vertical flow.
+                        Desktop: horizontal row, arrows between, all inline. */}
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6">
                       {features.map((feature, index) => (
                         <motion.div
                           key={index}
-                          className="flex items-center gap-4 md:gap-6"
+                          className="flex flex-col md:flex-row items-center gap-3 md:gap-6"
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                         >
-                          <p className="text-foreground/90 font-medium text-base md:text-lg whitespace-nowrap">
+                          <p className="text-foreground/90 font-medium text-base md:text-lg text-center whitespace-nowrap">
                             {feature}
                           </p>
                           {index < features.length - 1 && (

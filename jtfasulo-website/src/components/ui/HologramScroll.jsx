@@ -169,17 +169,17 @@ export default function HologramScroll() {
         el.style.transform = `translateY(${(1 - o) * 14}px)`
       })
 
-      // Mobile labels: only ONE label fully visible at any given moment, with
-      // crossfade between phases (FADE-width gaps). Window sizes were tuned
-      // up so each label dwells longer on screen — easy to scroll past was
-      // the complaint. With the section now 460vh on mobile each visible
-      // range gets ~250px of physical scroll on a typical phone.
+      // Mobile labels — the opening line is hidden on mobile, so the four
+      // pillars get the full 0 → 1 progress range. Each visible window is
+      // wider than before; the user can't scroll past one without reading.
+      // Crossfade gap between adjacent windows = FADE so only one label is
+      // fully opaque at any moment (no double-stacking).
       const FADE = 0.05
       const windows = [
-        { start: 0.40, end: 0.58 },   // Hero      (visible ~18% of progress)
-        { start: 0.63, end: 0.78 },   // Features  (~15%)
-        { start: 0.83, end: 0.92 },   // Reviews   (~9%)
-        { start: 0.97, end: 1.30 },   // CTA       (last, holds through end)
+        { start: 0.06, end: 0.30 },   // Hero      (visible ~24% of progress)
+        { start: 0.35, end: 0.55 },   // Features  (~20%)
+        { start: 0.60, end: 0.80 },   // Reviews   (~20%)
+        { start: 0.85, end: 1.30 },   // CTA       (last, holds through end)
       ]
       windows.forEach((w, i) => {
         const el = mobileLabelRefs.current[i]
@@ -215,10 +215,12 @@ export default function HologramScroll() {
   return (
     <section
       ref={sectionRef}
-      // Mobile gets a taller scroll container (460vh vs 320vh) so each label
-      // stays on screen longer — the user explicitly asked for less "easy to
-      // scroll past" feel. Desktop unchanged.
-      className="relative bg-black text-white h-[460vh] md:h-[320vh]"
+      // Mobile uses a 380vh container — shorter than the 460vh attempt
+      // (which left dead space between the section and the marquee that
+      // follows) but the labels still get more dwell time than before
+      // because mobile-specific windows below are wider (no opening text
+      // eating the first 40% of progress on mobile).
+      className="relative bg-black text-white h-[380vh] md:h-[320vh]"
     >
       <div ref={stickyRef} className="sticky top-0 h-screen overflow-hidden bg-black">
         {/* Frame canvas */}
@@ -243,7 +245,10 @@ export default function HologramScroll() {
             hologram begins to lift. */}
         <div
           ref={openingRef}
-          className="absolute z-10 px-6 text-center"
+          // Mobile drops the "Or maybe you wanna go a little crazy..." line
+          // entirely — the freed-up scroll progress is redistributed to the
+          // four pillar windows below so each one dwells longer.
+          className="absolute z-10 px-6 text-center hidden md:block"
           style={{
             top: '50%',
             left: '50%',

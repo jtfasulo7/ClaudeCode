@@ -301,7 +301,7 @@
   /* Triple-buffered marquee: animation translates by exactly 1/3 of its
      own width per cycle, so wrap-around lands on a visually identical
      pattern. Compositor-thread CSS animation, no JS RAF. */
-  animation: pmMarquee 28s linear infinite;
+  animation: pmMarquee 18s linear infinite;
   will-change: transform;
 }
 @keyframes pmMarquee {
