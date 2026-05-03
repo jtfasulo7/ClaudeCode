@@ -113,12 +113,9 @@ export default function HologramScroll() {
       // "Contain" fit instead of "cover" — the source video is 16:9 widescreen
       // and getting cropped hard on portrait viewports. Letterbox top/bottom
       // (or left/right on ultra-narrow) so the full hologram is always visible.
-      // On a 9:16 phone the video occupies the middle ~30% of viewport height.
       const cw = canvas.clientWidth, ch = canvas.clientHeight
       const ir = img.naturalWidth / img.naturalHeight
       const cr = cw / ch
-      // On wide viewports (desktop) shrink slightly so the hologram doesn't
-      // bleed into the absolute-positioned labels at the corners.
       const isMobile = cw < 768
       const padding  = isMobile ? 0.92 : 0.78  // 92% width on mobile, 78% on desktop
       let dw, dh, dx, dy
@@ -126,7 +123,10 @@ export default function HologramScroll() {
         dw = cw * padding
         dh = dw / ir
         dx = (cw - dw) / 2
-        dy = (ch - dh) / 2
+        // On mobile: pin the image to the upper third of the viewport so the
+        // crossfading text below it sits in actual breathing room rather than
+        // crammed against the bottom edge. Desktop stays vertically centered.
+        dy = isMobile ? ch * 0.16 : (ch - dh) / 2
       } else {
         dh = ch * padding
         dw = dh * ir
@@ -150,8 +150,10 @@ export default function HologramScroll() {
         if (img) drawFit(img)
       }
 
-      // Opening text: visible 0 → 0.42, fading out 0.42 → 0.58
-      const openingOpacity = 1 - Math.min(1, Math.max(0, (p - 0.42) / 0.16))
+      // Opening text: visible 0 → 0.30, fading out 0.30 → 0.40 (used to fade
+      // out at 0.42-0.58, but the new mobile label windows start at 0.40 so
+      // the opening line has to clear out earlier).
+      const openingOpacity = 1 - Math.min(1, Math.max(0, (p - 0.30) / 0.10))
       if (openingRef.current) {
         openingRef.current.style.opacity = openingOpacity
         openingRef.current.style.transform =
@@ -167,17 +169,17 @@ export default function HologramScroll() {
         el.style.transform = `translateY(${(1 - o) * 14}px)`
       })
 
-      // Mobile labels: only ONE label is fully visible at any given moment.
-      // The "visible" range of each phase is separated from the next by a
-      // FADE-width gap so the crossfade (label N fading out + label N+1
-      // fading in) happens cleanly without two labels being simultaneously
-      // at full opacity. At the gap boundaries the sum of opacities ≈ 1.
+      // Mobile labels: only ONE label fully visible at any given moment, with
+      // crossfade between phases (FADE-width gaps). Window sizes were tuned
+      // up so each label dwells longer on screen — easy to scroll past was
+      // the complaint. With the section now 460vh on mobile each visible
+      // range gets ~250px of physical scroll on a typical phone.
       const FADE = 0.05
       const windows = [
-        { start: 0.55, end: 0.65 },   // Hero
-        { start: 0.70, end: 0.78 },   // Features
-        { start: 0.83, end: 0.91 },   // Reviews
-        { start: 0.96, end: 1.20 },   // CTA stays through end
+        { start: 0.40, end: 0.58 },   // Hero      (visible ~18% of progress)
+        { start: 0.63, end: 0.78 },   // Features  (~15%)
+        { start: 0.83, end: 0.92 },   // Reviews   (~9%)
+        { start: 0.97, end: 1.30 },   // CTA       (last, holds through end)
       ]
       windows.forEach((w, i) => {
         const el = mobileLabelRefs.current[i]
@@ -213,8 +215,10 @@ export default function HologramScroll() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-black text-white"
-      style={{ height: '320vh' }}
+      // Mobile gets a taller scroll container (460vh vs 320vh) so each label
+      // stays on screen longer — the user explicitly asked for less "easy to
+      // scroll past" feel. Desktop unchanged.
+      className="relative bg-black text-white h-[460vh] md:h-[320vh]"
     >
       <div ref={stickyRef} className="sticky top-0 h-screen overflow-hidden bg-black">
         {/* Frame canvas */}
@@ -296,9 +300,10 @@ export default function HologramScroll() {
         ))}
 
         {/* Mobile-only: a single crossfading label below the hologram that
-            cycles through the four sections as the user scrolls. Carries the
-            "premium" feel without crowding a 9:16 viewport with corner cards. */}
-        <div className="absolute inset-x-0 bottom-16 z-10 px-6 md:hidden pointer-events-none">
+            cycles through the four sections as the user scrolls. Sits at
+            ~46% from top so it's directly below the now-upper-positioned
+            hologram, not pinned to the bottom edge. */}
+        <div className="absolute inset-x-0 top-[46%] z-10 px-6 md:hidden pointer-events-none">
           <div className="relative h-[140px]">
             {LABELS.map((lbl, i) => (
               <div
