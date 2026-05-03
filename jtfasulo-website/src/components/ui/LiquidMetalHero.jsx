@@ -63,6 +63,7 @@ export default function LiquidMetalHero({
   badge,
   title,
   subtitle,
+  subSubtitle,
   primaryCtaLabel,
   secondaryCtaLabel,
   onPrimaryCtaClick,
@@ -176,6 +177,16 @@ export default function LiquidMetalHero({
             >
               {subtitle}
             </motion.p>
+
+            {subSubtitle && (
+              <motion.p
+                className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-white/70 leading-relaxed px-2 -mt-2"
+                variants={itemVariants}
+                style={{ textShadow: '0 2px 14px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.6)' }}
+              >
+                {subSubtitle}
+              </motion.p>
+            )}
           </motion.div>
 
           <motion.div

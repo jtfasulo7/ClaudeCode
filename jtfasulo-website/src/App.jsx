@@ -22,8 +22,9 @@ function Home() {
       <main>
         <LiquidMetalHero
           badge="✦  Now accepting students"
-          title="Premium websites, designed by you."
-          subtitle="Private mentorship from JT Fasulo. I'll teach you how to think about design, build, and ship websites that look like they belong on Apple's homepage — not a template marketplace."
+          title="Craft $10k Websites Without Coding"
+          subtitle="Learn the exact system I use to build premium, high converting sites."
+          subSubtitle="Built for beginners. No coding. No guessing."
           primaryCtaLabel="Get in touch"
           onPrimaryCtaClick={scrollToContact}
           features={[

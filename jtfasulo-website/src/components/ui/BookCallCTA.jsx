@@ -1,22 +1,42 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Check } from 'lucide-react'
 
-/* Replaces the Footer's old "Start your AI journey the right way" CTA bar.
-   Single-column closing CTA — minimal copy, white pill button. */
+/* Closing section — title + curriculum bullets + booking CTA. */
 
 const BOOKING_URL = 'https://api.leadconnectorhq.com/widget/bookings/pro-website-training'
+
+const CURRICULUM = [
+  'What makes a site convert',
+  'Build high-end websites without learning how to code',
+  'Master AI to get the best results',
+  'Targeting high-ticket clients',
+]
 
 export default function BookCallCTA() {
   return (
     <section className="relative bg-background text-white overflow-hidden border-t border-border">
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 md:py-32 text-center">
+      <div className="relative max-w-3xl mx-auto px-6 lg:px-8 py-20 md:py-28 text-center">
         <p className="text-[11px] tracking-[0.42em] uppercase text-white/55 mb-6">
-          Ready when you are
+          The Curriculum
         </p>
-        <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.12] mb-8">
-          Let&rsquo;s build something
-          <br className="hidden md:block" />
-          <span className="opacity-70"> worth showing off.</span>
+        <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.12] mb-10 md:mb-12">
+          What you learn.
         </h2>
+
+        <ul className="text-left max-w-xl mx-auto space-y-4 md:space-y-5 mb-12 md:mb-14">
+          {CURRICULUM.map((item) => (
+            <li key={item} className="flex items-start gap-3 md:gap-4">
+              <Check
+                size={20}
+                strokeWidth={1.5}
+                className="text-white/55 mt-0.5 md:mt-1 shrink-0"
+                aria-hidden="true"
+              />
+              <span className="text-base md:text-lg leading-snug text-white/90">
+                {item}
+              </span>
+            </li>
+          ))}
+        </ul>
 
         <a
           href={BOOKING_URL}

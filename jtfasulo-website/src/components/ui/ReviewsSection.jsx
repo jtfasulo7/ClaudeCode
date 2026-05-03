@@ -147,9 +147,6 @@ export default function ReviewsSection() {
           <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.12] mt-7 text-white">
             Make your reviews pop.
           </h2>
-          <p className="mt-5 text-base md:text-lg text-white/65 max-w-md">
-            Social proof shouldn&rsquo;t be an afterthought. Here&rsquo;s what people I&rsquo;ve worked with sound like.
-          </p>
         </div>
 
         <div className="reviews-stage flex justify-center gap-6 mt-16 max-h-[740px] overflow-hidden">
