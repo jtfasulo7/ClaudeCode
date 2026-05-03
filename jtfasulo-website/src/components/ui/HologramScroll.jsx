@@ -215,12 +215,12 @@ export default function HologramScroll() {
   return (
     <section
       ref={sectionRef}
-      // Mobile uses a 380vh container — shorter than the 460vh attempt
-      // (which left dead space between the section and the marquee that
-      // follows) but the labels still get more dwell time than before
-      // because mobile-specific windows below are wider (no opening text
-      // eating the first 40% of progress on mobile).
-      className="relative bg-black text-white h-[380vh] md:h-[320vh]"
+      // Mobile dropped from 380vh → 280vh. The post-sticky 100vh tail (where
+      // the canvas sat frozen at frame 238 + the CTA label, no new info, just
+      // black-ish space scrolling up) was reading as ~one viewport of dead
+      // scroll before the marquee section. Shorter parent = same pin pattern,
+      // proportionally less dead tail.
+      className="relative bg-black text-white h-[280vh] md:h-[320vh]"
     >
       <div ref={stickyRef} className="sticky top-0 h-screen overflow-hidden bg-black">
         {/* Frame canvas */}

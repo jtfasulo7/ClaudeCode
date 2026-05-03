@@ -110,27 +110,36 @@ export default function FeatureShaderCards() {
     return () => io.disconnect()
   }, [])
 
-  /* Mobile scroll-driven carousel:
-     The .mobile-stage container is taller than the viewport. Inside it, a
-     sticky 100vh "stage" pins to the top while the user scrolls. The
-     horizontal track inside the stage translateX-es by -p * (N-1) * 100vw,
-     where p = section scroll progress 0..1. So as the user scrolls down,
-     cards slide horizontally one-by-one. Compositor-thread transform via
-     a single rAF-throttled scroll handler. */
+  /* Mobile scroll-driven carousel — opacity-only crossfade between cards.
+     All six cards are stacked at the same absolute position; only one (or
+     a 50/50 mix during transitions) is visible at a time. As scroll
+     progress moves through 0 → 1, fcard = p × (N-1) names the active
+     card; the fractional part `t` is the crossfade between current and
+     next. NO horizontal translation — the cards do not slide. */
   const mobileStageRef = useRef(null)
-  const trackRef       = useRef(null)
+  const cardRefs       = useRef([])
   useEffect(() => {
     const stage = mobileStageRef.current
-    const track = trackRef.current
-    if (!stage || !track) return
+    if (!stage) return
 
     let ticking = false
     function update() {
       const rect = stage.getBoundingClientRect()
       const range = rect.height - window.innerHeight
       const p = Math.max(0, Math.min(1, -rect.top / range))
-      const offset = -p * (features.length - 1) * 100   // in vw units
-      track.style.transform = `translate3d(${offset}vw, 0, 0)`
+
+      const N = features.length
+      const fcard = Math.max(0, Math.min(N - 1, p * (N - 1)))
+      const idx = Math.min(N - 2, Math.floor(fcard))
+      const t = fcard - idx
+
+      cardRefs.current.forEach((el, i) => {
+        if (!el) return
+        let o = 0
+        if (i === idx)            o = 1 - t
+        else if (i === idx + 1)   o = t
+        el.style.opacity = o.toFixed(3)
+      })
     }
 
     function onScroll() {
@@ -173,27 +182,31 @@ export default function FeatureShaderCards() {
         ))}
       </div>
 
-      {/* Mobile — scroll-driven horizontal carousel */}
+      {/* Mobile — scroll-driven crossfade carousel. All six cards stacked
+          at the same absolute position; opacity is driven by scroll. */}
       <div
         ref={mobileStageRef}
         className="md:hidden relative"
         style={{ height: '380vh' }}
       >
-        <div className="sticky top-0 h-screen overflow-hidden flex items-center">
-          <div
-            ref={trackRef}
-            className="flex items-center"
-            style={{ willChange: 'transform' }}
-          >
-            {features.map((f, i) => (
-              <div
-                key={i}
-                className="w-screen shrink-0 px-6 flex items-center justify-center"
-              >
-                <FeatureCard {...f} cfg={shaderConfigs[i % shaderConfigs.length]} isVisible={isVisible} />
-              </div>
-            ))}
-          </div>
+        <div className="sticky top-0 h-screen overflow-hidden">
+          {features.map((f, i) => (
+            <div
+              key={i}
+              ref={(el) => (cardRefs.current[i] = el)}
+              className="absolute inset-0 flex items-center justify-center px-6"
+              style={{
+                opacity: i === 0 ? 1 : 0,        // first card visible at boot
+                willChange: 'opacity',
+              }}
+            >
+              <FeatureCard
+                {...f}
+                cfg={shaderConfigs[i % shaderConfigs.length]}
+                isVisible={isVisible}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
