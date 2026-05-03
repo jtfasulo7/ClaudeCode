@@ -25,7 +25,12 @@ export default function PerspectiveMarquee() {
   return (
     <section
       aria-label={SENTENCE}
-      className="pm-stage relative bg-black text-white overflow-hidden"
+      // Mobile: pull the marquee up by a viewport-height to overlay the
+      // hologram's post-sticky tail. Without this, the released sticky
+      // child of HologramScroll scrolls a full 100vh up before the marquee
+      // enters — that gap reads as dead black space. Desktop (md+) renders
+      // normally with no overlap.
+      className="pm-stage relative bg-black text-white overflow-hidden -mt-[100vh] md:mt-0"
     >
       <div className="pm-deck">
         <div className="pm-track">
