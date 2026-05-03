@@ -281,3 +281,10 @@
   to   { transform: translate3d(0, calc(-1 * var(--cycle, 1000px)), 0); }
 }
 
+
+
+/* Hide scrollbar visually while keeping scroll behaviour intact. Used by the
+   mobile horizontal feature-card carousel. */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+

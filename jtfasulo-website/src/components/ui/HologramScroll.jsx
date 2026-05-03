@@ -51,11 +51,12 @@ const LABELS = [
 ]
 
 export default function HologramScroll() {
-  const sectionRef = useRef(null)
-  const stickyRef  = useRef(null)
-  const canvasRef  = useRef(null)
-  const openingRef = useRef(null)
-  const labelRefs  = useRef([])
+  const sectionRef       = useRef(null)
+  const stickyRef        = useRef(null)
+  const canvasRef        = useRef(null)
+  const openingRef       = useRef(null)
+  const labelRefs        = useRef([])
+  const mobileLabelRefs  = useRef([])
 
   useEffect(() => {
     const section = sectionRef.current
@@ -157,13 +158,38 @@ export default function HologramScroll() {
           `translate(-50%, calc(-50% + ${(1 - openingOpacity) * -16}px))`
       }
 
-      // Labels: each fades in over 0.12 scroll units after its appearAt
+      // Desktop labels: each fades in over 0.12 scroll units after appearAt
       LABELS.forEach((lbl, i) => {
         const o = Math.min(1, Math.max(0, (p - lbl.appearAt) / 0.12))
         const el = labelRefs.current[i]
         if (!el) return
         el.style.opacity = o
         el.style.transform = `translateY(${(1 - o) * 14}px)`
+      })
+
+      // Mobile labels: only ONE label is fully visible at any given moment.
+      // The "visible" range of each phase is separated from the next by a
+      // FADE-width gap so the crossfade (label N fading out + label N+1
+      // fading in) happens cleanly without two labels being simultaneously
+      // at full opacity. At the gap boundaries the sum of opacities ≈ 1.
+      const FADE = 0.05
+      const windows = [
+        { start: 0.55, end: 0.65 },   // Hero
+        { start: 0.70, end: 0.78 },   // Features
+        { start: 0.83, end: 0.91 },   // Reviews
+        { start: 0.96, end: 1.20 },   // CTA stays through end
+      ]
+      windows.forEach((w, i) => {
+        const el = mobileLabelRefs.current[i]
+        if (!el) return
+        let o
+        if (p < w.start - FADE)        o = 0
+        else if (p < w.start)          o = (p - (w.start - FADE)) / FADE
+        else if (p < w.end)            o = 1
+        else if (p < w.end + FADE)     o = 1 - (p - w.end) / FADE
+        else                           o = 0
+        el.style.opacity = o
+        el.style.transform = `translateY(${(1 - o) * 10}px)`
       })
     }
 
@@ -268,6 +294,42 @@ export default function HologramScroll() {
             </p>
           </div>
         ))}
+
+        {/* Mobile-only: a single crossfading label below the hologram that
+            cycles through the four sections as the user scrolls. Carries the
+            "premium" feel without crowding a 9:16 viewport with corner cards. */}
+        <div className="absolute inset-x-0 bottom-16 z-10 px-6 md:hidden pointer-events-none">
+          <div className="relative h-[140px]">
+            {LABELS.map((lbl, i) => (
+              <div
+                key={lbl.n}
+                ref={(el) => (mobileLabelRefs.current[i] = el)}
+                className="absolute inset-x-0 text-center"
+                style={{
+                  opacity: 0,
+                  transition: 'opacity 140ms linear, transform 220ms cubic-bezier(0.16,1,0.3,1)',
+                  willChange: 'opacity, transform',
+                }}
+              >
+                <div className="text-[10px] tracking-[0.42em] uppercase text-white/55 mb-2">
+                  {lbl.n} ·  Section
+                </div>
+                <div
+                  className="font-display font-light text-3xl text-white tracking-tight leading-none mb-2"
+                  style={{ textShadow: '0 4px 22px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.7)' }}
+                >
+                  {lbl.title}
+                </div>
+                <p
+                  className="text-sm leading-relaxed text-white/85 max-w-xs mx-auto"
+                  style={{ textShadow: '0 2px 14px rgba(0,0,0,0.85)' }}
+                >
+                  {lbl.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Scroll hint — only visible at start */}
         <div

@@ -100,11 +100,37 @@ export default function FeatureShaderCards() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+        {/*
+          Mobile  → horizontal scroll-snap carousel. One card centered at a
+                    time; user swipes left/right to flip through.
+          Desktop → grid (unchanged).
+        */}
+        <div
+          className="
+            flex md:grid
+            md:grid-cols-2 lg:grid-cols-3
+            gap-5 md:gap-7
+            overflow-x-auto md:overflow-visible
+            snap-x snap-mandatory md:snap-none
+            -mx-6 md:mx-0 px-6 md:px-0
+            scroll-px-6
+            no-scrollbar
+            scroll-smooth
+          "
+          style={{ scrollPaddingLeft: '1.5rem', scrollPaddingRight: '1.5rem' }}
+        >
           {features.map(({ title, description, Icon }, i) => {
             const cfg = shaderConfigs[i % shaderConfigs.length]
             return (
-              <div key={i} className="relative h-80 group">
+              <div
+                key={i}
+                className="
+                  relative h-80 group
+                  shrink-0 md:shrink
+                  w-[82vw] sm:w-[60vw] md:w-auto
+                  snap-center
+                "
+              >
                 <div className="absolute inset-0 rounded-3xl overflow-hidden">
                   <Warp
                     style={{ width: '100%', height: '100%' }}
