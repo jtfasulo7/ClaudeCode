@@ -142,7 +142,7 @@ export default function LiquidMetalHero({
             <motion.h1
               role="heading"
               aria-level={1}
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.18] tracking-tight pb-2"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.18] tracking-tight pb-2 px-2"
               variants={itemVariants}
               style={{
                 // High-contrast chrome gradient — bright white top, deeper
@@ -170,7 +170,7 @@ export default function LiquidMetalHero({
             </motion.h1>
 
             <motion.p
-              className="max-w-3xl mx-auto text-xl sm:text-2xl text-white/95 leading-relaxed"
+              className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 leading-relaxed px-2"
               variants={itemVariants}
               style={{ textShadow: '0 2px 18px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.7), 0 0 36px rgba(0,0,0,0.5)' }}
             >

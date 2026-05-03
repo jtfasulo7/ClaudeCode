@@ -43,20 +43,11 @@ export default function Header() {
     }
   }
 
+  const BOOKING_URL = 'https://api.leadconnectorhq.com/widget/bookings/pro-website-training'
   const handleContactClick = (e) => {
     e.preventDefault()
     setMobileOpen(false)
-    const scrollToContact = () => {
-      const el = document.getElementById('contact')
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      else window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
-    }
-    if (location.pathname !== '/home') {
-      navigate('/home')
-      setTimeout(scrollToContact, 120)
-      return
-    }
-    scrollToContact()
+    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -98,7 +89,7 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href={BOOKING_URL}
                 onClick={handleContactClick}
                 className="ml-4 btn-primary text-xs py-2.5 px-5"
               >
@@ -149,7 +140,7 @@ export default function Header() {
                 className="mt-10"
               >
                 <a
-                  href="#contact"
+                  href={BOOKING_URL}
                   onClick={handleContactClick}
                   className="btn-primary text-sm"
                 >

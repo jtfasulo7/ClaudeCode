@@ -108,13 +108,30 @@ export default function HologramScroll() {
       ctx.imageSmoothingQuality = 'high'
     }
 
-    function drawCover(img) {
+    function drawFit(img) {
+      // "Contain" fit instead of "cover" — the source video is 16:9 widescreen
+      // and getting cropped hard on portrait viewports. Letterbox top/bottom
+      // (or left/right on ultra-narrow) so the full hologram is always visible.
+      // On a 9:16 phone the video occupies the middle ~30% of viewport height.
       const cw = canvas.clientWidth, ch = canvas.clientHeight
       const ir = img.naturalWidth / img.naturalHeight
       const cr = cw / ch
+      // On wide viewports (desktop) shrink slightly so the hologram doesn't
+      // bleed into the absolute-positioned labels at the corners.
+      const isMobile = cw < 768
+      const padding  = isMobile ? 0.92 : 0.78  // 92% width on mobile, 78% on desktop
       let dw, dh, dx, dy
-      if (ir > cr) { dh = ch; dw = ch * ir; dx = (cw - dw) / 2; dy = 0 }
-      else         { dw = cw; dh = cw / ir; dx = 0; dy = (ch - dh) / 2 }
+      if (ir > cr) {
+        dw = cw * padding
+        dh = dw / ir
+        dx = (cw - dw) / 2
+        dy = (ch - dh) / 2
+      } else {
+        dh = ch * padding
+        dw = dh * ir
+        dx = (cw - dw) / 2
+        dy = (ch - dh) / 2
+      }
       ctx.clearRect(0, 0, cw, ch)
       ctx.drawImage(img, dx, dy, dw, dh)
     }
@@ -129,7 +146,7 @@ export default function HologramScroll() {
       if (idx !== lastIdx) {
         lastIdx = idx
         const img = nearestLoaded(idx)
-        if (img) drawCover(img)
+        if (img) drawFit(img)
       }
 
       // Opening text: visible 0 → 0.42, fading out 0.42 → 0.58
@@ -207,7 +224,7 @@ export default function HologramScroll() {
             textShadow: '0 6px 30px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)',
           }}
         >
-          <h2 className="font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05]">
+          <h2 className="font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.08] px-4">
             Or maybe you wanna go a little&nbsp;crazy<span className="text-white/60" style={{ letterSpacing: '0.18em' }}>...</span>
           </h2>
         </div>
@@ -217,7 +234,7 @@ export default function HologramScroll() {
           <div
             key={lbl.n}
             ref={(el) => (labelRefs.current[i] = el)}
-            className="absolute z-10 pointer-events-none"
+            className="absolute z-10 pointer-events-none hidden md:block"
             style={{
               ...lbl.pos,
               opacity: 0,

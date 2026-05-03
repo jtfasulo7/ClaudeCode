@@ -144,7 +144,7 @@ export default function ReviewsSection() {
           <div className="inline-block border border-white/20 py-1 px-4 rounded-full text-[11px] tracking-[0.32em] uppercase text-white/80">
             Testimonials
           </div>
-          <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mt-7 text-white">
+          <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.12] mt-7 text-white">
             Make your reviews pop.
           </h2>
           <p className="mt-5 text-base md:text-lg text-white/65 max-w-md">

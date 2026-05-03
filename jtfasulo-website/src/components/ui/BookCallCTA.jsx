@@ -12,7 +12,7 @@ export default function BookCallCTA() {
         <p className="text-[11px] tracking-[0.42em] uppercase text-white/55 mb-6">
           Ready when you are
         </p>
-        <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-8">
+        <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.12] mb-8">
           Let&rsquo;s build something
           <br className="hidden md:block" />
           <span className="opacity-70"> worth showing off.</span>

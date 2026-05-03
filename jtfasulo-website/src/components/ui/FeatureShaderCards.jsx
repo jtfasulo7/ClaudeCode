@@ -91,7 +91,7 @@ export default function FeatureShaderCards() {
           <p className="text-[11px] tracking-[0.42em] uppercase text-white/55 mb-5">
             What “premium” actually means
           </p>
-          <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6">
+          <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.12] mb-6">
             Six things every premium site does.
           </h2>
           <p className="text-lg md:text-xl text-white/65 max-w-2xl mx-auto leading-relaxed">
