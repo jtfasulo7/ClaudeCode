@@ -7,7 +7,7 @@ import Splash from './components/Splash'
 import LiquidMetalHero from './components/ui/LiquidMetalHero'
 import FeatureShaderCards from './components/ui/FeatureShaderCards'
 import HologramScroll from './components/ui/HologramScroll'
-import ReviewsSection from './components/ui/ReviewsSection'
+import PerspectiveMarquee from './components/ui/PerspectiveMarquee'
 import BookCallCTA from './components/ui/BookCallCTA'
 
 function Home() {
@@ -35,7 +35,7 @@ function Home() {
         />
         <FeatureShaderCards />
         <HologramScroll />
-        <ReviewsSection />
+        <PerspectiveMarquee />
         <BookCallCTA />
       </main>
       <Footer />
