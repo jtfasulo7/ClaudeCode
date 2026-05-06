@@ -16,13 +16,15 @@
   --ink:#f4ede4;
   --ink-dim:rgba(244,237,228,0.62);
   --ink-faint:rgba(244,237,228,0.35);
-  --gold:#d8a253;
-  --gold-deep:#b97e2f;
-  --ember:#7a2e1a;
+  --accent:#3a7fb8;          /* deep sapphire — reads as cologne-blue, stays visible on dark and on sunrise */
+  --accent-deep:#1f5588;
+  --accent-soft:rgba(58,127,184,0.06);
+  --accent-line:rgba(58,127,184,0.22);
   --line:rgba(244,237,228,0.14);
   --ff-d:'Fraunces',Georgia,serif;
   --ff-b:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
   --eo:cubic-bezier(.2,.7,.2,1);
+  --spring:cubic-bezier(.22,1,.36,1);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -42,7 +44,7 @@ body{
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-::selection{background:var(--gold);color:var(--bg)}
+::selection{background:var(--accent);color:var(--ink)}
 
 /* ─────── Top nav ─────── */
 .nav{
@@ -65,23 +67,9 @@ a{color:inherit;text-decoration:none}
 .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
 
 /* ─────── Hero scroll-scrubbed stage ─────── */
-.stage{
-  /* 600vh of scroll length to play 169 frames at a comfortable rate (~3.5 frames per viewport-height) */
-  position:relative;
-  height:600vh;
-  background:#000;
-}
-.stage-pin{
-  position:sticky;top:0;
-  height:100vh;width:100%;
-  overflow:hidden;
-}
-.stage-canvas{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  display:block;
-}
-/* Top vignette so nav stays readable; bottom vignette so type at base of viewport reads cleanly */
+.stage{position:relative;height:600vh;background:#000}
+.stage-pin{position:sticky;top:0;height:100vh;width:100%;overflow:hidden}
+.stage-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .stage-pin::before,
 .stage-pin::after{
   content:'';position:absolute;left:0;right:0;
@@ -90,7 +78,6 @@ a{color:inherit;text-decoration:none}
 .stage-pin::before{top:0;height:30vh;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%)}
 .stage-pin::after{bottom:0;height:38vh;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 100%)}
 
-/* Loading shimmer until first frame paints */
 .stage-load{
   position:absolute;inset:0;z-index:3;
   display:flex;align-items:center;justify-content:center;
@@ -106,11 +93,8 @@ a{color:inherit;text-decoration:none}
   color:var(--ink-dim);
 }
 
-/* ─────── Overlay text that rides the scroll ─────── */
-.overlay{
-  position:absolute;inset:0;z-index:4;
-  pointer-events:none;
-}
+/* ─────── Overlay text on the scroll ─────── */
+.overlay{position:absolute;inset:0;z-index:4;pointer-events:none}
 .beat{
   position:absolute;
   opacity:0;
@@ -121,83 +105,57 @@ a{color:inherit;text-decoration:none}
   padding:0 2rem;
 }
 
-/* Beat 1: brand wordmark, top-centered */
-.beat-mark{
-  top:18vh;left:0;
-  transform:translateY(8px);
-}
+.beat-mark{top:18vh;left:0;transform:translateY(8px)}
 .beat-mark .wm{
-  font-family:var(--ff-d);
-  font-weight:300;
+  font-family:var(--ff-d);font-weight:300;
   font-size:clamp(3.2rem,11vw,9rem);
-  letter-spacing:.18em;
-  line-height:1;
+  letter-spacing:.18em;line-height:1;
   color:var(--ink);
   text-shadow:0 2px 24px rgba(0,0,0,.55);
 }
 .beat-mark .sub{
   margin-top:1.4rem;
-  font-family:var(--ff-b);
-  font-size:.7rem;font-weight:500;
+  font-family:var(--ff-b);font-size:.7rem;font-weight:500;
   letter-spacing:.55em;text-transform:uppercase;
   color:var(--ink-dim);
 }
 
-/* Beat 2: tagline mid */
-.beat-tag{
-  top:38vh;left:0;
-  transform:translateY(20px);
-}
+.beat-tag{top:38vh;left:0;transform:translateY(20px)}
 .beat-tag .line{
-  font-family:var(--ff-d);
-  font-style:italic;
-  font-weight:300;
+  font-family:var(--ff-d);font-style:italic;font-weight:300;
   font-size:clamp(1.6rem,3.6vw,3rem);
-  letter-spacing:.01em;
-  line-height:1.15;
+  letter-spacing:.01em;line-height:1.15;
   color:var(--ink);
   text-shadow:0 2px 22px rgba(0,0,0,.6);
 }
 
-/* Beat 3: notes bar near bottom */
-.beat-notes{
-  bottom:22vh;left:0;
-  transform:translateY(20px);
-}
+.beat-notes{bottom:22vh;left:0;transform:translateY(20px)}
 .beat-notes .notes{
   display:inline-flex;flex-wrap:wrap;justify-content:center;
   gap:.85rem 1.6rem;
-  font-family:var(--ff-b);
-  font-size:.78rem;font-weight:500;
+  font-family:var(--ff-b);font-size:.78rem;font-weight:500;
   letter-spacing:.36em;text-transform:uppercase;
   color:var(--ink);
 }
-.beat-notes .dot{color:var(--gold)}
+.beat-notes .dot{color:var(--accent)}
 .beat-notes .lab{
   display:block;margin-bottom:.7rem;
   font-size:.6rem;font-weight:400;
   letter-spacing:.5em;color:var(--ink-faint);
 }
 
-/* Beat 4: closing — line + CTA */
-.beat-close{
-  top:30vh;left:0;
-  transform:translateY(20px);
-}
+.beat-close{top:30vh;left:0;transform:translateY(20px)}
 .beat-close .line{
-  font-family:var(--ff-d);
-  font-weight:300;
+  font-family:var(--ff-d);font-weight:300;
   font-size:clamp(2.2rem,5.8vw,4.8rem);
-  letter-spacing:.005em;
-  line-height:1.05;
+  letter-spacing:.005em;line-height:1.05;
   color:var(--ink);
   text-shadow:0 2px 22px rgba(0,0,0,.5);
 }
-.beat-close .line em{font-style:italic;color:var(--gold);font-weight:300}
+.beat-close .line em{font-style:italic;color:var(--accent);font-weight:300;text-shadow:0 0 24px rgba(58,127,184,0.45),0 2px 22px rgba(0,0,0,.5)}
 .beat-close .meta{
   margin-top:2.2rem;
-  font-family:var(--ff-b);
-  font-size:.7rem;font-weight:500;
+  font-family:var(--ff-b);font-size:.7rem;font-weight:500;
   letter-spacing:.5em;text-transform:uppercase;
   color:var(--ink-dim);
 }
@@ -208,8 +166,7 @@ a{color:inherit;text-decoration:none}
   background:transparent;
   border:1px solid var(--ink);
   color:var(--ink);
-  font-family:var(--ff-b);
-  font-size:.7rem;font-weight:600;
+  font-family:var(--ff-b);font-size:.7rem;font-weight:600;
   letter-spacing:.4em;text-transform:uppercase;
   cursor:pointer;
   pointer-events:auto;
@@ -219,13 +176,11 @@ a{color:inherit;text-decoration:none}
 
 .beat.show{opacity:1;transform:translateY(0)}
 
-/* Scroll cue, only visible on first paint */
 .scroll-cue{
   position:absolute;left:50%;bottom:5vh;z-index:4;
   transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:.7rem;
-  font-family:var(--ff-b);
-  font-size:.55rem;font-weight:500;
+  font-family:var(--ff-b);font-size:.55rem;font-weight:500;
   letter-spacing:.55em;text-transform:uppercase;
   color:var(--ink-dim);
   transition:opacity .6s var(--eo);
@@ -234,185 +189,262 @@ a{color:inherit;text-decoration:none}
 .scroll-cue .l{width:1px;height:46px;background:linear-gradient(to bottom,var(--ink-dim),transparent);animation:cuePulse 2.6s var(--eo) infinite}
 @keyframes cuePulse{0%,100%{opacity:.3;transform:scaleY(.4);transform-origin:top}50%{opacity:.95;transform:scaleY(1)}}
 
-/* Frame counter — diegetic detail, tasteful */
 .fc{
   position:absolute;right:2.4rem;bottom:2rem;z-index:4;
-  font-family:var(--ff-b);
-  font-size:.55rem;font-weight:500;
+  font-family:var(--ff-b);font-size:.55rem;font-weight:500;
   letter-spacing:.45em;text-transform:uppercase;
   color:var(--ink-faint);
   font-variant-numeric:tabular-nums;
 }
 
-/* ─────── Editorial sections below the hero ─────── */
-.ed{
-  background:var(--bg);
-  color:var(--ink);
-  position:relative;
-  z-index:1;
-}
-
+/* ─────── Below-hero sections ─────── */
+.ed{background:var(--bg);color:var(--ink);position:relative;z-index:1}
 .section{padding:9rem 2.4rem;max-width:1240px;margin:0 auto;position:relative}
-@media (max-width:720px){.section{padding:5.5rem 1.6rem}}
+@media (max-width:720px){.section{padding:5.5rem 1.2rem}}
+@media (max-width:720px){.section.section-flush{padding-left:0;padding-right:0}}
 
 .eyebrow{
   font-family:var(--ff-b);
   font-size:.62rem;font-weight:500;
   letter-spacing:.5em;text-transform:uppercase;
-  color:var(--gold);
+  color:var(--accent);
   margin-bottom:1.4rem;
-}
-.eyebrow .num{
-  display:inline-block;margin-right:1.2rem;
-  color:var(--ink-faint);font-variant-numeric:tabular-nums;
 }
 
 h2.head{
-  font-family:var(--ff-d);
-  font-weight:300;
+  font-family:var(--ff-d);font-weight:300;
   font-size:clamp(2.4rem,5.4vw,4.6rem);
-  line-height:1.04;
-  letter-spacing:-.005em;
-  margin:0 0 2.6rem;
-  max-width:18ch;
+  line-height:1.04;letter-spacing:-.005em;
+  margin:0 0 2.6rem;max-width:18ch;
 }
-h2.head em{font-style:italic;color:var(--gold);font-weight:300}
+h2.head em{font-style:italic;color:var(--accent);font-weight:300}
 
 p.lede{
-  font-family:var(--ff-d);
-  font-weight:300;
+  font-family:var(--ff-d);font-weight:300;
   font-size:clamp(1.2rem,1.8vw,1.55rem);
-  line-height:1.45;
-  letter-spacing:.005em;
-  color:var(--ink);
-  max-width:36ch;
-  margin-bottom:1.6rem;
+  line-height:1.45;letter-spacing:.005em;
+  color:var(--ink);max-width:36ch;margin-bottom:1.6rem;
 }
-p.body{
-  font-size:1rem;
-  color:var(--ink-dim);
-  max-width:54ch;
-  margin-bottom:1.2rem;
+p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
+
+.section-head{
+  display:flex;align-items:end;justify-content:space-between;
+  gap:3rem;margin-bottom:3.4rem;flex-wrap:wrap;
+}
+.section-head .copy{max-width:60ch}
+.section-head h2.head{margin-bottom:.8rem}
+.section-head p.lede{margin-bottom:0}
+
+/* ─────── Feature carousel ─────── */
+.carousel{
+  position:relative;
+  width:100%;
+  max-width:1240px;
+  margin:0 auto;
+  border-radius:2.5rem;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  min-height:600px;
+  border:1px solid var(--line);
+  background:var(--bg-2);
+}
+@media (min-width:1024px){
+  .carousel{
+    flex-direction:row;
+    border-radius:4rem;
+    aspect-ratio:16/9;
+    min-height:0;
+  }
 }
 
-/* ─────── Notes pyramid ─────── */
-.pyramid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:0;
-  border-top:1px solid var(--line);
+/* Left panel — chip rail */
+.car-left{
+  position:relative;z-index:3;
+  width:100%;
+  min-height:360px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  padding:3rem 2rem;
+  background:var(--accent);
+  color:#fff;
 }
-@media (max-width:720px){.pyramid{grid-template-columns:1fr}}
-.np{
-  border-bottom:1px solid var(--line);
-  border-right:1px solid var(--line);
-  padding:2.6rem 2rem 3.2rem;
+@media (min-width:1024px){
+  .car-left{
+    width:40%;
+    min-height:0;height:100%;
+    padding:2.5rem 3.5rem;
+    justify-content:flex-start;
+  }
+}
+.car-left::before,.car-left::after{
+  content:'';position:absolute;left:0;right:0;height:80px;
+  z-index:4;pointer-events:none;
+}
+.car-left::before{top:0;background:linear-gradient(to bottom,var(--accent) 0%,rgba(58,127,184,.78) 60%,rgba(58,127,184,0) 100%)}
+.car-left::after {bottom:0;background:linear-gradient(to top,   var(--accent) 0%,rgba(58,127,184,.78) 60%,rgba(58,127,184,0) 100%)}
+@media (min-width:1024px){
+  .car-left::before,.car-left::after{height:64px}
+}
+
+.car-rail{
   position:relative;
-  transition:background .5s var(--eo);
+  width:100%;height:100%;
+  min-height:320px;
+  display:flex;align-items:center;justify-content:center;
 }
-.np:last-child{border-right:none}
-@media (max-width:720px){.np{border-right:none}}
-.np:hover{background:rgba(216,162,83,0.04)}
-.np .lab{
+@media (min-width:1024px){.car-rail{justify-content:flex-start}}
+
+.car-chip{
+  position:absolute;
+  height:54px;
+  display:flex;align-items:center;
+  width:fit-content;
+  transition:transform .85s var(--spring),opacity .85s linear;
+  will-change:transform,opacity;
+}
+.car-chip button{
+  display:inline-flex;align-items:center;gap:.85rem;
+  padding:.85rem 1.6rem;
+  border-radius:999px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.22);
+  color:rgba(255,255,255,.62);
   font-family:var(--ff-b);
-  font-size:.6rem;font-weight:500;
-  letter-spacing:.45em;text-transform:uppercase;
-  color:var(--ink-faint);
+  font-size:.82rem;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;
+  white-space:nowrap;
+  cursor:pointer;
+  transition:background .55s var(--eo),color .55s var(--eo),border-color .55s var(--eo);
+  text-align:left;
+}
+.car-chip button:hover{
+  border-color:rgba(255,255,255,.55);
+  color:#fff;
+}
+.car-chip button .ico{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:18px;height:18px;
+  color:rgba(255,255,255,.45);
+  transition:color .55s var(--eo);
+}
+.car-chip button .ico svg{width:18px;height:18px;display:block}
+.car-chip[data-active="true"] button{
+  background:#fff;
+  color:var(--accent-deep);
+  border-color:#fff;
+  z-index:5;
+}
+.car-chip[data-active="true"] button .ico{color:var(--accent-deep)}
+
+/* Right panel — image card */
+.car-right{
+  position:relative;
+  flex:1;
+  min-height:520px;
+  display:flex;align-items:center;justify-content:center;
+  padding:3rem 1.6rem;
+  background:rgba(255,255,255,0.02);
+  border-top:1px solid var(--line);
+  overflow:hidden;
+}
+@media (min-width:1024px){
+  .car-right{
+    min-height:0;height:100%;
+    padding:2rem 2.5rem;
+    border-top:none;border-left:1px solid var(--line);
+  }
+}
+
+.car-stage{
+  position:relative;
+  width:100%;
+  max-width:420px;
+  aspect-ratio:4/5;
+}
+
+.car-card{
+  position:absolute;inset:0;
+  border-radius:2rem;
+  overflow:hidden;
+  border:6px solid var(--bg-2);
+  background:var(--bg-2);
+  transform-origin:center;
+  transition:transform .65s var(--spring),opacity .65s linear;
+  will-change:transform,opacity;
+  pointer-events:none;
+  opacity:0;
+}
+@media (min-width:768px){.car-card{border-radius:2.6rem;border-width:8px}}
+.car-card[data-state="active"]{opacity:1;pointer-events:auto;z-index:20;transform:translate3d(0,0,0) scale(1) rotate(0deg)}
+.car-card[data-state="prev"]  {opacity:.4;z-index:10;transform:translate3d(-100px,0,0) scale(.85) rotate(-3deg)}
+.car-card[data-state="next"]  {opacity:.4;z-index:10;transform:translate3d( 100px,0,0) scale(.85) rotate( 3deg)}
+
+.car-card img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(1) blur(2px) brightness(.75);
+  transition:filter .7s var(--eo);
+}
+.car-card[data-state="active"] img{filter:grayscale(0) blur(0) brightness(1)}
+
+.car-cap{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:8rem 2rem 2rem;
+  background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 35%,rgba(0,0,0,0) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  pointer-events:none;
+  opacity:0;transform:translateY(14px);
+  transition:opacity .55s var(--eo),transform .55s var(--eo);
+}
+.car-card[data-state="active"] .car-cap{opacity:1;transform:translateY(0)}
+.car-cap .pill{
+  align-self:flex-start;
+  background:var(--bg);
+  color:var(--ink);
+  padding:.45rem 1rem;
+  border-radius:999px;
+  font-family:var(--ff-b);
+  font-size:.62rem;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;
+  border:1px solid var(--line);
   margin-bottom:1rem;
 }
-.np .name{
-  font-family:var(--ff-d);
-  font-weight:300;
-  font-size:1.9rem;
-  line-height:1.1;
-  margin-bottom:1.4rem;
-}
-.np .name em{font-style:italic;color:var(--gold)}
-.np ul{list-style:none;margin:0;padding:0}
-.np li{
-  font-size:.94rem;
-  color:var(--ink-dim);
-  padding:.55rem 0;
-  border-top:1px solid var(--line);
-}
-
-/* ─────── Story two-col editorial ─────── */
-.story{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:6rem;
-  align-items:start;
-}
-@media (max-width:900px){.story{grid-template-columns:1fr;gap:2.6rem}}
-.story .left{position:sticky;top:8rem}
-@media (max-width:900px){.story .left{position:static;top:auto}}
-.story .pull{
-  font-family:var(--ff-d);
-  font-style:italic;
-  font-weight:300;
-  font-size:clamp(1.6rem,2.5vw,2.1rem);
-  line-height:1.35;
-  color:var(--ink);
-  margin:1.6rem 0 0;
-  padding:1.6rem 0 0;
-  border-top:1px solid var(--line);
-  max-width:30ch;
-}
-
-/* ─────── The bottle — split image+spec ─────── */
-.bottle{
-  display:grid;
-  grid-template-columns:1.1fr 1fr;
-  gap:5rem;
-  align-items:center;
-}
-@media (max-width:900px){.bottle{grid-template-columns:1fr;gap:2.4rem}}
-.bottle .img{
-  position:relative;
-  aspect-ratio:4/5;
-  background:#000 center/cover no-repeat url('frames/frame_001.jpg');
-  overflow:hidden;
-  border:1px solid var(--line);
-}
-.bottle .img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,0) 60%,rgba(0,0,0,.3));
-  pointer-events:none;
-}
-.bottle .specs{display:flex;flex-direction:column;gap:1.4rem}
-.bottle .row{
-  display:flex;justify-content:space-between;
-  padding:1.05rem 0;
-  border-bottom:1px solid var(--line);
-  font-size:.92rem;
-}
-.bottle .row .k{color:var(--ink-faint);letter-spacing:.18em;text-transform:uppercase;font-size:.7rem;font-weight:500}
-.bottle .row .v{color:var(--ink);font-family:var(--ff-d);font-weight:400;font-size:1.05rem}
-
-/* ─────── Rituals — three-col ─────── */
-.rituals{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:3rem;
-}
-@media (max-width:900px){.rituals{grid-template-columns:1fr;gap:2rem}}
-.rt .num{
-  font-family:var(--ff-d);
-  font-weight:300;font-style:italic;
-  font-size:3.2rem;line-height:1;
-  color:var(--gold);
-  margin-bottom:1.2rem;
-}
-.rt h3{
-  font-family:var(--ff-d);
-  font-weight:400;
-  font-size:1.45rem;
-  margin:0 0 .8rem;
+.car-cap p{
+  margin:0;
+  font-family:var(--ff-d);font-weight:300;
+  font-size:clamp(1.1rem,1.7vw,1.45rem);
+  line-height:1.2;
+  color:#fff;
+  text-shadow:0 2px 14px rgba(0,0,0,.5);
   letter-spacing:.005em;
+  max-width:34ch;
 }
-.rt p{color:var(--ink-dim);font-size:.95rem;margin:0}
 
-/* ─────── Shop card ─────── */
+.car-live{
+  position:absolute;top:1.6rem;left:1.6rem;
+  display:flex;align-items:center;gap:.6rem;
+  opacity:0;transition:opacity .4s var(--eo);
+  z-index:25;
+}
+.car-card[data-state="active"] .car-live{opacity:1}
+.car-live .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 10px #fff;
+  animation:liveBlink 2.4s var(--eo) infinite;
+}
+.car-live span{
+  color:rgba(255,255,255,.85);
+  font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.6rem;
+  letter-spacing:.32em;text-transform:uppercase;
+}
+@keyframes liveBlink{
+  0%,100%{opacity:.5}
+  50%{opacity:1}
+}
+
+/* ─────── Shop card (kept, no number) ─────── */
 .shop{
   background:var(--bg-2);
   border:1px solid var(--line);
@@ -424,8 +456,9 @@ p.body{
 }
 @media (max-width:900px){.shop{grid-template-columns:1fr;gap:2.4rem;padding:2.6rem 1.6rem}}
 .shop .name{font-family:var(--ff-d);font-weight:300;font-size:clamp(2rem,3.8vw,3.4rem);line-height:1.05;margin:0 0 1rem}
-.shop .name em{font-style:italic;color:var(--gold)}
+.shop .name em{font-style:italic;color:var(--accent)}
 .shop .det{color:var(--ink-dim);max-width:36ch;margin:0 0 2rem}
+.shop .small{font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--ink-faint)}
 .sizes{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem}
 .sz{
   display:flex;justify-content:space-between;align-items:center;
@@ -434,9 +467,9 @@ p.body{
   cursor:pointer;
   transition:border-color .3s var(--eo),background .3s var(--eo);
 }
-.sz:hover,.sz.on{border-color:var(--gold);background:rgba(216,162,83,0.05)}
+.sz:hover,.sz.on{border-color:var(--accent);background:var(--accent-soft)}
 .sz .l{font-family:var(--ff-b);font-weight:500;font-size:.85rem;letter-spacing:.16em;text-transform:uppercase}
-.sz .p{font-family:var(--ff-d);font-weight:400;font-size:1.1rem;color:var(--gold)}
+.sz .p{font-family:var(--ff-d);font-weight:400;font-size:1.1rem;color:var(--accent)}
 .shop button{
   width:100%;
   padding:1.15rem;
@@ -446,7 +479,7 @@ p.body{
   letter-spacing:.45em;text-transform:uppercase;
   transition:background .3s var(--eo),color .3s var(--eo);
 }
-.shop button:hover{background:var(--gold);color:var(--bg)}
+.shop button:hover{background:var(--accent);color:#fff}
 
 /* ─────── Footer ─────── */
 .foot{
@@ -465,7 +498,7 @@ p.body{
   color:var(--ink);margin:0 0 1.2rem;
 }
 .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem}
-.foot a:hover{color:var(--gold)}
+.foot a:hover{color:var(--accent)}
 .foot-mark{font-family:var(--ff-d);font-weight:300;font-size:1.6rem;letter-spacing:.34em;color:var(--ink);margin-bottom:1rem}
 .foot-bot{
   border-top:1px solid var(--line);
@@ -479,6 +512,8 @@ p.body{
 @media (prefers-reduced-motion:reduce){
   .beat{transition-duration:.2s!important}
   .scroll-cue .l{animation:none}
+  .car-chip,.car-card,.car-cap{transition-duration:.15s!important}
+  .car-live .dot{animation:none}
 }
 </style>
 </head>
@@ -488,8 +523,7 @@ p.body{
 <header class="nav">
   <div class="nav-mark">MERIDIAN</div>
   <nav class="nav-links">
-    <a href="#notes">Notes</a>
-    <a href="#story">Story</a>
+    <a href="#features">Features</a>
     <a href="#shop">Shop</a>
   </nav>
 </header>
@@ -502,18 +536,15 @@ p.body{
     <div class="stage-load" id="load"><span>Composing · Patience</span></div>
 
     <div class="overlay">
-      <!-- Beat 1: brand wordmark over the bottle -->
       <div class="beat beat-mark" data-in="0" data-out="0.18">
         <div class="wm">MERIDIAN</div>
         <div class="sub">Eau de Parfum &nbsp;·&nbsp; Reserve No.&thinsp;07</div>
       </div>
 
-      <!-- Beat 2: tagline as the bottle dissolves -->
       <div class="beat beat-tag" data-in="0.22" data-out="0.42">
         <div class="line">For the high places.</div>
       </div>
 
-      <!-- Beat 3: scent notes through the prism -->
       <div class="beat beat-notes" data-in="0.46" data-out="0.66">
         <div>
           <span class="lab">The composition</span>
@@ -527,7 +558,6 @@ p.body{
         </div>
       </div>
 
-      <!-- Beat 4: closing — line + CTA over the full sunrise -->
       <div class="beat beat-close" data-in="0.72" data-out="1.01">
         <div class="line">First light.<br><em>Last fire.</em></div>
         <div class="meta">100ml · £210</div>
@@ -540,115 +570,37 @@ p.body{
   </div>
 </section>
 
-<!-- ─────── Editorial: notes pyramid ─────── -->
 <main class="ed">
-  <section class="section" id="notes">
-    <div class="eyebrow"><span class="num">01</span>The Composition</div>
-    <h2 class="head">Built top to base, like the <em>mountain</em> the bottle came from.</h2>
-    <p class="lede">A nine-month accord by perfumer Élise Marchand. Cold air at the top, warmed minerals in the middle, smoke at the base — the way a summit reads in a single inhale.</p>
-
-    <div class="pyramid">
-      <div class="np">
-        <div class="lab">Top · The first inhale</div>
-        <div class="name">Bergamot &amp; <em>Pink Pepper</em></div>
-        <ul>
-          <li>Calabrian bergamot, cold-pressed</li>
-          <li>Sichuan pink peppercorn</li>
-          <li>Aldehyde C-12, trace</li>
-          <li>Glacial water accord</li>
-        </ul>
+  <!-- ─────── Feature carousel ─────── -->
+  <section class="section section-flush" id="features">
+    <div class="section-head" style="padding:0 0 0 0">
+      <div class="copy" style="padding-left:0">
+        <div class="eyebrow" style="padding-left:0">Eight reasons</div>
+        <h2 class="head">Built quietly. Released <em>once a year.</em></h2>
       </div>
-      <div class="np">
-        <div class="lab">Heart · The hour in the middle</div>
-        <div class="name">Cedar, Iron <em>Oxide</em></div>
-        <ul>
-          <li>Atlas cedarwood</li>
-          <li>Iron oxide accord (mineral)</li>
-          <li>Iris pallida butter</li>
-          <li>Vetiver, Haitian, smoked</li>
-        </ul>
-      </div>
-      <div class="np">
-        <div class="lab">Base · The hour after</div>
-        <div class="name">Oud &amp; <em>Amber</em></div>
-        <ul>
-          <li>Smoked oud, Laotian</li>
-          <li>Amber resin</li>
-          <li>Birch tar, restrained</li>
-          <li>Skin musk</li>
-        </ul>
-      </div>
+      <p class="lede" style="padding-right:0">Eight things to know about MERIDIAN before the bottle arrives — its glass, its perfumer, the four nights at altitude that produced it.</p>
     </div>
-  </section>
 
-  <!-- ─────── Story two-col ─────── -->
-  <section class="section" id="story">
-    <div class="story">
-      <div class="left">
-        <div class="eyebrow"><span class="num">02</span>The Inspiration</div>
-        <h2 class="head">A fragrance for the <em>seventeen minutes</em> the world catches fire.</h2>
-        <div class="pull">"Most cologne is composed for the room. MERIDIAN is composed for the air outside it — thinner, colder, holding the day's last colour."</div>
+    <div class="carousel" role="region" aria-label="MERIDIAN — features carousel" id="carousel">
+      <!-- Left chip rail -->
+      <div class="car-left">
+        <div class="car-rail" id="carRail"><!-- chips injected by JS --></div>
       </div>
-      <div class="right">
-        <p class="body">In 2024, Élise Marchand spent four nights at 3,200 metres in the Bernese Alps with a notebook, a clean rebreather, and twenty-two raw materials. She was looking for the smell of the moment the sun turns the snow the colour of a struck match — neither morning nor night, neither hot nor cold.</p>
-        <p class="body">The result is MERIDIAN: a structured Eau de Parfum at 22% concentration, cold-distilled over six weeks, rested in oak for three. The composition is unusually mineral. There is bergamot, yes, and an amber base you would expect from any serious house — but threaded between them is a note we call iron oxide: the smell of stone that has held the sun all day and is just beginning to release it.</p>
-        <p class="body">The bottle was cut to match. Fifteen facets, each angled to refract a different fraction of the spectrum. Held to a window at the right hour, it throws the same colours the perfume describes.</p>
-        <p class="body">It is, by design, a fragrance you wear once a day at most. Twice if the day is long enough.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────── The bottle ─────── -->
-  <section class="section" id="bottle">
-    <div class="eyebrow"><span class="num">03</span>The Object</div>
-    <div class="bottle">
-      <div class="img" role="img" aria-label="MERIDIAN bottle, faceted dark glass, on alpine stone"></div>
-      <div>
-        <h2 class="head">A bottle cut for the <em>last hour</em> of light.</h2>
-        <p class="body">Hand-cut by Lalique in Wingen-sur-Moder. Fifteen facets, leaded crystal at 24% PbO, a brushed-titanium collar, a magnetic ferrule that takes nine kilograms to release.</p>
-        <div class="specs">
-          <div class="row"><span class="k">Volume</span><span class="v">100&thinsp;ml</span></div>
-          <div class="row"><span class="k">Concentration</span><span class="v">22% · Eau de Parfum</span></div>
-          <div class="row"><span class="k">Glass</span><span class="v">Lalique, leaded crystal</span></div>
-          <div class="row"><span class="k">Cap</span><span class="v">Brushed titanium, magnetic</span></div>
-          <div class="row"><span class="k">Engraved</span><span class="v">Edition / 2&thinsp;500</span></div>
-          <div class="row"><span class="k">Made</span><span class="v">Grasse, France</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────── Rituals ─────── -->
-  <section class="section">
-    <div class="eyebrow"><span class="num">04</span>How It's Worn</div>
-    <h2 class="head">Three small <em>rituals</em>, written by the people who tested it.</h2>
-    <div class="rituals">
-      <div class="rt">
-        <div class="num">i.</div>
-        <h3>One spray, sternum.</h3>
-        <p>Then wait. The opening reads thin for forty seconds. That is the bergamot air-drying. After it, the iron oxide warms against skin temperature.</p>
-      </div>
-      <div class="rt">
-        <div class="num">ii.</div>
-        <h3>Cold collar.</h3>
-        <p>One spray on the inside of a coat collar before stepping outside. The fragrance changes when air does.</p>
-      </div>
-      <div class="rt">
-        <div class="num">iii.</div>
-        <h3>Held, not sprayed.</h3>
-        <p>For evenings indoors, depress and release once into the palm. Press, do not rub. Cup briefly. Wear.</p>
+      <!-- Right image card stack -->
+      <div class="car-right">
+        <div class="car-stage" id="carStage"><!-- cards injected by JS --></div>
       </div>
     </div>
   </section>
 
   <!-- ─────── Shop ─────── -->
   <section class="section" id="shop">
-    <div class="eyebrow"><span class="num">05</span>Acquire</div>
+    <div class="eyebrow">Acquire</div>
     <div class="shop">
       <div>
         <h2 class="name">MERIDIAN <em>—</em> Eau de Parfum</h2>
         <p class="det">Limited to 2,500 numbered bottles per year. Engraved with edition number and city of dispatch. Ships in a felted oak case from Grasse within five working days.</p>
-        <div class="meta" style="font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--ink-faint)">Free shipping · 30-day return</div>
+        <div class="small">Free shipping · 30-day return</div>
       </div>
       <div>
         <div class="sizes">
@@ -680,9 +632,8 @@ p.body{
       <div>
         <h4>Discover</h4>
         <ul>
-          <li><a href="#notes">The composition</a></li>
-          <li><a href="#story">The inspiration</a></li>
-          <li><a href="#bottle">The object</a></li>
+          <li><a href="#features">The features</a></li>
+          <li><a href="#shop">The bottle</a></li>
         </ul>
       </div>
       <div>
@@ -711,12 +662,9 @@ p.body{
 
 <script>
 /* ──────────────────────────────────────────────────────────────────────
-   Scroll-scrubbed canvas (Pattern 4 from animation-performance skill).
-   - Preload all 169 frames in parallel
-   - On scroll, RAF-throttle and only redraw if frame index changed
-   - Use nearestLoaded() while frames are still streaming so first paint
-     is immediate and the user always sees something
-   - Drive overlay text "beats" off the same scroll progress (0..1)
+   Scroll-scrubbed hero canvas (Pattern 4 from the animation-performance
+   skill). Preload all 169 frames in parallel; only redraw if the frame
+   index changed; nearestLoaded() fallback while frames are streaming.
    ────────────────────────────────────────────────────────────────────── */
 (function(){
   const TOTAL  = 169;
@@ -736,7 +684,6 @@ p.body{
   const loaded = new Uint8Array(TOTAL);
   let   loadedCount = 0;
 
-  /* DPR-aware canvas sizing */
   let cssW = 0, cssH = 0;
   function resize(){
     const r = stage.querySelector('.stage-pin').getBoundingClientRect();
@@ -749,7 +696,6 @@ p.body{
   }
   window.addEventListener('resize', resize, {passive:true});
 
-  /* Preload all frames in parallel; first frame highest priority */
   function preload(){
     for(let i=0;i<TOTAL;i++){
       const img = new Image();
@@ -758,19 +704,14 @@ p.body{
       img.onload = () => {
         images[i] = img;
         if(!loaded[i]){ loaded[i]=1; loadedCount++; }
-        if(i === 0){
-          load.classList.add('gone');
-          drawCover(img);
-        }
-        // If the current target frame just arrived, refresh
+        if(i === 0){ load.classList.add('gone'); drawCover(img); }
         if(i === lastIdx) drawCover(img);
       };
-      img.onerror = () => { /* keep slot null; nearestLoaded will skip */ };
+      img.onerror = () => { /* keep slot null; nearestLoaded skips */ };
       img.src = PREFIX + pad3(i+1) + SUFFIX;
     }
   }
 
-  /* Find the closest already-loaded frame to a given index */
   function nearestLoaded(idx){
     if(loaded[idx]) return images[idx];
     for(let off=1; off<TOTAL; off++){
@@ -781,7 +722,6 @@ p.body{
     return null;
   }
 
-  /* Cover-fit draw (preserves aspect, centre-crops) */
   function drawCover(img){
     const iw = img.naturalWidth, ih = img.naturalHeight;
     if(!iw || !ih) return;
@@ -795,12 +735,10 @@ p.body{
     ctx.drawImage(img, dx, dy, dw, dh);
   }
 
-  /* Scroll progress 0..1 across the entire stage section */
   let lastIdx = -1;
   let lastP   = -1;
   let cueHidden = false;
 
-  /* Cache beats so we don't query each frame */
   const beats = Array.from(document.querySelectorAll('.beat')).map(el => ({
     el,
     in:  parseFloat(el.dataset.in),
@@ -829,7 +767,6 @@ p.body{
     if(p !== lastP){
       lastP = p;
       applyBeats(p);
-      // Hide scroll cue once user scrolls past 1%
       if(!cueHidden && p > 0.01){ cue.classList.add('gone'); cueHidden = true; }
     }
     if(idx === lastIdx) return;
@@ -839,7 +776,6 @@ p.body{
     if(img) drawCover(img);
   }
 
-  /* RAF-throttled scroll */
   let ticking = false;
   function onScroll(){
     if(ticking) return;
@@ -848,19 +784,186 @@ p.body{
   }
   window.addEventListener('scroll', onScroll, {passive:true});
 
-  /* Boot */
   resize();
   preload();
   render();
 
-  /* Re-render once a few frames have loaded so we don't sit on frame 1
-     if the user has already scrolled */
   let warmCheck = setInterval(()=>{
     if(loadedCount > 8){ render(); clearInterval(warmCheck); }
   }, 120);
 })();
 
-/* Size selector — tiny bit of state for the shop card */
+/* ──────────────────────────────────────────────────────────────────────
+   Feature carousel — vanilla port of the React/motion component:
+   - Left chip rail with vertical wrap (~3 visible, others fade out)
+   - Right card stack with prev/next blurred + scaled + rotated
+   - 3s auto-advance, paused while pointer is over the chip rail
+   - Click any chip to fast-forward to it
+   ────────────────────────────────────────────────────────────────────── */
+(function(){
+  const FEATURES = [
+    {
+      label:'Lalique Glass',
+      image:'frames/frame_001.jpg',
+      desc:'Hand-cut leaded crystal — fifteen facets, by Lalique, Wingen-sur-Moder.',
+      icon:'gem',
+    },
+    {
+      label:'Eau de Parfum',
+      image:'frames/frame_018.jpg',
+      desc:'22% concentration. Cold-distilled six weeks, rested in oak for three.',
+      icon:'droplet',
+    },
+    {
+      label:'Numbered Edition',
+      image:'frames/frame_038.jpg',
+      desc:'Limited to 2,500 numbered bottles per year. Engraved on request.',
+      icon:'hash',
+    },
+    {
+      label:'The Perfumer',
+      image:'frames/frame_065.jpg',
+      desc:'Composed by Élise Marchand over nine months in Grasse.',
+      icon:'pen',
+    },
+    {
+      label:'Grasse Composition',
+      image:'frames/frame_088.jpg',
+      desc:'Made where modern perfumery began — south of France, since 1747.',
+      icon:'pin',
+    },
+    {
+      label:'Ethically Sourced',
+      image:'frames/frame_115.jpg',
+      desc:'Botanicals harvested by hand, traceable to twelve farms.',
+      icon:'leaf',
+    },
+    {
+      label:'The Bernese Alps',
+      image:'frames/frame_140.jpg',
+      desc:'Inspired by four nights at 3,200 metres above the cloud line.',
+      icon:'mountain',
+    },
+    {
+      label:'Carbon Neutral',
+      image:'frames/frame_165.jpg',
+      desc:'Every bottle ships carbon-balanced through Atmosfair.',
+      icon:'globe',
+    },
+  ];
+
+  const ICONS = {
+    gem:      '<path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/>',
+    droplet:  '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+    hash:     '<line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/>',
+    pen:      '<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>',
+    pin:      '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+    leaf:     '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96a1 1 0 0 1 1.5.92c.32 4.04-.65 8.55-3.7 12.05A6.92 6.92 0 0 1 11 20"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/>',
+    mountain: '<path d="m8 3 4 8 5-5 5 15H2L8 3z"/>',
+    globe:    '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  };
+
+  const ITEM_HEIGHT = 60;
+  const AUTOPLAY    = 3000;
+  const N           = FEATURES.length;
+
+  const rail  = document.getElementById('carRail');
+  const stage = document.getElementById('carStage');
+
+  // Build chips (left rail)
+  const chipEls = [];
+  FEATURES.forEach((f, i) => {
+    const chip = document.createElement('div');
+    chip.className = 'car-chip';
+    chip.innerHTML = `
+      <button type="button" data-idx="${i}" aria-label="${f.label}">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[f.icon] || ''}</svg></span>
+        <span>${f.label}</span>
+      </button>
+    `;
+    rail.appendChild(chip);
+    chipEls.push(chip);
+  });
+
+  // Build cards (right stage)
+  const cardEls = [];
+  FEATURES.forEach((f, i) => {
+    const card = document.createElement('div');
+    card.className = 'car-card';
+    card.dataset.state = 'hidden';
+    card.innerHTML = `
+      <img src="${f.image}" alt="${f.label}" loading="lazy" decoding="async">
+      <div class="car-live"><span class="dot"></span><span>Live Session</span></div>
+      <div class="car-cap">
+        <div class="pill">${String(i+1).padStart(2,'0')} • ${f.label}</div>
+        <p>${f.desc}</p>
+      </div>
+    `;
+    stage.appendChild(card);
+    cardEls.push(card);
+  });
+
+  let step = 0;
+  let paused = false;
+  const current = () => ((step % N) + N) % N;
+
+  // Vertical wrap helper — distance signed to nearest copy of the index
+  function wrappedDistance(diff){
+    let d = diff;
+    if(d > N/2)  d -= N;
+    if(d < -N/2) d += N;
+    return d;
+  }
+
+  function apply(){
+    const i = current();
+
+    // Chips: each chip slides to wrappedDistance * ITEM_HEIGHT, opacity fades with distance
+    chipEls.forEach((chip, idx) => {
+      const d = wrappedDistance(idx - i);
+      const op = Math.max(0, 1 - Math.abs(d) * 0.25);
+      chip.style.transform = 'translateY(' + (d * ITEM_HEIGHT) + 'px)';
+      chip.style.opacity = (Math.abs(d) > 3 ? 0 : op).toFixed(3);
+      chip.dataset.active = (d === 0).toString();
+    });
+
+    // Cards: prev / active / next states, others hidden
+    cardEls.forEach((card, idx) => {
+      const d = wrappedDistance(idx - i);
+      let s = 'hidden';
+      if(d === 0)       s = 'active';
+      else if(d === -1) s = 'prev';
+      else if(d === 1)  s = 'next';
+      card.dataset.state = s;
+    });
+  }
+
+  // Click a chip — fast-forward
+  rail.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-idx]');
+    if(!btn) return;
+    const target = parseInt(btn.dataset.idx, 10);
+    const cur    = current();
+    const diff   = ((target - cur) + N) % N;
+    if(diff > 0){ step += diff; apply(); }
+  });
+
+  // Pause auto-advance while pointer is on the chip rail
+  rail.addEventListener('pointerenter', () => { paused = true;  });
+  rail.addEventListener('pointerleave', () => { paused = false; });
+
+  // Auto-advance
+  setInterval(() => {
+    if(paused) return;
+    if(document.hidden) return;          // don't burn CPU on hidden tabs
+    step += 1;
+    apply();
+  }, AUTOPLAY);
+
+  apply();
+})();
+
+/* Shop size selector */
 document.querySelectorAll('.sz').forEach(el => {
   el.addEventListener('click', () => {
     document.querySelectorAll('.sz').forEach(s => s.classList.remove('on'));
