@@ -16,10 +16,10 @@
   --ink:#f4ede4;
   --ink-dim:rgba(244,237,228,0.62);
   --ink-faint:rgba(244,237,228,0.35);
-  --accent:#3a7fb8;          /* deep sapphire — reads as cologne-blue, stays visible on dark and on sunrise */
-  --accent-deep:#1f5588;
-  --accent-soft:rgba(58,127,184,0.06);
-  --accent-line:rgba(58,127,184,0.22);
+  --accent:#e89e5a;          /* warm sunrise amber — matches the final frame of the source video */
+  --accent-deep:#b97338;
+  --accent-soft:rgba(232,158,90,0.06);
+  --accent-line:rgba(232,158,90,0.22);
   --line:rgba(244,237,228,0.14);
   --ff-d:'Fraunces',Georgia,serif;
   --ff-b:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
@@ -152,7 +152,7 @@ a{color:inherit;text-decoration:none}
   color:var(--ink);
   text-shadow:0 2px 22px rgba(0,0,0,.5);
 }
-.beat-close .line em{font-style:italic;color:var(--accent);font-weight:300;text-shadow:0 0 24px rgba(58,127,184,0.45),0 2px 22px rgba(0,0,0,.5)}
+.beat-close .line em{font-style:italic;color:var(--accent);font-weight:300;text-shadow:0 0 24px rgba(232,158,90,0.45),0 2px 22px rgba(0,0,0,.5)}
 .beat-close .meta{
   margin-top:2.2rem;
   font-family:var(--ff-b);font-size:.7rem;font-weight:500;
@@ -188,14 +188,6 @@ a{color:inherit;text-decoration:none}
 .scroll-cue.gone{opacity:0;pointer-events:none}
 .scroll-cue .l{width:1px;height:46px;background:linear-gradient(to bottom,var(--ink-dim),transparent);animation:cuePulse 2.6s var(--eo) infinite}
 @keyframes cuePulse{0%,100%{opacity:.3;transform:scaleY(.4);transform-origin:top}50%{opacity:.95;transform:scaleY(1)}}
-
-.fc{
-  position:absolute;right:2.4rem;bottom:2rem;z-index:4;
-  font-family:var(--ff-b);font-size:.55rem;font-weight:500;
-  letter-spacing:.45em;text-transform:uppercase;
-  color:var(--ink-faint);
-  font-variant-numeric:tabular-nums;
-}
 
 /* ─────── Below-hero sections ─────── */
 .ed{background:var(--bg);color:var(--ink);position:relative;z-index:1}
@@ -235,7 +227,40 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
 .section-head h2.head{margin-bottom:.8rem}
 .section-head p.lede{margin-bottom:0}
 
-/* ─────── Feature carousel ─────── */
+/* ─────── Feature carousel — scroll-pinned ─────── */
+.features-section{
+  position:relative;
+  /* Total scroll length for 8 cards: ~80vh per card + 1 viewport buffer.
+     On mobile this still works, just scrolls more naturally. */
+  height:calc(8 * 80vh + 100vh);
+  background:var(--bg);
+}
+.features-pin{
+  position:sticky;top:0;
+  height:100vh;width:100%;
+  display:flex;align-items:center;justify-content:center;
+  padding:2rem 2.4rem;
+  overflow:hidden;
+}
+@media (max-width:720px){
+  .features-pin{padding:1.4rem 1rem}
+  .features-section{height:calc(8 * 90vh + 100vh)}
+}
+/* Subtle progress rail down the right edge while the carousel is pinned */
+.features-progress{
+  position:absolute;right:1.6rem;top:50%;transform:translateY(-50%);
+  z-index:5;
+  display:flex;flex-direction:column;gap:.55rem;
+  pointer-events:none;
+}
+@media (max-width:720px){.features-progress{right:.6rem;gap:.4rem}}
+.features-progress span{
+  display:block;width:1px;height:18px;
+  background:var(--ink-faint);
+  transition:background .35s var(--eo),height .35s var(--eo);
+}
+.features-progress span.on{background:var(--accent);height:28px}
+
 .carousel{
   position:relative;
   width:100%;
@@ -281,8 +306,8 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   content:'';position:absolute;left:0;right:0;height:80px;
   z-index:4;pointer-events:none;
 }
-.car-left::before{top:0;background:linear-gradient(to bottom,var(--accent) 0%,rgba(58,127,184,.78) 60%,rgba(58,127,184,0) 100%)}
-.car-left::after {bottom:0;background:linear-gradient(to top,   var(--accent) 0%,rgba(58,127,184,.78) 60%,rgba(58,127,184,0) 100%)}
+.car-left::before{top:0;background:linear-gradient(to bottom,var(--accent) 0%,rgba(232,158,90,.78) 60%,rgba(232,158,90,0) 100%)}
+.car-left::after {bottom:0;background:linear-gradient(to top,   var(--accent) 0%,rgba(232,158,90,.78) 60%,rgba(232,158,90,0) 100%)}
 @media (min-width:1024px){
   .car-left::before,.car-left::after{height:64px}
 }
@@ -420,30 +445,6 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   max-width:34ch;
 }
 
-.car-live{
-  position:absolute;top:1.6rem;left:1.6rem;
-  display:flex;align-items:center;gap:.6rem;
-  opacity:0;transition:opacity .4s var(--eo);
-  z-index:25;
-}
-.car-card[data-state="active"] .car-live{opacity:1}
-.car-live .dot{
-  width:7px;height:7px;border-radius:50%;
-  background:#fff;
-  box-shadow:0 0 10px #fff;
-  animation:liveBlink 2.4s var(--eo) infinite;
-}
-.car-live span{
-  color:rgba(255,255,255,.85);
-  font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:.6rem;
-  letter-spacing:.32em;text-transform:uppercase;
-}
-@keyframes liveBlink{
-  0%,100%{opacity:.5}
-  50%{opacity:1}
-}
-
 /* ─────── Shop card (kept, no number) ─────── */
 .shop{
   background:var(--bg-2);
@@ -513,7 +514,6 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   .beat{transition-duration:.2s!important}
   .scroll-cue .l{animation:none}
   .car-chip,.car-card,.car-cap{transition-duration:.15s!important}
-  .car-live .dot{animation:none}
 }
 </style>
 </head>
@@ -566,30 +566,35 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
     </div>
 
     <div class="scroll-cue" id="cue"><span>Scroll</span><span class="l"></span></div>
-    <div class="fc" id="fc">FRAME 001 / 169</div>
   </div>
 </section>
 
 <main class="ed">
-  <!-- ─────── Feature carousel ─────── -->
-  <section class="section section-flush" id="features">
-    <div class="section-head" style="padding:0 0 0 0">
-      <div class="copy" style="padding-left:0">
-        <div class="eyebrow" style="padding-left:0">Eight reasons</div>
+  <!-- ─────── Feature carousel — intro (scrolls past) ─────── -->
+  <section class="section" id="features-intro">
+    <div class="section-head">
+      <div class="copy">
+        <div class="eyebrow">Eight reasons</div>
         <h2 class="head">Built quietly. Released <em>once a year.</em></h2>
       </div>
-      <p class="lede" style="padding-right:0">Eight things to know about MERIDIAN before the bottle arrives — its glass, its perfumer, the four nights at altitude that produced it.</p>
+      <p class="lede">Eight things to know about MERIDIAN before the bottle arrives — its glass, its perfumer, the four nights at altitude that produced it. Scroll to advance.</p>
     </div>
+  </section>
 
-    <div class="carousel" role="region" aria-label="MERIDIAN — features carousel" id="carousel">
-      <!-- Left chip rail -->
-      <div class="car-left">
-        <div class="car-rail" id="carRail"><!-- chips injected by JS --></div>
+  <!-- ─────── Feature carousel — scroll-pinned ─────── -->
+  <section class="features-section" id="features" aria-label="MERIDIAN — feature carousel">
+    <div class="features-pin">
+      <div class="carousel" role="region" id="carousel">
+        <!-- Left chip rail -->
+        <div class="car-left">
+          <div class="car-rail" id="carRail"><!-- chips injected by JS --></div>
+        </div>
+        <!-- Right image card stack -->
+        <div class="car-right">
+          <div class="car-stage" id="carStage"><!-- cards injected by JS --></div>
+        </div>
       </div>
-      <!-- Right image card stack -->
-      <div class="car-right">
-        <div class="car-stage" id="carStage"><!-- cards injected by JS --></div>
-      </div>
+      <div class="features-progress" id="carProgress" aria-hidden="true"><!-- ticks injected by JS --></div>
     </div>
   </section>
 
@@ -677,7 +682,6 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   const stage  = document.getElementById('stage');
   const load   = document.getElementById('load');
   const cue    = document.getElementById('cue');
-  const fc     = document.getElementById('fc');
 
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const images = new Array(TOTAL).fill(null);
@@ -771,7 +775,6 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
     }
     if(idx === lastIdx) return;
     lastIdx = idx;
-    fc.textContent = 'FRAME ' + pad3(idx+1) + ' / 169';
     const img = nearestLoaded(idx);
     if(img) drawCover(img);
   }
@@ -794,59 +797,78 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
 })();
 
 /* ──────────────────────────────────────────────────────────────────────
-   Feature carousel — vanilla port of the React/motion component:
+   Feature carousel — scroll-driven (no auto-advance)
    - Left chip rail with vertical wrap (~3 visible, others fade out)
    - Right card stack with prev/next blurred + scaled + rotated
-   - 3s auto-advance, paused while pointer is over the chip rail
-   - Click any chip to fast-forward to it
+   - Active card index is computed from how far the user has scrolled
+     through the pinned section (Pattern 4-style scroll progress)
+   - Click a chip to scroll the page so that card is centered
+   - Images are themed Unsplash photos that match each feature label,
+     with a local video frame as a fallback if any URL 404s
    ────────────────────────────────────────────────────────────────────── */
 (function(){
   const FEATURES = [
     {
       label:'Lalique Glass',
+      // Our own faceted bottle (best literal match for hand-cut crystal)
       image:'frames/frame_001.jpg',
+      fallback:'frames/frame_001.jpg',
       desc:'Hand-cut leaded crystal — fifteen facets, by Lalique, Wingen-sur-Moder.',
       icon:'gem',
     },
     {
       label:'Eau de Parfum',
-      image:'frames/frame_018.jpg',
+      // Amber liquid being filled into clear glass vials — perfumery in process
+      image:'https://images.unsplash.com/photo-1602928298849-325cec8771c0?q=80&w=1400',
+      fallback:'frames/frame_018.jpg',
       desc:'22% concentration. Cold-distilled six weeks, rested in oak for three.',
       icon:'droplet',
     },
     {
       label:'Numbered Edition',
-      image:'frames/frame_038.jpg',
+      // Fountain pen on handwritten paper — engraved-by-hand vibe
+      image:'https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1400',
+      fallback:'frames/frame_038.jpg',
       desc:'Limited to 2,500 numbered bottles per year. Engraved on request.',
       icon:'hash',
     },
     {
       label:'The Perfumer',
+      // Heavy prism abstraction — the perfumer's interior vision
       image:'frames/frame_065.jpg',
+      fallback:'frames/frame_065.jpg',
       desc:'Composed by Élise Marchand over nine months in Grasse.',
       icon:'pen',
     },
     {
       label:'Grasse Composition',
-      image:'frames/frame_088.jpg',
+      // Lavender field at sunset — Provence
+      image:'https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=80&w=1400',
+      fallback:'frames/frame_088.jpg',
       desc:'Made where modern perfumery began — south of France, since 1747.',
       icon:'pin',
     },
     {
       label:'Ethically Sourced',
-      image:'frames/frame_115.jpg',
+      // White cosmos flowers against soft sky — botanical, hand-harvested
+      image:'https://images.unsplash.com/photo-1530092285049-1c42085fd395?q=80&w=1400',
+      fallback:'frames/frame_115.jpg',
       desc:'Botanicals harvested by hand, traceable to twelve farms.',
       icon:'leaf',
     },
     {
       label:'The Bernese Alps',
-      image:'frames/frame_140.jpg',
+      // Snow-capped peaks above pine forest
+      image:'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1400',
+      fallback:'frames/frame_140.jpg',
       desc:'Inspired by four nights at 3,200 metres above the cloud line.',
       icon:'mountain',
     },
     {
       label:'Carbon Neutral',
-      image:'frames/frame_165.jpg',
+      // Sunlit forest path
+      image:'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1400',
+      fallback:'frames/frame_165.jpg',
       desc:'Every bottle ships carbon-balanced through Atmosfair.',
       icon:'globe',
     },
@@ -864,11 +886,14 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   };
 
   const ITEM_HEIGHT = 60;
-  const AUTOPLAY    = 3000;
   const N           = FEATURES.length;
 
-  const rail  = document.getElementById('carRail');
-  const stage = document.getElementById('carStage');
+  const section  = document.getElementById('features');
+  const rail     = document.getElementById('carRail');
+  const stage    = document.getElementById('carStage');
+  const progress = document.getElementById('carProgress');
+
+  if(!section || !rail || !stage) return;
 
   // Build chips (left rail)
   const chipEls = [];
@@ -892,22 +917,32 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
     card.className = 'car-card';
     card.dataset.state = 'hidden';
     card.innerHTML = `
-      <img src="${f.image}" alt="${f.label}" loading="lazy" decoding="async">
-      <div class="car-live"><span class="dot"></span><span>Live Session</span></div>
+      <img src="${f.image}" alt="${f.label}" loading="lazy" decoding="async" data-fallback="${f.fallback}">
       <div class="car-cap">
         <div class="pill">${String(i+1).padStart(2,'0')} • ${f.label}</div>
         <p>${f.desc}</p>
       </div>
     `;
+    // If the Unsplash URL fails to load, swap to the local video frame.
+    const im = card.querySelector('img');
+    im.addEventListener('error', () => {
+      const fb = im.dataset.fallback;
+      if(fb && im.src !== fb) im.src = fb;
+    }, { once:true });
     stage.appendChild(card);
     cardEls.push(card);
   });
 
-  let step = 0;
-  let paused = false;
-  const current = () => ((step % N) + N) % N;
+  // Build progress ticks (one per feature)
+  const tickEls = [];
+  for(let i=0;i<N;i++){
+    const t = document.createElement('span');
+    progress.appendChild(t);
+    tickEls.push(t);
+  }
 
-  // Vertical wrap helper — distance signed to nearest copy of the index
+  let currentIdx = 0;
+
   function wrappedDistance(diff){
     let d = diff;
     if(d > N/2)  d -= N;
@@ -916,9 +951,8 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   }
 
   function apply(){
-    const i = current();
+    const i = currentIdx;
 
-    // Chips: each chip slides to wrappedDistance * ITEM_HEIGHT, opacity fades with distance
     chipEls.forEach((chip, idx) => {
       const d = wrappedDistance(idx - i);
       const op = Math.max(0, 1 - Math.abs(d) * 0.25);
@@ -927,7 +961,6 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
       chip.dataset.active = (d === 0).toString();
     });
 
-    // Cards: prev / active / next states, others hidden
     cardEls.forEach((card, idx) => {
       const d = wrappedDistance(idx - i);
       let s = 'hidden';
@@ -936,30 +969,48 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
       else if(d === 1)  s = 'next';
       card.dataset.state = s;
     });
+
+    tickEls.forEach((t, idx) => t.classList.toggle('on', idx === i));
   }
 
-  // Click a chip — fast-forward
+  // Compute the active card index from where the user is in the pinned section
+  function indexFromScroll(){
+    const r = section.getBoundingClientRect();
+    const range = section.offsetHeight - window.innerHeight;
+    if(range <= 0) return 0;
+    const p = Math.min(1, Math.max(0, -r.top / range));
+    // Map [0..1] across N segments. Last segment clamps to N-1.
+    return Math.min(N - 1, Math.floor(p * N));
+  }
+
+  let ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const next = indexFromScroll();
+      if(next !== currentIdx){ currentIdx = next; apply(); }
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll, { passive:true });
+
+  // Click a chip — scroll the page so its card is centered in the pin
   rail.addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-idx]');
     if(!btn) return;
     const target = parseInt(btn.dataset.idx, 10);
-    const cur    = current();
-    const diff   = ((target - cur) + N) % N;
-    if(diff > 0){ step += diff; apply(); }
+    const range = section.offsetHeight - window.innerHeight;
+    const sectionTop = section.offsetTop;
+    // Aim for the middle of the target's progress band so that index
+    // is firmly the active one (off by one rounding tolerance).
+    const targetP = (target + 0.5) / N;
+    window.scrollTo({ top: sectionTop + range * targetP, behavior:'smooth' });
   });
 
-  // Pause auto-advance while pointer is on the chip rail
-  rail.addEventListener('pointerenter', () => { paused = true;  });
-  rail.addEventListener('pointerleave', () => { paused = false; });
-
-  // Auto-advance
-  setInterval(() => {
-    if(paused) return;
-    if(document.hidden) return;          // don't burn CPU on hidden tabs
-    step += 1;
-    apply();
-  }, AUTOPLAY);
-
+  // Initial sync
+  currentIdx = indexFromScroll();
   apply();
 })();
 
