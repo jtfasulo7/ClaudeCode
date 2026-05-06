@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MERIDIAN — Eau de Parfum · For the high places</title>
+<meta name="description" content="MERIDIAN. A fragrance composed for the hour the world catches fire. Bergamot, cedar, iron oxide, oud, amber. 100ml.">
+<link rel="preload" as="image" href="frames/frame_001.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#0a0807;
+  --bg-2:#15110d;
+  --ink:#f4ede4;
+  --ink-dim:rgba(244,237,228,0.62);
+  --ink-faint:rgba(244,237,228,0.35);
+  --gold:#d8a253;
+  --gold-deep:#b97e2f;
+  --ember:#7a2e1a;
+  --line:rgba(244,237,228,0.14);
+  --ff-d:'Fraunces',Georgia,serif;
+  --ff-b:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+  --eo:cubic-bezier(.2,.7,.2,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--ff-b);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--bg)}
+
+/* ─────── Top nav ─────── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 2.4rem;
+  font-family:var(--ff-b);
+  font-size:.72rem;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink);
+  mix-blend-mode:difference;
+  pointer-events:none;
+}
+.nav > *{pointer-events:auto}
+.nav-mark{font-family:var(--ff-d);font-weight:400;font-size:1.1rem;letter-spacing:.34em}
+.nav-links{display:flex;gap:2.2rem}
+.nav-links a{position:relative;opacity:.85;transition:opacity .3s var(--eo)}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--eo)}
+.nav-links a:hover{opacity:1}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+/* ─────── Hero scroll-scrubbed stage ─────── */
+.stage{
+  /* 600vh of scroll length to play 169 frames at a comfortable rate (~3.5 frames per viewport-height) */
+  position:relative;
+  height:600vh;
+  background:#000;
+}
+.stage-pin{
+  position:sticky;top:0;
+  height:100vh;width:100%;
+  overflow:hidden;
+}
+.stage-canvas{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  display:block;
+}
+/* Top vignette so nav stays readable; bottom vignette so type at base of viewport reads cleanly */
+.stage-pin::before,
+.stage-pin::after{
+  content:'';position:absolute;left:0;right:0;
+  pointer-events:none;z-index:2;
+}
+.stage-pin::before{top:0;height:30vh;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%)}
+.stage-pin::after{bottom:0;height:38vh;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 100%)}
+
+/* Loading shimmer until first frame paints */
+.stage-load{
+  position:absolute;inset:0;z-index:3;
+  display:flex;align-items:center;justify-content:center;
+  background:#000;
+  transition:opacity .9s var(--eo);
+  pointer-events:none;
+}
+.stage-load.gone{opacity:0}
+.stage-load span{
+  font-family:var(--ff-b);
+  font-size:.65rem;font-weight:400;
+  letter-spacing:.6em;text-transform:uppercase;
+  color:var(--ink-dim);
+}
+
+/* ─────── Overlay text that rides the scroll ─────── */
+.overlay{
+  position:absolute;inset:0;z-index:4;
+  pointer-events:none;
+}
+.beat{
+  position:absolute;
+  opacity:0;
+  transition:opacity .8s var(--eo),transform 1s var(--eo);
+  will-change:opacity,transform;
+  text-align:center;
+  width:100%;
+  padding:0 2rem;
+}
+
+/* Beat 1: brand wordmark, top-centered */
+.beat-mark{
+  top:18vh;left:0;
+  transform:translateY(8px);
+}
+.beat-mark .wm{
+  font-family:var(--ff-d);
+  font-weight:300;
+  font-size:clamp(3.2rem,11vw,9rem);
+  letter-spacing:.18em;
+  line-height:1;
+  color:var(--ink);
+  text-shadow:0 2px 24px rgba(0,0,0,.55);
+}
+.beat-mark .sub{
+  margin-top:1.4rem;
+  font-family:var(--ff-b);
+  font-size:.7rem;font-weight:500;
+  letter-spacing:.55em;text-transform:uppercase;
+  color:var(--ink-dim);
+}
+
+/* Beat 2: tagline mid */
+.beat-tag{
+  top:38vh;left:0;
+  transform:translateY(20px);
+}
+.beat-tag .line{
+  font-family:var(--ff-d);
+  font-style:italic;
+  font-weight:300;
+  font-size:clamp(1.6rem,3.6vw,3rem);
+  letter-spacing:.01em;
+  line-height:1.15;
+  color:var(--ink);
+  text-shadow:0 2px 22px rgba(0,0,0,.6);
+}
+
+/* Beat 3: notes bar near bottom */
+.beat-notes{
+  bottom:22vh;left:0;
+  transform:translateY(20px);
+}
+.beat-notes .notes{
+  display:inline-flex;flex-wrap:wrap;justify-content:center;
+  gap:.85rem 1.6rem;
+  font-family:var(--ff-b);
+  font-size:.78rem;font-weight:500;
+  letter-spacing:.36em;text-transform:uppercase;
+  color:var(--ink);
+}
+.beat-notes .dot{color:var(--gold)}
+.beat-notes .lab{
+  display:block;margin-bottom:.7rem;
+  font-size:.6rem;font-weight:400;
+  letter-spacing:.5em;color:var(--ink-faint);
+}
+
+/* Beat 4: closing — line + CTA */
+.beat-close{
+  top:30vh;left:0;
+  transform:translateY(20px);
+}
+.beat-close .line{
+  font-family:var(--ff-d);
+  font-weight:300;
+  font-size:clamp(2.2rem,5.8vw,4.8rem);
+  letter-spacing:.005em;
+  line-height:1.05;
+  color:var(--ink);
+  text-shadow:0 2px 22px rgba(0,0,0,.5);
+}
+.beat-close .line em{font-style:italic;color:var(--gold);font-weight:300}
+.beat-close .meta{
+  margin-top:2.2rem;
+  font-family:var(--ff-b);
+  font-size:.7rem;font-weight:500;
+  letter-spacing:.5em;text-transform:uppercase;
+  color:var(--ink-dim);
+}
+.beat-close .cta{
+  display:inline-block;
+  margin-top:2.4rem;
+  padding:1.05rem 2.6rem;
+  background:transparent;
+  border:1px solid var(--ink);
+  color:var(--ink);
+  font-family:var(--ff-b);
+  font-size:.7rem;font-weight:600;
+  letter-spacing:.4em;text-transform:uppercase;
+  cursor:pointer;
+  pointer-events:auto;
+  transition:background .4s var(--eo),color .4s var(--eo),border-color .4s var(--eo);
+}
+.beat-close .cta:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.beat.show{opacity:1;transform:translateY(0)}
+
+/* Scroll cue, only visible on first paint */
+.scroll-cue{
+  position:absolute;left:50%;bottom:5vh;z-index:4;
+  transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  font-family:var(--ff-b);
+  font-size:.55rem;font-weight:500;
+  letter-spacing:.55em;text-transform:uppercase;
+  color:var(--ink-dim);
+  transition:opacity .6s var(--eo);
+}
+.scroll-cue.gone{opacity:0;pointer-events:none}
+.scroll-cue .l{width:1px;height:46px;background:linear-gradient(to bottom,var(--ink-dim),transparent);animation:cuePulse 2.6s var(--eo) infinite}
+@keyframes cuePulse{0%,100%{opacity:.3;transform:scaleY(.4);transform-origin:top}50%{opacity:.95;transform:scaleY(1)}}
+
+/* Frame counter — diegetic detail, tasteful */
+.fc{
+  position:absolute;right:2.4rem;bottom:2rem;z-index:4;
+  font-family:var(--ff-b);
+  font-size:.55rem;font-weight:500;
+  letter-spacing:.45em;text-transform:uppercase;
+  color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ─────── Editorial sections below the hero ─────── */
+.ed{
+  background:var(--bg);
+  color:var(--ink);
+  position:relative;
+  z-index:1;
+}
+
+.section{padding:9rem 2.4rem;max-width:1240px;margin:0 auto;position:relative}
+@media (max-width:720px){.section{padding:5.5rem 1.6rem}}
+
+.eyebrow{
+  font-family:var(--ff-b);
+  font-size:.62rem;font-weight:500;
+  letter-spacing:.5em;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1.4rem;
+}
+.eyebrow .num{
+  display:inline-block;margin-right:1.2rem;
+  color:var(--ink-faint);font-variant-numeric:tabular-nums;
+}
+
+h2.head{
+  font-family:var(--ff-d);
+  font-weight:300;
+  font-size:clamp(2.4rem,5.4vw,4.6rem);
+  line-height:1.04;
+  letter-spacing:-.005em;
+  margin:0 0 2.6rem;
+  max-width:18ch;
+}
+h2.head em{font-style:italic;color:var(--gold);font-weight:300}
+
+p.lede{
+  font-family:var(--ff-d);
+  font-weight:300;
+  font-size:clamp(1.2rem,1.8vw,1.55rem);
+  line-height:1.45;
+  letter-spacing:.005em;
+  color:var(--ink);
+  max-width:36ch;
+  margin-bottom:1.6rem;
+}
+p.body{
+  font-size:1rem;
+  color:var(--ink-dim);
+  max-width:54ch;
+  margin-bottom:1.2rem;
+}
+
+/* ─────── Notes pyramid ─────── */
+.pyramid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border-top:1px solid var(--line);
+}
+@media (max-width:720px){.pyramid{grid-template-columns:1fr}}
+.np{
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+  padding:2.6rem 2rem 3.2rem;
+  position:relative;
+  transition:background .5s var(--eo);
+}
+.np:last-child{border-right:none}
+@media (max-width:720px){.np{border-right:none}}
+.np:hover{background:rgba(216,162,83,0.04)}
+.np .lab{
+  font-family:var(--ff-b);
+  font-size:.6rem;font-weight:500;
+  letter-spacing:.45em;text-transform:uppercase;
+  color:var(--ink-faint);
+  margin-bottom:1rem;
+}
+.np .name{
+  font-family:var(--ff-d);
+  font-weight:300;
+  font-size:1.9rem;
+  line-height:1.1;
+  margin-bottom:1.4rem;
+}
+.np .name em{font-style:italic;color:var(--gold)}
+.np ul{list-style:none;margin:0;padding:0}
+.np li{
+  font-size:.94rem;
+  color:var(--ink-dim);
+  padding:.55rem 0;
+  border-top:1px solid var(--line);
+}
+
+/* ─────── Story two-col editorial ─────── */
+.story{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6rem;
+  align-items:start;
+}
+@media (max-width:900px){.story{grid-template-columns:1fr;gap:2.6rem}}
+.story .left{position:sticky;top:8rem}
+@media (max-width:900px){.story .left{position:static;top:auto}}
+.story .pull{
+  font-family:var(--ff-d);
+  font-style:italic;
+  font-weight:300;
+  font-size:clamp(1.6rem,2.5vw,2.1rem);
+  line-height:1.35;
+  color:var(--ink);
+  margin:1.6rem 0 0;
+  padding:1.6rem 0 0;
+  border-top:1px solid var(--line);
+  max-width:30ch;
+}
+
+/* ─────── The bottle — split image+spec ─────── */
+.bottle{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:5rem;
+  align-items:center;
+}
+@media (max-width:900px){.bottle{grid-template-columns:1fr;gap:2.4rem}}
+.bottle .img{
+  position:relative;
+  aspect-ratio:4/5;
+  background:#000 center/cover no-repeat url('frames/frame_001.jpg');
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+.bottle .img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0) 60%,rgba(0,0,0,.3));
+  pointer-events:none;
+}
+.bottle .specs{display:flex;flex-direction:column;gap:1.4rem}
+.bottle .row{
+  display:flex;justify-content:space-between;
+  padding:1.05rem 0;
+  border-bottom:1px solid var(--line);
+  font-size:.92rem;
+}
+.bottle .row .k{color:var(--ink-faint);letter-spacing:.18em;text-transform:uppercase;font-size:.7rem;font-weight:500}
+.bottle .row .v{color:var(--ink);font-family:var(--ff-d);font-weight:400;font-size:1.05rem}
+
+/* ─────── Rituals — three-col ─────── */
+.rituals{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3rem;
+}
+@media (max-width:900px){.rituals{grid-template-columns:1fr;gap:2rem}}
+.rt .num{
+  font-family:var(--ff-d);
+  font-weight:300;font-style:italic;
+  font-size:3.2rem;line-height:1;
+  color:var(--gold);
+  margin-bottom:1.2rem;
+}
+.rt h3{
+  font-family:var(--ff-d);
+  font-weight:400;
+  font-size:1.45rem;
+  margin:0 0 .8rem;
+  letter-spacing:.005em;
+}
+.rt p{color:var(--ink-dim);font-size:.95rem;margin:0}
+
+/* ─────── Shop card ─────── */
+.shop{
+  background:var(--bg-2);
+  border:1px solid var(--line);
+  padding:4.2rem 3rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+@media (max-width:900px){.shop{grid-template-columns:1fr;gap:2.4rem;padding:2.6rem 1.6rem}}
+.shop .name{font-family:var(--ff-d);font-weight:300;font-size:clamp(2rem,3.8vw,3.4rem);line-height:1.05;margin:0 0 1rem}
+.shop .name em{font-style:italic;color:var(--gold)}
+.shop .det{color:var(--ink-dim);max-width:36ch;margin:0 0 2rem}
+.sizes{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem}
+.sz{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.05rem 1.3rem;
+  border:1px solid var(--line);
+  cursor:pointer;
+  transition:border-color .3s var(--eo),background .3s var(--eo);
+}
+.sz:hover,.sz.on{border-color:var(--gold);background:rgba(216,162,83,0.05)}
+.sz .l{font-family:var(--ff-b);font-weight:500;font-size:.85rem;letter-spacing:.16em;text-transform:uppercase}
+.sz .p{font-family:var(--ff-d);font-weight:400;font-size:1.1rem;color:var(--gold)}
+.shop button{
+  width:100%;
+  padding:1.15rem;
+  background:var(--ink);color:var(--bg);
+  border:none;cursor:pointer;
+  font-family:var(--ff-b);font-size:.72rem;font-weight:600;
+  letter-spacing:.45em;text-transform:uppercase;
+  transition:background .3s var(--eo),color .3s var(--eo);
+}
+.shop button:hover{background:var(--gold);color:var(--bg)}
+
+/* ─────── Footer ─────── */
+.foot{
+  border-top:1px solid var(--line);
+  padding:5rem 2.4rem 3rem;
+  max-width:1240px;margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:3rem;
+  font-size:.85rem;color:var(--ink-dim);
+}
+@media (max-width:900px){.foot{grid-template-columns:1fr 1fr;gap:2rem}}
+.foot h4{
+  font-family:var(--ff-b);font-size:.6rem;font-weight:500;
+  letter-spacing:.45em;text-transform:uppercase;
+  color:var(--ink);margin:0 0 1.2rem;
+}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem}
+.foot a:hover{color:var(--gold)}
+.foot-mark{font-family:var(--ff-d);font-weight:300;font-size:1.6rem;letter-spacing:.34em;color:var(--ink);margin-bottom:1rem}
+.foot-bot{
+  border-top:1px solid var(--line);
+  margin-top:3rem;padding-top:2rem;
+  display:flex;justify-content:space-between;
+  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);
+}
+@media (max-width:600px){.foot-bot{flex-direction:column;gap:.6rem}}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion:reduce){
+  .beat{transition-duration:.2s!important}
+  .scroll-cue .l{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ─────── Top nav ─────── -->
+<header class="nav">
+  <div class="nav-mark">MERIDIAN</div>
+  <nav class="nav-links">
+    <a href="#notes">Notes</a>
+    <a href="#story">Story</a>
+    <a href="#shop">Shop</a>
+  </nav>
+</header>
+
+<!-- ─────── Hero scroll-scrubbed stage ─────── -->
+<section class="stage" id="stage" aria-label="MERIDIAN — visual prologue">
+  <div class="stage-pin">
+    <canvas class="stage-canvas" id="frames" aria-hidden="true"></canvas>
+
+    <div class="stage-load" id="load"><span>Composing · Patience</span></div>
+
+    <div class="overlay">
+      <!-- Beat 1: brand wordmark over the bottle -->
+      <div class="beat beat-mark" data-in="0" data-out="0.18">
+        <div class="wm">MERIDIAN</div>
+        <div class="sub">Eau de Parfum &nbsp;·&nbsp; Reserve No.&thinsp;07</div>
+      </div>
+
+      <!-- Beat 2: tagline as the bottle dissolves -->
+      <div class="beat beat-tag" data-in="0.22" data-out="0.42">
+        <div class="line">For the high places.</div>
+      </div>
+
+      <!-- Beat 3: scent notes through the prism -->
+      <div class="beat beat-notes" data-in="0.46" data-out="0.66">
+        <div>
+          <span class="lab">The composition</span>
+          <div class="notes">
+            <span>Bergamot</span><span class="dot">·</span>
+            <span>Cedar</span><span class="dot">·</span>
+            <span>Iron Oxide</span><span class="dot">·</span>
+            <span>Smoked Oud</span><span class="dot">·</span>
+            <span>Amber</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beat 4: closing — line + CTA over the full sunrise -->
+      <div class="beat beat-close" data-in="0.72" data-out="1.01">
+        <div class="line">First light.<br><em>Last fire.</em></div>
+        <div class="meta">100ml · £210</div>
+        <a href="#shop" class="cta">Discover the bottle</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue" id="cue"><span>Scroll</span><span class="l"></span></div>
+    <div class="fc" id="fc">FRAME 001 / 169</div>
+  </div>
+</section>
+
+<!-- ─────── Editorial: notes pyramid ─────── -->
+<main class="ed">
+  <section class="section" id="notes">
+    <div class="eyebrow"><span class="num">01</span>The Composition</div>
+    <h2 class="head">Built top to base, like the <em>mountain</em> the bottle came from.</h2>
+    <p class="lede">A nine-month accord by perfumer Élise Marchand. Cold air at the top, warmed minerals in the middle, smoke at the base — the way a summit reads in a single inhale.</p>
+
+    <div class="pyramid">
+      <div class="np">
+        <div class="lab">Top · The first inhale</div>
+        <div class="name">Bergamot &amp; <em>Pink Pepper</em></div>
+        <ul>
+          <li>Calabrian bergamot, cold-pressed</li>
+          <li>Sichuan pink peppercorn</li>
+          <li>Aldehyde C-12, trace</li>
+          <li>Glacial water accord</li>
+        </ul>
+      </div>
+      <div class="np">
+        <div class="lab">Heart · The hour in the middle</div>
+        <div class="name">Cedar, Iron <em>Oxide</em></div>
+        <ul>
+          <li>Atlas cedarwood</li>
+          <li>Iron oxide accord (mineral)</li>
+          <li>Iris pallida butter</li>
+          <li>Vetiver, Haitian, smoked</li>
+        </ul>
+      </div>
+      <div class="np">
+        <div class="lab">Base · The hour after</div>
+        <div class="name">Oud &amp; <em>Amber</em></div>
+        <ul>
+          <li>Smoked oud, Laotian</li>
+          <li>Amber resin</li>
+          <li>Birch tar, restrained</li>
+          <li>Skin musk</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── Story two-col ─────── -->
+  <section class="section" id="story">
+    <div class="story">
+      <div class="left">
+        <div class="eyebrow"><span class="num">02</span>The Inspiration</div>
+        <h2 class="head">A fragrance for the <em>seventeen minutes</em> the world catches fire.</h2>
+        <div class="pull">"Most cologne is composed for the room. MERIDIAN is composed for the air outside it — thinner, colder, holding the day's last colour."</div>
+      </div>
+      <div class="right">
+        <p class="body">In 2024, Élise Marchand spent four nights at 3,200 metres in the Bernese Alps with a notebook, a clean rebreather, and twenty-two raw materials. She was looking for the smell of the moment the sun turns the snow the colour of a struck match — neither morning nor night, neither hot nor cold.</p>
+        <p class="body">The result is MERIDIAN: a structured Eau de Parfum at 22% concentration, cold-distilled over six weeks, rested in oak for three. The composition is unusually mineral. There is bergamot, yes, and an amber base you would expect from any serious house — but threaded between them is a note we call iron oxide: the smell of stone that has held the sun all day and is just beginning to release it.</p>
+        <p class="body">The bottle was cut to match. Fifteen facets, each angled to refract a different fraction of the spectrum. Held to a window at the right hour, it throws the same colours the perfume describes.</p>
+        <p class="body">It is, by design, a fragrance you wear once a day at most. Twice if the day is long enough.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── The bottle ─────── -->
+  <section class="section" id="bottle">
+    <div class="eyebrow"><span class="num">03</span>The Object</div>
+    <div class="bottle">
+      <div class="img" role="img" aria-label="MERIDIAN bottle, faceted dark glass, on alpine stone"></div>
+      <div>
+        <h2 class="head">A bottle cut for the <em>last hour</em> of light.</h2>
+        <p class="body">Hand-cut by Lalique in Wingen-sur-Moder. Fifteen facets, leaded crystal at 24% PbO, a brushed-titanium collar, a magnetic ferrule that takes nine kilograms to release.</p>
+        <div class="specs">
+          <div class="row"><span class="k">Volume</span><span class="v">100&thinsp;ml</span></div>
+          <div class="row"><span class="k">Concentration</span><span class="v">22% · Eau de Parfum</span></div>
+          <div class="row"><span class="k">Glass</span><span class="v">Lalique, leaded crystal</span></div>
+          <div class="row"><span class="k">Cap</span><span class="v">Brushed titanium, magnetic</span></div>
+          <div class="row"><span class="k">Engraved</span><span class="v">Edition / 2&thinsp;500</span></div>
+          <div class="row"><span class="k">Made</span><span class="v">Grasse, France</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── Rituals ─────── -->
+  <section class="section">
+    <div class="eyebrow"><span class="num">04</span>How It's Worn</div>
+    <h2 class="head">Three small <em>rituals</em>, written by the people who tested it.</h2>
+    <div class="rituals">
+      <div class="rt">
+        <div class="num">i.</div>
+        <h3>One spray, sternum.</h3>
+        <p>Then wait. The opening reads thin for forty seconds. That is the bergamot air-drying. After it, the iron oxide warms against skin temperature.</p>
+      </div>
+      <div class="rt">
+        <div class="num">ii.</div>
+        <h3>Cold collar.</h3>
+        <p>One spray on the inside of a coat collar before stepping outside. The fragrance changes when air does.</p>
+      </div>
+      <div class="rt">
+        <div class="num">iii.</div>
+        <h3>Held, not sprayed.</h3>
+        <p>For evenings indoors, depress and release once into the palm. Press, do not rub. Cup briefly. Wear.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── Shop ─────── -->
+  <section class="section" id="shop">
+    <div class="eyebrow"><span class="num">05</span>Acquire</div>
+    <div class="shop">
+      <div>
+        <h2 class="name">MERIDIAN <em>—</em> Eau de Parfum</h2>
+        <p class="det">Limited to 2,500 numbered bottles per year. Engraved with edition number and city of dispatch. Ships in a felted oak case from Grasse within five working days.</p>
+        <div class="meta" style="font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--ink-faint)">Free shipping · 30-day return</div>
+      </div>
+      <div>
+        <div class="sizes">
+          <div class="sz">
+            <span class="l">50&thinsp;ml · Travel</span>
+            <span class="p">£135</span>
+          </div>
+          <div class="sz on">
+            <span class="l">100&thinsp;ml · Standard</span>
+            <span class="p">£210</span>
+          </div>
+          <div class="sz">
+            <span class="l">100&thinsp;ml · Engraved</span>
+            <span class="p">£245</span>
+          </div>
+        </div>
+        <button type="button">Add to bottle</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── Footer ─────── -->
+  <footer>
+    <div class="foot">
+      <div>
+        <div class="foot-mark">MERIDIAN</div>
+        <p style="margin:0;max-width:32ch">Composed in Grasse. Released for the seventeen minutes the world catches fire.</p>
+      </div>
+      <div>
+        <h4>Discover</h4>
+        <ul>
+          <li><a href="#notes">The composition</a></li>
+          <li><a href="#story">The inspiration</a></li>
+          <li><a href="#bottle">The object</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>House</h4>
+        <ul>
+          <li><a href="#">The perfumer</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Sustainability</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="#">Shipping &amp; returns</a></li>
+          <li><a href="#">Engraving</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot" style="max-width:1240px;margin:0 auto;padding-left:2.4rem;padding-right:2.4rem">
+      <span>© 2026 MERIDIAN — Maison de Parfum · Grasse</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+  </footer>
+</main>
+
+<script>
+/* ──────────────────────────────────────────────────────────────────────
+   Scroll-scrubbed canvas (Pattern 4 from animation-performance skill).
+   - Preload all 169 frames in parallel
+   - On scroll, RAF-throttle and only redraw if frame index changed
+   - Use nearestLoaded() while frames are still streaming so first paint
+     is immediate and the user always sees something
+   - Drive overlay text "beats" off the same scroll progress (0..1)
+   ────────────────────────────────────────────────────────────────────── */
+(function(){
+  const TOTAL  = 169;
+  const PREFIX = 'frames/frame_';
+  const SUFFIX = '.jpg';
+  const pad3   = (n)=>String(n).padStart(3,'0');
+
+  const canvas = document.getElementById('frames');
+  const ctx    = canvas.getContext('2d');
+  const stage  = document.getElementById('stage');
+  const load   = document.getElementById('load');
+  const cue    = document.getElementById('cue');
+  const fc     = document.getElementById('fc');
+
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const images = new Array(TOTAL).fill(null);
+  const loaded = new Uint8Array(TOTAL);
+  let   loadedCount = 0;
+
+  /* DPR-aware canvas sizing */
+  let cssW = 0, cssH = 0;
+  function resize(){
+    const r = stage.querySelector('.stage-pin').getBoundingClientRect();
+    cssW = r.width; cssH = r.height;
+    canvas.width  = Math.floor(cssW * dpr);
+    canvas.height = Math.floor(cssH * dpr);
+    canvas.style.width  = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+    if(lastIdx >= 0){ const im = images[lastIdx]; if(im) drawCover(im); }
+  }
+  window.addEventListener('resize', resize, {passive:true});
+
+  /* Preload all frames in parallel; first frame highest priority */
+  function preload(){
+    for(let i=0;i<TOTAL;i++){
+      const img = new Image();
+      img.decoding = 'async';
+      img.loading  = 'eager';
+      img.onload = () => {
+        images[i] = img;
+        if(!loaded[i]){ loaded[i]=1; loadedCount++; }
+        if(i === 0){
+          load.classList.add('gone');
+          drawCover(img);
+        }
+        // If the current target frame just arrived, refresh
+        if(i === lastIdx) drawCover(img);
+      };
+      img.onerror = () => { /* keep slot null; nearestLoaded will skip */ };
+      img.src = PREFIX + pad3(i+1) + SUFFIX;
+    }
+  }
+
+  /* Find the closest already-loaded frame to a given index */
+  function nearestLoaded(idx){
+    if(loaded[idx]) return images[idx];
+    for(let off=1; off<TOTAL; off++){
+      const a = idx - off, b = idx + off;
+      if(a >= 0    && loaded[a]) return images[a];
+      if(b < TOTAL && loaded[b]) return images[b];
+    }
+    return null;
+  }
+
+  /* Cover-fit draw (preserves aspect, centre-crops) */
+  function drawCover(img){
+    const iw = img.naturalWidth, ih = img.naturalHeight;
+    if(!iw || !ih) return;
+    const cw = cssW, ch = cssH;
+    const ir = iw/ih, cr = cw/ch;
+    let dw, dh, dx, dy;
+    if(ir > cr){ dh = ch; dw = ch * ir; dx = (cw - dw)/2; dy = 0; }
+    else        { dw = cw; dh = cw / ir; dx = 0; dy = (ch - dh)/2; }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.drawImage(img, dx, dy, dw, dh);
+  }
+
+  /* Scroll progress 0..1 across the entire stage section */
+  let lastIdx = -1;
+  let lastP   = -1;
+  let cueHidden = false;
+
+  /* Cache beats so we don't query each frame */
+  const beats = Array.from(document.querySelectorAll('.beat')).map(el => ({
+    el,
+    in:  parseFloat(el.dataset.in),
+    out: parseFloat(el.dataset.out),
+  }));
+
+  function applyBeats(p){
+    for(const b of beats){
+      const want = (p >= b.in && p < b.out);
+      if(want !== b.el.classList.contains('show')){
+        b.el.classList.toggle('show', want);
+      }
+    }
+  }
+
+  function progress(){
+    const r = stage.getBoundingClientRect();
+    const range = r.height - window.innerHeight;
+    if(range <= 0) return 0;
+    return Math.min(1, Math.max(0, -r.top / range));
+  }
+
+  function render(){
+    const p   = progress();
+    const idx = Math.round(p * (TOTAL - 1));
+    if(p !== lastP){
+      lastP = p;
+      applyBeats(p);
+      // Hide scroll cue once user scrolls past 1%
+      if(!cueHidden && p > 0.01){ cue.classList.add('gone'); cueHidden = true; }
+    }
+    if(idx === lastIdx) return;
+    lastIdx = idx;
+    fc.textContent = 'FRAME ' + pad3(idx+1) + ' / 169';
+    const img = nearestLoaded(idx);
+    if(img) drawCover(img);
+  }
+
+  /* RAF-throttled scroll */
+  let ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(()=>{ render(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* Boot */
+  resize();
+  preload();
+  render();
+
+  /* Re-render once a few frames have loaded so we don't sit on frame 1
+     if the user has already scrolled */
+  let warmCheck = setInterval(()=>{
+    if(loadedCount > 8){ render(); clearInterval(warmCheck); }
+  }, 120);
+})();
+
+/* Size selector — tiny bit of state for the shop card */
+document.querySelectorAll('.sz').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.sz').forEach(s => s.classList.remove('on'));
+    el.classList.add('on');
+  });
+});
+</script>
+</body>
+</html>
