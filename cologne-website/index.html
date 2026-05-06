@@ -230,9 +230,8 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
 /* ─────── Feature carousel — scroll-pinned ─────── */
 .features-section{
   position:relative;
-  /* Total scroll length for 8 cards: ~80vh per card + 1 viewport buffer.
-     On mobile this still works, just scrolls more naturally. */
-  height:calc(8 * 80vh + 100vh);
+  /* Total scroll length for 5 cards: ~80vh per card + 1 viewport buffer. */
+  height:calc(5 * 80vh + 100vh);
   background:var(--bg);
 }
 .features-pin{
@@ -244,7 +243,7 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
 }
 @media (max-width:720px){
   .features-pin{padding:1.4rem 1rem}
-  .features-section{height:calc(8 * 90vh + 100vh)}
+  .features-section{height:calc(5 * 90vh + 100vh)}
 }
 /* Subtle progress rail down the right edge while the carousel is pinned */
 .features-progress{
@@ -325,7 +324,7 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   height:54px;
   display:flex;align-items:center;
   width:fit-content;
-  transition:transform .85s var(--spring),opacity .85s linear;
+  /* transform + opacity driven inline by scroll JS for continuous flow */
   will-change:transform,opacity;
 }
 .car-chip button{
@@ -395,22 +394,17 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   border:6px solid var(--bg-2);
   background:var(--bg-2);
   transform-origin:center;
-  transition:transform .65s var(--spring),opacity .65s linear;
+  /* transform + opacity driven inline by scroll JS for continuous flow */
   will-change:transform,opacity;
   pointer-events:none;
   opacity:0;
 }
 @media (min-width:768px){.car-card{border-radius:2.6rem;border-width:8px}}
-.car-card[data-state="active"]{opacity:1;pointer-events:auto;z-index:20;transform:translate3d(0,0,0) scale(1) rotate(0deg)}
-.car-card[data-state="prev"]  {opacity:.4;z-index:10;transform:translate3d(-100px,0,0) scale(.85) rotate(-3deg)}
-.car-card[data-state="next"]  {opacity:.4;z-index:10;transform:translate3d( 100px,0,0) scale(.85) rotate( 3deg)}
 
 .car-card img{
   width:100%;height:100%;object-fit:cover;display:block;
-  filter:grayscale(1) blur(2px) brightness(.75);
-  transition:filter .7s var(--eo);
+  /* filter driven inline by scroll JS */
 }
-.car-card[data-state="active"] img{filter:grayscale(0) blur(0) brightness(1)}
 
 .car-cap{
   position:absolute;left:0;right:0;bottom:0;
@@ -418,10 +412,9 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 35%,rgba(0,0,0,0) 100%);
   display:flex;flex-direction:column;justify-content:flex-end;
   pointer-events:none;
-  opacity:0;transform:translateY(14px);
-  transition:opacity .55s var(--eo),transform .55s var(--eo);
+  opacity:0;
+  /* opacity + transform driven inline by scroll JS */
 }
-.car-card[data-state="active"] .car-cap{opacity:1;transform:translateY(0)}
 .car-cap .pill{
   align-self:flex-start;
   background:var(--bg);
@@ -574,10 +567,10 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   <section class="section" id="features-intro">
     <div class="section-head">
       <div class="copy">
-        <div class="eyebrow">Eight reasons</div>
+        <div class="eyebrow">Five reasons</div>
         <h2 class="head">Built quietly. Released <em>once a year.</em></h2>
       </div>
-      <p class="lede">Eight things to know about MERIDIAN before the bottle arrives — its glass, its perfumer, the four nights at altitude that produced it. Scroll to advance.</p>
+      <p class="lede">Five things to know about MERIDIAN before the bottle arrives — its glass, its perfumer, the four nights at altitude that produced it. Scroll to advance.</p>
     </div>
   </section>
 
@@ -810,7 +803,7 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
   const FEATURES = [
     {
       label:'Lalique Glass',
-      // Our own faceted bottle (best literal match for hand-cut crystal)
+      // Our own faceted bottle — literal match for hand-cut crystal
       image:'frames/frame_001.jpg',
       fallback:'frames/frame_001.jpg',
       desc:'Hand-cut leaded crystal — fifteen facets, by Lalique, Wingen-sur-Moder.',
@@ -825,36 +818,12 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
       icon:'droplet',
     },
     {
-      label:'Numbered Edition',
-      // Fountain pen on handwritten paper — engraved-by-hand vibe
-      image:'https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1400',
-      fallback:'frames/frame_038.jpg',
-      desc:'Limited to 2,500 numbered bottles per year. Engraved on request.',
-      icon:'hash',
-    },
-    {
       label:'The Perfumer',
       // Heavy prism abstraction — the perfumer's interior vision
       image:'frames/frame_065.jpg',
       fallback:'frames/frame_065.jpg',
       desc:'Composed by Élise Marchand over nine months in Grasse.',
       icon:'pen',
-    },
-    {
-      label:'Grasse Composition',
-      // Lavender field at sunset — Provence
-      image:'https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=80&w=1400',
-      fallback:'frames/frame_088.jpg',
-      desc:'Made where modern perfumery began — south of France, since 1747.',
-      icon:'pin',
-    },
-    {
-      label:'Ethically Sourced',
-      // White cosmos flowers against soft sky — botanical, hand-harvested
-      image:'https://images.unsplash.com/photo-1530092285049-1c42085fd395?q=80&w=1400',
-      fallback:'frames/frame_115.jpg',
-      desc:'Botanicals harvested by hand, traceable to twelve farms.',
-      icon:'leaf',
     },
     {
       label:'The Bernese Alps',
@@ -865,12 +834,12 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
       icon:'mountain',
     },
     {
-      label:'Carbon Neutral',
-      // Sunlit forest path
-      image:'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1400',
-      fallback:'frames/frame_165.jpg',
-      desc:'Every bottle ships carbon-balanced through Atmosfair.',
-      icon:'globe',
+      label:'Numbered Edition',
+      // Fountain pen on handwritten paper — engraved-by-hand vibe
+      image:'https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1400',
+      fallback:'frames/frame_038.jpg',
+      desc:'Limited to 2,500 numbered bottles per year. Engraved on request.',
+      icon:'hash',
     },
   ];
 
@@ -941,55 +910,100 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
     tickEls.push(t);
   }
 
-  let currentIdx = 0;
+  // Fractional scroll index: 0 ≤ frac ≤ N-1. Continuous, not stepped.
+  // Every chip/card transform is interpolated from `frac` so each pixel
+  // of scroll moves the carousel — no discrete band-boundary jumps.
+  let frac = 0;
 
   function wrappedDistance(diff){
     let d = diff;
-    if(d > N/2)  d -= N;
+    if(d >  N/2) d -= N;
     if(d < -N/2) d += N;
     return d;
   }
 
-  function apply(){
-    const i = currentIdx;
+  function clamp(v, lo, hi){ return v < lo ? lo : v > hi ? hi : v; }
 
-    chipEls.forEach((chip, idx) => {
-      const d = wrappedDistance(idx - i);
-      const op = Math.max(0, 1 - Math.abs(d) * 0.25);
-      chip.style.transform = 'translateY(' + (d * ITEM_HEIGHT) + 'px)';
-      chip.style.opacity = (Math.abs(d) > 3 ? 0 : op).toFixed(3);
-      chip.dataset.active = (d === 0).toString();
-    });
+  function apply(f){
+    const activeIdx = Math.round(f);
 
-    cardEls.forEach((card, idx) => {
-      const d = wrappedDistance(idx - i);
-      let s = 'hidden';
-      if(d === 0)       s = 'active';
-      else if(d === -1) s = 'prev';
-      else if(d === 1)  s = 'next';
-      card.dataset.state = s;
-    });
+    // Chips — every chip's Y is a continuous function of `f`, so the
+    // whole rail slides smoothly as the user scrolls. The "active pill"
+    // styling snaps at the integer rounding boundary (one chip at a time).
+    for(let idx = 0; idx < N; idx++){
+      const chip = chipEls[idx];
+      const d  = wrappedDistance(idx - f);
+      const ad = Math.abs(d);
+      const op = Math.max(0, 1 - ad * 0.25);
+      chip.style.transform = 'translateY(' + (d * ITEM_HEIGHT).toFixed(2) + 'px)';
+      chip.style.opacity   = (ad > 3 ? 0 : op).toFixed(3);
+      const isActive = (idx === activeIdx);
+      if((chip.dataset.active === 'true') !== isActive){
+        chip.dataset.active = isActive ? 'true' : 'false';
+      }
+    }
 
-    tickEls.forEach((t, idx) => t.classList.toggle('on', idx === i));
+    // Cards — translate/scale/rotate/opacity all interpolated continuously
+    // from distance to the fractional index. At d=0 the card is fully
+    // active; at |d|=1 it sits in the prev/next position; beyond that it
+    // fades to invisible.
+    for(let idx = 0; idx < N; idx++){
+      const card = cardEls[idx];
+      const d   = wrappedDistance(idx - f);
+      const ad  = Math.abs(d);
+      const cd  = Math.min(ad, 1);                // clamped for transforms
+      const tx  = clamp(d, -1, 1) * 100;          // translate X (px)
+      const sc  = 1 - cd * 0.15;                  // scale: 1 → .85
+      const rot = clamp(d, -1, 1) * 3;            // rotation (deg)
+      const opC = Math.max(0, 1 - ad * 0.6);      // opacity: d=0 → 1, d=1 → .4, d=2 → 0
+      const capOp = Math.max(0, 1 - 2 * ad);      // caption: d=0 → 1, d=.5 → 0
+
+      card.style.transform = 'translate3d(' + tx.toFixed(2) + 'px,0,0) scale(' + sc.toFixed(4) + ') rotate(' + rot.toFixed(3) + 'deg)';
+      card.style.opacity   = opC.toFixed(3);
+      card.style.zIndex    = (idx === activeIdx) ? '20' : '10';
+      card.style.pointerEvents = (idx === activeIdx) ? 'auto' : 'none';
+
+      const im = card._img;
+      if(im){
+        im.style.filter = 'grayscale(' + cd.toFixed(3) + ') blur(' + (cd * 2).toFixed(2) + 'px) brightness(' + (1 - cd * 0.25).toFixed(3) + ')';
+      }
+      const cap = card._cap;
+      if(cap){
+        cap.style.opacity   = capOp.toFixed(3);
+        cap.style.transform = 'translateY(' + (14 * (1 - capOp)).toFixed(2) + 'px)';
+      }
+    }
+
+    // Progress rail
+    for(let i = 0; i < N; i++){
+      tickEls[i].classList.toggle('on', i === activeIdx);
+    }
   }
 
-  // Compute the active card index from where the user is in the pinned section
-  function indexFromScroll(){
+  function fracFromScroll(){
     const r = section.getBoundingClientRect();
     const range = section.offsetHeight - window.innerHeight;
     if(range <= 0) return 0;
     const p = Math.min(1, Math.max(0, -r.top / range));
-    // Map [0..1] across N segments. Last segment clamps to N-1.
-    return Math.min(N - 1, Math.floor(p * N));
+    // Linear: p=0 → frac 0 (first card), p=1 → frac N-1 (last card).
+    // Each card transition takes 1/(N-1) of progress.
+    return clamp(p * (N - 1), 0, N - 1);
   }
+
+  // Cache img/cap refs on each card so we don't re-query every scroll frame
+  cardEls.forEach(card => {
+    card._img = card.querySelector('img');
+    card._cap = card.querySelector('.car-cap');
+  });
 
   let ticking = false;
   function onScroll(){
     if(ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
-      const next = indexFromScroll();
-      if(next !== currentIdx){ currentIdx = next; apply(); }
+      const next = fracFromScroll();
+      // Skip the redraw only for truly-no-change frames; otherwise apply.
+      if(Math.abs(next - frac) > 0.0005){ frac = next; apply(frac); }
       ticking = false;
     });
   }
@@ -1002,16 +1016,16 @@ p.body{font-size:1rem;color:var(--ink-dim);max-width:54ch;margin-bottom:1.2rem}
     if(!btn) return;
     const target = parseInt(btn.dataset.idx, 10);
     const range = section.offsetHeight - window.innerHeight;
-    const sectionTop = section.offsetTop;
-    // Aim for the middle of the target's progress band so that index
-    // is firmly the active one (off by one rounding tolerance).
-    const targetP = (target + 0.5) / N;
-    window.scrollTo({ top: sectionTop + range * targetP, behavior:'smooth' });
+    const r = section.getBoundingClientRect();
+    const absTop = window.scrollY + r.top;
+    // For a target integer index t, the linear frac formula gives p = t/(N-1)
+    const targetP = clamp(target / Math.max(1, N - 1), 0, 1);
+    window.scrollTo({ top: absTop + range * targetP, behavior:'smooth' });
   });
 
   // Initial sync
-  currentIdx = indexFromScroll();
-  apply();
+  frac = fracFromScroll();
+  apply(frac);
 })();
 
 /* Shop size selector */
