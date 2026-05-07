@@ -1,0 +1,25 @@
+{
+  "name": "sybago-gifs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Remotion compositions for the 5 homepage feature GIFs on sybago.ai",
+  "scripts": {
+    "preview": "remotion studio",
+    "render:01": "remotion render src/index.ts F01-WebsiteToSms ../sybago-website/media/feature-01-website-sms.mp4",
+    "render:02": "remotion render src/index.ts F02-MissedCall    ../sybago-website/media/feature-02-missed-call.mp4",
+    "render:03": "remotion render src/index.ts F03-Reviews       ../sybago-website/media/feature-03-reviews.mp4",
+    "render:04": "remotion render src/index.ts F04-DeadLeads     ../sybago-website/media/feature-04-dead-leads.mp4",
+    "render:05": "remotion render src/index.ts F05-Dashboard     ../sybago-website/media/feature-05-dashboard.mp4",
+    "render:all": "npm run render:01 && npm run render:02 && npm run render:03 && npm run render:04 && npm run render:05"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.255",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.255"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "typescript": "^5.5.0"
+  }
+}
