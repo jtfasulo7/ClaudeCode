@@ -506,13 +506,30 @@ input, textarea, button { font-family: inherit; }
   margin-bottom: 1.1rem;
 }
 .tcols {
+  position: relative;
   display: flex; justify-content: center; gap: 1.5rem;
   margin-top: 2.5rem;
   max-height: 740px;
   overflow: hidden;
-  /* Top + bottom fade mask */
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
-          mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+}
+/* Top + bottom fade overlays — pure compositing, no mask layer.
+   mask-image on a parent of a transforming child forces a per-frame
+   compositing pass and causes visible stutter on lower-end GPUs. */
+.tcols::before, .tcols::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 22%;
+  z-index: 2;
+  pointer-events: none;
+}
+.tcols::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--bg) 0%, rgba(10,10,10,0) 100%);
+}
+.tcols::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--bg) 0%, rgba(10,10,10,0) 100%);
 }
 .tcol {
   flex: 0 0 auto;
@@ -532,19 +549,22 @@ input, textarea, button { font-family: inherit; }
   padding-bottom: 1.5rem;
   animation: tcol-scroll var(--tcol-duration, 40s) linear infinite;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
+/* Triple-buffer marquee: 3 copies of each card set, wrap at -33.333%
+   so the loop point falls in the middle of identical content — any
+   sub-pixel drift from variable card heights stays invisible. */
 @keyframes tcol-scroll {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, -33.3333%, 0); }
 }
-.tcols:hover .tcol-track { animation-play-state: paused; }
 
 .tcard {
   background: var(--bg-2);
   border: 1px solid var(--line);
   border-radius: 24px;
   padding: 2.25rem 1.75rem;
-  box-shadow: 0 12px 30px rgba(255,122,26,0.06);
 }
 .tcard p {
   font-size: 0.95rem;
