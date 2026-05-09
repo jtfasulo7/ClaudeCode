@@ -202,6 +202,7 @@ input, textarea, button { font-family: inherit; }
 .services-carousel { width: 100%; overflow: hidden; }
 .services-track {
   display: flex; gap: 1.25rem;
+  justify-content: safe center;
   padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -210,12 +211,6 @@ input, textarea, button { font-family: inherit; }
   -ms-overflow-style: none;
 }
 .services-track::-webkit-scrollbar { display: none; }
-@media (min-width: 1280px) {
-  .services-track {
-    padding-left: max(2.5rem, calc((100vw - var(--container)) / 2 + 2.5rem));
-    padding-right: max(2.5rem, calc((100vw - var(--container)) / 2 + 2.5rem));
-  }
-}
 
 .svc-tile {
   position: relative;
