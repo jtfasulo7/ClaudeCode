@@ -51,42 +51,71 @@
 </header>
 
 <!-- Services -->
-<section id="services" class="section">
-  <div class="section-head">
-    <span class="eyebrow">Our Services</span>
-    <h2>What we build.</h2>
-    <p>Residential, top to bottom. We stay focused — we don't do commercial, we don't subcontract the whole job, and we don't take projects we can't do well.</p>
+<section id="services" class="section section-services">
+  <div class="services-head">
+    <div class="services-head-copy">
+      <span class="eyebrow">Our Services</span>
+      <h2>What we build.</h2>
+      <p>Residential, top to bottom. Click any service to see exactly what we do and how a project of that type runs.</p>
+    </div>
+    <div class="services-nav">
+      <button class="services-arrow" id="svcPrev" type="button" aria-label="Previous service" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      </button>
+      <button class="services-arrow" id="svcNext" type="button" aria-label="Next service">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+    </div>
   </div>
-  <div class="services-grid">
-    <article class="svc-card">
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
-      </div>
-      <h3>Custom Home Builds</h3>
-      <p>Ground-up new construction. We work with your architect or ours. From dirt to keys-in-hand, fully managed.</p>
-    </article>
-    <article class="svc-card">
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/><path d="M19 12h2"/></svg>
-      </div>
-      <h3>Additions</h3>
-      <p>Second-story pop-ups, primary suite additions, expanded kitchens, attached garages. We tie new into existing seamlessly.</p>
-    </article>
-    <article class="svc-card">
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 7 8.5 12.5"/><path d="m18 11-6 6"/><path d="m21 14-3 3"/><path d="M7 21h10"/><path d="m3 21 7-7"/><path d="M14 4 20 10"/></svg>
-      </div>
-      <h3>Major Renovations</h3>
-      <p>Full kitchen and bath gut-jobs, basement finishes, whole-home remodels. Permitted, structural, done right.</p>
-    </article>
-    <article class="svc-card">
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
-      </div>
-      <h3>Design-Build</h3>
-      <p>One team for design and construction. Faster timelines, fewer surprises, one point of accountability for the whole project.</p>
-    </article>
+  <div class="services-carousel" id="svcCarousel">
+    <div class="services-track" id="svcTrack" role="list">
+      <a href="/services/custom-home-builds" class="svc-tile" role="listitem">
+        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=900&auto=format&fit=crop" alt="Modern custom home at dusk">
+        <span class="svc-tile-overlay" aria-hidden="true"></span>
+        <div class="svc-tile-body">
+          <h3>Custom Home Builds</h3>
+          <p>Ground-up new construction. We work with your architect or ours. From dirt to keys-in-hand, fully managed.</p>
+          <span class="svc-tile-cta">Read more
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="/services/additions" class="svc-tile" role="listitem">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&auto=format&fit=crop" alt="Two-story home with addition">
+        <span class="svc-tile-overlay" aria-hidden="true"></span>
+        <div class="svc-tile-body">
+          <h3>Additions</h3>
+          <p>Second-story pop-ups, primary suite additions, expanded kitchens, attached garages. We tie new into existing seamlessly.</p>
+          <span class="svc-tile-cta">Read more
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="/services/major-renovations" class="svc-tile" role="listitem">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&auto=format&fit=crop" alt="Modern remodeled kitchen interior">
+        <span class="svc-tile-overlay" aria-hidden="true"></span>
+        <div class="svc-tile-body">
+          <h3>Major Renovations</h3>
+          <p>Full kitchen and bath gut-jobs, basement finishes, whole-home remodels. Permitted, structural, done right.</p>
+          <span class="svc-tile-cta">Read more
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="/services/design-build" class="svc-tile" role="listitem">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&auto=format&fit=crop" alt="Modern white home with clean architectural lines">
+        <span class="svc-tile-overlay" aria-hidden="true"></span>
+        <div class="svc-tile-body">
+          <h3>Design-Build</h3>
+          <p>One team for design and construction. Faster timelines, fewer surprises, one point of accountability for the whole project.</p>
+          <span class="svc-tile-cta">Read more
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
   </div>
+  <div class="services-dots" id="svcDots" role="tablist" aria-label="Services pagination"></div>
 </section>
 
 <!-- Projects -->

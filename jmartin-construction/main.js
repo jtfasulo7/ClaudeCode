@@ -150,6 +150,69 @@
     requireConsent: true,
   });
 
+  // ── Services carousel ──
+  (function initServicesCarousel() {
+    const track = document.getElementById('svcTrack');
+    const prev = document.getElementById('svcPrev');
+    const next = document.getElementById('svcNext');
+    const dotsWrap = document.getElementById('svcDots');
+    if (!track || !dotsWrap) return;
+
+    const tiles = Array.from(track.querySelectorAll('.svc-tile'));
+    if (tiles.length === 0) return;
+
+    tiles.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'svc-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to service ${i + 1}`);
+      dot.setAttribute('role', 'tab');
+      dot.addEventListener('click', () => scrollToTile(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.querySelectorAll('.svc-dot'));
+
+    function getStep() {
+      if (tiles.length < 2) return tiles[0].offsetWidth;
+      return tiles[1].offsetLeft - tiles[0].offsetLeft;
+    }
+
+    function scrollToTile(i) {
+      const step = getStep();
+      const target = tiles[0].offsetLeft + i * step - track.offsetLeft;
+      track.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    }
+
+    function update() {
+      const step = getStep();
+      if (!step) return;
+      const rel = track.scrollLeft - (tiles[0].offsetLeft - track.offsetLeft);
+      const i = Math.max(0, Math.min(tiles.length - 1, Math.round(rel / step)));
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+      if (prev) prev.disabled = track.scrollLeft <= 8;
+      if (next) next.disabled =
+        track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
+    }
+
+    if (prev) prev.addEventListener('click', () => {
+      track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    });
+    if (next) next.addEventListener('click', () => {
+      track.scrollBy({ left: getStep(), behavior: 'smooth' });
+    });
+
+    let raf = 0;
+    track.addEventListener('scroll', () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    }, { passive: true });
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    });
+    update();
+  })();
+
   // ── Chat widget toggle ──
   const toggle = document.getElementById('chatToggle');
   const panel = document.getElementById('chatPanel');
