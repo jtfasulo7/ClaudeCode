@@ -36,9 +36,13 @@ a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 input, textarea, button { font-family: inherit; }
 
-/* ── Brand wordmark ── */
-.brand-word { font-weight: 700; letter-spacing: -0.01em; font-size: 1.05rem; }
-.brand-word em { color: var(--orange); font-style: normal; font-weight: 800; }
+/* ── Brand logo ── */
+.brand-logo {
+  height: 44px; width: auto;
+  display: block;
+  border-radius: 6px;
+}
+.brand-logo-lg { height: 96px; }
 
 /* ── Nav ── */
 .nav {
@@ -51,13 +55,6 @@ input, textarea, button { font-family: inherit; }
   border-bottom: 1px solid var(--line);
 }
 .brand { display: inline-flex; align-items: center; gap: 0.6rem; }
-.brand-mark {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 32px; height: 32px;
-  background: var(--orange); color: #0a0a0a;
-  border-radius: 6px;
-  font-weight: 800; font-size: 0.85rem; letter-spacing: 0;
-}
 .nav-links { display: flex; align-items: center; gap: 1.6rem; }
 .nav-links a {
   font-size: 0.88rem; font-weight: 500; color: var(--t2);
