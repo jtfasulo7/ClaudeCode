@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Google</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='28' font-family='Arial'%3EG%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="home">
+    <h1 class="logo" aria-label="Google">
+      <span class="c-blue">G</span><span class="c-red">o</span><span class="c-yellow">o</span><span class="c-blue">g</span><span class="c-green">l</span><span class="c-red">e</span>
+    </h1>
+
+    <form action="/search" method="get" role="search">
+      <label class="search-box" for="q">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input id="q" name="q" type="search" autocomplete="off" autofocus
+               aria-label="Search" />
+      </label>
+
+      <div class="buttons">
+        <button class="btn" type="submit">Google Search</button>
+        <button class="btn" type="button" id="lucky">I'm Feeling Lucky</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('lucky').addEventListener('click', () => {
+      const q = document.getElementById('q').value.trim();
+      if (!q) return;
+      // Submit and let the results page open the first link
+      window.location.href = `/search?q=${encodeURIComponent(q)}&lucky=1`;
+    });
+  </script>
+</body>
+</html>
