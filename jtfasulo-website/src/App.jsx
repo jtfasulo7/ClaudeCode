@@ -23,7 +23,6 @@ function Home() {
       <Header />
       <main>
         <LiquidMetalHero
-          badge="✦  Now accepting students"
           title="Craft $10k Websites Without Coding"
           subtitle="Learn the exact system I use to build premium, high converting sites."
           subSubtitle="Built for beginners. No coding. No guessing."
