@@ -43,11 +43,11 @@ export default function Header() {
     }
   }
 
-  const BOOKING_URL = 'https://api.leadconnectorhq.com/widget/bookings/pro-website-training'
+  const STRIPE_URL = 'https://buy.stripe.com/28E5kw2tXbZA7LBbqC8Zq03'
   const handleContactClick = (e) => {
     e.preventDefault()
     setMobileOpen(false)
-    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer')
+    window.open(STRIPE_URL, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -89,11 +89,11 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href={BOOKING_URL}
+                href={STRIPE_URL}
                 onClick={handleContactClick}
                 className="ml-4 btn-primary text-xs py-2.5 px-5"
               >
-                <span>Get in touch</span>
+                <span>Get your guide</span>
               </a>
             </nav>
 
@@ -140,11 +140,11 @@ export default function Header() {
                 className="mt-10"
               >
                 <a
-                  href={BOOKING_URL}
+                  href={STRIPE_URL}
                   onClick={handleContactClick}
                   className="btn-primary text-sm"
                 >
-                  <span>Get in touch</span>
+                  <span>Get your guide</span>
                 </a>
               </motion.div>
             </div>

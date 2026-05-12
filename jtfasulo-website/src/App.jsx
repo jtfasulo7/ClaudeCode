@@ -4,17 +4,18 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import PdfDownload from './components/PdfDownload'
+import PdfShowcase from './components/PdfShowcase'
 import Splash from './components/Splash'
 import LiquidMetalHero from './components/ui/LiquidMetalHero'
 import FeatureShaderCards from './components/ui/FeatureShaderCards'
 import HologramScroll from './components/ui/HologramScroll'
 import PerspectiveMarquee from './components/ui/PerspectiveMarquee'
-import BookCallCTA from './components/ui/BookCallCTA'
+
+const STRIPE_URL = 'https://buy.stripe.com/28E5kw2tXbZA7LBbqC8Zq03'
 
 function Home() {
-  const scrollToContact = () => {
-    const el = document.getElementById('contact')
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const openStripe = () => {
+    window.open(STRIPE_URL, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -26,18 +27,18 @@ function Home() {
           title="Craft $10k Websites Without Coding"
           subtitle="Learn the exact system I use to build premium, high converting sites."
           subSubtitle="Built for beginners. No coding. No guessing."
-          primaryCtaLabel="Get in touch"
-          onPrimaryCtaClick={scrollToContact}
+          primaryCtaLabel="Get your guide"
+          onPrimaryCtaClick={openStripe}
           features={[
             'Free discovery call',
             'Curated onboarding call',
             'Your own workbook',
           ]}
         />
+        <PdfShowcase />
         <FeatureShaderCards />
         <HologramScroll />
         <PerspectiveMarquee />
-        <BookCallCTA />
       </main>
       <Footer />
     </div>
