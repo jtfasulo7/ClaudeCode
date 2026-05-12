@@ -3,6 +3,7 @@ import './index.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
+import PdfDownload from './components/PdfDownload'
 import Splash from './components/Splash'
 import LiquidMetalHero from './components/ui/LiquidMetalHero'
 import FeatureShaderCards from './components/ui/FeatureShaderCards'
@@ -51,6 +52,8 @@ function App() {
       {/* Existing site content moved to /home so the splash can route to it */}
       <Route path="/home" element={<Home />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      {/* Post-payment download landing — GHL/Stripe redirects here */}
+      <Route path="/pdf-download" element={<PdfDownload />} />
       {/* Anything else falls through to the splash so the entry decision is preserved */}
       <Route path="*" element={<Splash />} />
     </Routes>
