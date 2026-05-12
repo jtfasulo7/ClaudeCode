@@ -1,6 +1,6 @@
 # Build $10k Websites With Claude Code — PDF guide
 
-A 100-page playbook for building production websites with Claude Code, branded in Sybago teal. Designed to be sold for $19.99 via Stripe.
+A 100-page playbook for building production websites with Claude Code, branded in Sybago teal. Designed to be sold for $39.99 via Stripe.
 
 ## Files
 
