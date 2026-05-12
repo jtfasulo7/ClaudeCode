@@ -1,0 +1,2911 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Build $10k Websites With Claude Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   SYBAGO BRAND TOKENS  (mirrors sybago-website/index.html:40-58)
+   ============================================================ */
+:root {
+  --teal:        #2F6779;
+  --teal-b:      #3a7d93;
+  --teal-d:      #244e5b;
+  --teal-tint:   rgba(47,103,121,0.10);
+  --teal-glow:   rgba(47,103,121,0.20);
+  --bg:          #ffffff;
+  --bg-2:        #f4f5f7;
+  --bg-3:        #eaecef;
+  --t1:          #0f1419;
+  --t2:          rgba(15,20,25,0.66);
+  --t3:          rgba(15,20,25,0.42);
+  --t4:          rgba(15,20,25,0.10);
+  --line:        rgba(15,20,25,0.08);
+  --good:        #4dbf7a;
+  --warn:        #e8b04a;
+}
+
+/* ============================================================
+   PRINT PAGE — US Letter, generous margins, footer page numbers
+   ============================================================ */
+@page {
+  size: Letter;
+  margin: 0.7in 0.75in 0.85in 0.75in;
+  @bottom-right {
+    content: counter(page);
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--t3);
+    letter-spacing: 0.12em;
+  }
+  @bottom-left {
+    content: "Build $10k Websites With Claude Code";
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    color: var(--t3);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+@page :first {
+  margin: 0;
+  @bottom-right { content: none; }
+  @bottom-left  { content: none; }
+}
+@page cover  { margin: 0; @bottom-right { content: none; } @bottom-left { content: none; } }
+@page chapter { @bottom-left { content: none; } }
+
+/* ============================================================
+   BASELINE
+   ============================================================ */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--t1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+p { margin: 0 0 0.8em; color: var(--t1); }
+p.lede { font-size: 12pt; line-height: 1.55; color: var(--t1); font-weight: 500; margin-bottom: 1.2em; }
+p.meta { color: var(--t2); }
+strong { font-weight: 600; color: var(--t1); }
+em { font-style: italic; color: var(--teal-b); font-weight: 500; }
+
+a { color: var(--teal); text-decoration: none; }
+
+ul, ol { margin: 0 0 1em 1.1em; padding: 0; }
+li { margin: 0 0 0.35em; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 1.5em 0;
+}
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+  color: var(--t1);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+h1 { font-weight: 800; font-size: 32pt; letter-spacing: -0.02em; }
+h2 { font-weight: 800; font-size: 22pt; margin: 0 0 0.5em; }
+h3 { font-weight: 700; font-size: 14pt; margin: 1.4em 0 0.5em; letter-spacing: -0.01em; }
+h4 { font-weight: 700; font-size: 11pt; margin: 1.2em 0 0.4em; letter-spacing: 0; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--teal-b);
+}
+
+/* ============================================================
+   COVER PAGE
+   ============================================================ */
+.cover {
+  page: cover;
+  page-break-after: always;
+  width: 8.5in;
+  height: 11in;
+  margin: 0;
+  padding: 1.25in 0.9in 1.1in;
+  background: var(--teal);
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.cover::before {
+  /* a subtle off-center radial in deeper teal */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 110%, rgba(36,78,91,0.55), transparent 60%),
+    radial-gradient(ellipse at 0% 0%,   rgba(58,125,147,0.35), transparent 60%);
+  pointer-events: none;
+}
+.cover > * { position: relative; z-index: 1; }
+.cover-top { display: flex; align-items: center; gap: 0.6em; color: rgba(255,255,255,0.92); }
+.cover-top img { width: 36px; height: 36px; filter: brightness(0) invert(1); opacity: 0.92; }
+.cover-top .wordmark {
+  font-weight: 800; letter-spacing: 0.18em; font-size: 11pt; text-transform: uppercase;
+}
+.cover h1 {
+  color: #fff;
+  font-size: 56pt;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  max-width: 6.4in;
+}
+.cover h1 em {
+  font-style: italic;
+  color: #cfe3eb;
+  font-weight: 800;
+}
+.cover .sub {
+  margin-top: 1em;
+  font-size: 14pt;
+  font-weight: 400;
+  color: rgba(255,255,255,0.86);
+  line-height: 1.4;
+  max-width: 5.8in;
+}
+.cover-stack {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 1em;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  padding-top: 1.1em;
+}
+.cover-author {
+  font-size: 10pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+}
+.cover-author span { color: rgba(255,255,255,0.55); font-weight: 500; letter-spacing: 0.12em; }
+.cover-edition {
+  font-size: 8pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  text-align: right;
+}
+.cover-edition strong { color: #fff; font-weight: 700; display: block; font-size: 10pt; letter-spacing: 0.18em; margin-top: 0.2em; }
+
+/* ============================================================
+   COLOPHON / SECOND PAGE
+   ============================================================ */
+.colophon { page-break-after: always; padding-top: 1in; color: var(--t2); font-size: 9pt; }
+.colophon h4 { color: var(--t1); margin: 0 0 0.4em; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 8.5pt; }
+.colophon p { margin: 0 0 0.6em; max-width: 5.5in; }
+
+/* ============================================================
+   TABLE OF CONTENTS
+   ============================================================ */
+.toc { page-break-after: always; }
+.toc .label { color: var(--teal-b); }
+.toc h2 { margin-bottom: 0.4em; font-size: 28pt; }
+.toc .toc-sub { color: var(--t2); margin: 0 0 2em; max-width: 5.6in; }
+.toc-part {
+  margin: 1.4em 0 0.3em;
+  border-top: 1px solid var(--line);
+  padding-top: 0.7em;
+  font-size: 8.5pt;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--teal-b);
+  font-weight: 700;
+}
+.toc-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 0.5em;
+  padding: 0.35em 0;
+  border-bottom: 1px dotted var(--line);
+}
+.toc-row .num { color: var(--t3); font-variant-numeric: tabular-nums; font-weight: 600; width: 1.5em; }
+.toc-row .ttl { color: var(--t1); font-weight: 500; }
+
+/* ============================================================
+   CHAPTER OPENERS
+   ============================================================ */
+.chapter {
+  page-break-before: always;
+  page: chapter;
+}
+.chapter-head {
+  border-top: 4px solid var(--teal);
+  padding-top: 0.8em;
+  margin-bottom: 1.6em;
+}
+.chapter-head .num-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6em;
+}
+.chapter-head .num {
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: var(--teal-b);
+  text-transform: uppercase;
+}
+.chapter-head .part-tag {
+  font-size: 7.5pt;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--t3);
+  font-weight: 600;
+}
+.chapter-head h2 { font-size: 28pt; max-width: 6.4in; line-height: 1.04; }
+.chapter-head .deck {
+  margin-top: 0.6em;
+  font-size: 12.5pt;
+  color: var(--t2);
+  max-width: 5.8in;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   PART DIVIDERS (full-page section dividers)
+   ============================================================ */
+.part-divider {
+  page-break-before: always;
+  page-break-after: always;
+  page: chapter;
+  height: 9in;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 0.1in;
+  border-left: 6px solid var(--teal);
+  padding-left: 0.5in;
+}
+.part-divider .label {
+  font-size: 9pt;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--teal-b);
+  font-weight: 700;
+  margin-bottom: 1.2em;
+}
+.part-divider h1 {
+  font-size: 64pt;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  max-width: 6.5in;
+}
+.part-divider .blurb {
+  margin-top: 1.2em;
+  font-size: 13pt;
+  color: var(--t2);
+  max-width: 5.4in;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   CALLOUT BOXES
+   ============================================================ */
+.callout {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--teal);
+  background: var(--bg-2);
+  border-radius: 8px;
+  padding: 0.9em 1.1em;
+  margin: 1em 0;
+  font-size: 10pt;
+}
+.callout .tag {
+  display: inline-block;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--teal-b);
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout.warn { border-left-color: var(--warn); }
+.callout.warn .tag { color: var(--warn); }
+.callout.good { border-left-color: var(--good); }
+.callout.good .tag { color: var(--good); }
+
+.pull {
+  font-family: 'Inter', sans-serif;
+  font-size: 16pt;
+  line-height: 1.3;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--teal-b);
+  border-left: 3px solid var(--teal);
+  padding: 0.3em 0 0.3em 1em;
+  margin: 1.2em 0;
+  max-width: 5.5in;
+}
+
+/* ============================================================
+   CODE
+   ============================================================ */
+code, pre, kbd {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+code {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 9pt;
+  color: var(--teal-d);
+}
+pre {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--teal);
+  border-radius: 8px;
+  padding: 0.85em 1.05em;
+  margin: 1em 0;
+  font-size: 8.8pt;
+  line-height: 1.55;
+  color: var(--t1);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  page-break-inside: avoid;
+}
+pre code { background: none; border: none; padding: 0; font-size: inherit; color: inherit; }
+kbd {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid var(--t4);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0 4px;
+  font-size: 8pt;
+  color: var(--t1);
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  margin: 1em 0;
+  page-break-inside: avoid;
+}
+th, td {
+  text-align: left;
+  padding: 0.55em 0.7em;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th {
+  font-weight: 700;
+  font-size: 8pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-b);
+  border-bottom: 1px solid var(--teal-glow);
+}
+tbody tr:nth-child(2n) { background: var(--bg-2); }
+
+/* ============================================================
+   GRIDS & CARDS
+   ============================================================ */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin: 1em 0; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8em; margin: 1em 0; }
+.tool-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.9em 1em;
+  background: var(--bg);
+  page-break-inside: avoid;
+}
+.tool-card .price {
+  display: inline-block;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-b);
+  margin-bottom: 0.4em;
+}
+.tool-card h4 { margin: 0 0 0.3em; font-size: 13pt; letter-spacing: -0.01em; }
+.tool-card p { margin: 0; font-size: 9.5pt; color: var(--t2); }
+.tool-card .url { display: block; margin-top: 0.5em; font-size: 8.5pt; color: var(--teal); font-family: 'JetBrains Mono', monospace; }
+
+/* ============================================================
+   STEP / NUMBERED LISTS
+   ============================================================ */
+.steps { counter-reset: stp; list-style: none; margin: 1em 0 1em 0; padding: 0; }
+.steps li {
+  counter-increment: stp;
+  position: relative;
+  padding-left: 2.4em;
+  padding-bottom: 0.9em;
+  border-left: 1px solid var(--line);
+  margin-left: 0.8em;
+  padding-top: 0.1em;
+}
+.steps li:before {
+  content: counter(stp, decimal-leading-zero);
+  position: absolute;
+  left: -1.05em;
+  top: 0;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+  font-size: 8pt;
+  font-family: 'JetBrains Mono', monospace;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0;
+}
+.steps li:last-child { border-left: 1px solid transparent; padding-bottom: 0; }
+.steps li h4 { margin: 0 0 0.2em; font-size: 11pt; }
+
+/* ============================================================
+   KEEP-TOGETHER & FLOWING TWEAKS
+   ============================================================ */
+h2, h3, h4 { page-break-after: avoid; }
+p, pre, table, .callout, .pull, .tool-card { orphans: 3; widows: 3; }
+
+.no-break { page-break-inside: avoid; }
+.break-after { page-break-after: always; }
+.break-before { page-break-before: always; }
+
+.muted { color: var(--t2); }
+.small { font-size: 9pt; }
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     COVER
+     ════════════════════════════════════════════════════════════ -->
+<section class="cover">
+  <header class="cover-top">
+    <img src="logo.png" alt="Sybago" />
+    <span class="wordmark">SYBAGO</span>
+  </header>
+
+  <div>
+    <span class="eyebrow" style="color: rgba(255,255,255,0.7);">The Operator's Field Guide</span>
+    <h1 style="margin-top:0.6em;">Build $10k <em>Websites</em><br/>With Claude Code.</h1>
+    <p class="sub">How I shipped a portfolio of contractor websites — and a real software company — on $44/month of tools, zero coding background, and one terminal window.</p>
+  </div>
+
+  <div class="cover-stack">
+    <div class="cover-author">
+      JT Fasulo<br/>
+      <span>Founder · Sybago · jtfasulo.com</span>
+    </div>
+    <div class="cover-edition">
+      First Edition<br/>
+      <strong>v1.0 · 2026</strong>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     COLOPHON
+     ════════════════════════════════════════════════════════════ -->
+<section class="colophon">
+  <h4>About this guide</h4>
+  <p>This is the playbook I use, every week, to build production websites with Claude Code. Every technique in here is taken from a real project — Sybago, jmartin-construction, coachfish, prominent-detailing, realtor-website, and a half-dozen others. No theory. No best practices I invented in a vacuum.</p>
+
+  <h4>Who I am</h4>
+  <p>I'm JT. I started building websites the same way you probably are now — sitting in front of a terminal, not knowing what to type. I'd never written a line of React. I'd barely written a line of HTML. Two years later I'm running a software company (Sybago), a portfolio site (jtfasulo.com), and a side business making websites for trades. Same hands. Same brain. Just a different tool.</p>
+
+  <h4>How to read it</h4>
+  <p>Front to back the first time. After that, skip around. Part I gets you set up. Part II explains the mental model so the rest stops feeling like magic. Parts III–IX are the meat — workflow, skills, components, video, SEO, APIs. Part X walks through building a real site from a cold start.</p>
+
+  <h4>Legal</h4>
+  <p class="small">© 2026 JT Fasulo / Sybago. Single-reader license. Do not redistribute. The tool prices, screenshots, and APIs cited were accurate at the time of writing; the open web moves fast, so verify before you build.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     TABLE OF CONTENTS
+     ════════════════════════════════════════════════════════════ -->
+<section class="toc">
+  <span class="eyebrow">Contents</span>
+  <h2>What's in this book.</h2>
+  <p class="toc-sub">Forty-two chapters across ten parts. Every chapter is short — between two and six pages — so you can read on a coffee break and have something to try right after.</p>
+
+  <div class="toc-part">Part I — The Stack</div>
+  <div class="toc-row"><span class="num">01</span><span class="ttl">The four tools you actually need ($44/month total)</span><span class="num">14</span></div>
+  <div class="toc-row"><span class="num">02</span><span class="ttl">Installing and signing into Claude Code</span><span class="num">18</span></div>
+  <div class="toc-row"><span class="num">03</span><span class="ttl">Setting up Vercel (where your sites will live)</span><span class="num">21</span></div>
+  <div class="toc-row"><span class="num">04</span><span class="ttl">Setting up Higgsfield AI (for cinematic hero video)</span><span class="num">24</span></div>
+  <div class="toc-row"><span class="num">05</span><span class="ttl">21st.dev — the free component library that does half the work</span><span class="num">26</span></div>
+
+  <div class="toc-part">Part II — How Any Of This Works</div>
+  <div class="toc-row"><span class="num">06</span><span class="ttl">Claude Code is a junior dev who reads minds, not magic</span><span class="num">29</span></div>
+  <div class="toc-row"><span class="num">07</span><span class="ttl">How Vercel turns "git push" into a live URL</span><span class="num">33</span></div>
+  <div class="toc-row"><span class="num">08</span><span class="ttl">Where your files live: the workspace anatomy</span><span class="num">36</span></div>
+
+  <div class="toc-part">Part III — The Workflow</div>
+  <div class="toc-row"><span class="num">09</span><span class="ttl">Starting a new site from absolute zero</span><span class="num">40</span></div>
+  <div class="toc-row"><span class="num">10</span><span class="ttl">Thinking in passes — the mental shift that fixed my output</span><span class="num">44</span></div>
+  <div class="toc-row"><span class="num">11</span><span class="ttl">The language tricks that actually move Claude</span><span class="num">48</span></div>
+  <div class="toc-row"><span class="num">12</span><span class="ttl">Commit early, commit often, push every time</span><span class="num">52</span></div>
+
+  <div class="toc-part">Part IV — Skills (The Unfair Advantage)</div>
+  <div class="toc-row"><span class="num">13</span><span class="ttl">What "skills" are, and why I install one per problem</span><span class="num">56</span></div>
+  <div class="toc-row"><span class="num">14</span><span class="ttl">frontend-design — escaping generic AI slop</span><span class="num">59</span></div>
+  <div class="toc-row"><span class="num">15</span><span class="ttl">animation-performance — the ten rules that killed my lag</span><span class="num">63</span></div>
+  <div class="toc-row"><span class="num">16</span><span class="ttl">ai-creator-video-style and branded-carousel</span><span class="num">68</span></div>
+
+  <div class="toc-part">Part V — Designing With 21st.dev</div>
+  <div class="toc-row"><span class="num">17</span><span class="ttl">How I browse 21st.dev for inspiration, not copy-paste</span><span class="num">72</span></div>
+  <div class="toc-row"><span class="num">18</span><span class="ttl">Why I rewrite every imported component by hand</span><span class="num">75</span></div>
+  <div class="toc-row"><span class="num">19</span><span class="ttl">Three real examples — marquee, hover-button, zoom tile</span><span class="num">78</span></div>
+
+  <div class="toc-part">Part VI — Higgsfield AI For Scroll Animations</div>
+  <div class="toc-row"><span class="num">20</span><span class="ttl">What kind of video Higgsfield is great at (and what it isn't)</span><span class="num">82</span></div>
+  <div class="toc-row"><span class="num">21</span><span class="ttl">My exact prompt patterns</span><span class="num">85</span></div>
+  <div class="toc-row"><span class="num">22</span><span class="ttl">Wiring video into a hero without killing Lighthouse</span><span class="num">88</span></div>
+  <div class="toc-row"><span class="num">23</span><span class="ttl">Compressing, hosting, and the Vercel limit you'll hit</span><span class="num">91</span></div>
+
+  <div class="toc-part">Part VII — SEO That Actually Works</div>
+  <div class="toc-row"><span class="num">24</span><span class="ttl">The title-tag pattern that ranks contractor sites</span><span class="num">94</span></div>
+  <div class="toc-row"><span class="num">25</span><span class="ttl">Description, Open Graph, Twitter card</span><span class="num">97</span></div>
+  <div class="toc-row"><span class="num">26</span><span class="ttl">JSON-LD schema — copy/paste templates</span><span class="num">100</span></div>
+  <div class="toc-row"><span class="num">27</span><span class="ttl">The hidden-h1 / visual-h1 split — my one weird SEO trick</span><span class="num">104</span></div>
+  <div class="toc-row"><span class="num">28</span><span class="ttl">Sitemap, robots, canonical, theme-color</span><span class="num">107</span></div>
+
+  <div class="toc-part">Part VIII — Serverless APIs On Vercel</div>
+  <div class="toc-row"><span class="num">29</span><span class="ttl">Lead capture: /api/lead.js</span><span class="num">110</span></div>
+  <div class="toc-row"><span class="num">30</span><span class="ttl">Claude-powered concierge chat: /api/chat.js</span><span class="num">113</span></div>
+  <div class="toc-row"><span class="num">31</span><span class="ttl">Gated review widget: /api/review.js</span><span class="num">117</span></div>
+  <div class="toc-row"><span class="num">32</span><span class="ttl">Environment variables — keeping keys out of git</span><span class="num">120</span></div>
+
+  <div class="toc-part">Part IX — Shipping It</div>
+  <div class="toc-row"><span class="num">33</span><span class="ttl">vercel.json — the only config file you need</span><span class="num">123</span></div>
+  <div class="toc-row"><span class="num">34</span><span class="ttl">Clean URLs, redirects, security headers</span><span class="num">126</span></div>
+  <div class="toc-row"><span class="num">35</span><span class="ttl">Connecting a custom domain</span><span class="num">129</span></div>
+  <div class="toc-row"><span class="num">36</span><span class="ttl">Preview deploys and the safety net you're not using</span><span class="num">132</span></div>
+
+  <div class="toc-part">Part X — A Full Walkthrough</div>
+  <div class="toc-row"><span class="num">37</span><span class="ttl">Day 1 — first prompt to a finished hero</span><span class="num">135</span></div>
+  <div class="toc-row"><span class="num">38</span><span class="ttl">Day 2 — services, testimonials, contact, footer</span><span class="num">140</span></div>
+  <div class="toc-row"><span class="num">39</span><span class="ttl">Day 3 — mobile pass, perf pass, deploy</span><span class="num">144</span></div>
+
+  <div class="toc-part">Closing</div>
+  <div class="toc-row"><span class="num">40</span><span class="ttl">Ten mistakes I made so you don't have to</span><span class="num">148</span></div>
+  <div class="toc-row"><span class="num">41</span><span class="ttl">What I learned building ten of these</span><span class="num">151</span></div>
+  <div class="toc-row"><span class="num">42</span><span class="ttl">Where to go from here — resources and links</span><span class="num">154</span></div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART I DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part One</span>
+  <h1>The Stack.</h1>
+  <p class="blurb">Four tools. Forty-four dollars a month. The whole machine that produced every site in my portfolio. We'll get you signed into each one before we touch a line of code.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 1 — The Stack
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 01</span>
+      <span class="part-tag">Part I — The Stack</span>
+    </div>
+    <h2>The four tools you actually need.</h2>
+    <p class="deck">There are no agencies behind any of my sites. No designers. No developers. Four logins, totaling $44 a month, do all of it.</p>
+  </header>
+
+  <p class="lede">When people ask me what I use to build websites I always disappoint them. They expect a list of forty Chrome extensions, a Notion stack, a designer's repertoire of plugins. What I actually use fits on a Post-it.</p>
+
+  <div class="grid-2">
+    <div class="tool-card">
+      <span class="price">$20 / month · paid</span>
+      <h4>Claude Pro (with Claude Code)</h4>
+      <p>The actual hands building your site. A terminal-based AI that reads, writes, and edits files for you. The Pro plan unlocks Claude Code's higher rate limits — without it you'll hit the wall mid-project.</p>
+      <span class="url">claude.com/code</span>
+    </div>
+    <div class="tool-card">
+      <span class="price">$24 / month · paid</span>
+      <h4>Higgsfield AI</h4>
+      <p>For the cinematic hero videos that make a website feel like a film. Generates 5–10 second loops from a prompt or reference image. The cheap secret behind every "how is your site this beautiful?" reaction I get.</p>
+      <span class="url">higgsfield.ai</span>
+    </div>
+    <div class="tool-card">
+      <span class="price">$0 · free forever</span>
+      <h4>Vercel (Hobby Plan)</h4>
+      <p>Where your sites will actually live. Free for personal projects. You push code to GitHub; Vercel turns it into a live HTTPS URL in seconds. You'll never touch a server.</p>
+      <span class="url">vercel.com</span>
+    </div>
+    <div class="tool-card">
+      <span class="price">$0 · free forever</span>
+      <h4>21st.dev</h4>
+      <p>An open library of React components — sliders, marquees, scroll animations, hero treatments — that other people have already built and made public. The free reference catalogue I steal from constantly.</p>
+      <span class="url">21st.dev</span>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Honest math</span>
+    <p>$44 a month is the floor. You'll probably add a domain ($12–$30/year), maybe a Resend account for transactional email ($0–$20/mo), maybe a Stripe account (free unless you sell something). But everything in this book gets built on the $44.</p>
+  </div>
+
+  <h3>Why these four?</h3>
+  <p>Each one does a job none of the others can. Claude Code is the worker. Vercel is the address. Higgsfield is the photographer. 21st.dev is the lookbook. Take any of them out and the loop breaks.</p>
+
+  <p>I tried for months to compress the stack. I tried Cursor instead of Claude Code (different mental model, worse for end-to-end shipping). I tried Netlify instead of Vercel (good — but Vercel's tighter Git → URL loop won me back). I tried Runway and Pika instead of Higgsfield (less direction, slower iteration). I tried sourcing components from Aceternity, ShadCN, and a half-dozen other galleries — and I still use those too — but 21st.dev kept showing up because the components are practical, not decorative.</p>
+
+  <h3>What I'm not including in the $44</h3>
+  <ul>
+    <li><strong>A code editor.</strong> You don't need one. Claude Code edits files for you. I have VS Code open sometimes, but only to look — never to type.</li>
+    <li><strong>A design tool.</strong> Figma is great. I don't open it. Claude Code, plus 21st.dev for components, plus screenshots of sites I like, covers the design loop.</li>
+    <li><strong>A "no-code platform."</strong> Webflow, Framer, Wix. None of them. The whole point is that you own the code; nothing locks you into a vendor.</li>
+  </ul>
+
+  <h3>The tools that pay rent</h3>
+  <p>By the end of this book, every dollar of that $44 will be earning its keep. Claude Code writes. Higgsfield generates. Vercel hosts. 21st.dev inspires. Onward.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 2 — Installing Claude Code
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 02</span>
+      <span class="part-tag">Part I — The Stack</span>
+    </div>
+    <h2>Installing and signing into Claude Code.</h2>
+    <p class="deck">The single most consequential install you'll ever do. Twenty minutes. One terminal command. One subscription. That's it.</p>
+  </header>
+
+  <p class="lede">If you've never opened a terminal before, take a breath. The terminal is just a text box. You type things into it and the computer does things. That's the whole concept. We're going to use exactly six commands in this chapter — and you can re-type them by looking at the screen.</p>
+
+  <h3>Step one — open the terminal</h3>
+  <p>On Windows, press the <kbd>Windows</kbd> key, type <strong>Terminal</strong>, and hit enter. On a Mac, press <kbd>⌘</kbd> + <kbd>Space</kbd>, type <strong>Terminal</strong>, and hit enter. You'll see a window with some text and a blinking cursor. This is where Claude Code will live.</p>
+
+  <h3>Step two — install Node.js</h3>
+  <p>Claude Code runs on a thing called Node. Go to <code>nodejs.org</code> and download the version it labels "LTS" (Long-Term Support). Install it. When the installer is done, close and re-open your terminal so it sees the new program, then type:</p>
+
+<pre><code>node --version
+npm --version</code></pre>
+
+  <p>You should see two numbers — version 18 or higher for Node, version 9 or higher for npm. If you do, you're past the hardest part.</p>
+
+  <div class="callout warn">
+    <span class="tag">Common snag</span>
+    <p>If your terminal says "node is not recognized" or "command not found", you forgot to close and re-open the terminal after installing. Do that, try again.</p>
+  </div>
+
+  <h3>Step three — install Claude Code</h3>
+  <p>One command. Paste this into your terminal and hit enter:</p>
+
+<pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+
+  <p>That global flag (<code>-g</code>) tells your system to make Claude Code available everywhere — not just in one folder. If your terminal complains about permission, on a Mac put <code>sudo</code> in front of the command and type your password when asked. On Windows, run the terminal as administrator (right-click the icon → Run as administrator).</p>
+
+  <h3>Step four — sign up for Claude Pro</h3>
+  <p>Go to <code>claude.com</code>, click subscribe, choose Pro ($20/mo). Use a real email — it's the same login Claude Code will use.</p>
+
+  <h3>Step five — start Claude Code in a folder</h3>
+  <p>Now we make a home for your projects. In the terminal, type:</p>
+
+<pre><code>cd ~
+mkdir Sites
+cd Sites
+claude</code></pre>
+
+  <p>The first command moves you to your home folder. The second creates a folder called <strong>Sites</strong>. The third moves into it. The fourth starts Claude Code. It'll ask you to log in by opening a browser — say yes, hit "Authorize," and you're done. The terminal will turn into a chat box.</p>
+
+  <div class="callout good">
+    <span class="tag">Checkpoint</span>
+    <p>If you can type "Hi" into the terminal and get a response back from Claude — you're set up. Everything else in this book is just learning what to <em>say</em>.</p>
+  </div>
+
+  <h3>What you just did</h3>
+  <p>You installed three things: a JavaScript runtime (Node.js), a package manager (npm, which came free with Node), and Claude Code itself. You then logged Claude Code into your Anthropic account so it knows you're a paying user.</p>
+
+  <p>That terminal window — with Claude waiting for input — is where you'll spend 80% of your build time from here on out.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 3 — Vercel
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 03</span>
+      <span class="part-tag">Part I — The Stack</span>
+    </div>
+    <h2>Setting up Vercel — where your sites will live.</h2>
+    <p class="deck">Vercel is the address of your website. You'll never log into a server. You'll never SSH into anything. You'll just push code to GitHub, and Vercel will turn it into a live URL while you watch.</p>
+  </header>
+
+  <p class="lede">Half the people I talk to don't understand what hosting is. They think it's a service that "stores" your website. It's not. Vercel doesn't store anything important — it <strong>builds</strong> your website every time you make a change, then serves the result. The thing that's stored is just the recipe; Vercel is the kitchen.</p>
+
+  <h3>Step one — make a GitHub account</h3>
+  <p>Go to <code>github.com</code>. Sign up. Use the same email as your Claude account if possible — fewer logins to track. Choose a username you'd be happy to see on a recruiter's screen; this username will be in URLs.</p>
+
+  <h3>Step two — make a Vercel account</h3>
+  <p>Go to <code>vercel.com</code>. Click "Sign up." When given the choice, sign up <strong>with GitHub</strong>. This binds your two accounts so Vercel can see your repos automatically. Choose the Hobby plan — it's free forever for personal projects.</p>
+
+  <h3>Step three — install the Vercel CLI</h3>
+  <p>Back in your terminal, run:</p>
+<pre><code>npm install -g vercel
+vercel login</code></pre>
+  <p>It opens a browser, you click yes, and your terminal is now authenticated with Vercel.</p>
+
+  <h3>Step four — link a project</h3>
+  <p>When you're inside a website's folder (we'll build one in a minute), run:</p>
+<pre><code>vercel link</code></pre>
+  <p>It asks two questions: which Vercel team to use (just hit enter), and whether this is a new project (yes). A <code>.vercel/</code> folder appears in your project — that's the bookmark Vercel uses to know which project to deploy to.</p>
+
+  <h3>How a deploy actually works</h3>
+  <ol class="steps">
+    <li><h4>You ask Claude to change something.</h4>Claude edits a file or two. You see the changes in the conversation.</li>
+    <li><h4>You commit and push.</h4>Just two terminal commands — <code>git add .</code> then <code>git commit -m "what I changed"</code> then <code>git push</code>. Claude will do these for you most of the time.</li>
+    <li><h4>Vercel notices.</h4>Within seconds, Vercel sees the new commit on GitHub. It pulls the code, runs the build, and replaces the live site.</li>
+    <li><h4>Your URL is updated.</h4>The same URL — say, <code>sybago.com</code> — now points to your new version. No outage. No "deployment in progress" page.</li>
+  </ol>
+
+  <p>The whole feedback loop — change → commit → live — takes between 15 and 90 seconds. The first time it happens you'll laugh out loud.</p>
+
+  <div class="callout">
+    <span class="tag">Vercel's free tier</span>
+    <p>The Hobby plan gives you unlimited deploys, 100 GB of bandwidth per month, and free HTTPS on every site. Every site in my portfolio runs on it. The only thing it bans is commercial use on a business you've raised money for — which, if that's where you are, you can afford the $20 Pro plan anyway.</p>
+  </div>
+
+  <h3>What you'll see in your Vercel dashboard</h3>
+  <p>Once you've deployed a project, Vercel's dashboard becomes your control panel. You'll see every deploy, every preview URL, every environment variable, and a live log of every build. It is, in my experience, the single best-designed product dashboard on the internet — possibly tied with Stripe.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 4 — Higgsfield
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 04</span>
+      <span class="part-tag">Part I — The Stack</span>
+    </div>
+    <h2>Setting up Higgsfield AI.</h2>
+    <p class="deck">The reason my hero sections look like commercials. The fastest way to make a website feel premium without hiring a videographer.</p>
+  </header>
+
+  <p class="lede">A still photo in your hero is a website. A 6-second cinematic loop in your hero is a brand. Higgsfield is the cheapest, fastest way I've found to generate the second one.</p>
+
+  <h3>What Higgsfield is</h3>
+  <p>It's an AI video generator. You give it a prompt — or a reference image — and ten minutes later you have a 1080p video clip. The Sybago plan, $24/month, gives you enough credits to make hundreds of clips a month, which is way more than you need.</p>
+
+  <h3>Sign up</h3>
+  <p>Go to <code>higgsfield.ai</code>. Sign up with email or Google. Subscribe to the cheapest paid plan (Lite, $24/mo when I'm writing this). The free trial is real but limited; you'll burn through it on day one.</p>
+
+  <h3>What to generate first</h3>
+  <p>For your first website, generate <strong>one hero video, one b-roll loop, and one transition clip</strong>. That's the minimum kit. Examples from my own portfolio:</p>
+
+  <ul>
+    <li><strong>Hero video for a roofer</strong> — A drone shot of a roof at golden hour, gentle pan-up, 6 seconds, looping. The site uses it autoplaying, muted, behind the headline.</li>
+    <li><strong>Hero video for a luxury cologne</strong> — Slow rotating bottle on a dark surface, lit from below, 8 seconds.</li>
+    <li><strong>Hero video for a realtor</strong> — Push-in shot through an open front door into an empty foyer.</li>
+  </ul>
+
+  <h3>The promptsmithing pattern I use</h3>
+  <p>Higgsfield prompts work best with this skeleton:</p>
+<pre><code>[Shot type], [subject], [environment], [lighting], [motion], [duration],
+[mood], [aspect ratio], [style notes].</code></pre>
+
+  <p>A real one I used for the JMartin Construction site:</p>
+<pre><code>Slow aerial drone push-forward, modern timber-frame house under construction
+in a Montana clearing, golden hour, soft side light, 6 seconds, hopeful and
+patient mood, 16:9, slight film grain, anamorphic lens flare.</code></pre>
+
+  <h3>Where the file goes</h3>
+  <p>Higgsfield gives you a download link. I save every clip to one folder on my desktop — <code>~/Desktop/HIGGSFIELD/</code>. From there I'll tell Claude to copy it into the project. We'll cover the wiring in Part VI.</p>
+
+  <div class="callout">
+    <span class="tag">A note on style</span>
+    <p>Higgsfield <strong>excels</strong> at cinematic, naturalistic shots — drones, push-ins, slow pans, golden hour, architectural beauty shots. It <strong>struggles</strong> with fast cuts, on-screen text, hands holding objects, and faces speaking on camera. Stay in its lane.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 5 — 21st.dev
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 05</span>
+      <span class="part-tag">Part I — The Stack</span>
+    </div>
+    <h2>21st.dev — the free design library.</h2>
+    <p class="deck">The single best free resource for "how should this section look?" Browse it like a lookbook. Don't copy-paste blindly. We'll cover the technique in Part V.</p>
+  </header>
+
+  <p class="lede">If Higgsfield is my photographer, 21st.dev is my mood board. It's a giant gallery of React components built by other developers. Most are free. Many are spectacular.</p>
+
+  <h3>Sign up (optional)</h3>
+  <p>You can browse 21st.dev without an account. But signing up is free and gives you a "Save" button on every component, which I use as a glorified bookmark folder. Go to <code>21st.dev</code> and click sign up with GitHub.</p>
+
+  <h3>How I actually use it</h3>
+  <p>I don't sit down with a blank screen and search "hero." That's how you end up with a website that looks like everyone else's. I work backward instead:</p>
+
+  <ol>
+    <li>Talk to the client (or the version of myself standing in for one). Get the feel.</li>
+    <li>Sketch the section in my head — "a sticky left column with the headline, scrolling photos on the right."</li>
+    <li><em>Then</em> go to 21st.dev and find a component that's <strong>shaped like</strong> what I want, even if the colors and content are all wrong.</li>
+    <li>Read the source code. Steal the structure. Throw away the styling. Rewrite the colors and text in my brand.</li>
+  </ol>
+
+  <h3>What you'll find there</h3>
+  <ul>
+    <li>Heroes (split, fullscreen, video, parallax, scroll-locked).</li>
+    <li>Marquees that don't drop frames.</li>
+    <li>Pricing cards with the right visual hierarchy.</li>
+    <li>Testimonial walls and review-grid layouts.</li>
+    <li>"Bento" feature grids — the four-or-five-tile layouts you see on Linear and Vercel's homepage.</li>
+    <li>Animated buttons, hover-tracking pointers, magnetic CTAs.</li>
+  </ul>
+
+  <div class="pull">
+    "Treat 21st.dev like a museum, not a Costco. You're going for inspiration. You're not loading a cart."
+  </div>
+
+  <p>We'll come back to 21st.dev in Part V with three line-by-line examples of how I rebuilt their components in my own sites — and why doing that, rather than importing them as-is, prevented my sites from feeling generic.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART II DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part Two</span>
+  <h1>How any of this actually works.</h1>
+  <p class="blurb">Before we build anything, three short chapters on the moving parts. Once you understand the loop — Claude edits files, Git pushes them, Vercel turns them into a URL — the rest of the book stops feeling like magic and starts feeling like a recipe.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 6 — Claude Code mental model
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 06</span>
+      <span class="part-tag">Part II — How Any Of This Works</span>
+    </div>
+    <h2>Claude Code is a junior dev who reads minds.</h2>
+    <p class="deck">It's not magic. It's not even particularly clever. It's a junior developer with infinite patience, perfect recall, and access to your file system. That mental model will save you from a hundred mistakes.</p>
+  </header>
+
+  <p class="lede">The first month I used Claude Code I made every mistake you can make. I asked it questions. I argued with it. I treated it like a search engine. None of that works. Claude Code is at its best when you treat it the same way a senior engineer treats a junior — direct, clear, scoped, and quick to give feedback.</p>
+
+  <h3>The actual loop</h3>
+  <p>Every time you press enter on a prompt, Claude does the same thing in the background:</p>
+
+  <ol class="steps">
+    <li><h4>It reads your prompt.</h4>Plus the surrounding conversation, plus any files it can see in the current folder.</li>
+    <li><h4>It plans.</h4>It writes — silently, to itself — a short list of what it's going to do.</li>
+    <li><h4>It uses tools.</h4>Read a file. Edit a file. Run a command in the shell. Spawn a sub-agent.</li>
+    <li><h4>It reports back.</h4>A short text response describing what it did, and the diff of any files it changed.</li>
+    <li><h4>You react.</h4>Approve, reject, redirect. The loop starts over.</li>
+  </ol>
+
+  <h3>What this means for how you prompt</h3>
+
+  <p>Once you internalize "junior dev with access to my files," everything clicks. You stop asking abstract questions ("how do I make a hero?") and start giving instructions ("read <code>index.html</code>, then build a hero section above the existing content with a left-aligned headline, right-side video, and a 'Book a call' button"). Both of those prompts would technically get you a hero — but the second one gets you the <em>right</em> hero in one shot.</p>
+
+  <h3>The three modes I work in</h3>
+  <p>Every prompt I send to Claude is in one of three modes:</p>
+
+  <table>
+    <thead>
+      <tr><th>Mode</th><th>When I use it</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Direct</strong></td><td>I know what I want.</td><td>"Add a testimonials section under Services. Use the three Yelp quotes in <code>copy.md</code>."</td></tr>
+      <tr><td><strong>Symptom</strong></td><td>Something looks wrong.</td><td>"The marquee stutters every time it wraps. Kill it."</td></tr>
+      <tr><td><strong>Pass</strong></td><td>I want a whole sweep, not a fix.</td><td>"Do a mobile pass on the whole homepage. Anything cramped, fix. Anything that breaks under 380px, fix."</td></tr>
+    </tbody>
+  </table>
+
+  <h3>What Claude can't do</h3>
+  <p>It can't see your screen. It can't see your design taste. It can't predict what you mean by "make it pop." So you have to translate the visual things you want into <em>structural</em> instructions:</p>
+
+  <ul>
+    <li>Instead of "make the hero feel premium" — "remove the gradient background. Use #2F6779 flat. Increase the headline to 64pt. Use 0.18em letter-spacing on the CTA button."</li>
+    <li>Instead of "this looks generic" — "scrap the bento grid. Replace with a single 1200px-wide hero image with the copy laid on top in a left-aligned column."</li>
+  </ul>
+
+  <p>The longer you work with Claude, the more you build a shared vocabulary of "small commands" — like "tighten the tracking" or "calm the gradient." Eventually it feels like talking to a colleague. But the first few weeks it'll feel like you're translating between two languages, because you are.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 7 — How Vercel works
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 07</span>
+      <span class="part-tag">Part II — How Any Of This Works</span>
+    </div>
+    <h2>How Vercel turns "git push" into a live URL.</h2>
+    <p class="deck">There's no magic here either. It's a small, elegant pipeline. Once you can describe it in five sentences, you'll be able to debug it when it breaks.</p>
+  </header>
+
+  <p class="lede">The first time I deployed a website I didn't really know what was happening. I just saw a green checkmark and a URL. Six months later I can describe the entire pipeline to you on a napkin, and so will you, by the end of this chapter.</p>
+
+  <h3>The five-sentence version</h3>
+  <p>You push code to a GitHub repository. Vercel watches that repository. When you push, Vercel pulls down the new code, runs a build command (something like <code>npm run build</code>), and saves the output (a folder of HTML, CSS, JS, and images). It then serves that output from a global content delivery network. Your URL — the one with <code>.vercel.app</code> in it, or your own domain — points at that CDN.</p>
+
+  <h3>What "build" actually means</h3>
+  <p>For some projects, build means "do nothing." If you have a plain <code>index.html</code> file, Vercel can serve it as-is. For others, build means "run a JavaScript bundler to turn React code into HTML." Vercel reads your <code>package.json</code> and figures out what to run automatically.</p>
+
+  <p>You can override the build by adding a <code>vercel.json</code> file at the top of your project. We'll get to that file in Part IX. For now, just know it exists.</p>
+
+  <h3>Two kinds of URLs you'll get</h3>
+  <ul>
+    <li><strong>Production URL</strong> — the URL for your <code>master</code> (or <code>main</code>) branch. This is the public site.</li>
+    <li><strong>Preview URL</strong> — every other branch, every pull request, every commit, gets its own URL. So you can build something, look at it on a real URL, and only merge to master when it's ready.</li>
+  </ul>
+
+  <div class="callout good">
+    <span class="tag">Underused superpower</span>
+    <p>Preview URLs are the single biggest reason Vercel feels different from a "real" host. You can show a client three different versions of their homepage at three different URLs, on the same day, with no extra setup.</p>
+  </div>
+
+  <h3>What I check in the dashboard</h3>
+  <ol>
+    <li><strong>Deploy status.</strong> Did the latest build succeed? Green checkmark = good.</li>
+    <li><strong>Build log.</strong> If a deploy failed, I open the log, find the red line, and paste it back to Claude with "fix this." 90% of build failures are one missing dependency.</li>
+    <li><strong>Domains.</strong> Once a domain is connected, this section shows DNS health.</li>
+    <li><strong>Environment variables.</strong> Where I store API keys and other secrets. We'll cover this in Chapter 32.</li>
+  </ol>
+
+  <h3>What lives on Vercel that's not just static files</h3>
+  <p>Every project on Vercel can have an <code>api/</code> folder. Anything in there gets turned into a serverless function — a little piece of JavaScript that runs on a server somewhere, on demand, when you hit a URL like <code>yoursite.com/api/lead</code>. We use these for contact forms, chat widgets, and review handlers. Each function gets its own URL. Each runs independently. You don't manage any servers. We'll build three of them in Part VIII.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 8 — Where files live
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 08</span>
+      <span class="part-tag">Part II — How Any Of This Works</span>
+    </div>
+    <h2>Where your files live — the workspace anatomy.</h2>
+    <p class="deck">A walking tour of my actual ClaudeCode folder. The directories matter. They're how Claude learns what kind of work it should do.</p>
+  </header>
+
+  <p class="lede">If you only remember one thing from this chapter, remember this: <strong>Claude Code reads the folder you're sitting in.</strong> What's in that folder shapes everything. Two files in particular — <code>CLAUDE.md</code> and the <code>.claude/</code> directory — are how you teach Claude your preferences.</p>
+
+  <h3>The shape of my workspace</h3>
+<pre><code>~/Sites/
+├── CLAUDE.md                ← global rules for this workspace
+├── .claude/
+│   ├── skills/              ← installed skills (Chapter 13)
+│   ├── settings.json        ← project-wide settings
+│   └── settings.local.json  ← personal overrides + pre-approvals
+├── .git/                    ← Git's bookkeeping (don't touch)
+├── sybago-website/          ← one project
+├── jmartin-construction/    ← another project
+├── coachfish-website/       ← another project
+└── ...etc</code></pre>
+
+  <p>Every <em>project</em> is a subfolder. The folder above them is the workspace. When you run <code>claude</code> at the workspace, Claude can see all projects at once — which is how it's able to say things like "use the same chat endpoint shape as sybago-website's <code>api/chat.js</code>" when you're building the realtor site.</p>
+
+  <h3>The CLAUDE.md file</h3>
+  <p>This is the single most powerful file in the workspace. It's a markdown file at the top level that Claude reads every time you start a session. Mine looks like this (abbreviated):</p>
+
+<pre><code># CLAUDE.md
+
+## Repository purpose
+This is a workspace for projects built with Claude Code.
+Individual projects live as subdirectories here.
+
+## Git workflow
+- Commit after every meaningful change.
+- Use clear commit messages focused on *why*, not just *what*.
+- Push to origin/master after each commit.
+- Always co-author commits with:
+  Co-Authored-By: Claude Sonnet 4.6 &lt;noreply@anthropic.com&gt;
+
+## Adding a new project
+Create a subdirectory for each project. As the project takes
+shape, update this file with how to run / build / test it.</code></pre>
+
+  <p>You can write whatever you want in there. Standards. Style guides. Forbidden patterns. Claude will follow them. I tell mine to push to GitHub after every commit, and it does — every time, without me having to remember.</p>
+
+  <h3>The .claude/ directory</h3>
+  <p>This is where your customizations live. Skills (which we'll cover in Part IV), per-project settings, and a special file called <code>settings.local.json</code> where I keep pre-approvals — bash commands I always want allowed without confirming. We'll come back to all of this.</p>
+
+  <h3>What goes inside a project folder</h3>
+  <p>It varies. My static sites (sybago, jmartin, coachfish, realtor, prominent-detailing) look like this:</p>
+<pre><code>sybago-website/
+├── index.html        ← homepage
+├── pricing.html
+├── about.html
+├── styles.css
+├── main.js
+├── logo.png
+├── media/            ← videos, images
+├── api/              ← Vercel serverless functions
+│   ├── lead.js
+│   └── contact.js
+└── vercel.json       ← deploy configuration</code></pre>
+
+  <p>My React sites (jtfasulo-website) look like this:</p>
+<pre><code>jtfasulo-website/
+├── index.html
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+├── src/
+│   ├── main.jsx
+│   ├── App.jsx
+│   ├── components/
+│   │   ├── Hero.jsx
+│   │   ├── Header.jsx
+│   │   ├── Portfolio.jsx
+│   │   └── ui/         ← the shadcn-style atoms
+│   └── lib/
+├── public/             ← static assets (videos, images)
+└── vercel.json</code></pre>
+
+  <p>You don't need to memorize either shape. Claude knows them. You'll absorb the structure by osmosis after building one or two sites.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART III DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part Three</span>
+  <h1>The workflow.</h1>
+  <p class="blurb">Now we get to the part nobody else talks about. Not the tools — the moves. How I start a site. How I prompt. How I think in passes. How I commit and ship without breaking what I already had.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 9 — Starting from zero
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 09</span>
+      <span class="part-tag">Part III — The Workflow</span>
+    </div>
+    <h2>Starting a new site from absolute zero.</h2>
+    <p class="deck">The exact sequence I use every time. Fresh folder, first prompt, Git initialized, Vercel linked, deployed before dinner.</p>
+  </header>
+
+  <p class="lede">Most beginners spend a week deciding what to build before they build anything. I've learned the opposite: build something embarrassing in an hour, then iterate. Momentum is more important than perfection in the first day.</p>
+
+  <h3>The opening sequence</h3>
+
+  <ol class="steps">
+    <li><h4>Make the folder.</h4>From the terminal, inside my workspace: <code>mkdir my-new-site &amp;&amp; cd my-new-site &amp;&amp; claude</code>.</li>
+    <li><h4>Tell Claude what we're making.</h4>I open the conversation with a short brief — three to five sentences. Industry, target audience, what feeling, and one or two references.</li>
+    <li><h4>Let Claude propose a plan.</h4>I ask "give me a plan before writing any code." Claude lists the sections it'll build, the tech stack, the directory layout. I correct anything off.</li>
+    <li><h4>Build the hero first.</h4>Always the hero first. Nothing builds momentum like seeing your hero look right.</li>
+    <li><h4>Init git, commit, deploy.</h4>As soon as the hero is acceptable — even if the rest is empty — I commit, push to GitHub, and link Vercel. Within fifteen minutes the site has a real URL.</li>
+    <li><h4>Fill in section by section.</h4>Services, testimonials, FAQ, contact, footer. Each one its own conversation, its own commit, its own deploy.</li>
+  </ol>
+
+  <h3>The first prompt I actually send</h3>
+  <p>This is verbatim from the day I started JMartin Construction:</p>
+
+  <div class="callout">
+    <span class="tag">Real prompt — jmartin-construction, day one</span>
+    <p>"I'm building a website for a custom home builder in Missoula, Montana. The client builds high-end timber-frame homes for clients who care about craftsmanship. Voice: confident, plainspoken, Montana, not flashy. Reference sites: the way Patagonia writes, the way Filson photographs.</p>
+    <p>Stack: plain HTML, hand-rolled CSS, no build step. Pages: home, six service pages (framing, siding, roofing, tile, interior-trim, decks), contact form that posts to <code>/api/lead.js</code>. Color palette: black, white, burnt orange. Big serif headlines.</p>
+    <p>Give me a plan first. Don't write code yet."</p>
+  </div>
+
+  <p>Three things to notice. <strong>I named the industry.</strong> <strong>I named the voice.</strong> <strong>I named the visual references.</strong> Then I named the stack, the pages, and the palette. That single message gave Claude everything it needed to build a coherent first draft.</p>
+
+  <h3>What I don't do</h3>
+  <ul>
+    <li>I don't ask "what should I build?" — I tell.</li>
+    <li>I don't approve a 200-line component on the first try. I get a plan first.</li>
+    <li>I don't worry about pixel-perfect right away. The first draft is always rough. We fix it in passes.</li>
+    <li>I don't skip the deploy step. Even an ugly site with a real URL is more motivating than a beautiful one on my localhost.</li>
+  </ul>
+
+  <h3>What ships in the first hour</h3>
+  <p>Realistically:</p>
+  <ul>
+    <li>A hero with placeholder copy (which I'll rewrite in 30 minutes).</li>
+    <li>A two-section skeleton — services, contact.</li>
+    <li>A Git repo initialized and pushed.</li>
+    <li>A live Vercel URL.</li>
+  </ul>
+  <p>The site won't look done. It'll look like a draft. That's fine. We have nine more chapters to polish it.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 10 — Thinking in passes
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 10</span>
+      <span class="part-tag">Part III — The Workflow</span>
+    </div>
+    <h2>Thinking in passes — the mental shift that fixed my output.</h2>
+    <p class="deck">Stop building "features." Build <em>passes</em>. Each pass is one concern, swept across the whole site. It sounds backwards. It's how every site I've ever finished got finished.</p>
+  </header>
+
+  <p class="lede">Early on I'd add a hero, then start tweaking it. Then I'd add a services section, and tweak <em>it</em>. By the end of day two the hero looked different from the rest of the page. Passes fix that. A pass is one concern across the whole site at once.</p>
+
+  <h3>The passes I run on every site</h3>
+
+  <ol class="steps">
+    <li><h4>Hero pass.</h4>Build the hero. Just the hero. Get it to a place I'd be happy showing a friend.</li>
+    <li><h4>Section pass.</h4>Add every other section in their roughest form — services, testimonials, FAQ, contact, footer. Don't polish. Just block them out.</li>
+    <li><h4>Copy pass.</h4>Go top to bottom and rewrite every headline, subhead, and body block. This is where I find the voice. Sometimes I write copy in a separate <code>copy.md</code> file first and feed it to Claude.</li>
+    <li><h4>Design pass.</h4>Spacing, typography scale, alignment, color consistency. "Make every section have 6.5rem of vertical padding. Make every h2 the same size. Tighten the headline tracking to -0.02em."</li>
+    <li><h4>Mobile pass.</h4>Open Chrome DevTools, switch to mobile, and walk every section. Anything that breaks, fix. Anything that's cramped, breathe out.</li>
+    <li><h4>Perf pass.</h4>Lighthouse score. Lazy-load any below-the-fold video. Compress hero images. Move heavy animations off the main thread.</li>
+    <li><h4>SEO pass.</h4>Title tag, meta description, OG image, JSON-LD, sitemap, canonical, theme-color. Maybe twenty minutes total.</li>
+    <li><h4>Final polish pass.</h4>Hover states, focus rings, error states, empty states, 404 page. The little things that make a site feel inhabited.</li>
+  </ol>
+
+  <h3>Why passes work and feature-by-feature doesn't</h3>
+  <p>When you build feature-by-feature, the decisions you made on feature one bleed into feature two before you've decided what features three through eight need. By the time you're at the bottom of the page, the top doesn't match. Passes prevent this by forcing one concern at a time across the whole surface area.</p>
+
+  <h3>How I phrase a pass to Claude</h3>
+  <div class="callout">
+    <span class="tag">Real prompt — Mobile pass on realtor-website</span>
+    <p>"Mobile pass on the whole homepage. Open <code>index.html</code>. For every section, check the breakpoints at 380px, 480px, and 768px. Anything that overflows horizontally, fix. Anything where text is touching an image edge, add padding. Anything where a 2-column layout is cramped under 768px, drop to one column. Don't change desktop. Don't change copy. Just mobile."</p>
+  </div>
+
+  <p>Notice the constraint stack at the end — "don't change desktop, don't change copy" — that's a guardrail. Claude will sometimes "improve" things you didn't ask it to. Naming the boundary keeps it inside the pass.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 11 — Language tricks
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 11</span>
+      <span class="part-tag">Part III — The Workflow</span>
+    </div>
+    <h2>The language tricks that actually move Claude.</h2>
+    <p class="deck">After hundreds of hours in the terminal I've narrowed down what gets results to a small set of phrasings. Here they all are, with examples.</p>
+  </header>
+
+  <p class="lede">Most prompting advice on the internet is generic. "Be clear. Be specific." Sure. Here are the specific phrasings I lean on — the actual words that bend the output in the direction I want.</p>
+
+  <h3>1. Name the symptom and the feel</h3>
+  <p>Not "make the marquee better." Not "fix the marquee." Instead: <em>"The marquee stutters every time it wraps. Kill the stutter — should feel like a continuous river of logos."</em></p>
+  <p>Symptom (stutters at wrap) + desired feel (continuous river). Claude knows what to do.</p>
+
+  <h3>2. Anchor to an existing file</h3>
+  <p>If you've already done something similar in another project, reference it. <em>"Use the same chat endpoint shape as <code>sybago-website/api/chat.js</code> — POST &#123; messages: [&#123;role, content&#125;] &#125; → &#123; reply: string &#125;."</em> You preserve your own conventions across projects, and Claude doesn't reinvent the wheel each time.</p>
+
+  <h3>3. Constrain the change</h3>
+  <p>When you're doing a focused tweak, name the boundaries. <em>"Just the hero. Don't touch anything else."</em> Or <em>"CSS only. No JavaScript."</em> Or <em>"Don't change the copy."</em> Without guardrails, Claude will sometimes "improve" the thing you weren't asking about.</p>
+
+  <h3>4. Ask for a plan before code</h3>
+  <p>On anything bigger than a single tweak: <em>"Give me a plan first. Don't write code yet."</em> You'll get a numbered list. Approve it, or send corrections. Saves a hundred wasted minutes.</p>
+
+  <h3>5. Use "pass" as a verb</h3>
+  <p>It signals scope. <em>"Mobile pass on the homepage."</em> <em>"Copy pass on the services section."</em> Claude has learned (from millions of code-review threads in its training set) that "pass" means "sweep, one concern at a time."</p>
+
+  <h3>6. Name a font, a number, a hex</h3>
+  <p>Specific beats vague every time. Not "make the headline bigger." Instead: <em>"Bump the hero h1 to clamp(2.4rem, 5.8vw, 4.4rem). Tighten letter-spacing to -0.02em. Set line-height to 1.04."</em></p>
+
+  <h3>7. Quote the customer</h3>
+  <p>When writing copy, give Claude actual phrases the customer says. <em>"My client describes his work as 'crafting timber-frame homes the way our grandfathers did.' Use that phrasing in the hero. Don't make it cute."</em></p>
+
+  <h3>8. Forbid common defaults</h3>
+  <p>Claude has favorite patterns that will make your site look generic. Block them explicitly. <em>"Don't use Inter. Don't use Space Grotesk. Don't use a purple-to-blue gradient anywhere. Don't use shadcn's default card."</em></p>
+
+  <div class="pull">
+    "Specific beats clever. Numbers beat adjectives. References to your own past work beat references to 'best practices.'"
+  </div>
+
+  <h3>9. Reward what works, redirect what doesn't</h3>
+  <p>Claude listens. If a particular choice landed, say so. <em>"The em-dash separator on the numbered labels is perfect. Use that pattern on the pricing table too."</em> If something didn't, redirect specifically. <em>"The badge above the headline feels like a startup template. Replace with a plain eyebrow — uppercase, 0.32em tracking, no background."</em></p>
+
+  <h3>10. Talk like you're talking to a colleague</h3>
+  <p>Imperative voice. Active verbs. Short sentences. <em>"Pull the hero out. Drop in the new one. Wire the CTA to <code>/checkout</code>."</em> Not <em>"Could you please be so kind as to..."</em> — that's not politeness, that's noise.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 12 — Commit early
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 12</span>
+      <span class="part-tag">Part III — The Workflow</span>
+    </div>
+    <h2>Commit early. Commit often. Push every time.</h2>
+    <p class="deck">My single most important habit. The reason I've never lost a day's work. The reason every site has a clean history I can read back like a diary.</p>
+  </header>
+
+  <p class="lede">Git is the safety net under everything I do. I commit after every meaningful change — even if "meaningful" means a single hero tweak. I push to GitHub every time. The result: at any moment, I can roll back to any version of any site I've ever built, on any machine, in fifteen seconds.</p>
+
+  <h3>The rules I follow</h3>
+  <ul>
+    <li><strong>Commit after every meaningful change.</strong> Not every keystroke. Every meaningful change — a new section, a fixed bug, a redesigned hero. If I'd be sad to lose it, I commit.</li>
+    <li><strong>Write commits that explain <em>why</em>, not what.</strong> <code>fix typo</code> is useless. <code>Tighten hero tracking — felt loose against the new wider container</code> tells future-me what I was trying to do.</li>
+    <li><strong>Push every commit.</strong> Always to <code>origin/master</code>. So that if my laptop falls in a lake, I can rent a new one and pick up exactly where I left off.</li>
+    <li><strong>Project prefix on every commit.</strong> <code>sybago: tighten hero h1 tracking</code>. <code>jmartin: fix marquee stutter</code>. So when I scroll my history I can tell at a glance which site I was on.</li>
+  </ul>
+
+  <h3>Real commit messages from my workspace</h3>
+<pre><code>jmartin: smooth out testimonials marquee — kill stutter at the wrap
+jmartin: center services carousel cards when they fit
+cologne: trim carousel to 5 cards + continuous fractional scroll
+realtor: wire chat widget to Claude Haiku backend
+sybago: rebuild pricing page with money-back guarantee chip
+Canvas-render CTA paths; gate reviews animation until measured
+Replace Tailwind Play CDN with precompiled stylesheet
+Tune liquid-metal hero to flow with chaotic fluid mechanics</code></pre>
+
+  <p>Each one tells me: what project, what changed, and (often) why. Months later, I can read back through and remember the decisions.</p>
+
+  <h3>How Claude helps with commits</h3>
+  <p>If you've put the right instructions in <code>CLAUDE.md</code>, Claude will commit for you. Mine says "commit after every meaningful change. Push to origin/master." So after a non-trivial change I just say "commit and push." Claude runs <code>git add</code>, drafts a commit message, asks me to approve, and pushes. The whole thing takes ten seconds.</p>
+
+  <div class="callout good">
+    <span class="tag">Pre-approving the push</span>
+    <p>In <code>.claude/settings.local.json</code>, you can pre-approve specific bash commands so Claude doesn't ask permission each time. I've allowed <code>git push</code>, <code>git status</code>, <code>git diff</code>, and a handful of other read-only operations. Result: my flow never breaks for permission prompts.</p>
+  </div>
+
+  <h3>What I do when something breaks</h3>
+  <p>Always, the first move: <code>git log --oneline -10</code> in the terminal. Find the last commit where it worked. Then either:</p>
+  <ul>
+    <li>Revert just that one commit: <code>git revert &lt;commit-hash&gt;</code>.</li>
+    <li>Or roll the whole working copy back: <code>git checkout &lt;commit-hash&gt; -- .</code> (careful — this wipes uncommitted changes).</li>
+  </ul>
+  <p>The point is: I have options because I committed often. The people I see panicking lost work either committed once a day, or never.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART IV DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part Four</span>
+  <h1>Skills.<br/>The unfair advantage.</h1>
+  <p class="blurb">If Claude Code is the worker, skills are the specialized training manuals you hand it. Install once, and Claude knows how to do something a particular way, forever. This is where the gap between "AI website" and "premium website" closes.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 13 — What skills are
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 13</span>
+      <span class="part-tag">Part IV — Skills</span>
+    </div>
+    <h2>What skills are, and why I install one per problem.</h2>
+    <p class="deck">A skill is a folder. Inside the folder is a markdown file. The markdown file tells Claude how to do something — when, why, and what rules to follow. That's it. That's the whole technology.</p>
+  </header>
+
+  <p class="lede">When I first heard about skills I assumed they were a complex piece of infrastructure. They're not. A skill is a markdown file in a specific folder. Claude reads it when relevant and follows the instructions inside. The reason they're powerful is not the format — it's that they encode the lessons you've already learned.</p>
+
+  <h3>Anatomy of a skill</h3>
+<pre><code>~/Sites/.claude/skills/animation-performance/
+└── SKILL.md          ← the actual content</code></pre>
+
+  <p>Inside <code>SKILL.md</code>:</p>
+<pre><code>---
+name: animation-performance
+description: Apply when building scroll-scrubbed animations,
+  marquees, continuous SVG animations, or fixing reports of
+  "laggy", "stuttering", "doesn't render".
+---
+
+# Animation performance — the ten rules
+
+1. Long SVG dash-offset animations belong in &lt;canvas&gt;, not SVG.
+2. Marquees run on CSS @keyframes, not requestAnimationFrame.
+3. ...</code></pre>
+
+  <p>The frontmatter tells Claude <em>when</em> to use the skill. The body is the lesson.</p>
+
+  <h3>Why I install one per problem</h3>
+  <p>Every site I build teaches me something. Marquees lag a certain way on Safari. Frontend "creative" defaults look generic on a contractor site. AI video has specific rules for what reads well. Each lesson, if I don't capture it, evaporates. So I write it down — once — and now every future site gets the benefit of the lesson without me having to remember.</p>
+
+  <p>The animation-performance skill exists because the first version of <code>realtor-website</code> had laggy SVG. I fixed it. I wrote down what I learned. Now every site I build gets fast animations on the first try.</p>
+
+  <h3>The skills I have installed (and why)</h3>
+
+  <table>
+    <thead>
+      <tr><th>Skill</th><th>What it does</th><th>Why I installed it</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>frontend-design</strong></td><td>Pushes for bold, distinctive design — bans Inter, Roboto, generic gradients.</td><td>Stops Claude defaulting to AI-slop aesthetic.</td></tr>
+      <tr><td><strong>animation-performance</strong></td><td>10 rules for smooth marquees, canvas-vs-SVG, gating animations until measured.</td><td>Eliminates lag I learned to spot on the realtor site.</td></tr>
+      <tr><td><strong>branded-carousel</strong></td><td>One-shot Instagram carousels in my brand. Locks colors, fonts, slide architecture.</td><td>So I can ship a carousel in two minutes when I need one.</td></tr>
+      <tr><td><strong>ai-creator-video-style</strong></td><td>Editing recipes for Reels/Shorts in Remotion, in the styles I've reverse-engineered.</td><td>For the short-form video that goes alongside the site.</td></tr>
+      <tr><td><strong>remotion-best-practices</strong></td><td>Rules for building Remotion compositions correctly.</td><td>Stops Claude from making structurally invalid videos.</td></tr>
+      <tr><td><strong>frontend-design / browser</strong></td><td>Browser automation for screenshot-comparing my own work.</td><td>To verify mobile + desktop look right.</td></tr>
+    </tbody>
+  </table>
+
+  <p>I'll spend the next three chapters on the most important ones.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 14 — frontend-design
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 14</span>
+      <span class="part-tag">Part IV — Skills</span>
+    </div>
+    <h2>frontend-design — escaping generic AI slop.</h2>
+    <p class="deck">The single most consequential skill in my install. The reason my sites look like sites people made, not sites a robot generated.</p>
+  </header>
+
+  <p class="lede">Out of the box, Claude has favorite default choices. Inter as the font. A purple-to-blue gradient on the hero. Three pricing tiers in shadcn cards with the middle one highlighted. A bento grid for features. Round corners on everything. You've seen the site Claude builds when you don't push it — there are thousands of them on Twitter every day.</p>
+
+  <h3>What the skill does</h3>
+  <p>The frontend-design skill tells Claude to <strong>avoid</strong> those defaults. To pick a typography pair you've actually never seen. To use one dominant color with one sharp accent — not a gradient. To use noise textures, gradient meshes, asymmetric layouts. The skill is mostly a list of bans.</p>
+
+  <h3>What the rules actually say</h3>
+  <ul>
+    <li><strong>Don't use Inter, Roboto, or Arial.</strong> Pick a font with character. Garamond. Suisse. Fraunces. Cormorant. Editorial New.</li>
+    <li><strong>Don't converge on common choices.</strong> Space Grotesk is banned by name. So are the obvious shadcn defaults.</li>
+    <li><strong>Use CSS variables for colors and spacing.</strong> Centralized. Themeable. Override-able later.</li>
+    <li><strong>One dominant color + sharp accents.</strong> Not three colors fighting. Sybago is teal-on-white with one green chip; that's the model.</li>
+    <li><strong>Gradient meshes are okay; gradient text and gradient buttons are not.</strong></li>
+    <li><strong>Noise textures are encouraged.</strong> A subtle film grain on a flat background reads as premium.</li>
+    <li><strong>Type should be the design.</strong> The size, weight, and tracking of your headlines is the visual identity — not the icons next to them.</li>
+  </ul>
+
+  <h3>How I trigger it</h3>
+  <p>The skill auto-fires on phrases like "build a hero," "redesign the homepage," "I want this to feel more premium." But I also call it explicitly: <em>"Use the frontend-design skill. I don't want a generic startup look."</em></p>
+
+  <div class="callout">
+    <span class="tag">The biggest single tell</span>
+    <p>If your site uses Inter and a purple-to-blue gradient, it looks like every other AI-generated site. Pick a different font and a different color. That one change does 60% of the work.</p>
+  </div>
+
+  <h3>What it looks like in practice</h3>
+  <p>Sybago: Inter — yes, but in 800 weight at 4rem with -0.02em tracking, against #2F6779 teal, with everything else hairlines and whitespace. Not generic. JMartin: Fraunces for display, the rest of the site is restraint. Coachfish: Unbounded + Montserrat. Cologne: a single serif at 96pt over a black background. Each one of those choices came out of the frontend-design skill telling Claude "no Inter, no purple-blue, no shadcn." Then I picked the alternative.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 15 — animation-performance
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 15</span>
+      <span class="part-tag">Part IV — Skills</span>
+    </div>
+    <h2>animation-performance — the ten rules.</h2>
+    <p class="deck">Every rule in this skill was learned by watching my own site stutter. They're not theory. Each one fixes a specific lag I once had on a real project.</p>
+  </header>
+
+  <p class="lede">Animation is where most "AI-built" sites fall apart. The first version looks great in a screenshot, then you scroll and it jitters every wrap. The skill encodes the ten fixes I learned the hard way.</p>
+
+  <h3>The ten rules</h3>
+
+  <ol class="steps">
+    <li><h4>Long SVG dash-offset animations belong in &lt;canvas&gt;.</h4>SVG path animation forces a re-layout every frame on most browsers. Rewriting the same animation in canvas gets you 60 fps for free.</li>
+    <li><h4>Marquees run on CSS @keyframes, not requestAnimationFrame.</h4>RAF runs on the main thread. CSS animations run on the compositor. The compositor is always available; the main thread is fighting React.</li>
+    <li><h4>mask-image is forbidden on transforming children.</h4>Combining a mask with a translate is a known browser slow-path. Replace with a plain overflow:hidden parent.</li>
+    <li><h4>Triple-buffer at scrollHeight / 3.</h4>For seamless infinite scroll loops, render three copies of your content and snap back at the 1/3 mark. Anything else jumps visibly.</li>
+    <li><h4>Gate animations until measured.</h4>Use IntersectionObserver and don't start until the element is on screen. Don't waste cycles animating offscreen content.</li>
+    <li><h4>No box-shadow on transforming elements.</h4>Big shadows are the single biggest paint cost in the browser. If something's moving, shadows go.</li>
+    <li><h4>No backdrop-filter on transforming elements.</h4>Same reason — composites everything every frame.</li>
+    <li><h4>vector-effect="non-scaling-stroke" on every animated SVG path.</h4>Without it, browsers redraw the stroke at every transform.</li>
+    <li><h4>Will-change is a hint, not a fix.</h4>Use it sparingly. It pins the layer to GPU memory; overuse evicts everything else.</li>
+    <li><h4>Test on the slowest device you can find.</h4>If it's smooth on a $200 Android, it's smooth everywhere.</li>
+  </ol>
+
+  <h3>Where the rules came from</h3>
+  <p>The realtor-website hero used a beautiful SVG dash animation of a roof outline. Looked great. Couldn't scroll past it without the whole site dropping to 12 fps. I rewrote it in canvas; back to 60 fps. That fix became rule one.</p>
+
+  <p>The same site had a testimonials marquee that stuttered on Safari. I'd been using requestAnimationFrame with translateX. Replaced with a CSS @keyframes animation. Stutter gone. That fix became rule two.</p>
+
+  <p>And on, and on. The skill is a journal of every animation that ever broke on me, with the fix attached.</p>
+
+  <div class="pull">
+    "Performance bugs are skill-shaped. Every one I fix becomes a rule I never write again."
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 16 — Other skills
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 16</span>
+      <span class="part-tag">Part IV — Skills</span>
+    </div>
+    <h2>The other skills I use weekly.</h2>
+    <p class="deck">Quick tour of the rest. branded-carousel for Instagram. ai-creator-video-style for Reels/Shorts. Remotion best practices for the heavy lifting.</p>
+  </header>
+
+  <h3>branded-carousel</h3>
+  <p>One-prompt Instagram carousels in my brand. The skill knows my colors (the Sybago teal, black, white), my font (Fraunces for the cover, Inter for everything else), my slide sizes (1080×1350), and my seven-slide architecture (Cover / Context / Three value slides / CTA). I say "make me a carousel about [topic]" and it produces seven slides.</p>
+
+  <p>The skill defaults to building via the Canva MCP — sending direct API calls into Canva's design engine — so the slides come back as a real Canva document I can tweak. There's a Nano Banana fallback for when Canva's API hiccups.</p>
+
+  <h3>ai-creator-video-style</h3>
+  <p>Reverse-engineered editing recipes for the kind of short-form video that goes alongside my websites. Two sub-styles — "Daylight Apartment" (warm, soft) and "Dark Studio" (high-contrast, cinematic). The skill encodes the exact frame rate (23.976), the exact caption typography (Inter 800 with a soft text-shadow), the exact way to overlay iMessage bubbles. I produce videos by giving the skill the source clip and the script.</p>
+
+  <h3>remotion-best-practices</h3>
+  <p>Remotion is React-based video composition — write JSX, render frames, get an MP4 out. It's how I produced the Sybago feature animations and ad reels. The skill keeps Claude from making structurally invalid Remotion compositions (mistakes that compile but render to a static frame).</p>
+
+  <h3>The plugin-author skills</h3>
+  <p>I also have skills for building skills — agent-development, command-development, hook-development, plugin-structure, skill-development. You only need these if you start building your own. Don't worry about them for now.</p>
+
+  <h3>How to write your own skill</h3>
+  <p>When you've solved the same problem twice, write the third solution into a skill. Mine usually start with five lines of frontmatter (the name and the trigger), and grow into a markdown file of 20–80 lines of rules. The skill-development skill itself walks you through the structure.</p>
+
+<pre><code>~/Sites/.claude/skills/my-new-skill/
+└── SKILL.md
+    ├── frontmatter: name + description (when to fire)
+    └── body: rules, examples, gotchas</code></pre>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART V DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part Five</span>
+  <h1>Designing with 21st.dev.</h1>
+  <p class="blurb">Three chapters on how I use 21st.dev — not as a copy-paste shortcut, but as a lookbook. Why I rewrite every imported component by hand. And three real examples of components I rebuilt from scratch to keep my site fast.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 17 — Browsing 21st
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 17</span>
+      <span class="part-tag">Part V — 21st.dev</span>
+    </div>
+    <h2>How I browse 21st.dev for inspiration.</h2>
+    <p class="deck">Not a Pinterest scroll. A focused half-hour with a specific brief. Walk away with three ideas, not thirty.</p>
+  </header>
+
+  <p class="lede">When I sit down with 21st.dev, I have one job: find a structural pattern. Not a color palette. Not a final design. A structural pattern — a way of arranging content I haven't seen on my site before.</p>
+
+  <h3>My browsing routine</h3>
+  <ol class="steps">
+    <li><h4>Decide what section I'm browsing for.</h4>"Hero." "Testimonials." "Feature grid." Specific.</li>
+    <li><h4>Set a 25-minute timer.</h4>Browsing is procrastination. The timer keeps it from becoming the whole day.</li>
+    <li><h4>Open three tabs of components I like.</h4>Three. Not thirty.</li>
+    <li><h4>Read the source code of each.</h4>What's the structure? What's the layout grid? What's the JavaScript doing? How are they animating?</li>
+    <li><h4>Pick one.</h4>The one with the structure closest to what I want — even if the colors are wrong.</li>
+    <li><h4>Close the tab. Go build.</h4>I never copy the source verbatim. I describe the structure to Claude and have it rebuild in my brand.</li>
+  </ol>
+
+  <h3>The categories I use most</h3>
+  <ul>
+    <li><strong>Heroes</strong> — for the opening section pattern (split, fullscreen, video, parallax, scroll-locked).</li>
+    <li><strong>Bento grids</strong> — for feature sections.</li>
+    <li><strong>Marquees</strong> — for logo strips and testimonial scrollers.</li>
+    <li><strong>Pricing</strong> — for the pricing page, when the design needs a fresh angle.</li>
+    <li><strong>Buttons</strong> — magnetic, hover-tracking, glow, all of it.</li>
+    <li><strong>Cards</strong> — testimonial cards, feature cards, blog cards.</li>
+  </ul>
+
+  <h3>What I skip</h3>
+  <p>Most "AI-themed" components. Most "dashboard" components. Anything that looks like it was built for a SaaS startup that hasn't shipped yet. The aesthetic I'm building isn't dashboard-y; it's editorial.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 18 — Why rewrite
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 18</span>
+      <span class="part-tag">Part V — 21st.dev</span>
+    </div>
+    <h2>Why I rewrite every imported component by hand.</h2>
+    <p class="deck">Copy-pasting a component from 21st.dev installs three problems at once: dependencies you don't need, a visual style that isn't yours, and animations on the wrong thread. Rebuilding takes the same amount of time and avoids all three.</p>
+  </header>
+
+  <p class="lede">The first time I imported a 21st.dev component I felt clever. I had a beautiful PerspectiveMarquee in my site within two minutes. I felt less clever the next morning when I noticed my page now imported the entire Remotion runtime and ran a JavaScript animation loop every frame.</p>
+
+  <h3>The three problems with raw imports</h3>
+  <ul>
+    <li><strong>Dependency creep.</strong> Most 21st components are built in someone else's stack. Importing one component often drags in two or three npm packages — which slow your build, bloat your bundle, and clutter your <code>package.json</code>.</li>
+    <li><strong>Style collision.</strong> The component looks great on the 21st.dev demo because of styles you can't see. Drop it into your site, and it falls apart against your real backgrounds.</li>
+    <li><strong>Animation on the main thread.</strong> A lot of components use requestAnimationFrame to drive their motion — beautiful on a demo page that has nothing else running. Catastrophic on a real homepage with React reconciling.</li>
+  </ul>
+
+  <h3>What I do instead</h3>
+  <p>I read the component. I understand the structure. I tell Claude what the structure is, in plain English, and ask Claude to rebuild it in my stack, in my brand.</p>
+
+  <div class="callout">
+    <span class="tag">A real instruction I sent</span>
+    <p>"Look at the 21st.dev PerspectiveMarquee component. The structure: a row of images, scrolled horizontally on a continuous loop, but with each image rotated slightly in 3D space so the row feels like it curves away. Rebuild it for jtfasulo-website. Plain React. No Remotion. Drive the animation with CSS @keyframes — no requestAnimationFrame. Use my five client logos from <code>public/clients/</code>."</p>
+  </div>
+
+  <p>The result was 50 lines of clean JSX, no external dependencies, and a smooth 60 fps animation on the compositor thread. Took the same time as a copy-paste would have, and didn't break anything.</p>
+
+  <h3>When I do import directly</h3>
+  <p>Rare. Only if the component is genuinely self-contained — no external dependencies, no RAF loop, no problematic styling. The shadcn primitives qualify. Most 21st components don't.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 19 — Three examples
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 19</span>
+      <span class="part-tag">Part V — 21st.dev</span>
+    </div>
+    <h2>Three real examples — marquee, hover-button, zoom tile.</h2>
+    <p class="deck">Three components I found on 21st.dev, rewrote by hand, and shipped to production. The before, the after, and the reason.</p>
+  </header>
+
+  <h3>Example 1 — PerspectiveMarquee</h3>
+  <p><strong>Source:</strong> a 21st.dev component that uses Remotion's <code>useCurrentFrame()</code> to drive a translateX every render.</p>
+  <p><strong>Problem:</strong> Remotion is a video framework. Importing it for a marquee installs a 200kb dependency and runs your animation on the main thread.</p>
+  <p><strong>Fix:</strong> Rebuilt as plain JSX. Animation is a single <code>@keyframes</code> rule that translates a duplicated row of logos -50% over 30 seconds.</p>
+<pre><code>@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.row {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}</code></pre>
+  <p>The duplication trick (rendering the row twice in a flex container and translating -50%) gives you a seamless loop with zero JavaScript.</p>
+
+  <h3>Example 2 — HoverButton</h3>
+  <p><strong>Source:</strong> a 21st button that tracks the cursor inside its bounds and emits short-lived gradient blur dots that fade in then out.</p>
+  <p><strong>Problem:</strong> The original used CSS-in-JS and tracked the cursor via React state — re-rendering the button on every mousemove. On mobile, useless; on desktop, expensive.</p>
+  <p><strong>Fix:</strong> Rebuilt with vanilla CSS variables. I track the cursor with one <code>mousemove</code> listener, write x/y to CSS custom properties on the button, and let CSS do the rest — no React re-render. Same look, no state churn.</p>
+<pre><code>btn.addEventListener('mousemove', (e) => {
+  const r = btn.getBoundingClientRect();
+  btn.style.setProperty('--mx', `${e.clientX - r.left}px`);
+  btn.style.setProperty('--my', `${e.clientY - r.top}px`);
+});</code></pre>
+
+  <h3>Example 3 — Zoom-Parallax Tile</h3>
+  <p><strong>Source:</strong> a 21st component that pins a central tile and zooms it as you scroll, with eight surrounding tiles scaling down.</p>
+  <p><strong>Problem:</strong> The original used a scale ramp <code>[4, 5, 6, 5, 6, 8, 9]</code> driven by JavaScript on every scroll event.</p>
+  <p><strong>Fix:</strong> Same scale ramp, but expressed as keyframes tied to scroll position via the View Transitions API. Smooth, GPU-driven, no scroll listener.</p>
+
+  <div class="pull">
+    "The component is the recipe. Your kitchen is your stack. Cook it your way."
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART VI DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part Six</span>
+  <h1>Higgsfield AI for scroll animations.</h1>
+  <p class="blurb">Four chapters on the secret weapon that makes my sites feel like commercials. What to generate. How to prompt. How to wire it into your site without killing performance. And the file-size limit you'll absolutely hit.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 20 — What Higgsfield is great at
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 20</span>
+      <span class="part-tag">Part VI — Higgsfield</span>
+    </div>
+    <h2>What Higgsfield is great at — and what it isn't.</h2>
+    <p class="deck">Higgsfield is a precision instrument. Used in its lane, it produces footage your client will assume came from a film crew. Used outside its lane, it produces uncanny garbage.</p>
+  </header>
+
+  <p class="lede">I've spent more time on Higgsfield than any other AI tool in my stack. Most of that time, in the early days, was learning what it can't do. Save yourself the months — here's the map.</p>
+
+  <h3>Where it excels</h3>
+  <ul>
+    <li><strong>Cinematic establishing shots.</strong> Drone push-ins, dolly-pans, slow architectural pulls. Anything that imitates a film camera doing one tasteful thing.</li>
+    <li><strong>Texture and material.</strong> Light hitting timber. Water beading on glass. Smoke curling under stage lighting. The macro-aesthetic stuff.</li>
+    <li><strong>Atmosphere.</strong> Golden hour, blue hour, foggy morning, neon night. Higgsfield's lighting models are excellent.</li>
+    <li><strong>Slow motion.</strong> 4–8 seconds is the sweet spot. Anything you can do in 8 seconds, you can do well.</li>
+    <li><strong>Image-to-video.</strong> Give it a still photo of a finished kitchen and ask for a slow push-in. Better than starting from a text prompt.</li>
+  </ul>
+
+  <h3>Where it struggles</h3>
+  <ul>
+    <li><strong>People speaking on camera.</strong> Lip sync is unconvincing. Avoid.</li>
+    <li><strong>Hands holding objects.</strong> The number of fingers is unpredictable. The way an object is held is awkward. Don't show hands.</li>
+    <li><strong>Fast cuts.</strong> Higgsfield outputs single continuous shots. Cuts have to be done in post.</li>
+    <li><strong>On-screen text.</strong> Don't bother. Generate the shot without text and overlay your own type later.</li>
+    <li><strong>Brand-accurate logos.</strong> Won't reproduce a real logo precisely. Composite your logo on top.</li>
+  </ul>
+
+  <h3>The rule I follow</h3>
+  <p>If a scene needs a person to be the subject, I'll either skip AI video for that scene (use real footage, or stay on a still) or use Higgsfield for the establishing shot and cut to real footage of the person. AI is the atmosphere; people are the substance.</p>
+
+  <div class="callout">
+    <span class="tag">Sample brief — JMartin construction site</span>
+    <p>I generated three clips total. (1) Drone push-forward over a timber-frame house under construction at golden hour. (2) Slow pan across a finished kitchen interior. (3) Vertical drone pull-back from a roofline. Each clip was 6 seconds. Each took 8–12 minutes to render. The whole video kit for the site cost about $4 of credits.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 21 — Prompt patterns
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 21</span>
+      <span class="part-tag">Part VI — Higgsfield</span>
+    </div>
+    <h2>My exact Higgsfield prompt patterns.</h2>
+    <p class="deck">The skeleton I use for every clip. Real examples. The four edits that move quality the most.</p>
+  </header>
+
+  <p class="lede">Every Higgsfield prompt I write follows the same skeleton. I started using it after my third "the shot was great but the camera moved the wrong way" experience. Specifying camera motion explicitly fixes most directability problems.</p>
+
+  <h3>The skeleton</h3>
+<pre><code>[CAMERA MOTION], [SUBJECT], [LOCATION], [LIGHTING],
+[DURATION], [MOOD], [ASPECT RATIO], [STYLE NOTES].</code></pre>
+
+  <p>Each field is one phrase. Eight short phrases beats two long ones every time.</p>
+
+  <h3>Real prompts I've used</h3>
+
+  <div class="callout">
+    <span class="tag">Realtor hero</span>
+    <p>"Slow forward push, through an open front door into a sunlit empty foyer, modern minimalist home, late-afternoon golden hour, soft directional sunlight, 6 seconds, calm and inviting mood, 16:9, slight film grain, shallow depth of field."</p>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Cologne hero</span>
+    <p>"Slow 360-degree rotation, amber glass perfume bottle on a dark stone surface, dimly-lit cinematic studio, single soft key light from above, 8 seconds, mysterious and luxurious mood, 16:9, anamorphic lens flare on highlights."</p>
+  </div>
+
+  <div class="callout">
+    <span class="tag">JMartin construction hero</span>
+    <p>"Slow drone push-forward, modern timber-frame house under construction in a Montana mountain clearing, late-day golden hour, soft side lighting, 6 seconds, hopeful and patient mood, 16:9, slight film grain, anamorphic lens flare."</p>
+  </div>
+
+  <h3>The four edits that move quality the most</h3>
+
+  <ol class="steps">
+    <li><h4>Be specific about camera motion.</h4>"Slow push" beats "movement." "Aerial pull-back" beats "drone." Verbs over nouns.</li>
+    <li><h4>Always specify lighting.</h4>Golden hour. Blue hour. Soft side light. Hard top light. Lighting alone differentiates a $4 clip from a $400 one.</li>
+    <li><h4>Constrain the duration.</h4>I always say 5, 6, or 8 seconds. Higgsfield handles those lengths best.</li>
+    <li><h4>Add one signature lens detail.</h4>"Slight film grain." "Anamorphic lens flare." "Shallow depth of field." These nudge Higgsfield toward cinematic, away from stock.</li>
+  </ol>
+
+  <h3>What I never do</h3>
+  <ul>
+    <li>Use the word "professional." Means nothing.</li>
+    <li>Use the word "stunning." Means nothing.</li>
+    <li>Ask for two camera movements in one prompt (it'll pick one and ignore the other).</li>
+    <li>Specify a person's face or expression in detail (Higgsfield is loose about faces).</li>
+  </ul>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 22 — Wiring video into a hero
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 22</span>
+      <span class="part-tag">Part VI — Higgsfield</span>
+    </div>
+    <h2>Wiring the video into a hero — without killing Lighthouse.</h2>
+    <p class="deck">A video hero done wrong tanks your performance score. Done right, it costs you almost nothing. The difference is six lines of HTML.</p>
+  </header>
+
+  <p class="lede">A 4 MB video file looks great. It also delays your page load by two seconds, which Google notices, which Lighthouse punishes, which costs you SEO. The fix isn't to skip the video — it's to load it properly.</p>
+
+  <h3>The HTML pattern I use</h3>
+<pre><code>&lt;video
+  class="hero-video"
+  autoplay
+  muted
+  playsinline
+  loop
+  preload="metadata"
+  poster="/hero-poster.jpg"&gt;
+  &lt;source src="/hero.webm" type="video/webm"&gt;
+  &lt;source src="/hero.mp4"  type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+
+  <p>Six lines. Each one matters.</p>
+
+  <ul>
+    <li><strong>autoplay muted playsinline loop</strong> — the four attributes browsers require to autoplay video without user interaction. Skip any one and Safari won't play it.</li>
+    <li><strong>preload="metadata"</strong> — load only the first frame and the duration, not the whole file. The poster image takes over visually while the rest streams in.</li>
+    <li><strong>poster="/hero-poster.jpg"</strong> — a still frame, usually 100kb, shown while the video downloads. <em>This is the single most important attribute for performance.</em></li>
+    <li><strong>Two source files</strong> — WebM first (smaller, better quality per kb), MP4 fallback (Safari users).</li>
+  </ul>
+
+  <h3>Generating the poster</h3>
+  <p>I pull a single frame from the video using ffmpeg, downscale it to 1920x1080, save as JPG with 80% quality. Result: ~80–120kb. Looks identical to the first frame of the video. Loads instantly.</p>
+<pre><code>ffmpeg -i hero.mp4 -ss 00:00:00 -vframes 1 -q:v 2 hero-poster.jpg</code></pre>
+
+  <h3>Where the videos actually live</h3>
+  <p>For static sites: directly in the project under <code>media/</code> or <code>public/videos/</code>. Vercel serves them off its CDN.</p>
+  <p>For larger files (over 5 MB): I've started using Cloudflare R2 or Bunny CDN. Cheap, fast, and keeps your Vercel deploy size down.</p>
+
+  <div class="callout warn">
+    <span class="tag">Vercel limit you'll hit</span>
+    <p>Vercel's free plan caps deploys at 100 MB of static assets. If your hero video plus thumbnails plus a logo set crosses that, the deploy fails. Either compress more aggressively (next chapter), or move heavy files to an external CDN.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 23 — Compression and limits
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 23</span>
+      <span class="part-tag">Part VI — Higgsfield</span>
+    </div>
+    <h2>Compressing, hosting, and the limit you'll hit.</h2>
+    <p class="deck">The numbers I aim for. The ffmpeg commands I run. The CDN I move to when the free plan runs out.</p>
+  </header>
+
+  <p class="lede">Higgsfield exports a 1080p MP4 at ~10 MB per 6 seconds. That's too big for the web. Compressed correctly, the same clip can be 1.2 MB and indistinguishable. Here's exactly how.</p>
+
+  <h3>My target numbers</h3>
+  <table>
+    <thead>
+      <tr><th>Asset</th><th>Target size</th><th>Acceptable max</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Hero MP4 (6 seconds, 1080p, muted)</td><td>1.2 MB</td><td>3 MB</td></tr>
+      <tr><td>Hero WebM (same)</td><td>800 KB</td><td>2 MB</td></tr>
+      <tr><td>Hero poster JPG</td><td>80 KB</td><td>150 KB</td></tr>
+      <tr><td>Background looping b-roll</td><td>500 KB</td><td>1.5 MB</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The ffmpeg commands</h3>
+  <p>Two commands. Run them on every Higgsfield export.</p>
+<pre><code># MP4 (H.264) — ~1.2 MB per 6 seconds at 1080p
+ffmpeg -i input.mp4 -c:v libx264 -crf 28 -preset slow \
+  -movflags +faststart -an output.mp4
+
+# WebM (VP9) — ~800 KB per 6 seconds
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -crf 34 -b:v 0 \
+  -an output.webm</code></pre>
+
+  <p>The flags that matter:</p>
+  <ul>
+    <li><strong>-crf 28 (MP4) or 34 (WebM)</strong> — quality. Lower = bigger file. 28 / 34 is my sweet spot for hero video.</li>
+    <li><strong>-preset slow</strong> — let the encoder think harder. Better compression for the same quality.</li>
+    <li><strong>-movflags +faststart</strong> — puts the video header at the start of the file so the browser can start playing before the whole thing has downloaded.</li>
+    <li><strong>-an</strong> — strip the audio track. Hero videos are always muted; the audio is just dead weight.</li>
+  </ul>
+
+  <h3>Where I host once I outgrow Vercel</h3>
+  <ul>
+    <li><strong>Cloudflare R2</strong> — S3-compatible, no egress fees, ~$0.015/GB/month. My default once a site has more than 50 MB of video.</li>
+    <li><strong>Bunny CDN</strong> — paid CDN with a $1/month minimum. Excellent for video. Used it for the cologne-website's 605-frame scroll sequence.</li>
+    <li><strong>Backblaze B2</strong> — cheapest of all. I'd pair it with a Cloudflare worker as a CDN front-end.</li>
+  </ul>
+
+  <p>Don't pre-optimize. Start on Vercel. When you outgrow it, you'll know — your deploy will fail and the error message will tell you.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART VII DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part Seven</span>
+  <h1>SEO that actually works.</h1>
+  <p class="blurb">Five chapters on the unglamorous fundamentals. Title tags. Meta descriptions. Open Graph. JSON-LD schema. The one weird h1 trick I use on every contractor site. Sitemaps. Robots. Done in twenty minutes, paying you back for years.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 24 — Title tag pattern
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 24</span>
+      <span class="part-tag">Part VII — SEO</span>
+    </div>
+    <h2>The title-tag pattern that ranks contractor sites.</h2>
+    <p class="deck">Sixty characters. Three jobs. One template you can paste over every site you build.</p>
+  </header>
+
+  <p class="lede">Of every SEO lever you'll touch, the title tag is the biggest one. It's the line that shows up in Google. It's the line Google ranks. It's the one most people get wrong by trying to be clever.</p>
+
+  <h3>The template</h3>
+<pre><code>&lt;title&gt;[Service] in [City], [State] | [Brand]&lt;/title&gt;</code></pre>
+
+  <p>That's it. Three jobs. Service first (what they search). City next (where they search). Brand last (so Google ties it to your domain). Sixty characters or fewer (longer gets truncated in the SERP).</p>
+
+  <h3>Real examples from my sites</h3>
+<pre><code>&lt;title&gt;Custom Home Builder in Missoula, MT | JMartin Construction&lt;/title&gt;
+&lt;title&gt;Auto Detailing in Phoenix, AZ | Prominent Detailing&lt;/title&gt;
+&lt;title&gt;Pressure Washing & Window Cleaning | Prominent Cleaning Co.&lt;/title&gt;
+&lt;title&gt;Sybago — Stop losing leads to faster contractors. $297/mo.&lt;/title&gt;</code></pre>
+
+  <p>For the trades sites: service + city + brand. For Sybago (a product, not a local business): the value prop + the price, because a search like "missed call text back software pricing" is the most likely route in.</p>
+
+  <h3>One title per page</h3>
+  <p>Every page gets its own title tag. The homepage gets the headline service. Each service page gets <em>that</em> service plus the city. So for JMartin:</p>
+<pre><code>/                  → Custom Home Builder in Missoula, MT | JMartin
+/services/framing  → Timber-Frame Framing in Missoula | JMartin
+/services/roofing  → Roofing in Missoula, MT | JMartin
+/services/siding   → Siding Installation in Missoula | JMartin</code></pre>
+
+  <p>Google indexes these as separate landing pages, each ranking for its own specific search.</p>
+
+  <h3>What I never put in a title</h3>
+  <ul>
+    <li>The word "Best." Adds nothing, and Google ignores adjectives.</li>
+    <li>The word "Welcome." Burns characters.</li>
+    <li>A tagline that doesn't include a keyword.</li>
+    <li>Pipe-separated lists of unrelated services. Pick the one that matters most.</li>
+  </ul>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 25 — Description, OG, Twitter
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 25</span>
+      <span class="part-tag">Part VII — SEO</span>
+    </div>
+    <h2>Meta description, Open Graph, Twitter card.</h2>
+    <p class="deck">The three other meta tags that matter. Together with the title, they're 90% of how your site appears anywhere it's linked.</p>
+  </header>
+
+  <h3>Meta description</h3>
+  <p>Roughly 150 characters. Pitch the product. Include the city. Include the price if you have one.</p>
+<pre><code>&lt;meta name="description" content="Custom timber-frame home builder
+serving Missoula and Western Montana since 1998. Built like our
+grandfathers did, finished like the future. Free quote in 24 hours."&gt;</code></pre>
+
+  <h3>Open Graph (for Facebook, LinkedIn, iMessage previews)</h3>
+<pre><code>&lt;meta property="og:title"       content="Custom Home Builder in Missoula"&gt;
+&lt;meta property="og:description" content="Timber-frame craftsmanship..."&gt;
+&lt;meta property="og:image"       content="https://yoursite.com/og.jpg"&gt;
+&lt;meta property="og:type"        content="website"&gt;
+&lt;meta property="og:url"         content="https://yoursite.com"&gt;</code></pre>
+
+  <h3>Twitter card</h3>
+<pre><code>&lt;meta name="twitter:card"        content="summary_large_image"&gt;
+&lt;meta name="twitter:title"       content="Custom Home Builder in Missoula"&gt;
+&lt;meta name="twitter:description" content="Timber-frame craftsmanship..."&gt;
+&lt;meta name="twitter:image"       content="https://yoursite.com/og.jpg"&gt;</code></pre>
+
+  <h3>The OG image — what to make</h3>
+  <p>1200 × 630 pixels. JPG, ~150 KB. I make mine in Figma or by exporting a poster frame from the hero video. Include the brand wordmark, the headline, and a phone number or CTA. This image is what people see in iMessage, Slack, Twitter, LinkedIn — anywhere the site is shared. It's the second-most-important visual asset on the site after the hero itself.</p>
+
+  <div class="callout">
+    <span class="tag">A quick test</span>
+    <p>After deploying, paste your URL into <code>opengraph.xyz</code>. You'll see exactly how the link unfurls on every major platform. Fix anything that doesn't look right.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 26 — JSON-LD schema
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 26</span>
+      <span class="part-tag">Part VII — SEO</span>
+    </div>
+    <h2>JSON-LD schema — the structured data Google reads.</h2>
+    <p class="deck">A block of JSON in your &lt;head&gt; tells Google what kind of business you are, where you are, what you sell, and when you're open. Copy-paste templates for the three types I use most.</p>
+  </header>
+
+  <p class="lede">JSON-LD is the most boring chapter in this book. It's also the one with the highest ROI per minute spent. Twenty minutes of structured data unlocks rich results in Google — star ratings, business cards, opening hours — that can quadruple your click-through rate.</p>
+
+  <h3>Template 1 — Organization (for SaaS, product, or services company)</h3>
+<pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sybago",
+  "url": "https://sybago.com",
+  "logo": "https://sybago.com/logo.png",
+  "description": "Lead capture and review automation for trades.",
+  "sameAs": [
+    "https://www.linkedin.com/company/sybago",
+    "https://twitter.com/sybagohq"
+  ]
+}
+&lt;/script&gt;</code></pre>
+
+  <h3>Template 2 — LocalBusiness / GeneralContractor (for trades sites)</h3>
+<pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "JMartin Construction",
+  "image": "https://jmartin.com/og.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1234 Reserve St",
+    "addressLocality": "Missoula",
+    "addressRegion": "MT",
+    "postalCode": "59801",
+    "addressCountry": "US"
+  },
+  "telephone": "+1-406-555-0100",
+  "url": "https://jmartin.com",
+  "priceRange": "$$$",
+  "openingHours": "Mo,Tu,We,Th,Fr 08:00-17:00",
+  "areaServed": [
+    { "@type": "City",                "name": "Missoula" },
+    { "@type": "City",                "name": "Hamilton" },
+    { "@type": "AdministrativeArea",  "name": "Western Montana" }
+  ],
+  "knowsAbout": ["Timber Frame", "Custom Homes", "Roofing", "Siding"]
+}
+&lt;/script&gt;</code></pre>
+
+  <h3>Template 3 — Product (for a paid PDF or digital good)</h3>
+<pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Build $10k Websites With Claude Code",
+  "description": "A 40+ page playbook for building production websites...",
+  "brand": { "@type": "Brand", "name": "Sybago" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "19.99",
+    "availability": "https://schema.org/InStock"
+  }
+}
+&lt;/script&gt;</code></pre>
+
+  <h3>How to verify it works</h3>
+  <p>Paste your URL into <code>search.google.com/test/rich-results</code>. Google will tell you exactly what it found and what's missing. Fix until green.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 27 — Hidden h1 trick
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 27</span>
+      <span class="part-tag">Part VII — SEO</span>
+    </div>
+    <h2>The hidden-h1 / visual-h1 split.</h2>
+    <p class="deck">One trick. Two h1s. One is for Google. The other is for humans. Both happy.</p>
+  </header>
+
+  <p class="lede">A traditional SEO h1 is a benefit-led, keyword-stuffed sentence: "Custom Residential Home Builder in Missoula and Western Montana." A traditional marketing h1 is a punchline: "Built like grandfather did. Finished like the future." Most sites pick one and lose half the value. I do both.</p>
+
+  <h3>The pattern</h3>
+<pre><code>&lt;h1 class="seo-h1"&gt;
+  Custom Residential Home Builder in Missoula and Western Montana
+&lt;/h1&gt;
+
+&lt;p class="hero-display"&gt;
+  We build the home you've been drawing in your head.
+&lt;/p&gt;</code></pre>
+
+  <p>The <code>seo-h1</code> class is the keyword h1 — but I hide it with CSS so it doesn't dominate the design. The <code>hero-display</code> p is what the visitor actually reads.</p>
+
+  <h3>The CSS that hides the SEO h1 — without hurting accessibility</h3>
+<pre><code>.seo-h1 {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}</code></pre>
+
+  <p>This is the "visually hidden" pattern used by every screen-reader-friendly site. The h1 is still in the document, still read by Google's crawler, still read by screen readers — just not visually rendered.</p>
+
+  <h3>Why this works</h3>
+  <p>Google reads the h1 for ranking. Humans read the visual headline for engagement. By splitting them, you optimize both audiences without compromise. I do this on every trades site I build.</p>
+
+  <div class="callout">
+    <span class="tag">Important caveat</span>
+    <p>This is not cloaking. Cloaking is showing different content to Google than to humans for the purpose of deceiving the ranker. This is presenting the same content in two forms — one optimized for keyword indexing, one optimized for visual hierarchy. Google explicitly endorses the visually-hidden pattern in its accessibility guidelines.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 28 — Sitemap, robots
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 28</span>
+      <span class="part-tag">Part VII — SEO</span>
+    </div>
+    <h2>Sitemap, robots, canonical, theme-color.</h2>
+    <p class="deck">Four small files / tags that take ten minutes total and complete your SEO setup.</p>
+  </header>
+
+  <h3>sitemap.xml</h3>
+  <p>A list of every page on your site, with priority and changefreq. Help Google find everything.</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://jmartin.com/&lt;/loc&gt;
+    &lt;changefreq&gt;monthly&lt;/changefreq&gt;
+    &lt;priority&gt;1.0&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://jmartin.com/services/framing&lt;/loc&gt;
+    &lt;changefreq&gt;monthly&lt;/changefreq&gt;
+    &lt;priority&gt;0.8&lt;/priority&gt;
+  &lt;/url&gt;
+  ...etc
+&lt;/urlset&gt;</code></pre>
+
+  <p>Save as <code>sitemap.xml</code> at the root of your site. Submit it to Google Search Console once.</p>
+
+  <h3>robots.txt</h3>
+<pre><code>User-agent: *
+Allow: /
+Sitemap: https://jmartin.com/sitemap.xml</code></pre>
+
+  <p>Allows all crawlers, points to the sitemap. That's it.</p>
+
+  <h3>Canonical link</h3>
+<pre><code>&lt;link rel="canonical" href="https://jmartin.com/"&gt;</code></pre>
+
+  <p>On every page. Says "this is the official URL of this page." Prevents Google from getting confused by URL variants.</p>
+
+  <h3>theme-color</h3>
+<pre><code>&lt;meta name="theme-color" content="#2F6779"&gt;</code></pre>
+
+  <p>Colors the URL bar on iOS Safari. Tiny detail. Makes the site feel like an app.</p>
+
+  <h3>The robots meta</h3>
+<pre><code>&lt;meta name="robots" content="index,follow,max-image-preview:large"&gt;</code></pre>
+
+  <p>Allows indexing and following links, and tells Google it can use a large image preview in rich results.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART VIII DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part Eight</span>
+  <h1>Serverless APIs on Vercel.</h1>
+  <p class="blurb">Four chapters on the part of website-building most beginners avoid. How to capture a lead. How to wire a Claude-powered chat widget. How to gate a review request. Zero servers. Zero ops.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 29 — /api/lead
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 29</span>
+      <span class="part-tag">Part VIII — APIs</span>
+    </div>
+    <h2>Lead capture — /api/lead.js.</h2>
+    <p class="deck">Every contractor site needs a way to capture a name, phone, email, and message. Here's the exact serverless function I use, ready to copy.</p>
+  </header>
+
+  <p class="lede">A lead-capture form is the smallest, most useful piece of backend code most websites will ever need. Forty lines of JavaScript. Lives on Vercel. Sends an email or saves to a sheet. We're going to build it once and reuse it forever.</p>
+
+  <h3>The function file</h3>
+<pre><code>// api/lead.js
+import { Resend } from 'resend';
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const { name, phone, email, message } = req.body || {};
+
+  if (!name || !phone) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+
+  try {
+    await resend.emails.send({
+      from: 'leads@jmartin.com',
+      to: 'jt@jmartin.com',
+      subject: `New lead: ${name}`,
+      text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\n${message}`,
+    });
+    return res.status(200).json({ ok: true });
+  } catch (err) {
+    return res.status(502).json({ error: err.message });
+  }
+}</code></pre>
+
+  <h3>The form on the page</h3>
+<pre><code>&lt;form id="lead-form"&gt;
+  &lt;input name="name"  placeholder="Your name"        required&gt;
+  &lt;input name="phone" placeholder="Phone"            required&gt;
+  &lt;input name="email" placeholder="Email"            type="email"&gt;
+  &lt;textarea name="message" placeholder="What can we help with?"&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+document.getElementById('lead-form').addEventListener('submit', async (e) =&gt; {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const res = await fetch('/api/lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (res.ok) e.target.reset();
+});
+&lt;/script&gt;</code></pre>
+
+  <h3>What you need to set up</h3>
+  <ol class="steps">
+    <li><h4>Sign up for Resend.</h4>Free tier covers 3,000 emails/month.</li>
+    <li><h4>Verify your sending domain.</h4>One DNS record. Resend walks you through.</li>
+    <li><h4>Add the API key to Vercel.</h4>Dashboard → Settings → Environment Variables → <code>RESEND_API_KEY</code> = your key.</li>
+    <li><h4>Deploy.</h4>Vercel turns <code>api/lead.js</code> into <code>yoursite.com/api/lead</code> automatically.</li>
+  </ol>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 30 — /api/chat with Claude
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 30</span>
+      <span class="part-tag">Part VIII — APIs</span>
+    </div>
+    <h2>Claude-powered concierge chat — /api/chat.js.</h2>
+    <p class="deck">One of the single most useful upgrades you can make to a contractor's website. A chat bubble that answers FAQs, books appointments, and never sleeps. Powered by Claude Haiku for pennies a conversation.</p>
+  </header>
+
+  <p class="lede">I started adding Claude-powered chat to my client sites about six months ago. It is, without exaggeration, the upgrade clients react to the strongest. A homeowner lands on a roofer's site at 11pm, types "do you do flat roofs?" and gets a useful answer in real time. The same conversation in normal business hours would have been a missed-call-text-back, but with Claude the answer happens immediately.</p>
+
+  <h3>The function file</h3>
+<pre><code>// api/chat.js
+import Anthropic from '@anthropic-ai/sdk';
+const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+const KNOWLEDGE_BASE = `
+You are the friendly assistant for JMartin Construction, a custom home
+builder in Missoula, Montana. You answer questions about timber-frame
+homes, our process, and our pricing. You always offer to schedule
+a free consultation when the visitor seems serious.
+
+Services: framing, siding, roofing, tile, interior trim, decks.
+Service area: Missoula and Western Montana.
+Pricing: Custom homes start at $400/sqft. Service work starts at $5,000.
+Booking: https://jmartin.com/book
+
+If you don't know something, say so and offer to connect them with JT.
+Keep responses under 4 sentences unless asked for detail.
+`;
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const { messages } = req.body || {};
+  if (!Array.isArray(messages)) {
+    return res.status(400).json({ error: 'messages array required' });
+  }
+
+  try {
+    const result = await anthropic.messages.create({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 400,
+      system: KNOWLEDGE_BASE,
+      messages,
+    });
+    return res.status(200).json({ reply: result.content[0].text });
+  } catch (err) {
+    return res.status(502).json({ error: err.message });
+  }
+}</code></pre>
+
+  <h3>The widget on the page</h3>
+  <p>A small fixed-position bubble in the corner. When clicked, opens a panel with messages and an input. Each message gets appended to a local array and POSTed to <code>/api/chat</code>. The reply gets rendered and the array grows.</p>
+
+  <p>The widget code is about 80 lines of vanilla JS. Claude can write it in one prompt: <em>"Build a chat widget in plain JS. Bottom-right fixed bubble. Opens a 360px panel. POSTs to /api/chat with &#123; messages: [&#123;role, content&#125;] &#125;. Renders the reply. Match the site's color palette."</em></p>
+
+  <h3>What it costs you</h3>
+  <p>Claude Haiku is the cheapest of the three Claude tiers. At time of writing, a typical chat session of 6–8 messages costs less than a penny. A site that gets 200 chats a month costs you about $1.50 in API fees. The increase in lead capture is, in my experience, 5–10x.</p>
+
+  <div class="callout good">
+    <span class="tag">Why this beats every "AI chat" SaaS</span>
+    <p>Most AI chat SaaSes charge $20–$200/month per site. You're getting the same model — Claude — by writing 30 lines of code yourself. You own the prompt, you own the design, you own the data.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 31 — /api/review gated reviews
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 31</span>
+      <span class="part-tag">Part VIII — APIs</span>
+    </div>
+    <h2>Gated review widget — /api/review.js.</h2>
+    <p class="deck">Asks the customer how their experience was. 4 or 5 stars sends them to Google to leave a public review. 1–3 stars sends the feedback privately to the owner instead.</p>
+  </header>
+
+  <p class="lede">This is the single highest-ROI page on a contractor's website. It's the difference between a 4.2-star Google profile and a 4.9-star Google profile. Same customers. Same service quality. Different funnel.</p>
+
+  <h3>How it works</h3>
+  <ol>
+    <li>You text the customer a link after a job: "Quick favor — how'd we do?"</li>
+    <li>The link opens a page with five stars.</li>
+    <li>If they tap 4 or 5 stars, they're redirected to your Google review URL.</li>
+    <li>If they tap 1, 2, or 3 stars, they get a private feedback form instead — which posts to <code>/api/review</code> and emails you.</li>
+  </ol>
+
+  <p>Customers who had a great experience leave public reviews. Customers who didn't, you find out about privately and can save the relationship.</p>
+
+  <h3>The full HTML page</h3>
+  <p>I've open-sourced the page on every site I build. The pattern lives at <code>review-request/index.html</code> in my workspace. The key snippet:</p>
+
+<pre><code>const REDIRECT_URL = 'https://g.page/r/CeuzNJExNuIDEAE/review';
+
+function onStar(stars) {
+  if (stars &gt;= 4) {
+    window.location.href = REDIRECT_URL;
+  } else {
+    showPrivateForm(stars);
+  }
+}
+
+async function submitFeedback(payload) {
+  await fetch('/api/review', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+}</code></pre>
+
+  <h3>The serverless function</h3>
+<pre><code>// api/review.js
+import { Resend } from 'resend';
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export default async function handler(req, res) {
+  const { stars, comment, name, phone } = req.body || {};
+  await resend.emails.send({
+    from: 'reviews@jmartin.com',
+    to: 'jt@jmartin.com',
+    subject: `${stars}-star feedback from ${name || 'anonymous'}`,
+    text: `Stars: ${stars}\nName: ${name}\nPhone: ${phone}\n\n${comment}`,
+  });
+  return res.status(200).json({ ok: true });
+}</code></pre>
+
+  <div class="callout warn">
+    <span class="tag">Yelp says don't do this</span>
+    <p>Yelp's review guidelines forbid review gating. Google's, last I checked, don't — they discourage <em>incentivizing</em> reviews but the gated funnel is widely used. If you operate in a regulated industry or are nervous, ask all customers for a public review without filtering. Your call.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 32 — Env vars
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 32</span>
+      <span class="part-tag">Part VIII — APIs</span>
+    </div>
+    <h2>Environment variables — keeping keys out of git.</h2>
+    <p class="deck">If you only learn one operational habit this whole book, make it this. Never commit a key. Ever.</p>
+  </header>
+
+  <p class="lede">Every API key, password, and secret your site uses goes in environment variables. Not in code. Not committed to git. If you commit a key by accident, you assume someone hostile already has it — even private repos leak.</p>
+
+  <h3>Local development — .env</h3>
+  <p>Create a file called <code>.env</code> at the top of your project. Add your keys:</p>
+<pre><code>RESEND_API_KEY=re_your_key_here
+ANTHROPIC_API_KEY=sk-ant-your_key_here</code></pre>
+
+  <p>Add <code>.env</code> to your <code>.gitignore</code> file so it's never committed. Most projects already have this.</p>
+
+  <h3>Production — Vercel dashboard</h3>
+  <p>Vercel doesn't read your local <code>.env</code>. You add production env vars in the dashboard:</p>
+  <ol>
+    <li>Open your project in Vercel.</li>
+    <li>Settings → Environment Variables.</li>
+    <li>Add each key. Choose which environments (Production, Preview, Development) get it.</li>
+    <li>Redeploy. (Vercel doesn't re-apply env vars to existing deploys; you have to trigger a new build.)</li>
+  </ol>
+
+  <h3>Verifying — without exposing the keys</h3>
+  <p>I never log a key. I log the <em>existence</em> of a key. In <code>server.js</code> or an API route:</p>
+<pre><code>if (!process.env.RESEND_API_KEY) {
+  console.warn('Missing RESEND_API_KEY');
+}</code></pre>
+
+  <p>If you ever do leak a key to git, the only safe response is to rotate it. Old key gets revoked at the vendor, new key gets added to <code>.env</code> and Vercel. Don't try to clean the leaked key out of git history — it's already public to anyone who cloned the repo.</p>
+
+  <div class="callout warn">
+    <span class="tag">A real story</span>
+    <p>The single most expensive mistake I've made: I once committed an OpenAI key to a public repo. Within nine hours, someone had used it to rack up $400 in API charges. Anthropic and OpenAI now scan public commits for keys and revoke them automatically, but don't count on it.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART IX DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part Nine</span>
+  <h1>Shipping it.</h1>
+  <p class="blurb">vercel.json, clean URLs, security headers, custom domains, preview deploys. The unglamorous five percent of the work that separates a hobby project from a production website.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 33 — vercel.json
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 33</span>
+      <span class="part-tag">Part IX — Shipping</span>
+    </div>
+    <h2>vercel.json — the only config file you need.</h2>
+    <p class="deck">A single JSON file at the root of your project tells Vercel how to build, route, and deploy. Most sites need ten lines. Here's the full vocabulary.</p>
+  </header>
+
+  <h3>The minimum vercel.json — for a plain HTML site</h3>
+<pre><code>{
+  "cleanUrls": true,
+  "trailingSlash": false
+}</code></pre>
+
+  <p>That's it. Clean URLs means <code>/about</code> serves <code>about.html</code> — no <code>.html</code> in the URL. Trailing slash <code>false</code> means <code>/about/</code> redirects to <code>/about</code>. Both are SEO best practice.</p>
+
+  <h3>For a React + Vite site</h3>
+<pre><code>{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/((?!api).*)", "destination": "/index.html" }
+  ]
+}</code></pre>
+
+  <p>The rewrite catches every URL except <code>/api/*</code> and serves <code>index.html</code> — so client-side routing works on direct links.</p>
+
+  <h3>For a multi-project monorepo</h3>
+  <p>Like my workspace, which has 10+ sites. The root <code>vercel.json</code> tells Vercel which subdirectory is the primary site:</p>
+<pre><code>{
+  "buildCommand": "npm install && cd jtfasulo-website && npm install && npm run build",
+  "outputDirectory": "jtfasulo-website/dist",
+  "rewrites": [
+    { "source": "/((?!api).*)", "destination": "/index.html" }
+  ]
+}</code></pre>
+
+  <h3>Adding redirects</h3>
+<pre><code>{
+  "redirects": [
+    { "source": "/services",      "destination": "/pricing", "permanent": true },
+    { "source": "/blog/old-post", "destination": "/blog",    "permanent": true }
+  ]
+}</code></pre>
+
+  <p>Use <code>"permanent": true</code> for 308 redirects (search engines will move the SEO juice). Use <code>"permanent": false</code> for 307 temporary redirects.</p>
+
+  <h3>Adding security headers</h3>
+<pre><code>{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",  "value": "nosniff" },
+        { "key": "Referrer-Policy",         "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy",      "value": "geolocation=(), microphone=(), camera=()" }
+      ]
+    }
+  ]
+}</code></pre>
+
+  <p>These three headers cover 80% of the basic security wins. Add to every production site.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 34 — Clean URLs & redirects
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 34</span>
+      <span class="part-tag">Part IX — Shipping</span>
+    </div>
+    <h2>Clean URLs, redirects, security headers.</h2>
+    <p class="deck">Deep dive on the three things that signal "this site is production-grade" — to Google, to browsers, and to you.</p>
+  </header>
+
+  <h3>Clean URLs</h3>
+  <p>The difference between <code>/services/framing.html</code> and <code>/services/framing</code> is small to look at, big in practice. Google indexes both as separate URLs unless you tell it not to. The cleaner URL is the one you want in the SERP. The cleaner URL is the one to put on business cards.</p>
+
+  <p>With Vercel's <code>cleanUrls: true</code>, any <code>.html</code> file at <code>/services/framing.html</code> is automatically served at <code>/services/framing</code>. The <code>.html</code> version 308-redirects to the clean version.</p>
+
+  <h3>Redirects — the slow-loss problem</h3>
+  <p>Every URL change you make should have a redirect. Rename a page from <code>/contact-us</code> to <code>/contact</code>? Add a 308 redirect. Move a blog post? Redirect. Otherwise:</p>
+  <ul>
+    <li>Old links you can't update (Yelp profiles, business cards, Google My Business) point to 404 pages.</li>
+    <li>You lose the SEO authority the old URL had accumulated.</li>
+    <li>Customers think your site is broken.</li>
+  </ul>
+
+  <h3>Security headers</h3>
+  <p>Three I add to every site:</p>
+  <ul>
+    <li><strong>X-Content-Type-Options: nosniff</strong> — stops browsers from "guessing" file types, a common attack vector.</li>
+    <li><strong>Referrer-Policy: strict-origin-when-cross-origin</strong> — privacy. Don't leak referrer URLs to external sites.</li>
+    <li><strong>Permissions-Policy: geolocation=(), microphone=(), camera=()</strong> — explicitly say "this site does not need any of these."</li>
+  </ul>
+
+  <p>I learned this from JMartin Construction's deploy. After turning these on, my Lighthouse "Best Practices" score went from 87 to 100, and so did the perceived professionalism of the site.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 35 — Custom domain
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 35</span>
+      <span class="part-tag">Part IX — Shipping</span>
+    </div>
+    <h2>Connecting a custom domain.</h2>
+    <p class="deck">Buy a domain. Point it at Vercel. Wait fifteen minutes. Done.</p>
+  </header>
+
+  <p class="lede">A custom domain is the difference between <code>jmartin-construction.vercel.app</code> and <code>jmartin.com</code>. It costs $12–$30 a year and takes fifteen minutes to set up.</p>
+
+  <h3>Step one — buy the domain</h3>
+  <p>I use <strong>Porkbun</strong> or <strong>Cloudflare Registrar</strong>. Both are at-cost (no markup), have clean UIs, and let you transfer in and out without games. Avoid GoDaddy (overpriced, aggressive upsells), Squarespace Domains (locked-in DNS), and Namecheap's free WHOIS-privacy bait-and-switch.</p>
+
+  <h3>Step two — add it in Vercel</h3>
+  <ol>
+    <li>Open your project in Vercel.</li>
+    <li>Settings → Domains.</li>
+    <li>Type your domain. Hit Add.</li>
+    <li>Vercel shows you two DNS records to add: an A record and a CNAME.</li>
+  </ol>
+
+  <h3>Step three — point DNS at Vercel</h3>
+  <p>At your registrar (Porkbun, Cloudflare, etc.), open DNS settings for the domain. Add the records Vercel showed you:</p>
+<pre><code>Type   Name   Value
+A      @      76.76.21.21
+CNAME  www    cname.vercel-dns.com</code></pre>
+
+  <p>Save. Wait. Within fifteen minutes, your domain points at Vercel and Vercel automatically provisions a free SSL certificate (the lock icon in the browser bar).</p>
+
+  <h3>Step four — verify</h3>
+  <p>Open your new domain in an incognito window. You should see your site. If you see "Site not found" or a SSL warning, wait another fifteen minutes — DNS can take up to an hour to propagate.</p>
+
+  <div class="callout">
+    <span class="tag">apex vs www</span>
+    <p>I always set up both. <code>jmartin.com</code> (apex) is the canonical. <code>www.jmartin.com</code> 308-redirects to the apex. Configure both in Vercel's domain panel. Vercel handles the redirect for you.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 36 — Preview deploys
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 36</span>
+      <span class="part-tag">Part IX — Shipping</span>
+    </div>
+    <h2>Preview deploys — the safety net you're not using.</h2>
+    <p class="deck">Every branch, every PR, every commit gets its own URL. Use it to share work, test risky changes, and get client feedback without touching production.</p>
+  </header>
+
+  <p class="lede">Vercel's preview deploys are one of the most underused features I see. Most people only think about production. But every branch is a preview, automatically, with its own URL. Use them.</p>
+
+  <h3>The pattern I use</h3>
+  <ol class="steps">
+    <li><h4>Create a branch.</h4><code>git checkout -b new-pricing-page</code></li>
+    <li><h4>Build the change.</h4>Anything risky — a redesign, a new section, a new tool integration.</li>
+    <li><h4>Push the branch.</h4><code>git push -u origin new-pricing-page</code></li>
+    <li><h4>Vercel builds a preview.</h4>Within seconds, you get a URL like <code>jmartin-git-new-pricing-page-jt.vercel.app</code>.</li>
+    <li><h4>Send the URL to the client.</h4>They see the change on a real URL, on their phone, before you've touched the live site.</li>
+    <li><h4>Approved? Merge the branch.</h4><code>git checkout master &amp;&amp; git merge new-pricing-page &amp;&amp; git push</code>. Vercel rolls the change to production.</li>
+    <li><h4>Rejected? Just don't merge.</h4>The preview URL exists forever (or until you delete the branch); production never sees the change.</li>
+  </ol>
+
+  <h3>Why this matters</h3>
+  <p>You stop having to ask "should I deploy this?" because deploying isn't dangerous — production only updates when you merge. You stop having to email screenshots to clients because they can see the change live, on their own device, at a real URL.</p>
+
+  <p>I've shipped redesigns of clients' homepages without them ever seeing the old version interrupted. Preview deploy → review → merge → live. Zero downtime. Zero anxiety.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PART X DIVIDER
+     ════════════════════════════════════════════════════════════ -->
+<section class="part-divider">
+  <span class="label">Part Ten</span>
+  <h1>A full walkthrough.</h1>
+  <p class="blurb">Three days. Cold start. A real plumber's website, built from one prompt to a live URL. Every command. Every file. Every commit. The whole loop, end to end.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 37 — Day 1
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 37</span>
+      <span class="part-tag">Part X — Walkthrough</span>
+    </div>
+    <h2>Day 1 — from first prompt to a finished hero.</h2>
+    <p class="deck">Friday morning. New project. By Friday afternoon, a hero section that makes the client cry happy tears.</p>
+  </header>
+
+  <p class="lede">Imagine a plumber. We'll call him Mike. Mike runs <em>Reliable Plumbing</em> in Bend, Oregon. He has a Wix site that hasn't been updated in five years. He asks me to build him something new. Friday, 9am, I open the terminal.</p>
+
+  <h3>9:00 am — the folder</h3>
+<pre><code>cd ~/Sites
+mkdir reliable-plumbing
+cd reliable-plumbing
+claude</code></pre>
+
+  <h3>9:02 am — the first prompt</h3>
+  <div class="callout">
+    <span class="tag">Verbatim — the prompt</span>
+    <p>"I'm building a website for Reliable Plumbing, a plumber in Bend, Oregon. Family-owned. 20 years in business. Real people, not corporate. Voice: warm, direct, Bend-y. Reference sites: the no-nonsense feel of Bartesian.com, the typography of the Patagonia worn-wear site.</p>
+    <p>Stack: plain HTML, vanilla JS, no build step. Pages: home, services (drains, water-heaters, repipes, emergencies), about, contact. Color palette: deep navy, warm cream, one bright copper accent.</p>
+    <p>Give me a plan first. Don't write code yet."</p>
+  </div>
+
+  <h3>9:04 am — Claude's plan</h3>
+  <p>Claude responds with a numbered list:</p>
+  <ol>
+    <li>Create <code>index.html</code> with header, hero, services preview, testimonials, contact CTA, footer.</li>
+    <li>Create four service pages with shared design.</li>
+    <li>Create <code>styles.css</code> with the three-color palette as CSS variables.</li>
+    <li>Create <code>main.js</code> for the mobile nav toggle.</li>
+    <li>Create <code>api/lead.js</code> for the contact form.</li>
+    <li>Create <code>vercel.json</code> with cleanUrls and basic security headers.</li>
+  </ol>
+
+  <p>I approve the plan. Two corrections: "use Cormorant Garamond for the display font" and "skip <code>main.js</code> for now — we'll add JS only when we need it."</p>
+
+  <h3>9:08 am — Claude writes</h3>
+  <p>While Claude works, I open Higgsfield in a tab and queue up three hero clips: a slow tracking shot of a kitchen sink with copper pipes, a wide shot of a wrench on a workbench, and a pan across a finished bathroom remodel. Each takes ~10 minutes to generate.</p>
+
+  <h3>9:30 am — the hero is in</h3>
+  <p>I look at the hero. Tight headline, navy background, copper accent. Decent. But the CTA looks too startup-y — a rounded purple button that doesn't fit. I say: <em>"Replace the CTA with a hard-edged copper button. 4px radius. Bold uppercase 0.18em letter-spacing label that says 'Call now — (541) 555-0100'."</em></p>
+
+  <p>Claude updates. Now the hero looks like the brand. We're 30 minutes in.</p>
+
+  <h3>10:00 am — wire up Git and Vercel</h3>
+<pre><code>git init
+git add .
+git commit -m "Reliable Plumbing — initial homepage with hero + skeleton sections"
+gh repo create reliable-plumbing --public --source=. --push
+vercel link
+vercel --prod</code></pre>
+
+  <p>Site is live at <code>reliable-plumbing.vercel.app</code>. I text Mike the URL. We're still on Friday, mid-morning, with seven hours of build time left.</p>
+
+  <h3>The rest of Day 1</h3>
+  <p>By dinnertime: hero polished, services skeleton, testimonials skeleton, contact form wired, vercel.json done, mobile pass done, one Higgsfield clip embedded in the hero, OG image generated. Committed and deployed eight times. Day one of three.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 38 — Day 2
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 38</span>
+      <span class="part-tag">Part X — Walkthrough</span>
+    </div>
+    <h2>Day 2 — services, testimonials, contact, footer.</h2>
+    <p class="deck">The wide sweep. By Saturday night, every section exists at the polish level of the hero.</p>
+  </header>
+
+  <p class="lede">Day two is the section pass. I take every part of the page that's a placeholder and bring it to the standard the hero set.</p>
+
+  <h3>10:00 am — services</h3>
+  <p>Four service pages. Same shell. Different copy and imagery. I write the copy myself (or pull it from Mike's old Wix site) and paste it into a <code>copy.md</code> file in the project. Then:</p>
+
+  <div class="callout">
+    <span class="tag">Prompt</span>
+    <p>"Build four service pages: drains, water-heaters, repipes, emergencies. Use <code>copy.md</code> for the body content. Each page: hero with the service name, three paragraphs of copy, a 'common problems we fix' list, a 'why us' subsection, a CTA. Match the homepage's design — same nav, same footer, same type hierarchy."</p>
+  </div>
+
+  <p>Claude builds all four in one shot. Total time: 12 minutes.</p>
+
+  <h3>11:00 am — testimonials</h3>
+  <p>I pull five Google reviews from Mike's existing profile, paste them into <code>copy.md</code>, and ask Claude to build a testimonials section. <em>"Three columns desktop. One column mobile. Plain quote, name, date. No avatar. Hairline border between."</em></p>
+
+  <h3>1:00 pm — the contact section</h3>
+  <p>The form from Chapter 29, copy-pasted into <code>api/lead.js</code>. Wire it up to the form on <code>/contact</code>. Test it once. Boom — the form sends a real email to Mike's inbox. He's excited.</p>
+
+  <h3>3:00 pm — footer + nav polish</h3>
+  <p>Three-column footer: services, contact info, hours. Sticky nav with the brand wordmark, three links, and the phone number as a tap-to-call. Mobile nav opens a full-screen overlay with the same links.</p>
+
+  <h3>5:00 pm — copy pass</h3>
+  <p>I read every word top to bottom. Anything that sounds like ChatGPT, I rewrite. The most common things I edit out: "comprehensive solutions," "best-in-class," "leveraging," "synergize," anything ending in <em>-driven</em>. By the end of the pass the site sounds like Mike — direct, warm, slightly sarcastic about the bigger plumbing companies in town.</p>
+
+  <h3>7:00 pm — commit & deploy</h3>
+  <p>Three commits over the day. One after services. One after testimonials. One after the copy pass. Each one pushes to GitHub, each one triggers a Vercel deploy, each one updates the live URL.</p>
+
+  <h3>End of Day 2</h3>
+  <p>The site is structurally done. Every section exists. Every page has the same level of polish as the hero. What remains: mobile pass, perf pass, SEO pass, and the final design pass to make everything feel like one thing.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 39 — Day 3
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 39</span>
+      <span class="part-tag">Part X — Walkthrough</span>
+    </div>
+    <h2>Day 3 — mobile pass, perf pass, deploy.</h2>
+    <p class="deck">Sunday. The last 5% that takes 50% of the perceived quality. By 6pm, Mike has a production website at <em>reliablebend.com</em>.</p>
+  </header>
+
+  <p class="lede">Day three is the day a Wix site never gets. The mobile pass. The perf pass. The SEO pass. The polish. The custom domain. By the end of Sunday Mike has a website that out-performs three competitors that paid $8,000 to an agency.</p>
+
+  <h3>10:00 am — mobile pass</h3>
+  <p>Chrome DevTools, "Toggle device toolbar." iPhone SE, then iPhone 14, then a Pixel 7, then an iPad. Walk every section.</p>
+
+  <div class="callout">
+    <span class="tag">Things I find</span>
+    <p>The hero h1 is too big at 380px wide — wraps awkwardly. Fix: tighter clamp. The services grid is 2 columns at 480px — should be 1. Fix: media query. The footer has the phone number as small text — should be a big tap target. Fix: bigger phone-number block on mobile.</p>
+  </div>
+
+  <p>Each finding is one short prompt to Claude. Each fix takes 30 seconds. Whole mobile pass is done in 45 minutes.</p>
+
+  <h3>11:30 am — perf pass</h3>
+  <p>Open <code>pagespeed.web.dev</code>, paste the URL. Run on mobile and desktop. Look for any red or yellow.</p>
+
+  <p>Typical findings: hero video too big (compress with the ffmpeg command from Chapter 23), one image not in WebP (convert), one font weight not used but loaded (remove). Twenty minutes of fixes, scores jump from 78 to 96.</p>
+
+  <h3>12:30 pm — SEO pass</h3>
+  <p>Walk every page. Title tag pattern from Chapter 24. Meta description, OG, Twitter card from Chapter 25. JSON-LD LocalBusiness schema from Chapter 26. Sitemap.xml, robots.txt, canonical, theme-color from Chapter 28. The whole pass takes 35 minutes.</p>
+
+  <h3>2:00 pm — domain</h3>
+  <p>Mike buys <em>reliablebend.com</em> at Porkbun. He gives me login. I add the DNS records Vercel asked for. Fifteen minutes later <em>reliablebend.com</em> resolves to the live site, with a green padlock.</p>
+
+  <h3>3:00 pm — handoff</h3>
+  <p>I screen-record a five-minute Loom for Mike: how to update the testimonials in <code>copy.md</code>, how to add a service, who to call if something breaks. I send him a final invoice. He pays the same day.</p>
+
+  <h3>6:00 pm — done</h3>
+  <p>Three days. One terminal. $44 in tools. A website Mike will look at for the next ten years.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CLOSING — mistakes
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 40</span>
+      <span class="part-tag">Closing</span>
+    </div>
+    <h2>Ten mistakes I made so you don't have to.</h2>
+    <p class="deck">Every one of these cost me a day or more. Don't repeat them.</p>
+  </header>
+
+  <ol class="steps">
+    <li><h4>Committing a key to a public repo.</h4>$400 in fraudulent API charges. Use <code>.env</code>. Add it to <code>.gitignore</code>. Rotate keys monthly.</li>
+    <li><h4>Skipping the plan step.</h4>The first few months I'd say "build me a hero" without a plan. Got 200 lines of code I didn't want. Always ask for a plan first.</li>
+    <li><h4>Importing 21st.dev components verbatim.</h4>Two failed deploys and a slow site later, I learned to rewrite by hand. Chapter 18.</li>
+    <li><h4>Using requestAnimationFrame for marquees.</h4>Lag on Safari. Lag on any older laptop. CSS @keyframes do the same job for free.</li>
+    <li><h4>Forgetting the poster attribute on hero video.</h4>4-second blank screen on every page load. Always add a poster.</li>
+    <li><h4>Two h1s on one page.</h4>SEO confusion. One h1 per page. Use h2/h3 for the rest. (Hidden-h1 trick is the only exception — see Chapter 27.)</li>
+    <li><h4>Skipping the mobile pass on desktop-only design days.</h4>Discovered three days later that the entire site overflowed at 380px. Now I never skip the mobile pass.</li>
+    <li><h4>Treating Claude like a search engine.</h4>"How do I build a hero?" — wasted week. "Build me a left-aligned hero with..." — done in twenty minutes.</li>
+    <li><h4>Not committing for a whole day.</h4>Browser crashed. Lost the work. Now I commit after every meaningful change.</li>
+    <li><h4>Pre-optimizing.</h4>Tried to set up Cloudflare R2 before I had a single visitor. Six hours of yak shaving. Start on Vercel free tier. Upgrade when you must.</li>
+  </ol>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 41 — What I learned
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 41</span>
+      <span class="part-tag">Closing</span>
+    </div>
+    <h2>What I learned building ten of these.</h2>
+    <p class="deck">A reflective close, with the patterns I'd never have caught from any single project.</p>
+  </header>
+
+  <p class="lede">Ten sites in, the patterns stop being patterns and start being instincts. Here are the things I didn't know I knew until I tried to write this book.</p>
+
+  <h3>Voice is harder than design</h3>
+  <p>Sites look distinctive when their copy sounds distinctive. The visual design is half the work. The other half is the headlines, eyebrows, button labels, and footer microcopy. I now spend equal time on each. Three sentences in the right voice beats three hours of fancy gradients.</p>
+
+  <h3>The mobile experience is the product</h3>
+  <p>Roughly 70% of my contractor sites' traffic is mobile. The desktop version is the audition. The mobile version is the show. I now build mobile-first on every project.</p>
+
+  <h3>Small, frequent commits are how you stay sane</h3>
+  <p>The single habit that's saved me the most pain. I never get more than 20 minutes from my last commit. If something breaks, I revert one thing — not a day.</p>
+
+  <h3>The boring stuff matters most</h3>
+  <p>SEO. Performance. Security headers. The boring chapter (Chapter 28) is the one that produces inbound leads months later. The visual chapter (Chapter 14) is the one that gets reactions today. You need both.</p>
+
+  <h3>Tools are interchangeable; thinking isn't</h3>
+  <p>I've used Claude Code, Cursor, GitHub Copilot, ChatGPT, and a half-dozen others. The tool that's "best this month" rotates. The thinking — passes, symptoms, constraints, plans before code, commit early, mobile-first — is invariant. Master the thinking and the tool stops mattering.</p>
+
+  <div class="pull">
+    "The output of your build session is shaped less by the tool than by the instructions you give it. Get the instructions right, and almost any AI will write a great website. Get the instructions wrong, and the best AI in the world will produce slop."
+  </div>
+
+  <h3>You will not love every site you build</h3>
+  <p>Some clients want what they want. The site you ship will sometimes look less like your portfolio piece and more like their hand-drawn napkin. That's fine. Ship anyway. Cash the check. Build the next one.</p>
+
+  <h3>The job is mostly conversation</h3>
+  <p>I'm a builder. Half my time is in the terminal. The other half is in Loom, on email, on the phone, talking to the people the site exists for. The terminal can only output what you input. So master the inputting — by listening to the customer, then translating the listening into instructions.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 42 — Where to go
+     ════════════════════════════════════════════════════════════ -->
+<section class="chapter">
+  <header class="chapter-head">
+    <div class="num-line">
+      <span class="num">Chapter 42</span>
+      <span class="part-tag">Closing</span>
+    </div>
+    <h2>Where to go from here — resources and links.</h2>
+    <p class="deck">A compact, opinionated list of every tool, doc, and creator I'd send a beginner toward.</p>
+  </header>
+
+  <h3>Docs to bookmark</h3>
+  <ul>
+    <li><strong>Claude Code docs</strong> — <code>docs.anthropic.com/claude-code</code></li>
+    <li><strong>Vercel docs</strong> — <code>vercel.com/docs</code> — the most readable platform documentation I've ever encountered.</li>
+    <li><strong>MDN</strong> — <code>developer.mozilla.org</code> — the authoritative reference for everything HTML / CSS / JS.</li>
+    <li><strong>Schema.org</strong> — <code>schema.org/docs/full.html</code> — for every JSON-LD type.</li>
+  </ul>
+
+  <h3>People to follow</h3>
+  <ul>
+    <li>The Anthropic blog for Claude updates.</li>
+    <li>The Vercel changelog for product news.</li>
+    <li>Anything Brad Frost has written about design systems.</li>
+    <li>Adam Wathan's old blog posts on Tailwind utility CSS.</li>
+    <li>Refactoring UI (the book) for visual taste calibration.</li>
+  </ul>
+
+  <h3>Tools I didn't fit in but use</h3>
+  <table>
+    <thead>
+      <tr><th>Tool</th><th>What for</th><th>Cost</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Resend</td><td>Transactional email from /api/* functions</td><td>Free (3k/mo)</td></tr>
+      <tr><td>Stripe</td><td>Payment links + checkout</td><td>2.9% + 30¢/tx</td></tr>
+      <tr><td>Cloudflare R2</td><td>Cheap object storage for video / large assets</td><td>~$0.015/GB</td></tr>
+      <tr><td>Loom</td><td>Client walkthroughs and handoffs</td><td>Free tier</td></tr>
+      <tr><td>Notion</td><td>Project briefs, content drafts</td><td>Free</td></tr>
+      <tr><td>Figma</td><td>OG-image design, the occasional mockup</td><td>Free tier</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Want to work with me?</h3>
+  <p>If you've made it this far and you want help building a site — or you want a done-for-you Sybago site for your business — I'm at <code>jtfasulo.com</code>. Book a call. Or buy the next version of this guide when it comes out.</p>
+
+  <h3>One last thing</h3>
+  <p>You bought this guide because you wanted to build a website with Claude Code. So go build one. Don't read this twice. Don't research five more tools. Don't watch eight YouTube videos. Open a terminal, make a folder, type <code>claude</code>, and ship something embarrassing by Friday. The first one's the hardest. The tenth one's a habit.</p>
+
+  <hr/>
+  <p class="meta small">© 2026 JT Fasulo · Sybago · jtfasulo.com · Single-reader license. Not for redistribution.</p>
+</section>
+
+
+</body>
+</html>
