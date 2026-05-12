@@ -28,7 +28,11 @@ function Home() {
           subSubtitle="Built for beginners. No coding. No guessing."
           primaryCtaLabel="Get your guide"
           onPrimaryCtaClick={openStripe}
-          features={['Scroll to learn more']}
+          features={[
+            'Learn how the tools work',
+            'Understand website structure',
+            'Build your first site',
+          ]}
         />
         <PdfShowcase />
         <FeatureShaderCards />
