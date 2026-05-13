@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://jblandscape.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://jblandscape.com/services/lawn-maintenance</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jblandscape.com/services/landscape-design</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jblandscape.com/services/mulching</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jblandscape.com/services/hardscaping</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jblandscape.com/services/cleanups</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jblandscape.com/services/irrigation</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://jblandscape.com/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://jblandscape.com/terms-of-service</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
