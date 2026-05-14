@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Landscaping in Providence, RI | J.B. Landscape — Free Estimates</title>
-<meta name="description" content="Family-run landscaping serving Providence and Greater Rhode Island. Lawn cutting, tree & bush work, mulch, paver patios, sod, seeding, cleanups, snow & junk removal. Free estimates — call (401) 230-4820. Hablamos Español.">
+<meta name="description" content="Family-run landscaping serving Providence and Greater Rhode Island. Lawn cutting, tree & bush work, mulch, paver patios, sod, seeding, cleanups, snow & junk removal. Free estimates — call (401) 230-4820.">
 <link rel="canonical" href="https://jblandscape.com/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#2d6a3a">
 
 <!-- Open Graph / Twitter -->
 <meta property="og:title" content="Landscaping in Providence, RI | J.B. Landscape">
-<meta property="og:description" content="Family-run landscaping serving Providence and Greater Rhode Island. Free estimates. Licensed & insured. Hablamos Español.">
+<meta property="og:description" content="Family-run landscaping serving Providence and Greater Rhode Island. Free estimates. Licensed & insured.">
 <meta property="og:image" content="https://jblandscape.com/og-image.jpg">
 <meta property="og:url" content="https://jblandscape.com/">
 <meta property="og:type" content="website">
@@ -25,7 +25,10 @@
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="preconnect" href="https://basemaps.cartocdn.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 
 <!-- LocalBusiness structured data -->
@@ -58,7 +61,7 @@
   ],
   "priceRange": "$$",
   "openingHours": "Mo-Sa 07:00-18:00",
-  "description": "Family-run landscaping company serving Providence and Greater Rhode Island. Lawn cutting, tree and bush planting and removal, flower planting, mulch installation, cobblestone and gravel patios, seeding, sod, spring cleanups, snow removal, and junk removal. Licensed and insured. Hablamos Español.",
+  "description": "Family-run landscaping company serving Providence and Greater Rhode Island. Lawn cutting, tree and bush planting and removal, flower planting, mulch installation, cobblestone and gravel patios, seeding, sod, spring cleanups, snow removal, and junk removal. Licensed and insured.",
   "knowsAbout": ["Lawn Cutting", "Tree Planting", "Tree Removal", "Bush Planting", "Bush Trimming", "Flower Planting", "Mulch Installation", "Cobblestone Patio Installation", "Gravel Patio Installation", "Lawn Seeding", "Sod Roll Installation", "Spring Cleanup", "Snow Removal", "Junk Removal"],
   "slogan": "Free Estimates. Licensed & Insured."
 }
@@ -99,7 +102,7 @@
         (401) 230-4820
       </a>
     </div>
-    <p class="hero-byline">Free estimates · Licensed &amp; insured · Hablamos Español</p>
+    <p class="hero-byline">Free estimates · Licensed &amp; insured · Same-week response</p>
   </div>
 </header>
 
@@ -262,6 +265,25 @@
   </div>
 </section>
 
+<!-- Before / After -->
+<section id="before-after" class="section section-ba">
+  <div class="section-head">
+    <span class="eyebrow">Before &amp; After</span>
+    <h2>Same walkway, two weekends apart.</h2>
+    <p>From cracked, uneven flagstone to a clean, level paver path. Real client work, no filters.</p>
+  </div>
+  <div class="ba-grid">
+    <figure class="ba-card">
+      <span class="ba-tag ba-tag-before">Before</span>
+      <img src="/images/before-after/walkway-before.jpg" alt="Cracked, uneven flagstone walkway leading to a front porch before the rebuild" loading="lazy" width="684" height="909">
+    </figure>
+    <figure class="ba-card">
+      <span class="ba-tag ba-tag-after">After</span>
+      <img src="/images/before-after/walkway-after.jpg" alt="Same walkway rebuilt with clean rectangular pavers in a level, tight pattern" loading="lazy" width="684" height="913">
+    </figure>
+  </div>
+</section>
+
 <!-- Projects -->
 <section id="projects" class="section section-alt">
   <div class="section-head">
@@ -358,17 +380,20 @@
     <h2>Providence &amp; Greater Rhode Island.</h2>
     <p>Based in the (401). Don't see your town? Call us — we probably still cover it.</p>
   </div>
-  <ul class="areas-grid" aria-label="Service areas list">
-    <li><span class="areas-pin">01</span> Providence</li>
-    <li><span class="areas-pin">02</span> Cranston</li>
-    <li><span class="areas-pin">03</span> Warwick</li>
-    <li><span class="areas-pin">04</span> East Providence</li>
-    <li><span class="areas-pin">05</span> Pawtucket</li>
-    <li><span class="areas-pin">06</span> North Providence</li>
-    <li><span class="areas-pin">07</span> Johnston</li>
-    <li><span class="areas-pin">08</span> Smithfield</li>
-    <li><span class="areas-pin">09</span> Lincoln</li>
-  </ul>
+  <div class="areas-map-wrap">
+    <div id="areasMap" class="areas-map" role="img" aria-label="Map of Greater Providence with the nine service areas highlighted"></div>
+    <ul class="areas-legend" aria-label="Service areas list">
+      <li><span class="areas-pin">1</span> Providence</li>
+      <li><span class="areas-pin">2</span> Cranston</li>
+      <li><span class="areas-pin">3</span> Warwick</li>
+      <li><span class="areas-pin">4</span> East Providence</li>
+      <li><span class="areas-pin">5</span> Pawtucket</li>
+      <li><span class="areas-pin">6</span> North Providence</li>
+      <li><span class="areas-pin">7</span> Johnston</li>
+      <li><span class="areas-pin">8</span> Smithfield</li>
+      <li><span class="areas-pin">9</span> Lincoln</li>
+    </ul>
+  </div>
 </section>
 
 <!-- FAQ -->
@@ -392,10 +417,6 @@
       <div class="faq-body"><p>Yes, fully licensed and insured. We carry general liability and workers' compensation. Happy to provide a certificate of insurance for any project — just ask.</p></div>
     </details>
     <details class="faq-item">
-      <summary>¿Hablan Español?</summary>
-      <div class="faq-body"><p>Sí. Hablamos Español. Llámenos al (401) 230-4820 y con gusto le atendemos.</p></div>
-    </details>
-    <details class="faq-item">
       <summary>How often do you mow during the season?</summary>
       <div class="faq-body"><p>Most residential lawns get weekly service from late April through October. In the dry stretches of mid-summer we'll drop to every other week to protect the turf — you only pay for the visits we make.</p></div>
     </details>
@@ -417,7 +438,6 @@
         <li><span class="cp-dot"></span> Free, no-pressure estimates</li>
         <li><span class="cp-dot"></span> Same crew, every visit</li>
         <li><span class="cp-dot"></span> Licensed &amp; insured</li>
-        <li><span class="cp-dot"></span> Hablamos Español</li>
       </ul>
     </div>
     <form class="contact-form" id="leadForm" novalidate>
@@ -481,7 +501,6 @@
           <li><a href="tel:+14012304820">(401) 230-4820</a></li>
           <li>Providence, RI</li>
           <li>Mon–Sat, 7am–6pm</li>
-          <li>Hablamos Español</li>
         </ul>
       </div>
       <div>
@@ -502,6 +521,60 @@
   </div>
 </footer>
 
-<script src="/main.js"></script>
+<!-- Chat widget -->
+<button class="chat-toggle" id="chatToggle" aria-label="Open chat" aria-expanded="false">
+  <svg class="ico-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <svg class="ico-close" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>
+
+<aside class="chat-panel" id="chatPanel" aria-hidden="true" aria-label="Chat with J.B. Landscape">
+  <header class="chat-head">
+    <div class="chat-avatar"><img src="/logo.png" alt="" width="76" height="76"></div>
+    <div>
+      <strong>J.B. Landscape</strong>
+      <span>Typically replies within one business day</span>
+    </div>
+  </header>
+  <div class="chat-body">
+    <div class="chat-msg">
+      <p>Hey — drop your details and a quick note about the job. We'll text you back with a free estimate.</p>
+    </div>
+    <form class="chat-form" id="chatForm" novalidate>
+      <div class="field-row">
+        <div class="field field-tight">
+          <label for="c_first_name">First name <span class="req">*</span></label>
+          <input type="text" id="c_first_name" name="first_name" autocomplete="given-name" required maxlength="60">
+        </div>
+        <div class="field field-tight">
+          <label for="c_last_name">Last name <span class="req">*</span></label>
+          <input type="text" id="c_last_name" name="last_name" autocomplete="family-name" required maxlength="60">
+        </div>
+      </div>
+      <div class="field field-tight">
+        <label for="c_phone">Phone <span class="req">*</span></label>
+        <input type="tel" id="c_phone" name="phone" autocomplete="tel" inputmode="tel" required maxlength="20">
+      </div>
+      <div class="field field-tight">
+        <label for="c_email">Email <span class="req">*</span></label>
+        <input type="email" id="c_email" name="email" autocomplete="email" required maxlength="160">
+      </div>
+      <div class="field field-tight">
+        <label for="c_message">What do you need done? <span class="req">*</span></label>
+        <textarea id="c_message" name="message" required maxlength="2000" rows="3" placeholder="Weekly mowing, new patio, fall cleanup…"></textarea>
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="c_sms_consent" name="sms_consent" required>
+        <span>I agree to receive SMS messages from J.B. Landscape about my project. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out. See our <a href="/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="/terms-of-service" target="_blank">Terms</a>.</span>
+      </label>
+      <button type="submit" class="btn-primary btn-submit" id="chatSubmit">
+        <span class="btn-label">Send</span>
+      </button>
+      <p class="form-status" id="chatStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</aside>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin defer></script>
+<script src="/main.js" defer></script>
 </body>
 </html>
