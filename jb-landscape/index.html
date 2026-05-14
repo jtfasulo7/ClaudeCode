@@ -78,7 +78,7 @@
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
-    <a href="#process">Process</a>
+    <a href="/who-we-are">Who We Are</a>
     <a href="#areas">Areas</a>
     <a href="#contact">Free Estimate</a>
     <a href="tel:+14012304820" class="nav-phone">(401) 230-4820</a>
@@ -396,6 +396,50 @@
   </div>
 </section>
 
+<!-- Reviews -->
+<section id="reviews" class="section section-reviews">
+  <div class="section-head">
+    <span class="eyebrow">Reviews</span>
+    <h2>5 stars on Google.</h2>
+    <p>Real reviews from people we've worked for in Greater Providence.</p>
+  </div>
+  <div class="reviews-grid">
+    <figure class="review-card">
+      <div class="review-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+      <blockquote class="review-quote">
+        <p>Exellent job the company is very proffesional and alot of dedication to the job I would reccomend them to anyone.</p>
+      </blockquote>
+      <figcaption class="review-author">
+        <span class="review-name">Daily Fuel</span>
+        <span class="review-source">via Google</span>
+      </figcaption>
+    </figure>
+    <figure class="review-card">
+      <div class="review-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+      <blockquote class="review-quote">
+        <p>The company is very good professional great job in my lawn and the bushes and the plants are beautiful good work!</p>
+      </blockquote>
+      <figcaption class="review-author">
+        <span class="review-name">Lia</span>
+        <span class="review-source">via Google</span>
+      </figcaption>
+    </figure>
+    <figure class="review-card">
+      <div class="review-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+      <blockquote class="review-quote">
+        <p>Best landscapers in Providence RI!</p>
+      </blockquote>
+      <figcaption class="review-author">
+        <span class="review-name">Peter Thomas</span>
+        <span class="review-source">via Google</span>
+      </figcaption>
+    </figure>
+  </div>
+  <p class="reviews-cta-line">
+    See all reviews on <a href="https://share.google/B4oOGuLUCJUXEUkCl" target="_blank" rel="noopener">Google</a> · 5.0 average
+  </p>
+</section>
+
 <!-- FAQ -->
 <section id="faq" class="section section-faq">
   <div class="section-head">
@@ -441,9 +485,15 @@
       </ul>
     </div>
     <form class="contact-form" id="leadForm" novalidate>
-      <div class="field">
-        <label for="lf-name">Your name</label>
-        <input id="lf-name" name="full_name" type="text" autocomplete="name" required>
+      <div class="field-row">
+        <div class="field">
+          <label for="lf-first">First name</label>
+          <input id="lf-first" name="first_name" type="text" autocomplete="given-name" required maxlength="60">
+        </div>
+        <div class="field">
+          <label for="lf-last">Last name</label>
+          <input id="lf-last" name="last_name" type="text" autocomplete="family-name" required maxlength="60">
+        </div>
       </div>
       <div class="field">
         <label for="lf-phone">Phone</label>

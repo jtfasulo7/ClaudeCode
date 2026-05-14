@@ -138,7 +138,7 @@
     }).setView([41.83, -71.45], 11);
 
     L.tileLayer(
-      'https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png',
+      'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
       {
         attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
