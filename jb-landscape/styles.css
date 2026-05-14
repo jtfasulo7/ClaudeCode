@@ -634,6 +634,8 @@ input, textarea, button { font-family: inherit; }
   border: 1px solid var(--line-2);
   overflow: hidden;
   background: var(--bg-2);
+  position: relative;
+  z-index: 0;
 }
 .areas-map .leaflet-container { background: #eef2ee; font-family: inherit; }
 .areas-map .leaflet-control-attribution {

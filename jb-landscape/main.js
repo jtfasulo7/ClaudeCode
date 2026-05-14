@@ -108,34 +108,35 @@
     const el = document.getElementById('areasMap');
     if (!el || typeof L === 'undefined') return;
 
-    // 9 service-area cities in Greater Providence
+    // 9 cities spread across the whole state of Rhode Island
     const cities = [
-      { n: 1, name: 'Providence',       sub: 'HQ',                lat: 41.8240, lon: -71.4128, hub: true },
-      { n: 2, name: 'Cranston',         sub: '~5 mi S',           lat: 41.7798, lon: -71.4373 },
-      { n: 3, name: 'Warwick',          sub: '~10 mi S',          lat: 41.7001, lon: -71.4162 },
-      { n: 4, name: 'East Providence',  sub: '~3 mi E',           lat: 41.8137, lon: -71.3701 },
-      { n: 5, name: 'Pawtucket',        sub: '~4 mi N',           lat: 41.8787, lon: -71.3826 },
-      { n: 6, name: 'North Providence', sub: '~4 mi NW',          lat: 41.8501, lon: -71.4621 },
-      { n: 7, name: 'Johnston',         sub: '~6 mi W',           lat: 41.8201, lon: -71.5071 },
-      { n: 8, name: 'Smithfield',       sub: '~10 mi NW',         lat: 41.8783, lon: -71.5503 },
-      { n: 9, name: 'Lincoln',          sub: '~8 mi N',           lat: 41.9210, lon: -71.4490 },
+      { n: 1, name: 'Providence',       sub: 'HQ',                 lat: 41.8240, lon: -71.4128, hub: true },
+      { n: 2, name: 'Woonsocket',       sub: '~15 mi N',           lat: 42.0029, lon: -71.5145 },
+      { n: 3, name: 'Pawtucket',        sub: '~5 mi NE',           lat: 41.8787, lon: -71.3826 },
+      { n: 4, name: 'Warwick',          sub: '~10 mi S',           lat: 41.7001, lon: -71.4162 },
+      { n: 5, name: 'Coventry',         sub: '~15 mi SW',          lat: 41.6900, lon: -71.6645 },
+      { n: 6, name: 'Tiverton',         sub: '~25 mi SE',          lat: 41.6262, lon: -71.2104 },
+      { n: 7, name: 'South Kingstown',  sub: '~30 mi S',           lat: 41.4762, lon: -71.5103 },
+      { n: 8, name: 'Newport',          sub: '~30 mi SE',          lat: 41.4901, lon: -71.3128 },
+      { n: 9, name: 'Westerly',         sub: '~40 mi SW',          lat: 41.3776, lon: -71.8273 },
     ];
 
-    // Convex hull of outer cities (clockwise from NW)
+    // Polygon approximating the outline of Rhode Island (clockwise from NW)
     const serviceArea = [
-      [41.8783, -71.5503], // Smithfield  (NW)
-      [41.9210, -71.4490], // Lincoln     (N)
-      [41.8787, -71.3826], // Pawtucket   (NE)
-      [41.8137, -71.3701], // East Providence (E)
-      [41.7001, -71.4162], // Warwick     (S)
-      [41.8201, -71.5071], // Johnston    (W)
+      [42.018, -71.799], // NW corner — Burrillville
+      [42.018, -71.330], // NE corner along MA border
+      [41.880, -71.330], // Cumberland / Pawtucket east edge
+      [41.430, -71.220], // Sakonnet Point — East Bay SE
+      [41.360, -71.580], // South coast — Point Judith
+      [41.320, -71.860], // SW corner — Watch Hill
+      [41.620, -71.800], // Hopkinton west edge
     ];
 
     const map = L.map(el, {
       scrollWheelZoom: false,
       zoomControl: true,
       attributionControl: true,
-    }).setView([41.83, -71.45], 11);
+    }).setView([41.68, -71.55], 9);
 
     L.tileLayer(
       'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
