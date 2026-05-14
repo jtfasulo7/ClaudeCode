@@ -5,6 +5,14 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/services/lawn-maintenance", "destination": "/services/lawn-cutting", "permanent": true },
+    { "source": "/services/landscape-design", "destination": "/services/flower-planting", "permanent": true },
+    { "source": "/services/mulching",         "destination": "/services/mulch-installation", "permanent": true },
+    { "source": "/services/hardscaping",      "destination": "/services/cobblestone-patio", "permanent": true },
+    { "source": "/services/cleanups",         "destination": "/services/spring-cleanup", "permanent": true },
+    { "source": "/services/irrigation",       "destination": "/#contact", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
