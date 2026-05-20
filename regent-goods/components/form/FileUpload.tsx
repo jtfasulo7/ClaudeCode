@@ -85,9 +85,11 @@ export function FileUpload({
         <span className="text-[12px] text-text-soft">{hint}</span>
       </div>
 
-      <div
+      <button
+        type="button"
+        onClick={() => inputRef.current?.click()}
         className={cn(
-          "mt-2 flex flex-col items-center justify-center gap-3 border border-dashed bg-paper px-6 py-8 text-center transition-colors",
+          "mt-2 flex w-full flex-col items-center justify-center gap-3 border border-dashed bg-paper px-6 py-8 text-center transition-colors cursor-pointer hover:border-ink hover:bg-paper-soft",
           dragOver ? "border-ink bg-paper-soft" : "border-border",
         )}
         onDragOver={(e) => {
@@ -103,14 +105,10 @@ export function FileUpload({
       >
         <Upload size={20} strokeWidth={1.75} className="text-text" />
         <p className="text-[14px] text-text">
-          Drag &amp; drop files here, or{" "}
-          <button
-            type="button"
-            className="text-navy underline-offset-2 hover:underline"
-            onClick={() => inputRef.current?.click()}
-          >
-            browse
-          </button>
+          <span className="text-navy underline-offset-2 hover:underline">
+            Click to browse
+          </span>{" "}
+          or drag &amp; drop files here
         </p>
         <input
           ref={inputRef}
@@ -123,7 +121,7 @@ export function FileUpload({
             e.target.value = "";
           }}
         />
-      </div>
+      </button>
 
       {error ? (
         <p className="mt-2 text-[12.5px] text-[#a51c1c]" role="alert">
