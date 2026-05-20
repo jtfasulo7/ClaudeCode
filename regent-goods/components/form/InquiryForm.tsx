@@ -31,8 +31,7 @@ export function InquiryForm() {
     setValue,
     formState: { errors, isSubmitting },
   } = useForm<InquiryPayload>({
-    resolver: zodResolver(inquirySchema) as never,
-    shouldUnregister: true,
+    resolver: zodResolver(inquirySchema),
     mode: "onBlur",
   });
 
@@ -105,29 +104,22 @@ export function InquiryForm() {
     );
   }
 
-  // Helper: typed access to errors that may or may not exist depending on type
-  const e = errors as Record<string, { message?: string } | undefined>;
-
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      noValidate
-      className="space-y-10"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-10">
       {/* Hidden registered field for inquiryType */}
       <input type="hidden" {...register("inquiryType")} value={inquiryType} />
 
       <InquiryTypeSelect value={inquiryType} onChange={handleTypeChange} />
 
-      {e.inquiryType?.message ? (
+      {errors.inquiryType?.message ? (
         <p className="text-[12.5px] text-[#a51c1c]" role="alert">
-          Please select an inquiry type.
+          {errors.inquiryType.message}
         </p>
       ) : null}
 
       {inquiryType ? (
         <div className="space-y-10 field-enter">
-          {/* Shared identity fields */}
+          {/* Identity */}
           <div>
             <h3 className="eyebrow text-text-soft">Your details</h3>
             <FieldGroup className="mt-5">
@@ -135,12 +127,12 @@ export function InquiryForm() {
                 label="Full name"
                 htmlFor="fullName"
                 required
-                error={e.fullName?.message}
+                error={errors.fullName?.message}
               >
                 <TextInput
                   id="fullName"
                   autoComplete="name"
-                  invalid={!!e.fullName}
+                  invalid={!!errors.fullName}
                   {...register("fullName")}
                 />
               </FieldShell>
@@ -148,12 +140,12 @@ export function InquiryForm() {
                 label="Company name"
                 htmlFor="companyName"
                 required
-                error={e.companyName?.message}
+                error={errors.companyName?.message}
               >
                 <TextInput
                   id="companyName"
                   autoComplete="organization"
-                  invalid={!!e.companyName}
+                  invalid={!!errors.companyName}
                   {...register("companyName")}
                 />
               </FieldShell>
@@ -161,13 +153,13 @@ export function InquiryForm() {
                 label="Email"
                 htmlFor="email"
                 required
-                error={e.email?.message}
+                error={errors.email?.message}
               >
                 <TextInput
                   id="email"
                   type="email"
                   autoComplete="email"
-                  invalid={!!e.email}
+                  invalid={!!errors.email}
                   {...register("email")}
                 />
               </FieldShell>
@@ -175,250 +167,88 @@ export function InquiryForm() {
                 label="Phone number"
                 htmlFor="phone"
                 required
-                error={e.phone?.message}
+                error={errors.phone?.message}
               >
                 <TextInput
                   id="phone"
                   type="tel"
                   autoComplete="tel"
-                  invalid={!!e.phone}
+                  invalid={!!errors.phone}
                   {...register("phone")}
                 />
               </FieldShell>
             </FieldGroup>
           </div>
 
-          {/* Brand / Distributor */}
-          {inquiryType === "brand" ? (
-            <div>
-              <h3 className="eyebrow text-text-soft">Wholesale details</h3>
-              <FieldGroup className="mt-5">
-                <FieldShell
-                  label="Product category / specialty"
-                  htmlFor="productCategory"
-                  required
-                  error={e.productCategory?.message}
-                  fullWidth
-                >
-                  <TextInput
-                    id="productCategory"
-                    placeholder="e.g. color cosmetics, skincare, fragrance"
-                    invalid={!!e.productCategory}
-                    {...register("productCategory")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Wholesale pricing structure offered"
-                  htmlFor="pricingStructure"
-                  hint="Optional"
-                  error={e.pricingStructure?.message}
-                  fullWidth
-                >
-                  <TextArea
-                    id="pricingStructure"
-                    rows={3}
-                    invalid={!!e.pricingStructure}
-                    {...register("pricingStructure")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Current distribution channels"
-                  htmlFor="distributionChannels"
-                  hint="Optional"
-                  error={e.distributionChannels?.message}
-                  fullWidth
-                >
-                  <TextInput
-                    id="distributionChannels"
-                    placeholder="e.g. retail, Amazon, DTC, distributors"
-                    invalid={!!e.distributionChannels}
-                    {...register("distributionChannels")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Minimum order quantity"
-                  htmlFor="minimumOrderQuantity"
-                  hint="Optional"
-                  error={e.minimumOrderQuantity?.message}
-                >
-                  <TextInput
-                    id="minimumOrderQuantity"
-                    invalid={!!e.minimumOrderQuantity}
-                    {...register("minimumOrderQuantity")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Approximate annual revenue / volume"
-                  htmlFor="annualVolume"
-                  hint="Optional"
-                  error={e.annualVolume?.message}
-                >
-                  <TextInput
-                    id="annualVolume"
-                    invalid={!!e.annualVolume}
-                    {...register("annualVolume")}
-                  />
-                </FieldShell>
-              </FieldGroup>
-            </div>
-          ) : null}
+          {/* Inventory */}
+          <div>
+            <h3 className="eyebrow text-text-soft">About your inventory</h3>
+            <FieldGroup className="mt-5">
+              <FieldShell
+                label="Company type / role"
+                htmlFor="companyType"
+                required
+                error={errors.companyType?.message}
+                fullWidth
+              >
+                <TextInput
+                  id="companyType"
+                  placeholder="e.g. cosmetics brand, distributor, liquidator, retail chain"
+                  invalid={!!errors.companyType}
+                  {...register("companyType")}
+                />
+              </FieldShell>
+              <FieldShell
+                label="Inventory category"
+                htmlFor="inventoryCategory"
+                required
+                error={errors.inventoryCategory?.message}
+                fullWidth
+              >
+                <TextInput
+                  id="inventoryCategory"
+                  placeholder="e.g. skincare, color cosmetics, fragrance, haircare"
+                  invalid={!!errors.inventoryCategory}
+                  {...register("inventoryCategory")}
+                />
+              </FieldShell>
+              <FieldShell
+                label="Estimated quantity"
+                htmlFor="estimatedQuantity"
+                required
+                hint="Units, pallets, or value"
+                error={errors.estimatedQuantity?.message}
+                fullWidth
+              >
+                <TextInput
+                  id="estimatedQuantity"
+                  placeholder="e.g. 5 pallets, ~2,000 units, $40k retail value"
+                  invalid={!!errors.estimatedQuantity}
+                  {...register("estimatedQuantity")}
+                />
+              </FieldShell>
+            </FieldGroup>
+          </div>
 
-          {/* Liquidator */}
-          {inquiryType === "liquidator" ? (
-            <div>
-              <h3 className="eyebrow text-text-soft">Liquidation details</h3>
-              <FieldGroup className="mt-5">
-                <FieldShell
-                  label="Inventory category"
-                  htmlFor="inventoryCategory"
-                  required
-                  error={e.inventoryCategory?.message}
-                  fullWidth
-                >
-                  <TextInput
-                    id="inventoryCategory"
-                    placeholder="e.g. cosmetics — skincare, color, fragrance"
-                    invalid={!!e.inventoryCategory}
-                    {...register("inventoryCategory")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Estimated quantity / pallet count"
-                  htmlFor="estimatedQuantity"
-                  required
-                  error={e.estimatedQuantity?.message}
-                >
-                  <TextInput
-                    id="estimatedQuantity"
-                    invalid={!!e.estimatedQuantity}
-                    {...register("estimatedQuantity")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Condition of inventory"
-                  htmlFor="condition"
-                  required
-                  error={e.condition?.message}
-                >
-                  <TextInput
-                    id="condition"
-                    placeholder="new in box, shelf pulls, mixed, customer returns…"
-                    invalid={!!e.condition}
-                    {...register("condition")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Asking price range"
-                  htmlFor="askingPrice"
-                  hint="Optional"
-                  error={e.askingPrice?.message}
-                  fullWidth
-                >
-                  <TextInput
-                    id="askingPrice"
-                    invalid={!!e.askingPrice}
-                    {...register("askingPrice")}
-                  />
-                </FieldShell>
-              </FieldGroup>
-            </div>
-          ) : null}
-
-          {/* Retail */}
-          {inquiryType === "retail" ? (
-            <div>
-              <h3 className="eyebrow text-text-soft">Retail liquidation details</h3>
-              <FieldGroup className="mt-5">
-                <FieldShell
-                  label="Store type / size"
-                  htmlFor="storeType"
-                  required
-                  error={e.storeType?.message}
-                >
-                  <TextInput
-                    id="storeType"
-                    invalid={!!e.storeType}
-                    {...register("storeType")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Reason for liquidation"
-                  htmlFor="reason"
-                  required
-                  error={e.reason?.message}
-                >
-                  <TextInput
-                    id="reason"
-                    placeholder="overstock, closeout, going out of business…"
-                    invalid={!!e.reason}
-                    {...register("reason")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Inventory categories available"
-                  htmlFor="categories"
-                  required
-                  error={e.categories?.message}
-                  fullWidth
-                >
-                  <TextInput
-                    id="categories"
-                    invalid={!!e.categories}
-                    {...register("categories")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Estimated retail value of inventory"
-                  htmlFor="estimatedRetailValue"
-                  hint="Optional"
-                  error={e.estimatedRetailValue?.message}
-                >
-                  <TextInput
-                    id="estimatedRetailValue"
-                    invalid={!!e.estimatedRetailValue}
-                    {...register("estimatedRetailValue")}
-                  />
-                </FieldShell>
-                <FieldShell
-                  label="Timeline to move inventory"
-                  htmlFor="timeline"
-                  required
-                  error={e.timeline?.message}
-                >
-                  <TextInput
-                    id="timeline"
-                    placeholder="ASAP, 2 weeks, 30 days, flexible…"
-                    invalid={!!e.timeline}
-                    {...register("timeline")}
-                  />
-                </FieldShell>
-              </FieldGroup>
-            </div>
-          ) : null}
-
-          {/* Shared bottom: notes + files */}
+          {/* Notes + files */}
           <div>
             <h3 className="eyebrow text-text-soft">Additional information</h3>
             <div className="mt-5 space-y-5">
               <FieldShell
-                label="Brief description / notes"
+                label="Notes / description"
                 htmlFor="notes"
                 hint="Optional"
-                error={e.notes?.message}
+                error={errors.notes?.message}
               >
                 <TextArea
                   id="notes"
                   rows={5}
-                  placeholder="Anything else we should know?"
-                  invalid={!!e.notes}
+                  placeholder="Anything else we should know — condition, timeline, asking price, etc."
+                  invalid={!!errors.notes}
                   {...register("notes")}
                 />
               </FieldShell>
-              <FileUpload
-                files={files}
-                onChange={setFiles}
-                required={inquiryType === "liquidator"}
-              />
+              <FileUpload files={files} onChange={setFiles} />
             </div>
           </div>
 
