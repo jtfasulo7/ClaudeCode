@@ -36,6 +36,7 @@ See `.env.example`. Set the same values in Vercel for each environment
 | --- | --- |
 | `GHL_WEBHOOK_URL` | Inbound webhook in GoHighLevel that receives inquiry submissions. Required in production. |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 measurement ID (`G-XXXXXXXXXX`). Optional; analytics is skipped if unset. |
+| `BLOB_READ_WRITE_TOKEN` | Vercel Blob token. Required when submissions include file uploads. Auto-injected by Vercel once a Blob store is connected to the project. |
 
 ## Project structure
 
@@ -64,13 +65,15 @@ Liquidator, Retail Store — and conditionally reveals different fields beneath
 the shared identity block based on selection. Validation is per-type via a
 Zod `discriminatedUnion`.
 
-File uploads (JPG/PNG/WEBP/PDF, ≤10 MB each, ≤25 MB total) are base64-encoded
-into the JSON payload sent to `/api/submit-inquiry`. The API route validates
-the payload again server-side, then forwards to `GHL_WEBHOOK_URL`.
+File uploads (JPG/PNG/WEBP/PDF, ≤10 MB each, ≤25 MB total) are sent to
+`/api/submit-inquiry` as `multipart/form-data`. The API route uploads each
+file to Vercel Blob (`access: "public"`, namespaced under
+`regent-goods-uploads/{timestamp}-{companySlug}/{filename}`) and forwards
+only the public URLs to `GHL_WEBHOOK_URL`.
 
-> **TODO (production scale):** Replace base64 file embedding with direct
-> uploads to S3 or Vercel Blob via presigned URLs; the GHL payload should
-> then contain only file URLs.
+The webhook payload includes both shapes for convenience:
+- `files: [{ name, url, type, size }]` — full metadata
+- `fileUrls: ["url1", "url2"]` — flat URL list, easiest for GHL action mapping
 
 ## Deployment (Vercel)
 

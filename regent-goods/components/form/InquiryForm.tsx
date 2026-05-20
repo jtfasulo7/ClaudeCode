@@ -18,21 +18,6 @@ import { FileUpload } from "./FileUpload";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-async function fileToBase64(
-  file: File,
-): Promise<{ name: string; type: string; size: number; data: string }> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const result = reader.result as string;
-      const base64 = result.includes(",") ? result.split(",")[1] : result;
-      resolve({ name: file.name, type: file.type, size: file.size, data: base64 });
-    };
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
-
 export function InquiryForm() {
   const [inquiryType, setInquiryType] = useState<InquiryType | "">("");
   const [files, setFiles] = useState<File[]>([]);
@@ -60,14 +45,18 @@ export function InquiryForm() {
     setStatus("submitting");
     setServerError(null);
     try {
-      // TODO: For production scale, upload files to S3 via presigned URL rather
-      // than base64-encoding into the JSON payload. This is a temporary approach.
-      const encodedFiles = await Promise.all(files.map(fileToBase64));
+      // Send form fields as a JSON payload string + each file as a binary part
+      // (multipart/form-data). The API route uploads files to Vercel Blob and
+      // forwards only URLs to the downstream webhook.
+      const formData = new FormData();
+      formData.append("payload", JSON.stringify(values));
+      for (const file of files) {
+        formData.append("files", file, file.name);
+      }
 
       const res = await fetch("/api/submit-inquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, files: encodedFiles }),
+        body: formData,
       });
 
       if (!res.ok) {
