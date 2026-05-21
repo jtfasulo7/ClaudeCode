@@ -24,10 +24,9 @@ export function HeroSection() {
             </p>
 
             <h1 className="display mt-7 text-[44px] leading-[1.02] font-extrabold tracking-[-0.025em] sm:text-[60px] lg:text-[76px]">
-              Wholesale sourcing and
+              Cosmetics category wholesale
               <br className="hidden sm:block" />{" "}
-              <span className="text-mute">liquidation buyer</span> for the
-              cosmetics industry.
+              <span className="text-mute">distributor and liquidation</span> buyer.
             </h1>
 
             <p className="mt-8 max-w-2xl text-[17px] leading-relaxed text-mute sm:text-[18px]">
@@ -68,7 +67,7 @@ export function HeroSection() {
               <p className="mt-2 text-[15px] text-paper leading-snug">
                 Cosmetics &amp; beauty
                 <br />
-                <span className="text-mute">Wholesale &middot; Liquidation &middot; Pallets</span>
+                <span className="text-mute">Wholesale &middot; Liquidation</span>
               </p>
             </div>
             <div>

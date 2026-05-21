@@ -16,7 +16,6 @@ const liquidation = [
   "Discontinued cosmetics & SKUs",
   "Closeout lots",
   "Retail liquidation",
-  "Pallets &amp; truckloads",
 ];
 
 function Bullet({ label }: { label: string }) {
@@ -48,7 +47,7 @@ export function WhatWeBuySection() {
             buy inventory.
           </h2>
           <p className="mt-6 max-w-md text-[16px] leading-relaxed text-text">
-            We work with brands, distributors, and retailers on both wholesale
+            We work with brands, liquidators, and retailers on both wholesale
             and liquidation transactions &mdash; supplying our active e-commerce
             resale operation.
           </p>
@@ -60,7 +59,7 @@ export function WhatWeBuySection() {
             <div>
               <p className="eyebrow text-navy">Wholesale</p>
               <h3 className="display mt-4 text-[24px] font-bold tracking-tight leading-snug">
-                Wholesale sourcing
+                Wholesale distribution
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-text">
                 We open wholesale accounts directly with brands, manufacturers,
@@ -85,8 +84,9 @@ export function WhatWeBuySection() {
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-text">
                 We also purchase liquidation inventory &mdash; overstock, shelf
-                pulls, discontinued cosmetics, closeouts, and pallets &mdash;
-                from retailers and brands looking to move inventory quickly.
+                pulls, discontinued cosmetics, and closeouts &mdash; from
+                liquidators, retailers, and individuals looking to move
+                inventory quickly.
               </p>
               <ul className="mt-7">
                 {liquidation.map((item) => (
