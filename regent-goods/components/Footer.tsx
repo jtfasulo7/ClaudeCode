@@ -35,9 +35,9 @@ export function Footer() {
           <div className="md:col-span-5">
             <Logo variant="dark" />
             <p className="mt-6 max-w-sm text-[14px] leading-relaxed text-mute">
-              Wholesale sourcing and liquidation buyer for cosmetics and beauty.
-              Built to supply our e-commerce resale operation across Whatnot,
-              Amazon, and growing channels.
+              Wholesale sourcing and liquidation buyer for trending consumer
+              products. Built to supply our e-commerce resale operation across
+              Whatnot, Amazon, and growing channels.
             </p>
 
             <address className="not-italic mt-8 space-y-2 text-[14px] text-mute">

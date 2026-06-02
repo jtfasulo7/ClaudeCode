@@ -5,7 +5,7 @@ import { Button } from "../Button";
 const wholesale = [
   "Direct from brands & manufacturers",
   "Authorized distributors",
-  "Cosmetics & beauty product lines",
+  "Trending consumer product lines",
   "Long-term supplier relationships",
   "Open volume terms",
 ];
@@ -13,7 +13,7 @@ const wholesale = [
 const liquidation = [
   "Overstock inventory",
   "Shelf pulls & store returns",
-  "Discontinued cosmetics & SKUs",
+  "Discontinued & end-of-life SKUs",
   "Closeout lots",
   "Retail liquidation",
 ];
@@ -63,9 +63,9 @@ export function WhatWeBuySection() {
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-text">
                 We open wholesale accounts directly with brands, manufacturers,
-                and distributors in the cosmetics and beauty space &mdash;
-                building long-term supplier relationships to fuel our e-commerce
-                distribution operation.
+                and distributors across trending consumer product categories
+                &mdash; building long-term supplier relationships to fuel our
+                e-commerce distribution operation.
               </p>
               <ul className="mt-7">
                 {wholesale.map((item) => (
@@ -84,7 +84,7 @@ export function WhatWeBuySection() {
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-text">
                 We also purchase liquidation inventory &mdash; overstock, shelf
-                pulls, discontinued cosmetics, and closeouts &mdash; from
+                pulls, discontinued SKUs, and closeouts &mdash; from
                 liquidators, retailers, and individuals looking to move
                 inventory quickly.
               </p>

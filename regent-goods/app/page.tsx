@@ -15,7 +15,7 @@ const organizationSchema = {
   url: "https://regentgoodsliquidation.com",
   logo: "https://regentgoodsliquidation.com/logo.png",
   description:
-    "Wholesale sourcing and liquidation buyer specializing in cosmetics and beauty inventory.",
+    "Wholesale sourcing and liquidation buyer specializing in trending consumer product inventory.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "2601 Washington Ln",

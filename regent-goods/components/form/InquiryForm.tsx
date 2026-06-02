@@ -193,7 +193,7 @@ export function InquiryForm() {
               >
                 <TextInput
                   id="companyType"
-                  placeholder="e.g. cosmetics brand, distributor, liquidator, retail chain"
+                  placeholder="e.g. consumer brand, distributor, liquidator, retail chain"
                   invalid={!!errors.companyType}
                   {...register("companyType")}
                 />
@@ -207,7 +207,7 @@ export function InquiryForm() {
               >
                 <TextInput
                   id="inventoryCategory"
-                  placeholder="e.g. skincare, color cosmetics, fragrance, haircare"
+                  placeholder="e.g. trending consumer products, electronics, home goods, beauty"
                   invalid={!!errors.inventoryCategory}
                   {...register("inventoryCategory")}
                 />

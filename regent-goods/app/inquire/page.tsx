@@ -88,7 +88,7 @@ export default function InquirePage() {
                   <div>
                     <p className="eyebrow text-text-soft">What we buy</p>
                     <ul className="mt-3 space-y-1.5 text-[14px] text-text">
-                      <li>Wholesale cosmetics &amp; beauty</li>
+                      <li>Wholesale trending consumer products</li>
                       <li>Liquidation pallets &amp; lots</li>
                       <li>Overstock, shelf pulls, closeouts</li>
                       <li>Retail liquidation</li>

@@ -4,7 +4,7 @@ const platforms = [
   {
     name: "Whatnot",
     tag: "Live auctions",
-    body: "High-velocity live selling. Engaged real-time buyers. Cosmetics-focused audiences.",
+    body: "High-velocity live selling. Engaged real-time buyers. Trend-driven audiences.",
   },
   {
     name: "Amazon",

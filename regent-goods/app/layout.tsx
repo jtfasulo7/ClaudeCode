@@ -21,18 +21,20 @@ const siteUrl = "https://regentgoodsliquidation.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Regent Goods Wholesale & Liquidation | Cosmetics Wholesale Buyer",
+    default:
+      "Regent Goods Wholesale & Liquidation | Trending Consumer Product Buyer",
     template: "%s | Regent Goods",
   },
   description:
-    "Wholesale sourcing and liquidation buyer for cosmetics and beauty inventory. Selling on Whatnot, Amazon, and growing e-commerce channels. Submit inventory or open a wholesale account.",
+    "Wholesale sourcing and liquidation buyer for trending consumer product inventory. Selling on Whatnot, Amazon, and growing e-commerce channels. Submit inventory or open a wholesale account.",
   applicationName: "Regent Goods",
   keywords: [
-    "cosmetics wholesale",
-    "beauty liquidation",
+    "trending consumer products",
+    "viral product reseller",
     "wholesale buyer",
     "liquidation pallets",
-    "overstock cosmetics",
+    "overstock inventory",
+    "trending product liquidation",
     "Whatnot reseller",
     "Amazon reseller",
     "Bethlehem PA wholesale",
@@ -44,9 +46,10 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Regent Goods Wholesale & Liquidation",
-    title: "Regent Goods Wholesale & Liquidation | Cosmetics Wholesale Buyer",
+    title:
+      "Regent Goods Wholesale & Liquidation | Trending Consumer Product Buyer",
     description:
-      "Wholesale sourcing and liquidation buyer for cosmetics and beauty inventory. Selling on Whatnot, Amazon, and growing e-commerce channels.",
+      "Wholesale sourcing and liquidation buyer for trending consumer product inventory. Selling on Whatnot, Amazon, and growing e-commerce channels.",
     images: [
       {
         // TODO: Replace with real 1200x630 brand image at public/og-image.jpg
@@ -61,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Regent Goods Wholesale & Liquidation",
     description:
-      "Wholesale sourcing and liquidation buyer for cosmetics and beauty inventory.",
+      "Wholesale sourcing and liquidation buyer for trending consumer product inventory.",
     images: ["/og-image.jpg"],
   },
   robots: {

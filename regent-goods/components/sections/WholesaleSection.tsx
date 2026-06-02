@@ -31,9 +31,10 @@ export function WholesaleSection() {
             and distributors.
           </h2>
           <p className="mt-6 max-w-md text-[16px] leading-relaxed text-text">
-            We open wholesale accounts with brands and distributors in cosmetics
-            and beauty, offering scalable multi-platform e-commerce
-            distribution, including live-selling exposure on Whatnot.
+            We open wholesale accounts with brands and distributors across
+            trending consumer product categories, offering scalable
+            multi-platform e-commerce distribution, including live-selling
+            exposure on Whatnot.
           </p>
           <div className="mt-8">
             <Button href="/inquire" variant="primary" size="lg" withArrow>

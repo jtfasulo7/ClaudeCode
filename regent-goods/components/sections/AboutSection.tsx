@@ -2,7 +2,7 @@ import { Section } from "../Section";
 
 const facts = [
   { label: "Based in", value: "Bethlehem, PA" },
-  { label: "Vertical", value: "Cosmetics & beauty" },
+  { label: "Vertical", value: "Trending consumer goods" },
   { label: "Operation", value: "Wholesale + liquidation" },
   { label: "Channels", value: "Whatnot, Amazon, e-commerce" },
 ];
@@ -19,8 +19,8 @@ export function AboutSection() {
           <div className="mt-8 space-y-5 text-[17px] leading-relaxed text-ink max-w-2xl">
             <p>
               Regent Goods Wholesale &amp; Liquidation is an e-commerce resale
-              operation specializing in cosmetics and beauty inventory. We
-              source wholesale directly from brands and distributors, and
+              operation specializing in trending consumer product inventory.
+              We source wholesale directly from brands and distributors, and
               purchase liquidation lots from retailers moving overstock,
               shelf pulls, and closeouts.
             </p>
@@ -53,7 +53,7 @@ export function AboutSection() {
               <p className="eyebrow text-mute">Operation</p>
               <div>
                 <p className="display text-paper text-[28px] font-bold leading-tight tracking-tight sm:text-[34px]">
-                  Cosmetics &amp; beauty
+                  Trending consumer goods
                   <br />
                   <span className="text-mute">moving through volume.</span>
                 </p>
