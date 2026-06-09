@@ -609,9 +609,15 @@ function renderPage(s) {
 <meta name="theme-color" content="#2d6a3a">
 <meta property="og:title" content="${s.title}">
 <meta property="og:description" content="${s.metaDescription}">
-<meta property="og:image" content="${s.bg}">
+<meta property="og:image" content="${ORIGIN}/images/og/${s.slug}.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://jblandscape.com/services/${s.slug}">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${s.title}">
+<meta name="twitter:description" content="${s.metaDescription}">
+<meta name="twitter:image" content="${ORIGIN}/images/og/${s.slug}.jpg">
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

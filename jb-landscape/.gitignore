@@ -1,1 +1,5 @@
 .vercel
+
+# Source photos for OG image generation (multi-MB AI renders).
+# The built, branded OG images in /images/og and /og-image.jpg ARE committed.
+scripts/og-src/
