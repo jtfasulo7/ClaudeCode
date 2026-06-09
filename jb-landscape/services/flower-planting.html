@@ -18,6 +18,92 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="preload" as="image" href="https://plus.unsplash.com/premium_photo-1748437648638-0ae512e72f6d?w=1800&auto=format&fit=crop" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Flower and Garden Planting",
+  "name": "Flower Planting",
+  "description": "Annual and perennial flower planting across Rhode Island. Bed prep, planting, and a watering plan you can actually follow.",
+  "url": "https://jblandscape.com/services/flower-planting",
+  "areaServed": {
+    "@type": "State",
+    "name": "Rhode Island"
+  },
+  "provider": {
+    "@type": "LandscapingBusiness",
+    "name": "J.B. Landscape",
+    "telephone": "+14012304820",
+    "url": "https://jblandscape.com",
+    "image": "https://jblandscape.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Providence",
+      "addressRegion": "RI",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jblandscape.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://jblandscape.com/#services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Flower Planting",
+      "item": "https://jblandscape.com/services/flower-planting"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When can I plant annuals in Rhode Island?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wait until after the last frost, typically mid-to-late May along the coast and a touch later inland. Perennials and bulbs can go in earlier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What flowers come back every year here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hardy perennials like hostas, daylilies, coneflowers, and black-eyed susans thrive in our climate and return each season. We can build a bed around them so you're not replanting every spring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will you maintain the beds after planting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We can fold bed weeding and deadheading into a regular maintenance visit, or set you up with a watering plan to handle it yourself."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -33,6 +119,14 @@
     <a href="/#contact">Free Estimate</a>
     <a href="tel:+14012304820" class="nav-phone">(401) 230-4820</a>
   </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li aria-current="page">Flower Planting</li>
+  </ol>
 </nav>
 
 <header class="service-hero">
@@ -77,10 +171,44 @@
     <h3>Pricing.</h3>
     <p>Most residential flower beds in Rhode Island run $150–$600 depending on size, plant count, and whether soil amendment is needed. Containers and balcony pots are priced per arrangement.</p>
 
+    <h3>Why it matters in Rhode Island.</h3>
+    <p>Rhode Island's last spring frost lands in mid-to-late May, and tender annuals set out before then get burned by a cold snap. Our coastal soil also runs sandy near the bay and heavy inland, so the same flower bed can need very different prep a few towns apart. We time planting to the local frost window and amend the bed to match your soil, then pick a mix that carries color from the first warm week through the first hard frost in October.</p>
+
+    <h3>Frequently asked questions.</h3>
+    <div class="faq-list service-faq">
+      <details class="faq-item">
+        <summary>When can I plant annuals in Rhode Island?</summary>
+        <div class="faq-body"><p>Wait until after the last frost, typically mid-to-late May along the coast and a touch later inland. Perennials and bulbs can go in earlier.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What flowers come back every year here?</summary>
+        <div class="faq-body"><p>Hardy perennials like hostas, daylilies, coneflowers, and black-eyed susans thrive in our climate and return each season. We can build a bed around them so you're not replanting every spring.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Will you maintain the beds after planting?</summary>
+        <div class="faq-body"><p>We can fold bed weeding and deadheading into a regular maintenance visit, or set you up with a watering plan to handle it yourself.</p></div>
+      </details>
+    </div>
+
     <div class="service-cta-row">
       <a href="/#contact" class="btn-primary">Get a free estimate <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       <a href="tel:+14012304820" class="btn-ghost">Call (401) 230-4820</a>
     </div>
+  </div>
+</section>
+
+<section class="service-related">
+  <h3>Related services.</h3>
+  <div class="related-links">
+      <a href="/services/mulch-installation" class="related-link">Mulch Installation
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/bush-planting-trimming" class="related-link">Bush Planting & Trimming
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/spring-cleanup" class="related-link">Spring Cleanup
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
   </div>
 </section>
 

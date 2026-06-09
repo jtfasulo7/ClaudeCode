@@ -18,6 +18,92 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1757838661170-186930ac95db?w=1800&auto=format&fit=crop" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mulch Installation",
+  "name": "Mulch Installation",
+  "description": "Fresh mulch installation across Rhode Island. Bed edging, weed pull, and mulch laid even. Hemlock, black, natural, or playground.",
+  "url": "https://jblandscape.com/services/mulch-installation",
+  "areaServed": {
+    "@type": "State",
+    "name": "Rhode Island"
+  },
+  "provider": {
+    "@type": "LandscapingBusiness",
+    "name": "J.B. Landscape",
+    "telephone": "+14012304820",
+    "url": "https://jblandscape.com",
+    "image": "https://jblandscape.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Providence",
+      "addressRegion": "RI",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jblandscape.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://jblandscape.com/#services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Mulch Installation",
+      "item": "https://jblandscape.com/services/mulch-installation"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How often should mulch be refreshed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once a year is typical in Rhode Island — a fresh top-up each spring restores the color and keeps the depth right. Beds that lost a lot over winter may need a little more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much mulch will my property need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most residential properties take 3 to 8 yards. We measure your beds and give you a fixed price for material plus install — no per-hour billing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of mulch is best?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hemlock gives the classic New England reddish-brown; black mulch reads sharp against green lawns; natural undyed holds its color longer than people expect. It's your call."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -33,6 +119,14 @@
     <a href="/#contact">Free Estimate</a>
     <a href="tel:+14012304820" class="nav-phone">(401) 230-4820</a>
   </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li aria-current="page">Mulch Installation</li>
+  </ol>
 </nav>
 
 <header class="service-hero">
@@ -77,10 +171,44 @@
     <h3>Pricing.</h3>
     <p>Mulch is priced by the yard delivered + labor to install. Most residential properties in Rhode Island need 3–8 yards. Fixed-price quote after a quick walk-through — no per-hour billing.</p>
 
+    <h3>Why it matters in Rhode Island.</h3>
+    <p>Mulch does more in New England than make a bed look finished. A 2-to-3-inch layer insulates roots against our freeze-thaw winters, holds moisture through the dry midsummer stretch, and keeps weeds down during the long spring flush. Lay it too thick or pile it against trunks and you trap moisture and invite rot — the 'mulch volcanoes' you see everywhere. We edge the bed first, pull the weeds, and lay it even and pulled back from every trunk.</p>
+
+    <h3>Frequently asked questions.</h3>
+    <div class="faq-list service-faq">
+      <details class="faq-item">
+        <summary>How often should mulch be refreshed?</summary>
+        <div class="faq-body"><p>Once a year is typical in Rhode Island — a fresh top-up each spring restores the color and keeps the depth right. Beds that lost a lot over winter may need a little more.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How much mulch will my property need?</summary>
+        <div class="faq-body"><p>Most residential properties take 3 to 8 yards. We measure your beds and give you a fixed price for material plus install — no per-hour billing.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What kind of mulch is best?</summary>
+        <div class="faq-body"><p>Hemlock gives the classic New England reddish-brown; black mulch reads sharp against green lawns; natural undyed holds its color longer than people expect. It's your call.</p></div>
+      </details>
+    </div>
+
     <div class="service-cta-row">
       <a href="/#contact" class="btn-primary">Get a free estimate <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       <a href="tel:+14012304820" class="btn-ghost">Call (401) 230-4820</a>
     </div>
+  </div>
+</section>
+
+<section class="service-related">
+  <h3>Related services.</h3>
+  <div class="related-links">
+      <a href="/services/spring-cleanup" class="related-link">Spring Cleanup
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/flower-planting" class="related-link">Flower Planting
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/bush-planting-trimming" class="related-link">Bush Planting & Trimming
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
   </div>
 </section>
 

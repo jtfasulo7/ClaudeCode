@@ -341,6 +341,134 @@ const services = [
   },
 ];
 
+// Short, human labels per slug — used for breadcrumbs, schema, and related links.
+const NAME_BY_SLUG = {
+  'lawn-cutting': 'Lawn Cutting',
+  'tree-planting-removal': 'Tree Planting & Removal',
+  'bush-planting-trimming': 'Bush Planting & Trimming',
+  'flower-planting': 'Flower Planting',
+  'mulch-installation': 'Mulch Installation',
+  'cobblestone-patio': 'Cobblestone Patio Installation',
+  'gravel-patio': 'Gravel Patio Installation',
+  'lawn-seeding': 'Lawn Seeding',
+  'sod-installation': 'Sod Roll Installation',
+  'spring-cleanup': 'Spring Cleanup',
+  'snow-removal': 'Snow Removal',
+  'junk-removal': 'Junk Removal',
+};
+
+// schema.org Service.serviceType per slug.
+const SERVICE_TYPE = {
+  'lawn-cutting': 'Lawn Mowing',
+  'tree-planting-removal': 'Tree Service',
+  'bush-planting-trimming': 'Shrub and Hedge Service',
+  'flower-planting': 'Flower and Garden Planting',
+  'mulch-installation': 'Mulch Installation',
+  'cobblestone-patio': 'Patio Installation',
+  'gravel-patio': 'Patio Installation',
+  'lawn-seeding': 'Lawn Seeding',
+  'sod-installation': 'Sod Installation',
+  'spring-cleanup': 'Yard Cleanup',
+  'snow-removal': 'Snow Removal',
+  'junk-removal': 'Junk Removal',
+};
+
+// 2–3 related services per slug (internal-link block).
+const RELATED = {
+  'lawn-cutting': ['lawn-seeding', 'spring-cleanup', 'mulch-installation'],
+  'tree-planting-removal': ['bush-planting-trimming', 'junk-removal', 'mulch-installation'],
+  'bush-planting-trimming': ['flower-planting', 'mulch-installation', 'spring-cleanup'],
+  'flower-planting': ['mulch-installation', 'bush-planting-trimming', 'spring-cleanup'],
+  'mulch-installation': ['spring-cleanup', 'flower-planting', 'bush-planting-trimming'],
+  'cobblestone-patio': ['gravel-patio', 'mulch-installation', 'flower-planting'],
+  'gravel-patio': ['cobblestone-patio', 'mulch-installation', 'junk-removal'],
+  'lawn-seeding': ['sod-installation', 'lawn-cutting', 'spring-cleanup'],
+  'sod-installation': ['lawn-seeding', 'lawn-cutting', 'spring-cleanup'],
+  'spring-cleanup': ['mulch-installation', 'lawn-cutting', 'lawn-seeding'],
+  'snow-removal': ['spring-cleanup', 'junk-removal', 'lawn-cutting'],
+  'junk-removal': ['spring-cleanup', 'snow-removal', 'tree-planting-removal'],
+};
+
+// "Why it matters in Rhode Island" paragraph per slug — local climate/soil angle.
+const WHY_RI = {
+  'lawn-cutting': "Rhode Island lawns are mostly cool-season grasses — fescue, ryegrass, and Kentucky bluegrass — that grow hard in spring and fall and slow down in the July heat. Cutting on the same schedule all year stresses the turf when it's already fighting drought. We adjust deck height and frequency to the season, raising the cut in midsummer so the roots stay shaded and the lawn holds its color through the dry stretch. The result is turf that survives a New England summer instead of burning out by August.",
+  'tree-planting-removal': "New England soil and weather are hard on trees. Our heavy, often rocky soil drains unevenly, and the freeze-thaw cycles that run all winter heave shallow root balls right out of the ground. Planting at the right depth, in amended soil, with the right species for your sun and drainage is what separates a tree that establishes from one that's dead by its second spring. On removals, our wet clay and storm-loosened root plates make leaning trees more dangerous than they look — we survey for that before anything comes down.",
+  'bush-planting-trimming': "Rhode Island's seasons set the trimming calendar. Spring-flowering shrubs like rhododendron, lilac, and forsythia set their buds the year before, so cutting them at the wrong time means a season with no blooms. Evergreen hedges — arborvitae, boxwood, yew — need a clean early-season shape and a light late-summer touch-up to stay tight through winter snow load. We trim on the schedule each plant actually wants, not all at once, so your beds look intentional instead of hacked back.",
+  'flower-planting': "Rhode Island's last spring frost lands in mid-to-late May, and tender annuals set out before then get burned by a cold snap. Our coastal soil also runs sandy near the bay and heavy inland, so the same flower bed can need very different prep a few towns apart. We time planting to the local frost window and amend the bed to match your soil, then pick a mix that carries color from the first warm week through the first hard frost in October.",
+  'mulch-installation': "Mulch does more in New England than make a bed look finished. A 2-to-3-inch layer insulates roots against our freeze-thaw winters, holds moisture through the dry midsummer stretch, and keeps weeds down during the long spring flush. Lay it too thick or pile it against trunks and you trap moisture and invite rot — the 'mulch volcanoes' you see everywhere. We edge the bed first, pull the weeds, and lay it even and pulled back from every trunk.",
+  'cobblestone-patio': "Most patios that fail in Rhode Island fail for one reason: the base couldn't handle the freeze-thaw. Water gets into a shallow or poorly compacted base, freezes, expands, and lifts the stone — and by the third winter the patio is heaved and uneven. We dig below the frost-affected zone, compact crushed gravel in lifts, and lock the perimeter with real edge restraint so the surface stays flat through New England winters instead of moving with them.",
+  'gravel-patio': "A gravel patio is the fastest way to add usable outdoor space in Rhode Island without committing to full hardscape, but our wet springs and freeze-thaw winters punish a lazy install. Skip the weed barrier and the base and you get a muddy, weed-choked mess by the second season. We excavate, lay geotextile fabric, compact a proper base, and edge it so the stone stays put and drains instead of pooling after every nor'easter.",
+  'lawn-seeding': "Rhode Island's seeding calendar is short and unforgiving. Late August through early October is the prime window — the soil is still warm enough to germinate but the cooling air keeps young grass from frying and gives it a jump on spring weeds. Seed in the heat of summer and most of it never takes. We prep the soil, match the seed to your sun and shade, and set you up with the watering plan that makes or breaks the first three weeks.",
+  'sod-installation': "Sod gives you an instant lawn, but in Rhode Island the grade prep and the first two weeks of water decide whether it roots or dies. Our heavy soil and uneven lots mean drainage has to be graded away from the foundation before a single roll goes down, and our windy, sometimes dry early summers can cook fresh sod that isn't watered right. We grade, prep, lay it tight with staggered seams, roll it, and walk you through the schedule that gets it established.",
+  'spring-cleanup': "A New England winter leaves a mess that smothers a lawn if it sits. Matted leaves, fallen branches, and salt-burned edges trap moisture and block the spring growth your turf needs to fill in. A real spring cleanup pulls all of that off the property before mulch goes down, so the lawn greens up by mid-May instead of struggling into July. Booked early, it's the single best thing you can do to set up the whole season.",
+  'snow-removal': "Rhode Island winters swing from a dusting to a two-foot nor'easter, and the wet, heavy snow off the bay is some of the hardest to move in the Northeast. A driveway that isn't cleared and salted by morning turns to ice that lingers for days. We run a small fleet of dedicated snow rigs and stay on call for every storm, so you're plowed, shoveled, and salted before you need to leave — no two-day wait, no ghosting.",
+  'junk-removal': "Rhode Island's transfer-station rules and disposal fees make hauling junk yourself more of a hassle than it looks — different items go to different places, and some need a permit. We bring the truck, load it, sort what can be recycled or donated from what has to go to the transfer station, and sweep the site clean. You point at what needs to go; the disposal logistics are our problem, not yours.",
+};
+
+// 2–3 service-specific FAQs per slug (rendered visibly + as FAQPage schema).
+const FAQS = {
+  'lawn-cutting': [
+    { q: 'How tall should I keep my lawn in Rhode Island?', a: "For our cool-season grasses, 3 to 3.5 inches is the sweet spot — tall enough to shade the soil and crowd out crabgrass, short enough to look sharp. We raise the deck another half inch in the peak of summer." },
+    { q: 'When does the mowing season start and end here?', a: "Most Rhode Island lawns need weekly cutting from late April through October, with a final cleanup cut after the last leaves drop. We flex the schedule with the weather, not the calendar." },
+    { q: 'Do I need to be home for service?', a: "No. We text the morning of, mow within our window, and text again when we're done — usually with a photo." },
+  ],
+  'tree-planting-removal': [
+    { q: 'When is the best time to plant a tree in Rhode Island?', a: "Early fall is ideal — the soil is still warm but the air is cool, so roots establish before winter. Spring is a strong second choice. We avoid planting into the peak of summer heat." },
+    { q: 'Do you remove the stump too?', a: "We can grind the stump flush or fully out as a separate line item. Some customers leave a low stump; most want it gone so they can reseed or replant." },
+    { q: 'What do you do with the wood and brush?', a: "It all leaves with us. Every removal includes full haul-away and a final rake and blow-down of the work area." },
+  ],
+  'bush-planting-trimming': [
+    { q: 'When should my shrubs be trimmed?', a: "It depends on the plant. Spring bloomers get trimmed right after they flower; evergreens and hedges get an early-spring shape and a late-summer cleanup. We'll tell you what each shrub on your property needs." },
+    { q: 'Can you plant a privacy hedge?', a: "Yes. Arborvitae is the most popular privacy hedge in Rhode Island — we lay out the spacing to your property line, plant level, mulch each one, and water it in." },
+    { q: 'How often do hedges need trimming?', a: "Fast-growing hedges may need three passes a season to keep crisp lines; slower evergreens are usually fine with two." },
+  ],
+  'flower-planting': [
+    { q: 'When can I plant annuals in Rhode Island?', a: "Wait until after the last frost, typically mid-to-late May along the coast and a touch later inland. Perennials and bulbs can go in earlier." },
+    { q: 'What flowers come back every year here?', a: "Hardy perennials like hostas, daylilies, coneflowers, and black-eyed susans thrive in our climate and return each season. We can build a bed around them so you're not replanting every spring." },
+    { q: 'Will you maintain the beds after planting?', a: "We can fold bed weeding and deadheading into a regular maintenance visit, or set you up with a watering plan to handle it yourself." },
+  ],
+  'mulch-installation': [
+    { q: 'How often should mulch be refreshed?', a: "Once a year is typical in Rhode Island — a fresh top-up each spring restores the color and keeps the depth right. Beds that lost a lot over winter may need a little more." },
+    { q: 'How much mulch will my property need?', a: "Most residential properties take 3 to 8 yards. We measure your beds and give you a fixed price for material plus install — no per-hour billing." },
+    { q: 'What kind of mulch is best?', a: "Hemlock gives the classic New England reddish-brown; black mulch reads sharp against green lawns; natural undyed holds its color longer than people expect. It's your call." },
+  ],
+  'cobblestone-patio': [
+    { q: 'Why do some patios heave and crack after a few winters?', a: "Almost always a base problem. A shallow or under-compacted base traps water that freezes and lifts the stone. We over-excavate and compact in lifts specifically to prevent that." },
+    { q: 'How long does a cobblestone patio installation take?', a: "Most residential patios run a few days to a week, depending on size, access, and base depth. We give you a real timeline with the estimate." },
+    { q: 'Do you install pool surrounds and walkways too?', a: "Yes — pool decks, walkways, stoops, and fire-pit surrounds all use the same base-first method." },
+  ],
+  'gravel-patio': [
+    { q: 'Will weeds grow up through a gravel patio?', a: "Not if it's built right. We lay geotextile weed-barrier fabric under the stone, which blocks weeds while still letting water drain through." },
+    { q: 'How is a gravel patio different from a paver patio?', a: "Gravel is faster and lower-cost, with a softer, more casual look — ideal for fire pits and seating areas. Pavers and cobblestone give a finished, formal surface. We install both." },
+    { q: 'Does a gravel patio drain well in the rain?', a: "Yes — that's one of its advantages. Water passes through the stone and base instead of pooling, which suits our wet New England springs." },
+  ],
+  'lawn-seeding': [
+    { q: 'When is the best time to seed a lawn in Rhode Island?', a: "Late August through October is the prime window. Early spring is a workable second choice, though you'll fight more weed competition. Mid-summer is too hot for reliable germination." },
+    { q: 'Should I seed or lay sod?', a: "Seed costs less and works well when you have time to let it establish; sod gives you an instant lawn. We'll look at your yard and tell you honestly which makes sense." },
+    { q: 'How long until I can mow new grass?', a: "Usually three to four weeks, once the new blades reach about three inches. We'll walk you through the watering and first-mow timing." },
+  ],
+  'sod-installation': [
+    { q: 'When can sod be installed in Rhode Island?', a: "Spring and early fall are best. Summer installs are possible but need more water; we avoid frozen ground and wait for the thaw." },
+    { q: 'How soon can I walk on or mow new sod?', a: "Stay off it for about two weeks while it roots, then wait until it's anchored and about three inches tall before the first mow. We review the timeline with you." },
+    { q: 'Where does your sod come from?', a: "We source premium-grade sod from a local farm so it's fresh and suited to our climate, not trucked in from out of region." },
+  ],
+  'spring-cleanup': [
+    { q: 'When should spring cleanup happen?', a: "As soon as the ground thaws — typically mid-March in southern Rhode Island and early April north of Providence. Booking early matters; the calendar fills before the snow is gone." },
+    { q: "What's included in a spring cleanup?", a: "Leaf and debris pickup across lawn and beds, dead-stem cutback, a light dethatch, hard-edging along every bed and walk, and full haul-away — nothing left curbside." },
+    { q: 'Should I add mulch at the same time?', a: "It's the most popular pairing. Cleaning the beds and laying fresh mulch in one visit gives the whole property an instant reset." },
+  ],
+  'snow-removal': [
+    { q: 'Do you offer seasonal contracts or per-storm pricing?', a: "Both. A seasonal contract is a flat monthly rate covering unlimited storms; per-storm pricing means you only pay when it snows. Seasonal customers get priority routing." },
+    { q: 'How fast do you clear after a storm?', a: "Driveways are cleared by morning so you can get to work. We also make a push-back pass once the storm ends." },
+    { q: 'When should I sign up?', a: "Seasonal contracts open in October and close when we hit capacity, usually by mid-November. Per-storm customers can call any time." },
+  ],
+  'junk-removal': [
+    { q: 'How is junk removal priced?', a: "By truck-load — quarter, half, three-quarter, or full. You'll see the truck before we start, and the quote is fixed with no hidden disposal fees." },
+    { q: "What can't you take?", a: "Hazardous chemicals and paint, tires (we can refer a recycler), and anything that requires a special permit to dispose of. Just about everything else is fair game." },
+    { q: 'Do you do full cleanouts?', a: "Yes — garage, basement, and estate cleanouts are some of our most common jobs. We handle the whole space, not just curbside items." },
+  ],
+};
+
 // Footer service list (6 most prominent) — shared across pages
 const footerServices = [
   ['Lawn Cutting', '/services/lawn-cutting'],
@@ -360,6 +488,112 @@ ${s.list.map(li => `      <li>${li}</li>`).join('\n')}
   }
   return `    <h3>${s.h}</h3>
     <p>${s.body}</p>`;
+}
+
+const ORIGIN = 'https://jblandscape.com';
+
+// Visible "Home / Services / [Service]" breadcrumb.
+function renderBreadcrumb(s) {
+  return `<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li aria-current="page">${NAME_BY_SLUG[s.slug]}</li>
+  </ol>
+</nav>`;
+}
+
+// "Why it matters in Rhode Island" prose block.
+function renderWhyRI(s) {
+  const why = WHY_RI[s.slug];
+  if (!why) return '';
+  return `
+    <h3>Why it matters in Rhode Island.</h3>
+    <p>${why}</p>`;
+}
+
+// Visible FAQ accordion (mirrors the homepage FAQ markup).
+function renderFaqVisible(s) {
+  const faqs = FAQS[s.slug];
+  if (!faqs || !faqs.length) return '';
+  const items = faqs.map(f => `      <details class="faq-item">
+        <summary>${f.q}</summary>
+        <div class="faq-body"><p>${f.a}</p></div>
+      </details>`).join('\n');
+  return `
+    <h3>Frequently asked questions.</h3>
+    <div class="faq-list service-faq">
+${items}
+    </div>`;
+}
+
+// Internal-links block to 2–3 related services.
+function renderRelated(s) {
+  const related = RELATED[s.slug] || [];
+  if (!related.length) return '';
+  const links = related.map(slug =>
+    `      <a href="/services/${slug}" class="related-link">${NAME_BY_SLUG[slug]}
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>`).join('\n');
+  return `
+<section class="service-related">
+  <h3>Related services.</h3>
+  <div class="related-links">
+${links}
+  </div>
+</section>`;
+}
+
+// JSON-LD: Service + BreadcrumbList + FAQPage for one service page.
+function renderSchema(s) {
+  const url = `${ORIGIN}/services/${s.slug}`;
+  const service = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: SERVICE_TYPE[s.slug] || NAME_BY_SLUG[s.slug],
+    name: NAME_BY_SLUG[s.slug],
+    description: s.metaDescription,
+    url,
+    areaServed: { '@type': 'State', name: 'Rhode Island' },
+    provider: {
+      '@type': 'LandscapingBusiness',
+      name: 'J.B. Landscape',
+      telephone: '+14012304820',
+      url: ORIGIN,
+      image: `${ORIGIN}/logo.png`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Providence',
+        addressRegion: 'RI',
+        addressCountry: 'US',
+      },
+    },
+  };
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${ORIGIN}/#services` },
+      { '@type': 'ListItem', position: 3, name: NAME_BY_SLUG[s.slug], item: url },
+    ],
+  };
+  const blocks = [service, breadcrumb];
+  const faqs = FAQS[s.slug];
+  if (faqs && faqs.length) {
+    blocks.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(f => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    });
+  }
+  return blocks
+    .map(b => `<script type="application/ld+json">\n${JSON.stringify(b, null, 2)}\n</script>`)
+    .join('\n');
 }
 
 function renderPage(s) {
@@ -383,6 +617,8 @@ function renderPage(s) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="preload" as="image" href="${s.bg}" fetchpriority="high">
+${renderSchema(s)}
 </head>
 <body>
 <nav class="nav">
@@ -399,6 +635,8 @@ function renderPage(s) {
     <a href="tel:+14012304820" class="nav-phone">(401) 230-4820</a>
   </div>
 </nav>
+
+${renderBreadcrumb(s)}
 
 <header class="service-hero">
   <div class="service-hero-bg" style="background-image:url('${s.bg}');" aria-hidden="true"></div>
@@ -423,6 +661,8 @@ function renderPage(s) {
     <p>${s.intro}</p>
 
 ${s.sections.map(renderSection).join('\n\n')}
+${renderWhyRI(s)}
+${renderFaqVisible(s)}
 
     <div class="service-cta-row">
       <a href="/#contact" class="btn-primary">Get a free estimate <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
@@ -430,6 +670,7 @@ ${s.sections.map(renderSection).join('\n\n')}
     </div>
   </div>
 </section>
+${renderRelated(s)}
 
 <footer class="footer">
   <div class="footer-inner">

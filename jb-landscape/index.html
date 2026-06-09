@@ -47,6 +47,11 @@
     "addressRegion": "RI",
     "addressCountry": "US"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8240,
+    "longitude": -71.4128
+  },
   "areaServed": [
     {"@type": "City", "name": "Providence"},
     {"@type": "City", "name": "Cranston"},
@@ -60,10 +65,68 @@
     {"@type": "AdministrativeArea", "name": "Rhode Island"}
   ],
   "priceRange": "$$",
-  "openingHours": "Mo-Sa 07:00-18:00",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": ["https://share.google/B4oOGuLUCJUXEUkCl"],
   "description": "Family-run landscaping company serving Providence and Greater Rhode Island. Lawn cutting, tree and bush planting and removal, flower planting, mulch installation, cobblestone and gravel patios, seeding, sod, spring cleanups, snow removal, and junk removal. Licensed and insured.",
   "knowsAbout": ["Lawn Cutting", "Tree Planting", "Tree Removal", "Bush Planting", "Bush Trimming", "Flower Planting", "Mulch Installation", "Cobblestone Patio Installation", "Gravel Patio Installation", "Lawn Seeding", "Sod Roll Installation", "Spring Cleanup", "Snow Removal", "Junk Removal"],
   "slogan": "Free Estimates. Licensed & Insured."
+}
+</script>
+
+<!-- FAQ structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you offer free estimates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every estimate is free, with no obligation. We come out, walk the property, and give you a real number — usually within the same week. If the job is small enough to quote over the phone, we'll do that too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What towns in Rhode Island do you service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our regular service area is Greater Providence — Providence, Cranston, Warwick, East Providence, Pawtucket, North Providence, Johnston, Smithfield, and Lincoln. If you're elsewhere in Rhode Island, call us — we probably still cover it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you licensed and insured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, fully licensed and insured. We carry general liability and workers' compensation. Happy to provide a certificate of insurance for any project — just ask."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often do you mow during the season?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most residential lawns get weekly service from late April through October. In the dry stretches of mid-summer we'll drop to every other week to protect the turf — you only pay for the visits we make."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you do one-time jobs, or only weekly contracts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. We're happy to do one-time mulching, cleanups, patios, or hardscape projects. Weekly customers get scheduling priority but everyone gets the same crew and the same quality."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -126,7 +189,7 @@
   <div class="services-carousel" id="svcCarousel">
     <div class="services-track" id="svcTrack" role="list">
       <a href="/services/lawn-cutting" class="svc-tile" role="listitem">
-        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=900&auto=format&fit=crop" alt="Freshly mowed lawn with stripe pattern in Providence, RI">
+        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Freshly mowed lawn with stripe pattern in Providence, RI">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Lawn Cutting</h3>
@@ -137,7 +200,7 @@
         </div>
       </a>
       <a href="/services/tree-planting-removal" class="svc-tile" role="listitem">
-        <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?w=900&auto=format&fit=crop" alt="Crew planting a young tree sapling in fresh soil">
+        <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Crew planting a young tree sapling in fresh soil">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Tree Planting &amp; Removal</h3>
@@ -148,7 +211,7 @@
         </div>
       </a>
       <a href="/services/bush-planting-trimming" class="svc-tile" role="listitem">
-        <img src="https://plus.unsplash.com/premium_photo-1661347888448-7c792c2d6ce8?w=900&auto=format&fit=crop" alt="Hedge trimmer cutting a green bush to a clean shape">
+        <img src="https://plus.unsplash.com/premium_photo-1661347888448-7c792c2d6ce8?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Hedge trimmer cutting a green bush to a clean shape">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Bush Planting &amp; Trimming</h3>
@@ -159,7 +222,7 @@
         </div>
       </a>
       <a href="/services/flower-planting" class="svc-tile" role="listitem">
-        <img src="https://plus.unsplash.com/premium_photo-1748437648638-0ae512e72f6d?w=900&auto=format&fit=crop" alt="Lush flower bed in full bloom with pink and white annuals along a garden wall">
+        <img src="https://plus.unsplash.com/premium_photo-1748437648638-0ae512e72f6d?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Lush flower bed in full bloom with pink and white annuals along a garden wall">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Flower Planting</h3>
@@ -170,7 +233,7 @@
         </div>
       </a>
       <a href="/services/mulch-installation" class="svc-tile" role="listitem">
-        <img src="https://images.unsplash.com/photo-1757838661170-186930ac95db?w=900&auto=format&fit=crop" alt="Raised garden beds with fresh mulch laid around young plantings">
+        <img src="https://images.unsplash.com/photo-1757838661170-186930ac95db?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Raised garden beds with fresh mulch laid around young plantings">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Mulch Installation</h3>
@@ -181,7 +244,7 @@
         </div>
       </a>
       <a href="/services/cobblestone-patio" class="svc-tile" role="listitem">
-        <img src="https://images.unsplash.com/photo-1585351738365-ec1f83026513?w=900&auto=format&fit=crop" alt="Tight cobblestone surface laid in a rounded-stone pattern">
+        <img src="https://images.unsplash.com/photo-1585351738365-ec1f83026513?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Tight cobblestone surface laid in a rounded-stone pattern">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Cobblestone Patio Installation</h3>
@@ -192,7 +255,7 @@
         </div>
       </a>
       <a href="/services/gravel-patio" class="svc-tile" role="listitem">
-        <img src="https://images.unsplash.com/photo-1768791211104-7f1c5474f07d?w=900&auto=format&fit=crop" alt="Gravel patio with seating, fire pit area, and string lights outside a barn">
+        <img src="https://images.unsplash.com/photo-1768791211104-7f1c5474f07d?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Gravel patio with seating, fire pit area, and string lights outside a barn">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Gravel Patio Installation</h3>
@@ -203,7 +266,7 @@
         </div>
       </a>
       <a href="/services/lawn-seeding" class="svc-tile" role="listitem">
-        <img src="https://images.unsplash.com/photo-1533460004989-cef01064af7e?w=900&auto=format&fit=crop" alt="Close-up of fresh green grass blades with morning dew on a newly seeded lawn">
+        <img src="https://images.unsplash.com/photo-1533460004989-cef01064af7e?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Close-up of fresh green grass blades with morning dew on a newly seeded lawn">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Lawn Seeding</h3>
@@ -214,7 +277,7 @@
         </div>
       </a>
       <a href="/services/sod-installation" class="svc-tile" role="listitem">
-        <img src="https://plus.unsplash.com/premium_photo-1678677942076-6e27b10ceb82?w=900&auto=format&fit=crop" alt="Landscaper laying sod rolls tight on a residential yard">
+        <img src="https://plus.unsplash.com/premium_photo-1678677942076-6e27b10ceb82?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Landscaper laying sod rolls tight on a residential yard">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Sod Roll Installation</h3>
@@ -225,7 +288,7 @@
         </div>
       </a>
       <a href="/services/spring-cleanup" class="svc-tile" role="listitem">
-        <img src="https://images.unsplash.com/photo-1634081727680-fa43e3237d5a?w=900&auto=format&fit=crop" alt="Red rake gathering a pile of leaves during a yard cleanup">
+        <img src="https://images.unsplash.com/photo-1634081727680-fa43e3237d5a?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Red rake gathering a pile of leaves during a yard cleanup">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Spring Cleanup</h3>
@@ -236,7 +299,7 @@
         </div>
       </a>
       <a href="/services/snow-removal" class="svc-tile" role="listitem">
-        <img src="https://images.unsplash.com/photo-1483385573908-0a2108937c4a?w=900&auto=format&fit=crop" alt="Person shoveling snow off a residential driveway in front of a house">
+        <img src="https://images.unsplash.com/photo-1483385573908-0a2108937c4a?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Person shoveling snow off a residential driveway in front of a house">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Snow Removal</h3>
@@ -247,7 +310,7 @@
         </div>
       </a>
       <a href="/services/junk-removal" class="svc-tile" role="listitem">
-        <img src="https://images.unsplash.com/photo-1699947636547-4e02c34163dd?w=900&auto=format&fit=crop" alt="Cluttered shed full of household junk, debris, and old furniture ready for haul-away">
+        <img src="https://images.unsplash.com/photo-1699947636547-4e02c34163dd?w=900&auto=format&fit=crop" loading="lazy" width="900" height="600" alt="Cluttered shed full of household junk, debris, and old furniture ready for haul-away">
         <span class="svc-tile-overlay" aria-hidden="true"></span>
         <div class="svc-tile-body">
           <h3>Junk Removal</h3>

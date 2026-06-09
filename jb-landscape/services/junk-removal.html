@@ -18,6 +18,92 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1699947636547-4e02c34163dd?w=1800&auto=format&fit=crop" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Junk Removal",
+  "name": "Junk Removal",
+  "description": "Junk, yard debris, and construction waste removal across Rhode Island. Trucks come to you, site swept clean.",
+  "url": "https://jblandscape.com/services/junk-removal",
+  "areaServed": {
+    "@type": "State",
+    "name": "Rhode Island"
+  },
+  "provider": {
+    "@type": "LandscapingBusiness",
+    "name": "J.B. Landscape",
+    "telephone": "+14012304820",
+    "url": "https://jblandscape.com",
+    "image": "https://jblandscape.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Providence",
+      "addressRegion": "RI",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jblandscape.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://jblandscape.com/#services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Junk Removal",
+      "item": "https://jblandscape.com/services/junk-removal"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is junk removal priced?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By truck-load — quarter, half, three-quarter, or full. You'll see the truck before we start, and the quote is fixed with no hidden disposal fees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can't you take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hazardous chemicals and paint, tires (we can refer a recycler), and anything that requires a special permit to dispose of. Just about everything else is fair game."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you do full cleanouts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — garage, basement, and estate cleanouts are some of our most common jobs. We handle the whole space, not just curbside items."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -33,6 +119,14 @@
     <a href="/#contact">Free Estimate</a>
     <a href="tel:+14012304820" class="nav-phone">(401) 230-4820</a>
   </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li aria-current="page">Junk Removal</li>
+  </ol>
 </nav>
 
 <header class="service-hero">
@@ -77,10 +171,44 @@
     <h3>How pricing works.</h3>
     <p>Priced by truck load — quarter-load, half-load, three-quarter-load, full load. You’ll see the truck before we start. Fixed quote, no hidden disposal fees.</p>
 
+    <h3>Why it matters in Rhode Island.</h3>
+    <p>Rhode Island's transfer-station rules and disposal fees make hauling junk yourself more of a hassle than it looks — different items go to different places, and some need a permit. We bring the truck, load it, sort what can be recycled or donated from what has to go to the transfer station, and sweep the site clean. You point at what needs to go; the disposal logistics are our problem, not yours.</p>
+
+    <h3>Frequently asked questions.</h3>
+    <div class="faq-list service-faq">
+      <details class="faq-item">
+        <summary>How is junk removal priced?</summary>
+        <div class="faq-body"><p>By truck-load — quarter, half, three-quarter, or full. You'll see the truck before we start, and the quote is fixed with no hidden disposal fees.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What can't you take?</summary>
+        <div class="faq-body"><p>Hazardous chemicals and paint, tires (we can refer a recycler), and anything that requires a special permit to dispose of. Just about everything else is fair game.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you do full cleanouts?</summary>
+        <div class="faq-body"><p>Yes — garage, basement, and estate cleanouts are some of our most common jobs. We handle the whole space, not just curbside items.</p></div>
+      </details>
+    </div>
+
     <div class="service-cta-row">
       <a href="/#contact" class="btn-primary">Get a free estimate <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       <a href="tel:+14012304820" class="btn-ghost">Call (401) 230-4820</a>
     </div>
+  </div>
+</section>
+
+<section class="service-related">
+  <h3>Related services.</h3>
+  <div class="related-links">
+      <a href="/services/spring-cleanup" class="related-link">Spring Cleanup
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/snow-removal" class="related-link">Snow Removal
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/tree-planting-removal" class="related-link">Tree Planting & Removal
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
   </div>
 </section>
 

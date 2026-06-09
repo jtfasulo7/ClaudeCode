@@ -18,6 +18,92 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1533460004989-cef01064af7e?w=1800&auto=format&fit=crop" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Lawn Seeding",
+  "name": "Lawn Seeding",
+  "description": "Lawn seeding and overseeding across Rhode Island. Thin-spot repair, full reseeds, soil prep, watering plan.",
+  "url": "https://jblandscape.com/services/lawn-seeding",
+  "areaServed": {
+    "@type": "State",
+    "name": "Rhode Island"
+  },
+  "provider": {
+    "@type": "LandscapingBusiness",
+    "name": "J.B. Landscape",
+    "telephone": "+14012304820",
+    "url": "https://jblandscape.com",
+    "image": "https://jblandscape.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Providence",
+      "addressRegion": "RI",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jblandscape.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://jblandscape.com/#services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lawn Seeding",
+      "item": "https://jblandscape.com/services/lawn-seeding"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When is the best time to seed a lawn in Rhode Island?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Late August through October is the prime window. Early spring is a workable second choice, though you'll fight more weed competition. Mid-summer is too hot for reliable germination."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I seed or lay sod?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seed costs less and works well when you have time to let it establish; sod gives you an instant lawn. We'll look at your yard and tell you honestly which makes sense."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long until I can mow new grass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually three to four weeks, once the new blades reach about three inches. We'll walk you through the watering and first-mow timing."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -33,6 +119,14 @@
     <a href="/#contact">Free Estimate</a>
     <a href="tel:+14012304820" class="nav-phone">(401) 230-4820</a>
   </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li aria-current="page">Lawn Seeding</li>
+  </ol>
 </nav>
 
 <header class="service-hero">
@@ -78,10 +172,44 @@
     <h3>Pricing.</h3>
     <p>Overseeding starts around $300 for small yards; full reseeds depend on lot size, prep needed, and soil amendments. Fixed total before we touch the lawn.</p>
 
+    <h3>Why it matters in Rhode Island.</h3>
+    <p>Rhode Island's seeding calendar is short and unforgiving. Late August through early October is the prime window — the soil is still warm enough to germinate but the cooling air keeps young grass from frying and gives it a jump on spring weeds. Seed in the heat of summer and most of it never takes. We prep the soil, match the seed to your sun and shade, and set you up with the watering plan that makes or breaks the first three weeks.</p>
+
+    <h3>Frequently asked questions.</h3>
+    <div class="faq-list service-faq">
+      <details class="faq-item">
+        <summary>When is the best time to seed a lawn in Rhode Island?</summary>
+        <div class="faq-body"><p>Late August through October is the prime window. Early spring is a workable second choice, though you'll fight more weed competition. Mid-summer is too hot for reliable germination.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Should I seed or lay sod?</summary>
+        <div class="faq-body"><p>Seed costs less and works well when you have time to let it establish; sod gives you an instant lawn. We'll look at your yard and tell you honestly which makes sense.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How long until I can mow new grass?</summary>
+        <div class="faq-body"><p>Usually three to four weeks, once the new blades reach about three inches. We'll walk you through the watering and first-mow timing.</p></div>
+      </details>
+    </div>
+
     <div class="service-cta-row">
       <a href="/#contact" class="btn-primary">Get a free estimate <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       <a href="tel:+14012304820" class="btn-ghost">Call (401) 230-4820</a>
     </div>
+  </div>
+</section>
+
+<section class="service-related">
+  <h3>Related services.</h3>
+  <div class="related-links">
+      <a href="/services/sod-installation" class="related-link">Sod Roll Installation
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/lawn-cutting" class="related-link">Lawn Cutting
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/spring-cleanup" class="related-link">Spring Cleanup
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
   </div>
 </section>
 

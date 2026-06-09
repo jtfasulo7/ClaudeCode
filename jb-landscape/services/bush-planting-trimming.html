@@ -18,6 +18,92 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="preload" as="image" href="https://plus.unsplash.com/premium_photo-1661347888448-7c792c2d6ce8?w=1800&auto=format&fit=crop" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Shrub and Hedge Service",
+  "name": "Bush Planting & Trimming",
+  "description": "Bush planting, shaping, and seasonal trimming across Rhode Island. New installs and existing-shrub maintenance.",
+  "url": "https://jblandscape.com/services/bush-planting-trimming",
+  "areaServed": {
+    "@type": "State",
+    "name": "Rhode Island"
+  },
+  "provider": {
+    "@type": "LandscapingBusiness",
+    "name": "J.B. Landscape",
+    "telephone": "+14012304820",
+    "url": "https://jblandscape.com",
+    "image": "https://jblandscape.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Providence",
+      "addressRegion": "RI",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jblandscape.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://jblandscape.com/#services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Bush Planting & Trimming",
+      "item": "https://jblandscape.com/services/bush-planting-trimming"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When should my shrubs be trimmed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the plant. Spring bloomers get trimmed right after they flower; evergreens and hedges get an early-spring shape and a late-summer cleanup. We'll tell you what each shrub on your property needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you plant a privacy hedge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Arborvitae is the most popular privacy hedge in Rhode Island — we lay out the spacing to your property line, plant level, mulch each one, and water it in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often do hedges need trimming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fast-growing hedges may need three passes a season to keep crisp lines; slower evergreens are usually fine with two."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -33,6 +119,14 @@
     <a href="/#contact">Free Estimate</a>
     <a href="tel:+14012304820" class="nav-phone">(401) 230-4820</a>
   </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li aria-current="page">Bush Planting & Trimming</li>
+  </ol>
 </nav>
 
 <header class="service-hero">
@@ -77,10 +171,44 @@
     <h3>When to trim.</h3>
     <p>Most ornamental shrubs in Rhode Island get a hard trim in early spring and a cleanup pass in late summer. Hedges may need three passes a season to keep clean lines. We’ll tell you what your yard actually needs.</p>
 
+    <h3>Why it matters in Rhode Island.</h3>
+    <p>Rhode Island's seasons set the trimming calendar. Spring-flowering shrubs like rhododendron, lilac, and forsythia set their buds the year before, so cutting them at the wrong time means a season with no blooms. Evergreen hedges — arborvitae, boxwood, yew — need a clean early-season shape and a light late-summer touch-up to stay tight through winter snow load. We trim on the schedule each plant actually wants, not all at once, so your beds look intentional instead of hacked back.</p>
+
+    <h3>Frequently asked questions.</h3>
+    <div class="faq-list service-faq">
+      <details class="faq-item">
+        <summary>When should my shrubs be trimmed?</summary>
+        <div class="faq-body"><p>It depends on the plant. Spring bloomers get trimmed right after they flower; evergreens and hedges get an early-spring shape and a late-summer cleanup. We'll tell you what each shrub on your property needs.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Can you plant a privacy hedge?</summary>
+        <div class="faq-body"><p>Yes. Arborvitae is the most popular privacy hedge in Rhode Island — we lay out the spacing to your property line, plant level, mulch each one, and water it in.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How often do hedges need trimming?</summary>
+        <div class="faq-body"><p>Fast-growing hedges may need three passes a season to keep crisp lines; slower evergreens are usually fine with two.</p></div>
+      </details>
+    </div>
+
     <div class="service-cta-row">
       <a href="/#contact" class="btn-primary">Get a free estimate <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       <a href="tel:+14012304820" class="btn-ghost">Call (401) 230-4820</a>
     </div>
+  </div>
+</section>
+
+<section class="service-related">
+  <h3>Related services.</h3>
+  <div class="related-links">
+      <a href="/services/flower-planting" class="related-link">Flower Planting
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/mulch-installation" class="related-link">Mulch Installation
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/spring-cleanup" class="related-link">Spring Cleanup
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
   </div>
 </section>
 

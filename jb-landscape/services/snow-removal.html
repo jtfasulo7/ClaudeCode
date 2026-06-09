@@ -18,6 +18,92 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1483385573908-0a2108937c4a?w=1800&auto=format&fit=crop" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Snow Removal",
+  "name": "Snow Removal",
+  "description": "Residential snow removal across Rhode Island. Driveways and walks plowed, shoveled, and salted. On call all winter.",
+  "url": "https://jblandscape.com/services/snow-removal",
+  "areaServed": {
+    "@type": "State",
+    "name": "Rhode Island"
+  },
+  "provider": {
+    "@type": "LandscapingBusiness",
+    "name": "J.B. Landscape",
+    "telephone": "+14012304820",
+    "url": "https://jblandscape.com",
+    "image": "https://jblandscape.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Providence",
+      "addressRegion": "RI",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jblandscape.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://jblandscape.com/#services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Snow Removal",
+      "item": "https://jblandscape.com/services/snow-removal"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you offer seasonal contracts or per-storm pricing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. A seasonal contract is a flat monthly rate covering unlimited storms; per-storm pricing means you only pay when it snows. Seasonal customers get priority routing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast do you clear after a storm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Driveways are cleared by morning so you can get to work. We also make a push-back pass once the storm ends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I sign up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seasonal contracts open in October and close when we hit capacity, usually by mid-November. Per-storm customers can call any time."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -33,6 +119,14 @@
     <a href="/#contact">Free Estimate</a>
     <a href="tel:+14012304820" class="nav-phone">(401) 230-4820</a>
   </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li aria-current="page">Snow Removal</li>
+  </ol>
 </nav>
 
 <header class="service-hero">
@@ -76,10 +170,44 @@
     <h3>When to sign up.</h3>
     <p>Seasonal contracts open in October and close when we hit capacity, usually by mid-November. Per-storm customers can call any time — we’ll fit you in if we have route capacity.</p>
 
+    <h3>Why it matters in Rhode Island.</h3>
+    <p>Rhode Island winters swing from a dusting to a two-foot nor'easter, and the wet, heavy snow off the bay is some of the hardest to move in the Northeast. A driveway that isn't cleared and salted by morning turns to ice that lingers for days. We run a small fleet of dedicated snow rigs and stay on call for every storm, so you're plowed, shoveled, and salted before you need to leave — no two-day wait, no ghosting.</p>
+
+    <h3>Frequently asked questions.</h3>
+    <div class="faq-list service-faq">
+      <details class="faq-item">
+        <summary>Do you offer seasonal contracts or per-storm pricing?</summary>
+        <div class="faq-body"><p>Both. A seasonal contract is a flat monthly rate covering unlimited storms; per-storm pricing means you only pay when it snows. Seasonal customers get priority routing.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How fast do you clear after a storm?</summary>
+        <div class="faq-body"><p>Driveways are cleared by morning so you can get to work. We also make a push-back pass once the storm ends.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>When should I sign up?</summary>
+        <div class="faq-body"><p>Seasonal contracts open in October and close when we hit capacity, usually by mid-November. Per-storm customers can call any time.</p></div>
+      </details>
+    </div>
+
     <div class="service-cta-row">
       <a href="/#contact" class="btn-primary">Get a free estimate <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       <a href="tel:+14012304820" class="btn-ghost">Call (401) 230-4820</a>
     </div>
+  </div>
+</section>
+
+<section class="service-related">
+  <h3>Related services.</h3>
+  <div class="related-links">
+      <a href="/services/spring-cleanup" class="related-link">Spring Cleanup
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/junk-removal" class="related-link">Junk Removal
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/services/lawn-cutting" class="related-link">Lawn Cutting
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
   </div>
 </section>
 
