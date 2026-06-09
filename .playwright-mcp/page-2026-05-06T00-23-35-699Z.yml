@@ -1,0 +1,219 @@
+- generic [active] [ref=e1]:
+  - banner:
+    - generic [ref=e2]: MERIDIAN
+    - navigation [ref=e3]:
+      - link "Notes" [ref=e4] [cursor=pointer]:
+        - /url: "#notes"
+      - link "Story" [ref=e5] [cursor=pointer]:
+        - /url: "#story"
+      - link "Shop" [ref=e6] [cursor=pointer]:
+        - /url: "#shop"
+  - region "MERIDIAN — visual prologue" [ref=e7]:
+    - generic [ref=e8]:
+      - generic:
+        - generic: Composing · Patience
+      - generic:
+        - generic:
+          - generic: MERIDIAN
+          - generic: Eau de Parfum · Reserve No. 07
+        - generic:
+          - generic: For the high places.
+        - generic:
+          - generic:
+            - generic: The composition
+            - generic:
+              - generic: Bergamot
+              - generic: ·
+              - generic: Cedar
+              - generic: ·
+              - generic: Iron Oxide
+              - generic: ·
+              - generic: Smoked Oud
+              - generic: ·
+              - generic: Amber
+        - generic:
+          - generic:
+            - text: First light.
+            - emphasis: Last fire.
+          - generic: 100ml · £210
+          - link "Discover the bottle" [ref=e10] [cursor=pointer]:
+            - /url: "#shop"
+      - generic:
+        - generic: Scroll
+      - generic [ref=e14]: FRAME 051 / 169
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]: "01"
+        - text: The Composition
+      - heading "Built top to base, like the mountain the bottle came from." [level=2] [ref=e19]:
+        - text: Built top to base, like the
+        - emphasis [ref=e20]: mountain
+        - text: the bottle came from.
+      - paragraph [ref=e21]: A nine-month accord by perfumer Élise Marchand. Cold air at the top, warmed minerals in the middle, smoke at the base — the way a summit reads in a single inhale.
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]: Top · The first inhale
+          - generic [ref=e25]:
+            - text: Bergamot &
+            - emphasis [ref=e26]: Pink Pepper
+          - list [ref=e27]:
+            - listitem [ref=e28]: Calabrian bergamot, cold-pressed
+            - listitem [ref=e29]: Sichuan pink peppercorn
+            - listitem [ref=e30]: Aldehyde C-12, trace
+            - listitem [ref=e31]: Glacial water accord
+        - generic [ref=e32]:
+          - generic [ref=e33]: Heart · The hour in the middle
+          - generic [ref=e34]:
+            - text: Cedar, Iron
+            - emphasis [ref=e35]: Oxide
+          - list [ref=e36]:
+            - listitem [ref=e37]: Atlas cedarwood
+            - listitem [ref=e38]: Iron oxide accord (mineral)
+            - listitem [ref=e39]: Iris pallida butter
+            - listitem [ref=e40]: Vetiver, Haitian, smoked
+        - generic [ref=e41]:
+          - generic [ref=e42]: Base · The hour after
+          - generic [ref=e43]:
+            - text: Oud &
+            - emphasis [ref=e44]: Amber
+          - list [ref=e45]:
+            - listitem [ref=e46]: Smoked oud, Laotian
+            - listitem [ref=e47]: Amber resin
+            - listitem [ref=e48]: Birch tar, restrained
+            - listitem [ref=e49]: Skin musk
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]: "02"
+          - text: The Inspiration
+        - heading "A fragrance for the seventeen minutes the world catches fire." [level=2] [ref=e55]:
+          - text: A fragrance for the
+          - emphasis [ref=e56]: seventeen minutes
+          - text: the world catches fire.
+        - generic [ref=e57]: "\"Most cologne is composed for the room. MERIDIAN is composed for the air outside it — thinner, colder, holding the day's last colour.\""
+      - generic [ref=e58]:
+        - paragraph [ref=e59]: In 2024, Élise Marchand spent four nights at 3,200 metres in the Bernese Alps with a notebook, a clean rebreather, and twenty-two raw materials. She was looking for the smell of the moment the sun turns the snow the colour of a struck match — neither morning nor night, neither hot nor cold.
+        - paragraph [ref=e60]: "The result is MERIDIAN: a structured Eau de Parfum at 22% concentration, cold-distilled over six weeks, rested in oak for three. The composition is unusually mineral. There is bergamot, yes, and an amber base you would expect from any serious house — but threaded between them is a note we call iron oxide: the smell of stone that has held the sun all day and is just beginning to release it."
+        - paragraph [ref=e61]: The bottle was cut to match. Fifteen facets, each angled to refract a different fraction of the spectrum. Held to a window at the right hour, it throws the same colours the perfume describes.
+        - paragraph [ref=e62]: It is, by design, a fragrance you wear once a day at most. Twice if the day is long enough.
+    - generic [ref=e63]:
+      - generic [ref=e64]:
+        - generic [ref=e65]: "03"
+        - text: The Object
+      - generic [ref=e66]:
+        - img "MERIDIAN bottle, faceted dark glass, on alpine stone" [ref=e67]
+        - generic [ref=e68]:
+          - heading "A bottle cut for the last hour of light." [level=2] [ref=e69]:
+            - text: A bottle cut for the
+            - emphasis [ref=e70]: last hour
+            - text: of light.
+          - paragraph [ref=e71]: Hand-cut by Lalique in Wingen-sur-Moder. Fifteen facets, leaded crystal at 24% PbO, a brushed-titanium collar, a magnetic ferrule that takes nine kilograms to release.
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - generic [ref=e74]: Volume
+              - generic [ref=e75]: 100 ml
+            - generic [ref=e76]:
+              - generic [ref=e77]: Concentration
+              - generic [ref=e78]: 22% · Eau de Parfum
+            - generic [ref=e79]:
+              - generic [ref=e80]: Glass
+              - generic [ref=e81]: Lalique, leaded crystal
+            - generic [ref=e82]:
+              - generic [ref=e83]: Cap
+              - generic [ref=e84]: Brushed titanium, magnetic
+            - generic [ref=e85]:
+              - generic [ref=e86]: Engraved
+              - generic [ref=e87]: Edition / 2 500
+            - generic [ref=e88]:
+              - generic [ref=e89]: Made
+              - generic [ref=e90]: Grasse, France
+    - generic [ref=e91]:
+      - generic [ref=e92]:
+        - generic [ref=e93]: "04"
+        - text: How It's Worn
+      - heading "Three small rituals, written by the people who tested it." [level=2] [ref=e94]:
+        - text: Three small
+        - emphasis [ref=e95]: rituals
+        - text: ", written by the people who tested it."
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - generic [ref=e98]: i.
+          - heading "One spray, sternum." [level=3] [ref=e99]
+          - paragraph [ref=e100]: Then wait. The opening reads thin for forty seconds. That is the bergamot air-drying. After it, the iron oxide warms against skin temperature.
+        - generic [ref=e101]:
+          - generic [ref=e102]: ii.
+          - heading "Cold collar." [level=3] [ref=e103]
+          - paragraph [ref=e104]: One spray on the inside of a coat collar before stepping outside. The fragrance changes when air does.
+        - generic [ref=e105]:
+          - generic [ref=e106]: iii.
+          - heading "Held, not sprayed." [level=3] [ref=e107]
+          - paragraph [ref=e108]: For evenings indoors, depress and release once into the palm. Press, do not rub. Cup briefly. Wear.
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - generic [ref=e111]: "05"
+        - text: Acquire
+      - generic [ref=e112]:
+        - generic [ref=e113]:
+          - heading "MERIDIAN — Eau de Parfum" [level=2] [ref=e114]:
+            - text: MERIDIAN
+            - emphasis [ref=e115]: —
+            - text: Eau de Parfum
+          - paragraph [ref=e116]: Limited to 2,500 numbered bottles per year. Engraved with edition number and city of dispatch. Ships in a felted oak case from Grasse within five working days.
+          - generic [ref=e117]: Free shipping · 30-day return
+        - generic [ref=e118]:
+          - generic [ref=e119]:
+            - generic [ref=e120] [cursor=pointer]:
+              - generic [ref=e121]: 50 ml · Travel
+              - generic [ref=e122]: £135
+            - generic [ref=e123] [cursor=pointer]:
+              - generic [ref=e124]: 100 ml · Standard
+              - generic [ref=e125]: £210
+            - generic [ref=e126] [cursor=pointer]:
+              - generic [ref=e127]: 100 ml · Engraved
+              - generic [ref=e128]: £245
+          - button "Add to bottle" [ref=e129] [cursor=pointer]
+    - generic [ref=e130]:
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - generic [ref=e133]: MERIDIAN
+          - paragraph [ref=e134]: Composed in Grasse. Released for the seventeen minutes the world catches fire.
+        - generic [ref=e135]:
+          - heading "Discover" [level=4] [ref=e136]
+          - list [ref=e137]:
+            - listitem [ref=e138]:
+              - link "The composition" [ref=e139] [cursor=pointer]:
+                - /url: "#notes"
+            - listitem [ref=e140]:
+              - link "The inspiration" [ref=e141] [cursor=pointer]:
+                - /url: "#story"
+            - listitem [ref=e142]:
+              - link "The object" [ref=e143] [cursor=pointer]:
+                - /url: "#bottle"
+        - generic [ref=e144]:
+          - heading "House" [level=4] [ref=e145]
+          - list [ref=e146]:
+            - listitem [ref=e147]:
+              - link "The perfumer" [ref=e148] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e149]:
+              - link "Press" [ref=e150] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e151]:
+              - link "Sustainability" [ref=e152] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e153]:
+          - heading "Care" [level=4] [ref=e154]
+          - list [ref=e155]:
+            - listitem [ref=e156]:
+              - link "Shipping & returns" [ref=e157] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e158]:
+              - link "Engraving" [ref=e159] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e160]:
+              - link "Contact" [ref=e161] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e162]:
+        - generic [ref=e163]: © 2026 MERIDIAN — Maison de Parfum · Grasse
+        - generic [ref=e164]: Privacy · Terms · Cookies

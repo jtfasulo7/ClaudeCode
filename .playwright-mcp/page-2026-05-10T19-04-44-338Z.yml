@@ -1,0 +1,185 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "JMartin Construction home" [ref=e3] [cursor=pointer]:
+      - /url: /
+      - img "JMartin Construction LLC" [ref=e4]
+      - generic [ref=e5]:
+        - text: JMartin
+        - emphasis [ref=e6]: Construction
+    - generic [ref=e7]:
+      - link "Services" [ref=e8] [cursor=pointer]:
+        - /url: /#services
+      - link "Projects" [ref=e9] [cursor=pointer]:
+        - /url: /#projects
+      - link "Process" [ref=e10] [cursor=pointer]:
+        - /url: /#process
+      - link "Areas" [ref=e11] [cursor=pointer]:
+        - /url: /#areas
+      - link "(406) 544-4492" [ref=e12] [cursor=pointer]:
+        - /url: tel:+14065444492
+  - banner [ref=e13]:
+    - generic [ref=e15]:
+      - link "Back to services" [ref=e16] [cursor=pointer]:
+        - /url: /#services
+        - img [ref=e17]
+        - text: Back to services
+      - heading "Framing Contractor — Missoula, Bitterroot Valley & Western Montana" [level=1] [ref=e19]
+      - paragraph [ref=e20]: The bones of every great build.
+      - paragraph [ref=e21]: Stick-built and post-and-beam framing. Walls plumb, roofs square, sheathing tight. The work nobody sees that everyone feels.
+      - link "Get a quote" [ref=e22] [cursor=pointer]:
+        - /url: /#contact
+        - text: Get a quote
+        - img [ref=e23]
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - heading "About this service" [level=2] [ref=e27]
+      - paragraph [ref=e28]: Framing is the part of the project that determines how every later trade goes — drywall, trim, cabinets, roofing all assume the bones are right. We measure twice, lay out once, and build to the engineer's spec.
+      - paragraph [ref=e29]: We frame walls, floors, roofs, and stairs. Conventional or post-and-beam. Our crews care about the unseen — exact stud spacing, blocking for cabinets and grab bars, hangers on every joist. The job goes faster downstream when it's done right the first time.
+      - heading "What's included" [level=3] [ref=e30]
+      - list [ref=e31]:
+        - listitem [ref=e32]: Wall framing (interior and exterior)
+        - listitem [ref=e33]: Floor systems and rim joists
+        - listitem [ref=e34]: Roof framing — rafters or trusses
+        - listitem [ref=e35]: Stairs and landings
+        - listitem [ref=e36]: Sheathing (walls and roof)
+        - listitem [ref=e37]: Engineered beams and posts
+        - listitem [ref=e38]: Hangers, ties, and connectors
+        - listitem [ref=e39]: House wrap
+      - heading "The honest take" [level=3] [ref=e40]
+      - paragraph [ref=e41]: Framing is messy and loud. We protect what's already there with floor mats and dust walls, and we pick up at the end of every day. If you want fast, post-and-beam goes up in days; conventional is slower but more flexible.
+    - complementary [ref=e42]:
+      - heading "How a framing job runs" [level=3] [ref=e43]
+      - list [ref=e44]:
+        - listitem [ref=e45]:
+          - strong [ref=e46]: Layout
+          - generic [ref=e47]: Plates marked, walls staged.
+        - listitem [ref=e48]:
+          - strong [ref=e49]: Walls
+          - generic [ref=e50]: Plumb, square, braced.
+        - listitem [ref=e51]:
+          - strong [ref=e52]: Floors
+          - generic [ref=e53]: Joists, rim, sheathing.
+        - listitem [ref=e54]:
+          - strong [ref=e55]: Roof
+          - generic [ref=e56]: Rafters or truss set.
+        - listitem [ref=e57]:
+          - strong [ref=e58]: Sheathing
+          - generic [ref=e59]: Walls + roof, nailed off.
+        - listitem [ref=e60]:
+          - strong [ref=e61]: Wrap & inspection
+          - generic [ref=e62]: House wrap, sign-off.
+      - link "Start a framing job" [ref=e63] [cursor=pointer]:
+        - /url: /#contact
+  - generic [ref=e65]:
+    - generic [ref=e66]:
+      - heading "Framing in Missoula & Western Montana" [level=3] [ref=e67]
+      - paragraph [ref=e68]: Framing in Western Montana means accounting for snow load, seismic code, and the temperature swings that turn green lumber into split lumber if you're not careful. Most homes in the Missoula and Bitterroot Valley markets are stick-built on conventional foundations, but post-and-beam is increasingly common in custom builds for the great-room aesthetic that makes mountain views the centerpiece. We frame to current Montana code — heavier snow load specs than national averages, with proper bracing for the wind exposure on ridgeline lots and properly stored, dried lumber so hard freezes don't catch us with green wood.
+      - paragraph [ref=e69]: From the Bitterroot south of Missoula to Seeley Lake, Polson, and Kalispell up north, conditions and code expectations vary slightly by jurisdiction. We handle the local nuance so you don't have to.
+    - generic [ref=e70]:
+      - heading "Common project types" [level=3] [ref=e71]
+      - list [ref=e72]:
+        - listitem [ref=e73]:
+          - strong [ref=e74]: New custom home builds
+          - text: — Ground-up framing for 2,000–5,000+ sq ft custom homes throughout Western Montana.
+        - listitem [ref=e75]:
+          - strong [ref=e76]: Additions and expansions
+          - text: — Great rooms, primary suites, and second-story pop-ups tied into existing structure.
+        - listitem [ref=e77]:
+          - strong [ref=e78]: Remodels with structural work
+          - text: — Removing load-bearing walls, adding beams, reframing for new layouts.
+        - listitem [ref=e79]:
+          - strong [ref=e80]: Garage and outbuilding framing
+          - text: — Detached garages, shops, and storage buildings.
+        - listitem [ref=e81]:
+          - strong [ref=e82]: Pavilions and outdoor structures
+          - text: — Timber-frame pavilions, covered entries, and post-and-beam structures.
+  - generic [ref=e83]:
+    - generic [ref=e84]:
+      - generic [ref=e85]: FAQ
+      - heading "Framing — frequently asked questions." [level=2] [ref=e86]
+    - generic [ref=e87]:
+      - group [ref=e88]:
+        - generic "How much does framing cost in Missoula? +" [ref=e89] [cursor=pointer]
+      - group [ref=e90]:
+        - generic "How long does framing take? +" [ref=e91] [cursor=pointer]
+      - group [ref=e92]:
+        - generic "Stick-built vs post-and-beam — which is right for my project? +" [ref=e93] [cursor=pointer]
+      - group [ref=e94]:
+        - generic "Do you frame additions and remodels? +" [ref=e95] [cursor=pointer]
+      - group [ref=e96]:
+        - generic "Do you handle the engineering on framing? +" [ref=e97] [cursor=pointer]
+  - generic [ref=e99]:
+    - heading "Related services" [level=3] [ref=e100]
+    - generic [ref=e101]:
+      - link "Roofing Once the framing's done, the roof goes on. We handle both. Read more →" [ref=e102] [cursor=pointer]:
+        - /url: /services/roofing
+        - heading "Roofing" [level=4] [ref=e103]
+        - paragraph [ref=e104]: Once the framing's done, the roof goes on. We handle both.
+        - generic [ref=e105]: Read more →
+      - link "Siding Framing, then siding. Built weather-tight from the bones out. Read more →" [ref=e106] [cursor=pointer]:
+        - /url: /services/siding
+        - heading "Siding" [level=4] [ref=e107]
+        - paragraph [ref=e108]: Framing, then siding. Built weather-tight from the bones out.
+        - generic [ref=e109]: Read more →
+      - link "Interior Trim When the structure's solid, the finish carpentry that matters. Read more →" [ref=e110] [cursor=pointer]:
+        - /url: /services/interior-trim
+        - heading "Interior Trim" [level=4] [ref=e111]
+        - paragraph [ref=e112]: When the structure's solid, the finish carpentry that matters.
+        - generic [ref=e113]: Read more →
+  - contentinfo [ref=e114]:
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - img "JMartin Construction LLC" [ref=e117]
+        - paragraph [ref=e118]: Custom residential builder. Framing, siding, roofing, tile, trim, and decks.
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - heading "Reach Us" [level=4] [ref=e121]
+          - link "(406) 544-4492" [ref=e122] [cursor=pointer]:
+            - /url: tel:+14065444492
+          - link "hello@jmartinconstruction.com" [ref=e123] [cursor=pointer]:
+            - /url: mailto:hello@jmartinconstruction.com
+        - generic [ref=e124]:
+          - heading "Explore" [level=4] [ref=e125]
+          - link "Services" [ref=e126] [cursor=pointer]:
+            - /url: /#services
+          - link "Projects" [ref=e127] [cursor=pointer]:
+            - /url: /#projects
+          - link "Process" [ref=e128] [cursor=pointer]:
+            - /url: /#process
+          - link "Areas" [ref=e129] [cursor=pointer]:
+            - /url: /#areas
+    - generic [ref=e130]:
+      - generic [ref=e131]: © 2026 JMartin Construction. All rights reserved.
+      - generic [ref=e132]: Built in Montana.
+  - button "Open chat" [ref=e133] [cursor=pointer]:
+    - img [ref=e134]
+  - complementary:
+    - generic:
+      - generic:
+        - strong: JMartin Construction
+        - generic: Typically replies in under an hour
+    - generic:
+      - generic:
+        - paragraph: Hey — drop your details and a quick note about your project. We'll text you back within one business day.
+      - generic:
+        - generic:
+          - generic:
+            - generic: First name *
+            - textbox
+          - generic:
+            - generic: Last name *
+            - textbox
+        - generic:
+          - generic: Phone *
+          - textbox
+        - generic:
+          - generic: Email *
+          - textbox
+        - generic:
+          - generic: Project description *
+          - textbox
+        - generic:
+          - checkbox
+          - generic: I agree to receive SMS messages from JMartin Construction about my project. Msg & data rates may apply. Reply STOP to opt out.
+        - button:
+          - generic: Send

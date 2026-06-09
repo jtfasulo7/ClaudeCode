@@ -1,0 +1,445 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Sybago AI SYBAGO" [ref=e3] [cursor=pointer]:
+      - /url: "#"
+      - img "Sybago AI" [ref=e4]
+      - generic [ref=e5]: SYBAGO
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - img [ref=e10]
+        - text: Free Custom Website Included
+        - generic [ref=e15]: $2,997 value
+      - heading "We will build you a website and marketing system that answers every missed call, rebooks every dead lead, and gets you 5-star reviews on autopilot." [level=1] [ref=e16]:
+        - text: We will build you a website and marketing system that
+        - emphasis [ref=e17]: answers every missed call
+        - text: ","
+        - emphasis [ref=e18]: rebooks every dead lead
+        - text: ", and"
+        - emphasis [ref=e19]: gets you 5-star reviews
+        - text: on autopilot.
+      - paragraph [ref=e20]: Built for service based businesses.
+      - generic [ref=e21]:
+        - paragraph [ref=e22]:
+          - text: We install the 3-system AI stack — receptionist, reviews, reactivator — plus a
+          - strong [ref=e23]: custom AI-powered website, yours to keep
+          - text: — on your business in
+          - strong [ref=e24]: 72 hours
+          - text: . One per zip code.
+          - strong [ref=e25]: 30 days or your money back.
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - img [ref=e28]
+            - text: 30-Day Money-Back
+          - generic [ref=e31]:
+            - img [ref=e32]
+            - text: Live in 72 Hours
+          - generic [ref=e34]:
+            - img [ref=e35]
+            - text: One Per Zip Code
+          - generic [ref=e38]:
+            - img [ref=e39]
+            - text: Free Website
+    - paragraph [ref=e44]: Book a call below →
+    - iframe [ref=e46]:
+      - generic [ref=f1e2]:
+        - alert [ref=f1e3]
+        - generic [ref=f1e9]:
+          - generic [ref=f1e11]:
+            - heading "Free Consultation Call" [level=4] [ref=f1e13]
+            - button "1 hr America/New_York (EDT)" [ref=f1e16]:
+              - generic [ref=f1e17]:
+                - img [ref=f1e18]
+                - generic [ref=f1e20]: 1 hr
+              - img [ref=f1e22]
+              - generic [ref=f1e25]:
+                - img [ref=f1e26]
+                - generic [ref=f1e28]: America/New_York (EDT)
+          - generic [ref=f1e32]:
+            - heading "Select Date & Time" [level=4] [ref=f1e33]
+            - generic [ref=f1e34]:
+              - generic [ref=f1e35]:
+                - generic [ref=f1e37]:
+                  - generic [ref=f1e40]:
+                    - banner [ref=f1e41]:
+                      - generic [ref=f1e42]:
+                        - button "Previous month" [disabled] [ref=f1e43]:
+                          - img [ref=f1e44]
+                        - generic [ref=f1e46]:
+                          - generic [ref=f1e47]:
+                            - button "April" [ref=f1e48]
+                            - combobox:
+                              - option "January"
+                              - option "February"
+                              - option "March"
+                              - option "April" [selected]
+                              - option "May"
+                              - option "June"
+                              - option "July"
+                              - option "August"
+                              - option "September"
+                              - option "October"
+                              - option "November"
+                              - option "December"
+                          - generic [ref=f1e49]:
+                            - button "2026" [ref=f1e50]
+                            - combobox:
+                              - option "1986"
+                              - option "1987"
+                              - option "1988"
+                              - option "1989"
+                              - option "1990"
+                              - option "1991"
+                              - option "1992"
+                              - option "1993"
+                              - option "1994"
+                              - option "1995"
+                              - option "1996"
+                              - option "1997"
+                              - option "1998"
+                              - option "1999"
+                              - option "2000"
+                              - option "2001"
+                              - option "2002"
+                              - option "2003"
+                              - option "2004"
+                              - option "2005"
+                              - option "2006"
+                              - option "2007"
+                              - option "2008"
+                              - option "2009"
+                              - option "2010"
+                              - option "2011"
+                              - option "2012"
+                              - option "2013"
+                              - option "2014"
+                              - option "2015"
+                              - option "2016"
+                              - option "2017"
+                              - option "2018"
+                              - option "2019"
+                              - option "2020"
+                              - option "2021"
+                              - option "2022"
+                              - option "2023"
+                              - option "2024"
+                              - option "2025"
+                              - option "2026" [selected]
+                              - option "2027"
+                              - option "2028"
+                              - option "2029"
+                              - option "2030"
+                              - option "2031"
+                              - option "2032"
+                              - option "2033"
+                              - option "2034"
+                              - option "2035"
+                              - option "2036"
+                              - option "2037"
+                              - option "2038"
+                              - option "2039"
+                              - option "2040"
+                              - option "2041"
+                              - option "2042"
+                              - option "2043"
+                              - option "2044"
+                              - option "2045"
+                              - option "2046"
+                              - option "2047"
+                              - option "2048"
+                              - option "2049"
+                              - option "2050"
+                              - option "2051"
+                              - option "2052"
+                              - option "2053"
+                              - option "2054"
+                              - option "2055"
+                              - option "2056"
+                              - option "2057"
+                              - option "2058"
+                              - option "2059"
+                              - option "2060"
+                              - option "2061"
+                              - option "2062"
+                              - option "2063"
+                              - option "2064"
+                              - option "2065"
+                              - option "2066"
+                        - button "Next month" [ref=f1e51] [cursor=pointer]:
+                          - img [ref=f1e52]
+                    - table [ref=f1e54]:
+                      - rowgroup [ref=f1e55]:
+                        - row "Sun Mon Tue Wed Thu Fri Sat" [ref=f1e56]:
+                          - columnheader "Sun" [ref=f1e57]
+                          - columnheader "Mon" [ref=f1e58]
+                          - columnheader "Tue" [ref=f1e59]
+                          - columnheader "Wed" [ref=f1e60]
+                          - columnheader "Thu" [ref=f1e61]
+                          - columnheader "Fri" [ref=f1e62]
+                          - columnheader "Sat" [ref=f1e63]
+                      - rowgroup [ref=f1e64]:
+                        - row "1 2 3 4" [ref=f1e65]:
+                          - cell "1" [ref=f1e66]:
+                            - generic [ref=f1e67]: "1"
+                          - cell "2" [ref=f1e68]:
+                            - generic [ref=f1e69]: "2"
+                          - cell "3" [ref=f1e70]:
+                            - generic [ref=f1e71]: "3"
+                          - cell "4" [ref=f1e72]:
+                            - generic [ref=f1e73]: "4"
+                        - row "5 6 7 8 9 10 11" [ref=f1e74]:
+                          - cell "5" [ref=f1e75]:
+                            - generic [ref=f1e76]: "5"
+                          - cell "6" [ref=f1e77]:
+                            - generic [ref=f1e78]: "6"
+                          - cell "7" [ref=f1e79]:
+                            - generic [ref=f1e80]: "7"
+                          - cell "8" [ref=f1e81]:
+                            - generic [ref=f1e82]: "8"
+                          - cell "9" [ref=f1e83]:
+                            - generic [ref=f1e84]: "9"
+                          - cell "10" [ref=f1e85]:
+                            - generic [ref=f1e86]: "10"
+                          - cell "11" [ref=f1e87]:
+                            - generic [ref=f1e88]: "11"
+                        - row "12 13 14 15 16 17 18" [ref=f1e89]:
+                          - cell "12" [ref=f1e90]:
+                            - generic [ref=f1e91]: "12"
+                          - cell "13" [ref=f1e92]:
+                            - generic [ref=f1e93]: "13"
+                          - cell "14" [ref=f1e94]:
+                            - generic [ref=f1e95]: "14"
+                          - cell "15" [ref=f1e96]:
+                            - generic [ref=f1e97]: "15"
+                          - cell "16" [ref=f1e98]:
+                            - generic [ref=f1e99]: "16"
+                          - cell "17" [ref=f1e100]:
+                            - generic [ref=f1e101]: "17"
+                          - cell "18" [ref=f1e102]:
+                            - generic [ref=f1e103]: "18"
+                        - row "19 20 21 22 23 ● 24 25" [ref=f1e104]:
+                          - cell "19" [ref=f1e105]:
+                            - generic [ref=f1e106]: "19"
+                          - cell "20" [ref=f1e107]:
+                            - generic [ref=f1e108]: "20"
+                          - cell "21" [ref=f1e109]:
+                            - generic [ref=f1e110]: "21"
+                          - cell "22" [ref=f1e111]:
+                            - generic [ref=f1e112]: "22"
+                          - cell "23 ●" [ref=f1e113]:
+                            - generic [ref=f1e114]: 23 ●
+                          - cell "24" [ref=f1e115]:
+                            - generic [ref=f1e116]: "24"
+                          - cell "25" [ref=f1e117]:
+                            - generic [ref=f1e118]: "25"
+                        - row "26 27 28 29 30" [ref=f1e119]:
+                          - cell "26" [ref=f1e120]:
+                            - generic [ref=f1e121]: "26"
+                          - cell "27" [ref=f1e122]:
+                            - generic [ref=f1e123]: "27"
+                          - cell "28" [ref=f1e124]:
+                            - generic [ref=f1e125]: "28"
+                          - cell "29" [ref=f1e126]:
+                            - generic [ref=f1e127]: "29"
+                          - cell "30" [ref=f1e128]:
+                            - generic [ref=f1e129]: "30"
+                  - img [ref=f1e132]
+                - generic [ref=f1e136]:
+                  - generic [ref=f1e137]: Time zone
+                  - combobox [ref=f1e138]:
+                    - generic [ref=f1e140] [cursor=pointer]:
+                      - textbox "Type here to search timezone"
+                      - generic [ref=f1e141]:
+                        - img [ref=f1e142]
+                        - text: GMT-04:00 America/New_York (EDT)
+              - generic [ref=f1e144]:
+                - list:
+                  - listitem
+                  - listitem
+                  - listitem
+                  - listitem
+                  - listitem
+                  - listitem
+                  - listitem
+                  - listitem
+                  - listitem
+  - generic [ref=e48]:
+    - generic [ref=e49]:
+      - generic [ref=e50]: The Sybago System
+      - heading "Five Layers. One System. No Leaks." [level=2] [ref=e51]
+      - paragraph [ref=e52]: Scroll to watch the system build on your business.
+    - generic [ref=e53]:
+      - generic [ref=e54] [cursor=pointer]:
+        - img [ref=e56]
+        - generic [ref=e59]: Foundation
+      - generic [ref=e60] [cursor=pointer]:
+        - img [ref=e62]
+        - generic [ref=e67]: The Phone
+      - generic [ref=e68] [cursor=pointer]:
+        - img [ref=e70]
+        - generic [ref=e72]: Reviews
+      - generic [ref=e73] [cursor=pointer]:
+        - img [ref=e75]
+        - generic [ref=e78]: Reactivation
+      - generic [ref=e79] [cursor=pointer]:
+        - img [ref=e81]
+        - generic [ref=e82]: Command Center
+    - img [ref=e85]:
+      - generic [ref=e110]:
+        - generic [ref=e122]: "5.0"
+        - generic [ref=e123]: avg
+    - generic:
+      - generic [ref=e165]:
+        - generic [ref=e166]: Layer 01
+        - heading "Your Intelligent Website" [level=3] [ref=e167]
+        - paragraph [ref=e168]: The site is the foundation — included free with every install. Custom-built to book, qualify, and follow up 24/7. Everything else in the stack plugs into it.
+        - generic [ref=e169]:
+          - generic [ref=e170]: 72h
+          - generic [ref=e171]: install window
+      - generic:
+        - generic: Layer 02
+        - heading "Never Miss a Call" [level=3]
+        - paragraph: Every missed call fires a text-back in 3 seconds. Callers book straight from the message. Your phone becomes a 24/7 intake even when nobody answers.
+        - generic:
+          - generic: 3s
+          - generic: text-back time
+      - generic:
+        - generic: Layer 03
+        - heading "5-Star Reviews on Autopilot" [level=3]
+        - paragraph: Every closed job triggers a perfectly-timed review request. Happy customers go public. Unhappy ones route to you privately — before they hurt you.
+        - generic:
+          - generic: 5★
+          - generic: target rating
+      - generic:
+        - generic: Layer 04
+        - heading "Rebook Every Dead Lead" [level=3]
+        - paragraph: Every lead sitting cold in your CRM gets a personal text. A handful book. That handful pays for the whole system.
+        - generic:
+          - generic: Day 1
+          - generic: revenue jolt
+      - generic:
+        - generic: Layer 05
+        - heading "Live In Your Sybago Dashboard" [level=3]
+        - paragraph: Every call, text, review, and booking on one screen. Check it from your truck, your couch, or never. The system runs whether you look or not.
+        - generic:
+          - generic: "1"
+          - generic: screen, everything
+  - generic [ref=e172]:
+    - generic [ref=e173]:
+      - generic [ref=e174]: The Stack
+      - heading "Four Systems That Capture Everything You're Losing" [level=2] [ref=e175]
+      - paragraph [ref=e176]: Every missed call. Every dead lead. Every closed job. All captured, answered, and followed up — on autopilot.
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - img [ref=e180]
+        - heading "Your Intelligent Website" [level=3] [ref=e188]
+        - paragraph [ref=e189]: Custom-built to book calls, answer questions, and qualify leads 24/7. Yours to keep — included free with every install.
+        - generic [ref=e190]: Free · $2,997 Value
+      - generic [ref=e191]:
+        - img [ref=e193]
+        - heading "Answer Every Call" [level=3] [ref=e195]
+        - paragraph [ref=e196]: You miss a call, your customer gets a text in 3 seconds. Most call back. The rest book straight from the text. Voicemail is dead.
+        - generic [ref=e197]: Missed Call Text Back
+      - generic [ref=e198]:
+        - img [ref=e200]
+        - heading "Rebook Every Dead Lead" [level=3] [ref=e205]
+        - paragraph [ref=e206]: Every lead sitting cold in your CRM gets a personal text. Most ignore it. A handful book. That handful pays for the whole system.
+        - generic [ref=e207]: Database Reactivation
+      - generic [ref=e208]:
+        - img [ref=e210]
+        - heading "Get 5-Star Reviews on Autopilot" [level=3] [ref=e212]
+        - paragraph [ref=e213]: Every finished job triggers a review request at the perfect moment. Happy customers leave 5 stars. Unhappy ones route to you privately — before they go public.
+        - generic [ref=e214]: Review Automation
+  - generic [ref=e215]:
+    - generic [ref=e216]:
+      - generic [ref=e217]: The Process
+      - heading "Four Steps. 72 Hours. System Running." [level=2] [ref=e218]:
+        - text: Four Steps. 72 Hours.
+        - text: System Running.
+    - generic [ref=e219]:
+      - generic [ref=e220]:
+        - generic [ref=e221]: "1"
+        - generic [ref=e222]:
+          - heading "The Call" [level=3] [ref=e223]
+          - paragraph [ref=e224]: 30 minutes. We figure out where you're leaking leads and money, show you exactly what we'd install, and see if it's a fit. No pitch deck.
+      - generic [ref=e225]:
+        - generic [ref=e226]: "2"
+        - generic [ref=e227]:
+          - heading "The Kickoff" [level=3] [ref=e228]
+          - paragraph [ref=e229]: You fill out a short onboarding form. We plug into your Google Business, phone number, and CRM. Install clock starts.
+      - generic [ref=e230]:
+        - generic [ref=e231]: "3"
+        - generic [ref=e232]:
+          - heading "The Install" [level=3] [ref=e233]
+          - paragraph [ref=e234]: We build your free custom website and wire the 3-system stack into it. You do nothing except answer a couple of questions we text you.
+      - generic [ref=e235]:
+        - generic [ref=e236]: "4"
+        - generic [ref=e237]:
+          - heading "Live" [level=3] [ref=e238]
+          - paragraph [ref=e239]: Your phone answers itself. Old leads start booking. Reviews start firing. You just do the jobs.
+  - generic [ref=e240]:
+    - generic [ref=e241]:
+      - generic [ref=e242]: Limited Territories
+      - heading "Is Your Zip Code Still Open?" [level=2] [ref=e243]:
+        - text: Is Your Zip Code
+        - emphasis [ref=e244]: Still Open?
+      - paragraph [ref=e245]: One per zip code. A few territories still open this month. 30-minute call — we'll tell you straight if yours is available and what we'd install if it is.
+    - link "Check My Zip Code" [ref=e246] [cursor=pointer]:
+      - /url: "#hero"
+      - generic [ref=e247]: Check My Zip Code
+      - img [ref=e248]
+  - contentinfo [ref=e250]:
+    - generic [ref=e251]:
+      - generic [ref=e252]:
+        - link "Sybago AI SYBAGO" [ref=e253] [cursor=pointer]:
+          - /url: /
+          - img "Sybago AI" [ref=e254]
+          - generic [ref=e255]: SYBAGO
+        - paragraph [ref=e256]: AI-powered business automation. Built for service pros.
+      - generic [ref=e257]:
+        - generic [ref=e258]:
+          - heading "Stack" [level=4] [ref=e259]
+          - link "Intelligent Website" [ref=e260] [cursor=pointer]:
+            - /url: "#services"
+          - link "Answer Every Call" [ref=e261] [cursor=pointer]:
+            - /url: "#services"
+          - link "Rebook Dead Leads" [ref=e262] [cursor=pointer]:
+            - /url: "#services"
+          - link "5-Star Reviews" [ref=e263] [cursor=pointer]:
+            - /url: "#services"
+        - generic [ref=e264]:
+          - heading "Company" [level=4] [ref=e265]
+          - link "Home" [ref=e266] [cursor=pointer]:
+            - /url: /
+          - link "Our Process" [ref=e267] [cursor=pointer]:
+            - /url: "#process"
+          - link "Contact Us" [ref=e268] [cursor=pointer]:
+            - /url: /contact-us
+          - link "Leave a Review" [ref=e269] [cursor=pointer]:
+            - /url: /leave-a-review
+        - generic [ref=e270]:
+          - heading "Legal" [level=4] [ref=e271]
+          - link "Privacy Policy" [ref=e272] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms & Conditions" [ref=e273] [cursor=pointer]:
+            - /url: /terms
+    - generic [ref=e274]:
+      - generic [ref=e275]: © 2026 Sybago LLC. All rights reserved.
+      - generic [ref=e276]: sybago.ai
+  - generic [ref=e277]:
+    - dialog "Sybago chat":
+      - generic:
+        - img "Sybago"
+        - generic:
+          - generic: Sybago AI
+          - generic: Typically replies instantly
+        - button "Close": ×
+      - generic:
+        - generic:
+          - heading "What can we help you with today?" [level=4]
+      - generic:
+        - textbox "Type your message…"
+        - button "Send":
+          - img
+    - button "Open chat" [ref=e278] [cursor=pointer]:
+      - img "Sybago" [ref=e279]

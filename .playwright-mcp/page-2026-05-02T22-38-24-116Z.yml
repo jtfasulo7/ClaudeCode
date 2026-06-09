@@ -1,0 +1,325 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "JT Fasulo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: JT Fasulo
+      - navigation [ref=e9]:
+        - link "Get in touch" [ref=e10] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e11]: Get in touch
+  - main [ref=e12]:
+    - generic [ref=e17]:
+      - generic [ref=e19]: ✦ Now accepting students
+      - generic [ref=e20]:
+        - heading "Premium websites, designed by you." [level=1] [ref=e21]
+        - paragraph [ref=e22]: Private mentorship from JT Fasulo. I'll teach you how to think about design, build, and ship websites that look like they belong on Apple's homepage — not a template marketplace.
+      - button "Get in touch" [ref=e25] [cursor=pointer]
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Free discovery call
+          - img [ref=e33]
+        - generic [ref=e35]:
+          - paragraph [ref=e36]: Curated onboarding call
+          - img [ref=e37]
+        - paragraph [ref=e40]: Your own workbook
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - paragraph [ref=e44]: What “premium” actually means
+        - heading "Six things every premium site does." [level=2] [ref=e45]
+        - paragraph [ref=e46]: None of them are templates. All of them are deliberate choices. This is what separates a website from a brand.
+      - generic [ref=e47]:
+        - generic [ref=e52]:
+          - img [ref=e53]
+          - heading "Cinematic motion" [level=3] [ref=e56]
+          - paragraph [ref=e57]: Scroll-driven hero sequences, fluid shader backdrops, frame-scrubbed video. Built once, locked to native refresh rate, never the reason your site feels slow.
+        - generic [ref=e62]:
+          - img [ref=e63]
+          - heading "Editorial typography" [level=3] [ref=e65]
+          - paragraph [ref=e66]: Paired display + body type, considered kerning, hand-set tracking on display sizes. The page reads like a magazine spread, not a CMS export.
+        - generic [ref=e71]:
+          - img [ref=e72]
+          - heading "Performance budget" [level=3] [ref=e75]
+          - paragraph [ref=e76]: Sub-second LCP, Lighthouse 95+, 60fps animation on mid-range hardware. Speed is a design feature — measurable, defended, never traded for visuals.
+        - generic [ref=e81]:
+          - img [ref=e82]
+          - heading "Bespoke micro-interactions" [level=3] [ref=e88]
+          - paragraph [ref=e89]: Hover states, cursor moments, scroll-driven reveals — each one written for this site, not pulled from a library. Small details, total polish.
+        - generic [ref=e94]:
+          - img [ref=e95]
+          - heading "Considered material" [level=3] [ref=e101]
+          - paragraph [ref=e102]: Restrained palette, real depth from light + shadow, glass and chrome surfaces with intent. The site looks like the brand, not like the framework.
+        - generic [ref=e107]:
+          - img [ref=e108]
+          - heading "Conversion-aware structure" [level=3] [ref=e112]
+          - paragraph [ref=e113]: Every section earns its place. CTAs sit where eyes already are, copy carries the page, hierarchy survives a 5-second scan. Beauty that ships revenue.
+    - generic [ref=e115]:
+      - heading "Or maybe you wanna go a little crazy..." [level=2] [ref=e118]
+      - generic:
+        - generic: 01 · Section
+        - generic: Hero
+        - paragraph: 4 seconds to convince a stranger they're in the right place. Big idea, bigger pull.
+      - generic:
+        - generic: 02 · Section
+        - generic: Features
+        - paragraph: What you do — six honest bullets that earn the next scroll, not 30 vague ones.
+      - generic:
+        - generic: 03 · Section
+        - generic: Reviews
+        - paragraph: Social proof that's actually social. Real names, real outcomes, real photos.
+      - generic:
+        - generic: 04 · Section
+        - generic: CTA
+        - paragraph: The moment you ask. No shy buttons. The page has earned this — let it close.
+      - generic [ref=e119]: Scroll
+    - generic [ref=e121]:
+      - generic [ref=e122]:
+        - generic [ref=e123]: Testimonials
+        - heading "Make your reviews pop." [level=2] [ref=e124]
+        - paragraph [ref=e125]: Social proof shouldn’t be an afterthought. Here’s what people I’ve worked with sound like.
+      - generic [ref=e126]:
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - paragraph [ref=e130]: Brought JT in to redo a landing page that wasn't converting. Two weeks later we'd shipped it and conversions were up 38%. He treats your homepage like a product, not a page.
+            - generic [ref=e131]:
+              - img "Maya Chen" [ref=e132]
+              - generic [ref=e133]:
+                - generic [ref=e134]: Maya Chen
+                - generic [ref=e135]: Founder · Series-A SaaS
+          - generic [ref=e136]:
+            - paragraph [ref=e137]: I spent six months trying to teach myself design. One month with JT and I shipped a portfolio site that actually got me hired.
+            - generic [ref=e138]:
+              - img "Daniel Reyes" [ref=e139]
+              - generic [ref=e140]:
+                - generic [ref=e141]: Daniel Reyes
+                - generic [ref=e142]: Independent Designer
+          - generic [ref=e143]:
+            - paragraph [ref=e144]: Most agencies hand you a Figma file and disappear. JT shipped the actual code, hooked up the analytics, walked us through everything. Different operating mode.
+            - generic [ref=e145]:
+              - img "Priya Anand" [ref=e146]
+              - generic [ref=e147]:
+                - generic [ref=e148]: Priya Anand
+                - generic [ref=e149]: COO · DTC brand
+          - generic [ref=e150]:
+            - paragraph [ref=e151]: Brought JT in to redo a landing page that wasn't converting. Two weeks later we'd shipped it and conversions were up 38%. He treats your homepage like a product, not a page.
+            - generic [ref=e152]:
+              - img "Maya Chen" [ref=e153]
+              - generic [ref=e154]:
+                - generic [ref=e155]: Maya Chen
+                - generic [ref=e156]: Founder · Series-A SaaS
+          - generic [ref=e157]:
+            - paragraph [ref=e158]: I spent six months trying to teach myself design. One month with JT and I shipped a portfolio site that actually got me hired.
+            - generic [ref=e159]:
+              - img "Daniel Reyes" [ref=e160]
+              - generic [ref=e161]:
+                - generic [ref=e162]: Daniel Reyes
+                - generic [ref=e163]: Independent Designer
+          - generic [ref=e164]:
+            - paragraph [ref=e165]: Most agencies hand you a Figma file and disappear. JT shipped the actual code, hooked up the analytics, walked us through everything. Different operating mode.
+            - generic [ref=e166]:
+              - img "Priya Anand" [ref=e167]
+              - generic [ref=e168]:
+                - generic [ref=e169]: Priya Anand
+                - generic [ref=e170]: COO · DTC brand
+          - generic [ref=e171]:
+            - paragraph [ref=e172]: Brought JT in to redo a landing page that wasn't converting. Two weeks later we'd shipped it and conversions were up 38%. He treats your homepage like a product, not a page.
+            - generic [ref=e173]:
+              - img "Maya Chen" [ref=e174]
+              - generic [ref=e175]:
+                - generic [ref=e176]: Maya Chen
+                - generic [ref=e177]: Founder · Series-A SaaS
+          - generic [ref=e178]:
+            - paragraph [ref=e179]: I spent six months trying to teach myself design. One month with JT and I shipped a portfolio site that actually got me hired.
+            - generic [ref=e180]:
+              - img "Daniel Reyes" [ref=e181]
+              - generic [ref=e182]:
+                - generic [ref=e183]: Daniel Reyes
+                - generic [ref=e184]: Independent Designer
+          - generic [ref=e185]:
+            - paragraph [ref=e186]: Most agencies hand you a Figma file and disappear. JT shipped the actual code, hooked up the analytics, walked us through everything. Different operating mode.
+            - generic [ref=e187]:
+              - img "Priya Anand" [ref=e188]
+              - generic [ref=e189]:
+                - generic [ref=e190]: Priya Anand
+                - generic [ref=e191]: COO · DTC brand
+        - generic [ref=e193]:
+          - generic [ref=e194]:
+            - paragraph [ref=e195]: He thinks about typography the way a chef thinks about salt. After our session I started SEEING type instead of just placing it.
+            - generic [ref=e196]:
+              - img "Marco Velez" [ref=e197]
+              - generic [ref=e198]:
+                - generic [ref=e199]: Marco Velez
+                - generic [ref=e200]: Mentee · Architectural Designer
+          - generic [ref=e201]:
+            - paragraph [ref=e202]: Our agency template-shop site was hurting credibility. JT rebuilt it as something that looks like the brands we sell to. Inbound leads tripled in the first quarter.
+            - generic [ref=e203]:
+              - img "Helen Forsythe" [ref=e204]
+              - generic [ref=e205]:
+                - generic [ref=e206]: Helen Forsythe
+                - generic [ref=e207]: Founder · Boutique agency
+          - generic [ref=e208]:
+            - paragraph [ref=e209]: I came in thinking I knew CSS. Left understanding what design IS. The conversation about hierarchy alone was worth the program.
+            - generic [ref=e210]:
+              - img "James Reardon" [ref=e211]
+              - generic [ref=e212]:
+                - generic [ref=e213]: James Reardon
+                - generic [ref=e214]: Mentee · Frontend Engineer
+          - generic [ref=e215]:
+            - paragraph [ref=e216]: He thinks about typography the way a chef thinks about salt. After our session I started SEEING type instead of just placing it.
+            - generic [ref=e217]:
+              - img "Marco Velez" [ref=e218]
+              - generic [ref=e219]:
+                - generic [ref=e220]: Marco Velez
+                - generic [ref=e221]: Mentee · Architectural Designer
+          - generic [ref=e222]:
+            - paragraph [ref=e223]: Our agency template-shop site was hurting credibility. JT rebuilt it as something that looks like the brands we sell to. Inbound leads tripled in the first quarter.
+            - generic [ref=e224]:
+              - img "Helen Forsythe" [ref=e225]
+              - generic [ref=e226]:
+                - generic [ref=e227]: Helen Forsythe
+                - generic [ref=e228]: Founder · Boutique agency
+          - generic [ref=e229]:
+            - paragraph [ref=e230]: I came in thinking I knew CSS. Left understanding what design IS. The conversation about hierarchy alone was worth the program.
+            - generic [ref=e231]:
+              - img "James Reardon" [ref=e232]
+              - generic [ref=e233]:
+                - generic [ref=e234]: James Reardon
+                - generic [ref=e235]: Mentee · Frontend Engineer
+          - generic [ref=e236]:
+            - paragraph [ref=e237]: He thinks about typography the way a chef thinks about salt. After our session I started SEEING type instead of just placing it.
+            - generic [ref=e238]:
+              - img "Marco Velez" [ref=e239]
+              - generic [ref=e240]:
+                - generic [ref=e241]: Marco Velez
+                - generic [ref=e242]: Mentee · Architectural Designer
+          - generic [ref=e243]:
+            - paragraph [ref=e244]: Our agency template-shop site was hurting credibility. JT rebuilt it as something that looks like the brands we sell to. Inbound leads tripled in the first quarter.
+            - generic [ref=e245]:
+              - img "Helen Forsythe" [ref=e246]
+              - generic [ref=e247]:
+                - generic [ref=e248]: Helen Forsythe
+                - generic [ref=e249]: Founder · Boutique agency
+          - generic [ref=e250]:
+            - paragraph [ref=e251]: I came in thinking I knew CSS. Left understanding what design IS. The conversation about hierarchy alone was worth the program.
+            - generic [ref=e252]:
+              - img "James Reardon" [ref=e253]
+              - generic [ref=e254]:
+                - generic [ref=e255]: James Reardon
+                - generic [ref=e256]: Mentee · Frontend Engineer
+        - generic [ref=e258]:
+          - generic [ref=e259]:
+            - paragraph [ref=e260]: What I appreciated most was the honesty. JT will tell you when an idea is wrong. That's rare and worth paying for.
+            - generic [ref=e261]:
+              - img "Olivia Tan" [ref=e262]
+              - generic [ref=e263]:
+                - generic [ref=e264]: Olivia Tan
+                - generic [ref=e265]: Founder · Cybersecurity startup
+          - generic [ref=e266]:
+            - paragraph [ref=e267]: He built our launch site in 11 days, hit Lighthouse 99, and the headline he wrote did more lifting than three rounds of agency copy.
+            - generic [ref=e268]:
+              - img "Robert Caldwell" [ref=e269]
+              - generic [ref=e270]:
+                - generic [ref=e271]: Robert Caldwell
+                - generic [ref=e272]: CEO · B2B SaaS
+          - generic [ref=e273]:
+            - paragraph [ref=e274]: JT is the rare designer who can build production code AND argue typography over a Zoom call. That combination is what makes his sites feel different.
+            - generic [ref=e275]:
+              - img "Sarah Lim" [ref=e276]
+              - generic [ref=e277]:
+                - generic [ref=e278]: Sarah Lim
+                - generic [ref=e279]: Mentee → now full-time designer
+          - generic [ref=e280]:
+            - paragraph [ref=e281]: What I appreciated most was the honesty. JT will tell you when an idea is wrong. That's rare and worth paying for.
+            - generic [ref=e282]:
+              - img "Olivia Tan" [ref=e283]
+              - generic [ref=e284]:
+                - generic [ref=e285]: Olivia Tan
+                - generic [ref=e286]: Founder · Cybersecurity startup
+          - generic [ref=e287]:
+            - paragraph [ref=e288]: He built our launch site in 11 days, hit Lighthouse 99, and the headline he wrote did more lifting than three rounds of agency copy.
+            - generic [ref=e289]:
+              - img "Robert Caldwell" [ref=e290]
+              - generic [ref=e291]:
+                - generic [ref=e292]: Robert Caldwell
+                - generic [ref=e293]: CEO · B2B SaaS
+          - generic [ref=e294]:
+            - paragraph [ref=e295]: JT is the rare designer who can build production code AND argue typography over a Zoom call. That combination is what makes his sites feel different.
+            - generic [ref=e296]:
+              - img "Sarah Lim" [ref=e297]
+              - generic [ref=e298]:
+                - generic [ref=e299]: Sarah Lim
+                - generic [ref=e300]: Mentee → now full-time designer
+          - generic [ref=e301]:
+            - paragraph [ref=e302]: What I appreciated most was the honesty. JT will tell you when an idea is wrong. That's rare and worth paying for.
+            - generic [ref=e303]:
+              - img "Olivia Tan" [ref=e304]
+              - generic [ref=e305]:
+                - generic [ref=e306]: Olivia Tan
+                - generic [ref=e307]: Founder · Cybersecurity startup
+          - generic [ref=e308]:
+            - paragraph [ref=e309]: He built our launch site in 11 days, hit Lighthouse 99, and the headline he wrote did more lifting than three rounds of agency copy.
+            - generic [ref=e310]:
+              - img "Robert Caldwell" [ref=e311]
+              - generic [ref=e312]:
+                - generic [ref=e313]: Robert Caldwell
+                - generic [ref=e314]: CEO · B2B SaaS
+          - generic [ref=e315]:
+            - paragraph [ref=e316]: JT is the rare designer who can build production code AND argue typography over a Zoom call. That combination is what makes his sites feel different.
+            - generic [ref=e317]:
+              - img "Sarah Lim" [ref=e318]
+              - generic [ref=e319]:
+                - generic [ref=e320]: Sarah Lim
+                - generic [ref=e321]: Mentee → now full-time designer
+    - generic [ref=e323]:
+      - paragraph [ref=e324]: Ready when you are
+      - heading "Let’s build something worth showing off." [level=2] [ref=e325]:
+        - text: Let’s build something
+        - text: worth showing off.
+      - link "Book a free call" [ref=e326] [cursor=pointer]:
+        - /url: https://api.leadconnectorhq.com/widget/bookings/pro-website-training
+        - generic [ref=e327]: Book a free call
+        - img [ref=e328]
+      - paragraph [ref=e331]: 30 minutes · No pitch
+  - contentinfo [ref=e332]:
+    - generic: FASULO
+    - generic [ref=e333]:
+      - generic [ref=e334]:
+        - generic [ref=e335]:
+          - generic [ref=e337]: JT Fasulo
+          - generic [ref=e338]:
+            - link "Instagram" [ref=e339] [cursor=pointer]:
+              - /url: https://www.instagram.com/fasulostudio/
+              - img [ref=e340]
+            - link "Facebook" [ref=e343] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61587073324051
+              - img [ref=e344]
+            - link "TikTok" [ref=e346] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@fasulostudio?lang=en
+              - img [ref=e347]
+        - generic [ref=e349]:
+          - generic [ref=e350]: Navigation
+          - list [ref=e351]:
+            - listitem [ref=e352]:
+              - link "Home" [ref=e353] [cursor=pointer]:
+                - /url: /
+                - text: Home
+            - listitem [ref=e355]:
+              - link "Privacy Policy" [ref=e356] [cursor=pointer]:
+                - /url: /privacy-policy
+                - text: Privacy Policy
+      - generic [ref=e358]:
+        - generic [ref=e359]:
+          - img "Sybago" [ref=e360]
+          - generic [ref=e361]:
+            - paragraph [ref=e362]: SYBAGO LLC
+            - paragraph [ref=e363]: 116 W 9th St, Wilmington, DE 19801
+        - paragraph [ref=e364]: jtfasulo.com is operated by SYBAGO LLC. By submitting your email you agree to receive the guide and occasional updates. Unsubscribe anytime via the link in any email we send.
+      - generic [ref=e365]:
+        - paragraph [ref=e366]: © 2026 SYBAGO LLC. All rights reserved.
+        - generic [ref=e367]:
+          - link "Privacy Policy" [ref=e368] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "jtfasulo.com" [ref=e369] [cursor=pointer]:
+            - /url: https://jtfasulo.com
+            - text: jtfasulo.com
+            - img [ref=e370]

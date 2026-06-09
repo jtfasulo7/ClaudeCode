@@ -1,0 +1,80 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - heading "Fasulostudio" [level=1] [ref=e5]
+    - paragraph [ref=e6]: AI Newsletter
+    - paragraph [ref=e7]: Week of April 1, 2026 · Covering March 26 – April 1
+  - generic [ref=e8]:
+    - paragraph [ref=e9]: Section I
+    - heading "Tool Spotlight" [level=2] [ref=e10]
+    - generic [ref=e11]:
+      - heading "Qwen3.5-Omni" [level=3] [ref=e12]
+      - paragraph [ref=e13]: Alibaba's new omnimodal model, released March 30. Processes text, images, audio (10+ hours), and video natively in a single pass. Supports speech recognition in 113 languages and hit 215 SOTA benchmark results — outperforming Gemini 3.1 Pro on audio understanding.
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: How to use it now
+        - paragraph [ref=e16]: "Available in three sizes (Plus, Flash, Light) with 256k context. Try the \"Audio-Visual Vibe Coding\" feature: record your screen doing a task, feed the recording to Qwen3.5-Omni, and it writes functional code based on what it sees and hears. Access via Hugging Face or the Qwen API."
+      - paragraph [ref=e17]: An open-source model beating Google's flagship on audio tasks — the gap between open and closed models is shrinking fast.
+    - generic [ref=e18]:
+      - heading "Claude Computer Use (March 23)" [level=3] [ref=e19]
+      - paragraph [ref=e20]: Anthropic shipped native computer control in Claude Code and Cowork. Claude can now click, type, open apps, navigate browsers, and complete full workflows on your Mac — no setup required. When paired with Dispatch, you assign tasks from your iPhone and Claude executes them on your desktop while you're away.
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: How to use it now
+        - paragraph [ref=e23]: Available to Claude Pro and Max subscribers on macOS. Open Claude Desktop, enable Computer Use in settings, then ask Claude to do anything on your machine — file management, browser tasks, app workflows. It uses connectors first (Slack, Gmail) and falls back to direct screen control when needed.
+      - paragraph [ref=e24]: The Dispatch + Computer Use combo is the first real "delegate from your phone, pick up the finished work at your desk" experience.
+    - generic [ref=e25]:
+      - heading "Bluesky Attie (March 30)" [level=3] [ref=e26]
+      - paragraph [ref=e27]: Bluesky launched Attie, an AI tool that lets any user build custom feed algorithms without writing code. Instead of being force-fed a black-box algorithm, you describe what you want to see and Attie generates a personal feed filter.
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: How to use it now
+        - paragraph [ref=e30]: Open Bluesky, go to Feeds, and look for Attie. Describe your ideal feed in plain English (e.g. "AI research papers but not product launches" or "indie game devs posting progress updates"). It generates a custom algorithm you can save, share, and iterate on.
+      - paragraph [ref=e31]: User-controlled algorithms are the opposite of what every other social platform does — and now AI makes them accessible to non-developers.
+  - generic [ref=e34]:
+    - paragraph [ref=e35]: Section II
+    - heading "Quick Wins" [level=2] [ref=e36]
+    - table [ref=e38]:
+      - rowgroup [ref=e39]:
+        - 'row "01 Claude''s new Dispatch feature lets you start a task from your iPhone and Claude finishes it on your Mac. The trick: assign multi-step workflows before bed (e.g. \"research these 5 competitors and put findings in a Google Doc\") and wake up to completed work." [ref=e40]':
+          - cell "01" [ref=e41]
+          - 'cell "Claude''s new Dispatch feature lets you start a task from your iPhone and Claude finishes it on your Mac. The trick: assign multi-step workflows before bed (e.g. \"research these 5 competitors and put findings in a Google Doc\") and wake up to completed work." [ref=e42]'
+    - table [ref=e44]:
+      - rowgroup [ref=e45]:
+        - row "02 Qwen3.5-Omni's \"semantic interruption\" feature distinguishes between you saying \"mm-hmm\" (acknowledgment) and \"wait, stop\" (actual interruption) during real-time voice conversations. No other voice AI handles this correctly yet." [ref=e46]:
+          - cell "02" [ref=e47]
+          - cell "Qwen3.5-Omni's \"semantic interruption\" feature distinguishes between you saying \"mm-hmm\" (acknowledgment) and \"wait, stop\" (actual interruption) during real-time voice conversations. No other voice AI handles this correctly yet." [ref=e48]
+    - table [ref=e50]:
+      - rowgroup [ref=e51]:
+        - row "03 Anthropic quietly launched a Compliance API for Claude Platform on March 30. If you're building with Claude's API in a regulated industry, you now get programmatic access to full audit logs — no more manual exports." [ref=e52]:
+          - cell "03" [ref=e53]
+          - cell "Anthropic quietly launched a Compliance API for Claude Platform on March 30. If you're building with Claude's API in a regulated industry, you now get programmatic access to full audit logs — no more manual exports." [ref=e54]
+    - table [ref=e56]:
+      - rowgroup [ref=e57]:
+        - row "04 ARC-AGI-3 just launched with a $2M prize — and every frontier model scored under 1%. If you're evaluating AI capabilities for your business, this is the benchmark to watch. It measures genuine reasoning, not pattern matching." [ref=e58]:
+          - cell "04" [ref=e59]
+          - cell "ARC-AGI-3 just launched with a $2M prize — and every frontier model scored under 1%. If you're evaluating AI capabilities for your business, this is the benchmark to watch. It measures genuine reasoning, not pattern matching." [ref=e60]
+    - table [ref=e62]:
+      - rowgroup [ref=e63]:
+        - row "05 If you updated Claude Code via npm on March 31 between 00:21–03:29 UTC, check your install immediately. A supply chain attack via the Axios dependency injected a trojan into that window. Run npm audit and update to the latest version." [ref=e64]:
+          - cell "05" [ref=e65]
+          - cell "If you updated Claude Code via npm on March 31 between 00:21–03:29 UTC, check your install immediately. A supply chain attack via the Axios dependency injected a trojan into that window. Run npm audit and update to the latest version." [ref=e66]:
+            - text: If you updated Claude Code via npm on March 31 between 00:21–03:29 UTC, check your install immediately. A supply chain attack via the Axios dependency injected a trojan into that window. Run
+            - code [ref=e67]: npm audit
+            - text: and update to the latest version.
+  - generic [ref=e70]:
+    - paragraph [ref=e71]: Section III
+    - heading "Industry Moves" [level=2] [ref=e72]
+    - generic [ref=e73]:
+      - paragraph [ref=e74]: Anthropic
+      - paragraph [ref=e75]: Two security breaches in 5 days. First, details of unreleased "Claude Mythos" (codename Capybara) leaked from an unsecured database on March 26 — a model class above Opus with "unprecedented cybersecurity capabilities." Then on March 31, Claude Code's entire source code (512k+ lines of TypeScript) leaked via an npm source map in version 2.1.88. The leak revealed an unreleased feature called KAIROS — a persistent background agent mode.
+      - paragraph [ref=e76]: → The Mythos leak confirms a model significantly beyond current Opus is coming. But two security lapses in one week — right as Anthropic pursues an IPO — is a rough look for a company that positions itself as the "safety" lab.
+    - generic [ref=e77]:
+      - paragraph [ref=e78]: Apple
+      - paragraph [ref=e79]: iOS 27 will let third-party AI models (Gemini, Claude, and others) compete inside the iPhone via a new Extensions system. Apple is also building its own chatbot codenamed "Campos" powered by Google's 1.2 trillion parameter Gemini model, running on Apple's Private Cloud Compute infrastructure.
+      - paragraph [ref=e80]: → Apple is doing what it does best — letting others build the AI, then controlling the distribution. If Claude and Gemini are baked into iOS, the "which AI should I use?" question disappears for a billion users.
+    - generic [ref=e81]:
+      - paragraph [ref=e82]: Arm
+      - paragraph [ref=e83]: Unveiled the AGI CPU — a 136-core, 3nm data center processor purpose-built for AI inference. Meta is the launch customer, with OpenAI, Cloudflare, and SAP among committed buyers. This is Arm's direct challenge to Nvidia's dominance in AI compute hardware.
+      - paragraph [ref=e84]: → If Arm's inference chips perform as claimed, the cost of running AI models in production drops significantly — which means cheaper API pricing across the board.
+  - generic [ref=e85]:
+    - paragraph [ref=e86]: Fasulostudio · jtfasulo.com
+    - paragraph [ref=e87]:
+      - link "UNSUBSCRIBE" [ref=e88] [cursor=pointer]:
+        - /url: "#"

@@ -1,0 +1,410 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "JMartin Construction home" [ref=e3] [cursor=pointer]:
+      - /url: "#top"
+      - img "JMartin Construction LLC" [ref=e4]
+      - generic [ref=e5]:
+        - text: JMartin
+        - emphasis [ref=e6]: Construction
+    - generic [ref=e7]:
+      - link "Services" [ref=e8] [cursor=pointer]:
+        - /url: "#services"
+      - link "Projects" [ref=e9] [cursor=pointer]:
+        - /url: "#projects"
+      - link "Process" [ref=e10] [cursor=pointer]:
+        - /url: "#process"
+      - link "Areas" [ref=e11] [cursor=pointer]:
+        - /url: "#areas"
+      - link "Reviews" [ref=e12] [cursor=pointer]:
+        - /url: "#reviews"
+      - link "(406) 544-4492" [ref=e13] [cursor=pointer]:
+        - /url: tel:+14065444492
+  - banner [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]: Custom Residential Builder
+      - heading "We build the home you've been drawing in your head." [level=1] [ref=e18]
+      - paragraph [ref=e19]: JMartin Construction is a residential builder serving Western Montana. Framing, siding, roofing, tile, interior trim, and decks — built right by the same crew start to finish.
+      - generic [ref=e20]:
+        - link "Contact Us" [ref=e21] [cursor=pointer]:
+          - /url: "#contact"
+          - text: Contact Us
+          - img [ref=e22]
+        - link "(406) 544-4492" [ref=e24] [cursor=pointer]:
+          - /url: tel:+14065444492
+          - img [ref=e25]
+          - text: (406) 544-4492
+      - paragraph [ref=e27]: Free consultation. No pressure. We'll tell you on the call if we're the right fit.
+  - generic [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]: Our Services
+        - heading "What we build." [level=2] [ref=e32]
+        - paragraph [ref=e33]: Residential, top to bottom. Click any service to see exactly what we do and how a project of that type runs.
+      - generic [ref=e34]:
+        - button "Previous service" [ref=e35] [cursor=pointer]:
+          - img [ref=e36]
+        - button "Next service" [ref=e38] [cursor=pointer]:
+          - img [ref=e39]
+    - list [ref=e42]:
+      - listitem [ref=e43] [cursor=pointer]:
+        - img "Aerial view of a wood-framed house under construction" [ref=e44]
+        - generic [ref=e46]:
+          - heading "Framing" [level=3] [ref=e47]
+          - paragraph [ref=e48]: Stick-built and post-and-beam framing. Walls plumb, roofs square, sheathing tight. The bones of every great build.
+          - generic [ref=e49]:
+            - text: Read more
+            - img [ref=e50]
+      - listitem [ref=e52] [cursor=pointer]:
+        - img "House exterior with mixed siding profiles" [ref=e53]
+        - generic [ref=e55]:
+          - heading "Siding" [level=3] [ref=e56]
+          - paragraph [ref=e57]: Lap, board-and-batten, vertical, panel, stone veneer. Installed weather-tight and built to outlast Montana winters.
+          - generic [ref=e58]:
+            - text: Read more
+            - img [ref=e59]
+      - listitem [ref=e61] [cursor=pointer]:
+        - img "Close-up of asphalt shingle roof texture" [ref=e62]
+        - generic [ref=e64]:
+          - heading "Roofing" [level=3] [ref=e65]
+          - paragraph [ref=e66]: Asphalt shingle, metal, and standing-seam roofs. Properly underlaid, flashed, and ventilated for the climate.
+          - generic [ref=e67]:
+            - text: Read more
+            - img [ref=e68]
+      - listitem [ref=e70] [cursor=pointer]:
+        - img "Hexagonal marble tile pattern" [ref=e71]
+        - generic [ref=e73]:
+          - heading "Tile" [level=3] [ref=e74]
+          - paragraph [ref=e75]: Showers, backsplashes, and floors. Schluter or RedGard waterproofed, set straight, grouted right. Substrate first, finish second.
+          - generic [ref=e76]:
+            - text: Read more
+            - img [ref=e77]
+      - listitem [ref=e79] [cursor=pointer]:
+        - img "Coffered ceiling with crown trim detail" [ref=e80]
+        - generic [ref=e82]:
+          - heading "Interior Trim" [level=3] [ref=e83]
+          - paragraph [ref=e84]: Baseboards, casing, crown, wainscot, mantels. Tight miters and clean reveals. Painted-grade or stained-grade finish.
+          - generic [ref=e85]:
+            - text: Read more
+            - img [ref=e86]
+      - listitem [ref=e88] [cursor=pointer]:
+        - img "Wooden deck planks" [ref=e89]
+        - generic [ref=e91]:
+          - heading "Decks" [level=3] [ref=e92]
+          - paragraph [ref=e93]: Cedar, composite, and treated decks. Real footings, ledger flashed, hangers everywhere. Built to outlast the climate.
+          - generic [ref=e94]:
+            - text: Read more
+            - img [ref=e95]
+    - generic [ref=e97]:
+      - generic [ref=e98]: Scroll
+      - img [ref=e99]
+  - generic [ref=e101]:
+    - generic [ref=e102]:
+      - generic [ref=e103]: Our Projects
+      - heading "Recent builds." [level=2] [ref=e104]
+      - paragraph [ref=e105]: A selection of work we're proud of — framing, finish carpentry, roofs, tile, and decks across Western Montana.
+    - generic [ref=e106]:
+      - figure "Custom Build Custom Home — Covered Entry" [ref=e107] [cursor=pointer]:
+        - img "Custom home with metal roof and stone column accents" [ref=e108]
+        - generic [ref=e109]:
+          - generic [ref=e110]: Custom Build
+          - heading "Custom Home — Covered Entry" [level=4] [ref=e111]
+      - figure "Framing Roof System Framing" [ref=e112] [cursor=pointer]:
+        - img "Roof framing with rafters and sheathing in progress" [ref=e113]
+        - generic [ref=e114]:
+          - generic [ref=e115]: Framing
+          - heading "Roof System Framing" [level=4] [ref=e116]
+      - figure "Custom Build Timber-Frame Pavilion" [ref=e117] [cursor=pointer]:
+        - img "Timber-frame pavilion with shingle roof against mountains" [ref=e118]
+        - generic [ref=e119]:
+          - generic [ref=e120]: Custom Build
+          - heading "Timber-Frame Pavilion" [level=4] [ref=e121]
+      - figure "Roofing New Asphalt Shingle Roof" [ref=e122] [cursor=pointer]:
+        - img "Newly installed asphalt shingle roof in dappled sunlight" [ref=e123]
+        - generic [ref=e124]:
+          - generic [ref=e125]: Roofing
+          - heading "New Asphalt Shingle Roof" [level=4] [ref=e126]
+      - figure "Tile Marble Bath with Mosaic Niche" [ref=e127] [cursor=pointer]:
+        - img "Marble shower tile with mosaic niche detail" [ref=e128]
+        - generic [ref=e129]:
+          - generic [ref=e130]: Tile
+          - heading "Marble Bath with Mosaic Niche" [level=4] [ref=e131]
+      - figure "Decks Backyard Deck & Stairs" [ref=e132] [cursor=pointer]:
+        - img "Composite backyard deck with cedar stairs" [ref=e133]
+        - generic [ref=e134]:
+          - generic [ref=e135]: Decks
+          - heading "Backyard Deck & Stairs" [level=4] [ref=e136]
+  - generic [ref=e137]:
+    - generic [ref=e138]:
+      - generic [ref=e139]: Our Process
+      - heading "How a JMartin project runs." [level=2] [ref=e140]
+      - paragraph [ref=e141]: Five clear stages. You always know where the project is and what's next.
+    - list [ref=e142]:
+      - listitem [ref=e144]:
+        - generic [ref=e146]: Step 01
+        - heading "Consultation" [level=4] [ref=e147]
+        - paragraph [ref=e148]: On-site or video. You share what you want; we share what's realistic. Free.
+      - listitem [ref=e149]:
+        - generic [ref=e151]: Step 02
+        - heading "Design & Plans" [level=4] [ref=e152]
+        - paragraph [ref=e153]: Drawings, finishes, fixtures. Decisions made before they cost money.
+      - listitem [ref=e154]:
+        - generic [ref=e156]: Step 03
+        - heading "Permits & Pricing" [level=4] [ref=e157]
+        - paragraph [ref=e158]: Fixed-bid, line-item. Permits pulled, schedule locked.
+      - listitem [ref=e159]:
+        - generic [ref=e161]: Step 04
+        - heading "Construction" [level=4] [ref=e162]
+        - paragraph [ref=e163]: Weekly site walks. Single point of contact. Progress, not surprises.
+      - listitem [ref=e164]:
+        - generic [ref=e166]: Step 05
+        - heading "Walkthrough" [level=4] [ref=e167]
+        - paragraph [ref=e168]: Punch list, keys, one-year warranty. We answer the phone after.
+  - generic [ref=e169]:
+    - generic [ref=e170]:
+      - generic [ref=e171]: Areas We Serve
+      - heading "Western Montana & surrounding." [level=2] [ref=e172]
+      - paragraph [ref=e173]: Based out of the (406). If you're nearby and we don't list your town, ask — we still might be a fit.
+    - generic [ref=e174]:
+      - img "Map of Western Montana with the six service areas highlighted" [ref=e175]:
+        - generic:
+          - generic:
+            - button "1" [ref=e176] [cursor=pointer]:
+              - generic [ref=e177]: "1"
+            - button "2" [ref=e178] [cursor=pointer]:
+              - generic [ref=e179]: "2"
+            - button "3" [ref=e180] [cursor=pointer]:
+              - generic [ref=e181]: "3"
+            - button "4" [ref=e182] [cursor=pointer]:
+              - generic [ref=e183]: "4"
+            - button "5" [ref=e184] [cursor=pointer]:
+              - generic [ref=e185]: "5"
+            - button "6" [ref=e186] [cursor=pointer]:
+              - generic [ref=e187]: "6"
+          - generic:
+            - tooltip "Missoula"
+            - tooltip "Bitterroot"
+            - tooltip "Potomac"
+            - tooltip "Seeley Lake"
+            - tooltip "Flathead"
+            - tooltip "Polson"
+        - generic:
+          - generic [ref=e188]:
+            - button "Zoom in" [ref=e189] [cursor=pointer]: +
+            - button "Zoom out" [ref=e190] [cursor=pointer]: −
+          - generic [ref=e191]:
+            - link "Leaflet" [ref=e192] [cursor=pointer]:
+              - /url: https://leafletjs.com
+              - img [ref=e193]
+              - text: Leaflet
+            - text: "| ©"
+            - link "OpenStreetMap" [ref=e197] [cursor=pointer]:
+              - /url: https://openstreetmap.org
+            - text: ©
+            - link "CARTO" [ref=e198] [cursor=pointer]:
+              - /url: https://carto.com/attributions
+      - list "Service areas list" [ref=e199]:
+        - listitem [ref=e200]:
+          - generic [ref=e201]: "1"
+          - text: Missoula
+        - listitem [ref=e202]:
+          - generic [ref=e203]: "2"
+          - text: Bitterroot
+        - listitem [ref=e204]:
+          - generic [ref=e205]: "3"
+          - text: Potomac
+        - listitem [ref=e206]:
+          - generic [ref=e207]: "4"
+          - text: Seeley Lake
+        - listitem [ref=e208]:
+          - generic [ref=e209]: "5"
+          - text: Flathead
+        - listitem [ref=e210]:
+          - generic [ref=e211]: "6"
+          - text: Polson
+  - generic [ref=e212]:
+    - generic [ref=e213]:
+      - generic [ref=e214]: Reviews
+      - heading "What clients say." [level=2] [ref=e215]
+      - paragraph [ref=e216]: Real conversations after the keys change hands.
+    - generic "Customer testimonials" [ref=e217]:
+      - generic [ref=e219]:
+        - article [ref=e220]:
+          - paragraph [ref=e221]: JMartin built our forever home and treated it like it was their own. Weekly updates, clean job site, and the budget held. We'd hire them again tomorrow.
+          - generic [ref=e223]:
+            - strong [ref=e224]: Sarah K.
+            - generic [ref=e225]: Homeowner — Missoula
+        - article [ref=e226]:
+          - paragraph [ref=e227]: Hired three contractors before JMartin and got nothing but excuses. JMartin gave us a fixed price, a real schedule, and finished a week early. Night and day.
+          - generic [ref=e229]:
+            - strong [ref=e230]: Daniel R.
+            - generic [ref=e231]: Homeowner — Hamilton
+        - article [ref=e232]:
+          - paragraph [ref=e233]: Our second-story addition was complicated and they made it feel simple. They answered every email within hours and the finish work is incredible.
+          - generic [ref=e235]:
+            - strong [ref=e236]: The Petersons
+            - generic [ref=e237]: Homeowners — Stevensville
+        - article [ref=e238]:
+          - paragraph [ref=e239]: JMartin built our forever home and treated it like it was their own. Weekly updates, clean job site, and the budget held. We'd hire them again tomorrow.
+          - generic [ref=e241]:
+            - strong [ref=e242]: Sarah K.
+            - generic [ref=e243]: Homeowner — Missoula
+        - article [ref=e244]:
+          - paragraph [ref=e245]: Hired three contractors before JMartin and got nothing but excuses. JMartin gave us a fixed price, a real schedule, and finished a week early. Night and day.
+          - generic [ref=e247]:
+            - strong [ref=e248]: Daniel R.
+            - generic [ref=e249]: Homeowner — Hamilton
+        - article [ref=e250]:
+          - paragraph [ref=e251]: Our second-story addition was complicated and they made it feel simple. They answered every email within hours and the finish work is incredible.
+          - generic [ref=e253]:
+            - strong [ref=e254]: The Petersons
+            - generic [ref=e255]: Homeowners — Stevensville
+        - article [ref=e256]:
+          - paragraph [ref=e257]: JMartin built our forever home and treated it like it was their own. Weekly updates, clean job site, and the budget held. We'd hire them again tomorrow.
+          - generic [ref=e259]:
+            - strong [ref=e260]: Sarah K.
+            - generic [ref=e261]: Homeowner — Missoula
+        - article [ref=e262]:
+          - paragraph [ref=e263]: Hired three contractors before JMartin and got nothing but excuses. JMartin gave us a fixed price, a real schedule, and finished a week early. Night and day.
+          - generic [ref=e265]:
+            - strong [ref=e266]: Daniel R.
+            - generic [ref=e267]: Homeowner — Hamilton
+        - article [ref=e268]:
+          - paragraph [ref=e269]: Our second-story addition was complicated and they made it feel simple. They answered every email within hours and the finish work is incredible.
+          - generic [ref=e271]:
+            - strong [ref=e272]: The Petersons
+            - generic [ref=e273]: Homeowners — Stevensville
+      - generic [ref=e275]:
+        - article [ref=e276]:
+          - paragraph [ref=e277]: From design to keys, the JMartin team kept us in the loop. No surprise invoices, no "well, it's complicated." The quality of their craftsmanship speaks for itself.
+          - generic [ref=e279]:
+            - strong [ref=e280]: Mark L.
+            - generic [ref=e281]: Homeowner — Lolo
+        - article [ref=e282]:
+          - paragraph [ref=e283]: Full kitchen and primary suite remodel while we lived in the house. They protected the rest of the home, communicated daily, and delivered on time.
+          - generic [ref=e285]:
+            - strong [ref=e286]: Jenna M.
+            - generic [ref=e287]: Homeowner — Florence
+        - article [ref=e288]:
+          - paragraph [ref=e289]: The design-build approach saved us months. Having one team handle drawings and construction meant fewer change orders and a smoother schedule.
+          - generic [ref=e291]:
+            - strong [ref=e292]: Rachel T.
+            - generic [ref=e293]: Homeowner — Frenchtown
+        - article [ref=e294]:
+          - paragraph [ref=e295]: From design to keys, the JMartin team kept us in the loop. No surprise invoices, no "well, it's complicated." The quality of their craftsmanship speaks for itself.
+          - generic [ref=e297]:
+            - strong [ref=e298]: Mark L.
+            - generic [ref=e299]: Homeowner — Lolo
+        - article [ref=e300]:
+          - paragraph [ref=e301]: Full kitchen and primary suite remodel while we lived in the house. They protected the rest of the home, communicated daily, and delivered on time.
+          - generic [ref=e303]:
+            - strong [ref=e304]: Jenna M.
+            - generic [ref=e305]: Homeowner — Florence
+        - article [ref=e306]:
+          - paragraph [ref=e307]: The design-build approach saved us months. Having one team handle drawings and construction meant fewer change orders and a smoother schedule.
+          - generic [ref=e309]:
+            - strong [ref=e310]: Rachel T.
+            - generic [ref=e311]: Homeowner — Frenchtown
+        - article [ref=e312]:
+          - paragraph [ref=e313]: From design to keys, the JMartin team kept us in the loop. No surprise invoices, no "well, it's complicated." The quality of their craftsmanship speaks for itself.
+          - generic [ref=e315]:
+            - strong [ref=e316]: Mark L.
+            - generic [ref=e317]: Homeowner — Lolo
+        - article [ref=e318]:
+          - paragraph [ref=e319]: Full kitchen and primary suite remodel while we lived in the house. They protected the rest of the home, communicated daily, and delivered on time.
+          - generic [ref=e321]:
+            - strong [ref=e322]: Jenna M.
+            - generic [ref=e323]: Homeowner — Florence
+        - article [ref=e324]:
+          - paragraph [ref=e325]: The design-build approach saved us months. Having one team handle drawings and construction meant fewer change orders and a smoother schedule.
+          - generic [ref=e327]:
+            - strong [ref=e328]: Rachel T.
+            - generic [ref=e329]: Homeowner — Frenchtown
+    - paragraph [ref=e330]: Placeholder testimonials — replace with real reviews when collected.
+  - generic [ref=e332]:
+    - generic [ref=e333]:
+      - generic [ref=e334]: Free Consultation
+      - heading "Tell us about your project." [level=2] [ref=e335]
+      - paragraph [ref=e336]: Fill out the form and we'll text you back within one business day. No obligation, no pressure — we'll be honest if we're not the right fit.
+      - generic [ref=e337]:
+        - link "(406) 544-4492" [ref=e338] [cursor=pointer]:
+          - /url: tel:+14065444492
+          - img [ref=e339]
+          - text: (406) 544-4492
+        - generic [ref=e341]:
+          - img [ref=e342]
+          - text: hello@jmartinconstruction.com
+    - generic [ref=e345]:
+      - generic [ref=e346]:
+        - generic [ref=e347]: Full name *
+        - textbox "Full name *" [ref=e348]
+      - generic [ref=e349]:
+        - generic [ref=e350]: Phone *
+        - textbox "Phone *" [ref=e351]:
+          - /placeholder: (406) 555-1234
+      - generic [ref=e352]:
+        - generic [ref=e353]: Email *
+        - textbox "Email *" [ref=e354]
+      - generic [ref=e355]:
+        - generic [ref=e356]: Brief project description *
+        - textbox "Brief project description *" [ref=e357]:
+          - /placeholder: New build, addition, kitchen remodel, timeline, lot status...
+      - button "Send Project Details" [ref=e358] [cursor=pointer]:
+        - generic [ref=e359]: Send Project Details
+        - img [ref=e360]
+      - status [ref=e362]
+      - paragraph [ref=e363]: By submitting, you agree we may contact you about your project.
+  - contentinfo [ref=e364]:
+    - generic [ref=e365]:
+      - generic [ref=e366]:
+        - img "JMartin Construction LLC" [ref=e367]
+        - paragraph [ref=e368]: Residential builder serving Western Montana. Framing, siding, roofing, tile, trim, and decks.
+      - generic [ref=e369]:
+        - generic [ref=e370]:
+          - heading "Reach Us" [level=4] [ref=e371]
+          - link "(406) 544-4492" [ref=e372] [cursor=pointer]:
+            - /url: tel:+14065444492
+          - link "hello@jmartinconstruction.com" [ref=e373] [cursor=pointer]:
+            - /url: mailto:hello@jmartinconstruction.com
+        - generic [ref=e374]:
+          - heading "Explore" [level=4] [ref=e375]
+          - link "Services" [ref=e376] [cursor=pointer]:
+            - /url: "#services"
+          - link "Projects" [ref=e377] [cursor=pointer]:
+            - /url: "#projects"
+          - link "Process" [ref=e378] [cursor=pointer]:
+            - /url: "#process"
+          - link "Areas" [ref=e379] [cursor=pointer]:
+            - /url: "#areas"
+    - generic [ref=e380]:
+      - generic [ref=e381]: © 2026 JMartin Construction. All rights reserved.
+      - generic [ref=e382]: Built in Montana.
+  - button "Open chat" [ref=e383] [cursor=pointer]:
+    - img [ref=e384]
+  - complementary:
+    - generic:
+      - generic: JM
+      - generic:
+        - strong: JMartin Construction
+        - generic: Typically replies in under an hour
+    - generic:
+      - generic:
+        - paragraph: Hey — drop your details and a quick note about your project. We'll text you back within one business day.
+      - generic:
+        - generic:
+          - generic: Full name *
+          - textbox
+        - generic:
+          - generic: Phone *
+          - textbox
+        - generic:
+          - generic: Email *
+          - textbox
+        - generic:
+          - generic: Project description *
+          - textbox
+        - generic:
+          - checkbox
+          - generic: I agree to receive SMS messages from JMartin Construction about my project. Msg & data rates may apply. Reply STOP to opt out.
+        - button:
+          - generic: Send
+        - status

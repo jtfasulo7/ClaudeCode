@@ -1,0 +1,163 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "JMartin Construction home" [ref=e3] [cursor=pointer]:
+      - /url: /
+      - img "JMartin Construction LLC" [ref=e4]
+      - generic [ref=e5]:
+        - text: JMartin
+        - emphasis [ref=e6]: Construction
+    - generic [ref=e7]:
+      - link "Services" [ref=e8] [cursor=pointer]:
+        - /url: /#services
+      - link "Projects" [ref=e9] [cursor=pointer]:
+        - /url: /#projects
+      - link "Process" [ref=e10] [cursor=pointer]:
+        - /url: /#process
+      - link "Areas" [ref=e11] [cursor=pointer]:
+        - /url: /#areas
+      - link "(406) 544-4492" [ref=e12] [cursor=pointer]:
+        - /url: tel:+14065444492
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]: Privacy Policy
+      - heading "Privacy Policy" [level=1] [ref=e16]
+      - paragraph [ref=e17]: "Last updated: May 10, 2026"
+    - paragraph [ref=e18]: JMartin Construction, LLC ("JMartin Construction," "we," "us," or "our") respects your privacy. This Privacy Policy explains what information we collect, how we use it, who we share it with, and the choices you have. It also includes our SMS messaging program disclosures.
+    - paragraph [ref=e19]: By using our website (jmartinconstructions.com), submitting a form, or texting us, you agree to the practices described in this Privacy Policy.
+    - heading "1. Information We Collect" [level=2] [ref=e20]
+    - paragraph [ref=e21]: "We collect information you voluntarily provide to us through our website, chat widget, or by phone, including:"
+    - list [ref=e22]:
+      - listitem [ref=e23]:
+        - strong [ref=e24]: Contact information
+        - text: — name, mobile phone number, email address, and physical address (when provided).
+      - listitem [ref=e25]:
+        - strong [ref=e26]: Project information
+        - text: — details you share about your construction project, such as scope, timeline, and budget.
+      - listitem [ref=e27]:
+        - strong [ref=e28]: Communications
+        - text: — the content of messages, emails, and notes from our conversations.
+    - paragraph [ref=e29]: We also collect limited technical information automatically when you visit our site, including IP address, browser type, device type, referring URL, and pages viewed. This information is used solely to operate, secure, and improve our website.
+    - heading "2. How We Use Your Information" [level=2] [ref=e30]
+    - paragraph [ref=e31]: "We use the information you provide to:"
+    - list [ref=e32]:
+      - listitem [ref=e33]: Respond to your inquiries and follow up about your project.
+      - listitem [ref=e34]: Send appointment confirmations, scheduling messages, and project updates.
+      - listitem [ref=e35]: Provide quotes, contracts, and other documents related to work you have requested.
+      - listitem [ref=e36]: Comply with legal obligations.
+      - listitem [ref=e37]: Operate and improve our website.
+    - heading "3. SMS Messaging Program" [level=2] [ref=e38]
+    - paragraph [ref=e40]:
+      - strong [ref=e41]: By submitting a form on our website (including the chat widget) with the SMS consent checkbox checked, or by texting us your contact information, you provide express written consent to receive SMS text messages from JMartin Construction.
+    - heading "Program description" [level=3] [ref=e42]
+    - paragraph [ref=e43]: The SMS messages you receive from JMartin Construction will relate to your project inquiry, scheduling, appointment confirmations, project updates, follow-up questions, and related communications about work you have requested. We do not send unsolicited marketing or promotional SMS messages.
+    - heading "Message frequency" [level=3] [ref=e44]
+    - paragraph [ref=e45]: Message frequency varies based on your project status. You can expect occasional messages from the time of your inquiry until your project is complete, or until you opt out.
+    - heading "Message and data rates" [level=3] [ref=e46]
+    - paragraph [ref=e47]: Message and data rates may apply. Standard carrier rates apply based on your mobile plan. JMartin Construction does not charge any fees for SMS messages.
+    - heading "Opting out (STOP)" [level=3] [ref=e48]
+    - paragraph [ref=e49]:
+      - text: You may opt out of SMS messages at any time by replying
+      - strong [ref=e50]: STOP
+      - text: to any message you receive from us. You will receive one final confirmation message confirming your opt-out, after which you will no longer receive SMS messages from JMartin Construction. To rejoin the program after opting out, reply
+      - strong [ref=e51]: START
+      - text: to the confirmation message or contact us at (406) 544-4492.
+    - heading "Help (HELP)" [level=3] [ref=e52]
+    - paragraph [ref=e53]:
+      - text: For help with our SMS program, reply
+      - strong [ref=e54]: HELP
+      - text: to any message, or contact us at (406) 544-4492 or
+      - link "hello@jmartinconstruction.com" [ref=e55] [cursor=pointer]:
+        - /url: mailto:hello@jmartinconstruction.com
+      - text: .
+    - heading "Carriers" [level=3] [ref=e56]
+    - paragraph [ref=e57]: Supported carriers include AT&T, Verizon, T-Mobile, Sprint, U.S. Cellular, and other major U.S. carriers. Mobile carriers are not liable for delayed or undelivered SMS messages.
+    - heading "Mobile information sharing" [level=3] [ref=e58]
+    - paragraph [ref=e59]:
+      - strong [ref=e60]: JMartin Construction does not sell, rent, share, or otherwise disclose your mobile phone number or SMS opt-in information to any third parties or affiliates for their marketing or promotional purposes. Your mobile information is used solely to operate the SMS program you have opted into.
+    - heading "Consent is not a condition of purchase" [level=3] [ref=e61]
+    - paragraph [ref=e62]: You are not required to consent to receive SMS messages as a condition of purchasing any goods or services from JMartin Construction. If you do not wish to receive SMS messages, you may still contact us by phone, email, or by submitting our contact form without checking the SMS consent box.
+    - heading "4. How We Share Your Information" [level=2] [ref=e63]
+    - paragraph [ref=e64]: "We do not sell or rent your personal information. We may share information you provide only in the following limited circumstances:"
+    - list [ref=e65]:
+      - listitem [ref=e66]:
+        - strong [ref=e67]: Service providers
+        - text: — We use trusted vendors to operate our business, including a customer relationship management (CRM) platform to manage leads and a hosting platform to serve our website. These providers process information only on our behalf and are contractually required to keep it confidential and secure.
+      - listitem [ref=e68]:
+        - strong [ref=e69]: Subcontractors and partners
+        - text: — When directly necessary for a project you have hired us for, we may share limited project information (such as your name, address, and project scope) with licensed subcontractors or suppliers.
+      - listitem [ref=e70]:
+        - strong [ref=e71]: Legal requirements
+        - text: — We may disclose information if required by law, subpoena, or court order, or if we believe disclosure is necessary to protect rights, property, or safety.
+    - paragraph [ref=e72]:
+      - text: As stated above,
+      - strong [ref=e73]: we do not share or sell your mobile phone number or SMS opt-in information with third parties or affiliates for marketing or promotional purposes
+      - text: ", under any circumstance."
+    - heading "5. Data Security" [level=2] [ref=e74]
+    - paragraph [ref=e75]: We use commercially reasonable administrative, technical, and physical safeguards to protect personal information from unauthorized access, loss, misuse, or alteration. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
+    - heading "6. Data Retention" [level=2] [ref=e76]
+    - paragraph [ref=e77]: We retain personal information for as long as needed to provide our services, to comply with legal obligations, to resolve disputes, and to enforce our agreements. When information is no longer needed, we securely delete or anonymize it.
+    - heading "7. Cookies and Analytics" [level=2] [ref=e78]
+    - paragraph [ref=e79]: Our website uses minimal cookies and may use privacy-friendly analytics to understand how visitors use the site. We do not use advertising trackers or third-party marketing pixels. You can disable cookies in your browser at any time without affecting your ability to use the site.
+    - heading "8. Children's Privacy" [level=2] [ref=e80]
+    - paragraph [ref=e81]: Our services are not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with information, please contact us and we will delete it.
+    - heading "9. Your Rights and Choices" [level=2] [ref=e82]
+    - paragraph [ref=e83]: "You may:"
+    - list [ref=e84]:
+      - listitem [ref=e85]: Request a copy of the personal information we hold about you.
+      - listitem [ref=e86]: Request that we correct, update, or delete your personal information.
+      - listitem [ref=e87]: Opt out of SMS messages at any time by replying STOP.
+      - listitem [ref=e88]: Unsubscribe from email communications by replying with "unsubscribe" or contacting us.
+    - paragraph [ref=e89]:
+      - text: To exercise any of these rights, contact us at (406) 544-4492 or
+      - link "hello@jmartinconstruction.com" [ref=e90] [cursor=pointer]:
+        - /url: mailto:hello@jmartinconstruction.com
+      - text: .
+    - heading "10. Changes to This Policy" [level=2] [ref=e91]
+    - paragraph [ref=e92]: We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. Material changes will be communicated through our website or via direct notice where appropriate.
+    - heading "11. Contact Us" [level=2] [ref=e93]
+    - paragraph [ref=e94]: "If you have questions about this Privacy Policy or our SMS program, contact us:"
+    - paragraph [ref=e95]:
+      - strong [ref=e96]: JMartin Construction, LLC
+      - text: Missoula, Montana
+      - text: "Phone:"
+      - link "(406) 544-4492" [ref=e97] [cursor=pointer]:
+        - /url: tel:+14065444492
+      - text: "Email:"
+      - link "hello@jmartinconstruction.com" [ref=e98] [cursor=pointer]:
+        - /url: mailto:hello@jmartinconstruction.com
+    - paragraph [ref=e99]:
+      - text: See also our
+      - link "Terms of Service" [ref=e100] [cursor=pointer]:
+        - /url: /terms-of-service
+      - text: .
+  - contentinfo [ref=e101]:
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - img "JMartin Construction LLC" [ref=e104]
+        - paragraph [ref=e105]: Residential builder serving Western Montana. Framing, siding, roofing, tile, trim, and decks.
+      - generic [ref=e106]:
+        - generic [ref=e107]:
+          - heading "Reach Us" [level=4] [ref=e108]
+          - link "(406) 544-4492" [ref=e109] [cursor=pointer]:
+            - /url: tel:+14065444492
+          - link "hello@jmartinconstruction.com" [ref=e110] [cursor=pointer]:
+            - /url: mailto:hello@jmartinconstruction.com
+        - generic [ref=e111]:
+          - heading "Explore" [level=4] [ref=e112]
+          - link "Services" [ref=e113] [cursor=pointer]:
+            - /url: /#services
+          - link "Projects" [ref=e114] [cursor=pointer]:
+            - /url: /#projects
+          - link "Process" [ref=e115] [cursor=pointer]:
+            - /url: /#process
+          - link "Areas" [ref=e116] [cursor=pointer]:
+            - /url: /#areas
+        - generic [ref=e117]:
+          - heading "Legal" [level=4] [ref=e118]
+          - link "Privacy Policy" [ref=e119] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms of Service" [ref=e120] [cursor=pointer]:
+            - /url: /terms-of-service
+    - generic [ref=e121]:
+      - generic [ref=e122]: © 2026 JMartin Construction, LLC. All rights reserved.
+      - generic [ref=e123]: Built in Montana.

@@ -1,0 +1,434 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "JT Fasulo" [ref=e7] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e8]: JT Fasulo
+      - button "Toggle menu" [ref=e9] [cursor=pointer]:
+        - img [ref=e10]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - img [ref=e18]
+            - text: AI Creative Technologist
+          - generic [ref=e21]: Available for new projects
+        - heading "AI-Powered Campaign Creatives" [level=1] [ref=e25]:
+          - generic [ref=e26]: AI-Powered
+          - generic [ref=e27]: Campaign
+          - generic [ref=e28]: Creatives
+        - generic [ref=e29]:
+          - paragraph [ref=e31]: Cutting-edge visual content that converts. I combine AI-driven creative intelligence with proven social strategy to build brands that dominate their market.
+          - generic [ref=e32]:
+            - link "Start a Project" [ref=e33] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=e34]: Start a Project
+              - img [ref=e35]
+            - link "View Work" [ref=e37] [cursor=pointer]:
+              - /url: "#portfolio"
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - img [ref=e41]
+            - text: AI-Generated Creatives
+          - generic [ref=e43]:
+            - img [ref=e45]
+            - text: Data-Driven Strategy
+          - generic [ref=e48]:
+            - img [ref=e50]
+            - text: Premium Brand Identity
+      - generic [ref=e54]: Scroll
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e61]: Services
+          - heading "What I Build For Your Brand" [level=2] [ref=e63]:
+            - text: What I Build
+            - text: For Your Brand
+        - paragraph [ref=e64]: Four focused service lines designed to give ambitious brands an unfair creative advantage.
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - generic [ref=e68]:
+              - generic [ref=e69]: 01/04
+              - generic [ref=e70]: Primary Offering
+            - img [ref=e72]
+          - heading "Campaign Creatives Made with AI" [level=3] [ref=e75]
+          - paragraph [ref=e76]: Data-driven visual content engineered for conversion. I harness the latest generative AI models to produce scroll-stopping campaign assets — ads, banners, social posts, and brand visuals — at scale and speed that traditional agencies can't match.
+          - list [ref=e77]:
+            - listitem [ref=e78]: Generative ad creative sets
+            - listitem [ref=e80]: AI-enhanced photo & video
+            - listitem [ref=e82]: Brand-consistent visual systems
+            - listitem [ref=e84]: A/B-ready creative variants
+            - listitem [ref=e86]: Platform-optimized formats
+          - link "Get Started" [ref=e88] [cursor=pointer]:
+            - /url: "#contact"
+            - text: Get Started
+            - img [ref=e89]
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - generic [ref=e95]: 02/04
+              - generic [ref=e96]: Secondary Offering
+            - img [ref=e98]
+          - heading "Social Media Strategy" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Audience growth and engagement optimization built on real data. I develop content calendars, platform-specific strategies, and community frameworks that turn followers into buyers.
+          - list [ref=e102]:
+            - listitem [ref=e103]: Content calendar development
+            - listitem [ref=e105]: Audience growth roadmaps
+            - listitem [ref=e107]: Platform algorithm strategy
+            - listitem [ref=e109]: Engagement rate optimization
+            - listitem [ref=e111]: Analytics & reporting
+          - link "Get Started" [ref=e113] [cursor=pointer]:
+            - /url: "#contact"
+            - text: Get Started
+            - img [ref=e114]
+        - generic [ref=e117]:
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e120]: 03/04
+              - generic [ref=e121]: Add-On Service
+            - img [ref=e123]
+          - heading "Content Optimization" [level=3] [ref=e128]
+          - paragraph [ref=e129]: Transform underperforming assets into high-converting content. I audit existing creative libraries, identify gaps, and systematically improve performance across every channel.
+          - list [ref=e130]:
+            - listitem [ref=e131]: Creative performance audits
+            - listitem [ref=e133]: Copy & visual refresh
+            - listitem [ref=e135]: Repurposing for multi-channel
+            - listitem [ref=e137]: SEO-informed content strategy
+            - listitem [ref=e139]: Conversion rate testing
+          - link "Get Started" [ref=e141] [cursor=pointer]:
+            - /url: "#contact"
+            - text: Get Started
+            - img [ref=e142]
+        - generic [ref=e145]:
+          - generic [ref=e146]:
+            - generic [ref=e147]:
+              - generic [ref=e148]: 04/04
+              - generic [ref=e149]: Advisory
+            - img [ref=e151]
+          - heading "Strategy Consulting" [level=3] [ref=e153]
+          - paragraph [ref=e154]: High-level brand and marketing consulting for founders, CMOs, and agencies looking to integrate AI into their creative workflow or rethink their content ecosystem from first principles.
+          - list [ref=e155]:
+            - listitem [ref=e156]: AI creative stack audits
+            - listitem [ref=e158]: Brand positioning workshops
+            - listitem [ref=e160]: Go-to-market creative strategy
+            - listitem [ref=e162]: Team training & playbooks
+            - listitem [ref=e164]: Ongoing advisory retainer
+          - link "Get Started" [ref=e166] [cursor=pointer]:
+            - /url: "#contact"
+            - text: Get Started
+            - img [ref=e167]
+    - generic [ref=e171]:
+      - generic [ref=e172]:
+        - generic [ref=e173]:
+          - generic [ref=e175]: Case Studies
+          - heading "Work That Moves the Needle" [level=2] [ref=e177]:
+            - text: Work That
+            - text: Moves the Needle
+        - generic [ref=e178]:
+          - button "All" [ref=e179] [cursor=pointer]
+          - button "AI Creatives" [ref=e180] [cursor=pointer]
+          - button "Social Strategy" [ref=e181] [cursor=pointer]
+      - generic [ref=e182]:
+        - generic [ref=e183]:
+          - generic [ref=e188]: AI Creatives
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - heading "Versace" [level=3] [ref=e191]
+              - paragraph [ref=e192]: AI Campaign Creative
+            - paragraph [ref=e193]: Full AI-generated campaign creative for a luxury fashion brand. Premium visual content built for performance.
+        - generic [ref=e194]:
+          - generic [ref=e199]: AI Creatives
+          - generic [ref=e200]:
+            - generic [ref=e201]:
+              - heading "Timberland" [level=3] [ref=e202]
+              - paragraph [ref=e203]: AI Campaign Creative
+            - paragraph [ref=e204]: AI-powered campaign creatives for an iconic outdoor brand. Data-driven visuals that convert.
+        - generic [ref=e205]:
+          - generic [ref=e210]: AI Creatives
+          - generic [ref=e211]:
+            - generic [ref=e212]:
+              - heading "Oakley" [level=3] [ref=e213]
+              - paragraph [ref=e214]: AI Campaign Creative
+            - paragraph [ref=e215]: High-impact AI-generated creative suite for a performance eyewear brand launching a new product line.
+        - generic [ref=e216]:
+          - generic [ref=e221]: AI Creatives
+          - generic [ref=e222]:
+            - generic [ref=e223]:
+              - heading "Budri Tennis Club" [level=3] [ref=e224]
+              - paragraph [ref=e225]: AI Campaign Creative
+            - paragraph [ref=e226]: Premium brand storytelling for a luxury tennis club. AI-crafted visuals that position the brand at the top of the market.
+      - generic [ref=e227]:
+        - paragraph [ref=e228]: These are a selection of recent engagements. Let's talk about your project.
+        - link "Discuss Your Project" [ref=e229] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e230]: Discuss Your Project
+          - img [ref=e231]
+    - generic [ref=e234]:
+      - generic: HOW
+      - generic [ref=e235]:
+        - generic [ref=e236]:
+          - generic [ref=e237]:
+            - generic [ref=e239]: Process
+            - heading "From Brief To Results" [level=2] [ref=e241]:
+              - text: From Brief
+              - text: To Results
+          - paragraph [ref=e243]: A proven five-phase system that takes every engagement from raw idea to measurable business impact — fast, structured, and transparent at every step.
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - img [ref=e248]
+            - generic [ref=e251]:
+              - generic [ref=e252]:
+                - generic [ref=e253]: "01"
+                - generic [ref=e254]: 1–2 days
+              - heading "Discovery" [level=3] [ref=e255]
+              - paragraph [ref=e256]: Deep-dive into your brand, audience, competitive landscape, and goals. We define what success looks like before a single pixel is touched.
+          - generic [ref=e257]:
+            - img [ref=e260]
+            - generic [ref=e262]:
+              - generic [ref=e263]:
+                - generic [ref=e264]: "02"
+                - generic [ref=e265]: 2–3 days
+              - heading "Strategy" [level=3] [ref=e266]
+              - paragraph [ref=e267]: "Build the creative and channel strategy: messaging framework, content pillars, AI toolchain selection, and KPI targets."
+          - generic [ref=e268]:
+            - img [ref=e271]
+            - generic [ref=e277]:
+              - generic [ref=e278]:
+                - generic [ref=e279]: "03"
+                - generic [ref=e280]: 5–7 days
+              - heading "Creation" [level=3] [ref=e281]
+              - paragraph [ref=e282]: AI-powered production at scale. Campaign assets, social content, and creative variants designed for your platforms, budget, and brand.
+          - generic [ref=e283]:
+            - img [ref=e286]
+            - generic [ref=e287]:
+              - generic [ref=e288]:
+                - generic [ref=e289]: "04"
+                - generic [ref=e290]: Ongoing
+              - heading "Optimization" [level=3] [ref=e291]
+              - paragraph [ref=e292]: Launch, measure, and iterate. Continuous testing of creative variants, audience segments, and messaging to compound performance over time.
+          - generic [ref=e293]:
+            - img [ref=e296]
+            - generic [ref=e302]:
+              - generic [ref=e303]:
+                - generic [ref=e304]: "05"
+                - generic [ref=e305]: Monthly
+              - heading "Results" [level=3] [ref=e306]
+              - paragraph [ref=e307]: "Deliver measurable outcomes: lower CPAs, higher ROAS, audience growth, engagement lifts. Clear reporting on every metric that matters."
+    - generic [ref=e308]:
+      - generic: JTF
+      - generic [ref=e309]:
+        - generic [ref=e310]:
+          - generic [ref=e312]: About
+          - heading "The Mind Behind The Machine" [level=2] [ref=e314]:
+            - text: The Mind Behind
+            - text: The Machine
+        - generic [ref=e315]:
+          - generic [ref=e317]:
+            - img "JT Fasulo" [ref=e318]
+            - generic [ref=e321]:
+              - generic [ref=e322]: JT Fasulo
+              - generic [ref=e323]: AI Creative Technologist & Brand Strategist
+          - generic [ref=e324]:
+            - generic [ref=e325]:
+              - paragraph [ref=e326]: I'm JT Fasulo — a creative technologist and brand strategist who sits at the intersection of artificial intelligence and high-performance marketing.
+              - paragraph [ref=e327]: My work started in mechanical engineering, but I had an early vision that generative AI is the defining shift in creative production.
+              - paragraph [ref=e328]: Today, I help brands, agencies, and founders harness AI-powered creative systems to produce campaigns that look premium, perform brilliantly, and scale without the traditional cost and time overhead.
+              - paragraph [ref=e329]: When I'm not building creative strategies, I'm deep in the latest AI models, testing new tools, and sharing what I learn with the brands I partner with.
+            - list [ref=e331]:
+              - listitem [ref=e332]:
+                - img [ref=e333]
+                - text: 200+ hours spent using AI-generative systems
+              - listitem [ref=e336]:
+                - img [ref=e337]
+                - text: 150+ hours spent using agentic AI systems
+              - listitem [ref=e340]:
+                - img [ref=e341]
+                - text: Over 100,000 views generated on my own page in the first 50 days
+            - generic [ref=e344]:
+              - generic [ref=e345]: Tech Stack
+              - generic [ref=e346]:
+                - generic [ref=e347]:
+                  - generic [ref=e348]: Claude
+                  - generic [ref=e349]: AI Model
+                - generic [ref=e350]:
+                  - generic [ref=e351]: Claude Code
+                  - generic [ref=e352]: AI Dev Tool
+                - generic [ref=e353]:
+                  - generic [ref=e354]: Nano Banana Pro
+                  - generic [ref=e355]: Creative
+                - generic [ref=e356]:
+                  - generic [ref=e357]: Kling 3.0
+                  - generic [ref=e358]: AI Video
+                - generic [ref=e359]:
+                  - generic [ref=e360]: Meta Ads
+                  - generic [ref=e361]: Paid Social
+                - generic [ref=e362]:
+                  - generic [ref=e363]: ElevenLabs
+                  - generic [ref=e364]: AI Audio
+            - generic [ref=e365]:
+              - link "Work With Me" [ref=e366] [cursor=pointer]:
+                - /url: "#contact"
+                - generic [ref=e367]: Work With Me
+              - link "jtfasulo.com" [ref=e368] [cursor=pointer]:
+                - /url: https://jtfasulo.com
+                - text: jtfasulo.com
+                - img [ref=e369]
+    - generic [ref=e374]:
+      - generic [ref=e375]:
+        - generic [ref=e377]: Contact
+        - heading "Let's Build Something Great" [level=2] [ref=e379]:
+          - text: Let's Build
+          - text: Something Great
+      - generic [ref=e380]:
+        - generic [ref=e382]:
+          - generic [ref=e383]:
+            - generic [ref=e384]:
+              - generic [ref=e385]: Full Name *
+              - textbox "Your name" [ref=e386]
+            - generic [ref=e387]:
+              - generic [ref=e388]: Email Address *
+              - textbox "you@company.com" [ref=e389]
+          - generic [ref=e390]:
+            - generic [ref=e391]: Service Needed *
+            - combobox [ref=e392]:
+              - option "Select a service..." [disabled] [selected]
+              - option "Campaign Creatives Made with AI"
+              - option "Social Media Strategy"
+              - option "Content Optimization"
+              - option "Strategy Consulting"
+              - option "Other / Not Sure Yet"
+          - generic [ref=e393]:
+            - generic [ref=e394]: Project Budget
+            - generic [ref=e395]:
+              - button "Under $2,500" [ref=e396] [cursor=pointer]
+              - button "$2,500 – $5,000" [ref=e397] [cursor=pointer]
+              - button "$5,000 – $15,000" [ref=e398] [cursor=pointer]
+              - button "$15,000+" [ref=e399] [cursor=pointer]
+              - button "Let's discuss" [ref=e400] [cursor=pointer]
+          - generic [ref=e401]:
+            - generic [ref=e402]: Project Details *
+            - textbox "Tell me about your brand, goals, and what you're looking to achieve..." [ref=e403]
+          - button "Send Message" [ref=e404] [cursor=pointer]:
+            - generic [ref=e405]: Send Message
+            - img [ref=e406]
+          - paragraph [ref=e409]: Typically respond within 24 hours. All inquiries are confidential.
+        - generic [ref=e410]:
+          - generic [ref=e411]:
+            - generic [ref=e412]:
+              - img [ref=e414]
+              - generic [ref=e417]:
+                - generic [ref=e418]: Email
+                - generic [ref=e419]: jtfasulo7@gmail.com
+            - generic [ref=e420]:
+              - img [ref=e422]
+              - generic [ref=e425]:
+                - generic [ref=e426]: Location
+                - generic [ref=e427]: Remote — Serving clients worldwide
+            - generic [ref=e428]:
+              - img [ref=e430]
+              - generic [ref=e433]:
+                - generic [ref=e434]: Response Time
+                - generic [ref=e435]: Within 24 hours on business days
+          - generic [ref=e437]:
+            - generic [ref=e438]: What Happens Next
+            - list [ref=e439]:
+              - listitem [ref=e440]:
+                - generic [ref=e441]: "01"
+                - generic [ref=e442]: I review your project details carefully
+              - listitem [ref=e443]:
+                - generic [ref=e444]: "02"
+                - generic [ref=e445]: We schedule a 30-min discovery call
+              - listitem [ref=e446]:
+                - generic [ref=e447]: "03"
+                - generic [ref=e448]: I send you a tailored proposal within 48 hrs
+              - listitem [ref=e449]:
+                - generic [ref=e450]: "04"
+                - generic [ref=e451]: We kick off within days of agreement
+          - generic [ref=e453]:
+            - generic [ref=e456]: Currently Accepting Projects
+            - paragraph [ref=e457]: I take on a limited number of new clients each quarter to ensure exceptional quality and attention. Reach out early to secure your spot.
+  - contentinfo [ref=e458]:
+    - generic: FASULO
+    - generic [ref=e461]:
+      - generic [ref=e462]:
+        - generic [ref=e463]: Ready to Start?
+        - heading "Let's build something that converts." [level=3] [ref=e464]:
+          - text: Let's build something that
+          - text: converts.
+      - link "Book a Free Discovery Call" [ref=e465] [cursor=pointer]:
+        - /url: "#contact"
+        - generic [ref=e466]: Book a Free Discovery Call
+        - img [ref=e467]
+    - generic [ref=e470]:
+      - generic [ref=e471]:
+        - generic [ref=e472]:
+          - generic [ref=e474]: JT Fasulo
+          - paragraph [ref=e475]: AI creative technologist and strategic brand partner. Building the future of campaign creatives, one brand at a time.
+          - generic [ref=e476]:
+            - link "Twitter / X" [ref=e477] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e478]
+            - link "LinkedIn" [ref=e484] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e485]
+            - link "Instagram" [ref=e488] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e489]
+            - link "YouTube" [ref=e493] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e494]
+        - generic [ref=e496]:
+          - generic [ref=e497]: Navigation
+          - list [ref=e498]:
+            - listitem [ref=e499]:
+              - link "Services" [ref=e500] [cursor=pointer]:
+                - /url: "#services"
+                - text: Services
+            - listitem [ref=e502]:
+              - link "Work" [ref=e503] [cursor=pointer]:
+                - /url: "#portfolio"
+                - text: Work
+            - listitem [ref=e505]:
+              - link "Process" [ref=e506] [cursor=pointer]:
+                - /url: "#process"
+                - text: Process
+            - listitem [ref=e508]:
+              - link "About" [ref=e509] [cursor=pointer]:
+                - /url: "#about"
+                - text: About
+            - listitem [ref=e511]:
+              - link "Contact" [ref=e512] [cursor=pointer]:
+                - /url: "#contact"
+                - text: Contact
+        - generic [ref=e514]:
+          - generic [ref=e515]: Services
+          - list [ref=e516]:
+            - listitem [ref=e517]:
+              - link "Campaign Creatives Made with AI" [ref=e518] [cursor=pointer]:
+                - /url: "#services"
+                - text: Campaign Creatives Made with AI
+            - listitem [ref=e520]:
+              - link "Social Media Strategy" [ref=e521] [cursor=pointer]:
+                - /url: "#services"
+                - text: Social Media Strategy
+            - listitem [ref=e523]:
+              - link "Content Optimization" [ref=e524] [cursor=pointer]:
+                - /url: "#services"
+                - text: Content Optimization
+            - listitem [ref=e526]:
+              - link "Strategy Consulting" [ref=e527] [cursor=pointer]:
+                - /url: "#services"
+                - text: Strategy Consulting
+      - generic [ref=e529]:
+        - paragraph [ref=e530]: © 2026 JT Fasulo. All rights reserved.
+        - generic [ref=e531]:
+          - link "Privacy Policy" [ref=e532] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms" [ref=e533] [cursor=pointer]:
+            - /url: "#"
+          - link "jtfasulo.com" [ref=e534] [cursor=pointer]:
+            - /url: https://jtfasulo.com
+            - text: jtfasulo.com
+            - img [ref=e535]

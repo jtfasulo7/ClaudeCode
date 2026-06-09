@@ -1,0 +1,201 @@
+- generic [ref=e2]:
+  - alert [ref=e3]: COACH FISH SERVICES
+  - generic [ref=e6]:
+    - generic: 
+    - generic [ref=e8]:
+      - link "MEMBER LOG IN" [ref=e23] [cursor=pointer]:
+        - /url: ""
+        - generic [ref=e25]: MEMBER LOG IN
+      - generic [ref=e27]:
+        - heading "GET RECRUITED" [level=1] [ref=e35]:
+          - strong [ref=e36]: GET RECRUITED
+        - link "TALK TO THE COACH" [ref=e42] [cursor=pointer]:
+          - /url: https://calendly.com/coachfish2024/30min
+          - generic [ref=e43]:
+            - generic [ref=e44]: TALK TO THE COACH
+            - generic [ref=e45]: 
+      - generic [ref=e47]:
+        - heading "RECRUITMENT STARTS HERE" [level=1] [ref=e55]:
+          - strong [ref=e56]: RECRUITMENT STARTS HERE
+        - figure [ref=e69]:
+          - generic [ref=e70] [cursor=pointer]: ▶
+        - generic [ref=e75]:
+          - heading "Welcome To" [level=1] [ref=e79]:
+            - strong [ref=e80]: Welcome To
+          - heading "COACH FISH RECRUITING" [level=2] [ref=e84]:
+            - strong [ref=e85]:
+              - emphasis [ref=e86]: COACH FISH RECRUITING
+          - generic [ref=e89]:
+            - heading "COACH FISH RECRUITING IS YOUR GO TO REGARDING COLLEGE RECRUITMENT." [level=2] [ref=e90]: COACH FISH RECRUITING IS YOUR GO TO REGARDING COLLEGE RECRUITMENT.
+            - paragraph [ref=e91]: We specialize in bridging the gap between talented athletes and the right opportunities.Unlike other agencies, we focus not only on athletic performance, but also on developing the whole athlete. We take a personalized approach by working closely with athletes and their familyes to understand their academic, athletic, and career goals. Our dedicated team offers customized guidance, mentoring, and resources tailored to each athlete's unique needs, helping them success both on and off the field or court. What sets us apart? Holistic Athlete Development- We just don't focus on athletic performance. Our approach includes fostering academic success, mental resilience, and leadership skills, ensuring athletes are prepared for the demands of college.Personalized support- We believe in a hands-on approach, offering one-on-one consultations. Strong network connections- We extensive relationships wit college coaches, recruiters, and athletic programs across various levels, we provide athletes with direct access to a wide range of opportunities. Commitment to Long-term success- We are invested in the long term development of our athletes.
+          - link "TALK TO THE COACH" [ref=e93] [cursor=pointer]:
+            - /url: ""
+            - generic [ref=e94]:
+              - generic [ref=e95]: TALK TO THE COACH
+              - generic [ref=e96]: 
+      - heading "EVERY SPORT COVERED" [level=1] [ref=e106]:
+        - strong [ref=e107]: EVERY SPORT COVERED
+      - generic [ref=e120]:
+        - paragraph [ref=e128]
+        - generic [ref=e130]:
+          - generic [ref=e132]:
+            - heading "OUR MISSION" [level=2] [ref=e141]:
+              - strong [ref=e142]: OUR MISSION
+            - paragraph [ref=e146]: Our mission is to empower the student-athletes by providing services that emphasize both athletic and academic achievements. We are committed to guiding student athletes through their journey to higher education, helping them find the right opportunities to excel in sports while also fostering their personal and educational growth. Through mentorship and skill development, and a deep network of connections, we strive to open doors to college programs where student athletes can thrive in their sport, in the classroom, and beyond.
+          - generic [ref=e148]:
+            - heading "OUR GOAL" [level=2] [ref=e157]:
+              - strong [ref=e158]: OUR GOAL
+            - paragraph [ref=e162]: Our goal is to help our clients continue to play, and enjoy the sports they love.
+          - generic [ref=e164]:
+            - heading "OUR COMMITMENT" [level=2] [ref=e173]:
+              - strong [ref=e174]: OUR COMMITMENT
+            - paragraph [ref=e178]: I want to maximize the opportunities for all my clients.
+      - generic [ref=e180]:
+        - heading "WHERE DO YOU WANT TO GO?" [level=1] [ref=e188]:
+          - strong [ref=e189]: WHERE DO YOU WANT TO GO?
+        - heading "GET INSTANT ACCESS TO OVER 52,000 COLLEGE COACHES" [level=1] [ref=e328]:
+          - strong [ref=e329]: GET INSTANT ACCESS TO OVER 52,000 COLLEGE COACHES
+      - generic [ref=e331]:
+        - generic [ref=e335]:
+          - heading "🏅 Athlete Recruiting Service Packages 🏅" [level=2] [ref=e339]:
+            - strong [ref=e340]: 🏅 Athlete Recruiting Service Packages 🏅
+          - heading "Our goal is to help you reach your athletic dreams without breaking the bank. We offer affordable, high-quality services to get you the exposure you need to succeed in college recruiting." [level=2] [ref=e344]
+        - generic [ref=e348]:
+          - heading "📦 Recruiting Package" [level=2] [ref=e352]:
+            - text: 📦
+            - strong [ref=e353]: Recruiting Package
+          - heading "$75.00/month or $700.00/year" [level=1] [ref=e357]:
+            - strong [ref=e358]: $75.00/month or $700.00/year
+          - heading [level=2] [ref=e362]
+          - generic [ref=e368]:
+            - paragraph [ref=e369]
+            - paragraph [ref=e370]
+            - list [ref=e371]:
+              - listitem [ref=e372]:
+                - paragraph [ref=e373]: 1. Athlete Evaluation & Consultation• One-on-one consultation to assess the athlete’s goals, skills, academics, and recruiting potential.• Honest feedback on the athlete’s current level and areas for growth.
+                - paragraph [ref=e374]
+              - listitem [ref=e375]:
+                - paragraph [ref=e376]: Recruiting Profile Creation• Building a professional athlete profile (bio, stats, GPA, video links, accolades).• Includes social media presence if applicable.
+                - paragraph [ref=e377]
+              - listitem [ref=e378]:
+                - paragraph [ref=e379]: Highlight Video Editing & Distribution• Creating and editing high-quality highlight reels.• Distributing videos to college coaches and recruiters
+                - paragraph [ref=e380]
+              - listitem [ref=e381]:
+                - paragraph [ref=e382]: College Matching & Target List Development• Helping families build a list of realistic and stretch colleges based on athletic level, academics, and interests.• Recommendations based on division level (NCAA D1, D2, D3, NAIA, JUCO)
+                - paragraph [ref=e383]
+              - listitem [ref=e384]:
+                - paragraph [ref=e385]: Coach Outreach & Communication Support• Crafting personalized emails to coaches.• Providing templates and communication tips for athletes.• Contacting coaches directly on the athlete’s behalf when appropriate
+                - paragraph [ref=e386]
+              - listitem [ref=e387]:
+                - paragraph [ref=e388]: Academic & Eligibility Guidance• Support with NCAA/NAIA eligibility center registration.• Guidance on core courses, GPA requirements, and standardized tests (SAT/ACT)
+                - paragraph [ref=e389]
+              - listitem [ref=e390]:
+                - paragraph [ref=e391]: Recruiting Education & Workshops• Hosting workshops/webinars for athletes and families on the recruiting process, timelines, and scholarship opportunities.• Education on red flags, commitment timelines, and verbal vs. official offers
+                - paragraph [ref=e392]
+              - listitem [ref=e393]:
+                - paragraph [ref=e394]: Showcase & Camp Recommendations• Connecting athletes to the right showcases, tournaments, and college camps.• Providing feedback on performance and exposure opportunities
+                - paragraph [ref=e395]
+              - listitem [ref=e396]:
+                - paragraph [ref=e397]: Scholarship & Financial Aid Guidance• Help understanding athletic vs. academic scholarships.• Support navigating offers and financial aid options
+                - paragraph [ref=e398]
+              - listitem [ref=e399]:
+                - paragraph [ref=e400]: Ongoing Support & Progress Tracking
+          - link "MONTHLY SUBSCRIPTION" [ref=e402] [cursor=pointer]:
+            - /url: ""
+            - generic [ref=e403]:
+              - generic [ref=e404]: MONTHLY SUBSCRIPTION
+              - generic [ref=e405]: 
+          - link "YEARLY SUBSCRIPTION" [ref=e407] [cursor=pointer]:
+            - /url: ""
+            - generic [ref=e408]:
+              - generic [ref=e409]: YEARLY SUBSCRIPTION
+              - generic [ref=e410]: 
+      - generic [ref=e412]:
+        - generic [ref=e416]:
+          - heading "Ready to take your recruiting to the next level? Start today with the package that fits your budget and recruiting goals!" [level=1] [ref=e420]:
+            - strong [ref=e421]: Ready to take your recruiting to the next level? Start today with the package that fits your budget and recruiting goals!
+          - 'heading "The #1 Recruitment Software on the PLANET" [level=1] [ref=e425]':
+            - strong [ref=e426]: "The #1 Recruitment Software on the PLANET"
+          - heading "It's Power and Simplicity gets you off the RECRUITMENT BENCH and gets you in the GAME!" [level=2] [ref=e430]
+        - generic [ref=e432]:
+          - link "Profile and Film" [ref=e441] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e443]: Profile and Film
+          - link "Your Success Timeline" [ref=e452] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e454]: Your Success Timeline
+          - link "Target Any Coach" [ref=e463] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e465]: Target Any Coach
+          - link "Send Your Profile" [ref=e474] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e476]: Send Your Profile
+      - generic [ref=e480]:
+        - generic [ref=e482]:
+          - heading "NCAA DIVISION I" [level=2] [ref=e486]:
+            - strong [ref=e487]: NCAA DIVISION I
+          - heading "58%" [level=1] [ref=e491]:
+            - strong [ref=e492]: 58%
+          - generic [ref=e495]:
+            - paragraph [ref=e496]: of all student-athletes receive some level of athletic aid.
+            - paragraph [ref=e497]
+        - generic [ref=e499]:
+          - heading "NCAA DIVISION II" [level=2] [ref=e503]:
+            - strong [ref=e504]: NCAA DIVISION II
+          - heading "67%" [level=1] [ref=e508]:
+            - strong [ref=e509]: 67%
+          - generic [ref=e512]:
+            - paragraph [ref=e513]: of all student-athletes receive some level of athletics aid.
+            - paragraph [ref=e514]
+        - generic [ref=e516]:
+          - heading "NCAA DIVISION III" [level=2] [ref=e520]:
+            - strong [ref=e521]: NCAA DIVISION III
+          - heading "80%" [level=1] [ref=e525]:
+            - strong [ref=e526]: 80%
+          - paragraph [ref=e530]: of all student-athletes receive some form of academic scholarship or need-based grant; institutional gift aid totals $17,000 on average.
+      - generic [ref=e532]:
+        - generic [ref=e536]:
+          - heading "Founder & CEO" [level=2] [ref=e540]:
+            - strong [ref=e541]: Founder & CEO
+          - heading "Coach FISH" [level=1] [ref=e545]:
+            - strong [ref=e546]: Coach FISH
+          - paragraph [ref=e550]:
+            - emphasis [ref=e551]: I have been involved with sports for 15 years. I started out as a scout for a NFL agent, and was able to identify and recognize talent that got drafted to the NFL like Curtis Marsh, and Spencer Paysinger. I also have coached basketball, and soccer for years. I was a quarterback and wide receiver coach in the past for a school that went on to win the state championship.
+          - link "TALK TO THE COACH" [ref=e553] [cursor=pointer]:
+            - /url: ""
+            - generic [ref=e554]:
+              - generic [ref=e555]: TALK TO THE COACH
+              - generic [ref=e556]: 
+        - text: 
+      - generic [ref=e592]:
+        - generic [ref=e597]: Your browser does not support HTML video.
+        - generic [ref=e602]: Your browser does not support HTML video.
+        - generic [ref=e607]: Your browser does not support HTML video.
+        - generic [ref=e612]: Your browser does not support HTML video.
+      - generic [ref=e616]:
+        - generic [ref=e626]:
+          - link "Facebook" [ref=e627] [cursor=pointer]:
+            - /url: https://facebook.com
+            - img "social media icon" [ref=e628]
+          - link "Instagram" [ref=e629] [cursor=pointer]:
+            - /url: https://instagram.com
+            - img "social media icon" [ref=e630]
+          - link "X" [ref=e631] [cursor=pointer]:
+            - /url: https://x.com
+            - img "social media icon" [ref=e632]
+          - link "LinkedIn" [ref=e633] [cursor=pointer]:
+            - /url: https://linkedin.com
+            - img "social media icon" [ref=e634]
+          - link "Youtube" [ref=e635] [cursor=pointer]:
+            - /url: https://youtube.com
+            - img "social media icon" [ref=e636]
+          - link "TikTok" [ref=e637] [cursor=pointer]:
+            - /url: https://tiktok.com
+            - img "social media icon" [ref=e638]
+        - generic [ref=e640]:
+          - heading "CONTACT INFO:" [level=2] [ref=e644]
+          - heading "EMAIL:" [level=2] [ref=e648]
+          - heading "PHONE:" [level=2] [ref=e652]
+          - heading "HOURS:9:00am-5:00pm EST" [level=2] [ref=e656]:
+            - text: "HOURS:"
+            - strong [ref=e657]: 9:00am-5:00pm EST

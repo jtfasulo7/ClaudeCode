@@ -1,0 +1,192 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Sybago — home" [ref=e3] [cursor=pointer]:
+      - /url: /
+      - generic [ref=e4]: SYBAGO
+    - link "Book A Call" [ref=e5] [cursor=pointer]:
+      - /url: "#book"
+  - main [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Pricing
+      - heading "One price. Everything included. No setup fee." [level=1] [ref=e9]:
+        - text: One price.
+        - emphasis [ref=e10]: Everything included.
+        - text: No setup fee.
+      - paragraph [ref=e11]: $297/month for the full website + the full lead-follow-up system. Month-to-month, cancel anytime, no contract. Below is exactly what's in it. No "starting at." No "plus fees." No "platform charge."
+    - article "Website + texts + reviews + reactivation + dashboard." [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]: Sybago — Full System
+          - generic [ref=e17]: Website + texts + reviews + reactivation + dashboard.
+        - generic [ref=e18]:
+          - generic [ref=e19]: $297
+          - generic [ref=e20]: /month
+      - generic [ref=e21]:
+        - generic [ref=e22]: Month-to-month
+        - generic [ref=e23]: No setup fee
+        - generic [ref=e24]: No contract
+        - generic [ref=e25]: Cancel anytime
+      - list [ref=e26]:
+        - listitem [ref=e27]:
+          - generic [ref=e28]: A Website That Texts Customers For You
+          - generic [ref=e29]: Custom-built on the system we run ourselves. When someone fills out your contact form, your phone buzzes in under 60 seconds with the lead's name, number, and what they're asking about. Counts as your domain, your design, your logo — yours.
+        - listitem [ref=e30]:
+          - generic [ref=e31]: Missed-Call Text-Back
+          - generic [ref=e32]: "Your phone rings while you're on a job. You can't grab it. Within 30 seconds, the caller gets a text from your number: \"Hey, sorry I missed that — what can I help you with?\" About a third of those replies turn into booked jobs. Set up once, runs forever."
+        - listitem [ref=e33]:
+          - generic [ref=e34]: 5-Star Review Automation (Google-compliant)
+          - generic [ref=e35]: Job done? A friendly automated text goes out. Happy customers get nudged toward Google. Unhappy ones can text you back privately first — but they're never blocked from leaving a public review. We follow Google's rules. Some of the bigger competitors don't.
+        - listitem [ref=e36]:
+          - generic [ref=e37]: Dead-Lead Reactivation
+          - generic [ref=e38]: Every "not right now" gets re-engaged automatically — 30, 60, 90 days out. You'll get a few "actually, can you come out next week?" replies a month from leads you'd already given up on. Free money.
+        - listitem [ref=e39]:
+          - generic [ref=e40]: One Dashboard For Everything
+          - generic [ref=e41]: Calls, texts, web chats, Facebook DMs, reviews, and your pipeline — all in one place, on your phone or your laptop. We show you the two buttons you actually need to press. That's it.
+        - listitem [ref=e42]:
+          - generic [ref=e43]: Real-human Support
+          - generic [ref=e44]: JT's email and a direct text line. No ticket queue. No tier-1 outsourced help desk. If something breaks, we fix it.
+      - generic [ref=e45]:
+        - generic [ref=e46]: Eight days from your demo call to a live system.
+        - link "Book A Call" [ref=e47] [cursor=pointer]:
+          - /url: "#book"
+          - text: Book A Call
+          - img [ref=e48]
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]: Other Services
+        - heading "Stuff we can add on, when you actually need it." [level=2] [ref=e54]
+        - paragraph [ref=e55]: None of these are in the $297 plan. None of them are required. We'll be straight with you on the demo call about what you actually need and what's a waste of money for your business right now.
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - generic [ref=e58]: Local visibility
+          - generic [ref=e59]: Google Business Profile Optimization
+          - generic [ref=e60]: Get your profile actually ranking for the searches your customers are typing. Photos, services, hours, posts, the works.
+        - generic [ref=e61]:
+          - generic [ref=e62]: Long-game SEO
+          - generic [ref=e63]: Local SEO — backlinks, content, optimization
+          - generic [ref=e64]: For when you've maxed out the cheap wins and want to start eating your competitors' organic traffic in 6–12 months.
+        - generic [ref=e65]:
+          - generic [ref=e66]: Paid traffic
+          - generic [ref=e67]: Google Ads & LSA management
+          - generic [ref=e68]: We run your paid Google traffic — Search, LSAs, Performance Max — and feed every lead straight into the system you're already paying us for.
+        - generic [ref=e69]:
+          - generic [ref=e70]: Paid traffic
+          - generic [ref=e71]: Meta Ads management
+          - generic [ref=e72]: Lead-form ads, retargeting, creative testing. We'll tell you on the demo whether Meta makes sense for your trade or you should skip it.
+        - generic [ref=e73]:
+          - generic [ref=e74]: Custom build
+          - generic [ref=e75]: Custom automations beyond the standard build
+          - generic [ref=e76]: Multi-step workflows, integrations with your CRM/QuickBooks/scheduler, AI voice agents, custom dashboards. If it's possible in GoHighLevel + a webhook, we can build it.
+      - paragraph [ref=e77]:
+        - text: Pricing on add-ons depends on scope and is decided on the demo call.
+        - strong [ref=e78]: No surprise invoices.
+        - text: If we quote it, that's the price.
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]: How it works
+        - heading "Three steps. Eight days. Done." [level=2] [ref=e82]
+        - paragraph [ref=e83]: You don't need to read this. We'll walk you through it on the call.
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e86]: Step 01
+          - generic [ref=e87]: Day 0 · 20 min
+          - heading "Demo Call" [level=3] [ref=e88]
+          - paragraph [ref=e89]: Yeah, it's a sales call. We just won't waste your time. We'll show you live client accounts, real text messages from real leads, and exactly what your version would look like.
+        - generic [ref=e90]:
+          - generic [ref=e91]: Step 02
+          - generic [ref=e92]: Days 1–7
+          - heading "We Build It" [level=3] [ref=e93]
+          - paragraph [ref=e94]: Fill out one form. We handle the rest. You don't need to know what GoHighLevel, Twilio, or "webhook" means. That's literally what you're paying us for.
+        - generic [ref=e95]:
+          - generic [ref=e96]: Step 03
+          - generic [ref=e97]: Day 8 · 25 min
+          - heading "Launch Call" [level=3] [ref=e98]
+          - paragraph [ref=e99]: We hand you the keys. Show you the two buttons you actually need to press. You go back to running your business.
+    - generic [ref=e101]:
+      - heading "Ready to stop losing leads?" [level=2] [ref=e102]
+      - link "Book A Call" [ref=e103] [cursor=pointer]:
+        - /url: "#book"
+        - text: Book A Call
+        - img [ref=e104]
+      - paragraph [ref=e106]: $297/mo. No setup fee. No contract. Eight days from this call to a live system.
+    - generic [ref=e107]:
+      - generic [ref=e108]:
+        - generic [ref=e109]: Book a free 20-minute call
+        - heading "Pick a time. We'll show you the rest." [level=2] [ref=e110]
+        - paragraph [ref=e111]: Live client accounts, real text messages from real leads, and exactly what your version would look like. No pitch deck.
+      - iframe [ref=e113]:
+        
+  - contentinfo [ref=e114]:
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - generic [ref=e117]:
+          - text: Ready to get started?
+          - generic [ref=e118]: Eight days from this call to a live system.
+        - link "Book A Call" [ref=e119] [cursor=pointer]:
+          - /url: "#book"
+          - text: Book A Call
+          - img [ref=e120]
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - link "Sybago — home" [ref=e124] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e125]: SYBAGO
+          - paragraph [ref=e126]: A website + lead-follow-up system for service contractors. $297/mo, no contracts, no setup fee.
+        - generic [ref=e127]:
+          - heading "Sybago" [level=4] [ref=e128]
+          - list [ref=e129]:
+            - listitem [ref=e130]:
+              - link "Pricing" [ref=e131] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e132]:
+              - link "Trades We Serve" [ref=e133] [cursor=pointer]:
+                - /url: /#trades
+            - listitem [ref=e134]:
+              - link "FAQ" [ref=e135] [cursor=pointer]:
+                - /url: /#faq
+            - listitem [ref=e136]:
+              - link "Book A Call" [ref=e137] [cursor=pointer]:
+                - /url: "#book"
+        - generic [ref=e138]:
+          - heading "Account" [level=4] [ref=e139]
+          - list [ref=e140]:
+            - listitem [ref=e141]:
+              - link "Log In" [ref=e142] [cursor=pointer]:
+                - /url: https://app.gohighlevel.com
+            - listitem [ref=e143]:
+              - link "Leave a Review" [ref=e144] [cursor=pointer]:
+                - /url: /leave-a-review.html
+            - listitem [ref=e145]:
+              - link "Contact" [ref=e146] [cursor=pointer]:
+                - /url: /contact-us.html
+            - listitem [ref=e147]:
+              - link "Call / Text Us" [ref=e148] [cursor=pointer]:
+                - /url: tel:[PHONE]
+        - generic [ref=e149]:
+          - heading "Follow JT" [level=4] [ref=e150]
+          - list [ref=e151]:
+            - listitem [ref=e152]:
+              - link "Instagram" [ref=e153] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e154]:
+              - link "YouTube" [ref=e155] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e156]:
+              - link "TikTok" [ref=e157] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - text: Want to learn more?
+          - generic [ref=e160]: Same call, same calendar. We're not picky.
+        - link "Book A Call" [ref=e161] [cursor=pointer]:
+          - /url: "#book"
+          - text: Book A Call
+          - img [ref=e162]
+      - generic [ref=e164]:
+        - generic [ref=e165]: © 2026 Sybago. Built by people who answer their phones.
+        - generic [ref=e166]:
+          - link "Privacy" [ref=e167] [cursor=pointer]:
+            - /url: /privacy-policy.html
+          - link "Terms" [ref=e168] [cursor=pointer]:
+            - /url: /terms.html
+      - paragraph [ref=e169]: Small team, big results. Real human on the other end of the call.

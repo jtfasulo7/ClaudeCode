@@ -1,0 +1,178 @@
+- generic [active] [ref=e1]:
+  - banner:
+    - generic [ref=e2]: MERIDIAN
+    - navigation [ref=e3]:
+      - link "Features" [ref=e4] [cursor=pointer]:
+        - /url: "#features"
+      - link "Shop" [ref=e5] [cursor=pointer]:
+        - /url: "#shop"
+  - region "MERIDIAN — visual prologue" [ref=e6]:
+    - generic [ref=e7]:
+      - generic:
+        - generic: Composing · Patience
+      - generic:
+        - generic:
+          - generic: MERIDIAN
+          - generic: Eau de Parfum · Reserve No. 07
+        - generic:
+          - generic: For the high places.
+        - generic:
+          - generic:
+            - generic: The composition
+            - generic:
+              - generic: Bergamot
+              - generic: ·
+              - generic: Cedar
+              - generic: ·
+              - generic: Iron Oxide
+              - generic: ·
+              - generic: Smoked Oud
+              - generic: ·
+              - generic: Amber
+        - generic:
+          - generic:
+            - text: First light.
+            - emphasis: Last fire.
+          - generic: 100ml · £210
+          - link "Discover the bottle" [ref=e9] [cursor=pointer]:
+            - /url: "#shop"
+      - generic [ref=e11]: Scroll
+  - main [ref=e13]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]: Eight reasons
+        - heading "Built quietly. Released once a year." [level=2] [ref=e18]:
+          - text: Built quietly. Released
+          - emphasis [ref=e19]: once a year.
+      - paragraph [ref=e20]: Eight things to know about MERIDIAN before the bottle arrives — its glass, its perfumer, the four nights at altitude that produced it. Scroll to advance.
+    - region "MERIDIAN — feature carousel" [ref=e21]:
+      - region [ref=e23]:
+        - generic [ref=e25]:
+          - button "Lalique Glass" [ref=e27] [cursor=pointer]:
+            - img [ref=e29]
+            - generic [ref=e32]: Lalique Glass
+          - button "Eau de Parfum" [ref=e34] [cursor=pointer]:
+            - img [ref=e36]
+            - generic [ref=e38]: Eau de Parfum
+          - button "Numbered Edition" [ref=e40] [cursor=pointer]:
+            - img [ref=e42]
+            - generic [ref=e45]: Numbered Edition
+          - button "The Perfumer" [ref=e47] [cursor=pointer]:
+            - img [ref=e49]
+            - generic [ref=e52]: The Perfumer
+          - button "Grasse Composition" [ref=e54] [cursor=pointer]:
+            - img [ref=e56]
+            - generic [ref=e59]: Grasse Composition
+          - button "Ethically Sourced" [ref=e61] [cursor=pointer]:
+            - img [ref=e63]
+            - generic [ref=e66]: Ethically Sourced
+          - button "The Bernese Alps" [ref=e68] [cursor=pointer]:
+            - img [ref=e70]
+            - generic [ref=e72]: The Bernese Alps
+          - button "Carbon Neutral" [ref=e74] [cursor=pointer]:
+            - img [ref=e76]
+            - generic [ref=e79]: Carbon Neutral
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - img "Lalique Glass" [ref=e83]
+            - generic:
+              - generic: 01 • Lalique Glass
+              - paragraph: Hand-cut leaded crystal — fifteen facets, by Lalique, Wingen-sur-Moder.
+          - generic:
+            - img "Eau de Parfum"
+            - generic:
+              - generic: 02 • Eau de Parfum
+              - paragraph: 22% concentration. Cold-distilled six weeks, rested in oak for three.
+          - generic:
+            - img "Numbered Edition"
+            - generic:
+              - generic: 03 • Numbered Edition
+              - paragraph: Limited to 2,500 numbered bottles per year. Engraved on request.
+          - generic:
+            - img "The Perfumer"
+            - generic:
+              - generic: 04 • The Perfumer
+              - paragraph: Composed by Élise Marchand over nine months in Grasse.
+          - generic:
+            - img "Grasse Composition"
+            - generic:
+              - generic: 05 • Grasse Composition
+              - paragraph: Made where modern perfumery began — south of France, since 1747.
+          - generic:
+            - img "Ethically Sourced"
+            - generic:
+              - generic: 06 • Ethically Sourced
+              - paragraph: Botanicals harvested by hand, traceable to twelve farms.
+          - generic:
+            - img "The Bernese Alps"
+            - generic:
+              - generic: 07 • The Bernese Alps
+              - paragraph: Inspired by four nights at 3,200 metres above the cloud line.
+          - generic:
+            - img "Carbon Neutral"
+            - generic:
+              - generic: 08 • Carbon Neutral
+              - paragraph: Every bottle ships carbon-balanced through Atmosfair.
+    - generic [ref=e84]:
+      - generic [ref=e85]: Acquire
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - heading "MERIDIAN — Eau de Parfum" [level=2] [ref=e88]:
+            - text: MERIDIAN
+            - emphasis [ref=e89]: —
+            - text: Eau de Parfum
+          - paragraph [ref=e90]: Limited to 2,500 numbered bottles per year. Engraved with edition number and city of dispatch. Ships in a felted oak case from Grasse within five working days.
+          - generic [ref=e91]: Free shipping · 30-day return
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - generic [ref=e94] [cursor=pointer]:
+              - generic [ref=e95]: 50 ml · Travel
+              - generic [ref=e96]: £135
+            - generic [ref=e97] [cursor=pointer]:
+              - generic [ref=e98]: 100 ml · Standard
+              - generic [ref=e99]: £210
+            - generic [ref=e100] [cursor=pointer]:
+              - generic [ref=e101]: 100 ml · Engraved
+              - generic [ref=e102]: £245
+          - button "Add to bottle" [ref=e103] [cursor=pointer]
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - generic [ref=e107]: MERIDIAN
+          - paragraph [ref=e108]: Composed in Grasse. Released for the seventeen minutes the world catches fire.
+        - generic [ref=e109]:
+          - heading "Discover" [level=4] [ref=e110]
+          - list [ref=e111]:
+            - listitem [ref=e112]:
+              - link "The features" [ref=e113] [cursor=pointer]:
+                - /url: "#features"
+            - listitem [ref=e114]:
+              - link "The bottle" [ref=e115] [cursor=pointer]:
+                - /url: "#shop"
+        - generic [ref=e116]:
+          - heading "House" [level=4] [ref=e117]
+          - list [ref=e118]:
+            - listitem [ref=e119]:
+              - link "The perfumer" [ref=e120] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e121]:
+              - link "Press" [ref=e122] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e123]:
+              - link "Sustainability" [ref=e124] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e125]:
+          - heading "Care" [level=4] [ref=e126]
+          - list [ref=e127]:
+            - listitem [ref=e128]:
+              - link "Shipping & returns" [ref=e129] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e130]:
+              - link "Engraving" [ref=e131] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e132]:
+              - link "Contact" [ref=e133] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e134]:
+        - generic [ref=e135]: © 2026 MERIDIAN — Maison de Parfum · Grasse
+        - generic [ref=e136]: Privacy · Terms · Cookies

@@ -12,11 +12,16 @@ Target: small-to-medium businesses with low digital maturity.
 ## Key Workflows
 1. /find-leads [industry] [location] — Scrape Google Maps + directories
 2. /enrich-leads [file] — Add emails, phone numbers, contact names
-3. /export-leads [file] [format] — Export to CSV/JSON
+3. /validate-phones [file] — Check numbers via phonevalidator.com (mobile vs landline/VOIP)
+4. /qualify-leads [file] — Score leads and drop non-mobile phones
+5. /export-leads [file] [format] — Export to CSV/JSON
 
 ## Data Schema (Every Lead Must Have)
 - business_name (required)
 - phone (required)
+- phone_valid (True/False/None — from validate_phones.py)
+- phone_line_type (mobile/landline/voip/invalid)
+- phone_carrier (best effort)
 - email (best effort)
 - address (required)
 - city, state, zip (required)

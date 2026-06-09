@@ -1,0 +1,129 @@
+{
+  "brand": "Fasulo",
+  "version": "1.0",
+  "colors": {
+    "primary": {
+      "teal": "#2d6679",
+      "teal_rgb": [45, 102, 121],
+      "teal_hsl": [195, 46, 33]
+    },
+    "neutral": {
+      "black": "#0a0a0a",
+      "white": "#ffffff"
+    },
+    "supporting": {
+      "teal_tint_10": "#e8f0f3",
+      "teal_tint_20": "#d1e2e7",
+      "teal_dark": "#1f4a59",
+      "off_white": "#fafafa"
+    },
+    "rules": {
+      "forbidden": [
+        "any color not derived from teal #2d6679, black #0a0a0a, or white #ffffff",
+        "pure black #000000",
+        "pure-saturation accents (red, orange, yellow, green, magenta)",
+        "rainbow or multi-hue gradients"
+      ],
+      "allowed_gradients": [
+        "teal #2d6679 to teal-dark #1f4a59",
+        "black #0a0a0a to teal-dark #1f4a59",
+        "white #ffffff to teal-tint #e8f0f3"
+      ]
+    }
+  },
+  "typography": {
+    "display": {
+      "font": "Fraunces",
+      "weights": [700, 900],
+      "variable_axes": {
+        "wght": 900,
+        "soft": 0,
+        "wonk": 0,
+        "opsz": 144
+      },
+      "tracking": "-2%",
+      "use_for": "cover headlines, slide headlines, pull quotes, stat numbers",
+      "notes": "Variable axes locked to soft=0 wonk=0 for sharpest authoritative read. Use weight 900 for cover, 700 for slide headlines, 700 italic for pull quotes."
+    },
+    "body": {
+      "font": "Inter",
+      "weights": [400, 500, 700],
+      "tracking": "0",
+      "use_for": "all running body copy, supporting text, captions on light backgrounds",
+      "notes": "Designed to be neutral. Never let Inter compete with Fraunces — Inter is the disappearing partner."
+    },
+    "mono": {
+      "font": "JetBrains Mono",
+      "fallback": "Space Mono",
+      "weights": [400],
+      "tracking": "+5%",
+      "use_for": "page indicators (01 / 07), source attributions, data labels, stat captions",
+      "notes": "Adds technical signature without introducing a second 'real' font."
+    },
+    "scale_pt": {
+      "cover_headline": [140, 180],
+      "slide_headline": 72,
+      "stat_number": 280,
+      "body": 36,
+      "caption": 24,
+      "pull_quote": 56,
+      "pull_quote_mark": 200
+    },
+    "rules": {
+      "forbidden": [
+        "any second serif paired with Fraunces (creates conflict)",
+        "Montserrat, Poppins, Roboto, or other Canva-default sans (undercuts authority)",
+        "Geist, Space Grotesk, Manrope (compete with Fraunces for personality)",
+        "more than three font families across the system"
+      ],
+      "approved_only": ["Fraunces", "Inter", "JetBrains Mono"]
+    }
+  },
+  "layout": {
+    "instagram_portrait": { "w": 1080, "h": 1350 },
+    "instagram_square": { "w": 1080, "h": 1080 },
+    "linkedin_portrait": { "w": 1200, "h": 1500 },
+    "padding_outer_px": 96,
+    "padding_safe_px": 80,
+    "accent_line_offset_from_bottom_px": 96,
+    "accent_line_thickness_px": 2,
+    "accent_line_color": "#2d6679"
+  },
+  "signature_elements": {
+    "page_indicator": {
+      "format": "NN / NN",
+      "position": "top-right",
+      "offset_px": 96,
+      "size_pt": 24,
+      "font": "JetBrains Mono",
+      "color_on_light": "#2d6679",
+      "color_on_dark": "#ffffff"
+    },
+    "handle": {
+      "position": "bottom-left",
+      "offset_px": 96,
+      "size_pt": 24,
+      "font": "Inter",
+      "weight": 400,
+      "color_on_light": "#2d6679",
+      "color_on_dark": "#ffffff"
+    }
+  },
+  "background_rotation": {
+    "default_7_slide": [
+      "teal",
+      "white",
+      "white",
+      "teal",
+      "white",
+      "white",
+      "black"
+    ],
+    "rules": [
+      "first slide always teal (cover hook stands out in feed)",
+      "last slide always black (CTA gets dramatic stop)",
+      "every third interior slide is teal-bg (visual rhythm)",
+      "never two teal slides in a row except slide 1"
+    ]
+  }
+}

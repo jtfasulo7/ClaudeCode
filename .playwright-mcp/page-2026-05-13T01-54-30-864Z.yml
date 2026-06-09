@@ -1,0 +1,307 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "J.B. Landscape home" [ref=e3] [cursor=pointer]:
+      - /url: "#top"
+      - img "J.B. Landscape" [ref=e4]
+      - generic [ref=e5]:
+        - text: J.B.
+        - emphasis [ref=e6]: Landscape
+    - generic [ref=e7]:
+      - link "Services" [ref=e8] [cursor=pointer]:
+        - /url: "#services"
+      - link "Projects" [ref=e9] [cursor=pointer]:
+        - /url: "#projects"
+      - link "Process" [ref=e10] [cursor=pointer]:
+        - /url: "#process"
+      - link "Areas" [ref=e11] [cursor=pointer]:
+        - /url: "#areas"
+      - link "(401) 230-4820" [ref=e12] [cursor=pointer]:
+        - /url: tel:+14012304820
+  - banner [ref=e13]:
+    - generic [ref=e15]:
+      - heading "Landscaping & Lawn Care in Providence and Greater Rhode Island" [level=1] [ref=e16]
+      - paragraph [ref=e17]:
+        - text: A neighborhood crew. A finished yard.
+        - emphasis [ref=e18]: The same day we said.
+      - paragraph [ref=e19]: J.B. Landscape is a family-run landscaping company serving Providence and Greater Rhode Island. Lawn care, design, hardscaping, cleanups, and irrigation — done by the same crew that gave you the estimate.
+      - generic [ref=e20]:
+        - link "Free Estimate" [ref=e21] [cursor=pointer]:
+          - /url: "#contact"
+          - text: Free Estimate
+          - img [ref=e22]
+        - link "(401) 230-4820" [ref=e24] [cursor=pointer]:
+          - /url: tel:+14012304820
+          - img [ref=e25]
+          - text: (401) 230-4820
+      - paragraph [ref=e27]: Free estimates · Licensed & insured · Hablamos Español
+  - generic [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]: Our Services
+        - heading "What we do." [level=2] [ref=e32]
+        - paragraph [ref=e33]: Residential and small commercial. Click any service to see exactly what's included and how a job of that type runs.
+      - generic [ref=e34]:
+        - button "Previous service" [ref=e35] [cursor=pointer]:
+          - img [ref=e36]
+        - button "Next service" [ref=e38] [cursor=pointer]:
+          - img [ref=e39]
+    - list [ref=e42]:
+      - listitem [ref=e43] [cursor=pointer]:
+        - img "Freshly mowed lawn with stripe pattern in Providence, RI" [ref=e44]
+        - generic [ref=e46]:
+          - heading "Lawn Maintenance" [level=3] [ref=e47]
+          - paragraph [ref=e48]: Weekly mowing, edging, blow-down, and trimming. Same crew. Same day. Healthy turf, sharp edges.
+          - generic [ref=e49]:
+            - text: Read more
+            - img [ref=e50]
+      - listitem [ref=e52] [cursor=pointer]:
+        - img "Curved planted garden bed with native shrubs in a Rhode Island yard" [ref=e53]
+        - generic [ref=e55]:
+          - heading "Landscape Design" [level=3] [ref=e56]
+          - paragraph [ref=e57]: New beds, planting plans, grading, sod. We design it, plant it, and stand behind it.
+          - generic [ref=e58]:
+            - text: Read more
+            - img [ref=e59]
+      - listitem [ref=e61] [cursor=pointer]:
+        - img "Fresh dark mulch in landscaped garden bed" [ref=e62]
+        - generic [ref=e64]:
+          - heading "Mulching" [level=3] [ref=e65]
+          - paragraph [ref=e66]: Bed edging, weed pull, fresh mulch laid even. Hemlock, black, or natural — your choice.
+          - generic [ref=e67]:
+            - text: Read more
+            - img [ref=e68]
+      - listitem [ref=e70] [cursor=pointer]:
+        - img "Paver stone patio with seating wall in a New England backyard" [ref=e71]
+        - generic [ref=e73]:
+          - heading "Hardscaping" [level=3] [ref=e74]
+          - paragraph [ref=e75]: Paver patios, walkways, retaining walls, fire pits. Proper base, real edge restraint, built to outlast New England.
+          - generic [ref=e76]:
+            - text: Read more
+            - img [ref=e77]
+      - listitem [ref=e79] [cursor=pointer]:
+        - img "Autumn leaves piled in a Rhode Island yard ready for fall cleanup" [ref=e80]
+        - generic [ref=e82]:
+          - heading "Spring & Fall Cleanups" [level=3] [ref=e83]
+          - paragraph [ref=e84]: Leaf removal, bed prep, edging, dethatching. The reset that makes your weekly service look great all season.
+          - generic [ref=e85]:
+            - text: Read more
+            - img [ref=e86]
+      - listitem [ref=e88] [cursor=pointer]:
+        - img "Pop-up irrigation sprinkler watering a green lawn" [ref=e89]
+        - generic [ref=e91]:
+          - heading "Irrigation" [level=3] [ref=e92]
+          - paragraph [ref=e93]: System install, repair, head adjustment, spring start-up, fall blow-out. Even coverage. No dead zones.
+          - generic [ref=e94]:
+            - text: Read more
+            - img [ref=e95]
+    - generic [ref=e97]:
+      - generic [ref=e98]: Scroll
+      - img [ref=e99]
+  - generic [ref=e101]:
+    - generic [ref=e102]:
+      - generic [ref=e103]: Recent Work
+      - heading "From Rhode Island yards." [level=2] [ref=e104]
+      - paragraph [ref=e105]: A selection of work we're proud of — lawns, beds, patios, and full yard transformations across Greater Providence.
+    - generic [ref=e106]:
+      - figure "Lawn Care Weekly Maintenance — Cranston" [ref=e107] [cursor=pointer]:
+        - img "Manicured front lawn with curved walkway and shrubs in Providence, RI" [ref=e108]
+        - generic [ref=e109]:
+          - generic [ref=e110]: Lawn Care
+          - heading "Weekly Maintenance — Cranston" [level=4] [ref=e111]
+      - figure "Design Front Yard Replant — Warwick" [ref=e112] [cursor=pointer]:
+        - img "New planting bed with fresh mulch and decorative stones along driveway" [ref=e113]
+        - generic [ref=e114]:
+          - generic [ref=e115]: Design
+          - heading "Front Yard Replant — Warwick" [level=4] [ref=e116]
+      - figure "Hardscape Paver Patio & Walkway — Johnston" [ref=e117] [cursor=pointer]:
+        - img "Stone paver patio with outdoor furniture and planted border" [ref=e118]
+        - generic [ref=e119]:
+          - generic [ref=e120]: Hardscape
+          - heading "Paver Patio & Walkway — Johnston" [level=4] [ref=e121]
+      - figure "Mulch Whole-Property Mulch — Lincoln" [ref=e122] [cursor=pointer]:
+        - img "Newly mulched garden bed with perennials and decorative edge" [ref=e123]
+        - generic [ref=e124]:
+          - generic [ref=e125]: Mulch
+          - heading "Whole-Property Mulch — Lincoln" [level=4] [ref=e126]
+      - figure "Cleanup Fall Cleanup — East Providence" [ref=e127] [cursor=pointer]:
+        - img "Late autumn yard cleanup with raked leaves and prepared beds" [ref=e128]
+        - generic [ref=e129]:
+          - generic [ref=e130]: Cleanup
+          - heading "Fall Cleanup — East Providence" [level=4] [ref=e131]
+      - figure "Irrigation New Sprinkler System — Smithfield" [ref=e132] [cursor=pointer]:
+        - img "Healthy green lawn watered by in-ground sprinkler system" [ref=e133]
+        - generic [ref=e134]:
+          - generic [ref=e135]: Irrigation
+          - heading "New Sprinkler System — Smithfield" [level=4] [ref=e136]
+    - paragraph [ref=e137]: Real photos coming soon — placeholders shown.
+  - generic [ref=e138]:
+    - generic [ref=e139]:
+      - generic [ref=e140]: Our Process
+      - heading "How a J.B. job runs." [level=2] [ref=e141]
+      - paragraph [ref=e142]: Four clear steps. You always know what's next.
+    - list [ref=e143]:
+      - listitem [ref=e145]:
+        - generic [ref=e147]: Step 01
+        - heading "Free Estimate" [level=4] [ref=e148]
+        - paragraph [ref=e149]: We come out, walk the property, and give you a real number — usually same-week.
+      - listitem [ref=e150]:
+        - generic [ref=e152]: Step 02
+        - heading "Schedule" [level=4] [ref=e153]
+        - paragraph [ref=e154]: You pick the start. We confirm the day and the crew. No nine-to-noon windows.
+      - listitem [ref=e155]:
+        - generic [ref=e157]: Step 03
+        - heading "The Work" [level=4] [ref=e158]
+        - paragraph [ref=e159]: Same crew, every time. Clean site, sharp lines, photos before we pack up.
+      - listitem [ref=e160]:
+        - generic [ref=e162]: Step 04
+        - heading "Walkthrough" [level=4] [ref=e163]
+        - paragraph [ref=e164]: You sign off when it looks right. We answer the phone after, all season long.
+  - generic [ref=e165]:
+    - generic [ref=e166]:
+      - generic [ref=e167]: Areas We Serve
+      - heading "Providence & Greater Rhode Island." [level=2] [ref=e168]
+      - paragraph [ref=e169]: Based in the (401). Don't see your town? Call us — we probably still cover it.
+    - list "Service areas list" [ref=e170]:
+      - listitem [ref=e171]:
+        - generic [ref=e172]: "01"
+        - text: Providence
+      - listitem [ref=e173]:
+        - generic [ref=e174]: "02"
+        - text: Cranston
+      - listitem [ref=e175]:
+        - generic [ref=e176]: "03"
+        - text: Warwick
+      - listitem [ref=e177]:
+        - generic [ref=e178]: "04"
+        - text: East Providence
+      - listitem [ref=e179]:
+        - generic [ref=e180]: "05"
+        - text: Pawtucket
+      - listitem [ref=e181]:
+        - generic [ref=e182]: "06"
+        - text: North Providence
+      - listitem [ref=e183]:
+        - generic [ref=e184]: "07"
+        - text: Johnston
+      - listitem [ref=e185]:
+        - generic [ref=e186]: "08"
+        - text: Smithfield
+      - listitem [ref=e187]:
+        - generic [ref=e188]: "09"
+        - text: Lincoln
+  - generic [ref=e189]:
+    - generic [ref=e190]:
+      - generic [ref=e191]: FAQ
+      - heading "Frequently asked questions." [level=2] [ref=e192]
+      - paragraph [ref=e193]:
+        - text: Don't see yours? Call us at
+        - link "(401) 230-4820" [ref=e194] [cursor=pointer]:
+          - /url: tel:+14012304820
+        - text: .
+    - generic [ref=e195]:
+      - group [ref=e196]:
+        - generic "Do you offer free estimates? +" [ref=e197] [cursor=pointer]
+      - group [ref=e198]:
+        - generic "What towns in Rhode Island do you service? +" [ref=e199] [cursor=pointer]
+      - group [ref=e200]:
+        - generic "Are you licensed and insured? +" [ref=e201] [cursor=pointer]
+      - group [ref=e202]:
+        - generic "¿Hablan Español? +" [ref=e203] [cursor=pointer]
+      - group [ref=e204]:
+        - generic "How often do you mow during the season? +" [ref=e205] [cursor=pointer]
+      - group [ref=e206]:
+        - generic "Do you do one-time jobs, or only weekly contracts? +" [ref=e207] [cursor=pointer]
+  - generic [ref=e209]:
+    - generic [ref=e210]:
+      - generic [ref=e211]: Get In Touch
+      - heading "Get a free estimate." [level=2] [ref=e212]
+      - paragraph [ref=e213]:
+        - text: Quickest is a phone call —
+        - link "(401) 230-4820" [ref=e214] [cursor=pointer]:
+          - /url: tel:+14012304820
+          - strong [ref=e215]: (401) 230-4820
+        - text: . We answer most days. Or fill out the form and we'll get back within one business day.
+      - list [ref=e216]:
+        - listitem [ref=e217]: Free, no-pressure estimates
+        - listitem [ref=e219]: Same crew, every visit
+        - listitem [ref=e221]: Licensed & insured
+        - listitem [ref=e223]: Hablamos Español
+    - generic [ref=e225]:
+      - generic [ref=e226]:
+        - generic [ref=e227]: Your name
+        - textbox "Your name" [ref=e228]
+      - generic [ref=e229]:
+        - generic [ref=e230]: Phone
+        - textbox "Phone" [ref=e231]
+      - generic [ref=e232]:
+        - generic [ref=e233]: Email
+        - textbox "Email" [ref=e234]
+      - generic [ref=e235]:
+        - generic [ref=e236]: What do you need done?
+        - textbox "What do you need done?" [ref=e237]:
+          - /placeholder: Weekly mowing, new patio, fall cleanup…
+      - generic [ref=e238]:
+        - checkbox "I agree to be contacted by text at the number provided." [ref=e239]
+        - generic [ref=e240]: I agree to be contacted by text at the number provided.
+      - button "Send Estimate Request" [ref=e241] [cursor=pointer]:
+        - text: Send Estimate Request
+        - img [ref=e242]
+      - paragraph [ref=e244]
+  - contentinfo [ref=e245]:
+    - generic [ref=e246]:
+      - generic [ref=e247]:
+        - img "J.B. Landscape" [ref=e248]
+        - paragraph [ref=e249]: Family-run landscaping serving Providence and Greater Rhode Island. Free estimates. Licensed & insured.
+      - generic [ref=e250]:
+        - generic [ref=e251]:
+          - heading "Services" [level=5] [ref=e252]
+          - list [ref=e253]:
+            - listitem [ref=e254]:
+              - link "Lawn Maintenance" [ref=e255] [cursor=pointer]:
+                - /url: /services/lawn-maintenance
+            - listitem [ref=e256]:
+              - link "Landscape Design" [ref=e257] [cursor=pointer]:
+                - /url: /services/landscape-design
+            - listitem [ref=e258]:
+              - link "Mulching" [ref=e259] [cursor=pointer]:
+                - /url: /services/mulching
+            - listitem [ref=e260]:
+              - link "Hardscaping" [ref=e261] [cursor=pointer]:
+                - /url: /services/hardscaping
+            - listitem [ref=e262]:
+              - link "Spring & Fall Cleanups" [ref=e263] [cursor=pointer]:
+                - /url: /services/cleanups
+            - listitem [ref=e264]:
+              - link "Irrigation" [ref=e265] [cursor=pointer]:
+                - /url: /services/irrigation
+        - generic [ref=e266]:
+          - heading "Contact" [level=5] [ref=e267]
+          - list [ref=e268]:
+            - listitem [ref=e269]:
+              - link "(401) 230-4820" [ref=e270] [cursor=pointer]:
+                - /url: tel:+14012304820
+            - listitem [ref=e271]: Providence, RI
+            - listitem [ref=e272]: Mon–Sat, 7am–6pm
+            - listitem [ref=e273]: Hablamos Español
+        - generic [ref=e274]:
+          - heading "Company" [level=5] [ref=e275]
+          - list [ref=e276]:
+            - listitem [ref=e277]:
+              - link "Services" [ref=e278] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e279]:
+              - link "Projects" [ref=e280] [cursor=pointer]:
+                - /url: "#projects"
+            - listitem [ref=e281]:
+              - link "Process" [ref=e282] [cursor=pointer]:
+                - /url: "#process"
+            - listitem [ref=e283]:
+              - link "Free Estimate" [ref=e284] [cursor=pointer]:
+                - /url: "#contact"
+            - listitem [ref=e285]:
+              - link "Privacy Policy" [ref=e286] [cursor=pointer]:
+                - /url: /privacy-policy
+            - listitem [ref=e287]:
+              - link "Terms of Service" [ref=e288] [cursor=pointer]:
+                - /url: /terms-of-service
+    - paragraph [ref=e290]: © 2026 J.B. Landscape · Licensed & Insured in Rhode Island · Free Estimates

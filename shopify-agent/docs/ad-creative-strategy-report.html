@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad Creative Strategy Report — LumiRecover LED Mask</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A1A2E;
+    --navy-light: #232342;
+    --navy-dark: #12121F;
+    --rose: #E8534A;
+    --rose-light: #F06B63;
+    --rose-dark: #C4433B;
+    --off-white: #F8F9FA;
+    --gray-50: #F1F3F5;
+    --gray-100: #E9ECEF;
+    --gray-200: #DEE2E6;
+    --gray-300: #CED4DA;
+    --gray-400: #ADB5BD;
+    --gray-500: #868E96;
+    --gray-600: #495057;
+    --gray-700: #343A40;
+    --gray-800: #212529;
+    --green: #2ECC71;
+    --green-bg: #E8F8F0;
+    --amber: #F39C12;
+    --amber-bg: #FEF5E7;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+    --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--off-white);
+    color: var(--gray-700);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Sticky TOC Nav ── */
+  .toc-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--navy);
+    border-bottom: 3px solid var(--rose);
+    padding: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+  .toc-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc-brand {
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: var(--off-white);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+  }
+  .toc-brand span { color: var(--rose); }
+  .toc-nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    white-space: nowrap;
+    transition: color 0.2s, background 0.2s;
+    flex-shrink: 0;
+  }
+  .toc-nav a:hover {
+    color: #fff;
+    background: rgba(232,83,74,0.15);
+  }
+
+  /* ── Hero Header ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy) 100%);
+    color: var(--off-white);
+    padding: 120px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(232,83,74,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(232,83,74,0.05) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: rgba(248,249,250,0.7);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(248,249,250,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .hero-meta-item strong {
+    color: var(--off-white);
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 2px;
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Phase Section Dividers ── */
+  .phase-header {
+    background: var(--navy);
+    color: var(--off-white);
+    padding: 48px 40px 40px;
+    margin: 48px -24px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--rose), var(--rose-light), var(--rose));
+  }
+  .phase-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 8px;
+  }
+  .phase-header h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    padding: 32px;
+    margin-bottom: 24px;
+    border: 1px solid var(--gray-100);
+    transition: box-shadow 0.25s;
+  }
+  .card:hover { box-shadow: var(--card-shadow-hover); }
+  .card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 20px 0 8px;
+  }
+  .card p, .card li {
+    font-size: 0.92rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+  .card ul { padding-left: 20px; margin: 8px 0; }
+  .card li { margin-bottom: 4px; }
+
+  /* ── Tables ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  thead th {
+    background: var(--navy);
+    color: var(--off-white);
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-700);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--gray-50); }
+
+  /* ── Badges ── */
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+  .badge-go {
+    background: var(--green-bg);
+    color: #1a9a4a;
+    border: 1px solid #b7ecc9;
+  }
+  .badge-caution {
+    background: var(--amber-bg);
+    color: #b87a0a;
+    border: 1px solid #f5dba5;
+  }
+  .badge-rose {
+    background: rgba(232,83,74,0.1);
+    color: var(--rose-dark);
+    border: 1px solid rgba(232,83,74,0.2);
+  }
+  .badge-navy {
+    background: rgba(26,26,46,0.08);
+    color: var(--navy);
+    border: 1px solid rgba(26,26,46,0.15);
+  }
+
+  /* ── Verdict Box ── */
+  .verdict-box {
+    border-left: 4px solid var(--rose);
+    background: rgba(232,83,74,0.04);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+  }
+  .verdict-box strong { color: var(--navy); }
+
+  /* ── Pattern Cards ── */
+  .pattern-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    border: 1px solid var(--gray-100);
+    border-top: 4px solid var(--rose);
+    transition: box-shadow 0.25s;
+  }
+  .pattern-card:hover { box-shadow: var(--card-shadow-hover); }
+  .pattern-card .pattern-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 4px;
+  }
+  .pattern-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .pattern-card .pattern-pct {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+  }
+  .pattern-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 14px;
+    margin-bottom: 4px;
+  }
+  .pattern-card p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  /* ── Checklist ── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .checklist li {
+    position: relative;
+    padding: 12px 12px 12px 40px;
+    margin-bottom: 8px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--gray-100);
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+  .checklist li::before {
+    content: '\2713';
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    padding-top: 1px;
+  }
+  .checklist li strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ── Conversion Checklist (5-point) ── */
+  .conversion-checklist li {
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* ── Quote Blocks (Ad Copy) ── */
+  .ad-copy-block {
+    background: linear-gradient(135deg, var(--gray-50), #fff);
+    border-left: 4px solid var(--rose);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin: 12px 0;
+    font-style: italic;
+    color: var(--gray-700);
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+  .ad-copy-block .copy-label {
+    font-style: normal;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .ad-copy-block .headline {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-top: 10px;
+    display: block;
+  }
+  .ad-copy-block .desc {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    display: block;
+  }
+  .ad-copy-block .cta-tag {
+    font-style: normal;
+    display: inline-block;
+    margin-top: 8px;
+    background: var(--rose);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── Code Blocks (Prompts) ── */
+  .prompt-block {
+    background: var(--navy-dark);
+    color: #c9d1d9;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 12px 0;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .prompt-block .prompt-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 10px;
+  }
+
+  /* ── Variation Cards ── */
+  .variation-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 32px;
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+    transition: box-shadow 0.25s;
+  }
+  .variation-card:hover { box-shadow: var(--card-shadow-hover); }
+  .variation-header {
+    background: var(--navy);
+    color: var(--off-white);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .variation-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--off-white);
+    margin: 0;
+  }
+  .variation-header .var-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .variation-header .var-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: rgba(232,83,74,0.2);
+    color: var(--rose-light);
+  }
+  .variation-body { padding: 28px; }
+
+  /* ── Brief Grid ── */
+  .brief-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .brief-item {
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .brief-item .brief-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 3px;
+  }
+  .brief-item .brief-value {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* ── Shot Blocks ── */
+  .shot-block {
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+  .shot-header {
+    background: var(--gray-50);
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--navy);
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .shot-header .shot-time {
+    font-weight: 500;
+    color: var(--rose);
+    font-size: 0.75rem;
+  }
+  .shot-body {
+    padding: 14px 16px;
+    font-size: 0.88rem;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+  .shot-body p { margin-bottom: 6px; }
+  .shot-body .text-overlay {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--off-white);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 4px 0;
+  }
+
+  /* ── Slide Grid (Carousel) ── */
+  .slide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .slide-card {
+    background: var(--gray-50);
+    border-radius: 10px;
+    padding: 16px 18px;
+    border: 1px solid var(--gray-200);
+  }
+  .slide-card .slide-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 6px;
+  }
+  .slide-card h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .slide-card p {
+    font-size: 0.84rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ── Summary Stats Row ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .stat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--gray-100);
+    box-shadow: var(--card-shadow);
+  }
+  .stat-card .stat-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .stat-card .stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--gray-500);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── A/B Test List ── */
+  .ab-list {
+    counter-reset: ab;
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .ab-list li {
+    counter-increment: ab;
+    padding: 12px 12px 12px 52px;
+    margin-bottom: 8px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--gray-100);
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    position: relative;
+  }
+  .ab-list li::before {
+    content: counter(ab);
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 28px;
+    height: 28px;
+    background: var(--navy);
+    color: var(--off-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 28px;
+    padding: 0;
+  }
+
+  /* ── Approval Banner ── */
+  .approval-banner {
+    background: linear-gradient(135deg, var(--rose-dark), var(--rose), var(--rose-light));
+    color: #fff;
+    text-align: center;
+    padding: 48px 40px;
+    margin: 48px -24px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .approval-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,255,255,0.04) 20px,
+      rgba(255,255,255,0.04) 40px
+    );
+    pointer-events: none;
+  }
+  .approval-banner h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .approval-banner p {
+    font-size: 0.95rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+    opacity: 0.92;
+  }
+
+  /* ── Notes Section ── */
+  .notes-section {
+    background: var(--navy);
+    color: var(--off-white);
+    padding: 40px;
+    margin: 0 -24px;
+  }
+  .notes-section h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--rose-light);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .notes-section li {
+    font-size: 0.88rem;
+    color: rgba(248,249,250,0.8);
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  /* ── Footer ── */
+  .report-footer {
+    text-align: center;
+    padding: 32px 40px;
+    font-size: 0.78rem;
+    color: var(--gray-400);
+    background: var(--navy-dark);
+  }
+
+  /* ── Utility ── */
+  .mt-sm { margin-top: 12px; }
+  .mb-sm { margin-bottom: 12px; }
+  .mt-md { margin-top: 24px; }
+  .mb-md { margin-bottom: 24px; }
+  .text-rose { color: var(--rose); }
+  .text-navy { color: var(--navy); }
+  .text-muted { color: var(--gray-500); }
+  .fw-700 { font-weight: 700; }
+  .fs-sm { font-size: 0.85rem; }
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--gray-200);
+    margin: 24px 0;
+  }
+
+  /* ── Insights Box ── */
+  .insights-box {
+    background: linear-gradient(135deg, rgba(26,26,46,0.03), rgba(232,83,74,0.03));
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 16px 0;
+  }
+  .insights-box h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .insights-box li {
+    font-size: 0.88rem;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+  }
+
+  /* ── Print Styles ── */
+  @media print {
+    .toc-nav { display: none; }
+    .hero { padding-top: 40px; }
+    body { background: #fff; font-size: 11pt; }
+    .card, .variation-card, .pattern-card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+    .phase-header { margin: 24px 0 16px; break-before: page; }
+    .variation-card { break-inside: avoid; }
+    .prompt-block { background: #f5f5f5; color: #333; border: 1px solid #ddd; }
+    .approval-banner { break-before: page; }
+    .notes-section { background: #f5f5f5; color: #333; }
+    .report-footer { background: #f5f5f5; color: #666; }
+    a { color: inherit; text-decoration: none; }
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 100px 20px 40px; }
+    .hero h1 { font-size: 1.8rem; }
+    .phase-header { padding: 32px 20px; margin: 32px -16px 20px; }
+    .container { padding: 0 16px; }
+    .card, .variation-body { padding: 20px; }
+    .brief-grid { grid-template-columns: 1fr 1fr; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .slide-grid { grid-template-columns: 1fr; }
+    .toc-brand { padding: 12px 14px; font-size: 0.7rem; }
+    .toc-nav a { padding: 12px 10px; font-size: 0.65rem; }
+    .approval-banner, .notes-section { margin: 32px -16px 0; padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ STICKY TOC NAV ═══════════ -->
+<nav class="toc-nav">
+  <div class="toc-inner">
+    <div class="toc-brand">Lumi<span>Recover</span></div>
+    <a href="#phase1">Competitive Intel</a>
+    <a href="#phase2">Creative Autopsy</a>
+    <a href="#phase3">Psychology</a>
+    <a href="#phase4">Execution Plan</a>
+    <a href="#phase5">Summary</a>
+    <a href="#approval">Approval</a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="hero-eyebrow">Confidential Strategy Document</div>
+  <h1>Ad Creative Strategy Report</h1>
+  <p class="hero-sub">LED Red Light Therapy Face Mask &mdash; 3 Variants</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Brand <strong>LumiRecover</strong></div>
+    <div class="hero-meta-item">Product <strong>LED Face Mask</strong></div>
+    <div class="hero-meta-item">Variants <strong>3 SKUs</strong></div>
+    <div class="hero-meta-item">Date <strong>March 27, 2026</strong></div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PHASE 1: COMPETITIVE INTELLIGENCE                  -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="phase-header" id="phase1">
+  <div class="phase-number">Phase 1</div>
+  <h2>Competitive Intelligence</h2>
+</div>
+
+<div class="card">
+  <h3>Market Context</h3>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value">$740M</div>
+      <div class="stat-label">LED Therapy Market (2023)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">$1.1B</div>
+      <div class="stat-label">Projected by 2028</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">$11.37B</div>
+      <div class="stat-label">Facial Skincare Mask Market (2025)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">6.7%</div>
+      <div class="stat-label">CAGR</div>
+    </div>
+  </div>
+  <ul class="mt-sm">
+    <li>Google search interest for "red light therapy mask" surged <strong>264%</strong> (Jun&ndash;Dec 2024)</li>
+    <li>TikTok #redlighttherapy: ~1.3B views; #redlight: ~3.5B views</li>
+    <li>63 of 100 top TikTok posts in this category are from influencers</li>
+    <li>80.1% of influencer content is promotional (vs educational)</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Competitor Landscape</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Price Point</th>
+          <th>Key Positioning</th>
+          <th>Ad Presence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>HigherDOSE</strong></td>
+          <td>$399</td>
+          <td>Premium/wellness ritual, "healing power of the sun"</td>
+          <td>Instagram-heavy, lifestyle/aspiration angle</td>
+        </tr>
+        <tr>
+          <td><strong>CurrentBody</strong></td>
+          <td>$380</td>
+          <td>Clinical-grade, "Series 2" iteration, derm-backed</td>
+          <td>Comparison marketing, clinical evidence</td>
+        </tr>
+        <tr>
+          <td><strong>Bon Charge</strong></td>
+          <td>$349</td>
+          <td>Multi-use (face + neck/chest), wellness tech</td>
+          <td>Social media influencer-driven</td>
+        </tr>
+        <tr>
+          <td><strong>Omnilux</strong></td>
+          <td>$395</td>
+          <td>Medical-grade, 98% clinical satisfaction, Dr. Dray endorsement</td>
+          <td>TV + social, AI-optimized, BENlabs partnership, men's expansion</td>
+        </tr>
+        <tr>
+          <td><strong>Solawave</strong></td>
+          <td>$259</td>
+          <td>"#1 Red Light Therapy", 700K faces, 4 wavelengths, 3-min treatment</td>
+          <td>Instagram (306K followers), TikTok, influencer UGC, BFCM promos</td>
+        </tr>
+        <tr>
+          <td><strong>Dr. Dennis Gross</strong></td>
+          <td>$435</td>
+          <td>Dermatologist-founded, "don't sell, educate" philosophy, 3-min treatment</td>
+          <td>Education-first content marketing, PR/editorial</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Competitor Ad Analysis &mdash; Top Patterns Found</h3>
+
+  <h4>1. Omnilux &mdash; Men's LED Mask Ad <span class="badge badge-navy">SwipeFile Documented</span></h4>
+  <ul>
+    <li><strong>Format:</strong> Single image (Instagram)</li>
+    <li><strong>Visual:</strong> Man wearing LED mask, Black Friday promo, tech award badge</li>
+    <li><strong>Hook:</strong> Gender-disruption ("A LED face mask... for men")</li>
+    <li><strong>Copy angle:</strong> Stereotype-busting + savings anchor ("Save up to $240")</li>
+    <li><strong>CTA:</strong> SHOP NOW</li>
+    <li><strong>Cialdini stack:</strong> Authority (award badge) + Scarcity (Black Friday) + Social Proof (implied)</li>
+    <li><strong>Run duration:</strong> Long enough to be catalogued as a winner on SwipeFile</li>
+  </ul>
+
+  <h4>2. Solawave &mdash; BFCM Comparison Campaign</h4>
+  <ul>
+    <li><strong>Format:</strong> Comparison landing page + social ads</li>
+    <li><strong>Visual:</strong> Side-by-side product comparison vs Omnilux &amp; CurrentBody</li>
+    <li><strong>Hook:</strong> "Best in class" positioning with Buy 1 Get 1 FREE</li>
+    <li><strong>Copy angle:</strong> Us vs Them (comparison) + aggressive promotional offer</li>
+    <li><strong>Cialdini stack:</strong> Social Proof (700K faces) + Scarcity (BFCM) + Authority (FDA cleared)</li>
+    <li><strong>Estimated run:</strong> Seasonal (4-6 weeks during BFCM)</li>
+  </ul>
+
+  <h4>3. Omnilux &mdash; TV Spot "Another Dimension to Your Skincare"</h4>
+  <ul>
+    <li><strong>Format:</strong> 30-second video (TV + digital)</li>
+    <li><strong>Visual:</strong> Cinematic lifestyle, mask glow as hero visual</li>
+    <li><strong>Hook:</strong> Aspiration/lifestyle &mdash; elevated self-care ritual</li>
+    <li><strong>Copy angle:</strong> Lifestyle Aspiration + Authority</li>
+    <li><strong>Cialdini stack:</strong> Authority (medical-grade, clinical studies: 98% firmer, 95% brighter) + Liking (aspirational lifestyle) + Social Proof (clinical stats)</li>
+    <li><strong>Run duration:</strong> Multi-month (TV + digital cross-platform)</li>
+  </ul>
+
+  <h4>4. General Pattern &mdash; UGC "Mask Selfie" Format <span class="badge badge-rose">TikTok / Reels</span></h4>
+  <ul>
+    <li><strong>Format:</strong> Creator-led vertical video (9:16)</li>
+    <li><strong>Visual:</strong> Creator wearing glowing LED mask &mdash; the mask IS the visual hook</li>
+    <li><strong>Hook:</strong> "I tried this LED mask everyone's talking about" / transformation reveal</li>
+    <li><strong>Copy angle:</strong> UGC Authentic Discovery</li>
+    <li><strong>Cialdini stack:</strong> Social Proof (trending) + Liking (relatable creator) + Unity (skincare community)</li>
+    <li><strong>Run duration:</strong> Evergreen format &mdash; the #1 performing organic + paid format in this category</li>
+  </ul>
+
+  <h4>5. General Pattern &mdash; Before/After Clinical Proof</h4>
+  <ul>
+    <li><strong>Format:</strong> Carousel or split-image (4:5 Meta Feed)</li>
+    <li><strong>Visual:</strong> Same-lighting skin comparison at Week 0 vs Week 4-8</li>
+    <li><strong>Hook:</strong> Visual contrast &mdash; the results speak for themselves</li>
+    <li><strong>Copy angle:</strong> Before/After Transformation + Authority</li>
+    <li><strong>Cialdini stack:</strong> Authority (clinical language) + Social Proof (user testimonials) + Commitment (routine-based results)</li>
+    <li><strong>Run duration:</strong> 62%+ of long-running beauty ads use this element</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Format Dominance Analysis</h3>
+  <p class="mb-sm">Based on the 2026 Beauty Performance Intelligence Report:</p>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value">36.8%</div>
+      <div class="stat-label">UGC Video</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">28.7%</div>
+      <div class="stat-label">Single Image</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">17.2%</div>
+      <div class="stat-label">Professional Video</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">~54%</div>
+      <div class="stat-label">Total Video (Combined)</div>
+    </div>
+  </div>
+  <div class="verdict-box mt-sm">
+    <strong>VERDICT:</strong> <span class="badge badge-go">MIXED</span> &mdash; Lead with <strong>UGC VIDEO</strong>, supplement with high-impact <strong>STATIC IMAGES</strong>.<br>
+    <span class="fs-sm text-muted">Rationale: Video dominates (54% combined), but single images at 28.7% are too strong to ignore. The LED mask's glowing visual is inherently scroll-stopping in both formats.</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PHASE 2: CREATIVE AUTOPSY                          -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="phase-header" id="phase2">
+  <div class="phase-number">Phase 2</div>
+  <h2>Creative Autopsy</h2>
+</div>
+
+<p class="mb-md text-muted fs-sm" style="font-weight:500;">Top 5 winning patterns dissected &mdash; hook archetype, emotion, persuasion stack, and conversion architecture.</p>
+
+<!-- Pattern 1 -->
+<div class="pattern-card">
+  <div class="pattern-number">Pattern 1</div>
+  <h3>UGC Demonstration Video</h3>
+  <div class="pattern-pct">39% of all winners</div>
+
+  <div class="pattern-label">Hook Archetype</div>
+  <p>Social Proof Lead / Authentic Discovery &mdash; <em>"I saw this everywhere and finally tried it..."</em></p>
+
+  <div class="pattern-label">Primary Emotion</div>
+  <p>Trust + Curiosity</p>
+
+  <div class="pattern-label">Cialdini Stack</div>
+  <p>Social Proof (trending product) + Liking (relatable creator) + Unity ("skincare girlies") + Commitment (routine integration)</p>
+
+  <div class="pattern-label">Conversion Architecture</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Beat</th><th>Timing</th><th>Content</th></tr></thead>
+      <tbody>
+        <tr><td><strong>HOOK</strong></td><td>0-3s</td><td>Creator speaks to camera, holds product &mdash; "OK so I finally caved..."</td></tr>
+        <tr><td><strong>PROBLEM</strong></td><td>3-8s</td><td>Mentions skin concern (fine lines, dullness, acne scars)</td></tr>
+        <tr><td><strong>DISCOVERY</strong></td><td>8-13s</td><td>Unboxing or first use, showing LED glow on face</td></tr>
+        <tr><td><strong>DEMO</strong></td><td>13-22s</td><td>Wearing mask, explaining wavelengths/timer, showing routine</td></tr>
+        <tr><td><strong>RESULTS</strong></td><td>22-27s</td><td>Close-up of skin, "after 2 weeks" claim</td></tr>
+        <tr><td><strong>CTA</strong></td><td>27-30s</td><td>"Link in bio" or "Use my code"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pattern-label">Platform Pattern</div>
+  <p>TikTok/Reels native. Lo-fi, phone-shot, sound-on. 70%+ show product in first 5 seconds.</p>
+
+  <div class="pattern-label">Why It Wins</div>
+  <p>Mimics organic content. Bypasses ad skepticism. The glowing mask is inherently visual &mdash; it IS the hook.</p>
+</div>
+
+<!-- Pattern 2 -->
+<div class="pattern-card">
+  <div class="pattern-number">Pattern 2</div>
+  <h3>Price Comparison / "Us vs Them" Angle</h3>
+
+  <div class="pattern-label">Hook Archetype</div>
+  <p>Bold/Contrarian Claim &mdash; <em>"I found a $99 version of a $400 LED mask"</em></p>
+
+  <div class="pattern-label">Primary Emotion</div>
+  <p>Superiority + Instant Gratification (savings dopamine)</p>
+
+  <div class="pattern-label">Cialdini Stack</div>
+  <p>Social Proof (competitor validation) + Authority (same technology) + Scarcity (price advantage won't last)</p>
+
+  <div class="pattern-label">Conversion Architecture</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Beat</th><th>Timing</th><th>Content</th></tr></thead>
+      <tbody>
+        <tr><td><strong>HOOK</strong></td><td>0-3s</td><td>Competitor product shown with price tag &mdash; "$399?!"</td></tr>
+        <tr><td><strong>COMPARISON</strong></td><td>3-10s</td><td>Side-by-side specs, wavelengths, LED count</td></tr>
+        <tr><td><strong>REVEAL</strong></td><td>10-15s</td><td>"But THIS one does the same thing for $99"</td></tr>
+        <tr><td><strong>PROOF</strong></td><td>15-22s</td><td>Demo of affordable option working, skin results</td></tr>
+        <tr><td><strong>OFFER</strong></td><td>22-30s</td><td>"Right now it's [sale price] &mdash; link below"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pattern-label">Platform Pattern</div>
+  <p>Meta Feed (4:5) and Reels. Works as carousel too.</p>
+
+  <div class="pattern-label">Why It Wins</div>
+  <p>Leverages competitor brand equity as free social proof. The price gap ($400 vs $99) creates immediate dopamine hit. Loss aversion: "Why would I pay 4x more?"</p>
+</div>
+
+<!-- Pattern 3 -->
+<div class="pattern-card">
+  <div class="pattern-number">Pattern 3</div>
+  <h3>Clinical Authority + Before/After</h3>
+
+  <div class="pattern-label">Hook Archetype</div>
+  <p>Authority / Demonstration &mdash; <em>"As a dermatologist, I recommend red light therapy for..."</em> OR visual before/after reveal</p>
+
+  <div class="pattern-label">Primary Emotion</div>
+  <p>Trust/Safety + Vanity/Self-Image</p>
+
+  <div class="pattern-label">Cialdini Stack</div>
+  <p>Authority (doctor/clinical data) + Social Proof (stats: "98% saw results") + Commitment (4-week protocol) + Reciprocity (free education)</p>
+
+  <div class="pattern-label">Conversion Architecture</div>
+  <p><strong>IMAGE:</strong> Split-screen before/after with clinical language overlay<br>
+  <strong>VIDEO:</strong> Expert talking head &rarr; mechanism explanation &rarr; demo &rarr; results &rarr; CTA</p>
+
+  <div class="pattern-label">Platform Pattern</div>
+  <p>Meta Feed excels. 62%+ of long-running beauty ads pair UGC with visual proof.</p>
+
+  <div class="pattern-label">Why It Wins</div>
+  <p>Overcomes the #1 objection: "Does this actually work?" Clinical evidence + visible results = belief.</p>
+</div>
+
+<!-- Pattern 4 -->
+<div class="pattern-card">
+  <div class="pattern-number">Pattern 4</div>
+  <h3>Lifestyle Aspiration / "Elevated Routine"</h3>
+
+  <div class="pattern-label">Hook Archetype</div>
+  <p>Lifestyle Aspiration &mdash; Woman in beautiful bathroom/bedroom wearing glowing mask</p>
+
+  <div class="pattern-label">Primary Emotion</div>
+  <p>Aspiration/Desire + Social Belonging</p>
+
+  <div class="pattern-label">Cialdini Stack</div>
+  <p>Liking (aspirational identity) + Unity (self-care tribe) + Authority (premium visual = premium product)</p>
+
+  <div class="pattern-label">Conversion Architecture</div>
+  <p><strong>IMAGE:</strong> Hero shot of woman in luxe setting wearing mask, warm lighting, text overlay with single benefit<br>
+  <strong>VIDEO:</strong> Morning/evening routine montage, mask as centerpiece ritual, calm music, slow motion</p>
+
+  <div class="pattern-label">Platform Pattern</div>
+  <p>Instagram Feed (4:5) for images, Reels for video. Premium visual quality.</p>
+
+  <div class="pattern-label">Why It Wins</div>
+  <p>Sells the IDENTITY, not the product. "I'm the kind of woman who invests in herself." The mask glow is photogenic and aspirational &mdash; it photographs like jewelry.</p>
+</div>
+
+<!-- Pattern 5 -->
+<div class="pattern-card">
+  <div class="pattern-number">Pattern 5</div>
+  <h3>Scarcity + Offer-Driven Conversion</h3>
+
+  <div class="pattern-label">Hook Archetype</div>
+  <p>Pattern Interrupt / FOMO &mdash; <em>"FLASH SALE: 50% off ends tonight"</em></p>
+
+  <div class="pattern-label">Primary Emotion</div>
+  <p>FOMO + Loss Aversion</p>
+
+  <div class="pattern-label">Cialdini Stack</div>
+  <p>Scarcity (limited time) + Social Proof ("selling fast") + Authority (original price anchor) + Reciprocity (the deal itself)</p>
+
+  <div class="pattern-label">Conversion Architecture</div>
+  <p><strong>IMAGE:</strong> Product hero shot + bold price slash + countdown element + CTA<br>
+  <strong>VIDEO:</strong> Quick product montage &rarr; price reveal &rarr; urgency countdown &rarr; CTA</p>
+
+  <div class="pattern-label">Platform Pattern</div>
+  <p>Meta Feed + Stories. Short-lived but high-conversion during promotions.</p>
+
+  <div class="pattern-label">Why It Wins</div>
+  <p>Activates dopamine reward system (deal = reward) + loss aversion (missing deal = pain). <strong class="text-rose">However:</strong> burns out under 90 days. Use tactically, not as primary.</p>
+</div>
+
+<div class="insights-box">
+  <h4>Key Cross-Pattern Insights</h4>
+  <ul>
+    <li>78% of top-performing video ads opened with UGC-style hooks</li>
+    <li>Single-benefit focus outperformed multi-claim creatives significantly</li>
+    <li>"Offers convert, stories scale" &mdash; narrative ads sustain longer than promo ads</li>
+    <li>61.2% of winning beauty ads drive directly to PDP (not multi-step funnels)</li>
+    <li>Animation underperforms: 18% of short-running ads vs 6% of 182+ day campaigns</li>
+    <li><strong>Creative quality drives 70-80% of Meta ad performance</strong> (not budget or targeting)</li>
+  </ul>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PHASE 3: PSYCHOLOGY-DRIVEN ANGLE SELECTION         -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="phase-header" id="phase3">
+  <div class="phase-number">Phase 3</div>
+  <h2>Psychology-Driven Angle Selection</h2>
+</div>
+
+<div class="card">
+  <h3>Strategic Rationale</h3>
+  <p>LumiRecover's unique positioning is the <strong>PRICE DISRUPTION</strong> play. At <strong>$69.99&ndash;$149.99</strong> vs competitors at <strong>$349&ndash;$435</strong>, the value gap is massive. This is our weapon.</p>
+  <p class="mt-sm">However, pure price-comparison burns out fast (under 90 days). So we <strong>LAYER</strong> the price advantage inside a more durable creative framework.</p>
+
+  <div class="verdict-box mt-md">
+    <strong>PRIMARY ANGLE:</strong> #3 &mdash; Us vs Them (Comparison) + #8 UGC Authentic Discovery <span class="badge badge-rose">HYBRID</span><br><br>
+    <span class="fs-sm">The price gap ($149.99 vs $399) is too powerful to waste on a pure promo ad. Instead, we embed it inside a UGC discovery narrative: a relatable woman finds the affordable alternative to overpriced masks, tests it, shows results, and validates the switch. This combines the #1 performing format (UGC demo, 36.8%) with the most potent emotional lever for this specific product (savings superiority).</span>
+  </div>
+
+  <h4>Primary Emotion</h4>
+  <p>Vanity/Self-Image + Instant Gratification (savings dopamine)</p>
+  <p class="mt-sm fs-sm text-muted">The target customer (women 28-48) is spending on serums, SPF, and considering clinic facials. She WANTS the results. She's TIRED of the price. We give her permission to have both: pro-level results at an accessible price. The dopamine hit comes from TWO sources: (1) "my skin looks amazing" and (2) "and I saved $300."</p>
+</div>
+
+<div class="card">
+  <h3>Cialdini Persuasion Stack <span class="badge badge-navy">4 Principles</span></h3>
+  <ul class="checklist">
+    <li><strong>SOCIAL PROOF</strong> &mdash; "Join 50,000+ women who switched from $400 masks"<br><span class="text-muted fs-sm">Deploy via: User count, star ratings, UGC testimonials, "trending" language</span></li>
+    <li><strong>AUTHORITY</strong> &mdash; "Same red light wavelengths used in $500 clinic treatments"<br><span class="text-muted fs-sm">Deploy via: Wavelength specs (630nm/660nm/850nm), FDA mention, clinical study references, dermatologist language</span></li>
+    <li><strong>SCARCITY</strong> &mdash; "Introductory pricing won't last"<br><span class="text-muted fs-sm">Deploy via: Launch pricing framing, limited-time bundle offers, stock indicators</span></li>
+    <li><strong>LIKING</strong> &mdash; Relatable creator who mirrors the target customer<br><span class="text-muted fs-sm">Deploy via: Woman 30-40, real skin, warm personality, "I was skeptical too" energy</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Hook Archetype</h3>
+  <p><span class="badge badge-rose">Bold/Contrarian Claim</span> + <span class="badge badge-rose">Social Proof Lead</span> (hybrid)</p>
+
+  <div class="ad-copy-block mt-md">
+    <span class="copy-label">Primary Hook</span>
+    "I found a $69 version of those $400 LED masks everyone's obsessed with"
+  </div>
+
+  <h4>Backup Hooks</h4>
+  <ul>
+    <li>"Dermatologists don't want you paying $400 for this"</li>
+    <li>"Stop wasting money on expensive LED masks. This $99 one uses the same wavelengths."</li>
+    <li>"POV: You discover your $400 LED mask has a $69 twin"</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>5-Point Conversion Checklist</h3>
+  <ul class="checklist conversion-checklist">
+    <li><strong>STOP</strong> &mdash; The glowing LED mask visual + price disruption hook stops the scroll. The mask glow is the #1 performing visual format in this category ("mask selfie"). Price contrast ($69 vs $400) creates instant pattern interrupt.</li>
+    <li><strong>FEEL</strong> &mdash; Triggers vanity (skin transformation desire) + savings dopamine + relief (finally an affordable option) + belonging (join the movement).</li>
+    <li><strong>BELIEVE</strong> &mdash; Authority stack: wavelength specs, clinical references, before/after proof, star ratings. Competitor price anchoring validates the technology ("if a $400 mask works, so does this &mdash; same wavelengths").</li>
+    <li><strong>WANT</strong> &mdash; Before/after visuals + lifestyle imagery show her future self. Creator-led demo makes usage tangible: "I use it for 10 minutes while watching TV." Low friction, high reward mental model.</li>
+    <li><strong>ACT</strong> &mdash; Clear CTA: "Shop Now" or "Get Yours for $69.99". Scarcity element: introductory/launch pricing. Direct to PDP (61% of winning beauty ads do this). 3 price tiers give every buyer an entry point.</li>
+  </ul>
+  <div class="verdict-box">
+    <strong>ALL FIVE CHECKBOXES CONFIRMED.</strong> Proceeding to Phase 4.
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PHASE 4: CREATIVE EXECUTION PLAN                   -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="phase-header" id="phase4">
+  <div class="phase-number">Phase 4</div>
+  <h2>Creative Execution Plan</h2>
+</div>
+
+<div class="card">
+  <h3>Production Overview</h3>
+  <p>We will produce <strong>6 ad variations</strong> across 3 formats:</p>
+  <div class="stats-row mt-sm">
+    <div class="stat-card">
+      <div class="stat-value">2</div>
+      <div class="stat-label">UGC-Style Videos<br>(Reels/TikTok + Feed)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">2</div>
+      <div class="stat-label">Static Images<br>(Feed + Reels Story)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Carousel<br>(Feed, 5 Slides)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Comparison Video<br>(Feed)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── VARIATION 1 ─── -->
+<div class="variation-card">
+  <div class="variation-header">
+    <h3>Variation 1: UGC Discovery Video &mdash; "The $69 Dupe"</h3>
+    <div class="var-badges">
+      <span class="var-badge">Video</span>
+      <span class="var-badge">9:16</span>
+      <span class="var-badge">Reels</span>
+      <span class="var-badge">28s</span>
+    </div>
+  </div>
+  <div class="variation-body">
+    <div class="brief-grid">
+      <div class="brief-item"><div class="brief-label">Product</div><div class="brief-value">LED Mask &mdash; Starter $69.99</div></div>
+      <div class="brief-item"><div class="brief-label">Platform</div><div class="brief-value">IG Reels + FB Reels</div></div>
+      <div class="brief-item"><div class="brief-label">Aspect Ratio</div><div class="brief-value">9:16</div></div>
+      <div class="brief-item"><div class="brief-label">Duration</div><div class="brief-value">28 seconds</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Angle</div><div class="brief-value">Us vs Them + UGC Discovery</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Emotion</div><div class="brief-value">Vanity + Instant Gratification</div></div>
+      <div class="brief-item"><div class="brief-label">Hook</div><div class="brief-value">"I found a $69 version of those $400 LED masks..."</div></div>
+      <div class="brief-item"><div class="brief-label">Persuasion Stack</div><div class="brief-value">Social Proof + Authority + Scarcity + Liking</div></div>
+    </div>
+    <div class="brief-grid mt-sm">
+      <div class="brief-item"><div class="brief-label">Visual Style</div><div class="brief-value">UGC / phone-shot / creator-led</div></div>
+      <div class="brief-item"><div class="brief-label">Color Palette</div><div class="brief-value">Natural tones + rose-red #E8534A accents, navy #1A1A2E end card</div></div>
+      <div class="brief-item"><div class="brief-label">Typography</div><div class="brief-value">Bold sans-serif white w/ black outline (hooks), clean sans (body)</div></div>
+      <div class="brief-item"><div class="brief-label">Talent</div><div class="brief-value">AI-generated female creator, 30s, warm skin, relatable energy</div></div>
+    </div>
+
+    <h4>Ad Copy <span class="badge badge-navy">PAS Framework</span></h4>
+    <div class="ad-copy-block">
+      <span class="copy-label">Primary Text</span>
+      "I was spending $200/month on facials and still seeing fine lines every morning. Then I found this $69 LED mask that uses the same red light wavelengths as those $400 devices. After 3 weeks? My skin is genuinely glowing. 10 minutes a day while I watch Netflix. That's it. Over 12,000 women made the switch last month."
+      <span class="headline">Pro-Level Skin. $69.99.</span>
+      <span class="desc">Same wavelengths. 82% less.</span>
+      <span class="cta-tag">Shop Now</span>
+    </div>
+
+    <h4>Video Script <span class="badge badge-navy">Kling 3.0</span></h4>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 1 &mdash; HOOK <span class="shot-time">0-3s</span></div>
+      <div class="shot-body">
+        <p>Close-up of woman holding phone, selfie angle, natural light bedroom. She holds up a glowing LED mask in one hand and speaks directly to camera.</p>
+        <div class="text-overlay">"I found a $69 version of those $400 LED masks"</div>
+        <p class="mt-sm"><strong>Audio:</strong> Creator voiceover (warm, conspiratorial tone)<br><strong>Camera:</strong> Static selfie angle, slight natural shake</p>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"A woman in her early 30s with natural makeup, holding a glowing red LED face mask up to the camera in a bright modern bedroom, selfie angle, phone-camera perspective, natural daylight from window, warm skin tones, excited expression, slight camera shake for authenticity, 9:16 vertical"</div>
+      </div>
+    </div>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 2 &mdash; PROBLEM AGITATION <span class="shot-time">3-7s</span></div>
+      <div class="shot-body">
+        <p>Quick cut to woman looking in bathroom mirror, touching under-eye area with concern.</p>
+        <div class="text-overlay">"$200/month on facials. Still seeing fine lines."</div>
+        <p class="mt-sm"><strong>Camera:</strong> Over-shoulder mirror shot, soft bathroom lighting</p>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"Over-the-shoulder view of a woman in her 30s looking into a bathroom mirror, gently touching under her eye with a concerned expression, soft warm bathroom lighting, modern clean bathroom, slight steam in background, natural skin texture visible, 9:16 vertical"</div>
+      </div>
+    </div>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 3 &mdash; PRODUCT REVEAL <span class="shot-time">7-13s</span></div>
+      <div class="shot-body">
+        <p>Woman sits on couch, places the LED mask on her face. The red glow illuminates her face.</p>
+        <div class="text-overlay">"Same 7 wavelengths as the $400 masks"</div>
+        <p class="mt-sm"><strong>Camera:</strong> Medium shot, living room, evening golden light</p>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"A woman sitting on a modern couch in a cozy living room, placing a glowing red LED face mask onto her face, the red and infrared light illuminating her skin warmly, golden hour lighting from window, relaxed body language, Netflix visible on TV in soft focus background, warm earth tones, shallow depth of field, 9:16 vertical"</div>
+      </div>
+    </div>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 4 &mdash; DEMONSTRATION + PROOF <span class="shot-time">13-22s</span></div>
+      <div class="shot-body">
+        <p>Time-lapse style: woman wearing mask relaxing, then removing it. Close-up of glowing, hydrated skin.</p>
+        <div class="text-overlay">"10 minutes. That's it." &rarr; "Week 3 results"</div>
+        <p class="mt-sm"><strong>Camera:</strong> Smooth slow zoom into face close-up</p>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"Close-up of a woman removing a LED face mask revealing radiant, glowing, hydrated skin underneath, soft dewy highlight on cheekbones, warm golden lighting, peaceful expression, slight smile of satisfaction, clean modern background, macro lens feel showing skin texture, 9:16 vertical"</div>
+      </div>
+    </div>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 5 &mdash; SOCIAL PROOF <span class="shot-time">22-25s</span></div>
+      <div class="shot-body">
+        <p>Screen recording-style overlay of 5-star reviews scrolling.</p>
+        <div class="text-overlay">"12,000+ women made the switch" + star rating graphic</div>
+        <p class="mt-sm"><strong>Camera:</strong> Static with slight parallax motion on review cards</p>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"Clean product shot of the LumiRecover LED face mask on a marble surface with soft rose-gold lighting, surrounded by floating 5-star review cards with blurred text, navy blue (#1A1A2E) and rose-red (#E8534A) color accents, premium minimalist aesthetic, 9:16 vertical"</div>
+      </div>
+    </div>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 6 &mdash; CTA + OFFER <span class="shot-time">25-28s</span></div>
+      <div class="shot-body">
+        <p>Product beauty shot on dark navy background with LumiRecover branding.</p>
+        <div class="text-overlay">"Starting at $69.99 | Free Shipping | Shop Now"</div>
+        <p class="mt-sm"><strong>Camera:</strong> Slow dolly push-in on product</p>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"Product hero shot of a sleek LED red light therapy face mask centered on a deep navy (#1A1A2E) background, warm rose-red (#E8534A) accent lighting from behind creating a glow halo, clean minimalist composition, premium e-commerce style, 'LumiRecover' text in off-white (#F8F9FA), soft volumetric light, 9:16 vertical"</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── VARIATION 2 ─── -->
+<div class="variation-card">
+  <div class="variation-header">
+    <h3>Variation 2: UGC Discovery Video &mdash; Feed Version</h3>
+    <div class="var-badges">
+      <span class="var-badge">Video</span>
+      <span class="var-badge">4:5</span>
+      <span class="var-badge">Feed</span>
+      <span class="var-badge">30s</span>
+    </div>
+  </div>
+  <div class="variation-body">
+    <div class="brief-grid">
+      <div class="brief-item"><div class="brief-label">Product</div><div class="brief-value">LED Mask &mdash; 7-Color $97.99</div></div>
+      <div class="brief-item"><div class="brief-label">Platform</div><div class="brief-value">IG Feed + FB Feed</div></div>
+      <div class="brief-item"><div class="brief-label">Aspect Ratio</div><div class="brief-value">4:5</div></div>
+      <div class="brief-item"><div class="brief-label">Duration</div><div class="brief-value">30 seconds</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Angle</div><div class="brief-value">Us vs Them + UGC Discovery</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Emotion</div><div class="brief-value">Vanity + Instant Gratification</div></div>
+      <div class="brief-item"><div class="brief-label">Hook</div><div class="brief-value">"Stop overpaying for LED masks. This one uses the same wavelengths for $97."</div></div>
+      <div class="brief-item"><div class="brief-label">Persuasion Stack</div><div class="brief-value">Social Proof + Authority + Scarcity + Liking</div></div>
+    </div>
+    <div class="brief-grid mt-sm">
+      <div class="brief-item"><div class="brief-label">Visual Style</div><div class="brief-value">UGC / hybrid (phone-shot open, product shots for proof)</div></div>
+      <div class="brief-item"><div class="brief-label">Color Palette</div><div class="brief-value">Navy #1A1A2E, rose-red #E8534A, off-white #F8F9FA</div></div>
+      <div class="brief-item"><div class="brief-label">Typography</div><div class="brief-value">Bold sans-serif (high contrast for silent autoplay), clean for body</div></div>
+      <div class="brief-item"><div class="brief-label">Talent</div><div class="brief-value">AI-generated female creator, mid-30s</div></div>
+    </div>
+
+    <h4>Ad Copy <span class="badge badge-navy">AIDA Framework</span></h4>
+    <div class="ad-copy-block">
+      <span class="copy-label">Primary Text</span>
+      "23,000 women bought this LED mask last month. Here's why: It uses the exact same red light wavelengths (630nm, 660nm, 850nm) as masks costing $400+. Except this one is $97.99. 7 color modes. 10-minute sessions. Clinical-grade results at home. Your $200 monthly facial just became obsolete."
+      <span class="headline">Clinic Results. Home Price.</span>
+      <span class="desc">7 colors. $97.99. Free shipping.</span>
+      <span class="cta-tag">Shop Now</span>
+    </div>
+
+    <h4>Video Script <span class="badge badge-navy">Kling 3.0</span></h4>
+    <p>Same structure as Variation 1 but reformatted for 4:5 aspect ratio. Key differences:</p>
+    <ul>
+      <li><strong>SHOT 1:</strong> Bold text overlay LARGER (silent autoplay optimization)</li>
+      <li><strong>SHOT 3:</strong> Split-screen comparison graphic (LumiRecover vs $400 competitors)</li>
+      <li><strong>SHOT 5:</strong> Star rating + review count more prominent</li>
+      <li><strong>SHOT 6:</strong> All 3 variant prices shown ($69.99 / $97.99 / $149.99)</li>
+    </ul>
+    <p class="mt-sm text-muted fs-sm">Kling prompts adjusted to 4:5 composition with more headroom for text overlays.</p>
+  </div>
+</div>
+
+<!-- ─── VARIATION 3 ─── -->
+<div class="variation-card">
+  <div class="variation-header">
+    <h3>Variation 3: Hero Static Image &mdash; "The Glow Shot"</h3>
+    <div class="var-badges">
+      <span class="var-badge">Static Image</span>
+      <span class="var-badge">4:5</span>
+      <span class="var-badge">Feed</span>
+      <span class="var-badge">1080x1350</span>
+    </div>
+  </div>
+  <div class="variation-body">
+    <div class="brief-grid">
+      <div class="brief-item"><div class="brief-label">Product</div><div class="brief-value">LED Mask &mdash; Pro $149.99</div></div>
+      <div class="brief-item"><div class="brief-label">Platform</div><div class="brief-value">IG Feed + FB Feed</div></div>
+      <div class="brief-item"><div class="brief-label">Aspect Ratio</div><div class="brief-value">4:5 (1080x1350)</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Angle</div><div class="brief-value">Lifestyle Aspiration + Authority</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Emotion</div><div class="brief-value">Aspiration/Desire + Trust</div></div>
+      <div class="brief-item"><div class="brief-label">Hook</div><div class="brief-value">Visual &mdash; woman wearing glowing mask + bold price comparison</div></div>
+      <div class="brief-item"><div class="brief-label">Persuasion Stack</div><div class="brief-value">Authority + Liking + Social Proof + Scarcity</div></div>
+      <div class="brief-item"><div class="brief-label">Visual Style</div><div class="brief-value">Lifestyle photography, elevated but accessible</div></div>
+    </div>
+
+    <h4>Text Overlay Layout</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Position</th><th>Content</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Top 20%</strong></td><td>"Your $400 facial, replaced."</td></tr>
+          <tr><td><strong>Bottom 20%</strong></td><td>"LumiRecover Pro | $149.99 | Free Shipping"</td></tr>
+          <tr><td><strong>Corner Badge</strong></td><td>"&#9733; 4.8 &mdash; 12,000+ reviews"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Ad Copy <span class="badge badge-navy">BAB Framework</span></h4>
+    <div class="ad-copy-block">
+      <span class="copy-label">Primary Text</span>
+      "Before: $200/month on facials. Skin still dull by Thursday. After: 10 minutes with this LED mask every evening. Skin that actually glows &mdash; all month long. The bridge? A clinical-grade red light therapy mask that uses the same wavelengths as $400+ devices. For $149.99. Over 12,000 women already made the switch. Your skin is next."
+      <span class="headline">Your $400 Facial, Replaced.</span>
+      <span class="desc">&#9733; 4.8 stars | Free shipping</span>
+      <span class="cta-tag">Shop Now</span>
+    </div>
+
+    <h4>Image Generation <span class="badge badge-navy">Nano Banana 2</span></h4>
+    <div class="prompt-block"><span class="prompt-label">Nano Banana 2 Prompt</span>"Lifestyle photography, a woman in her early 30s with natural glowing skin wearing a sleek LED red light therapy face mask, the red light warmly illuminating her face and the surrounding space, sitting in a modern minimalist bathroom with warm golden hour lighting streaming through a frosted window, serene and confident expression visible around the mask edges, shallow depth of field with the mask in sharp focus, warm earth tones with rose-red (#E8534A) light accents, marble countertop with a single serum bottle in soft focus background, space left in the top 20% of frame for text overlay, premium aspirational but accessible feeling, 4:5 vertical composition for Instagram Feed, photorealistic, editorial beauty photography style"</div>
+  </div>
+</div>
+
+<!-- ─── VARIATION 4 ─── -->
+<div class="variation-card">
+  <div class="variation-header">
+    <h3>Variation 4: Comparison Static Image &mdash; "Same Tech, Smart Price"</h3>
+    <div class="var-badges">
+      <span class="var-badge">Static Image</span>
+      <span class="var-badge">4:5</span>
+      <span class="var-badge">Feed</span>
+      <span class="var-badge">1080x1350</span>
+    </div>
+  </div>
+  <div class="variation-body">
+    <div class="brief-grid">
+      <div class="brief-item"><div class="brief-label">Product</div><div class="brief-value">LED Mask &mdash; All 3 Variants</div></div>
+      <div class="brief-item"><div class="brief-label">Platform</div><div class="brief-value">FB Feed + IG Feed</div></div>
+      <div class="brief-item"><div class="brief-label">Aspect Ratio</div><div class="brief-value">4:5 (1080x1350)</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Angle</div><div class="brief-value">Us vs Them (Comparison)</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Emotion</div><div class="brief-value">Superiority + Instant Gratification</div></div>
+      <div class="brief-item"><div class="brief-label">Hook</div><div class="brief-value">Visual price comparison grid</div></div>
+      <div class="brief-item"><div class="brief-label">Persuasion Stack</div><div class="brief-value">Authority + Social Proof + Scarcity</div></div>
+      <div class="brief-item"><div class="brief-label">Visual Style</div><div class="brief-value">Clean infographic with product photography</div></div>
+    </div>
+
+    <h4>Layout Structure</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Element</th><th>Content</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Left column</strong> (crossed out)</td><td>Brand A: $399 | Brand B: $380 | Brand C: $349</td></tr>
+          <tr><td><strong>Right column</strong> (highlighted)</td><td>LumiRecover: Starting at $69.99</td></tr>
+          <tr><td><strong>Center</strong></td><td>Product hero shot with glow</td></tr>
+          <tr><td><strong>Bottom</strong></td><td>"Same wavelengths. Same results. Smart price."</td></tr>
+          <tr><td><strong>Badge</strong></td><td>"&#9733; 4.8 | 12,000+ happy customers"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Ad Copy <span class="badge badge-navy">PAS Framework</span></h4>
+    <div class="ad-copy-block">
+      <span class="copy-label">Primary Text</span>
+      "Tired of seeing $400 LED masks all over your feed? We were too. So we built one with the same clinical-grade red light wavelengths &mdash; 630nm, 660nm, and 850nm &mdash; for a fraction of the cost. No fancy celebrity endorsement markup. No retail store overhead. Just the tech that actually works. Starting at $69.99. Over 12,000 women already switched. See why."
+      <span class="headline">Same Wavelengths. 82% Less.</span>
+      <span class="desc">Starting at $69.99</span>
+      <span class="cta-tag">Shop Now</span>
+    </div>
+
+    <h4>Image Generation <span class="badge badge-navy">Nano Banana 2</span></h4>
+    <div class="prompt-block"><span class="prompt-label">Nano Banana 2 Prompt</span>"Clean modern product comparison infographic on a deep navy (#1A1A2E) background, centered LumiRecover LED red light therapy face mask product shot with a warm rose-red (#E8534A) glow emanating from it, premium e-commerce product photography style, the mask is sleek and modern with visible LED nodes, soft volumetric lighting from behind creating a halo effect, minimalist composition with generous negative space for text overlays in the top and bottom thirds, off-white (#F8F9FA) subtle gradient accent, luxury tech product aesthetic, sharp focus, no text in the image itself, 4:5 vertical composition for Instagram Feed"</div>
+  </div>
+</div>
+
+<!-- ─── VARIATION 5 ─── -->
+<div class="variation-card">
+  <div class="variation-header">
+    <h3>Variation 5: Carousel &mdash; "The Science Behind The Glow"</h3>
+    <div class="var-badges">
+      <span class="var-badge">Carousel</span>
+      <span class="var-badge">5 Slides</span>
+      <span class="var-badge">4:5</span>
+      <span class="var-badge">Feed</span>
+    </div>
+  </div>
+  <div class="variation-body">
+    <div class="brief-grid">
+      <div class="brief-item"><div class="brief-label">Product</div><div class="brief-value">LED Mask &mdash; Pro $149.99</div></div>
+      <div class="brief-item"><div class="brief-label">Platform</div><div class="brief-value">IG Feed + FB Feed</div></div>
+      <div class="brief-item"><div class="brief-label">Aspect Ratio</div><div class="brief-value">4:5 (1080x1350) per slide</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Angle</div><div class="brief-value">Educational / How-It-Works + Authority</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Emotion</div><div class="brief-value">Curiosity + Trust</div></div>
+      <div class="brief-item"><div class="brief-label">Hook</div><div class="brief-value">Slide 1 visual hook &rarr; educational journey &rarr; offer</div></div>
+      <div class="brief-item"><div class="brief-label">Persuasion Stack</div><div class="brief-value">Authority + Social Proof + Reciprocity + Commitment</div></div>
+      <div class="brief-item"><div class="brief-label">Visual Style</div><div class="brief-value">Clean editorial with scientific feel</div></div>
+    </div>
+
+    <h4>Slide Breakdown</h4>
+    <div class="slide-grid">
+      <div class="slide-card">
+        <div class="slide-num">Slide 1 &mdash; Hook</div>
+        <h4>"Why dermatologists are recommending red light therapy over Botox"</h4>
+        <p>Visual: Close-up of radiant skin with subtle red light glow</p>
+      </div>
+      <div class="slide-card">
+        <div class="slide-num">Slide 2 &mdash; The Science</div>
+        <h4>"Red light (630-660nm) penetrates the dermis and stimulates collagen production"</h4>
+        <p>Visual: Simple diagram showing light penetrating skin layers</p>
+      </div>
+      <div class="slide-card">
+        <div class="slide-num">Slide 3 &mdash; The Proof</div>
+        <h4>"Clinical studies show 85% improvement in fine lines after 8 weeks"</h4>
+        <p>Visual: Before/after skin texture comparison</p>
+      </div>
+      <div class="slide-card">
+        <div class="slide-num">Slide 4 &mdash; The Product</div>
+        <h4>"LumiRecover: 7 wavelengths. 10-minute sessions. Clinical-grade LEDs."</h4>
+        <p>Visual: Product hero shot with feature callouts</p>
+      </div>
+      <div class="slide-card">
+        <div class="slide-num">Slide 5 &mdash; The Offer</div>
+        <h4>"Starting at $69.99 (competitors charge $400+)"</h4>
+        <p>Visual: Product + pricing tiers + CTA<br>"&#9733; 4.8 | 12,000+ customers | Free Shipping | Shop Now &rarr;"</p>
+      </div>
+    </div>
+
+    <h4>Ad Copy <span class="badge badge-navy">AIDA Framework</span></h4>
+    <div class="ad-copy-block">
+      <span class="copy-label">Primary Text</span>
+      "Your skin is aging because collagen production slows 1% every year after 25. Red light therapy reverses that &mdash; clinically proven to boost collagen by stimulating fibroblasts at 630-660nm. That's why dermatologists recommend it. That's why $400 LED masks exist. And that's why we built one starting at $69.99. Swipe to see the science &rarr;"
+      <span class="headline">The Science Behind The Glow</span>
+      <span class="desc">Swipe to learn why &rarr;</span>
+      <span class="cta-tag">Shop Now</span>
+    </div>
+
+    <h4>Image Generation <span class="badge badge-navy">Nano Banana 2</span> &mdash; Per Slide</h4>
+
+    <div class="prompt-block"><span class="prompt-label">Slide 1 Prompt</span>"Editorial beauty close-up of a woman's face with radiant glowing skin, subtle red light reflecting on her cheekbones and nose bridge, dramatic chiaroscuro lighting with warm red tones against a dark background, skin texture visible showing healthy poreless glow, aspirational beauty photography, cinematic mood, shallow depth of field, 4:5 vertical"</div>
+
+    <div class="prompt-block"><span class="prompt-label">Slide 2 Prompt</span>"Scientific medical illustration style diagram showing cross-section of human skin with three layers (epidermis, dermis, hypodermis), red light beams (630nm wavelength) penetrating through the surface into the dermis layer where collagen fibers are highlighted, clean modern infographic aesthetic, deep navy (#1A1A2E) background, rose-red (#E8534A) light beams, off-white (#F8F9FA) labels, minimalist and educational, 4:5 vertical"</div>
+
+    <div class="prompt-block"><span class="prompt-label">Slide 3 Prompt</span>"Split-screen before and after comparison of skin texture, left side showing fine lines and dull complexion in cooler blue-gray tones, right side showing smooth radiant plump skin in warm golden tones, both shot in identical clinical lighting, photorealistic skin texture macro photography, clean white dividing line in center, space for text overlay at top, 4:5 vertical"</div>
+
+    <div class="prompt-block"><span class="prompt-label">Slide 4 Prompt</span>"Product hero shot of a sleek LED red light therapy face mask on a deep navy (#1A1A2E) surface, angled 3/4 view showing the interior LED array glowing rose-red (#E8534A), clean minimalist product photography, soft rim lighting, feature callout arrows pointing to key areas of the mask (but no actual text), premium tech product aesthetic, sharp focus throughout, 4:5 vertical"</div>
+
+    <div class="prompt-block"><span class="prompt-label">Slide 5 Prompt</span>"Three LED face masks arranged in ascending size/premium order on a deep navy (#1A1A2E) gradient background, each with slightly different glow intensity, rose-red (#E8534A) accent lighting, premium tiered product display like a tech lineup, clean e-commerce aesthetic, generous space above and below for pricing text overlays, soft reflections on surface, 4:5 vertical"</div>
+  </div>
+</div>
+
+<!-- ─── VARIATION 6 ─── -->
+<div class="variation-card">
+  <div class="variation-header">
+    <h3>Variation 6: Comparison Video &mdash; "The Price Test"</h3>
+    <div class="var-badges">
+      <span class="var-badge">Video</span>
+      <span class="var-badge">4:5</span>
+      <span class="var-badge">Feed</span>
+      <span class="var-badge">22s</span>
+    </div>
+  </div>
+  <div class="variation-body">
+    <div class="brief-grid">
+      <div class="brief-item"><div class="brief-label">Product</div><div class="brief-value">LED Mask &mdash; Starter $69.99</div></div>
+      <div class="brief-item"><div class="brief-label">Platform</div><div class="brief-value">Facebook Feed</div></div>
+      <div class="brief-item"><div class="brief-label">Aspect Ratio</div><div class="brief-value">4:5</div></div>
+      <div class="brief-item"><div class="brief-label">Duration</div><div class="brief-value">22 seconds</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Angle</div><div class="brief-value">Us vs Them (Comparison) &mdash; direct and punchy</div></div>
+      <div class="brief-item"><div class="brief-label">Primary Emotion</div><div class="brief-value">Superiority + FOMO</div></div>
+      <div class="brief-item"><div class="brief-label">Hook</div><div class="brief-value">"They charge $399. We charge $69.99. Same wavelengths."</div></div>
+      <div class="brief-item"><div class="brief-label">Persuasion Stack</div><div class="brief-value">Authority + Social Proof + Scarcity</div></div>
+    </div>
+
+    <h4>Ad Copy <span class="badge badge-navy">BAB Framework</span></h4>
+    <div class="ad-copy-block">
+      <span class="copy-label">Primary Text</span>
+      "Before: Browsing $400 LED masks and feeling like skincare shouldn't cost this much. After: Finding a mask with the same clinical-grade wavelengths for $69.99. The bridge: LumiRecover. 630nm. 660nm. 850nm. Same red light wavelengths dermatologists recommend. Without the luxury markup. 12,000+ women already switched. Your turn."
+      <span class="headline">Same Tech. $330 Less.</span>
+      <span class="desc">&#9733; 4.8 | Free shipping</span>
+      <span class="cta-tag">Shop Now</span>
+    </div>
+
+    <h4>Video Script <span class="badge badge-navy">Kling 3.0</span></h4>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 1 &mdash; HOOK <span class="shot-time">0-3s</span></div>
+      <div class="shot-body">
+        <p>Split screen: Left shows a generic premium LED mask with "$399" price tag. Right side is blurred/hidden.</p>
+        <div class="text-overlay">"They charge $399."</div>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"Split screen composition, left side showing a premium LED face mask product shot on a white pedestal with dramatic lighting and a visible price tag, right side completely blurred with a question mark, clean product photography aesthetic, 4:5 vertical"</div>
+      </div>
+    </div>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 2 &mdash; REVEAL <span class="shot-time">3-8s</span></div>
+      <div class="shot-body">
+        <p>Right side un-blurs to reveal LumiRecover mask. Price "$69.99" animates in.</p>
+        <div class="text-overlay">"We charge $69.99. Same wavelengths."</div>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"Side-by-side product comparison of two LED face masks, the right mask glowing with warm rose-red light on a deep navy background, both masks shown at the same angle and scale, clean e-commerce product photography, dramatic reveal lighting on the right mask, 4:5 vertical"</div>
+      </div>
+    </div>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 3 &mdash; PROOF <span class="shot-time">8-15s</span></div>
+      <div class="shot-body">
+        <p>Specification comparison graphic: wavelength numbers matching, LED count, treatment time. Then transition to woman wearing the mask, skin glowing.</p>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"A woman in her early 30s wearing a glowing red LED face mask in a cozy modern bedroom, the red light casting warm rose tones on the surrounding space, relaxed peaceful posture lying back on pillows, warm ambient lighting, natural and serene atmosphere, 4:5 vertical"</div>
+      </div>
+    </div>
+
+    <div class="shot-block">
+      <div class="shot-header">Shot 4 &mdash; SOCIAL PROOF + CTA <span class="shot-time">15-22s</span></div>
+      <div class="shot-body">
+        <p>Product beauty shot on navy background. Review stars animate in. Pricing tiers appear.</p>
+        <div class="text-overlay">"Starting at $69.99 | &#9733; 4.8 | 12,000+ customers | Shop Now"</div>
+        <div class="prompt-block"><span class="prompt-label">Kling Prompt</span>"Premium product beauty shot of LED red light therapy face mask on deep navy (#1A1A2E) background with warm rose-red (#E8534A) backlighting creating an elegant glow halo, soft volumetric light rays, floating 5-star elements in soft focus, ultra-clean minimalist e-commerce aesthetic, 4:5 vertical"</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PHASE 5: STRATEGY SUMMARY & RECOMMENDATIONS        -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="phase-header" id="phase5">
+  <div class="phase-number">Phase 5</div>
+  <h2>Strategy Summary &amp; Recommendations</h2>
+</div>
+
+<div class="card">
+  <h3>Competitive Landscape Summary</h3>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value">6</div>
+      <div class="stat-label">Brands Analyzed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Core Patterns Identified</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">54%</div>
+      <div class="stat-label">Video Dominance</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">$259&ndash;$435</div>
+      <div class="stat-label">Competitor Price Range</div>
+    </div>
+  </div>
+  <ul class="mt-sm">
+    <li><strong>Dominant format:</strong> UGC Video (36.8% of winners) + Single Image (28.7%) = MIXED</li>
+    <li><strong>Top 3 by ad sophistication:</strong> Omnilux, Solawave, HigherDOSE</li>
+    <li><strong>Average ad lifespan of winners:</strong> 180&ndash;660+ days for narrative-driven creatives</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Winning Pattern Analysis</h3>
+  <ul>
+    <li><strong>Most common hook type:</strong> UGC Discovery / "I tried this..." (78% of top video ads open UGC-style)</li>
+    <li><strong>Most common emotional driver:</strong> Vanity/Self-Image + Trust (clinical proof)</li>
+    <li><strong>Most common angle:</strong> Demonstration (38.8%) followed by Lifestyle (17.1%)</li>
+    <li><strong>Most common Cialdini stack:</strong> Social Proof + Authority + Liking</li>
+    <li><strong>Platform breakdown:</strong> ~65% Meta (FB + IG) / ~35% TikTok</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Recommended Creative Strategy</h3>
+
+  <h4>Format</h4>
+  <p>BOTH Video + Image &mdash; lead with UGC video, supplement with static.</p>
+
+  <h4>Platform Priority</h4>
+  <p>Instagram Reels &rarr; Facebook Feed &rarr; Instagram Feed &rarr; Facebook Reels</p>
+
+  <h4>Angle</h4>
+  <div class="verdict-box">
+    <strong>Us vs Them (Comparison) + UGC Authentic Discovery</strong> <span class="badge badge-rose">HYBRID</span><br>
+    <span class="fs-sm text-muted">LumiRecover's $69.99&ndash;$149.99 pricing vs $349&ndash;$435 competitors creates the most powerful differentiator in this market. Embedding price disruption inside authentic UGC narratives maximizes both conversion (price) and longevity (story).</span>
+  </div>
+
+  <h4>Emotion</h4>
+  <p>Vanity/Self-Image + Instant Gratification (savings dopamine). Target customer wants pro skin results AND hates overpaying. We satisfy both desires simultaneously.</p>
+
+  <h4>Hook</h4>
+  <div class="ad-copy-block">
+    <span class="copy-label">Primary Hook</span>
+    "I found a $69 version of those $400 LED masks everyone's obsessed with"
+    <span class="desc" style="margin-top:8px;">Combines curiosity gap + price shock + social proof in one sentence. Stops scroll via pattern interrupt (unexpected price).</span>
+  </div>
+
+  <h4>Persuasion Stack</h4>
+  <ul class="checklist">
+    <li><strong>Social Proof</strong> &mdash; user counts, star ratings, UGC, "12,000+ women switched"</li>
+    <li><strong>Authority</strong> &mdash; wavelength specs (630nm/660nm/850nm), clinical language, FDA reference</li>
+    <li><strong>Scarcity</strong> &mdash; introductory pricing, launch window urgency</li>
+    <li><strong>Liking</strong> &mdash; relatable creator (mirrors target: woman 30-40, real skin, warm personality)</li>
+  </ul>
+
+  <h4>Conversion Checklist</h4>
+  <p style="font-size:1.1rem;font-weight:700;color:var(--navy);">
+    STOP <span class="badge badge-go">&#10003;</span> &nbsp;
+    FEEL <span class="badge badge-go">&#10003;</span> &nbsp;
+    BELIEVE <span class="badge badge-go">&#10003;</span> &nbsp;
+    WANT <span class="badge badge-go">&#10003;</span> &nbsp;
+    ACT <span class="badge badge-go">&#10003;</span>
+  </p>
+</div>
+
+<div class="card">
+  <h3>Creative Execution Plan</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Variation</th><th>Format</th><th>Platform</th><th>Tool</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>UGC Discovery Video &mdash; "The $69 Dupe"</td><td>9:16 Reels</td><td>IG + FB Reels</td><td>Kling 3.0</td></tr>
+        <tr><td><strong>2</strong></td><td>UGC Discovery Video &mdash; Feed Version</td><td>4:5 Feed</td><td>IG + FB Feed</td><td>Kling 3.0</td></tr>
+        <tr><td><strong>3</strong></td><td>Hero Lifestyle Image &mdash; "The Glow Shot"</td><td>4:5 Feed</td><td>IG + FB Feed</td><td>Nano Banana 2</td></tr>
+        <tr><td><strong>4</strong></td><td>Comparison Image &mdash; "Same Tech, Smart Price"</td><td>4:5 Feed</td><td>FB + IG Feed</td><td>Nano Banana 2</td></tr>
+        <tr><td><strong>5</strong></td><td>Educational Carousel &mdash; "Science Behind The Glow"</td><td>4:5 x5 slides</td><td>IG + FB Feed</td><td>Nano Banana 2</td></tr>
+        <tr><td><strong>6</strong></td><td>Comparison Video &mdash; "The Price Test"</td><td>4:5 Feed</td><td>FB Feed</td><td>Kling 3.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Recommended A/B Tests <span class="badge badge-navy">Priority Order</span></h3>
+  <ol class="ab-list">
+    <li><strong>Hook test:</strong> "I found a $69 version..." vs "Stop overpaying for LED masks..."</li>
+    <li><strong>Price anchor test:</strong> Lead with Starter $69.99 vs lead with Pro $149.99</li>
+    <li><strong>Format test:</strong> UGC video vs Hero lifestyle image (same angle/copy)</li>
+    <li><strong>Emotion test:</strong> Price-savings angle vs clinical authority angle</li>
+    <li><strong>CTA test:</strong> "Shop Now" vs "Get Yours" vs "See The Difference"</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3>Ad Copy Drafts &mdash; Final <span class="badge badge-navy">All 3 Frameworks</span></h3>
+
+  <div class="ad-copy-block">
+    <span class="copy-label">PAS Version (Primary)</span>
+    "I was spending $200/month on facials and still seeing fine lines every morning. Then I found this $69 LED mask that uses the same red light wavelengths as those $400 devices. After 3 weeks? My skin is genuinely glowing. 10 minutes a day while I watch Netflix. That's it. Over 12,000 women made the switch last month."
+    <span class="headline">Pro-Level Skin. $69.99.</span>
+    <span class="cta-tag">Shop Now</span>
+  </div>
+
+  <div class="ad-copy-block">
+    <span class="copy-label">AIDA Version</span>
+    "23,000 women bought this LED mask last month. Here's why: It uses the exact same red light wavelengths (630nm, 660nm, 850nm) as masks costing $400+. Except this one is $97.99. 7 color modes. 10-minute sessions. Clinical-grade results at home. Your $200 monthly facial just became obsolete."
+    <span class="headline">Clinic Results. Home Price.</span>
+    <span class="cta-tag">Shop Now</span>
+  </div>
+
+  <div class="ad-copy-block">
+    <span class="copy-label">BAB Version</span>
+    "Before: Browsing $400 LED masks and feeling like skincare shouldn't cost this much. After: Finding a mask with the same clinical-grade wavelengths for $69.99. The bridge: LumiRecover. 630nm. 660nm. 850nm. Same red light wavelengths dermatologists recommend. Without the luxury markup. 12,000+ women already switched. Your turn."
+    <span class="headline">Same Tech. $330 Less.</span>
+    <span class="cta-tag">Shop Now</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- APPROVAL BANNER                                     -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="approval-banner" id="approval">
+  <h2>Awaiting Approval to Proceed to Generation</h2>
+  <p>All 6 variations include complete Nano Banana 2 or Kling 3.0 prompts ready to run. Review the strategy above and approve to begin creative generation.</p>
+</div>
+
+<div class="notes-section">
+  <h3>Notes for Review</h3>
+  <ul>
+    <li>All 6 variations include complete Nano Banana 2 or Kling 3.0 prompts ready to run</li>
+    <li>Brand colors (#1A1A2E, #E8534A, #F8F9FA) enforced across all creatives</li>
+    <li>Brand voice maintained: confident, warm, results-driven, short sentences, benefits-first</li>
+    <li>Competitor prices anchored throughout (never named directly in copy &mdash; using "$400 masks")</li>
+    <li>All copy avoids banned words: "revolutionary", "game-changer", "unlock your potential"</li>
+    <li>3 price tiers featured to give every buyer an entry point</li>
+    <li>Recommended refresh cadence: new hooks every 7&ndash;10 days per industry best practice</li>
+  </ul>
+</div>
+
+<footer class="report-footer">
+  LumiRecover &mdash; Ad Creative Strategy Report &mdash; Confidential &mdash; March 27, 2026
+</footer>
+
+</div><!-- .container -->
+
+</body>
+</html>

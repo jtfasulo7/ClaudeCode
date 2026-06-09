@@ -1,0 +1,137 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - heading "Fasulostudio" [level=1] [ref=e5]
+    - paragraph [ref=e6]: AI Newsletter
+    - paragraph [ref=e7]: Week of April 1, 2026 · Covering March 26 – April 1
+  - generic [ref=e8]:
+    - paragraph [ref=e9]: Section I
+    - heading "Tool Spotlight" [level=2] [ref=e10]
+    - generic [ref=e11]:
+      - heading "Qwen3.5-Omni" [level=3] [ref=e12]
+      - paragraph [ref=e13]: Alibaba quietly dropped this on March 30 and it's kind of absurd. One model that handles text, images, 10+ hours of audio, and video — natively, in a single pass. It speaks 113 languages. It beat Google's Gemini 3.1 Pro on audio benchmarks. And it's open-source.
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: How to use it now
+        - paragraph [ref=e16]: "The wildest feature nobody's talking about: \"Audio-Visual Vibe Coding.\" Record your screen doing a task, feed the video to Qwen3.5-Omni, and it writes working code based on what it sees and hears. Three sizes available (Plus, Flash, Light) with 256k context."
+      - paragraph [ref=e17]: An open-source model outperforming Google's flagship on audio. The moat between closed and open models is basically a puddle now.
+      - link "Try Qwen3.5-Omni →" [ref=e18] [cursor=pointer]:
+        - /url: https://huggingface.co/collections/Qwen/qwen35
+    - generic [ref=e19]:
+      - heading "Claude Computer Use + Dispatch" [level=3] [ref=e20]
+      - paragraph [ref=e21]: "Anthropic did something genuinely new on March 23. Claude can now take over your Mac — clicking, typing, opening apps, running browser workflows. No setup. No plugins. But the real move is pairing it with Dispatch: you text Claude a task from your iPhone while you're out, and it executes the whole thing on your desktop. You come home to finished work. That's not a gimmick. That's a shift."
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: How to use it now
+        - paragraph [ref=e24]: Claude Pro or Max on macOS. Open Claude Desktop, flip on Computer Use in settings. It tries connectors first (Slack, Gmail, etc.) and falls back to raw screen control when there's no shortcut. Leave your laptop open, assign tasks from your phone. Seriously — try it with something tedious you've been putting off.
+      - paragraph [ref=e25]: This is the first "delegate from your phone, pick up finished work at your desk" experience that actually works. Everyone else is still demoing.
+      - link "Try Claude Computer Use →" [ref=e26] [cursor=pointer]:
+        - /url: https://claude.com/blog/dispatch-and-computer-use
+    - generic [ref=e27]:
+      - heading "Bluesky Attie" [level=3] [ref=e28]
+      - paragraph [ref=e29]: Launched March 30. Every other social platform decides what you see. Bluesky just said "build your own algorithm" — and made it dead simple. Describe your ideal feed in plain English and Attie generates a custom filter. No code. No technical knowledge.
+      - generic [ref=e30]:
+        - paragraph [ref=e31]: How to use it now
+        - paragraph [ref=e32]: Bluesky → Feeds → Attie. Type something like "AI research papers but not product launches" or "indie game devs posting progress updates." It builds the algorithm. You save it, share it, tweak it. The fun part is getting weird with it.
+      - paragraph [ref=e33]: User-controlled algorithms are the opposite of what Big Tech wants. Now AI makes them accessible to people who can't write code. That matters.
+      - link "Try Bluesky Attie →" [ref=e34] [cursor=pointer]:
+        - /url: https://techcrunch.com/2026/03/28/bluesky-leans-into-ai-with-attie-an-app-for-building-custom-feeds/
+  - generic [ref=e37]:
+    - paragraph [ref=e38]: Section II
+    - heading "Quick Wins" [level=2] [ref=e39]
+    - table [ref=e41]:
+      - rowgroup [ref=e42]:
+        - 'row "01 Delegate work from your phone Why this matters: You''ve got tasks piling up that you never get to because they require sitting at a computer. Now you can knock them out while commuting or waiting in line. Open the Claude app on your iPhone, type something like \"research the top 5 project management tools and compare them in a Google Doc.\" Claude picks up the task on your Mac at home and does the work. When you get back, it''s done. You need a Claude Pro or Max subscription and a Mac with Claude Desktop open." [ref=e43]':
+          - cell "01" [ref=e44]
+          - 'cell "Delegate work from your phone Why this matters: You''ve got tasks piling up that you never get to because they require sitting at a computer. Now you can knock them out while commuting or waiting in line. Open the Claude app on your iPhone, type something like \"research the top 5 project management tools and compare them in a Google Doc.\" Claude picks up the task on your Mac at home and does the work. When you get back, it''s done. You need a Claude Pro or Max subscription and a Mac with Claude Desktop open." [ref=e45]':
+            - paragraph [ref=e46]: Delegate work from your phone
+            - paragraph [ref=e47]: "Why this matters: You've got tasks piling up that you never get to because they require sitting at a computer. Now you can knock them out while commuting or waiting in line."
+            - paragraph [ref=e48]: Open the Claude app on your iPhone, type something like "research the top 5 project management tools and compare them in a Google Doc." Claude picks up the task on your Mac at home and does the work. When you get back, it's done. You need a Claude Pro or Max subscription and a Mac with Claude Desktop open.
+    - table [ref=e50]:
+      - rowgroup [ref=e51]:
+        - 'row "02 Control your social media feed Why this matters: Tired of algorithms showing you things you don''t care about? You can now design your own feed on Bluesky — no coding required. Create a free Bluesky account if you don''t have one. Go to Feeds, open Attie, and describe what you want in plain English. Something like \"show me cooking videos and small business tips, skip anything political.\" It creates a custom algorithm just for you in seconds." [ref=e52]':
+          - cell "02" [ref=e53]
+          - 'cell "Control your social media feed Why this matters: Tired of algorithms showing you things you don''t care about? You can now design your own feed on Bluesky — no coding required. Create a free Bluesky account if you don''t have one. Go to Feeds, open Attie, and describe what you want in plain English. Something like \"show me cooking videos and small business tips, skip anything political.\" It creates a custom algorithm just for you in seconds." [ref=e54]':
+            - paragraph [ref=e55]: Control your social media feed
+            - paragraph [ref=e56]: "Why this matters: Tired of algorithms showing you things you don't care about? You can now design your own feed on Bluesky — no coding required."
+            - paragraph [ref=e57]: Create a free Bluesky account if you don't have one. Go to Feeds, open Attie, and describe what you want in plain English. Something like "show me cooking videos and small business tips, skip anything political." It creates a custom algorithm just for you in seconds.
+    - table [ref=e59]:
+      - rowgroup [ref=e60]:
+        - 'row "03 Turn a screen recording into code Why this matters: Instead of explaining what you want a program to do, you can just show it. Record yourself doing something on screen and AI writes the code to automate it. Use Qwen3.5-Omni''s \"Audio-Visual Vibe Coding\" feature. Record a short video of yourself doing a task (like filling out a spreadsheet), then upload it to the Qwen demo on Hugging Face. It watches what you did and writes code that automates it. Free to try." [ref=e61]':
+          - cell "03" [ref=e62]
+          - 'cell "Turn a screen recording into code Why this matters: Instead of explaining what you want a program to do, you can just show it. Record yourself doing something on screen and AI writes the code to automate it. Use Qwen3.5-Omni''s \"Audio-Visual Vibe Coding\" feature. Record a short video of yourself doing a task (like filling out a spreadsheet), then upload it to the Qwen demo on Hugging Face. It watches what you did and writes code that automates it. Free to try." [ref=e63]':
+            - paragraph [ref=e64]: Turn a screen recording into code
+            - paragraph [ref=e65]: "Why this matters: Instead of explaining what you want a program to do, you can just show it. Record yourself doing something on screen and AI writes the code to automate it."
+            - paragraph [ref=e66]: Use Qwen3.5-Omni's "Audio-Visual Vibe Coding" feature. Record a short video of yourself doing a task (like filling out a spreadsheet), then upload it to the Qwen demo on Hugging Face. It watches what you did and writes code that automates it. Free to try.
+    - table [ref=e68]:
+      - rowgroup [ref=e69]:
+        - 'row "04 Talk to AI like a real conversation Why this matters: Voice AI usually cuts you off mid-sentence if you make any sound. Qwen3.5-Omni finally gets the difference between \"mm-hmm\" and \"stop\" — so conversations feel natural instead of awkward. Try the Qwen3.5-Omni Online Demo on Hugging Face. Start a voice conversation and test it — say \"mm-hmm\" while it''s talking. It won''t stop. Say \"wait\" and it pauses. It''s the first voice AI that doesn''t feel like talking to a broken phone robot." [ref=e70]':
+          - cell "04" [ref=e71]
+          - 'cell "Talk to AI like a real conversation Why this matters: Voice AI usually cuts you off mid-sentence if you make any sound. Qwen3.5-Omni finally gets the difference between \"mm-hmm\" and \"stop\" — so conversations feel natural instead of awkward. Try the Qwen3.5-Omni Online Demo on Hugging Face. Start a voice conversation and test it — say \"mm-hmm\" while it''s talking. It won''t stop. Say \"wait\" and it pauses. It''s the first voice AI that doesn''t feel like talking to a broken phone robot." [ref=e72]':
+            - paragraph [ref=e73]: Talk to AI like a real conversation
+            - paragraph [ref=e74]: "Why this matters: Voice AI usually cuts you off mid-sentence if you make any sound. Qwen3.5-Omni finally gets the difference between \"mm-hmm\" and \"stop\" — so conversations feel natural instead of awkward."
+            - paragraph [ref=e75]: Try the Qwen3.5-Omni Online Demo on Hugging Face. Start a voice conversation and test it — say "mm-hmm" while it's talking. It won't stop. Say "wait" and it pauses. It's the first voice AI that doesn't feel like talking to a broken phone robot.
+    - table [ref=e77]:
+      - rowgroup [ref=e78]:
+        - 'row "05 Check if AI is \"really\" intelligent Why this matters: There''s a lot of hype about AI being \"as smart as humans.\" A new benchmark just proved every major AI scored under 1% on genuine reasoning tasks. Good to know when someone''s overselling you. Look up ARC-AGI-3 — it launched this week with a $2 million prize. It tests whether AI can actually reason through new problems (not just repeat patterns it memorized). Next time someone tells you AI can \"think,\" you''ll know the real score." [ref=e79]':
+          - cell "05" [ref=e80]
+          - 'cell "Check if AI is \"really\" intelligent Why this matters: There''s a lot of hype about AI being \"as smart as humans.\" A new benchmark just proved every major AI scored under 1% on genuine reasoning tasks. Good to know when someone''s overselling you. Look up ARC-AGI-3 — it launched this week with a $2 million prize. It tests whether AI can actually reason through new problems (not just repeat patterns it memorized). Next time someone tells you AI can \"think,\" you''ll know the real score." [ref=e81]':
+            - paragraph [ref=e82]: Check if AI is "really" intelligent
+            - paragraph [ref=e83]: "Why this matters: There's a lot of hype about AI being \"as smart as humans.\" A new benchmark just proved every major AI scored under 1% on genuine reasoning tasks. Good to know when someone's overselling you."
+            - paragraph [ref=e84]: Look up ARC-AGI-3 — it launched this week with a $2 million prize. It tests whether AI can actually reason through new problems (not just repeat patterns it memorized). Next time someone tells you AI can "think," you'll know the real score.
+  - generic [ref=e87]:
+    - paragraph [ref=e88]: Section III
+    - heading "Technical" [level=2] [ref=e89]
+    - paragraph [ref=e90]: For developers and power users.
+    - generic [ref=e91]:
+      - paragraph [ref=e92]: Claude Code supply chain attack via Axios trojan
+      - paragraph [ref=e93]:
+        - text: "Claude Code v2.1.88 shipped with source maps that exposed 512k lines of TypeScript. But the bigger issue: a trojanized Axios dependency was injected between 00:21–03:29 UTC on March 31, installing a cross-platform RAT. If you ran"
+        - code [ref=e94]: npm install
+        - text: or
+        - code [ref=e95]: npm update
+        - text: in that window, audit immediately. The leaked source also revealed an unreleased feature called KAIROS — a persistent background agent mode.
+      - link "Read more →" [ref=e96] [cursor=pointer]:
+        - /url: https://thehackernews.com/2026/04/claude-code-tleaked-via-npm-packaging.html
+    - generic [ref=e97]:
+      - paragraph [ref=e98]: Anthropic ships Compliance API for Claude Platform
+      - paragraph [ref=e99]: Dropped March 30 with zero fanfare. Programmatic access to full audit logs across your org — conversation logs, tool use traces, and permission events. If you're building Claude integrations in regulated industries (healthcare, finance), this replaces the manual CSV export workflow and unblocks SOC 2 and HIPAA audit requirements.
+      - link "Read more →" [ref=e100] [cursor=pointer]:
+        - /url: https://www.labla.org/latest-ai-model-releases-past-24-hours/ai-releases-roundup-what-actually-launched-on-march-29-30-and-31-2026/
+    - generic [ref=e101]:
+      - paragraph [ref=e102]: "Arm AGI CPU: 136-core, 3nm inference silicon"
+      - paragraph [ref=e103]: Arm's first in-house chip uses TSMC N3P, 136 Neoverse V3 cores at 3.5GHz, 2MB L2 per core, 6GB/s memory bandwidth per core at sub-100ns latency, 300W TDP. Chiplet architecture with deterministic per-core threading — no throttling, no idle threads. Co-designed with Meta. Production silicon available now; volume shipments by EOY 2026.
+      - link "Read more →" [ref=e104] [cursor=pointer]:
+        - /url: https://newsroom.arm.com/news/arm-agi-cpu-launch
+    - generic [ref=e105]:
+      - paragraph [ref=e106]: "ARC-AGI-3 benchmark: every frontier model under 1%"
+      - paragraph [ref=e107]: Launched March 26 with a $2M prize pool. Tests novel reasoning — not pattern recall. GPT-5.4, Claude Opus 4.6, Gemini 3.1 Pro all scored under 1%. The benchmark uses tasks that require genuine abstraction and generalization, explicitly designed to resist memorization and prompt engineering. If you're evaluating model capabilities for production use, this is the sobriety check.
+      - link "Read more →" [ref=e108] [cursor=pointer]:
+        - /url: https://www.theneuron.ai/ai-news-digests/-around-the-horn-digest-everything-that-happened-in-ai-this-weekend-march-28-29-2026/
+  - generic [ref=e111]:
+    - paragraph [ref=e112]: Section IV
+    - heading "Industry Moves" [level=2] [ref=e113]
+    - generic [ref=e114]:
+      - paragraph [ref=e115]: Anthropic
+      - paragraph [ref=e116]: Rough week. On March 26, details of an unreleased model called "Claude Mythos" leaked from an unsecured database — it's a tier above Opus with what insiders call "unprecedented" cybersecurity capabilities. Five days later, Claude Code's entire source code spilled through an npm source map mistake. Two breaches in five days from the company that brands itself as the safety lab.
+      - paragraph [ref=e117]: → The Mythos leak is actually bullish — it confirms something significantly beyond current Opus exists. But the optics are terrible, especially with IPO talks heating up for Q4.
+      - link "Full story →" [ref=e118] [cursor=pointer]:
+        - /url: https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/
+    - generic [ref=e119]:
+      - paragraph [ref=e120]: Apple
+      - paragraph [ref=e121]: "iOS 27 will let Claude, Gemini, and other AI models plug directly into the iPhone through a new Extensions system. Apple's also building its own chatbot — codenamed \"Campos\" — powered by Google's 1.2 trillion parameter Gemini model running on Apple's Private Cloud Compute. Classic Apple: let everyone else build the hard part, then own the distribution."
+      - paragraph [ref=e122]: → When Claude and Gemini are baked into iOS, the "which AI should I use?" question disappears for a billion people. That's not a feature update. That's a market restructuring.
+      - link "Full story →" [ref=e123] [cursor=pointer]:
+        - /url: https://winbuzzer.com/2026/03/31/apple-plans-open-siri-rival-ai-chatbots-ios-27-xcxwbn/
+    - generic [ref=e124]:
+      - paragraph [ref=e125]: Arm
+      - paragraph [ref=e126]: Unveiled what they're calling the "AGI CPU" — a 136-core, 3nm chip built specifically for AI inference. Meta's the launch customer. OpenAI, Cloudflare, and SAP are in. This is a direct shot at Nvidia's stranglehold on AI compute.
+      - paragraph [ref=e127]: → If inference costs drop, API prices drop. If API prices drop, the cost of building with AI drops for everyone. Watch this one — it's infrastructure, not hype, and that's where the real shifts happen.
+      - link "Full story →" [ref=e128] [cursor=pointer]:
+        - /url: https://newsroom.arm.com/news/arm-agi-cpu-launch
+  - generic [ref=e131]:
+    - paragraph [ref=e132]: Feel free to leave some feedback! I'm always looking for ways to improve this newsletter.
+    - link "Give Feedback" [ref=e133] [cursor=pointer]:
+      - /url: https://jtfasulo.com/api/feedback
+  - generic [ref=e134]:
+    - paragraph [ref=e135]: Fasulostudio · jtfasulo.com
+    - paragraph [ref=e136]:
+      - link "UNSUBSCRIBE" [ref=e137] [cursor=pointer]:
+        - /url: "#"

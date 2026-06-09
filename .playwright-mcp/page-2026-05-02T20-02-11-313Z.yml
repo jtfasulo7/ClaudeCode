@@ -1,0 +1,82 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "JT Fasulo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: JT Fasulo
+      - button "Toggle menu" [ref=e9] [cursor=pointer]:
+        - img [ref=e10]
+  - main [ref=e11]:
+    - generic [ref=e16]:
+      - generic [ref=e18]: ✦ Now accepting students
+      - generic [ref=e19]:
+        - heading "Premium websites, designed by you." [level=1] [ref=e20]
+        - paragraph [ref=e21]: Private mentorship from JT Fasulo. I'll teach you how to think about design, build, and ship websites that look like they belong on Apple's homepage — not a template marketplace.
+      - generic [ref=e22]:
+        - button "Get in touch" [ref=e24] [cursor=pointer]
+        - button "See my work" [ref=e26] [cursor=pointer]
+      - generic [ref=e31]:
+        - paragraph [ref=e33]: 1-on-1 weekly sessions
+        - paragraph [ref=e35]: Real client projects
+        - paragraph [ref=e37]: Direct portfolio review
+  - contentinfo [ref=e38]:
+    - generic: FASULO
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]: Free Guide
+        - heading "Start your AI journey the right way." [level=3] [ref=e44]:
+          - text: Start your AI journey
+          - text: the right way.
+      - link "Get the Free Guide" [ref=e45] [cursor=pointer]:
+        - /url: "#lm-email"
+        - generic [ref=e46]: Get the Free Guide
+        - img [ref=e47]
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e54]: JT Fasulo
+          - paragraph [ref=e55]: A free PDF guide for founders getting started with AI in entrepreneurship. Plus a weekly newsletter on what actually matters in AI.
+          - generic [ref=e56]:
+            - link "Twitter / X" [ref=e57] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e58]
+            - link "LinkedIn" [ref=e64] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e65]
+            - link "Instagram" [ref=e68] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e69]
+            - link "YouTube" [ref=e73] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e74]
+        - generic [ref=e76]:
+          - generic [ref=e77]: Navigation
+          - list [ref=e78]:
+            - listitem [ref=e79]:
+              - link "Home" [ref=e80] [cursor=pointer]:
+                - /url: /
+                - text: Home
+            - listitem [ref=e82]:
+              - link "Get the Guide" [ref=e83] [cursor=pointer]:
+                - /url: "#lm-email"
+                - text: Get the Guide
+            - listitem [ref=e85]:
+              - link "Privacy Policy" [ref=e86] [cursor=pointer]:
+                - /url: /privacy-policy
+                - text: Privacy Policy
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - img "Sybago" [ref=e90]
+          - generic [ref=e91]:
+            - paragraph [ref=e92]: SYBAGO LLC
+            - paragraph [ref=e93]: 116 W 9th St, Wilmington, DE 19801
+        - paragraph [ref=e94]: jtfasulo.com is operated by SYBAGO LLC. By submitting your email you agree to receive the guide and occasional updates. Unsubscribe anytime via the link in any email we send.
+      - generic [ref=e95]:
+        - paragraph [ref=e96]: © 2026 SYBAGO LLC. All rights reserved.
+        - generic [ref=e97]:
+          - link "Privacy Policy" [ref=e98] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "jtfasulo.com" [ref=e99] [cursor=pointer]:
+            - /url: https://jtfasulo.com
+            - text: jtfasulo.com
+            - img [ref=e100]

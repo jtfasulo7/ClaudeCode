@@ -511,7 +511,7 @@ tbody tr:last-child td { border-bottom: none; }
 }
 
 .reel-thumb {
-  height: 160px;
+  height: 200px;
   background: linear-gradient(135deg, #0f0e0b 0%, #1a1815 50%, #0a0a12 100%);
   display: flex;
   align-items: center;
@@ -520,11 +520,22 @@ tbody tr:last-child td { border-bottom: none; }
   overflow: hidden;
 }
 
+.reel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+.reel-card:hover .reel-thumb img { transform: scale(1.04); }
+
 .reel-thumb::before {
   content: '';
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 30% 30%, rgba(200,169,110,0.06) 0%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .reel-date-overlay {
@@ -535,8 +546,100 @@ tbody tr:last-child td { border-bottom: none; }
   color: var(--gold);
   opacity: 0.8;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
+
+/* ─── Reel Analysis Panel ─────────────────────────────────────────────────── */
+.reel-analysis-panel {
+  grid-column: 1 / -1;
+  background: var(--bg-1);
+  border: 1px solid var(--gold-border);
+  padding: 2rem 2.5rem;
+  margin-bottom: 1px;
+  animation: fadeSlideDown 0.25s ease;
+}
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.analysis-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.analysis-verdict {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.verdict-HIT       { background: rgba(91,173,126,0.15); color: #5BAD7E; border: 1px solid rgba(91,173,126,0.3); }
+.verdict-ABOVE_AVERAGE { background: rgba(200,169,110,0.15); color: var(--gold); border: 1px solid var(--gold-border); }
+.verdict-AVERAGE   { background: rgba(160,155,145,0.12); color: var(--text-3); border: 1px solid rgba(160,155,145,0.2); }
+.verdict-FLOP      { background: rgba(232,93,58,0.12); color: #E85D3A; border: 1px solid rgba(232,93,58,0.25); }
+.analysis-summary {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--text);
+  font-style: italic;
+}
+.analysis-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.analysis-section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.analysis-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.analysis-list li {
+  font-size: 0.78rem;
+  color: var(--text);
+  line-height: 1.5;
+  padding-left: 1rem;
+  position: relative;
+}
+.analysis-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  opacity: 0.5;
+}
+.analysis-creative-note {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--gold-border);
+  font-size: 0.78rem;
+  color: var(--text-3);
+  font-style: italic;
+}
+.analysis-loading {
+  text-align: center;
+  padding: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
 
 .reel-type-badge {
   position: absolute;
@@ -956,6 +1059,11 @@ tbody tr:last-child td { border-bottom: none; }
         <div class="kpi-sub">single post record</div>
       </div>
       <div class="kpi-card">
+        <div class="kpi-label">Total Views</div>
+        <div class="kpi-value" id="kpi-views">—</div>
+        <div class="kpi-sub" id="kpi-views-sub">plays / last 25 posts</div>
+      </div>
+      <div class="kpi-card">
         <div class="kpi-label">Avg Eng Rate</div>
         <div class="kpi-value" id="kpi-eng">—</div>
         <div class="kpi-sub">% per post</div>
@@ -966,11 +1074,16 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="section-header">
         <div class="section-title">Performance Trends</div>
         <div class="chart-controls">
+          <button class="ctrl-btn active" data-range="all">All Time</button>
+          <button class="ctrl-btn" data-range="30">30 Days</button>
+          <button class="ctrl-btn" data-range="7">7 Days</button>
+          <button class="ctrl-btn" data-range="1">1 Day</button>
           <button class="ctrl-btn active" data-chart-type="line">Line</button>
           <button class="ctrl-btn" data-chart-type="bar">Bar</button>
           <select class="ctrl-select" id="metric-select">
             <option value="likes">Likes</option>
             <option value="comments">Comments</option>
+            <option value="views">Views</option>
             <option value="engagement">Engagement</option>
             <option value="engRate">Eng Rate %</option>
           </select>
@@ -1091,9 +1204,7 @@ tbody tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <div class="jarvis-response-area">
-    <div class="jarvis-response-text" id="jarvis-response"></div>
-  </div>
+  <div style="display:none" id="jarvis-response"></div>
 
   <div class="jarvis-hold-space" id="hold-space-hint">HOLD SPACE TO SPEAK</div>
   <div class="jarvis-kb-badge" id="jarvis-kb-badge"></div>
@@ -1153,6 +1264,7 @@ let trendsChart = null;
 let hashtagChart = null;
 let currentChartType = 'line';
 let currentMetric = 'likes';
+let currentRange = 'all';
 let reelsInitialized = false;
 let jarvisInitialized = false;
 let conversationHistory = [];
@@ -1253,6 +1365,12 @@ function initDashboard() {
     countUp(document.getElementById('kpi-likes'),     summary.totalLikes);
     countUp(document.getElementById('kpi-comments'),  summary.totalComments);
     countUp(document.getElementById('kpi-peak'),      summary.topPost ? summary.topPost.likes : 0);
+    if (summary.hasViewData && summary.totalViews > 0) {
+      countUp(document.getElementById('kpi-views'), summary.totalViews);
+    } else {
+      document.getElementById('kpi-views').textContent = 'N/A';
+      document.getElementById('kpi-views-sub').textContent = 'insights pending';
+    }
     countUp(document.getElementById('kpi-eng'),       summary.avgEngRate, 1200, '%');
   }, 100);
 
@@ -1279,19 +1397,31 @@ function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+function getChronoPosts() {
+  let posts = [...kb.posts].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+  if (currentRange !== 'all') {
+    const days = parseInt(currentRange);
+    posts = posts.filter(p => p.daysAgo <= days);
+  }
+  return posts;
+}
+
 function getMetricData(metric) {
+  const posts = getChronoPosts();
   switch (metric) {
-    case 'likes':      return kb.posts.map(p => p.likes);
-    case 'comments':   return kb.posts.map(p => p.comments);
-    case 'engagement': return kb.posts.map(p => p.likes + p.comments);
-    case 'engRate':    return kb.posts.map(p => p.engRate);
-    default:           return kb.posts.map(p => p.likes);
+    case 'likes':      return posts.map(p => p.likes);
+    case 'comments':   return posts.map(p => p.comments);
+    case 'views':      return posts.map(p => p.views || 0);
+    case 'engagement': return posts.map(p => p.likes + p.comments);
+    case 'engRate':    return posts.map(p => p.engRate);
+    default:           return posts.map(p => p.likes);
   }
 }
 
 function buildTrendsChart() {
   const ctx = document.getElementById('trends-chart').getContext('2d');
-  const labels = kb.posts.map(p => p.date);
+  const chronoPosts = getChronoPosts();
+  const labels = chronoPosts.map(p => p.date);
   const data   = getMetricData(currentMetric);
   const sel    = document.getElementById('metric-select');
   const label  = sel.options[sel.selectedIndex].text;
@@ -1416,6 +1546,15 @@ document.querySelectorAll('[data-chart-type]').forEach(function(btn) {
   });
 });
 
+document.querySelectorAll('[data-range]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    currentRange = btn.dataset.range;
+    document.querySelectorAll('[data-range]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (kb) buildTrendsChart();
+  });
+});
+
 document.getElementById('metric-select').addEventListener('change', function(e) {
   currentMetric = e.target.value;
   if (kb) buildTrendsChart();
@@ -1468,6 +1607,8 @@ function getSortedFilteredPosts() {
   return posts;
 }
 
+var activeAnalysisIdx = -1;
+
 function renderReelGrid() {
   const posts = getSortedFilteredPosts();
   document.getElementById('reel-count').textContent = posts.length + ' reels';
@@ -1476,23 +1617,84 @@ function renderReelGrid() {
     grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">No reels match your filter</div>';
     return;
   }
+  activeAnalysisIdx = -1;
   grid.innerHTML = posts.map(function(p) {
     const idx = allPosts.indexOf(p);
-    return '<div class="reel-card" onclick="openDetail(' + idx + ')">' +
+    const thumbHtml = p.thumbnailUrl
+      ? '<img src="' + escHtml(p.thumbnailUrl) + '" alt="reel cover" loading="lazy" onerror="this.style.display=\'none\'">'
+      : '<div class="reel-date-overlay">' + escHtml(p.date) + '</div>';
+    const tierColor = { viral:'#5BAD7E', above_average:'var(--gold)', average:'var(--text-3)', below_average:'#E85D3A' };
+    const viewPill = (p.views > 0) ? '<div class="stat-pill"><span class="stat-icon">&#9654;</span>' + p.views.toLocaleString() + '</div>' : '';
+    return '<div class="reel-card" id="reel-card-' + idx + '" onclick="toggleReelAnalysis(' + idx + ')">' +
       '<div class="reel-thumb">' +
         '<div class="reel-type-badge">' + escHtml(p.type || 'REEL') + '</div>' +
-        '<div class="reel-date-overlay">' + escHtml(p.date) + '</div>' +
+        thumbHtml +
+        '<div style="position:absolute;bottom:0.5rem;left:0.5rem;z-index:2;font-family:\'JetBrains Mono\',monospace;font-size:0.55rem;letter-spacing:0.1em;color:' + (tierColor[p.tier] || 'var(--text-3)') + ';background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:2px;">' + (p.tier || '').replace('_',' ').toUpperCase() + '</div>' +
       '</div>' +
       '<div class="reel-body">' +
         '<div class="reel-caption">' + escHtml(p.caption || '(no caption)') + '</div>' +
         '<div class="reel-stats">' +
           '<div class="stat-pill"><span class="stat-icon">\u2665</span>' + p.likes + '</div>' +
           '<div class="stat-pill"><span class="stat-icon">\uD83D\uDCAC</span>' + p.comments + '</div>' +
+          viewPill +
           '<div class="stat-pill"><span class="stat-icon">\u26A1</span>' + p.engRate + '%</div>' +
         '</div>' +
       '</div>' +
     '</div>';
   }).join('');
+}
+
+function toggleReelAnalysis(idx) {
+  var grid = document.getElementById('reel-grid');
+  // Remove any existing panel
+  var existing = document.getElementById('reel-analysis-panel');
+  if (existing) existing.remove();
+  // If clicking the same card, just close
+  if (activeAnalysisIdx === idx) { activeAnalysisIdx = -1; return; }
+  activeAnalysisIdx = idx;
+
+  var post = allPosts[idx];
+  if (!post) return;
+
+  // Insert panel after the card's row — find card element
+  var card = document.getElementById('reel-card-' + idx);
+  if (!card) return;
+
+  var panel = document.createElement('div');
+  panel.id = 'reel-analysis-panel';
+  panel.className = 'reel-analysis-panel';
+  panel.innerHTML = '<div class="analysis-loading">ANALYSING REEL...</div>';
+  card.after(panel);
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  // Fetch analysis
+  fetch('/api/analyze-reel', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ post: post })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.error) { panel.innerHTML = '<div class="analysis-loading" style="color:#E85D3A">' + escHtml(data.error) + '</div>'; return; }
+    var verdictClass = 'verdict-' + (data.verdict || 'AVERAGE');
+    var wentWellHtml  = (data.wentWell || []).map(function(s) { return '<li>' + escHtml(s) + '</li>'; }).join('');
+    var improvHtml    = (data.needsImprovement || []).map(function(s) { return '<li>' + escHtml(s) + '</li>'; }).join('');
+    var nextHtml      = (data.nextSteps || []).map(function(s) { return '<li>' + escHtml(s) + '</li>'; }).join('');
+    panel.innerHTML =
+      '<div class="analysis-header">' +
+        '<span class="analysis-verdict ' + verdictClass + '">' + escHtml(data.verdict || 'UNKNOWN') + '</span>' +
+        '<span class="analysis-summary">' + escHtml(data.summary || '') + '</span>' +
+      '</div>' +
+      '<div class="analysis-cols">' +
+        '<div><div class="analysis-section-title">What Went Well</div><ul class="analysis-list">' + wentWellHtml + '</ul></div>' +
+        '<div><div class="analysis-section-title">Needs Improvement</div><ul class="analysis-list">' + improvHtml + '</ul></div>' +
+        '<div><div class="analysis-section-title">Next Steps</div><ul class="analysis-list">' + nextHtml + '</ul></div>' +
+      '</div>' +
+      '<div class="analysis-creative-note">Creative direction: <strong>' + escHtml(data.creativeDirection || '') + '</strong> — ' + escHtml(data.creativeNote || '') + '</div>';
+  })
+  .catch(function(err) {
+    panel.innerHTML = '<div class="analysis-loading" style="color:#E85D3A">Analysis failed: ' + escHtml(err.message) + '</div>';
+  });
 }
 
 function populateCompareSelects() {
@@ -1577,142 +1779,235 @@ function initJarvisCanvas() {
   resize();
   window.addEventListener('resize', resize);
 
-  function drawHexGrid() {
-    var size  = 30;
-    var w     = canvas.width;
-    var h     = canvas.height;
-    var hexW  = size * 2;
-    var hexH  = Math.sqrt(3) * size;
-    ctx.strokeStyle = 'rgba(0,100,200,0.04)';
-    ctx.lineWidth   = 0.5;
-    for (var row = -1; row < h / hexH + 2; row++) {
-      for (var col = -1; col < w / hexW + 2; col++) {
-        var x = col * hexW * 0.75 + (row % 2 === 0 ? 0 : hexW * 0.375);
-        var y = row * hexH;
+  // ─── Neural Cloud: pre-generate spoke branch structure ─────────────────────
+  var NUM_SPOKES = 10;
+  var spokeData  = [];
+  for (var si = 0; si < NUM_SPOKES; si++) {
+    var branches = [];
+    var numB = 5 + Math.floor(Math.random() * 5);
+    for (var bi = 0; bi < numB; bi++) {
+      var tPos  = 0.18 + (bi / numB) * 0.75;
+      var side  = bi % 2 === 0 ? 1 : -1;
+      var sprd  = 0.28 + Math.random() * 0.28;
+      var lf    = 0.07 + Math.random() * 0.13;
+      var subs  = [];
+      var numSub = 1 + Math.floor(Math.random() * 3);
+      for (var sbi = 0; sbi < numSub; sbi++) {
+        subs.push({
+          dir:       sbi % 2 === 0 ? 1 : -1,
+          lenFactor: 0.35 + Math.random() * 0.30,
+          spread:    0.30 + Math.random() * 0.25,
+          phase:     Math.random() * Math.PI * 2,
+        });
+      }
+      branches.push({ t: tPos, side: side, spread: sprd, lenFactor: lf, subs: subs, phase: Math.random() * Math.PI * 2 });
+    }
+    spokeData.push({ branches: branches });
+  }
+
+  // Particles scattered around the sphere
+  var particles = [];
+  for (var pi = 0; pi < 100; pi++) {
+    particles.push({
+      angle:   Math.random() * Math.PI * 2,
+      speed:   (Math.random() - 0.5) * 0.0035,
+      size:    0.5 + Math.random() * 1.8,
+      opacity: 0.1 + Math.random() * 0.55,
+      rFactor: 0.5 + Math.random() * 0.6,
+      phase:   Math.random() * Math.PI * 2,
+    });
+  }
+
+  function drawNeuralCloud(cx, cy) {
+    var isSpeaking  = orbState === 'speaking';
+    var isListening = orbState === 'listening';
+    var isThinking  = orbState === 'thinking';
+    var intensity   = isSpeaking ? 1.6 : isListening ? 1.25 : isThinking ? 1.12 : 1.0;
+    var pulseSpd    = isSpeaking ? 4.0 : isListening ? 2.8 : 1.0;
+    var pulse       = 1 + Math.sin(t * pulseSpd) * 0.045 * intensity;
+    var R           = Math.min(canvas.width, canvas.height) * 0.38 * pulse;
+    var rotSpd      = isSpeaking ? 0.14 : isThinking ? 0.10 : 0.055;
+    var rot         = t * rotSpd;
+
+    // Wide ambient glow behind sphere
+    var amb = ctx.createRadialGradient(cx, cy, R * 0.3, cx, cy, R * 1.6);
+    amb.addColorStop(0,   'rgba(190,100,0,' + (0.14 * intensity) + ')');
+    amb.addColorStop(0.5, 'rgba(140,60,0,0.06)');
+    amb.addColorStop(1,   'transparent');
+    ctx.fillStyle = amb;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R * 1.6, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Sphere boundary
+    ctx.save();
+    ctx.strokeStyle = 'rgba(210,140,20,' + (0.22 * intensity) + ')';
+    ctx.lineWidth   = 1;
+    ctx.shadowColor = '#FF9A00';
+    ctx.shadowBlur  = 12;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+
+    // Clip everything inside the sphere
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, R * 1.04, 0, Math.PI * 2);
+    ctx.clip();
+
+    // Draw all spokes with their branches
+    for (var i = 0; i < NUM_SPOKES; i++) {
+      var baseAngle = (i / NUM_SPOKES) * Math.PI * 2 + rot;
+      drawSpoke(cx, cy, baseAngle, R, i, intensity);
+    }
+
+    // Scatter particles inside sphere
+    for (var pi2 = 0; pi2 < particles.length; pi2++) {
+      var p   = particles[pi2];
+      p.angle += p.speed * (isSpeaking ? 2.8 : 1);
+      var pr  = R * p.rFactor + Math.sin(t * 0.6 + p.phase) * 6;
+      var px  = cx + Math.cos(p.angle) * pr;
+      var py  = cy + Math.sin(p.angle) * pr * 0.93;
+      var pa  = p.opacity * (0.55 + 0.45 * Math.sin(t * 1.5 + p.phase)) * (isSpeaking ? 1.4 : 1);
+      pa = Math.min(pa, 1);
+      ctx.beginPath();
+      ctx.arc(px, py, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,185,40,' + pa + ')';
+      ctx.shadowColor = '#FF9A00';
+      ctx.shadowBlur  = 3;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    ctx.restore(); // end sphere clip
+
+    // Core hub drawn on top
+    drawCore(cx, cy, intensity);
+  }
+
+  function drawSpoke(cx, cy, angle, R, idx, intensity) {
+    var spokeLen = R * 0.88;
+    var ex = cx + Math.cos(angle) * spokeLen;
+    var ey = cy + Math.sin(angle) * spokeLen;
+    var spokeOp = (0.50 + Math.sin(t * 1.0 + idx * 0.7) * 0.12) * intensity;
+
+    // Main spoke line (start just past core radius)
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.cos(angle) * 24, cy + Math.sin(angle) * 24);
+    ctx.lineTo(ex, ey);
+    ctx.strokeStyle = 'rgba(255,155,0,' + spokeOp + ')';
+    ctx.lineWidth   = 1.3;
+    ctx.shadowColor = '#FF9A00';
+    ctx.shadowBlur  = 7;
+    ctx.stroke();
+    ctx.restore();
+
+    var sd = spokeData[idx];
+    for (var bi = 0; bi < sd.branches.length; bi++) {
+      var b   = sd.branches[bi];
+      var bt  = b.t + Math.sin(t * 0.35 + b.phase) * 0.012;
+      var bx  = cx + Math.cos(angle) * spokeLen * bt;
+      var by  = cy + Math.sin(angle) * spokeLen * bt;
+      var bAng = angle + b.side * (b.spread + Math.sin(t * 0.7 + bi + idx) * 0.04);
+      var bLen = R * (b.lenFactor + Math.sin(t * 1.0 + b.phase) * 0.012 * intensity);
+      var bex  = bx + Math.cos(bAng) * bLen;
+      var bey  = by + Math.sin(bAng) * bLen;
+
+      // Clamp to sphere
+      var d1 = Math.sqrt((bex - cx) * (bex - cx) + (bey - cy) * (bey - cy));
+      if (d1 > R * 0.95) { var s1 = R * 0.95 / d1; bex = cx + (bex - cx) * s1; bey = cy + (bey - cy) * s1; }
+
+      var bOp = (0.18 + (1 - bt) * 0.38) * intensity;
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(bx, by);
+      ctx.lineTo(bex, bey);
+      ctx.strokeStyle = 'rgba(225,105,0,' + bOp + ')';
+      ctx.lineWidth   = 0.75;
+      ctx.shadowColor = '#FF8000';
+      ctx.shadowBlur  = 4;
+      ctx.stroke();
+      ctx.restore();
+
+      // Sub-branches from branch tip
+      for (var sbi = 0; sbi < b.subs.length; sbi++) {
+        var sb    = b.subs[sbi];
+        var sAng  = bAng + sb.dir * (sb.spread + Math.sin(t * 0.55 + sb.phase) * 0.03);
+        var sLen  = bLen * (sb.lenFactor + Math.sin(t * 0.8 + sb.phase) * 0.04 * intensity);
+        var sex   = bex + Math.cos(sAng) * sLen;
+        var sey   = bey + Math.sin(sAng) * sLen;
+
+        var d2 = Math.sqrt((sex - cx) * (sex - cx) + (sey - cy) * (sey - cy));
+        if (d2 > R * 0.97) { var s2 = R * 0.97 / d2; sex = cx + (sex - cx) * s2; sey = cy + (sey - cy) * s2; }
+
+        ctx.save();
         ctx.beginPath();
-        for (var j = 0; j < 6; j++) {
-          var angle = (Math.PI / 3) * j;
-          var px = x + size * Math.cos(angle);
-          var py = y + size * Math.sin(angle);
-          if (j === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
-        }
-        ctx.closePath();
+        ctx.moveTo(bex, bey);
+        ctx.lineTo(sex, sey);
+        ctx.strokeStyle = 'rgba(185,75,0,' + (bOp * 0.55) + ')';
+        ctx.lineWidth   = 0.42;
+        ctx.shadowBlur  = 2;
         ctx.stroke();
+        ctx.restore();
+
+        // Tertiary micro-filaments at the very tips
+        if (bt > 0.55 && sLen > R * 0.04) {
+          var tAng = sAng + sb.dir * 0.45;
+          var tLen = sLen * 0.38;
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(sex, sey);
+          ctx.lineTo(sex + Math.cos(tAng) * tLen, sey + Math.sin(tAng) * tLen);
+          ctx.strokeStyle = 'rgba(160,60,0,' + (bOp * 0.30) + ')';
+          ctx.lineWidth   = 0.28;
+          ctx.stroke();
+          ctx.restore();
+        }
       }
     }
   }
 
-  // Particles
-  var particles = [];
-  for (var pi = 0; pi < 60; pi++) {
-    particles.push({
-      angle:   Math.random() * Math.PI * 2,
-      speed:   (Math.random() - 0.5) * 0.004,
-      size:    1 + Math.random() * 1.5,
-      opacity: 0.15 + Math.random() * 0.35,
-      radiusX: 160 + Math.random() * 40,
-      radiusY: 90  + Math.random() * 40,
-    });
-  }
+  function drawCore(cx, cy, intensity) {
+    var coreR = 22 + Math.sin(t * 2.2) * 2.5 * intensity;
 
-  function drawParticles(cx, cy) {
-    for (var i = 0; i < particles.length; i++) {
-      var p = particles[i];
-      p.angle += p.speed;
-      var x = cx + Math.cos(p.angle) * p.radiusX;
-      var y = cy + Math.sin(p.angle) * p.radiusY;
+    // Layered golden glow emanating from core
+    for (var gi = 5; gi >= 1; gi--) {
+      var gr = ctx.createRadialGradient(cx, cy, 0, cx, cy, coreR * (1 + gi * 0.75));
+      gr.addColorStop(0, 'rgba(255,190,60,' + ((0.28 / gi) * intensity) + ')');
+      gr.addColorStop(1, 'transparent');
+      ctx.fillStyle = gr;
       ctx.beginPath();
-      ctx.arc(x, y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(0,190,255,' + p.opacity + ')';
+      ctx.arc(cx, cy, coreR * (1 + gi * 0.75), 0, Math.PI * 2);
       ctx.fill();
     }
-  }
 
-  function drawRing(cx, cy, radius, rotAngle, scaleY, opacity, lineWidth, segCount) {
-    ctx.save();
-    ctx.translate(cx, cy);
-    ctx.rotate(rotAngle);
-    ctx.scale(1, scaleY);
-    ctx.strokeStyle = 'rgba(0,212,255,' + opacity + ')';
-    ctx.lineWidth   = lineWidth;
-    ctx.shadowColor = '#00D4FF';
-    ctx.shadowBlur  = 8;
-    var gap = (Math.PI * 2) / (segCount * 2);
-    for (var i = 0; i < segCount; i++) {
-      var start = i * Math.PI * 2 / segCount + gap * 0.4;
-      var end   = (i + 1) * Math.PI * 2 / segCount - gap * 0.4;
+    // Core sphere
+    var cg = ctx.createRadialGradient(cx - coreR * 0.22, cy - coreR * 0.22, 0, cx, cy, coreR);
+    cg.addColorStop(0,    'rgba(255,248,210,1)');
+    cg.addColorStop(0.3,  'rgba(255,175,30,0.97)');
+    cg.addColorStop(0.68, 'rgba(210,95,0,0.65)');
+    cg.addColorStop(1,    'transparent');
+    ctx.beginPath();
+    ctx.arc(cx, cy, coreR, 0, Math.PI * 2);
+    ctx.fillStyle = cg;
+    ctx.shadowColor = '#FF9A00';
+    ctx.shadowBlur  = 18;
+    ctx.fill();
+    ctx.shadowBlur  = 0;
+
+    // Concentric rings around core hub
+    for (var ri = 1; ri <= 5; ri++) {
       ctx.beginPath();
-      ctx.arc(0, 0, radius, start, end);
+      ctx.arc(cx, cy, coreR + ri * 9, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(255,140,0,' + (0.38 / ri) + ')';
+      ctx.lineWidth   = 0.8 / ri;
+      ctx.shadowColor = '#FF9A00';
+      ctx.shadowBlur  = 3;
       ctx.stroke();
     }
-    ctx.restore();
-  }
-
-  function drawOrb(cx, cy) {
-    var cfgs = {
-      idle:      { baseR: 80, pulseSpeed: 1.2, pulseAmp: 3   },
-      listening: { baseR: 85, pulseSpeed: 3.0, pulseAmp: 5   },
-      speaking:  { baseR: 88, pulseSpeed: 2.5, pulseAmp: 4   },
-      thinking:  { baseR: 82, pulseSpeed: 1.8, pulseAmp: 3.5 },
-    };
-    var cfg = cfgs[orbState] || cfgs.idle;
-    var r   = cfg.baseR + Math.sin(t * cfg.pulseSpeed) * cfg.pulseAmp;
-
-    // Outer glow layers
-    var glows = [
-      { r: r*2.8, a: 0.04 },
-      { r: r*2.2, a: 0.06 },
-      { r: r*1.8, a: 0.09 },
-      { r: r*1.4, a: 0.12 },
-      { r: r*1.15,a: 0.18 },
-    ];
-    for (var gi = 0; gi < glows.length; gi++) {
-      var g0 = ctx.createRadialGradient(cx, cy, 0, cx, cy, glows[gi].r);
-      g0.addColorStop(0, 'rgba(0,180,255,' + glows[gi].a + ')');
-      g0.addColorStop(1, 'transparent');
-      ctx.beginPath();
-      ctx.arc(cx, cy, glows[gi].r, 0, Math.PI * 2);
-      ctx.fillStyle = g0;
-      ctx.fill();
-    }
-
-    // Main sphere gradient
-    var sphere = ctx.createRadialGradient(cx - r*0.25, cy - r*0.25, 0, cx, cy, r);
-    sphere.addColorStop(0,    'rgba(180,235,255,0.98)');
-    sphere.addColorStop(0.25, 'rgba(40,180,255,0.92)');
-    sphere.addColorStop(0.6,  'rgba(0,100,255,0.7)');
-    sphere.addColorStop(0.88, 'rgba(0,40,180,0.35)');
-    sphere.addColorStop(1,    'transparent');
-
-    ctx.beginPath();
-    ctx.arc(cx, cy, r, 0, Math.PI * 2);
-    ctx.fillStyle = sphere;
-    ctx.fill();
-
-    // State overlay
-    if (orbState === 'listening' || orbState === 'thinking' || orbState === 'speaking') {
-      var overlayColors = {
-        listening: 'rgba(80,200,120,0.3)',
-        thinking:  'rgba(200,169,110,0.25)',
-        speaking:  'rgba(100,220,255,0.25)',
-      };
-      var ov = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-      ov.addColorStop(0, overlayColors[orbState]);
-      ov.addColorStop(1, 'transparent');
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.fillStyle = ov;
-      ctx.fill();
-    }
-
-    // Specular highlight
-    var spec = ctx.createRadialGradient(cx - r*0.3, cy - r*0.35, 0, cx - r*0.3, cy - r*0.35, r*0.45);
-    spec.addColorStop(0, 'rgba(255,255,255,0.55)');
-    spec.addColorStop(1, 'transparent');
-    ctx.beginPath();
-    ctx.arc(cx, cy, r, 0, Math.PI * 2);
-    ctx.fillStyle = spec;
-    ctx.fill();
+    ctx.shadowBlur = 0;
   }
 
   function drawWaveform(cx) {
@@ -1723,68 +2018,61 @@ function initJarvisCanvas() {
     var totalW   = barCount * (barW + gap);
     var startX   = cx - totalW / 2;
     var baseY    = canvas.height * 0.82;
-    var color    = orbState === 'listening' ? 'rgba(80,200,120,0.7)' : 'rgba(0,180,255,0.7)';
+    var color    = orbState === 'listening' ? 'rgba(255,200,80,0.75)' : 'rgba(255,150,30,0.75)';
 
     for (var i = 0; i < barCount; i++) {
       var target = waveTarget[i];
       waveHeights[i] += (target - waveHeights[i]) * 0.15;
       if (Math.abs(waveHeights[i] - target) < 1) {
-        waveTarget[i] = Math.random() * 50 + 5;
+        waveTarget[i] = Math.random() * 55 + 5;
       }
       var bH = waveHeights[i];
       var x  = startX + i * (barW + gap);
       ctx.fillStyle = color;
+      ctx.shadowColor = '#FF9A00';
+      ctx.shadowBlur  = 4;
       ctx.beginPath();
       ctx.roundRect(x, baseY - bH / 2, barW, bH, 2);
       ctx.fill();
+      ctx.shadowBlur = 0;
     }
   }
 
   function drawHUD(cx, cy) {
-    var armLen  = 25;
+    var armLen  = 28;
     var w       = canvas.width;
     var h       = canvas.height;
     var corners = [[0,0],[w,0],[w,h],[0,h]];
     var dirs    = [[1,1],[-1,1],[-1,-1],[1,-1]];
 
-    ctx.strokeStyle = 'rgba(0,212,255,0.3)';
+    ctx.strokeStyle = 'rgba(200,140,20,0.28)';
     ctx.lineWidth   = 1.5;
-    ctx.shadowColor = 'transparent';
-    ctx.shadowBlur  = 0;
+    ctx.shadowColor = '#FF9A00';
+    ctx.shadowBlur  = 5;
 
     for (var i = 0; i < 4; i++) {
       var ox = corners[i][0], oy = corners[i][1];
       var dx = dirs[i][0],    dy = dirs[i][1];
+      var pad = 18;
       ctx.beginPath();
-      ctx.moveTo(ox + dx * armLen, oy);
-      ctx.lineTo(ox, oy);
-      ctx.lineTo(ox, oy + dy * armLen);
+      ctx.moveTo(ox + dx * (armLen + pad), oy + dy * pad);
+      ctx.lineTo(ox + dx * pad, oy + dy * pad);
+      ctx.lineTo(ox + dx * pad, oy + dy * (armLen + pad));
       ctx.stroke();
     }
+    ctx.shadowBlur = 0;
 
-    // Sweeping arc
+    // Slow golden sweeping arc
     ctx.save();
     ctx.translate(cx, cy);
-    ctx.strokeStyle = 'rgba(0,212,255,0.12)';
+    ctx.strokeStyle = 'rgba(220,130,0,0.1)';
     ctx.lineWidth   = 1;
-    ctx.shadowColor = '#00D4FF';
-    ctx.shadowBlur  = 4;
+    ctx.shadowColor = '#FF9A00';
+    ctx.shadowBlur  = 6;
     ctx.beginPath();
-    ctx.arc(0, 0, 250, t * 1.2, t * 1.2 + 0.6);
+    ctx.arc(0, 0, Math.min(canvas.width, canvas.height) * 0.42, t * 0.9, t * 0.9 + 0.7);
     ctx.stroke();
-
-    // Dashed rings
-    ctx.setLineDash([4, 8]);
-    ctx.strokeStyle = 'rgba(0,212,255,0.08)';
-    ctx.lineWidth   = 0.75;
-    ctx.shadowBlur  = 0;
-    ctx.beginPath();
-    ctx.arc(0, 0, 245, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(0, 0, 260, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.setLineDash([]);
+    ctx.shadowBlur = 0;
     ctx.restore();
   }
 
@@ -1796,15 +2084,10 @@ function initJarvisCanvas() {
     var cx = w / 2;
     var cy = h * 0.42;
 
-    ctx.fillStyle = '#000814';
+    ctx.fillStyle = '#0A0804';
     ctx.fillRect(0, 0, w, h);
 
-    drawHexGrid();
-    drawParticles(cx, cy);
-    drawRing(cx, cy, 210, t * 0.35,   0.28, 0.35, 1.5, 4);
-    drawRing(cx, cy, 170, -t * 0.55,  0.42, 0.45, 1.5, 3);
-    drawRing(cx, cy, 138, t * 0.75,   0.38, 0.30, 1.0, 6);
-    drawOrb(cx, cy);
+    drawNeuralCloud(cx, cy);
     drawWaveform(cx);
     drawHUD(cx, cy);
 
@@ -1835,9 +2118,12 @@ function initSpeech() {
 
   var isListening     = false;
   var finalTranscript = '';
+  var lastInterim     = '';
   var spaceActive     = false;
+  var currentState    = 'idle'; // track to block listening while speaking/thinking
 
   function setJarvisState(state) {
+    currentState = state;
     var label = document.getElementById('jarvis-state');
     var hint  = document.getElementById('hold-space-hint');
     if (!label) return;
@@ -1852,6 +2138,7 @@ function initSpeech() {
     if (isListening) return;
     isListening     = true;
     finalTranscript = '';
+    lastInterim     = '';
     setJarvisState('listening');
     document.getElementById('jarvis-transcript').textContent = '';
     try { recognition.start(); } catch(e) { console.warn(e); }
@@ -1866,18 +2153,20 @@ function initSpeech() {
   recognition.onresult = function(e) {
     var interim = '';
     for (var i = e.resultIndex; i < e.results.length; i++) {
-      var txt = e.results[i].transcript;
+      var txt = (e.results[i][0] && e.results[i][0].transcript) || '';
       if (e.results[i].isFinal) finalTranscript += txt;
       else interim += txt;
     }
+    if (interim) lastInterim = interim;
     document.getElementById('jarvis-transcript').textContent = finalTranscript || interim;
   };
 
   recognition.onend = function() {
     isListening = false;
-    if (finalTranscript.trim()) {
+    var query = finalTranscript.trim() || lastInterim.trim();
+    if (query) {
       setJarvisState('thinking');
-      callJarvisAPI(finalTranscript.trim(), setJarvisState);
+      callJarvisAPI(query, setJarvisState);
     } else {
       setJarvisState('idle');
     }
@@ -1894,6 +2183,7 @@ function initSpeech() {
     if (currentTab !== 'jarvis') return;
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
     if (spaceActive) return;
+    if (currentState === 'speaking' || currentState === 'thinking') return; // block while JARVIS is busy
     e.preventDefault();
     spaceActive = true;
     startListening();
@@ -1908,32 +2198,33 @@ function initSpeech() {
   // Expose speakJarvis for module scope
   window._jarvisSetState = setJarvisState;
 
-  function speakJarvis(text) {
-    if (!window.speechSynthesis) { setJarvisState('idle'); return; }
-    window.speechSynthesis.cancel();
-
-    var utter   = new SpeechSynthesisUtterance(text);
-    utter.rate  = 0.92;
-    utter.pitch = 0.88;
-    utter.volume= 1;
-
-    function doSpeak() {
-      var voices = window.speechSynthesis.getVoices();
-      var voice  = voices.find(function(v) { return v.name.includes('George') && v.lang.startsWith('en-GB'); })
-                || voices.find(function(v) { return v.lang.startsWith('en-GB'); })
-                || voices.find(function(v) { return v.lang.startsWith('en-US'); })
-                || null;
-      if (voice) utter.voice = voice;
-      utter.onstart = function() { setJarvisState('speaking'); };
-      utter.onend   = function() { setJarvisState('idle'); };
-      utter.onerror = function() { setJarvisState('idle'); };
-      window.speechSynthesis.speak(utter);
-    }
-
-    if (window.speechSynthesis.getVoices().length > 0) {
-      doSpeak();
-    } else {
-      window.speechSynthesis.addEventListener('voiceschanged', doSpeak, { once: true });
+  async function speakJarvis(text) {
+    setJarvisState('speaking');
+    try {
+      var res = await fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: text })
+      });
+      if (!res.ok) {
+        var errData = await res.json().catch(function() { return {}; });
+        throw new Error(errData.error || 'TTS request failed');
+      }
+      var blob = await res.blob();
+      var url  = URL.createObjectURL(blob);
+      var audio = new Audio(url);
+      audio.onended = function() {
+        URL.revokeObjectURL(url);
+        setTimeout(function() { setJarvisState('idle'); }, 600); // brief cooldown to avoid mic echo
+      };
+      audio.onerror = function() {
+        URL.revokeObjectURL(url);
+        setTimeout(function() { setJarvisState('idle'); }, 300);
+      };
+      audio.play();
+    } catch (err) {
+      console.error('TTS error:', err.message);
+      setJarvisState('idle');
     }
   }
 
@@ -1943,18 +2234,25 @@ function initSpeech() {
       var res  = await fetch('/api/jarvis', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({ message: message, history: conversationHistory })
+        body:    JSON.stringify({ message: message, history: [] }) // no history for voice — prevents poisoning
       });
       var data = await res.json();
       if (data.error) throw new Error(data.error);
 
-      conversationHistory.push({ role: 'user',      content: message    });
-      conversationHistory.push({ role: 'assistant', content: data.reply });
-      if (conversationHistory.length > 12) conversationHistory = conversationHistory.slice(-12);
-
-      responseEl.textContent = data.reply;
-      responseEl.classList.add('visible');
       document.getElementById('jarvis-transcript').textContent = '';
+      responseEl.classList.add('visible');
+      // Word-by-word reveal in place
+      const words = data.reply.split(' ');
+      responseEl.textContent = '';
+      let wi = 0;
+      const wordInterval = setInterval(function() {
+        if (wi < words.length) {
+          responseEl.textContent = words[wi];
+          wi++;
+        } else {
+          clearInterval(wordInterval);
+        }
+      }, 120);
       speakJarvis(data.reply);
     } catch (err) {
       console.error('JARVIS API error:', err);

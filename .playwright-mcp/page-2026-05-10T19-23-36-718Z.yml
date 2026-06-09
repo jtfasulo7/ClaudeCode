@@ -1,0 +1,197 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "JMartin Construction home" [ref=e3] [cursor=pointer]:
+      - /url: /
+      - img "JMartin Construction LLC" [ref=e4]
+      - generic [ref=e5]:
+        - text: JMartin
+        - emphasis [ref=e6]: Construction
+    - generic [ref=e7]:
+      - link "Services" [ref=e8] [cursor=pointer]:
+        - /url: /#services
+      - link "Projects" [ref=e9] [cursor=pointer]:
+        - /url: /#projects
+      - link "Process" [ref=e10] [cursor=pointer]:
+        - /url: /#process
+      - link "Areas" [ref=e11] [cursor=pointer]:
+        - /url: /#areas
+      - link "(406) 544-4492" [ref=e12] [cursor=pointer]:
+        - /url: tel:+14065444492
+  - banner [ref=e13]:
+    - generic [ref=e15]:
+      - link "Back to services" [ref=e16] [cursor=pointer]:
+        - /url: /#services
+        - img [ref=e17]
+        - text: Back to services
+      - heading "Roofing Contractor — Missoula, MT & Western Montana" [level=1] [ref=e19]
+      - paragraph [ref=e20]: Underlaid right. Flashed right. Done right.
+      - paragraph [ref=e21]: Asphalt shingle, metal, and standing-seam roofs. Properly underlaid, flashed, and ventilated for Montana winters.
+      - link "Get a quote" [ref=e22] [cursor=pointer]:
+        - /url: /#contact
+        - text: Get a quote
+        - img [ref=e23]
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - heading "About this service" [level=2] [ref=e27]
+      - paragraph [ref=e28]: Most leaks aren't through the shingles — they're through bad flashings, missed underlayment, or skipped ice-and-water shield. We do the boring stuff first, then the visible part.
+      - paragraph [ref=e29]: We work asphalt shingles, standing-seam metal, and panel metal. We size ice-and-water on every eave and valley. We size venting to your soffit and ridge. We tear off, sheath if needed, and re-roof clean.
+      - heading "What's included" [level=3] [ref=e30]
+      - list [ref=e31]:
+        - listitem [ref=e32]: Tear-off and disposal
+        - listitem [ref=e33]: Decking inspection and repair
+        - listitem [ref=e34]: Ice-and-water shield (eaves, valleys, penetrations)
+        - listitem [ref=e35]: Synthetic underlayment
+        - listitem [ref=e36]: Drip edge
+        - listitem [ref=e37]: Step and counter-flashing
+        - listitem [ref=e38]: Asphalt or metal roofing
+        - listitem [ref=e39]: Ridge cap and ventilation
+      - heading "The honest take" [level=3] [ref=e40]
+      - paragraph [ref=e41]: Asphalt shingles last 20–30 years here. Standing-seam metal lasts 50+ but costs roughly double up front. We'll quote both side by side so you can see the math before you decide.
+  - generic [ref=e43]:
+    - generic [ref=e44]:
+      - generic [ref=e45]: Process
+      - heading "How a roofing job runs." [level=2] [ref=e46]
+    - generic [ref=e47]:
+      - generic [ref=e49]:
+        - generic [ref=e51]: Step 01
+        - heading "Tear-off" [level=3] [ref=e52]
+        - paragraph [ref=e53]: Old roof down, dumpster on site.
+      - generic [ref=e54]:
+        - generic [ref=e56]: Step 02
+        - heading "Decking check" [level=3] [ref=e57]
+        - paragraph [ref=e58]: Repair soft spots before re-roof.
+      - generic [ref=e59]:
+        - generic [ref=e61]: Step 03
+        - heading "Ice & water" [level=3] [ref=e62]
+        - paragraph [ref=e63]: Eaves, valleys, penetrations.
+      - generic [ref=e64]:
+        - generic [ref=e66]: Step 04
+        - heading "Underlayment" [level=3] [ref=e67]
+        - paragraph [ref=e68]: Synthetic, fully nailed.
+      - generic [ref=e69]:
+        - generic [ref=e71]: Step 05
+        - heading "Flashings" [level=3] [ref=e72]
+        - paragraph [ref=e73]: Drip edge, step, counter, vent boots.
+      - generic [ref=e74]:
+        - generic [ref=e76]: Step 06
+        - heading "Roofing" [level=3] [ref=e77]
+        - paragraph [ref=e78]: Shingles or metal panels installed.
+      - generic [ref=e79]:
+        - generic [ref=e81]: Step 07
+        - heading "Ridge & cleanup" [level=3] [ref=e82]
+        - paragraph [ref=e83]: Ridge cap, vent, magnet sweep.
+    - link "Start your roofing job" [ref=e85] [cursor=pointer]:
+      - /url: /#contact
+      - text: Start your roofing job
+      - img [ref=e86]
+  - generic [ref=e89]:
+    - generic [ref=e90]:
+      - heading "Roofing in Missoula & Western Montana" [level=3] [ref=e91]
+      - paragraph [ref=e92]: A Montana roof has to handle four feet of snow, ice dams in shoulder season, sun and UV at altitude, and serious wind exposure on ridgeline lots. The shingles or panels are the visible part — but the failures we see come from missed ice-and-water shield at the eaves, valleys, and penetrations, or from insufficient soffit-to-ridge ventilation that lets attics roast in summer and trap moisture in winter.
+      - paragraph [ref=e93]: We work asphalt shingle, metal panel, and standing-seam roofs across Missoula, the Bitterroot, Seeley Lake, and up to the Flathead. Ice-and-water shield on every eave and valley is standard for us, not an upcharge. Ventilation is sized to your roof's geometry — soffit intake and ridge or off-ridge exhaust balanced properly. Flashing is the part nobody photographs but is the only reason roofs last.
+    - generic [ref=e94]:
+      - heading "Common project types" [level=3] [ref=e95]
+      - list [ref=e96]:
+        - listitem [ref=e97]:
+          - strong [ref=e98]: Full roof replacement
+          - text: — Tear-off, decking check, underlayment, new shingles or metal.
+        - listitem [ref=e99]:
+          - strong [ref=e100]: New construction roofing
+          - text: — Roofs on custom builds, additions, and outbuildings.
+        - listitem [ref=e101]:
+          - strong [ref=e102]: Metal roof conversions
+          - text: — Standing-seam or panel metal replacing aged asphalt.
+        - listitem [ref=e103]:
+          - strong [ref=e104]: Storm damage repair
+          - text: — Hail and wind damage assessed, documented, and repaired.
+        - listitem [ref=e105]:
+          - strong [ref=e106]: Ventilation upgrades
+          - text: — Soffit, ridge, and gable vents added to existing roofs.
+  - generic [ref=e107]:
+    - generic [ref=e108]:
+      - generic [ref=e109]: FAQ
+      - heading "Roofing — frequently asked questions." [level=2] [ref=e110]
+    - generic [ref=e111]:
+      - group [ref=e112]:
+        - generic "How long does a roof last in Western Montana? +" [ref=e113] [cursor=pointer]
+      - group [ref=e114]:
+        - generic "Can I install metal roofing over my existing shingles? +" [ref=e115] [cursor=pointer]
+      - group [ref=e116]:
+        - generic "Do you handle roof replacement or just new construction? +" [ref=e117] [cursor=pointer]
+      - group [ref=e118]:
+        - generic "How quickly can you replace a roof after storm damage? +" [ref=e119] [cursor=pointer]
+  - generic [ref=e121]:
+    - heading "Related services" [level=3] [ref=e122]
+    - generic [ref=e123]:
+      - link "Framing Roof systems start with proper framing. We do both. Read more →" [ref=e124] [cursor=pointer]:
+        - /url: /services/framing
+        - heading "Framing" [level=4] [ref=e125]
+        - paragraph [ref=e126]: Roof systems start with proper framing. We do both.
+        - generic [ref=e127]: Read more →
+      - link "Siding Roof and siding work together against the weather. Read more →" [ref=e128] [cursor=pointer]:
+        - /url: /services/siding
+        - heading "Siding" [level=4] [ref=e129]
+        - paragraph [ref=e130]: Roof and siding work together against the weather.
+        - generic [ref=e131]: Read more →
+      - link "Interior Trim Inside finishes, after the shell is closed up. Read more →" [ref=e132] [cursor=pointer]:
+        - /url: /services/interior-trim
+        - heading "Interior Trim" [level=4] [ref=e133]
+        - paragraph [ref=e134]: Inside finishes, after the shell is closed up.
+        - generic [ref=e135]: Read more →
+  - contentinfo [ref=e136]:
+    - generic [ref=e137]:
+      - generic [ref=e138]:
+        - img "JMartin Construction LLC" [ref=e139]
+        - paragraph [ref=e140]: Custom residential builder. Framing, siding, roofing, tile, trim, and decks.
+      - generic [ref=e141]:
+        - generic [ref=e142]:
+          - heading "Reach Us" [level=4] [ref=e143]
+          - link "(406) 544-4492" [ref=e144] [cursor=pointer]:
+            - /url: tel:+14065444492
+          - link "hello@jmartinconstruction.com" [ref=e145] [cursor=pointer]:
+            - /url: mailto:hello@jmartinconstruction.com
+        - generic [ref=e146]:
+          - heading "Explore" [level=4] [ref=e147]
+          - link "Services" [ref=e148] [cursor=pointer]:
+            - /url: /#services
+          - link "Projects" [ref=e149] [cursor=pointer]:
+            - /url: /#projects
+          - link "Process" [ref=e150] [cursor=pointer]:
+            - /url: /#process
+          - link "Areas" [ref=e151] [cursor=pointer]:
+            - /url: /#areas
+    - generic [ref=e152]:
+      - generic [ref=e153]: © 2026 JMartin Construction. All rights reserved.
+      - generic [ref=e154]: Built in Montana.
+  - button "Open chat" [ref=e155] [cursor=pointer]:
+    - img [ref=e156]
+  - complementary:
+    - generic:
+      - generic:
+        - strong: JMartin Construction
+        - generic: Typically replies in under an hour
+    - generic:
+      - generic:
+        - paragraph: Hey — drop your details and a quick note about your project. We'll text you back within one business day.
+      - generic:
+        - generic:
+          - generic:
+            - generic: First name *
+            - textbox
+          - generic:
+            - generic: Last name *
+            - textbox
+        - generic:
+          - generic: Phone *
+          - textbox
+        - generic:
+          - generic: Email *
+          - textbox
+        - generic:
+          - generic: Project description *
+          - textbox
+        - generic:
+          - checkbox
+          - generic: I agree to receive SMS messages from JMartin Construction about my project. Msg & data rates may apply. Reply STOP to opt out.
+        - button:
+          - generic: Send

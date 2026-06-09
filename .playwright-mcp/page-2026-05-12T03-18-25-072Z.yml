@@ -1,0 +1,67 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "JT Fasulo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: JT Fasulo
+      - button "Toggle menu" [ref=e9] [cursor=pointer]:
+        - img [ref=e10]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - paragraph [ref=e13]: Order Confirmed
+      - heading "Thanks for your purchase. Your download is starting." [level=1] [ref=e14]:
+        - text: Thanks for your purchase.
+        - text: Your download is starting.
+      - paragraph [ref=e15]: If the download didn’t start, your browser may have blocked it. Click the button below.
+      - link "Download the PDF" [ref=e16] [cursor=pointer]:
+        - /url: /files/build-10k-websites-2exK0lo32l0.pdf
+        - text: Download the PDF
+        - generic [ref=e17]: →
+      - paragraph [ref=e18]:
+        - text: Trouble?
+        - link "Email me" [ref=e19] [cursor=pointer]:
+          - /url: mailto:newsletter@jtfasulo.com?subject=PDF%20download%20issue
+        - text: and I’ll send it directly.
+  - contentinfo [ref=e20]:
+    - generic: FASULO
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e25]: JT Fasulo
+          - generic [ref=e26]:
+            - link "Instagram" [ref=e27] [cursor=pointer]:
+              - /url: https://www.instagram.com/fasulostudio/
+              - img [ref=e28]
+            - link "Facebook" [ref=e31] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61587073324051
+              - img [ref=e32]
+            - link "TikTok" [ref=e34] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@fasulostudio?lang=en
+              - img [ref=e35]
+        - generic [ref=e37]:
+          - generic [ref=e38]: Navigation
+          - list [ref=e39]:
+            - listitem [ref=e40]:
+              - link "Home" [ref=e41] [cursor=pointer]:
+                - /url: /
+                - text: Home
+            - listitem [ref=e43]:
+              - link "Privacy Policy" [ref=e44] [cursor=pointer]:
+                - /url: /privacy-policy
+                - text: Privacy Policy
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - img "Sybago" [ref=e48]
+          - generic [ref=e49]:
+            - paragraph [ref=e50]: SYBAGO LLC
+            - paragraph [ref=e51]: 116 W 9th St, Wilmington, DE 19801
+        - paragraph [ref=e52]: jtfasulo.com is operated by SYBAGO LLC. By submitting your email you agree to receive the guide and occasional updates. Unsubscribe anytime via the link in any email we send.
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: © 2026 SYBAGO LLC. All rights reserved.
+        - generic [ref=e55]:
+          - link "Privacy Policy" [ref=e56] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "jtfasulo.com" [ref=e57] [cursor=pointer]:
+            - /url: https://jtfasulo.com
+            - text: jtfasulo.com
+            - img [ref=e58]

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How was your experience?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #15171a;
+    --muted: #5b6470;
+    --line: rgba(21,23,26,0.10);
+    --gold: #f6b915;
+    --gold-hover: #ffc933;
+    --star-empty: #e2e5ea;
+    --accent: #1f2937;
+    --accent-hover: #111827;
+    --eo: cubic-bezier(.16,1,.3,1);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 520px;
+    background: var(--card);
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 64px rgba(15,23,42,0.08);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 4vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.5rem;
+  }
+
+  .sub {
+    font-size: 0.98rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Stars ─── */
+  .rating {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .star {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: transform 0.15s var(--eo);
+  }
+  .star:hover { transform: translateY(-2px); }
+  .star:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .star svg {
+    width: 48px;
+    height: 48px;
+    fill: var(--star-empty);
+    transition: fill 0.18s var(--eo), transform 0.18s var(--eo);
+    display: block;
+  }
+  .star.active svg { fill: var(--gold); }
+  .star.active:hover svg { fill: var(--gold-hover); }
+  @media (max-width: 480px) {
+    .rating { gap: 0.2rem; }
+    .star svg { width: 42px; height: 42px; }
+    .star { padding: 4px; }
+  }
+
+  /* ─── Feedback (low rating) ─── */
+  .feedback {
+    display: none;
+    text-align: left;
+    margin-top: 0.5rem;
+    animation: fadeUp 0.35s var(--eo);
+  }
+  .feedback.show { display: block; }
+  .feedback h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    text-align: center;
+  }
+  .feedback p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+  .feedback textarea {
+    width: 100%;
+    min-height: 130px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.85rem 0.95rem;
+    resize: vertical;
+    line-height: 1.5;
+    transition: border-color 0.18s, box-shadow 0.18s;
+  }
+  .feedback textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(31,41,55,0.10);
+  }
+  .submit-btn {
+    width: 100%;
+    margin-top: 0.9rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .submit-btn:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+  }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* ─── Thank-you (after submit OR before redirect) ─── */
+  .thanks {
+    display: none;
+    animation: fadeUp 0.35s var(--eo);
+  }
+  .thanks.show { display: block; }
+  .thanks svg {
+    width: 56px;
+    height: 56px;
+    color: #2fb158;
+    margin: 0 auto 0.9rem;
+    display: block;
+  }
+  .thanks h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .thanks p {
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Hide rating + sub once a path is chosen */
+  .card.done .rating,
+  .card.done .sub,
+  .card.done .prompt-h1 { display: none; }
+</style>
+</head>
+<body>
+
+<main class="card" id="card">
+
+  <h1 class="prompt-h1">How was your experience?</h1>
+  <p class="sub">Tap a star to rate — your feedback helps us improve.</p>
+
+  <div class="rating" id="rating" role="radiogroup" aria-label="Star rating">
+    <button class="star" type="button" data-value="1" role="radio" aria-checked="false" aria-label="1 star">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.95 6 6.6.96-4.78 4.66 1.13 6.58L12 17.7l-5.9 3 1.13-6.58L2.45 9.46l6.6-.96L12 2.5z"/></svg>
+    </button>
+    <button class="star" type="button" data-value="2" role="radio" aria-checked="false" aria-label="2 stars">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.95 6 6.6.96-4.78 4.66 1.13 6.58L12 17.7l-5.9 3 1.13-6.58L2.45 9.46l6.6-.96L12 2.5z"/></svg>
+    </button>
+    <button class="star" type="button" data-value="3" role="radio" aria-checked="false" aria-label="3 stars">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.95 6 6.6.96-4.78 4.66 1.13 6.58L12 17.7l-5.9 3 1.13-6.58L2.45 9.46l6.6-.96L12 2.5z"/></svg>
+    </button>
+    <button class="star" type="button" data-value="4" role="radio" aria-checked="false" aria-label="4 stars">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.95 6 6.6.96-4.78 4.66 1.13 6.58L12 17.7l-5.9 3 1.13-6.58L2.45 9.46l6.6-.96L12 2.5z"/></svg>
+    </button>
+    <button class="star" type="button" data-value="5" role="radio" aria-checked="false" aria-label="5 stars">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.95 6 6.6.96-4.78 4.66 1.13 6.58L12 17.7l-5.9 3 1.13-6.58L2.45 9.46l6.6-.96L12 2.5z"/></svg>
+    </button>
+  </div>
+
+  <section class="feedback" id="feedback" aria-live="polite">
+    <h2>Thank you for your feedback!</h2>
+    <p>Please leave a message below to tell us how we can improve.</p>
+    <form id="feedbackForm" novalidate>
+      <textarea
+        id="feedbackText"
+        name="feedback"
+        placeholder="Tell us what we could have done better..."
+        required
+        maxlength="2000"
+      ></textarea>
+      <button class="submit-btn" type="submit" id="submitBtn">Submit feedback</button>
+    </form>
+  </section>
+
+  <section class="thanks" id="thanks" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+      <polyline points="22 4 12 14.01 9 11.01"/>
+    </svg>
+    <h2>Thanks — we got your feedback.</h2>
+    <p>We'll use it to do better next time.</p>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  const REDIRECT_URL = 'https://g.page/r/CeuzNJExNuIDEAE/review';
+  const HIGH_RATING_THRESHOLD = 4;
+  const REDIRECT_DELAY_MS = 320;
+
+  const card = document.getElementById('card');
+  const ratingEl = document.getElementById('rating');
+  const stars = ratingEl.querySelectorAll('.star');
+  const feedback = document.getElementById('feedback');
+  const thanks = document.getElementById('thanks');
+  const form = document.getElementById('feedbackForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const feedbackText = document.getElementById('feedbackText');
+
+  let selected = 0;
+  let locked = false;
+
+  function paint(n) {
+    stars.forEach((star, i) => {
+      const on = i < n;
+      star.classList.toggle('active', on);
+      star.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+  }
+
+  stars.forEach(star => {
+    const val = parseInt(star.dataset.value, 10);
+    star.addEventListener('mouseenter', () => { if (!locked) paint(val); });
+    star.addEventListener('focus',      () => { if (!locked) paint(val); });
+    star.addEventListener('click', () => {
+      if (locked) return;
+      selected = val;
+      paint(val);
+      handleSelection(val);
+    });
+  });
+
+  ratingEl.addEventListener('mouseleave', () => { if (!locked) paint(selected); });
+
+  function handleSelection(rating) {
+    locked = true;
+    if (rating >= HIGH_RATING_THRESHOLD) {
+      // Brief pause so the user sees the chosen stars highlighted before redirect
+      setTimeout(() => {
+        window.location.href = REDIRECT_URL;
+      }, REDIRECT_DELAY_MS);
+    } else {
+      card.classList.add('done');
+      feedback.classList.add('show');
+      setTimeout(() => feedbackText.focus(), 200);
+    }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const text = feedbackText.value.trim();
+    if (!text) {
+      feedbackText.focus();
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // TODO: wire to a webhook / email / API endpoint.
+    // For now: log + show thank-you.
+    console.log('Feedback submitted:', { rating: selected, message: text });
+
+    setTimeout(() => {
+      feedback.classList.remove('show');
+      thanks.classList.add('show');
+    }, 250);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: SYBAGO
+  - navigation [ref=e5]:
+    - link "SYBAGO" [ref=e6] [cursor=pointer]:
+      - /url: "#"
+      - text: SYBAGO
+    - list [ref=e8]:
+      - listitem [ref=e9]:
+        - link "Services" [ref=e10] [cursor=pointer]:
+          - /url: "#services"
+      - listitem [ref=e11]:
+        - link "Process" [ref=e12] [cursor=pointer]:
+          - /url: "#process"
+      - listitem [ref=e13]:
+        - link "Results" [ref=e14] [cursor=pointer]:
+          - /url: "#results"
+      - listitem [ref=e15]:
+        - link "Get Started" [ref=e16] [cursor=pointer]:
+          - /url: "#contact"
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: Now Accepting New Clients
+      - heading "Your Business, Automated with Intelligence" [level=1] [ref=e21]:
+        - generic [ref=e23]: Your Business,
+        - emphasis [ref=e26]: Automated
+        - generic [ref=e28]: with Intelligence
+      - paragraph [ref=e29]: We wire AI into the backbone of your business. More leads captured, better reviews earned, and hours of manual work eliminated — all running on autopilot.
+      - generic [ref=e30]:
+        - link "Book a Discovery Call" [ref=e31] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e32]: Book a Discovery Call
+          - img [ref=e33]
+        - link "See How It Works" [ref=e35] [cursor=pointer]:
+          - /url: "#services"
+    - generic [ref=e37]: Scroll to Explore
+  - generic [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]: The Sybago System
+      - heading "How We Transform Your Business" [level=2] [ref=e43]
+      - paragraph [ref=e44]: Scroll to see each layer of automation
+    - img [ref=e46]:
+      - generic [ref=e71]:
+        - generic [ref=e83]: "5.0"
+        - generic [ref=e84]: avg
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - generic [ref=e133]: Step 01
+        - heading "We Audit Your Business" [level=3] [ref=e134]
+        - paragraph [ref=e135]: Every automation begins with understanding. We map your customer journey, internal workflows, and revenue leaks to design a system built specifically for your operation.
+        - generic [ref=e136]:
+          - generic [ref=e137]: "72"
+          - generic [ref=e138]: hour turnaround on audit
+      - generic:
+        - generic: Step 02
+        - heading "AI Lead Engine" [level=3]
+        - paragraph: Intelligent capture forms, chatbots, and follow-up sequences that work 24/7. Every lead is qualified, scored, and routed to the right person before they lose interest.
+        - generic:
+          - generic: 3.2x
+          - generic: average lead increase
+      - generic:
+        - generic: Step 03
+        - heading "Reputation Automation" [level=3]
+        - paragraph: Automated review requests sent at the perfect moment. Smart routing ensures happy customers leave public reviews while concerns are handled privately first.
+        - generic:
+          - generic: "4.8"
+          - generic: average star rating achieved
+      - generic:
+        - generic: Step 04
+        - heading "Backend Automation" [level=3]
+        - paragraph: From invoicing to appointment scheduling, data entry to customer follow-ups — we replace the repetitive tasks that drain your team's time and energy.
+        - generic:
+          - generic: 20+
+          - generic: hours saved per week
+      - generic:
+        - generic: Step 05
+        - heading "Measure & Scale" [level=3]
+        - paragraph: Real-time dashboards show exactly what's working. We continuously optimize your automations, expanding what's delivering results and refining what can improve.
+        - generic:
+          - generic: 40%
+          - generic: average revenue growth
+  - generic [ref=e139]:
+    - generic [ref=e140]:
+      - generic [ref=e141]: What We Build
+      - heading "Automation That Runs While You Sleep" [level=2] [ref=e142]
+      - paragraph [ref=e143]: We don't just consult. We build, deploy, and manage the AI systems that transform how your business operates day-to-day.
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - img [ref=e147]
+        - heading "AI Lead Capture" [level=3] [ref=e151]
+        - paragraph [ref=e152]: Smart forms and conversational chatbots that qualify prospects in real-time, then route them into your pipeline with full context attached.
+        - generic [ref=e153]: Lead Generation
+      - generic [ref=e154]:
+        - img [ref=e156]
+        - heading "Review Automation" [level=3] [ref=e158]
+        - paragraph [ref=e159]: Perfectly-timed review requests that boost your online reputation. Smart sentiment routing handles feedback before it goes public.
+        - generic [ref=e160]: Reputation
+      - generic [ref=e161]:
+        - img [ref=e163]
+        - heading "Workflow Automation" [level=3] [ref=e168]
+        - paragraph [ref=e169]: Connect your tools into seamless workflows. Appointments, invoices, follow-ups, and reports — all handled without human intervention.
+        - generic [ref=e170]: Operations
+      - generic [ref=e171]:
+        - img [ref=e173]
+        - heading "Analytics Dashboards" [level=3] [ref=e177]
+        - paragraph [ref=e178]: Real-time visibility into every automation. Track leads, reviews, task completion, and ROI from a single unified dashboard.
+        - generic [ref=e179]: Intelligence
+      - generic [ref=e180]:
+        - img [ref=e182]
+        - heading "CRM Integration" [level=3] [ref=e186]
+        - paragraph [ref=e187]: We plug directly into your existing CRM, POS, and communication tools. No ripping and replacing — just intelligent connections.
+        - generic [ref=e188]: Integration
+      - generic [ref=e189]:
+        - img [ref=e191]
+        - heading "AI Voice & SMS" [level=3] [ref=e196]
+        - paragraph [ref=e197]: Automated appointment confirmations, missed-call text-backs, and AI-powered voice agents that handle routine phone inquiries.
+        - generic [ref=e198]: Communication
+  - generic [ref=e199]:
+    - generic [ref=e200]:
+      - generic [ref=e201]: Proven Results
+      - heading "Numbers That Speak" [level=2] [ref=e202]
+    - generic [ref=e203]:
+      - generic [ref=e204]:
+        - generic [ref=e205]: 0%
+        - generic [ref=e206]: Avg Lead Increase
+      - generic [ref=e207]:
+        - generic [ref=e208]: "0"
+        - generic [ref=e209]: Avg Review Rating
+      - generic [ref=e210]:
+        - generic [ref=e211]: "0"
+        - generic [ref=e212]: Time Saved
+      - generic [ref=e213]:
+        - generic [ref=e214]: 0%
+        - generic [ref=e215]: Revenue Growth
+  - generic [ref=e216]:
+    - generic [ref=e217]:
+      - generic [ref=e218]: Our Process
+      - heading "From Audit to Autopilot in Four Weeks" [level=2] [ref=e219]:
+        - text: From Audit to Autopilot
+        - text: in Four Weeks
+    - generic [ref=e220]:
+      - generic [ref=e221]:
+        - generic [ref=e222]: "1"
+        - generic [ref=e223]:
+          - heading "Discovery Call" [level=3] [ref=e224]
+          - paragraph [ref=e225]: "We learn your business inside-out: your customer journey, pain points, tools, and goals. No generic pitch — just listening."
+      - generic [ref=e226]:
+        - generic [ref=e227]: "2"
+        - generic [ref=e228]:
+          - heading "Custom Blueprint" [level=3] [ref=e229]
+          - paragraph [ref=e230]: Within 72 hours, you receive a detailed automation roadmap showing exactly what we'll build, the expected impact, and timeline.
+      - generic [ref=e231]:
+        - generic [ref=e232]: "3"
+        - generic [ref=e233]:
+          - heading "Build & Deploy" [level=3] [ref=e234]
+          - paragraph [ref=e235]: We build your automations, integrate with your existing stack, and test everything rigorously before flipping the switch.
+      - generic [ref=e236]:
+        - generic [ref=e237]: "4"
+        - generic [ref=e238]:
+          - heading "Optimize & Scale" [level=3] [ref=e239]
+          - paragraph [ref=e240]: Ongoing monitoring, A/B testing, and expansion. Your system gets smarter and more effective every month.
+  - generic [ref=e242]:
+    - paragraph [ref=e243]: “ Sybago took our messy, manual operations and turned them into a machine. We went from chasing leads to having them land in our inbox, pre-qualified and ready to close.
+    - paragraph [ref=e244]:
+      - strong [ref=e245]: Coming Soon
+      - text: — Early Client Testimonials
+  - generic [ref=e246]:
+    - generic [ref=e247]:
+      - generic [ref=e248]: Ready to Automate?
+      - heading "Let's Build Your Unfair Advantage" [level=2] [ref=e249]:
+        - text: Let's Build Your
+        - emphasis [ref=e250]: Unfair Advantage
+      - paragraph [ref=e251]: Book a free discovery call. We'll map your biggest automation opportunities and show you exactly what's possible.
+    - link "Book Discovery Call" [ref=e252] [cursor=pointer]:
+      - /url: mailto:hello@sybago.ai
+      - generic [ref=e253]: Book Discovery Call
+      - img [ref=e254]
+  - contentinfo [ref=e256]:
+    - generic [ref=e257]:
+      - generic [ref=e258]:
+        - link "SYBAGO" [ref=e259] [cursor=pointer]:
+          - /url: "#"
+          - text: SYBAGO
+        - paragraph [ref=e261]: AI-powered business automation. More leads, better reviews, less busywork.
+      - generic [ref=e262]:
+        - generic [ref=e263]:
+          - heading "Services" [level=4] [ref=e264]
+          - link "Lead Capture" [ref=e265] [cursor=pointer]:
+            - /url: "#services"
+          - link "Review Automation" [ref=e266] [cursor=pointer]:
+            - /url: "#services"
+          - link "Workflow Automation" [ref=e267] [cursor=pointer]:
+            - /url: "#services"
+          - link "AI Voice & SMS" [ref=e268] [cursor=pointer]:
+            - /url: "#services"
+        - generic [ref=e269]:
+          - heading "Company" [level=4] [ref=e270]
+          - link "Our Process" [ref=e271] [cursor=pointer]:
+            - /url: "#process"
+          - link "Results" [ref=e272] [cursor=pointer]:
+            - /url: "#results"
+          - link "Contact" [ref=e273] [cursor=pointer]:
+            - /url: "#contact"
+    - generic [ref=e274]:
+      - generic [ref=e275]: © 2026 Sybago AI. All rights reserved.
+      - generic [ref=e276]: sybago.ai

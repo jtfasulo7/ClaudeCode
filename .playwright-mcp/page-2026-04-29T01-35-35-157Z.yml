@@ -1,0 +1,383 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Prominent Detailing — Home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e9]:
+          - text: Prominent
+          - emphasis [ref=e10]: Detailing
+      - navigation "Primary" [ref=e11]:
+        - link "Services" [ref=e12] [cursor=pointer]:
+          - /url: "#services"
+        - link "Gallery" [ref=e13] [cursor=pointer]:
+          - /url: "#gallery"
+        - link "Packages" [ref=e14] [cursor=pointer]:
+          - /url: "#packages"
+        - link "Process" [ref=e15] [cursor=pointer]:
+          - /url: "#process"
+        - link "Reviews" [ref=e16] [cursor=pointer]:
+          - /url: "#reviews"
+        - link "FAQ" [ref=e17] [cursor=pointer]:
+          - /url: "#faq"
+      - link "Get a Quote" [ref=e18] [cursor=pointer]:
+        - /url: "#quote"
+  - main [ref=e19]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - paragraph [ref=e25]:
+          - generic [ref=e26]: ★ ★ ★ ★ ★
+          - generic [ref=e27]: 4.9 on Google · 287 reviews
+        - heading "Showroom-level detailing. At your driveway, or ours." [level=1] [ref=e28]:
+          - text: Showroom-level
+          - text: detailing.
+          - emphasis [ref=e29]:
+            - text: At your driveway,
+            - text: or ours.
+        - paragraph [ref=e30]: Hand-applied ceramic coatings, museum-grade paint correction, and interior work that smells like a delivery from the dealer. Booking this week.
+        - list [ref=e31]:
+          - listitem [ref=e32]:
+            - img [ref=e33]
+            - text: Insured & Bonded
+          - listitem [ref=e35]:
+            - img [ref=e36]
+            - text: IGL & Gtechniq Certified
+          - listitem [ref=e38]:
+            - img [ref=e39]
+            - text: Mobile or In-Shop
+      - complementary [ref=e42]:
+        - generic [ref=e43]:
+          - paragraph [ref=e44]: Instant quote · 5 min
+          - heading "Get my free quote." [level=2] [ref=e45]
+          - paragraph [ref=e46]: Three fields. We'll text you back same-day.
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: Your name
+            - textbox "Your name" [ref=e50]:
+              - /placeholder: Alex Romero
+          - generic [ref=e51]:
+            - generic [ref=e52]: Mobile number
+            - textbox "Mobile number" [ref=e53]:
+              - /placeholder: (555) 555-5555
+          - generic [ref=e54]:
+            - generic [ref=e55]: Vehicle
+            - textbox "Vehicle" [ref=e56]:
+              - /placeholder: 2022 BMW M4
+          - button "Get My Free Quote" [ref=e57] [cursor=pointer]:
+            - text: Get My Free Quote
+            - img [ref=e58]
+          - paragraph [ref=e60]: No spam. We'll only text you about your quote.
+    - region "Trust signals" [ref=e61]:
+      - list [ref=e63]:
+        - listitem [ref=e64]:
+          - generic [ref=e65]: 4.9★
+          - generic [ref=e66]: 287 Google reviews
+        - listitem [ref=e67]:
+          - generic [ref=e68]: 2,400+
+          - generic [ref=e69]: Vehicles detailed
+        - listitem [ref=e70]:
+          - generic [ref=e71]: 9 yr
+          - generic [ref=e72]: Ceramic warranty available
+        - listitem [ref=e73]:
+          - generic [ref=e74]: 7 day
+          - generic [ref=e75]: Re-correct guarantee
+    - region "Real cars. Real results." [ref=e76]:
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - paragraph [ref=e79]: The Work
+          - heading "Real cars. Real results." [level=2] [ref=e80]:
+            - text: Real cars.
+            - emphasis [ref=e81]: Real results.
+          - paragraph [ref=e82]: Every photo is a real customer vehicle. Hover to see the before.
+        - generic [ref=e83]:
+          - figure "Multi-stage Paint Correction 2019 BMW M4 · Jet Black" [ref=e84]:
+            - generic [ref=e85]:
+              - img "Black sports car after multi-stage paint correction" [ref=e86]
+              - img "Same vehicle before correction" [ref=e87]
+              - text: AFTER
+            - generic [ref=e88]:
+              - strong [ref=e89]: Multi-stage Paint Correction
+              - generic [ref=e90]: 2019 BMW M4 · Jet Black
+          - figure "9-Year Ceramic Coating 2023 Porsche 911 · Guards Red" [ref=e91]:
+            - generic [ref=e92]:
+              - img "Sports car after 9-year ceramic coating" [ref=e93]
+              - img "Same vehicle before coating" [ref=e94]
+              - text: AFTER
+            - generic [ref=e95]:
+              - strong [ref=e96]: 9-Year Ceramic Coating
+              - generic [ref=e97]: 2023 Porsche 911 · Guards Red
+          - figure "Full Interior Detail 2021 Range Rover · Tan Leather" [ref=e98]:
+            - generic [ref=e99]:
+              - img "Luxury car interior after full detail" [ref=e100]
+              - img "Same interior before" [ref=e101]
+              - text: AFTER
+            - generic [ref=e102]:
+              - strong [ref=e103]: Full Interior Detail
+              - generic [ref=e104]: 2021 Range Rover · Tan Leather
+    - region "Built for every level of care." [ref=e105]:
+      - generic [ref=e106]:
+        - generic [ref=e107]:
+          - paragraph [ref=e108]: Packages
+          - heading "Built for every level of care." [level=2] [ref=e109]:
+            - text: Built for
+            - emphasis [ref=e110]: every level
+            - text: of care.
+          - paragraph [ref=e111]: Three tiers. Transparent pricing. No upsells once you're in the bay.
+        - generic [ref=e112]:
+          - article [ref=e113]:
+            - generic [ref=e114]: Tier 1
+            - heading "Express Detail" [level=3] [ref=e115]
+            - paragraph [ref=e116]: $149
+            - paragraph [ref=e117]: starting · 60–90 min
+            - paragraph [ref=e118]: The maintenance refresh. Keeps your car sharp between full details.
+            - list [ref=e119]:
+              - listitem [ref=e120]: Hand foam wash & rinse
+              - listitem [ref=e121]: Wheels & tires cleaned + dressed
+              - listitem [ref=e122]: Interior vacuum & air-blow
+              - listitem [ref=e123]: Glass + dashboard wipe-down
+              - listitem [ref=e124]: Door jambs & tire shine
+            - link "Book Express" [ref=e125] [cursor=pointer]:
+              - /url: "#quote"
+          - article [ref=e126]:
+            - generic [ref=e127]: Most Booked
+            - generic [ref=e128]: Tier 2
+            - heading "Premium Full Detail" [level=3] [ref=e129]
+            - paragraph [ref=e130]: $349
+            - paragraph [ref=e131]: starting · half day
+            - paragraph [ref=e132]: Inside and out, top to bottom. The reset every car needs once or twice a year.
+            - list [ref=e133]:
+              - listitem [ref=e134]: Everything in Express
+              - listitem [ref=e135]: Iron decon + clay-bar paint cleanse
+              - listitem [ref=e136]: 6-month spray sealant + tire gel
+              - listitem [ref=e137]: Steam-extract carpets & seats
+              - listitem [ref=e138]: Leather clean + condition
+              - listitem [ref=e139]: Headliner, vents, plastics, glass
+            - link "Book Premium" [ref=e140] [cursor=pointer]:
+              - /url: "#quote"
+          - article [ref=e141]:
+            - generic [ref=e142]: Tier 3
+            - heading "Showroom Protection" [level=3] [ref=e143]
+            - paragraph [ref=e144]: $1,299+
+            - paragraph [ref=e145]: starting · 1–2 days
+            - paragraph [ref=e146]: Concours-grade prep + multi-year ceramic. The car looks better than it did new.
+            - list [ref=e147]:
+              - listitem [ref=e148]: Everything in Premium
+              - listitem [ref=e149]: Single-stage paint correction
+              - listitem [ref=e150]: 5-year IGL Kenzo ceramic coating
+              - listitem [ref=e151]: Wheel-face ceramic + glass coat
+              - listitem [ref=e152]: Interior fabric & leather coat
+              - listitem [ref=e153]: Annual maintenance check included
+            - link "Book Showroom" [ref=e154] [cursor=pointer]:
+              - /url: "#quote"
+        - paragraph [ref=e155]: Larger or heavily soiled vehicles may price differently. We'll text the exact number after a quick photo review.
+    - region "Beyond the wash. Everything paint touches." [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - paragraph [ref=e159]: Services
+          - heading "Beyond the wash. Everything paint touches." [level=2] [ref=e160]:
+            - text: Beyond the wash.
+            - emphasis [ref=e161]: Everything paint touches.
+          - paragraph [ref=e162]: Specialty services we do every week. Add any of these to a package or book them on their own.
+        - list [ref=e163]:
+          - listitem [ref=e164]:
+            - img [ref=e166]
+            - heading "Paint Correction" [level=3] [ref=e169]
+            - paragraph [ref=e170]: 1-step to multi-stage. Removes swirls, holograms, etcher marks. Brings depth back to clear coat.
+            - paragraph [ref=e171]: From $300 · single-stage
+          - listitem [ref=e172]:
+            - img [ref=e174]
+            - heading "Ceramic Coating" [level=3] [ref=e177]
+            - paragraph [ref=e178]: 2-, 5-, or 9-year coatings from IGL Kenzo and Gtechniq. Hydrophobic gloss + UV resistance.
+            - paragraph [ref=e179]: From $700 · 5-year tier
+          - listitem [ref=e180]:
+            - img [ref=e182]
+            - heading "Paint Protection Film" [level=3] [ref=e186]
+            - paragraph [ref=e187]: Self-healing urethane film. Partial-front, full-front, or full-vehicle wrap. XPEL-certified install.
+            - paragraph [ref=e188]: From $1,500 · full front
+          - listitem [ref=e189]:
+            - img [ref=e191]
+            - heading "Headlight Restoration" [level=3] [ref=e194]
+            - paragraph [ref=e195]: Wet-sand and reseal cloudy lenses. Restores OEM clarity + adds UV protection.
+            - paragraph [ref=e196]: $120 · pair
+          - listitem [ref=e197]:
+            - img [ref=e199]
+            - heading "Engine Bay Detail" [level=3] [ref=e202]
+            - paragraph [ref=e203]: Safe degrease, dress, and protect. Sensitive component coverage. Ready for inspection or sale.
+            - paragraph [ref=e204]: $125 · most vehicles
+          - listitem [ref=e205]:
+            - img [ref=e207]
+            - heading "Pet Hair & Odor" [level=3] [ref=e210]
+            - paragraph [ref=e211]: Multi-pass hair extraction + ozone neutralization. Removes embedded hair you can't get yourself.
+            - paragraph [ref=e212]: From $75 · add-on
+    - region "Four steps to a flawless finish." [ref=e213]:
+      - generic [ref=e214]:
+        - generic [ref=e215]:
+          - paragraph [ref=e216]: The Process
+          - heading "Four steps to a flawless finish." [level=2] [ref=e217]:
+            - text: Four steps to a
+            - emphasis [ref=e218]: flawless finish.
+        - list [ref=e219]:
+          - listitem [ref=e220]:
+            - generic [ref=e221]: "01"
+            - heading "Inspect" [level=3] [ref=e222]
+            - paragraph [ref=e223]: Paint depth measured, defects documented, condition photographed. You see what we see before we touch the car.
+          - listitem [ref=e224]:
+            - generic [ref=e225]: "02"
+            - heading "Wash & Decon" [level=3] [ref=e226]
+            - paragraph [ref=e227]: Foam pre-soak, two-bucket hand wash, iron remover, clay-bar paint cleanse, fully dried with edgeless microfiber.
+          - listitem [ref=e228]:
+            - generic [ref=e229]: "03"
+            - heading "Correct" [level=3] [ref=e230]
+            - paragraph [ref=e231]: Compounding and polishing under high-CRI lighting. Inspected at three angles between every stage. No oils, no fillers.
+          - listitem [ref=e232]:
+            - generic [ref=e233]: "04"
+            - heading "Protect" [level=3] [ref=e234]
+            - paragraph [ref=e235]: Ceramic coating cured in our temperature-controlled bay, or sealant flash-applied for express jobs. Final beauty shot.
+    - region "4.9 stars across 287 verified reviews." [ref=e236]:
+      - generic [ref=e237]:
+        - generic [ref=e238]:
+          - paragraph [ref=e239]: Reviews
+          - heading "4.9 stars across 287 verified reviews." [level=2] [ref=e240]:
+            - emphasis [ref=e241]: 4.9 stars
+            - text: across 287 verified reviews.
+        - generic [ref=e242]:
+          - article [ref=e243]:
+            - generic "5 out of 5 stars" [ref=e244]: ★★★★★
+            - paragraph [ref=e245]: "\"Brought my Wraith for a 9-year ceramic. They picked it up, kept me updated with progress photos, and the finish is wet. Like, literally looks wet. Worth every penny.\""
+            - generic [ref=e246]:
+              - generic [ref=e247]: MR
+              - generic [ref=e248]:
+                - strong [ref=e249]: Marcus R.
+                - generic [ref=e250]: 2022 Rolls-Royce Wraith
+          - article [ref=e251]:
+            - generic "5 out of 5 stars" [ref=e252]: ★★★★★
+            - paragraph [ref=e253]: "\"Picked up my Tesla after a road trip with bird etching all over the hood. Two-stage correction had it looking better than delivery. They walked me through the paint depth readings before and after.\""
+            - generic [ref=e254]:
+              - generic [ref=e255]: SP
+              - generic [ref=e256]:
+                - strong [ref=e257]: Samira P.
+                - generic [ref=e258]: 2024 Tesla Model S Plaid
+          - article [ref=e259]:
+            - generic "5 out of 5 stars" [ref=e260]: ★★★★★
+            - paragraph [ref=e261]: "\"Premium full detail, mobile, in my driveway. Three hours, came out looking like a $40k car not a 12-year-old daily. The interior smelled like a brand-new lease.\""
+            - generic [ref=e262]:
+              - generic [ref=e263]: DL
+              - generic [ref=e264]:
+                - strong [ref=e265]: Devon L.
+                - generic [ref=e266]: 2013 Honda Accord
+    - region "Asked & answered." [ref=e267]:
+      - generic [ref=e268]:
+        - generic [ref=e269]:
+          - paragraph [ref=e270]: FAQ
+          - heading "Asked & answered." [level=2] [ref=e271]
+        - generic [ref=e272]:
+          - generic [ref=e273]:
+            - term [ref=e274]: How long does ceramic coating actually last?
+            - definition [ref=e275]: The 5-year tier we install is rated for 5 years with proper maintenance washes (every 4–6 weeks). The 9-year flagship has a transferable warranty backed by the manufacturer. We recommend an annual maintenance wash to keep the warranty active — it's included with the package.
+          - generic [ref=e276]:
+            - term [ref=e277]: Do you come to me, or do I come to you?
+            - definition [ref=e278]: Both. Express and Premium packages can be done at your home or office (we bring water and power). Showroom packages with paint correction or ceramic coating are done in our temperature-controlled shop because dust control and curing matter.
+          - generic [ref=e279]:
+            - term [ref=e280]: What if it rains the day of my appointment?
+            - definition [ref=e281]: For mobile jobs we'll reach out the morning of with a recommendation. We never start a paint correction in marginal conditions. Rescheduling is free up to 24 hours before your slot.
+          - generic [ref=e282]:
+            - term [ref=e283]: Will paint correction damage my clear coat?
+            - definition [ref=e284]: No. We measure paint depth before and after every stage and never remove more than necessary. You'll get the readings in your before/after report so you know exactly what was done.
+          - generic [ref=e285]:
+            - term [ref=e286]: How do I maintain the finish between visits?
+            - definition [ref=e287]: Hand wash, never automatic. Two-bucket method with a pH-neutral soap. Avoid touch tunnels and brush washes. We send a maintenance kit + walkthrough video with every Showroom package.
+          - generic [ref=e288]:
+            - term [ref=e289]: Do you guarantee your work?
+            - definition [ref=e290]: Yes. 7-day re-correction window — if anything's not right, we make it right at no charge. Ceramic coatings carry the manufacturer's warranty, registered in your name.
+    - region "Your car, our obsession." [ref=e291]:
+      - generic [ref=e292]:
+        - paragraph [ref=e293]: Booking This Week
+        - heading "Your car, our obsession." [level=2] [ref=e294]:
+          - text: Your car,
+          - emphasis [ref=e295]: our obsession.
+        - paragraph [ref=e296]: Get a custom quote in five minutes. No callbacks, no voicemail tag.
+        - generic [ref=e297]:
+          - link "Get My Free Quote" [ref=e298] [cursor=pointer]:
+            - /url: "#quote"
+          - link "Call (555) 555-0100" [ref=e299] [cursor=pointer]:
+            - /url: tel:+15555550100
+            - img [ref=e300]
+            - text: Call (555) 555-0100
+  - contentinfo [ref=e302]:
+    - generic [ref=e303]:
+      - generic [ref=e304]:
+        - link "Prominent Detailing — Home" [ref=e305] [cursor=pointer]:
+          - /url: /
+          - img [ref=e307]
+          - generic [ref=e309]:
+            - text: Prominent
+            - emphasis [ref=e310]: Detailing
+        - paragraph [ref=e311]: IGL Kenzo and Gtechniq Certified. XPEL-trained PPF installers. Insured, bonded, and obsessed with paint depth readings.
+      - generic [ref=e312]:
+        - heading "Services" [level=4] [ref=e313]
+        - list [ref=e314]:
+          - listitem [ref=e315]:
+            - link "Paint Correction" [ref=e316] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=e317]:
+            - link "Ceramic Coating" [ref=e318] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=e319]:
+            - link "Paint Protection Film" [ref=e320] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=e321]:
+            - link "Headlight Restoration" [ref=e322] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=e323]:
+            - link "Engine Bay Detail" [ref=e324] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=e325]:
+            - link "Pet Hair & Odor" [ref=e326] [cursor=pointer]:
+              - /url: "#services"
+      - generic [ref=e327]:
+        - heading "Visit" [level=4] [ref=e328]
+        - list [ref=e329]:
+          - listitem [ref=e330]: Mobile or in-shop
+          - listitem [ref=e331]: Mon–Sat · 8am–6pm
+          - listitem [ref=e332]: Closed Sunday
+      - generic [ref=e333]:
+        - heading "Contact" [level=4] [ref=e334]
+        - list [ref=e335]:
+          - listitem [ref=e336]:
+            - link "(555) 555-0100" [ref=e337] [cursor=pointer]:
+              - /url: tel:+15555550100
+          - listitem [ref=e338]:
+            - link "Text us" [ref=e339] [cursor=pointer]:
+              - /url: sms:+15555550100
+          - listitem [ref=e340]:
+            - link "hello@prominentdetailing.co" [ref=e341] [cursor=pointer]:
+              - /url: mailto:hello@prominentdetailing.co
+    - generic [ref=e342]:
+      - generic [ref=e343]: © 2026 Prominent Detailing. All rights reserved.
+      - generic [ref=e344]: IGL · Gtechniq · XPEL
+  - generic [ref=e345]:
+    - dialog "Prominent Detailing chat":
+      - generic:
+        - generic:
+          - img
+        - generic:
+          - generic: Prominent Detailing
+          - generic: Typically replies instantly
+        - button "Close chat": ×
+      - generic:
+        - generic:
+          - heading "Ask anything" [level=4]
+          - paragraph: Pricing, ceramic coating, paint correction, scheduling — we've got you.
+          - generic:
+            - button "5-yr ceramic price?"
+            - button "Mobile service?"
+            - button "Premium vs Showroom?"
+            - button "Ceramic maintenance?"
+      - generic:
+        - textbox "Type your message…"
+        - button "Send message":
+          - img
+    - button "Open chat" [ref=e346] [cursor=pointer]:
+      - img [ref=e347]

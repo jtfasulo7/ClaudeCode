@@ -78,10 +78,24 @@ def qualify_file(input_path, output_path=None):
         lead['digital_maturity_score'] = score
         lead['qualification_notes'] = notes
 
+    # Filter out non-mobile / invalid phones (if validation was run).
+    # Keep leads where phone_valid is None (API error / not yet checked).
+    filtered = []
+    dropped_phone = 0
+    for lead in leads:
+        if lead.get('phone_valid') is False:
+            dropped_phone += 1
+            continue
+        line_type = lead.get('phone_line_type')
+        if line_type is not None and line_type not in ('mobile',):
+            dropped_phone += 1
+            continue
+        filtered.append(lead)
+
     # Deduplicate by phone + address
     seen = set()
     unique_leads = []
-    for lead in leads:
+    for lead in filtered:
         key = (lead.get('phone', ''), lead.get('address', ''))
         if key not in seen and key != ('', ''):
             seen.add(key)
@@ -97,7 +111,9 @@ def qualify_file(input_path, output_path=None):
         bucket = '1-3 (excellent)' if s <= 3 else '4-6 (good)' if s <= 6 else '7-10 (skip)'
         dist[bucket] = dist.get(bucket, 0) + 1
 
-    print(f'\nResults: {len(unique_leads)} unique leads (removed {len(leads) - len(unique_leads)} duplicates)')
+    print(f'\nResults: {len(unique_leads)} unique leads')
+    print(f'  Dropped {dropped_phone} for invalid/non-mobile phone')
+    print(f'  Dropped {len(filtered) - len(unique_leads)} duplicates')
     print('\nScore Distribution:')
     for bucket, count in sorted(dist.items()):
         print(f'  {bucket}: {count}')

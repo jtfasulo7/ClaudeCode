@@ -1,0 +1,35 @@
+- generic [ref=e2]:
+  - generic:
+    - generic [ref=e9]:
+      - generic [ref=e10]: Cookies facilitate the provision of our services. By using our services you agree that we use cookies.
+      - generic [ref=e11]:
+        - generic [ref=e12] [cursor=pointer]: OK
+        - generic [ref=e16] [cursor=pointer]: More information
+    - generic:
+      - generic [ref=e43]: Menu
+      - generic [ref=e36]: Contact Us
+      - generic:
+        - generic:
+          - generic:
+            - generic: Body style
+        - generic:
+          - generic:
+            - generic: Engine
+        - generic:
+          - generic:
+            - generic: Presets
+        - generic:
+          - generic:
+            - generic: Customize
+        - generic:
+          - generic:
+            - generic: Calculate
+        - generic:
+          - generic:
+            - generic [ref=e47]: Step 1
+            - generic [ref=e48]: Select a vehicle type
+            - generic [ref=e49]: As an automotive NVH designer, different types of vehicles confront you with different acoustic challenges
+        - generic:
+          - generic:
+            - generic:
+              - generic: Hatchback

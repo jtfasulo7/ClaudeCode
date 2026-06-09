@@ -1,0 +1,151 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - img [ref=e3]
+    - text: Limited spots open · book a free audit today
+  - navigation [ref=e5]:
+    - link "Sybago AI Sybago" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img "Sybago AI" [ref=e7]
+      - generic [ref=e8]: Sybago
+    - link "Book a call" [ref=e9] [cursor=pointer]:
+      - /url: https://api.leadconnectorhq.com/widget/booking/FsCLXfMJ7yiiM7zMb2nP
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]: Sybago Services
+      - heading "Automate your local business with AI websites." [level=1] [ref=e13]:
+        - text: Automate your local business with
+        - emphasis [ref=e14]: AI websites.
+      - paragraph [ref=e15]: With Sybago, you can completely automate your local business’ appointment setting process with our custom websites.
+      - generic [ref=e16]:
+        - link "Begin" [ref=e17] [cursor=pointer]:
+          - /url: "#pricing"
+          - generic [ref=e18]: Begin
+          - img [ref=e19]
+        - link "Get a free website audit" [ref=e21] [cursor=pointer]:
+          - /url: https://api.leadconnectorhq.com/widget/booking/FsCLXfMJ7yiiM7zMb2nP
+    - generic [ref=e43]:
+      - generic [ref=e44]: Bookings
+      - generic [ref=e45]: Reviews
+      - generic [ref=e46]: Reactivation
+  - generic [ref=e59]:
+    - paragraph [ref=e60]: What we do
+    - heading "Done-for-you automation, built for service businesses." [level=2] [ref=e61]
+    - paragraph [ref=e62]: Four systems that work together to capture leads, fill the calendar, and earn 5-star reviews while you focus on the job.
+    - generic [ref=e63]:
+      - generic [ref=e64]:
+        - img [ref=e66]
+        - heading "AI Websites" [level=3] [ref=e68]
+        - paragraph [ref=e69]: Custom-designed sites built to convert visitors into booked appointments. Not a template.
+      - generic [ref=e70]:
+        - img [ref=e72]
+        - heading "Missed-call Recovery" [level=3] [ref=e74]
+        - paragraph [ref=e75]: Every voicemail gets an instant SMS back. We turn missed calls into booked appointments.
+      - generic [ref=e76]:
+        - img [ref=e78]
+        - heading "Review Engine" [level=3] [ref=e80]
+        - paragraph [ref=e81]: Automatic 5-star review requests sent to happy customers — Google, Facebook, everywhere it matters.
+      - generic [ref=e82]:
+        - img [ref=e84]
+        - heading "Lead Reactivation" [level=3] [ref=e87]
+        - paragraph [ref=e88]: Old leads in your CRM get re-engaged automatically. Revenue from the names you forgot.
+  - generic [ref=e90]:
+    - paragraph [ref=e91]: Pricing
+    - heading "Choose a Plan" [level=2] [ref=e92]
+    - paragraph [ref=e93]: Every plan is month-to-month. No setup fees, no contracts, no hidden integrations.
+    - generic [ref=e94]:
+      - generic [ref=e95]:
+        - generic [ref=e96]: Basic
+        - generic [ref=e97]:
+          - generic [ref=e98]: $149
+          - generic [ref=e99]: / month
+        - paragraph [ref=e100]: Everything a local business needs to start booking online.
+        - list [ref=e101]:
+          - listitem [ref=e102]:
+            - img [ref=e103]
+            - generic [ref=e105]: Custom Website Design
+          - listitem [ref=e106]:
+            - img [ref=e107]
+            - generic [ref=e109]: Live Chat Widget
+          - listitem [ref=e110]:
+            - img [ref=e111]
+            - generic [ref=e113]: Missed-Call Text-Back
+          - listitem [ref=e114]:
+            - img [ref=e115]
+            - generic [ref=e117]: Calendar Booking System
+          - listitem [ref=e118]:
+            - img [ref=e119]
+            - generic [ref=e121]: Google Review Automation
+        - link "Get started" [ref=e122] [cursor=pointer]:
+          - /url: https://api.leadconnectorhq.com/widget/booking/FsCLXfMJ7yiiM7zMb2nP
+      - generic [ref=e123]:
+        - text: Most popular
+        - generic [ref=e124]: Pro
+        - generic [ref=e125]:
+          - generic [ref=e126]: $199
+          - generic [ref=e127]: / month
+        - paragraph [ref=e128]: For growing businesses that need to manage more than they can call back.
+        - list [ref=e129]:
+          - listitem [ref=e130]:
+            - img [ref=e131]
+            - strong [ref=e134]: Everything in Basic
+          - listitem [ref=e135]:
+            - img [ref=e136]
+            - generic [ref=e138]: Customer Management App
+          - listitem [ref=e139]:
+            - img [ref=e140]
+            - generic [ref=e142]: Dead-Lead Reactivation
+        - link "Get started" [ref=e143] [cursor=pointer]:
+          - /url: https://api.leadconnectorhq.com/widget/booking/FsCLXfMJ7yiiM7zMb2nP
+      - generic [ref=e144]:
+        - generic [ref=e145]: Enterprise
+        - generic [ref=e146]:
+          - generic [ref=e147]: $399
+          - generic [ref=e148]: / month
+        - paragraph [ref=e149]: A complete operating system for high-volume service businesses.
+        - list [ref=e150]:
+          - listitem [ref=e151]:
+            - img [ref=e152]
+            - strong [ref=e155]: Everything in Pro
+          - listitem [ref=e156]:
+            - img [ref=e157]
+            - generic [ref=e159]: Payment Processing
+          - listitem [ref=e160]:
+            - img [ref=e161]
+            - generic [ref=e163]: AI Appointment Booking Bot
+        - link "Get started" [ref=e164] [cursor=pointer]:
+          - /url: https://api.leadconnectorhq.com/widget/booking/FsCLXfMJ7yiiM7zMb2nP
+  - contentinfo [ref=e165]:
+    - generic [ref=e166]:
+      - link "Sybago AI Sybago" [ref=e167] [cursor=pointer]:
+        - /url: /
+        - img "Sybago AI" [ref=e168]
+        - generic [ref=e169]: Sybago
+      - generic [ref=e170]:
+        - link "Home" [ref=e171] [cursor=pointer]:
+          - /url: /
+        - link "Services & Pricing" [ref=e172] [cursor=pointer]:
+          - /url: /services.html
+        - link "Contact" [ref=e173] [cursor=pointer]:
+          - /url: /contact-us.html
+        - link "Privacy" [ref=e174] [cursor=pointer]:
+          - /url: /privacy-policy.html
+        - link "Terms" [ref=e175] [cursor=pointer]:
+          - /url: /terms.html
+      - paragraph [ref=e176]: © 2026 Sybago LLC. All rights reserved.
+  - generic [ref=e177]:
+    - dialog "Sybago chat":
+      - generic:
+        - img "Sybago"
+        - generic:
+          - generic: Sybago AI
+          - generic: Typically replies instantly
+        - button "Close": ×
+      - generic:
+        - generic:
+          - heading "What can we help you with today?" [level=4]
+      - generic:
+        - textbox "Type your message…"
+        - button "Send":
+          - img
+    - button "Open chat" [ref=e178] [cursor=pointer]:
+      - img "Sybago" [ref=e179]

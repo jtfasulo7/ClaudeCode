@@ -1,0 +1,131 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "JT Fasulo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: JT Fasulo
+      - button "Toggle menu" [ref=e9] [cursor=pointer]:
+        - img [ref=e10]
+  - main [ref=e11]:
+    - generic [ref=e16]:
+      - generic [ref=e18]: ✦ Now accepting students
+      - generic [ref=e19]:
+        - heading "Premium websites, designed by you." [level=1] [ref=e20]
+        - paragraph [ref=e21]: Private mentorship from JT Fasulo. I'll teach you how to think about design, build, and ship websites that look like they belong on Apple's homepage — not a template marketplace.
+      - generic [ref=e22]:
+        - button "Get in touch" [ref=e24] [cursor=pointer]
+        - button "See my work" [ref=e26] [cursor=pointer]
+      - generic [ref=e31]:
+        - paragraph [ref=e33]: 1-on-1 weekly sessions
+        - paragraph [ref=e35]: Real client projects
+        - paragraph [ref=e37]: Direct portfolio review
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - paragraph [ref=e41]: What “premium” actually means
+        - heading "Six things every premium site does." [level=2] [ref=e42]
+        - paragraph [ref=e43]: None of them are templates. All of them are deliberate choices. This is what separates a website from a brand.
+      - generic [ref=e44]:
+        - generic [ref=e49]:
+          - img [ref=e50]
+          - heading "Cinematic motion" [level=3] [ref=e53]
+          - paragraph [ref=e54]: Scroll-driven hero sequences, fluid shader backdrops, frame-scrubbed video. Built once, locked to native refresh rate, never the reason your site feels slow.
+        - generic [ref=e59]:
+          - img [ref=e60]
+          - heading "Editorial typography" [level=3] [ref=e62]
+          - paragraph [ref=e63]: Paired display + body type, considered kerning, hand-set tracking on display sizes. The page reads like a magazine spread, not a CMS export.
+        - generic [ref=e68]:
+          - img [ref=e69]
+          - heading "Performance budget" [level=3] [ref=e72]
+          - paragraph [ref=e73]: Sub-second LCP, Lighthouse 95+, 60fps animation on mid-range hardware. Speed is a design feature — measurable, defended, never traded for visuals.
+        - generic [ref=e78]:
+          - img [ref=e79]
+          - heading "Bespoke micro-interactions" [level=3] [ref=e85]
+          - paragraph [ref=e86]: Hover states, cursor moments, scroll-driven reveals — each one written for this site, not pulled from a library. Small details, total polish.
+        - generic [ref=e91]:
+          - img [ref=e92]
+          - heading "Considered material" [level=3] [ref=e98]
+          - paragraph [ref=e99]: Restrained palette, real depth from light + shadow, glass and chrome surfaces with intent. The site looks like the brand, not like the framework.
+        - generic [ref=e104]:
+          - img [ref=e105]
+          - heading "Conversion-aware structure" [level=3] [ref=e109]
+          - paragraph [ref=e110]: Every section earns its place. CTAs sit where eyes already are, copy carries the page, hierarchy survives a 5-second scan. Beauty that ships revenue.
+    - generic [ref=e112]:
+      - heading "Or maybe you wanna go a little crazy.&hairsp;.&hairsp;." [level=2] [ref=e115]
+      - generic:
+        - generic: 01 · Section
+        - generic: Hero
+        - paragraph: 4 seconds to convince a stranger they're in the right place. Big idea, bigger pull.
+      - generic:
+        - generic: 02 · Section
+        - generic: Features
+        - paragraph: What you do — six honest bullets that earn the next scroll, not 30 vague ones.
+      - generic:
+        - generic: 03 · Section
+        - generic: Reviews
+        - paragraph: Social proof that's actually social. Real names, real outcomes, real photos.
+      - generic:
+        - generic: 04 · Section
+        - generic: CTA
+        - paragraph: The moment you ask. No shy buttons. The page has earned this — let it close.
+      - generic [ref=e116]: Scroll
+  - contentinfo [ref=e117]:
+    - generic: FASULO
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]: Free Guide
+        - heading "Start your AI journey the right way." [level=3] [ref=e123]:
+          - text: Start your AI journey
+          - text: the right way.
+      - link "Get the Free Guide" [ref=e124] [cursor=pointer]:
+        - /url: "#lm-email"
+        - generic [ref=e125]: Get the Free Guide
+        - img [ref=e126]
+    - generic [ref=e129]:
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - generic [ref=e133]: JT Fasulo
+          - paragraph [ref=e134]: A free PDF guide for founders getting started with AI in entrepreneurship. Plus a weekly newsletter on what actually matters in AI.
+          - generic [ref=e135]:
+            - link "Twitter / X" [ref=e136] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e137]
+            - link "LinkedIn" [ref=e143] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e144]
+            - link "Instagram" [ref=e147] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e148]
+            - link "YouTube" [ref=e152] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e153]
+        - generic [ref=e155]:
+          - generic [ref=e156]: Navigation
+          - list [ref=e157]:
+            - listitem [ref=e158]:
+              - link "Home" [ref=e159] [cursor=pointer]:
+                - /url: /
+                - text: Home
+            - listitem [ref=e161]:
+              - link "Get the Guide" [ref=e162] [cursor=pointer]:
+                - /url: "#lm-email"
+                - text: Get the Guide
+            - listitem [ref=e164]:
+              - link "Privacy Policy" [ref=e165] [cursor=pointer]:
+                - /url: /privacy-policy
+                - text: Privacy Policy
+      - generic [ref=e167]:
+        - generic [ref=e168]:
+          - img "Sybago" [ref=e169]
+          - generic [ref=e170]:
+            - paragraph [ref=e171]: SYBAGO LLC
+            - paragraph [ref=e172]: 116 W 9th St, Wilmington, DE 19801
+        - paragraph [ref=e173]: jtfasulo.com is operated by SYBAGO LLC. By submitting your email you agree to receive the guide and occasional updates. Unsubscribe anytime via the link in any email we send.
+      - generic [ref=e174]:
+        - paragraph [ref=e175]: © 2026 SYBAGO LLC. All rights reserved.
+        - generic [ref=e176]:
+          - link "Privacy Policy" [ref=e177] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "jtfasulo.com" [ref=e178] [cursor=pointer]:
+            - /url: https://jtfasulo.com
+            - text: jtfasulo.com
+            - img [ref=e179]

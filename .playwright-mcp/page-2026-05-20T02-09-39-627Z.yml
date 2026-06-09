@@ -1,0 +1,122 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "Regent Goods Wholesale & Liquidation — Home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Regent
+        - generic [ref=e8]: Goods
+      - navigation "Primary" [ref=e9]:
+        - link "What We Buy" [ref=e10] [cursor=pointer]:
+          - /url: /#what-we-buy
+        - link "Wholesale Partnerships" [ref=e11] [cursor=pointer]:
+          - /url: /#wholesale
+        - link "Platforms" [ref=e12] [cursor=pointer]:
+          - /url: /#platforms
+        - link "About" [ref=e13] [cursor=pointer]:
+          - /url: /#about
+        - link "Contact" [ref=e14] [cursor=pointer]:
+          - /url: /inquire
+      - link "Submit Inventory" [ref=e16] [cursor=pointer]:
+        - /url: /inquire
+        - generic [ref=e17]: Submit Inventory
+  - main [ref=e18]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: Inquiry
+        - heading "Submit Inventory or open a wholesale account." [level=1] [ref=e25]:
+          - text: Submit Inventory
+          - text: or open a wholesale account.
+      - paragraph [ref=e27]: Tell us what you have. Our team will review your submission and respond within one business day.
+    - generic [ref=e30]:
+      - complementary [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - paragraph [ref=e34]: Response
+            - paragraph [ref=e35]: One business day
+            - paragraph [ref=e36]: Direct review from our team — not an automated runaround.
+          - generic [ref=e37]:
+            - paragraph [ref=e38]: Direct contact
+            - paragraph [ref=e39]:
+              - link "484-666-1087" [ref=e40] [cursor=pointer]:
+                - /url: tel:+14846661087
+            - paragraph [ref=e41]:
+              - link "regentgoodsliquidation@gmail.com" [ref=e42] [cursor=pointer]:
+                - /url: mailto:regentgoodsliquidation@gmail.com
+          - generic [ref=e43]:
+            - paragraph [ref=e44]: What we buy
+            - list [ref=e45]:
+              - listitem [ref=e46]: Wholesale cosmetics & beauty
+              - listitem [ref=e47]: Liquidation pallets & lots
+              - listitem [ref=e48]: Overstock, shelf pulls, closeouts
+              - listitem [ref=e49]: Retail liquidation
+      - generic [ref=e50]:
+        - group "What best describes your inquiry?*" [ref=e53]:
+          - generic [ref=e54]: What best describes your inquiry?*
+          - radiogroup "Inquiry type" [ref=e55]:
+            - generic [ref=e56] [cursor=pointer]:
+              - radio "Brand or Distributor Wholesale partnership" [ref=e57]
+              - img [ref=e59]
+              - generic [ref=e61]: Brand or Distributor
+              - generic [ref=e62]: Wholesale partnership
+            - generic [ref=e63] [cursor=pointer]:
+              - radio "Liquidator Selling inventory or pallets" [ref=e64]
+              - img [ref=e66]
+              - generic [ref=e68]: Liquidator
+              - generic [ref=e69]: Selling inventory or pallets
+            - generic [ref=e70] [cursor=pointer]:
+              - radio "Retail Store Liquidating excess inventory" [ref=e71]
+              - img [ref=e73]
+              - generic [ref=e75]: Retail Store
+              - generic [ref=e76]: Liquidating excess inventory
+        - paragraph [ref=e77]: Submissions reviewed within one business day. Direct response from our team — no automated runaround.
+  - contentinfo [ref=e78]:
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - link "Regent Goods Wholesale & Liquidation — Home" [ref=e82] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e83]: Regent
+            - generic [ref=e85]: Goods
+          - paragraph [ref=e86]: Wholesale sourcing and liquidation buyer for cosmetics and beauty. Built to supply our e-commerce resale operation across Whatnot, Amazon, and growing channels.
+          - generic [ref=e87]:
+            - link "484-666-1087" [ref=e89] [cursor=pointer]:
+              - /url: tel:+14846661087
+            - link "regentgoodsliquidation@gmail.com" [ref=e91] [cursor=pointer]:
+              - /url: mailto:regentgoodsliquidation@gmail.com
+            - generic [ref=e92]:
+              - text: 2601 Washington Ln
+              - text: Bethlehem, PA 18015
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - heading "Company" [level=3] [ref=e95]
+            - list [ref=e96]:
+              - listitem [ref=e97]:
+                - link "About" [ref=e98] [cursor=pointer]:
+                  - /url: /#about
+              - listitem [ref=e99]:
+                - link "Contact" [ref=e100] [cursor=pointer]:
+                  - /url: /inquire
+          - generic [ref=e101]:
+            - heading "What We Buy" [level=3] [ref=e102]
+            - list [ref=e103]:
+              - listitem [ref=e104]:
+                - link "Wholesale" [ref=e105] [cursor=pointer]:
+                  - /url: /#what-we-buy
+              - listitem [ref=e106]:
+                - link "Liquidation" [ref=e107] [cursor=pointer]:
+                  - /url: /#what-we-buy
+          - generic [ref=e108]:
+            - heading "Platforms" [level=3] [ref=e109]
+            - list [ref=e110]:
+              - listitem [ref=e111]:
+                - link "Whatnot" [ref=e112] [cursor=pointer]:
+                  - /url: /#platforms
+              - listitem [ref=e113]:
+                - link "Amazon" [ref=e114] [cursor=pointer]:
+                  - /url: /#platforms
+      - generic [ref=e116]:
+        - paragraph [ref=e117]: © 2026Regent Goods Wholesale & Liquidation. All rights reserved.
+        - link "Privacy Policy" [ref=e118] [cursor=pointer]:
+          - /url: /privacy
+  - button "Open Next.js Dev Tools" [ref=e124] [cursor=pointer]:
+    - img [ref=e125]

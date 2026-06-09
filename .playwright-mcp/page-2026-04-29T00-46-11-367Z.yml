@@ -1,0 +1,246 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Prominent Cleaning Co — Home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e9]:
+          - text: Prominent
+          - emphasis [ref=e10]: Cleaning Co
+      - navigation "Primary" [ref=e11]:
+        - link "Services" [ref=e12] [cursor=pointer]:
+          - /url: "#services"
+        - link "How It Works" [ref=e13] [cursor=pointer]:
+          - /url: "#how-it-works"
+        - link "Reviews" [ref=e14] [cursor=pointer]:
+          - /url: "#testimonials"
+        - link "Pricing" [ref=e15] [cursor=pointer]:
+          - /url: "#pricing"
+        - link "Contact" [ref=e16] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Book a Cleaning" [ref=e17] [cursor=pointer]:
+        - /url: book.html
+  - main [ref=e18]:
+    - generic [ref=e22]:
+      - paragraph [ref=e23]: Trusted by 1,200+ homes citywide
+      - heading "Cleaning made easy." [level=1] [ref=e24]:
+        - text: Cleaning made
+        - emphasis [ref=e25]: easy.
+      - paragraph [ref=e26]: Book a vetted cleaner, pick a time, and come home to a spotless space. No hidden fees. Satisfaction guaranteed.
+      - generic [ref=e27]:
+        - generic [ref=e28]: ZIP code
+        - generic [ref=e29]:
+          - textbox "ZIP code" [ref=e30]:
+            - /placeholder: Enter your ZIP code
+          - button "Continue" [ref=e31] [cursor=pointer]:
+            - text: Continue
+            - img [ref=e32]
+        - paragraph [ref=e34]: Free instant quote · Takes 30 seconds
+      - list [ref=e35]:
+        - listitem [ref=e36]:
+          - img [ref=e37]
+          - text: Bonded & insured
+        - listitem [ref=e39]:
+          - img [ref=e40]
+          - text: Same-day availability
+        - listitem [ref=e42]:
+          - img [ref=e43]
+          - text: 100% happiness guarantee
+    - region "Our cleaning services" [ref=e45]:
+      - generic [ref=e46]:
+        - heading "Our cleaning services" [level=2] [ref=e47]
+        - list [ref=e48]:
+          - listitem [ref=e49]:
+            - img [ref=e51]
+            - generic [ref=e55]: Standard Clean
+          - listitem [ref=e56]:
+            - img [ref=e58]
+            - generic [ref=e61]: Deep Clean
+          - listitem [ref=e62]:
+            - img [ref=e64]
+            - generic [ref=e67]: Move-In / Move-Out
+          - listitem [ref=e68]:
+            - img [ref=e70]
+            - generic [ref=e72]: Office Cleaning
+          - listitem [ref=e73]:
+            - img [ref=e75]
+            - generic [ref=e78]: Airbnb Turnovers
+    - region "Three steps to a spotless home." [ref=e79]:
+      - generic [ref=e80]:
+        - paragraph [ref=e81]: How it works
+        - heading "Three steps to a spotless home." [level=2] [ref=e82]:
+          - text: Three steps to a
+          - emphasis [ref=e83]: spotless
+          - text: home.
+        - paragraph [ref=e84]: Booking takes a minute. Cleaning takes care of itself.
+        - list [ref=e85]:
+          - listitem [ref=e86]:
+            - generic [ref=e87]: "01"
+            - img [ref=e89]:
+              - generic [ref=e92]: "15"
+            - heading "Book a Cleaning" [level=3] [ref=e93]
+            - paragraph [ref=e94]: Pick the day, time, and home size that fit your schedule.
+          - listitem [ref=e95]:
+            - generic [ref=e96]: "02"
+            - img [ref=e98]
+            - heading "Confirm Booking" [level=3] [ref=e102]
+            - paragraph [ref=e103]: Lock in your details with a secure deposit. We'll email a receipt.
+          - listitem [ref=e104]:
+            - generic [ref=e105]: "03"
+            - img [ref=e107]
+            - heading "We'll Clean It" [level=3] [ref=e111]
+            - paragraph [ref=e112]: A vetted Prominent cleaner arrives on time and gets it done right.
+    - region "Don't just take our word for it." [ref=e113]:
+      - generic [ref=e114]:
+        - paragraph [ref=e115]: Reviews
+        - heading "Don't just take our word for it." [level=2] [ref=e116]:
+          - text: Don't just take our
+          - emphasis [ref=e117]: word
+          - text: for it.
+        - paragraph [ref=e118]: Over 6,000 cleanings completed. 4.9★ average across Yelp, Google, and Nextdoor.
+        - generic [ref=e119]:
+          - article [ref=e120]:
+            - generic "5 out of 5 stars" [ref=e121]: ★★★★★
+            - paragraph [ref=e122]: "\"I came home from a long week and walked into a spotless apartment. Booking was the easiest part of my day. Already scheduled my next one.\""
+            - generic [ref=e123]:
+              - generic [ref=e124]: JM
+              - generic [ref=e125]:
+                - strong [ref=e126]: Jasmine M.
+                - generic [ref=e127]: Capitol Hill · Standard Clean
+          - article [ref=e128]:
+            - generic "5 out of 5 stars" [ref=e129]: ★★★★★
+            - paragraph [ref=e130]: "\"We hired Prominent for a move-out and they handled the deep clean like pros. Got the full security deposit back. Worth every penny.\""
+            - generic [ref=e131]:
+              - generic [ref=e132]: DR
+              - generic [ref=e133]:
+                - strong [ref=e134]: Daniel R.
+                - generic [ref=e135]: Lakeview · Move-Out Clean
+          - article [ref=e136]:
+            - generic "5 out of 5 stars" [ref=e137]: ★★★★★
+            - paragraph [ref=e138]: "\"Bi-weekly service for two years and counting. Same trusted cleaner every visit. They notice the little things — that's what keeps me.\""
+            - generic [ref=e139]:
+              - generic [ref=e140]: AS
+              - generic [ref=e141]:
+                - strong [ref=e142]: Alex S.
+                - generic [ref=e143]: Riverside · Recurring Bi-Weekly
+    - region "Simple, transparent rates." [ref=e144]:
+      - generic [ref=e145]:
+        - paragraph [ref=e146]: Pricing
+        - heading "Simple, transparent rates." [level=2] [ref=e147]:
+          - text: Simple,
+          - emphasis [ref=e148]: transparent
+          - text: rates.
+        - paragraph [ref=e149]: Flat rates by home size. No upsells. No surprises at checkout.
+        - generic [ref=e150]:
+          - article [ref=e151]:
+            - generic [ref=e152]:
+              - generic [ref=e153]: Starter
+              - heading "1 Bed · 1 Bath" [level=3] [ref=e154]
+              - paragraph [ref=e155]: $129
+              - paragraph [ref=e156]: starting price · per visit
+            - list [ref=e157]:
+              - listitem [ref=e158]: Up to 2 hours of cleaning
+              - listitem [ref=e159]: Kitchen, bathroom, common rooms
+              - listitem [ref=e160]: Eco-friendly supplies included
+              - listitem [ref=e161]: Same trusted cleaner each visit
+            - link "Choose Starter" [ref=e162] [cursor=pointer]:
+              - /url: book.html?plan=starter
+          - article [ref=e163]:
+            - generic [ref=e164]: Most Popular
+            - generic [ref=e165]:
+              - generic [ref=e166]: Standard
+              - heading "2–3 Bed Home" [level=3] [ref=e167]
+              - paragraph [ref=e168]: $189
+              - paragraph [ref=e169]: starting price · per visit
+            - list [ref=e170]:
+              - listitem [ref=e171]: Up to 3.5 hours of cleaning
+              - listitem [ref=e172]: All rooms + interior windows
+              - listitem [ref=e173]: Eco-friendly supplies included
+              - listitem [ref=e174]: Re-clean within 24 hrs if needed
+            - link "Choose Standard" [ref=e175] [cursor=pointer]:
+              - /url: book.html?plan=standard
+          - article [ref=e176]:
+            - generic [ref=e177]:
+              - generic [ref=e178]: Deep
+              - heading "Top-to-Bottom" [level=3] [ref=e179]
+              - paragraph [ref=e180]: $329
+              - paragraph [ref=e181]: starting price · per visit
+            - list [ref=e182]:
+              - listitem [ref=e183]: Up to 5 hours of cleaning
+              - listitem [ref=e184]: Inside fridge, oven, cabinets
+              - listitem [ref=e185]: Baseboards & window tracks
+              - listitem [ref=e186]: Best for first-time bookings
+            - link "Choose Deep" [ref=e187] [cursor=pointer]:
+              - /url: book.html?plan=deep
+    - region "Ready for a spotless home?" [ref=e188]:
+      - generic [ref=e189]:
+        - heading "Ready for a spotless home?" [level=2] [ref=e190]:
+          - text: Ready for a
+          - emphasis [ref=e191]: spotless
+          - text: home?
+        - paragraph [ref=e192]: Book in 60 seconds. We'll handle the rest.
+        - generic [ref=e193]:
+          - link "Book a Cleaning" [ref=e194] [cursor=pointer]:
+            - /url: book.html
+          - link "Or call (800) 710-8420" [ref=e195] [cursor=pointer]:
+            - /url: tel:+18007108420
+            - img [ref=e196]
+            - text: Or call (800) 710-8420
+  - contentinfo [ref=e198]:
+    - generic [ref=e199]:
+      - generic [ref=e200]:
+        - link "Prominent Cleaning Co — Home" [ref=e201] [cursor=pointer]:
+          - /url: /
+          - img [ref=e203]
+          - generic [ref=e205]:
+            - text: Prominent
+            - emphasis [ref=e206]: Cleaning Co
+        - paragraph [ref=e207]: Locally owned. Background-checked cleaners. Eco-friendly supplies. Service throughout the metro area.
+      - generic [ref=e208]:
+        - heading "Services" [level=4] [ref=e209]
+        - list [ref=e210]:
+          - listitem [ref=e211]:
+            - link "Standard Clean" [ref=e212] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=e213]:
+            - link "Deep Clean" [ref=e214] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=e215]:
+            - link "Move-In / Move-Out" [ref=e216] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=e217]:
+            - link "Office Cleaning" [ref=e218] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=e219]:
+            - link "Airbnb Turnovers" [ref=e220] [cursor=pointer]:
+              - /url: "#services"
+      - generic [ref=e221]:
+        - heading "Company" [level=4] [ref=e222]
+        - list [ref=e223]:
+          - listitem [ref=e224]:
+            - link "How It Works" [ref=e225] [cursor=pointer]:
+              - /url: "#how-it-works"
+          - listitem [ref=e226]:
+            - link "Reviews" [ref=e227] [cursor=pointer]:
+              - /url: "#testimonials"
+          - listitem [ref=e228]:
+            - link "Pricing" [ref=e229] [cursor=pointer]:
+              - /url: "#pricing"
+          - listitem [ref=e230]:
+            - link "Book Now" [ref=e231] [cursor=pointer]:
+              - /url: book.html
+      - generic [ref=e232]:
+        - heading "Contact" [level=4] [ref=e233]
+        - list [ref=e234]:
+          - listitem [ref=e235]:
+            - link "(800) 710-8420" [ref=e236] [cursor=pointer]:
+              - /url: tel:+18007108420
+          - listitem [ref=e237]:
+            - link "hello@prominentcleaning.co" [ref=e238] [cursor=pointer]:
+              - /url: mailto:hello@prominentcleaning.co
+          - listitem [ref=e239]: Mon–Sat · 7am–8pm
+    - generic [ref=e240]:
+      - generic [ref=e241]: © 2026 Prominent Cleaning Co. All rights reserved.
+      - generic [ref=e242]: Bonded · Insured · Licensed

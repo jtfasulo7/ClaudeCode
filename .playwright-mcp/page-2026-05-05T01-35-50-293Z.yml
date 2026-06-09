@@ -1,0 +1,38 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - img [ref=e3]
+    - text: TO COMPLETE YOUR APPLICATION DO NOT LEAVE THIS PAGE!
+  - navigation [ref=e5]:
+    - link "Sybago AI SYBAGO" [ref=e6] [cursor=pointer]:
+      - /url: "#"
+      - img "Sybago AI" [ref=e7]
+      - generic [ref=e8]: SYBAGO
+  - generic [ref=e10]:
+    - heading "We will build you a website and marketing system that answers every missed call, rebooks every dead lead, and gets you 5-star reviews on autopilot." [level=1] [ref=e12]:
+      - text: We will build you a website and marketing system that
+      - emphasis [ref=e13]: answers every missed call
+      - text: ","
+      - emphasis [ref=e14]: rebooks every dead lead
+      - text: ", and"
+      - emphasis [ref=e15]: gets you 5-star reviews
+      - text: on autopilot.
+    - paragraph [ref=e16]: 👇 Book a free call below 👇
+    - iframe [ref=e18]:
+      
+  - generic [ref=e19]:
+    - dialog "Sybago chat":
+      - generic:
+        - img "Sybago"
+        - generic:
+          - generic: Sybago AI
+          - generic: Typically replies instantly
+        - button "Close": ×
+      - generic:
+        - generic:
+          - heading "What can we help you with today?" [level=4]
+      - generic:
+        - textbox "Type your message…"
+        - button "Send":
+          - img
+    - button "Open chat" [ref=e20] [cursor=pointer]:
+      - img "Sybago" [ref=e21]

@@ -1,0 +1,176 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "JT Fasulo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: JT Fasulo
+      - button "Toggle menu" [ref=e9] [cursor=pointer]:
+        - img [ref=e10]
+  - main [ref=e11]:
+    - generic [ref=e16]:
+      - generic [ref=e18]: ✦ Now accepting students
+      - generic [ref=e19]:
+        - heading "Premium websites, designed by you." [level=1] [ref=e20]
+        - paragraph [ref=e21]: Private mentorship from JT Fasulo. I'll teach you how to think about design, build, and ship websites that look like they belong on Apple's homepage — not a template marketplace.
+      - button "Get in touch" [ref=e24] [cursor=pointer]
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: Free discovery call
+          - img [ref=e32]
+        - generic [ref=e34]:
+          - paragraph [ref=e35]: Curated onboarding call
+          - img [ref=e36]
+        - paragraph [ref=e39]: Your own workbook
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - paragraph [ref=e43]: What “premium” actually means
+        - heading "Six things every premium site does." [level=2] [ref=e44]
+        - paragraph [ref=e45]: None of them are templates. All of them are deliberate choices. This is what separates a website from a brand.
+      - generic [ref=e46]:
+        - generic [ref=e51]:
+          - img [ref=e52]
+          - heading "Cinematic motion" [level=3] [ref=e55]
+          - paragraph [ref=e56]: Scroll-driven hero sequences, fluid shader backdrops, frame-scrubbed video. Built once, locked to native refresh rate, never the reason your site feels slow.
+        - generic [ref=e61]:
+          - img [ref=e62]
+          - heading "Editorial typography" [level=3] [ref=e64]
+          - paragraph [ref=e65]: Paired display + body type, considered kerning, hand-set tracking on display sizes. The page reads like a magazine spread, not a CMS export.
+        - generic [ref=e70]:
+          - img [ref=e71]
+          - heading "Performance budget" [level=3] [ref=e74]
+          - paragraph [ref=e75]: Sub-second LCP, Lighthouse 95+, 60fps animation on mid-range hardware. Speed is a design feature — measurable, defended, never traded for visuals.
+        - generic [ref=e80]:
+          - img [ref=e81]
+          - heading "Bespoke micro-interactions" [level=3] [ref=e87]
+          - paragraph [ref=e88]: Hover states, cursor moments, scroll-driven reveals — each one written for this site, not pulled from a library. Small details, total polish.
+        - generic [ref=e93]:
+          - img [ref=e94]
+          - heading "Considered material" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Restrained palette, real depth from light + shadow, glass and chrome surfaces with intent. The site looks like the brand, not like the framework.
+        - generic [ref=e106]:
+          - img [ref=e107]
+          - heading "Conversion-aware structure" [level=3] [ref=e111]
+          - paragraph [ref=e112]: Every section earns its place. CTAs sit where eyes already are, copy carries the page, hierarchy survives a 5-second scan. Beauty that ships revenue.
+    - generic [ref=e114]:
+      - heading "Or maybe you wanna go a little crazy..." [level=2] [ref=e117]
+      - generic [ref=e118]: Scroll
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]: Testimonials
+        - heading "Make your reviews pop." [level=2] [ref=e123]
+        - paragraph [ref=e124]: Social proof shouldn’t be an afterthought. Here’s what people I’ve worked with sound like.
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - paragraph [ref=e129]: Brought JT in to redo a landing page that wasn't converting. Two weeks later we'd shipped it and conversions were up 38%. He treats your homepage like a product, not a page.
+          - generic [ref=e130]:
+            - img "Maya Chen" [ref=e131]
+            - generic [ref=e132]:
+              - generic [ref=e133]: Maya Chen
+              - generic [ref=e134]: Founder · Series-A SaaS
+        - generic [ref=e135]:
+          - paragraph [ref=e136]: I spent six months trying to teach myself design. One month with JT and I shipped a portfolio site that actually got me hired.
+          - generic [ref=e137]:
+            - img "Daniel Reyes" [ref=e138]
+            - generic [ref=e139]:
+              - generic [ref=e140]: Daniel Reyes
+              - generic [ref=e141]: Independent Designer
+        - generic [ref=e142]:
+          - paragraph [ref=e143]: Most agencies hand you a Figma file and disappear. JT shipped the actual code, hooked up the analytics, walked us through everything. Different operating mode.
+          - generic [ref=e144]:
+            - img "Priya Anand" [ref=e145]
+            - generic [ref=e146]:
+              - generic [ref=e147]: Priya Anand
+              - generic [ref=e148]: COO · DTC brand
+        - generic [ref=e149]:
+          - paragraph [ref=e150]: Brought JT in to redo a landing page that wasn't converting. Two weeks later we'd shipped it and conversions were up 38%. He treats your homepage like a product, not a page.
+          - generic [ref=e151]:
+            - img "Maya Chen" [ref=e152]
+            - generic [ref=e153]:
+              - generic [ref=e154]: Maya Chen
+              - generic [ref=e155]: Founder · Series-A SaaS
+        - generic [ref=e156]:
+          - paragraph [ref=e157]: I spent six months trying to teach myself design. One month with JT and I shipped a portfolio site that actually got me hired.
+          - generic [ref=e158]:
+            - img "Daniel Reyes" [ref=e159]
+            - generic [ref=e160]:
+              - generic [ref=e161]: Daniel Reyes
+              - generic [ref=e162]: Independent Designer
+        - generic [ref=e163]:
+          - paragraph [ref=e164]: Most agencies hand you a Figma file and disappear. JT shipped the actual code, hooked up the analytics, walked us through everything. Different operating mode.
+          - generic [ref=e165]:
+            - img "Priya Anand" [ref=e166]
+            - generic [ref=e167]:
+              - generic [ref=e168]: Priya Anand
+              - generic [ref=e169]: COO · DTC brand
+        - generic [ref=e170]:
+          - paragraph [ref=e171]: Brought JT in to redo a landing page that wasn't converting. Two weeks later we'd shipped it and conversions were up 38%. He treats your homepage like a product, not a page.
+          - generic [ref=e172]:
+            - img "Maya Chen" [ref=e173]
+            - generic [ref=e174]:
+              - generic [ref=e175]: Maya Chen
+              - generic [ref=e176]: Founder · Series-A SaaS
+        - generic [ref=e177]:
+          - paragraph [ref=e178]: I spent six months trying to teach myself design. One month with JT and I shipped a portfolio site that actually got me hired.
+          - generic [ref=e179]:
+            - img "Daniel Reyes" [ref=e180]
+            - generic [ref=e181]:
+              - generic [ref=e182]: Daniel Reyes
+              - generic [ref=e183]: Independent Designer
+        - generic [ref=e184]:
+          - paragraph [ref=e185]: Most agencies hand you a Figma file and disappear. JT shipped the actual code, hooked up the analytics, walked us through everything. Different operating mode.
+          - generic [ref=e186]:
+            - img "Priya Anand" [ref=e187]
+            - generic [ref=e188]:
+              - generic [ref=e189]: Priya Anand
+              - generic [ref=e190]: COO · DTC brand
+    - generic [ref=e192]:
+      - paragraph [ref=e193]: Ready when you are
+      - heading "Let’s build something worth showing off." [level=2] [ref=e194]
+      - link "Book a free call" [ref=e195] [cursor=pointer]:
+        - /url: https://api.leadconnectorhq.com/widget/bookings/pro-website-training
+        - generic [ref=e196]: Book a free call
+        - img [ref=e197]
+      - paragraph [ref=e200]: 30 minutes · No pitch
+  - contentinfo [ref=e201]:
+    - generic: FASULO
+    - generic [ref=e202]:
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - generic [ref=e206]: JT Fasulo
+          - generic [ref=e207]:
+            - link "Instagram" [ref=e208] [cursor=pointer]:
+              - /url: https://www.instagram.com/fasulostudio/
+              - img [ref=e209]
+            - link "Facebook" [ref=e212] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61587073324051
+              - img [ref=e213]
+            - link "TikTok" [ref=e215] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@fasulostudio?lang=en
+              - img [ref=e216]
+        - generic [ref=e218]:
+          - generic [ref=e219]: Navigation
+          - list [ref=e220]:
+            - listitem [ref=e221]:
+              - link "Home" [ref=e222] [cursor=pointer]:
+                - /url: /
+                - text: Home
+            - listitem [ref=e224]:
+              - link "Privacy Policy" [ref=e225] [cursor=pointer]:
+                - /url: /privacy-policy
+                - text: Privacy Policy
+      - generic [ref=e227]:
+        - generic [ref=e228]:
+          - img "Sybago" [ref=e229]
+          - generic [ref=e230]:
+            - paragraph [ref=e231]: SYBAGO LLC
+            - paragraph [ref=e232]: 116 W 9th St, Wilmington, DE 19801
+        - paragraph [ref=e233]: jtfasulo.com is operated by SYBAGO LLC. By submitting your email you agree to receive the guide and occasional updates. Unsubscribe anytime via the link in any email we send.
+      - generic [ref=e234]:
+        - paragraph [ref=e235]: © 2026 SYBAGO LLC. All rights reserved.
+        - generic [ref=e236]:
+          - link "Privacy Policy" [ref=e237] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "jtfasulo.com" [ref=e238] [cursor=pointer]:
+            - /url: https://jtfasulo.com
+            - text: jtfasulo.com
+            - img [ref=e239]

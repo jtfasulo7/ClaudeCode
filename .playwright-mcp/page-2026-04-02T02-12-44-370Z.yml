@@ -1,0 +1,80 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - heading "Fasulostudio" [level=1] [ref=e5]
+    - paragraph [ref=e6]: AI Newsletter
+    - paragraph [ref=e7]: Week of April 1, 2026 · Covering March 26 – April 1
+  - generic [ref=e8]:
+    - paragraph [ref=e9]: Section I
+    - heading "Tool Spotlight" [level=2] [ref=e10]
+    - generic [ref=e11]:
+      - heading "Qwen3.5-Omni" [level=3] [ref=e12]
+      - paragraph [ref=e13]: Alibaba quietly dropped this on March 30 and it's kind of absurd. One model that handles text, images, 10+ hours of audio, and video — natively, in a single pass. It speaks 113 languages. It beat Google's Gemini 3.1 Pro on audio benchmarks. And it's open-source.
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: How to use it now
+        - paragraph [ref=e16]: "The wildest feature nobody's talking about: \"Audio-Visual Vibe Coding.\" Record your screen doing a task, feed the video to Qwen3.5-Omni, and it writes working code based on what it sees and hears. Three sizes available (Plus, Flash, Light) with 256k context. Grab it on Hugging Face or via the Qwen API."
+      - paragraph [ref=e17]: An open-source model outperforming Google's flagship on audio. The moat between closed and open models is basically a puddle now.
+    - generic [ref=e18]:
+      - heading "Claude Computer Use + Dispatch" [level=3] [ref=e19]
+      - paragraph [ref=e20]: "Anthropic did something genuinely new on March 23. Claude can now take over your Mac — clicking, typing, opening apps, running browser workflows. No setup. No plugins. But the real move is pairing it with Dispatch: you text Claude a task from your iPhone while you're out, and it executes the whole thing on your desktop. You come home to finished work. That's not a gimmick. That's a shift."
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: How to use it now
+        - paragraph [ref=e23]: Claude Pro or Max on macOS. Open Claude Desktop, flip on Computer Use in settings. It tries connectors first (Slack, Gmail, etc.) and falls back to raw screen control when there's no shortcut. Leave your laptop open, assign tasks from your phone. Seriously — try it with something tedious you've been putting off.
+      - paragraph [ref=e24]: This is the first "delegate from your phone, pick up finished work at your desk" experience that actually works. Everyone else is still demoing.
+    - generic [ref=e25]:
+      - heading "Bluesky Attie" [level=3] [ref=e26]
+      - paragraph [ref=e27]: Launched March 30. Every other social platform decides what you see. Bluesky just said "build your own algorithm" — and made it dead simple. Describe your ideal feed in plain English and Attie generates a custom filter. No code. No technical knowledge.
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: How to use it now
+        - paragraph [ref=e30]: Bluesky → Feeds → Attie. Type something like "AI research papers but not product launches" or "indie game devs posting progress updates." It builds the algorithm. You save it, share it, tweak it. The fun part is getting weird with it.
+      - paragraph [ref=e31]: User-controlled algorithms are the opposite of what Big Tech wants. Now AI makes them accessible to people who can't write code. That matters.
+  - generic [ref=e34]:
+    - paragraph [ref=e35]: Section II
+    - heading "Quick Wins" [level=2] [ref=e36]
+    - table [ref=e38]:
+      - rowgroup [ref=e39]:
+        - 'row "01 Claude''s Dispatch trick nobody''s using yet: assign multi-step research before bed (\"compare these 5 competitors, put findings in a Google Doc with a summary table\"). You wake up to finished work. It sounds too good. It mostly is — but the 80% it nails saves you hours." [ref=e40]':
+          - cell "01" [ref=e41]
+          - 'cell "Claude''s Dispatch trick nobody''s using yet: assign multi-step research before bed (\"compare these 5 competitors, put findings in a Google Doc with a summary table\"). You wake up to finished work. It sounds too good. It mostly is — but the 80% it nails saves you hours." [ref=e42]'
+    - table [ref=e44]:
+      - rowgroup [ref=e45]:
+        - row "02 Qwen3.5-Omni has \"semantic interruption\" — it knows the difference between you saying \"mm-hmm\" and \"wait, stop\" during voice conversations. Sounds small. It's not. Every other voice AI treats any sound as an interruption and cuts itself off mid-sentence. This one actually listens." [ref=e46]:
+          - cell "02" [ref=e47]
+          - cell "Qwen3.5-Omni has \"semantic interruption\" — it knows the difference between you saying \"mm-hmm\" and \"wait, stop\" during voice conversations. Sounds small. It's not. Every other voice AI treats any sound as an interruption and cuts itself off mid-sentence. This one actually listens." [ref=e48]
+    - table [ref=e50]:
+      - rowgroup [ref=e51]:
+        - row "03 Anthropic dropped a Compliance API on March 30 with zero fanfare. If you're building with Claude's API in healthcare, finance, or anything regulated — you now get programmatic audit logs. No more manual CSV exports. This is the boring infrastructure that actually unblocks enterprise deals." [ref=e52]:
+          - cell "03" [ref=e53]
+          - cell "Anthropic dropped a Compliance API on March 30 with zero fanfare. If you're building with Claude's API in healthcare, finance, or anything regulated — you now get programmatic audit logs. No more manual CSV exports. This is the boring infrastructure that actually unblocks enterprise deals." [ref=e54]
+    - table [ref=e56]:
+      - rowgroup [ref=e57]:
+        - row "04 ARC-AGI-3 launched this week with a $2M prize. Every frontier model — GPT-5.4, Claude, Gemini, all of them — scored under 1%. If someone tells you AI \"basically thinks like a human now,\" send them this benchmark. It measures actual reasoning, not pattern matching. Humbling stuff." [ref=e58]:
+          - cell "04" [ref=e59]
+          - cell "ARC-AGI-3 launched this week with a $2M prize. Every frontier model — GPT-5.4, Claude, Gemini, all of them — scored under 1%. If someone tells you AI \"basically thinks like a human now,\" send them this benchmark. It measures actual reasoning, not pattern matching. Humbling stuff." [ref=e60]
+    - table [ref=e62]:
+      - rowgroup [ref=e63]:
+        - 'row "05 Security alert: if you updated Claude Code via npm on March 31 between 00:21–03:29 UTC, check your install. A supply chain attack through a trojanized Axios dependency hit that exact window. Run npm audit and update immediately. Not a drill." [ref=e64]':
+          - cell "05" [ref=e65]
+          - 'cell "Security alert: if you updated Claude Code via npm on March 31 between 00:21–03:29 UTC, check your install. A supply chain attack through a trojanized Axios dependency hit that exact window. Run npm audit and update immediately. Not a drill." [ref=e66]':
+            - text: "Security alert: if you updated Claude Code via npm on March 31 between 00:21–03:29 UTC, check your install. A supply chain attack through a trojanized Axios dependency hit that exact window. Run"
+            - code [ref=e67]: npm audit
+            - text: and update immediately. Not a drill.
+  - generic [ref=e70]:
+    - paragraph [ref=e71]: Section III
+    - heading "Industry Moves" [level=2] [ref=e72]
+    - generic [ref=e73]:
+      - paragraph [ref=e74]: Anthropic
+      - paragraph [ref=e75]: Rough week. On March 26, details of an unreleased model called "Claude Mythos" leaked from an unsecured database — it's a tier above Opus with what insiders call "unprecedented" cybersecurity capabilities. Five days later, Claude Code's entire source code (512k lines of TypeScript) spilled through an npm source map mistake. That leak revealed an unreleased feature called KAIROS — a persistent background agent that runs tasks without human input. Two breaches in five days from the company that brands itself as the safety lab.
+      - paragraph [ref=e76]: → The Mythos leak is actually bullish — it confirms something significantly beyond current Opus exists. But the optics are terrible, especially with IPO talks heating up for Q4.
+    - generic [ref=e77]:
+      - paragraph [ref=e78]: Apple
+      - paragraph [ref=e79]: "iOS 27 will let Claude, Gemini, and other AI models plug directly into the iPhone through a new Extensions system. Apple's also building its own chatbot — codenamed \"Campos\" — powered by Google's 1.2 trillion parameter Gemini model running on Apple's Private Cloud Compute. Classic Apple: let everyone else build the hard part, then own the distribution."
+      - paragraph [ref=e80]: → When Claude and Gemini are baked into iOS, the "which AI should I use?" question disappears for a billion people. That's not a feature update. That's a market restructuring.
+    - generic [ref=e81]:
+      - paragraph [ref=e82]: Arm
+      - paragraph [ref=e83]: Unveiled what they're calling the "AGI CPU" — a 136-core, 3nm chip built specifically for AI inference. Meta's the launch customer. OpenAI, Cloudflare, and SAP are in. This is a direct shot at Nvidia's stranglehold on AI compute.
+      - paragraph [ref=e84]: → If inference costs drop, API prices drop. If API prices drop, the cost of building with AI drops for everyone. Watch this one — it's infrastructure, not hype, and that's where the real shifts happen.
+  - generic [ref=e85]:
+    - paragraph [ref=e86]: Fasulostudio · jtfasulo.com
+    - paragraph [ref=e87]:
+      - link "UNSUBSCRIBE" [ref=e88] [cursor=pointer]:
+        - /url: "#"

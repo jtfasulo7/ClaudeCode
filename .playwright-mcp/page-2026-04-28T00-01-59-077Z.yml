@@ -1,0 +1,110 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "JT Fasulo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: JT Fasulo
+      - navigation [ref=e9]:
+        - link "Newsletter" [ref=e10] [cursor=pointer]:
+          - /url: /newsletter
+          - text: Newsletter
+        - link "Get the Guide" [ref=e11] [cursor=pointer]:
+          - /url: "#lm-email"
+          - generic [ref=e12]: Get the Guide
+  - main [ref=e13]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e21]:
+          - img [ref=e22]
+          - text: Free 2026 Edition · PDF
+        - heading "The Beginner's Guide to AI in Entrepreneurship" [level=1] [ref=e26]:
+          - generic [ref=e27]: The Beginner's Guide
+          - generic [ref=e28]: to AI in
+          - generic [ref=e29]: Entrepreneurship
+        - paragraph [ref=e30]: A free, no-fluff PDF for founders and operators who want to use AI to build, ship, and scale a real business — without wasting six months figuring out which tools matter.
+        - list [ref=e31]:
+          - listitem [ref=e32]:
+            - img [ref=e34]
+            - generic [ref=e36]: Pick the right AI tools for your stage of business — without the buzzword soup
+          - listitem [ref=e37]:
+            - img [ref=e39]
+            - generic [ref=e41]: Design a 90-day operating cadence that compounds AI leverage week over week
+          - listitem [ref=e42]:
+            - img [ref=e44]
+            - generic [ref=e46]: Build a lean tech stack that scales from solo founder to first hire
+          - listitem [ref=e47]:
+            - img [ref=e49]
+            - generic [ref=e51]: Avoid the seven mistakes that cost early-stage founders six figures
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - img [ref=e55]
+            - text: Free 2026 Edition
+          - generic [ref=e57]:
+            - img [ref=e59]
+            - text: Beginner Friendly
+          - generic [ref=e61]:
+            - img [ref=e63]
+            - text: Actionable, No Fluff
+      - generic [ref=e68]:
+        - generic [ref=e71]: Get the Guide
+        - heading "Send me the free guide." [level=2] [ref=e72]
+        - paragraph [ref=e73]: Drop your email below. The PDF downloads immediately, and we'll send a copy to your inbox so you can come back to it.
+        - generic [ref=e74]:
+          - generic [ref=e75]: Your Email
+          - textbox "Your Email" [ref=e76]:
+            - /placeholder: you@yourcompany.com
+          - button "Send My Free Guide" [ref=e77] [cursor=pointer]:
+            - generic [ref=e78]: Send My Free Guide
+            - img [ref=e79]
+          - paragraph [ref=e81]: No spam. No course pitch. One PDF, delivered.
+  - contentinfo [ref=e82]:
+    - generic: FASULO
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e87]: Free Guide
+        - heading "Start your AI journey the right way." [level=3] [ref=e88]:
+          - text: Start your AI journey
+          - text: the right way.
+      - link "Get the Free Guide" [ref=e89] [cursor=pointer]:
+        - /url: "#lm-email"
+        - generic [ref=e90]: Get the Free Guide
+        - img [ref=e91]
+    - generic [ref=e94]:
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e98]: JT Fasulo
+          - paragraph [ref=e99]: A free PDF guide for founders getting started with AI in entrepreneurship. Plus a weekly newsletter on what actually matters in AI.
+          - generic [ref=e100]:
+            - link "Twitter / X" [ref=e101] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e102]
+            - link "LinkedIn" [ref=e108] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e109]
+            - link "Instagram" [ref=e112] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e113]
+            - link "YouTube" [ref=e117] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e118]
+        - generic [ref=e120]:
+          - generic [ref=e121]: Navigation
+          - list [ref=e122]:
+            - listitem [ref=e123]:
+              - link "Home" [ref=e124] [cursor=pointer]:
+                - /url: /
+                - text: Home
+            - listitem [ref=e126]:
+              - link "Newsletter" [ref=e127] [cursor=pointer]:
+                - /url: /newsletter
+                - text: Newsletter
+            - listitem [ref=e129]:
+              - link "Get the Guide" [ref=e130] [cursor=pointer]:
+                - /url: "#lm-email"
+                - text: Get the Guide
+      - generic [ref=e132]:
+        - paragraph [ref=e133]: © 2026 JT Fasulo. All rights reserved.
+        - link "jtfasulo.com" [ref=e135] [cursor=pointer]:
+          - /url: https://jtfasulo.com
+          - text: jtfasulo.com
+          - img [ref=e136]

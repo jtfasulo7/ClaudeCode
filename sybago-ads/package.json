@@ -1,0 +1,28 @@
+{
+  "name": "sybago-ads",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sybago ad B-roll videos built with Remotion",
+  "scripts": {
+    "studio": "remotion studio",
+    "render:s1": "remotion render Scene1Voicemail out/scene-1-voicemail.mp4",
+    "render:s2": "remotion render Scene2TextBack out/scene-2-textback.mp4",
+    "render:s3": "remotion render Scene3DeadLead out/scene-3-deadlead.mp4",
+    "render:s4": "remotion render Scene4Reviews out/scene-4-reviews.mp4",
+    "render:s5": "remotion render Scene5TrustCTA out/scene-5-trustcta.mp4",
+    "render:preview": "remotion render FullPreview out/full-cut-preview.mp4",
+    "render:all": "npm run render:s1 && npm run render:s2 && npm run render:s3 && npm run render:s4 && npm run render:s5 && npm run render:preview"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.4.0"
+  }
+}

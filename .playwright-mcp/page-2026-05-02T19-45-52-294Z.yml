@@ -1,0 +1,124 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "JT Fasulo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: JT Fasulo
+      - button "Toggle menu" [ref=e9] [cursor=pointer]:
+        - img [ref=e10]
+  - main [ref=e11]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - heading "The Beginner's Guide to AI in Entrepreneurship" [level=1] [ref=e19]:
+          - generic [ref=e20]: The Beginner's Guide
+          - generic [ref=e21]: to AI in
+          - generic [ref=e22]: Entrepreneurship
+        - paragraph [ref=e23]: A free, no-fluff PDF for founders and operators who want to use AI to build, ship, and scale a real business — without wasting six months figuring out which tools matter.
+        - list [ref=e24]:
+          - listitem [ref=e25]:
+            - img [ref=e27]
+            - generic [ref=e29]: Pick the right AI tools for your stage of business — without the buzzword soup
+          - listitem [ref=e30]:
+            - img [ref=e32]
+            - generic [ref=e34]: Design a 90-day operating cadence that compounds AI leverage week over week
+          - listitem [ref=e35]:
+            - img [ref=e37]
+            - generic [ref=e39]: Build a lean tech stack that scales from solo founder to first hire
+          - listitem [ref=e40]:
+            - img [ref=e42]
+            - generic [ref=e44]: Avoid the seven mistakes that cost early-stage founders six figures
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - img [ref=e48]
+            - text: Free 2026 Edition
+          - generic [ref=e50]:
+            - img [ref=e52]
+            - text: Beginner Friendly
+          - generic [ref=e54]:
+            - img [ref=e56]
+            - text: Actionable, No Fluff
+      - generic [ref=e61]:
+        - heading "Send me the free guide." [level=2] [ref=e62]
+        - paragraph [ref=e63]: Drop your email below. The PDF downloads immediately, and we'll send a copy to your inbox so you can come back to it.
+        - generic [ref=e64]:
+          - generic [ref=e65]: Your Email
+          - textbox "Your Email" [ref=e66]:
+            - /placeholder: you@yourcompany.com
+          - generic [ref=e67] [cursor=pointer]:
+            - generic [ref=e68]:
+              - checkbox "I agree to the Privacy Policy and consent to receive the guide and occasional updates from JT Fasulo / SYBAGO LLC." [ref=e69]
+              - img [ref=e71]
+            - generic [ref=e73]:
+              - text: I agree to the
+              - link "Privacy Policy" [ref=e74]:
+                - /url: /privacy-policy
+              - text: and consent to receive the guide and occasional updates from JT Fasulo / SYBAGO LLC.
+          - button "Send My Free Guide" [disabled] [ref=e75]:
+            - generic [ref=e76]: Send My Free Guide
+            - img [ref=e77]
+          - paragraph [ref=e79]:
+            - text: By entering your email, you agree to receive the guide and occasional updates from JT Fasulo / SYBAGO LLC. We don't share your email. Unsubscribe anytime.
+            - link "Privacy Policy" [ref=e80] [cursor=pointer]:
+              - /url: /privacy-policy
+            - text: .
+  - contentinfo [ref=e81]:
+    - generic: FASULO
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - generic [ref=e86]: Free Guide
+        - heading "Start your AI journey the right way." [level=3] [ref=e87]:
+          - text: Start your AI journey
+          - text: the right way.
+      - link "Get the Free Guide" [ref=e88] [cursor=pointer]:
+        - /url: "#lm-email"
+        - generic [ref=e89]: Get the Free Guide
+        - img [ref=e90]
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e97]: JT Fasulo
+          - paragraph [ref=e98]: A free PDF guide for founders getting started with AI in entrepreneurship. Plus a weekly newsletter on what actually matters in AI.
+          - generic [ref=e99]:
+            - link "Twitter / X" [ref=e100] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e101]
+            - link "LinkedIn" [ref=e107] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e108]
+            - link "Instagram" [ref=e111] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e112]
+            - link "YouTube" [ref=e116] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e117]
+        - generic [ref=e119]:
+          - generic [ref=e120]: Navigation
+          - list [ref=e121]:
+            - listitem [ref=e122]:
+              - link "Home" [ref=e123] [cursor=pointer]:
+                - /url: /
+                - text: Home
+            - listitem [ref=e125]:
+              - link "Get the Guide" [ref=e126] [cursor=pointer]:
+                - /url: "#lm-email"
+                - text: Get the Guide
+            - listitem [ref=e128]:
+              - link "Privacy Policy" [ref=e129] [cursor=pointer]:
+                - /url: /privacy-policy
+                - text: Privacy Policy
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - img "Sybago" [ref=e133]
+          - generic [ref=e134]:
+            - paragraph [ref=e135]: SYBAGO LLC
+            - paragraph [ref=e136]: 116 W 9th St, Wilmington, DE 19801
+        - paragraph [ref=e137]: jtfasulo.com is operated by SYBAGO LLC. By submitting your email you agree to receive the guide and occasional updates. Unsubscribe anytime via the link in any email we send.
+      - generic [ref=e138]:
+        - paragraph [ref=e139]: © 2026 SYBAGO LLC. All rights reserved.
+        - generic [ref=e140]:
+          - link "Privacy Policy" [ref=e141] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "jtfasulo.com" [ref=e142] [cursor=pointer]:
+            - /url: https://jtfasulo.com
+            - text: jtfasulo.com
+            - img [ref=e143]

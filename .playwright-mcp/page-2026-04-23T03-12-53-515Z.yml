@@ -1,0 +1,318 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Coach Fish Services" [ref=e5] [cursor=pointer]:
+        - /url: "#top"
+        - generic [ref=e6]: CF
+        - generic [ref=e7]:
+          - text: Coach Fish
+          - emphasis [ref=e8]: Services
+      - navigation "Primary" [ref=e9]:
+        - link "Story" [ref=e10] [cursor=pointer]:
+          - /url: "#story"
+        - link "Method" [ref=e11] [cursor=pointer]:
+          - /url: "#method"
+        - link "Results" [ref=e12] [cursor=pointer]:
+          - /url: "#results"
+        - link "Pricing" [ref=e13] [cursor=pointer]:
+          - /url: "#pricing"
+      - link "Book a call" [ref=e14] [cursor=pointer]:
+        - /url: "#book"
+        - text: Book a call
+        - generic [ref=e15]: →
+  - main [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - paragraph [ref=e20]:
+          - generic [ref=e21]: № 01
+          - text: — Independent college recruiting · Phoenix, AZ
+        - heading "Recruited by design." [level=1] [ref=e22]:
+          - generic [ref=e24]: Recruited
+          - emphasis [ref=e27]: by design.
+        - paragraph [ref=e28]: Fifteen years of scout-level evaluation. A network of more than fifty thousand college coaches. One athlete, one plan, one honest path — across every sport and every division.
+        - generic [ref=e29]:
+          - link "Book a 30-minute consultation" [ref=e30] [cursor=pointer]:
+            - /url: "#book"
+            - text: Book a 30-minute consultation
+            - generic [ref=e31]: →
+          - link "See the method" [ref=e32] [cursor=pointer]:
+            - /url: "#method"
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - term [ref=e35]: Founder
+            - definition [ref=e36]: Kiyoshi “Terrell” Fish
+          - generic [ref=e37]:
+            - term [ref=e38]: Based
+            - definition [ref=e39]: Phoenix, Arizona
+          - generic [ref=e40]:
+            - term [ref=e41]: Serves
+            - definition [ref=e42]: Families nationwide
+      - figure "FILM № 01 The coach network, visualized" [ref=e43]:
+        - generic "Coach Fish Services — coach network across the United States" [ref=e45]
+        - generic [ref=e46]:
+          - generic [ref=e47]: FILM № 01
+          - generic [ref=e48]: The coach network, visualized
+    - region "Credentials" [ref=e49]:
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]: "15"
+          - generic [ref=e53]: Years in sport evaluation
+        - generic [ref=e54]:
+          - generic [ref=e55]: NFL
+          - generic [ref=e56]: Scout-level background
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - text: 52,000
+            - superscript [ref=e59]: +
+          - generic [ref=e60]: College coaches in network
+        - generic [ref=e61]:
+          - generic [ref=e62]: All
+          - generic [ref=e63]: Sports, every division
+    - region "The recruiting game has changed. The rules families play by haven’t." [ref=e64]:
+      - generic [ref=e65]:
+        - paragraph [ref=e66]:
+          - generic [ref=e67]: № 02
+          - text: — The landscape
+        - heading "The recruiting game has changed. The rules families play by haven’t." [level=2] [ref=e68]:
+          - text: The recruiting game has changed.
+          - emphasis [ref=e69]: The rules families play by haven’t.
+        - generic [ref=e70]:
+          - article [ref=e71]:
+            - heading "Showcase inflation." [level=3] [ref=e72]
+            - paragraph [ref=e73]: Thousands of athletes now attend the same combines. Being seen is no longer the same as being chosen. Film, context, and an honest evaluation are what move the needle.
+          - article [ref=e74]:
+            - heading "Highlight-reel fatigue." [level=3] [ref=e75]
+            - paragraph [ref=e76]: Coaches watch clips in three-second decisions. A reel without a story, without a target list, without a trusted voice attached — it lives in a thousand unread inboxes.
+          - article [ref=e77]:
+            - heading "Noise, not signal." [level=3] [ref=e78]
+            - paragraph [ref=e79]: AI platforms and mass-email services treat recruiting like a volume game. College coaches treat it like a relationship. The bridge between those two worlds is what we do.
+    - region "From Youngstown to the NCAA." [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - paragraph [ref=e83]:
+            - generic [ref=e84]: № 03
+            - text: — The founder
+          - heading "From Youngstown to the NCAA." [level=2] [ref=e85]
+          - paragraph [ref=e86]:
+            - generic [ref=e87]: K
+            - text: iyoshi “Terrell” Fish was raised in Youngstown, Ohio — one of fourteen siblings in a house built on a nearly fifty-year marriage. That’s not color; that’s the operating system. Big families teach you how to see the whole room. How to advocate for someone quieter than you. How to tell the difference between a real opportunity and a promise that won’t cash.
+          - paragraph [ref=e88]: "Fifteen years in sport evaluation followed: NFL scouting that helped surface names like Curtis Marsh and Spencer Paysinger, sideline work as a quarterback and wide-receiver coach, and a state-championship culture he helped build from inside the program. The eye was trained the long way."
+          - paragraph [ref=e89]: Then came the part most recruiters don’t have. A Master’s in Psychology from the University of Phoenix. A parallel career as a social worker with the Department of Child Safety — ten years of advocating for young people whose futures depended on somebody in the room paying attention. That is the work. Recruiting is the same work, translated to film rooms and offer letters.
+          - figure "— Kiyoshi T. Fish, Highway of Life" [ref=e90]:
+            - blockquote [ref=e91]: “As you travel the highway of life, face the future with confidence — and appreciate everyone who comes across your path. Because everybody is somebody.”
+            - generic [ref=e92]: — Kiyoshi T. Fish, Highway of Life
+          - paragraph [ref=e93]: Today he works independently out of Phoenix, Arizona. No university payroll. No conference allegiances. No quota to hit. His job is the family in front of him, and the college coach he’s about to pick up the phone and call.
+        - complementary [ref=e94]:
+          - img "Portrait of Kiyoshi ‘Terrell’ Fish" [ref=e95]:
+            - generic [ref=e96]:
+              - img [ref=e97]
+              - generic [ref=e101]: PORTRAIT · TO BE SUPPLIED
+          - generic [ref=e102]:
+            - generic [ref=e103]: FIG. 01
+            - text: Kiyoshi “Terrell” Fish · Phoenix, AZ
+          - generic [ref=e104]:
+            - generic [ref=e105]:
+              - term [ref=e106]: Education
+              - definition [ref=e107]: Kent State · Youngstown State · M.A. Psychology, University of Phoenix
+            - generic [ref=e108]:
+              - term [ref=e109]: Author
+              - definition [ref=e110]: Highway of Life
+            - generic [ref=e111]:
+              - term [ref=e112]: Sport background
+              - definition [ref=e113]: NFL scouting, basketball, soccer, football positional coaching
+            - generic [ref=e114]:
+              - term [ref=e115]: Parallel work
+              - definition [ref=e116]: Social worker, Dept. of Child Safety
+    - region "Six stages. No shortcuts." [ref=e117]:
+      - generic [ref=e118]:
+        - paragraph [ref=e119]:
+          - generic [ref=e120]: № 04
+          - text: — The method
+        - heading "Six stages. No shortcuts." [level=2] [ref=e121]:
+          - text: Six stages.
+          - emphasis [ref=e122]: No shortcuts.
+        - list [ref=e123]:
+          - listitem [ref=e124]:
+            - generic [ref=e125]: I.
+            - generic [ref=e126]:
+              - heading "Evaluation" [level=3] [ref=e127]
+              - paragraph [ref=e128]: An honest, scout-level assessment of your athlete’s ceiling, fit, and realistic division range. We tell you what we see — not what you want to hear.
+          - listitem [ref=e129]:
+            - generic [ref=e130]: II.
+            - generic [ref=e131]:
+              - heading "Positioning" [level=3] [ref=e132]
+              - paragraph [ref=e133]: A profile, a film, and a narrative built the way coaches actually consume them. Bio, stats, GPA, test scores, character — every detail in its correct place.
+          - listitem [ref=e134]:
+            - generic [ref=e135]: III.
+            - generic [ref=e136]:
+              - heading "Targeting" [level=3] [ref=e137]
+              - paragraph [ref=e138]: "A custom list of programs built across three fits: division fit, academic fit, coach fit. From over 52,000 college coaches, we shortlist the ones who’d actually want you."
+          - listitem [ref=e139]:
+            - generic [ref=e140]: IV.
+            - generic [ref=e141]:
+              - heading "Outreach" [level=3] [ref=e142]
+              - paragraph [ref=e143]: Coach-to-coach conversations, not mass emails. The introduction your athlete can’t make for themselves — made on their behalf by someone coaches already know.
+          - listitem [ref=e144]:
+            - generic [ref=e145]: V.
+            - generic [ref=e146]:
+              - heading "Navigation" [level=3] [ref=e147]
+              - paragraph [ref=e148]: NCAA and NAIA eligibility. Camp and showcase strategy. Official visits, unofficial visits, and the hundred small decisions that add up to an offer.
+          - listitem [ref=e149]:
+            - generic [ref=e150]: VI.
+            - generic [ref=e151]:
+              - heading "Commitment" [level=3] [ref=e152]
+              - paragraph [ref=e153]: Scholarship strategy. Financial aid review. Letter-of-intent walkthrough. We stay in the room until the right decision is signed and celebrated.
+    - region "The money is there. It rewards the prepared." [ref=e154]:
+      - generic [ref=e155]:
+        - paragraph [ref=e156]:
+          - generic [ref=e157]: № 05
+          - text: — By the numbers
+        - heading "The money is there. It rewards the prepared." [level=2] [ref=e158]:
+          - text: The money is there.
+          - emphasis [ref=e159]: It rewards the prepared.
+        - generic [ref=e160]:
+          - generic [ref=e161]:
+            - generic [ref=e162]: 58%
+            - generic [ref=e163]: of NCAA Division I student-athletes receive athletic aid.
+          - generic [ref=e164]:
+            - generic [ref=e165]: 67%
+            - generic [ref=e166]: of NCAA Division II student-athletes receive athletic aid.
+          - generic [ref=e167]:
+            - generic [ref=e168]: 80%
+            - generic [ref=e169]: of NCAA Division III students receive academic or need-based aid.
+          - generic [ref=e170]:
+            - generic [ref=e171]: $17k
+            - generic [ref=e172]: average institutional gift aid at Division III programs.
+        - generic [ref=e173]:
+          - heading "Names along the way." [level=3] [ref=e174]
+          - paragraph [ref=e175]: Curtis Marsh. Spencer Paysinger. Talent surfaced during his NFL scouting years — both became professional athletes. Fifteen years of quiet work; names we’re proud of.
+          - list [ref=e176]:
+            - listitem [ref=e177]:
+              - generic [ref=e178]: NFL · DB
+              - strong [ref=e179]: Curtis Marsh
+              - emphasis [ref=e180]: Scouted during pro evaluation
+            - listitem [ref=e181]:
+              - generic [ref=e182]: NFL · LB
+              - strong [ref=e183]: Spencer Paysinger
+              - emphasis [ref=e184]: Scouted during pro evaluation
+            - listitem [ref=e185]:
+              - generic [ref=e186]: 2026 COHORT
+              - strong [ref=e187]: Your athlete.
+              - emphasis [ref=e188]: The next name on this list.
+        - complementary "Testimonial" [ref=e189]:
+          - paragraph [ref=e190]: Testimonial — slot reserved
+          - blockquote [ref=e191]: “A short, verified parent or athlete quote lives here. Clean, specific, signed with name, graduation year, and school.”
+    - region "Two ways to work together." [ref=e192]:
+      - generic [ref=e193]:
+        - paragraph [ref=e194]:
+          - generic [ref=e195]: № 06
+          - text: — Membership
+        - heading "Two ways to work together." [level=2] [ref=e196]
+        - generic [ref=e197]:
+          - article [ref=e198]:
+            - generic [ref=e199]:
+              - heading "Monthly" [level=3] [ref=e200]
+              - paragraph [ref=e201]: $75 / month
+              - paragraph [ref=e202]: Month-to-month partnership. Cancel any time.
+            - link "Start monthly →" [ref=e203] [cursor=pointer]:
+              - /url: "#book"
+          - article [ref=e204]:
+            - generic [ref=e205]: Save $200
+            - generic [ref=e206]:
+              - heading "Annual" [level=3] [ref=e207]
+              - paragraph [ref=e208]: $700 / year
+              - paragraph [ref=e209]: Committed partnership. Built for the full recruiting cycle.
+            - link "Start annual →" [ref=e210] [cursor=pointer]:
+              - /url: "#book"
+        - generic [ref=e211]:
+          - heading "Every membership includes" [level=4] [ref=e212]
+          - list [ref=e213]:
+            - listitem [ref=e214]: One-on-one athlete evaluation and ongoing consultation
+            - listitem [ref=e215]: Professional profile — bio, stats, GPA, film links
+            - listitem [ref=e216]: Highlight video editing and coach distribution
+            - listitem [ref=e217]: Custom college target list across all division levels
+            - listitem [ref=e218]: Personalized coach outreach, not mass email
+            - listitem [ref=e219]: NCAA / NAIA eligibility guidance
+            - listitem [ref=e220]: Showcase and camp recommendations
+            - listitem [ref=e221]: Scholarship and financial aid strategy
+            - listitem [ref=e222]: Ongoing progress tracking to commitment day
+    - region "Answered honestly." [ref=e223]:
+      - generic [ref=e224]:
+        - paragraph [ref=e225]:
+          - generic [ref=e226]: № 07
+          - text: — Questions
+        - heading "Answered honestly." [level=2] [ref=e227]
+        - generic [ref=e228]:
+          - generic [ref=e229]:
+            - term [ref=e230]: When should we start?
+            - definition [ref=e231]: Ideally in the sophomore or early junior year of high school. Earlier is better for national-caliber athletes. Later is still workable — we’ve placed seniors deep into the spring cycle.
+          - generic [ref=e232]:
+            - term [ref=e233]: Which sports do you actually cover?
+            - definition [ref=e234]: Every sport. Football, basketball, baseball, softball, soccer, volleyball, lacrosse, track, swimming, wrestling, tennis, golf — men’s and women’s. If there’s a college coach recruiting it, we can reach them.
+          - generic [ref=e235]:
+            - term [ref=e236]: Which divisions?
+            - definition [ref=e237]: NCAA Division I, II, III, NAIA, and JUCO. The right division is the one where your athlete will actually play, develop, and graduate — not the one with the biggest logo.
+          - generic [ref=e238]:
+            - term [ref=e239]: How is this different from a recruiting platform?
+            - definition [ref=e240]: Platforms hand you a database and a template. We do the phone call. The introductions are made by a human coaches already know — that’s the entire difference.
+          - generic [ref=e241]:
+            - term [ref=e242]: Do you work with parents, athletes, or both?
+            - definition [ref=e243]: Both, as a unit. Parents handle logistics and finances. Athletes handle training and decisions. We translate between the two and keep everyone moving in the same direction.
+          - generic [ref=e244]:
+            - term [ref=e245]: Is a scholarship guaranteed?
+            - definition [ref=e246]: No — and be wary of anyone who tells you otherwise. What’s guaranteed is honest evaluation, direct coach access, and a process built to maximize every real opportunity.
+    - region "Let’s talk about your athlete." [ref=e247]:
+      - generic [ref=e248]:
+        - paragraph [ref=e249]:
+          - generic [ref=e250]: № 08
+          - text: — Begin
+        - heading "Let’s talk about your athlete." [level=2] [ref=e251]:
+          - text: Let’s talk about
+          - emphasis [ref=e252]: your athlete.
+        - paragraph [ref=e253]: A thirty-minute conversation, no cost, no commitment. You leave with a clear read on where your athlete stands and what the next twelve months should look like.
+        - link "Book a 30-minute consultation" [ref=e254] [cursor=pointer]:
+          - /url: https://calendly.com/coachfish2024/30min
+          - text: Book a 30-minute consultation
+          - generic [ref=e255]: →
+        - paragraph [ref=e256]: Phoenix, AZ · Serving families nationwide · 9:00a–5:00p ET
+  - contentinfo [ref=e257]:
+    - generic [ref=e258]:
+      - generic [ref=e259]:
+        - paragraph [ref=e260]:
+          - text: Coach Fish
+          - emphasis [ref=e261]: Services
+        - paragraph [ref=e262]: Independent college recruiting. Every sport. Every division.
+      - generic [ref=e263]:
+        - heading "Navigate" [level=4] [ref=e264]
+        - link "Story" [ref=e265] [cursor=pointer]:
+          - /url: "#story"
+        - link "Method" [ref=e266] [cursor=pointer]:
+          - /url: "#method"
+        - link "Results" [ref=e267] [cursor=pointer]:
+          - /url: "#results"
+        - link "Pricing" [ref=e268] [cursor=pointer]:
+          - /url: "#pricing"
+      - generic [ref=e269]:
+        - heading "Connect" [level=4] [ref=e270]
+        - link "Book a call" [ref=e271] [cursor=pointer]:
+          - /url: "#book"
+        - link "Email" [ref=e272] [cursor=pointer]:
+          - /url: mailto:info@coachfishservices.com
+        - link "Calendly" [ref=e273] [cursor=pointer]:
+          - /url: https://calendly.com/coachfish2024/30min
+      - generic [ref=e274]:
+        - heading "Social" [level=4] [ref=e275]
+        - link "Instagram" [ref=e276] [cursor=pointer]:
+          - /url: "#"
+        - link "LinkedIn" [ref=e277] [cursor=pointer]:
+          - /url: "#"
+        - link "YouTube" [ref=e278] [cursor=pointer]:
+          - /url: "#"
+        - link "X" [ref=e279] [cursor=pointer]:
+          - /url: "#"
+          - text: X / Twitter
+    - generic [ref=e280]:
+      - generic [ref=e281]: © 2026 Coach Fish Services, LLC
+      - generic [ref=e282]: Designed in Phoenix, AZ

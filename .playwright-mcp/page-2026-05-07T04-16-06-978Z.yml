@@ -1,0 +1,190 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Sybago — home" [ref=e3] [cursor=pointer]:
+      - /url: /
+      - generic [ref=e4]: SYBAGO
+    - link "Book A Call" [ref=e5] [cursor=pointer]:
+      - /url: "#book"
+  - main [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: About
+        - heading "Built by an engineer, not an agency." [level=1] [ref=e10]:
+          - text: Built by an
+          - emphasis [ref=e11]: engineer
+          - text: ", not an agency."
+        - paragraph [ref=e12]: Sybago is a small operation. That's the point. The story behind it, the offer, and why every client gets a 30-day money-back guarantee.
+      - img "JT Fasulo, founder of Sybago" [ref=e14]
+    - generic [ref=e15]:
+      - paragraph [ref=e16]:
+        - text: "Two obsessions, basically my whole life:"
+        - strong [ref=e17]: software
+        - text: and
+        - strong [ref=e18]: running my own business
+        - text: . I graduated with a mechanical engineering degree, but I knew the day I picked up my diploma I was going to work for myself.
+      - paragraph [ref=e19]:
+        - text: When AI started to get
+        - emphasis [ref=e20]: actually
+        - text: good, I saw the opportunity I'd been waiting for. Not "AI for AI's sake." AI for the boring, dreaded, no-thinking-required tasks every business has to do every day. Texting back missed calls. Asking customers for reviews. Following up with old leads.
+      - paragraph [ref=e21]:
+        - text: I named the company
+        - strong [ref=e22]: Sybago
+        - text: — a play on Sebago Lake in Maine, where I was born. I figured I'd build a quiet, useful little software business that helped people get their time back.
+      - heading "Then the Facebook ads started." [level=2] [ref=e23]:
+        - text: Then the Facebook ads
+        - emphasis [ref=e24]: started.
+      - paragraph [ref=e25]:
+        - text: The week I incorporated Sybago, my feed turned into a marketing-agency knife fight.
+        - emphasis [ref=e26]: "\"We'll scale your agency with our proven lead gen system.\" \"We'll automate your pipeline.\" \"We'll optimize your funnel.\""
+        - text: Nothing but jargon. I still get dozens of these every day. I've never clicked one.
+      - paragraph [ref=e27]:
+        - text: "Then it hit me:"
+        - emphasis [ref=e28]: if I feel this way about these agencies, the service-business owners they're targeting must hate them twice as much.
+      - paragraph [ref=e29]: I dug into it and found something interesting. Service-business owners — roofers, HVAC techs, plumbers, electricians, landscapers — are some of the most-marketed-to people in the entire United States. Look it up. Their inboxes, their DMs, their voicemails — under siege.
+      - paragraph [ref=e30]: So I decided to do something most agencies would call stupid.
+      - generic [ref=e31]:
+        - text: "\"I'll build you a functional website. I'll put AI into your business that"
+        - strong [ref=e32]: texts back every missed call within 30 seconds
+        - text: ","
+        - strong [ref=e33]: automatically asks your customers for Google reviews
+        - text: so you get found more easily, and
+        - strong [ref=e34]: texts your old leads
+        - text: with a special offer to bring them back. $297 a month. If you see no change in your business after 30 days, I'll give you every cent back and you keep the website."
+        - generic [ref=e35]: — JT, on the offer
+      - paragraph [ref=e36]: That's it. No upfront fees. No hidden fluff. No bullsh*t.
+    - generic [ref=e37]:
+      - heading "Why $297." [level=2] [ref=e38]:
+        - text: Why
+        - emphasis [ref=e39]: $297
+        - text: .
+      - paragraph [ref=e40]: Most marketing agencies will charge you $2,000 a month and your left kidney for something that might not even work.
+      - paragraph [ref=e41]: I want to keep you for five years. Not four months.
+      - paragraph [ref=e42]: $297 is the price where the math works for both of us at scale — I can run a sustainable small operation if a couple hundred contractors stick with me long-term, and you can afford to actually try it without a $24,000 annual commitment.
+      - paragraph [ref=e43]: If anyone tells you it's "too cheap to be real" — fine. Skip the demo. We'll be here.
+    - generic [ref=e45]:
+      - img [ref=e47]
+      - heading "30 days. Money back. You keep the website." [level=2] [ref=e50]:
+        - text: 30 days.
+        - emphasis [ref=e51]: Money back.
+        - text: You keep the website.
+      - paragraph [ref=e52]:
+        - text: If your phone doesn't ring more, your reviews don't go up, or none of the systems do anything for you in the first 30 days —
+        - strong [ref=e53]: I refund every dollar you've paid. You keep the website we built.
+        - text: We part as friends.
+      - paragraph [ref=e54]:
+        - text: "The reason I can offer this: the systems work. The reason most agencies"
+        - emphasis [ref=e55]: can't
+        - text: "offer this: theirs don't."
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]: Values
+        - heading "Four things we don't break." [level=2] [ref=e59]
+        - paragraph [ref=e60]: Not corporate values. Just rules I'd want a vendor to follow if I were on the other side of the table.
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]: "01"
+          - heading "No Bullshit" [level=3] [ref=e64]
+          - paragraph [ref=e65]: We say what we mean. If we can't help you, we'll tell you on the demo call before you sign up.
+        - generic [ref=e66]:
+          - generic [ref=e67]: "02"
+          - heading "One Honest Price" [level=3] [ref=e68]
+          - paragraph [ref=e69]: $297. Not $297 + "platform fee" + "onboarding fee" + "success fee." Just $297, every month, until you tell us to stop.
+        - generic [ref=e70]:
+          - generic [ref=e71]: "03"
+          - heading "Earn It Every Month" [level=3] [ref=e72]
+          - paragraph [ref=e73]: Month-to-month, no contracts, 30-day money-back. We don't trap customers with contracts. We keep them by being worth it.
+        - generic [ref=e74]:
+          - generic [ref=e75]: "04"
+          - heading "Built By Someone Who Uses It" [level=3] [ref=e76]
+          - paragraph [ref=e77]: Sybago is built on the same systems we sell you. If something breaks, I feel it before you do.
+    - generic [ref=e79]:
+      - heading "Want to see it for yourself?" [level=2] [ref=e80]
+      - link "Book A Call" [ref=e81] [cursor=pointer]:
+        - /url: "#book"
+        - text: Book A Call
+        - img [ref=e82]
+      - paragraph [ref=e84]: A free 20-minute demo with me. No pitch deck. No follow-up spam.
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e87]: Book a free 20-minute call
+        - heading "Pick a time. We'll show you the rest." [level=2] [ref=e88]
+        - paragraph [ref=e89]: Live client accounts, real text messages from real leads, and exactly what your version would look like. No pitch deck.
+      - iframe [ref=e91]:
+        
+  - contentinfo [ref=e92]:
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - text: Ready to get started?
+          - generic [ref=e96]: Eight days from this call to a live system.
+        - link "Book A Call" [ref=e97] [cursor=pointer]:
+          - /url: "#book"
+          - text: Book A Call
+          - img [ref=e98]
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - link "Sybago — home" [ref=e102] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e103]: SYBAGO
+          - paragraph [ref=e104]: A website + lead-follow-up system for service contractors. $297/mo, no contracts, 30-day money-back.
+        - generic [ref=e105]:
+          - heading "Sybago" [level=4] [ref=e106]
+          - list [ref=e107]:
+            - listitem [ref=e108]:
+              - link "Pricing" [ref=e109] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e110]:
+              - link "Trades We Serve" [ref=e111] [cursor=pointer]:
+                - /url: /#trades
+            - listitem [ref=e112]:
+              - link "About" [ref=e113] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e114]:
+              - link "FAQ" [ref=e115] [cursor=pointer]:
+                - /url: /#faq
+            - listitem [ref=e116]:
+              - link "Book A Call" [ref=e117] [cursor=pointer]:
+                - /url: "#book"
+        - generic [ref=e118]:
+          - heading "Account" [level=4] [ref=e119]
+          - list [ref=e120]:
+            - listitem [ref=e121]:
+              - link "Log In" [ref=e122] [cursor=pointer]:
+                - /url: https://app.gohighlevel.com
+            - listitem [ref=e123]:
+              - link "Leave a Review" [ref=e124] [cursor=pointer]:
+                - /url: /leave-a-review.html
+            - listitem [ref=e125]:
+              - link "Contact" [ref=e126] [cursor=pointer]:
+                - /url: /contact-us.html
+            - listitem [ref=e127]:
+              - link "Call / Text Us" [ref=e128] [cursor=pointer]:
+                - /url: tel:[PHONE]
+        - generic [ref=e129]:
+          - heading "Follow JT" [level=4] [ref=e130]
+          - list [ref=e131]:
+            - listitem [ref=e132]:
+              - link "Instagram" [ref=e133] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e134]:
+              - link "YouTube" [ref=e135] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e136]:
+              - link "TikTok" [ref=e137] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e138]:
+        - generic [ref=e139]:
+          - text: Want to learn more?
+          - generic [ref=e140]: Same call, same calendar. We're not picky.
+        - link "Book A Call" [ref=e141] [cursor=pointer]:
+          - /url: "#book"
+          - text: Book A Call
+          - img [ref=e142]
+      - generic [ref=e144]:
+        - generic [ref=e145]: © 2026 Sybago. Built by people who answer their phones.
+        - generic [ref=e146]:
+          - link "Privacy" [ref=e147] [cursor=pointer]:
+            - /url: /privacy-policy.html
+          - link "Terms" [ref=e148] [cursor=pointer]:
+            - /url: /terms.html
+      - paragraph [ref=e149]: Small team, big results. Real human on the other end of the call.

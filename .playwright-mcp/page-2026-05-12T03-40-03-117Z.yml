@@ -1,0 +1,194 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "JT Fasulo" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: JT Fasulo
+      - button "Toggle menu" [ref=e9] [cursor=pointer]:
+        - img [ref=e10]
+  - main [ref=e11]:
+    - generic [ref=e16]:
+      - generic [ref=e18]: ✦ Now accepting students
+      - generic [ref=e19]:
+        - heading "Craft $10k Websites Without Coding" [level=1] [ref=e20]
+        - paragraph [ref=e21]: Learn the exact system I use to build premium, high converting sites.
+        - paragraph [ref=e22]: Built for beginners. No coding. No guessing.
+      - button "Get your guide" [ref=e25] [cursor=pointer]
+      - paragraph [ref=e32]: Scroll to learn more
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: The Playbook
+        - heading "A 100-page playbook for building $10k websites with Claude Code." [level=2] [ref=e37]
+        - paragraph [ref=e38]: Forty-two chapters, ten parts, every technique I use to ship premium sites for contractors and solo founders on $44 a month of tools. Written for total beginners — no coding experience required.
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - paragraph [ref=e41]: What's inside
+          - list [ref=e42]:
+            - listitem [ref=e43]:
+              - generic [ref=e44]: "01"
+              - generic [ref=e45]: The Stack
+              - generic [ref=e46]: 5 ch
+            - listitem [ref=e47]:
+              - generic [ref=e48]: "02"
+              - generic [ref=e49]: How Any Of This Works
+              - generic [ref=e50]: 3 ch
+            - listitem [ref=e51]:
+              - generic [ref=e52]: "03"
+              - generic [ref=e53]: The Workflow
+              - generic [ref=e54]: 4 ch
+            - listitem [ref=e55]:
+              - generic [ref=e56]: "04"
+              - generic [ref=e57]: Skills — The Unfair Advantage
+              - generic [ref=e58]: 4 ch
+            - listitem [ref=e59]:
+              - generic [ref=e60]: "05"
+              - generic [ref=e61]: Designing With 21st.dev
+              - generic [ref=e62]: 3 ch
+            - listitem [ref=e63]:
+              - generic [ref=e64]: "06"
+              - generic [ref=e65]: Higgsfield AI for Scroll Animations
+              - generic [ref=e66]: 4 ch
+            - listitem [ref=e67]:
+              - generic [ref=e68]: "07"
+              - generic [ref=e69]: SEO That Actually Works
+              - generic [ref=e70]: 5 ch
+            - listitem [ref=e71]:
+              - generic [ref=e72]: "08"
+              - generic [ref=e73]: Serverless APIs on Vercel
+              - generic [ref=e74]: 4 ch
+            - listitem [ref=e75]:
+              - generic [ref=e76]: "09"
+              - generic [ref=e77]: Shipping It
+              - generic [ref=e78]: 4 ch
+            - listitem [ref=e79]:
+              - generic [ref=e80]: "10"
+              - generic [ref=e81]: A Full Walkthrough
+              - generic [ref=e82]: 3 ch
+        - generic [ref=e83]:
+          - paragraph [ref=e84]: What you learn
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - img [ref=e87]
+              - generic [ref=e89]: What makes a site convert
+            - listitem [ref=e90]:
+              - img [ref=e91]
+              - generic [ref=e93]: Build high-end websites without learning how to code
+            - listitem [ref=e94]:
+              - img [ref=e95]
+              - generic [ref=e97]: Master AI to get the best results
+            - listitem [ref=e98]:
+              - img [ref=e99]
+              - generic [ref=e101]: Targeting high-ticket clients
+          - generic [ref=e102]:
+            - generic [ref=e103]: 100 pages
+            - generic [ref=e104]: PDF, instant download
+            - generic [ref=e105]: Lifetime access
+      - generic [ref=e106]:
+        - link "Get your guide — $39.99" [ref=e107] [cursor=pointer]:
+          - /url: https://buy.stripe.com/28E5kw2tXbZA7LBbqC8Zq03
+          - generic [ref=e108]: Get your guide — $39.99
+          - img [ref=e109]
+        - paragraph [ref=e112]: One-time · Secure checkout via Stripe
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - paragraph [ref=e115]: What “premium” actually means
+        - heading "Six things every premium site does." [level=2] [ref=e116]
+        - paragraph [ref=e117]: None of them are templates. All of them are deliberate choices. This is what separates a website from a brand.
+      - generic [ref=e118]:
+        - generic [ref=e124]:
+          - img [ref=e125]
+          - heading "Cinematic motion" [level=3] [ref=e128]
+          - paragraph [ref=e129]: Scroll-driven hero sequences, fluid shader backdrops, frame-scrubbed video. Built once, locked to native refresh rate, never the reason your site feels slow.
+        - generic [ref=e135]:
+          - img [ref=e136]
+          - heading "Editorial typography" [level=3] [ref=e138]
+          - paragraph [ref=e139]: Paired display + body type, considered kerning, hand-set tracking on display sizes. The page reads like a magazine spread, not a CMS export.
+        - generic [ref=e145]:
+          - img [ref=e146]
+          - heading "Performance budget" [level=3] [ref=e149]
+          - paragraph [ref=e150]: Sub-second LCP, Lighthouse 95+, 60fps animation on mid-range hardware. Speed is a design feature — measurable, defended, never traded for visuals.
+        - generic [ref=e156]:
+          - img [ref=e157]
+          - heading "Bespoke micro-interactions" [level=3] [ref=e163]
+          - paragraph [ref=e164]: Hover states, cursor moments, scroll-driven reveals — each one written for this site, not pulled from a library. Small details, total polish.
+        - generic [ref=e170]:
+          - img [ref=e171]
+          - heading "Considered material" [level=3] [ref=e177]
+          - paragraph [ref=e178]: Restrained palette, real depth from light + shadow, glass and chrome surfaces with intent. The site looks like the brand, not like the framework.
+        - generic [ref=e184]:
+          - img [ref=e185]
+          - heading "Conversion-aware structure" [level=3] [ref=e189]
+          - paragraph [ref=e190]: Every section earns its place. CTAs sit where eyes already are, copy carries the page, hierarchy survives a 5-second scan. Beauty that ships revenue.
+    - generic [ref=e192]:
+      - heading "Or maybe you wanna go a little crazy..." [level=2] [ref=e195]
+      - generic:
+        - generic: 01 · Section
+        - generic: Hero
+        - paragraph: 4 seconds to convince a stranger they're in the right place. Big idea, bigger pull.
+      - generic:
+        - generic: 02 · Section
+        - generic: Features
+        - paragraph: What you do — six honest bullets that earn the next scroll, not 30 vague ones.
+      - generic:
+        - generic: 03 · Section
+        - generic: Reviews
+        - paragraph: Social proof that's actually social. Real names, real outcomes, real photos.
+      - generic:
+        - generic: 04 · Section
+        - generic: CTA
+        - paragraph: The moment you ask. No shy buttons. The page has earned this — let it close.
+      - generic [ref=e196]: Scroll
+    - region "All possible without learning how to code" [ref=e197]:
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - text: All possible without learning how to code
+          - generic [ref=e201]: ·
+        - generic [ref=e202]:
+          - text: All possible without learning how to code
+          - generic [ref=e203]: ·
+        - generic [ref=e204]:
+          - text: All possible without learning how to code
+          - generic [ref=e205]: ·
+  - contentinfo [ref=e206]:
+    - generic: FASULO
+    - generic [ref=e207]:
+      - generic [ref=e208]:
+        - generic [ref=e209]:
+          - generic [ref=e211]: JT Fasulo
+          - generic [ref=e212]:
+            - link "Instagram" [ref=e213] [cursor=pointer]:
+              - /url: https://www.instagram.com/fasulostudio/
+              - img [ref=e214]
+            - link "Facebook" [ref=e217] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61587073324051
+              - img [ref=e218]
+            - link "TikTok" [ref=e220] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@fasulostudio?lang=en
+              - img [ref=e221]
+        - generic [ref=e223]:
+          - generic [ref=e224]: Navigation
+          - list [ref=e225]:
+            - listitem [ref=e226]:
+              - link "Home" [ref=e227] [cursor=pointer]:
+                - /url: /
+                - text: Home
+            - listitem [ref=e229]:
+              - link "Privacy Policy" [ref=e230] [cursor=pointer]:
+                - /url: /privacy-policy
+                - text: Privacy Policy
+      - generic [ref=e232]:
+        - generic [ref=e233]:
+          - img "Sybago" [ref=e234]
+          - generic [ref=e235]:
+            - paragraph [ref=e236]: SYBAGO LLC
+            - paragraph [ref=e237]: 116 W 9th St, Wilmington, DE 19801
+        - paragraph [ref=e238]: jtfasulo.com is operated by SYBAGO LLC. By submitting your email you agree to receive the guide and occasional updates. Unsubscribe anytime via the link in any email we send.
+      - generic [ref=e239]:
+        - paragraph [ref=e240]: © 2026 SYBAGO LLC. All rights reserved.
+        - generic [ref=e241]:
+          - link "Privacy Policy" [ref=e242] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "jtfasulo.com" [ref=e243] [cursor=pointer]:
+            - /url: https://jtfasulo.com
+            - text: jtfasulo.com
+            - img [ref=e244]

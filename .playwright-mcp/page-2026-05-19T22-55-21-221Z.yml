@@ -1,0 +1,244 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "Regent Goods Wholesale & Liquidation — Home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]: Regent
+        - generic [ref=e8]: Goods
+      - button "Open menu" [ref=e9]:
+        - img [ref=e10]
+    - navigation [ref=e13]:
+      - link [ref=e14] [cursor=pointer]:
+        - /url: /#what-we-buy
+        - text: What We Buy
+      - link [ref=e15] [cursor=pointer]:
+        - /url: /#wholesale
+        - text: Wholesale Partnerships
+      - link [ref=e16] [cursor=pointer]:
+        - /url: /#platforms
+        - text: Platforms
+      - link [ref=e17] [cursor=pointer]:
+        - /url: /#about
+        - text: About
+      - link [ref=e18] [cursor=pointer]:
+        - /url: /inquire
+        - text: Contact
+      - link [ref=e20] [cursor=pointer]:
+        - /url: /inquire
+        - generic [ref=e21]: Submit Inventory
+  - main [ref=e22]:
+    - generic [ref=e26]:
+      - paragraph [ref=e27]: Bethlehem, PA · Est. 2025
+      - heading "Wholesale sourcing and liquidation buyer for the cosmetics industry." [level=1] [ref=e29]
+      - paragraph [ref=e30]: We purchase wholesale inventory and liquidation pallets in cosmetics and beauty — supplying our e-commerce resale operation across Whatnot, Amazon, and beyond.
+      - generic [ref=e31]:
+        - link "Submit Inventory" [ref=e32] [cursor=pointer]:
+          - /url: /inquire
+          - generic [ref=e33]: Submit Inventory
+          - img [ref=e34]
+        - link "View What We Buy" [ref=e36] [cursor=pointer]:
+          - /url: /#what-we-buy
+          - generic [ref=e37]: View What We Buy
+    - generic [ref=e40]:
+      - paragraph [ref=e41]: Active sellers on
+      - generic [ref=e42]:
+        - generic [ref=e43]: Whatnot
+        - generic [ref=e44]: Amazon
+        - generic [ref=e45]: and growing e-commerce channels
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: 01 / What we buy
+          - heading "Two ways we buy inventory." [level=2] [ref=e51]:
+            - text: Two ways we
+            - text: buy inventory.
+          - paragraph [ref=e52]: We work with brands, distributors, and retailers on both wholesale and liquidation transactions — supplying our active e-commerce resale operation.
+        - generic [ref=e53]:
+          - article [ref=e54]:
+            - generic [ref=e55]:
+              - paragraph [ref=e56]: Wholesale
+              - heading "Wholesale sourcing" [level=3] [ref=e57]
+              - paragraph [ref=e58]: We open wholesale accounts directly with brands, manufacturers, and distributors in the cosmetics and beauty space — building long-term supplier relationships to fuel our e-commerce distribution operation.
+              - list [ref=e59]:
+                - listitem [ref=e60]:
+                  - img [ref=e61]
+                  - generic [ref=e63]: Direct from brands & manufacturers
+                - listitem [ref=e64]:
+                  - img [ref=e65]
+                  - generic [ref=e67]: Authorized distributors
+                - listitem [ref=e68]:
+                  - img [ref=e69]
+                  - generic [ref=e71]: Cosmetics & beauty product lines
+                - listitem [ref=e72]:
+                  - img [ref=e73]
+                  - generic [ref=e75]: Long-term supplier relationships
+                - listitem [ref=e76]:
+                  - img [ref=e77]
+                  - generic [ref=e79]: Open volume terms
+          - article [ref=e80]:
+            - generic [ref=e81]:
+              - paragraph [ref=e82]: Liquidation
+              - heading "Liquidation purchasing" [level=3] [ref=e83]
+              - paragraph [ref=e84]: We also purchase liquidation inventory — overstock, shelf pulls, discontinued cosmetics, closeouts, and pallets — from retailers and brands looking to move inventory quickly.
+              - list [ref=e85]:
+                - listitem [ref=e86]:
+                  - img [ref=e87]
+                  - generic [ref=e89]: Overstock inventory
+                - listitem [ref=e90]:
+                  - img [ref=e91]
+                  - generic [ref=e93]: Shelf pulls & store returns
+                - listitem [ref=e94]:
+                  - img [ref=e95]
+                  - generic [ref=e97]: Discontinued cosmetics & SKUs
+                - listitem [ref=e98]:
+                  - img [ref=e99]
+                  - generic [ref=e101]: Closeout lots
+                - listitem [ref=e102]:
+                  - img [ref=e103]
+                  - generic [ref=e105]: Retail liquidation
+                - listitem [ref=e106]:
+                  - img [ref=e107]
+                  - generic [ref=e109]: Pallets & truckloads
+      - generic [ref=e110]:
+        - paragraph [ref=e111]: If you have wholesale inventory to move or a liquidation lot to sell, we’ll review your submission within one business day.
+        - link "Submit Inventory" [ref=e112] [cursor=pointer]:
+          - /url: /inquire
+          - generic [ref=e113]: Submit Inventory
+          - img [ref=e114]
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - paragraph [ref=e120]: 02 / Wholesale partnerships
+        - heading "Built for brands and distributors." [level=2] [ref=e121]:
+          - text: Built for brands
+          - text: and distributors.
+        - paragraph [ref=e122]: We open wholesale accounts with brands and distributors in cosmetics and beauty, offering scalable multi-platform e-commerce distribution, including live-selling exposure on Whatnot.
+        - link "Open a Wholesale Account" [ref=e124] [cursor=pointer]:
+          - /url: /inquire
+          - generic [ref=e125]: Open a Wholesale Account
+          - img [ref=e126]
+      - list [ref=e129]:
+        - listitem [ref=e130]:
+          - generic [ref=e131]: "01"
+          - generic [ref=e132]:
+            - heading "Multi-platform distribution" [level=3] [ref=e133]
+            - paragraph [ref=e134]: Your products move across Whatnot live auctions, Amazon marketplace, and expanding e-commerce channels.
+        - listitem [ref=e135]:
+          - generic [ref=e136]: "02"
+          - generic [ref=e137]:
+            - heading "Long-term supply partnerships" [level=3] [ref=e138]
+            - paragraph [ref=e139]: We’re not a one-off buyer. We’re building a sourcing operation that scales with the right suppliers.
+        - listitem [ref=e140]:
+          - generic [ref=e141]: "03"
+          - generic [ref=e142]:
+            - heading "Online marketplace exposure" [level=3] [ref=e143]
+            - paragraph [ref=e144]: Live-selling on Whatnot puts your brand in front of engaged buyers in real time.
+    - generic [ref=e146]:
+      - generic [ref=e147]:
+        - paragraph [ref=e148]: 03 / Platforms
+        - heading "Where the inventory goes." [level=2] [ref=e149]
+        - paragraph [ref=e150]: We’re an active e-commerce resale operation. Inventory we purchase moves through multiple high-velocity channels.
+      - generic [ref=e151]:
+        - article [ref=e152]:
+          - generic [ref=e153]:
+            - heading "Whatnot" [level=3] [ref=e154]
+            - generic [ref=e155]: Live auctions
+          - paragraph [ref=e157]: High-velocity live selling. Engaged real-time buyers. Cosmetics-focused audiences.
+        - article [ref=e158]:
+          - generic [ref=e159]:
+            - heading "Amazon" [level=3] [ref=e160]
+            - generic [ref=e161]: Marketplace
+          - paragraph [ref=e163]: Marketplace listings. Nationwide reach. Established fulfillment infrastructure.
+        - article [ref=e164]:
+          - generic [ref=e165]:
+            - heading "Expanding channels" [level=3] [ref=e166]
+            - generic [ref=e167]: In development
+          - paragraph [ref=e169]: Additional marketplaces and direct-to-consumer storefronts coming online as we scale.
+    - generic [ref=e172]:
+      - generic [ref=e173]:
+        - paragraph [ref=e174]: 04 / About
+        - heading "About Regent Goods." [level=2] [ref=e175]
+        - generic [ref=e176]:
+          - paragraph [ref=e177]: Regent Goods Wholesale & Liquidation is an e-commerce resale operation specializing in cosmetics and beauty inventory. We source wholesale directly from brands and distributors, and purchase liquidation lots from retailers moving overstock, shelf pulls, and closeouts.
+          - paragraph [ref=e178]: "Our focus is operational: long-term supplier relationships, fast inventory turn through live auction and marketplace channels, and a single point of contact for partners on both sides of the deal."
+          - paragraph [ref=e179]: Headquartered in Bethlehem, PA — serving brands, distributors, liquidators, and retail operators nationwide.
+      - complementary [ref=e180]:
+        - generic [ref=e183]:
+          - paragraph [ref=e184]: Operation
+          - generic [ref=e185]:
+            - paragraph [ref=e186]:
+              - text: Cosmetics & beauty
+              - text: moving through volume.
+            - generic [ref=e187]:
+              - generic [ref=e188]:
+                - term [ref=e189]: Based in
+                - definition [ref=e190]: Bethlehem, PA
+              - generic [ref=e191]:
+                - term [ref=e192]: Vertical
+                - definition [ref=e193]: Cosmetics & beauty
+              - generic [ref=e194]:
+                - term [ref=e195]: Operation
+                - definition [ref=e196]: Wholesale + liquidation
+              - generic [ref=e197]:
+                - term [ref=e198]: Channels
+                - definition [ref=e199]: Whatnot, Amazon, e-commerce
+    - generic [ref=e202]:
+      - generic [ref=e203]:
+        - paragraph [ref=e204]: Ready to move inventory?
+        - heading "Tell us what you have. We’ll respond within one business day." [level=2] [ref=e205]:
+          - text: Tell us what you have.
+          - text: We’ll respond within one business day.
+      - link "Submit Inventory" [ref=e207] [cursor=pointer]:
+        - /url: /inquire
+        - generic [ref=e208]: Submit Inventory
+        - img [ref=e209]
+  - contentinfo [ref=e211]:
+    - generic [ref=e212]:
+      - generic [ref=e213]:
+        - generic [ref=e214]:
+          - link "Regent Goods Wholesale & Liquidation — Home" [ref=e215] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e216]: Regent
+            - generic [ref=e218]: Goods
+          - paragraph [ref=e219]: Wholesale sourcing and liquidation buyer for cosmetics and beauty. Built to supply our e-commerce resale operation across Whatnot, Amazon, and growing channels.
+          - generic [ref=e220]:
+            - link "484-666-1087" [ref=e222] [cursor=pointer]:
+              - /url: tel:+14846661087
+            - link "regentgoodsliquidation@gmail.com" [ref=e224] [cursor=pointer]:
+              - /url: mailto:regentgoodsliquidation@gmail.com
+            - generic [ref=e225]:
+              - text: 2601 Washington Ln
+              - text: Bethlehem, PA 18015
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - heading "Company" [level=3] [ref=e228]
+            - list [ref=e229]:
+              - listitem [ref=e230]:
+                - link "About" [ref=e231] [cursor=pointer]:
+                  - /url: /#about
+              - listitem [ref=e232]:
+                - link "Contact" [ref=e233] [cursor=pointer]:
+                  - /url: /inquire
+          - generic [ref=e234]:
+            - heading "What We Buy" [level=3] [ref=e235]
+            - list [ref=e236]:
+              - listitem [ref=e237]:
+                - link "Wholesale" [ref=e238] [cursor=pointer]:
+                  - /url: /#what-we-buy
+              - listitem [ref=e239]:
+                - link "Liquidation" [ref=e240] [cursor=pointer]:
+                  - /url: /#what-we-buy
+          - generic [ref=e241]:
+            - heading "Platforms" [level=3] [ref=e242]
+            - list [ref=e243]:
+              - listitem [ref=e244]:
+                - link "Whatnot" [ref=e245] [cursor=pointer]:
+                  - /url: /#platforms
+              - listitem [ref=e246]:
+                - link "Amazon" [ref=e247] [cursor=pointer]:
+                  - /url: /#platforms
+      - generic [ref=e249]:
+        - paragraph [ref=e250]: © 2026Regent Goods Wholesale & Liquidation. All rights reserved.
+        - link "Privacy Policy" [ref=e251] [cursor=pointer]:
+          - /url: /privacy
+  - button "Open Next.js Dev Tools" [ref=e257] [cursor=pointer]:
+    - img [ref=e258]

@@ -1,0 +1,26 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - paragraph [ref=e5]: Est. 2026
+    - heading "Fasulostudio" [level=1] [ref=e6]
+    - paragraph [ref=e7]: AI Newsletter
+  - generic [ref=e8]:
+    - paragraph [ref=e9]: Private Access Granted
+    - heading "You're on the inside now." [level=2] [ref=e10]
+    - paragraph [ref=e11]: Every Sunday, a curated briefing arrives in your inbox — the tools, strategies, and moves shaping the AI landscape, distilled into what actually matters.
+    - generic [ref=e12]:
+      - paragraph [ref=e13]:
+        - strong [ref=e14]: Tool Spotlight
+        - text: The newest AI tools with clear, actionable instructions.
+      - paragraph [ref=e15]:
+        - strong [ref=e16]: Quick Wins
+        - text: Five things you can apply to your work today.
+      - paragraph [ref=e17]:
+        - strong [ref=e18]: Industry Moves
+        - text: What the major players did and why it matters to you.
+    - paragraph [ref=e20]: No fluff. No hype. Just signal.
+    - paragraph [ref=e21]: — JT
+  - generic [ref=e22]:
+    - paragraph [ref=e23]: Fasulostudio · jtfasulo.com
+    - paragraph [ref=e24]:
+      - link "UNSUBSCRIBE" [ref=e25] [cursor=pointer]:
+        - /url: "#"

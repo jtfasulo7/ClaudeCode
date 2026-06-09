@@ -1,0 +1,18 @@
+- generic [ref=e4]:
+  - paragraph [ref=e5]: Welcome
+  - heading "Which path are you on?" [level=1] [ref=e6]
+  - paragraph [ref=e7]: Two ways forward. Pick the one that fits where you’re trying to go.
+  - generic [ref=e8]:
+    - button "For your business I’m looking to have a professional website built for my business. Continue to Sybago" [ref=e9] [cursor=pointer]:
+      - generic [ref=e10]: For your business
+      - generic [ref=e11]: I’m looking to have a professional website built for my business.
+      - generic [ref=e12]:
+        - text: Continue to Sybago
+        - img [ref=e13]
+    - button "For yourself I want to learn how to build professional websites myself. Enter the site" [ref=e15] [cursor=pointer]:
+      - generic [ref=e16]: For yourself
+      - generic [ref=e17]: I want to learn how to build professional websites myself.
+      - generic [ref=e18]:
+        - text: Enter the site
+        - img [ref=e19]
+  - paragraph [ref=e21]: JT Fasulo

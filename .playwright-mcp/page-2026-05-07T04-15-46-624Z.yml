@@ -1,0 +1,335 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Sybago — home" [ref=e3] [cursor=pointer]:
+      - /url: /
+      - generic [ref=e4]: SYBAGO
+    - link "Book A Call" [ref=e5] [cursor=pointer]:
+      - /url: "#book"
+  - main [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - heading "Your competitor texted them back in 5 minutes. You called the next day. Guess who got the job." [level=1] [ref=e9]:
+          - text: Your competitor texted them back in 5 minutes.
+          - emphasis [ref=e10]: You called the next day.
+          - text: Guess who got the job.
+        - paragraph [ref=e11]:
+          - text: We build the boring foundational stuff that actually makes your phone ring — websites, instant lead follow-up, automated reviews.
+          - strong [ref=e12]: No $5,000/month retainers. No 12-month contracts. No bullsh*t.
+        - link "Book A Call" [ref=e14] [cursor=pointer]:
+          - /url: "#book"
+          - text: Book A Call
+          - img [ref=e15]
+        - paragraph [ref=e17]:
+          - img [ref=e18]
+          - generic [ref=e21]:
+            - strong [ref=e22]: 30-day money-back guarantee.
+            - text: Cancel and keep the website.
+        - paragraph [ref=e23]:
+          - text: Built by
+          - strong [ref=e24]: JT Fasulo
+          - text: — small team, real results.
+      - img "JT Fasulo, founder of Sybago" [ref=e26]
+    - generic [ref=e28]:
+      - paragraph [ref=e29]: You're losing leads while you're on a roof.
+      - paragraph [ref=e30]:
+        - text: By the time you call back at 7pm, they hired the guy who picked up at 2pm.
+        - emphasis [ref=e31]: We fix that.
+      - paragraph [ref=e32]: That's the whole pitch.
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]: What you actually get
+        - heading "Five things. They all just work. You don't have to think about them." [level=2] [ref=e36]:
+          - text: Five things. They all just work.
+          - text: You don't have to think about them.
+        - paragraph [ref=e37]: Boring on purpose. Designed to run while you're under a sink.
+      - article [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]: 01 — Speed-to-lead
+          - heading "A Website That Texts Customers For You" [level=3] [ref=e41]
+          - list [ref=e42]:
+            - listitem [ref=e43]: When someone fills out your contact form, your phone buzzes in under 60 seconds.
+            - listitem [ref=e44]: The reply they get sounds like you wrote it, not a bot.
+            - listitem [ref=e45]: You take it from there — or let it keep them warm until you can.
+        - 'img "Animation: a website contact form fills out and the lead lands as an SMS on a phone within seconds" [ref=e46]'
+      - article [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]: 02 — Missed-call text-back
+          - heading "Missed The Call? We'll Text Them Back" [level=3] [ref=e51]
+          - list [ref=e52]:
+            - listitem [ref=e53]: You're on a job, your phone rings, you can't grab it. Normal Tuesday.
+            - listitem [ref=e54]: "30 seconds later, the lead gets a text: \"Hey, sorry I missed that — what can I help you with?\""
+            - listitem [ref=e55]: About a third of those replies turn into booked jobs.
+        - 'img "Animation: a missed call triggers an automatic outbound text 30 seconds later from the contractor''s number" [ref=e56]'
+      - article [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: 03 — Review automation
+          - heading "5-Star Reviews, Without The Awkward Ask" [level=3] [ref=e61]
+          - list [ref=e62]:
+            - listitem [ref=e63]: Job done? A friendly automated text goes out asking how it went.
+            - listitem [ref=e64]: Happy customers get nudged toward Google. Unhappy ones can text you back privately first.
+            - listitem [ref=e65]: Nobody is ever blocked from leaving a public review. That's against Google's rules. We don't break rules.
+        - 'img "Animation: an automated review-request text turns into a 5-star Google review, posted publicly with no rating gate" [ref=e66]'
+      - article [ref=e68]:
+        - generic [ref=e69]:
+          - generic [ref=e70]: 04 — Database reactivation
+          - heading "Wakes Up Your Dead Leads" [level=3] [ref=e71]
+          - list [ref=e72]:
+            - listitem [ref=e73]: Every "not right now" gets re-engaged automatically — 30, 60, 90 days out.
+            - listitem [ref=e74]: "\"Hey Jim, still thinking about that roof repair? Just got a slot open this week.\""
+            - listitem [ref=e75]: Costs nothing per month. Just runs.
+        - 'img "Animation: a workflow fires across stale leads and outbound re-engagement texts go out, with a four-thousand-dollar reactivation kicker" [ref=e76]'
+      - article [ref=e78]:
+        - generic [ref=e79]:
+          - generic [ref=e80]: 05 — One inbox
+          - heading "One Dashboard For Everything" [level=3] [ref=e81]
+          - list [ref=e82]:
+            - listitem [ref=e83]: Every call, text, review, and lead in one place.
+            - listitem [ref=e84]: Works on your phone or your laptop.
+            - listitem [ref=e85]: We show you the two buttons you actually need to press. That's it.
+        - 'img "Animation: the client dashboard scrolling smoothly through conversations, pipeline, and reviews panels" [ref=e86]'
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - generic [ref=e91]: Who this is for
+        - heading "Built for service businesses that show up when they say they will" [level=2] [ref=e92]
+        - paragraph [ref=e93]: If you've got a phone, a truck, and customers — we've got you.
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - img [ref=e97]
+          - generic [ref=e99]: HVAC
+        - generic [ref=e100]:
+          - img [ref=e102]
+          - generic [ref=e104]: Roofing
+        - generic [ref=e105]:
+          - img [ref=e107]
+          - generic [ref=e109]: Plumbing
+        - generic [ref=e110]:
+          - img [ref=e112]
+          - generic [ref=e114]: Electrical
+        - generic [ref=e115]:
+          - img [ref=e117]
+          - generic [ref=e119]: Landscaping
+        - generic [ref=e120]:
+          - img [ref=e122]
+          - generic [ref=e124]: Pest Control
+        - generic [ref=e125]:
+          - img [ref=e127]
+          - generic [ref=e129]: Pressure Washing
+        - generic [ref=e130]:
+          - img [ref=e132]
+          - generic [ref=e134]: Moving
+        - generic [ref=e135]:
+          - img [ref=e137]
+          - generic [ref=e139]: Painters
+        - generic [ref=e140]:
+          - img [ref=e142]
+          - generic [ref=e144]: Carpet Cleaning
+        - generic [ref=e145]:
+          - img [ref=e147]
+          - generic [ref=e149]: Handymen
+        - generic [ref=e150]:
+          - img [ref=e152]
+          - generic [ref=e154]: Tree Service
+        - generic [ref=e155]:
+          - img [ref=e157]
+          - generic [ref=e159]: Pool Service
+        - generic [ref=e160]:
+          - img [ref=e162]
+          - generic [ref=e164]: Garage Doors
+        - generic [ref=e165]:
+          - img [ref=e167]
+          - generic [ref=e169]: Decks & Patios
+        - generic [ref=e170]:
+          - img [ref=e172]
+          - generic [ref=e174]: Siding
+        - generic [ref=e175]:
+          - img [ref=e177]
+          - generic [ref=e179]: Flooring
+        - generic [ref=e180]:
+          - img [ref=e182]
+          - generic [ref=e184]: Window Cleaning
+        - generic [ref=e185]:
+          - img [ref=e187]
+          - generic [ref=e189]: Junk Removal
+        - generic [ref=e190]:
+          - img [ref=e192]
+          - generic [ref=e194]: Auto Detailing
+        - generic [ref=e195]:
+          - img [ref=e197]
+          - generic [ref=e199]: Dog Grooming
+        - generic [ref=e200]:
+          - img [ref=e202]
+          - generic [ref=e204]: General Contractors
+    - generic [ref=e205]:
+      - generic [ref=e206]:
+        - generic [ref=e207]: How it works
+        - heading "Three steps. Eight days. Done." [level=2] [ref=e208]
+        - paragraph [ref=e209]: You don't even need to read this. We'll walk you through it on the call.
+      - generic [ref=e210]:
+        - generic [ref=e211]:
+          - generic [ref=e212]: Step 01
+          - generic [ref=e213]: Day 0 · 20 min
+          - heading "Demo Call" [level=3] [ref=e214]
+          - paragraph [ref=e215]: Yeah, it's a sales call. We just won't waste your time. We'll show you live client accounts, real text messages from real leads, and exactly what your version would look like.
+        - generic [ref=e216]:
+          - generic [ref=e217]: Step 02
+          - generic [ref=e218]: Days 1–7
+          - heading "We Build It" [level=3] [ref=e219]
+          - paragraph [ref=e220]: Fill out one form. We handle the rest. You don't need to know what GoHighLevel, Twilio, or "webhook" means. That's literally what you're paying us for.
+        - generic [ref=e221]:
+          - generic [ref=e222]: Step 03
+          - generic [ref=e223]: Day 8 · 25 min
+          - heading "Launch Call" [level=3] [ref=e224]
+          - paragraph [ref=e225]: We hand you the keys. Show you the two buttons you actually need to press. You go back to running your business.
+    - generic [ref=e226]:
+      - generic [ref=e227]:
+        - generic [ref=e228]: Why Sybago
+        - heading "Why we're \"unique\" (just like every other agency claims, right?)" [level=2] [ref=e229]
+        - paragraph [ref=e230]: Six things we actually do differently. Or, you know, that we promise we do.
+      - generic [ref=e231]:
+        - generic [ref=e232]:
+          - img [ref=e234]
+          - heading "No Contracts" [level=3] [ref=e237]
+          - paragraph [ref=e238]: Month to month. If we suck, fire us. We'd rather earn it every month than trap you in a 12-month deal.
+        - generic [ref=e239]:
+          - img [ref=e241]
+          - heading "Real Pricing" [level=3] [ref=e243]
+          - paragraph [ref=e244]: $297/mo. That's the whole price. Not "starting at." Not "plus fees." Not "platform charges." $297.
+        - generic [ref=e245]:
+          - img [ref=e247]
+          - heading "No BS Reports" [level=3] [ref=e250]
+          - paragraph [ref=e251]: We're not going to email you 40 pages of charts every month. You'll know it's working because your phone is ringing.
+        - generic [ref=e252]:
+          - img [ref=e254]
+          - heading "Built By One Guy Who Cares" [level=3] [ref=e257]
+          - paragraph [ref=e258]: Sybago is small. That's the point. You don't get passed to a junior account manager on month two.
+        - generic [ref=e259]:
+          - img [ref=e261]
+          - heading "Speed-to-Lead in 5 Minutes" [level=3] [ref=e263]
+          - paragraph [ref=e264]: Companies that respond in 5 minutes are 21× more likely to close the lead. We make that automatic. So even when you're on a ladder, you don't lose it.
+        - generic [ref=e265]:
+          - img [ref=e267]
+          - heading "You Own Your Stuff" [level=3] [ref=e270]
+          - paragraph [ref=e271]: Your website, your domain, your customer list. If you ever leave us, you walk with everything. No hostage situations.
+    - generic [ref=e272]:
+      - generic [ref=e273]:
+        - generic [ref=e274]: FAQ
+        - heading "Stuff people ask before they book" [level=2] [ref=e275]
+      - generic [ref=e276]:
+        - group [ref=e277]:
+          - generic "When am I going to start seeing results?" [ref=e278] [cursor=pointer]:
+            - text: When am I going to start seeing results?
+            - img [ref=e280]
+        - group [ref=e282]:
+          - generic "Why is your pricing so cheap?" [ref=e283] [cursor=pointer]:
+            - text: Why is your pricing so cheap?
+            - img [ref=e285]
+        - group [ref=e287]:
+          - generic "What if I want to cancel?" [ref=e288] [cursor=pointer]:
+            - text: What if I want to cancel?
+            - img [ref=e290]
+        - group [ref=e292]:
+          - generic "Do you handle Google Ads, Facebook Ads, or SEO?" [ref=e293] [cursor=pointer]:
+            - text: Do you handle Google Ads, Facebook Ads, or SEO?
+            - img [ref=e295]
+        - group [ref=e297]:
+          - generic "I already have a website. Do I need a new one?" [ref=e298] [cursor=pointer]:
+            - text: I already have a website. Do I need a new one?
+            - img [ref=e300]
+        - group [ref=e302]:
+          - generic "How are you different from the other guys spamming my Instagram DMs?" [ref=e303] [cursor=pointer]:
+            - text: How are you different from the other guys spamming my Instagram DMs?
+            - img [ref=e305]
+        - group [ref=e307]:
+          - generic "Do you actually use this stuff yourselves?" [ref=e308] [cursor=pointer]:
+            - text: Do you actually use this stuff yourselves?
+            - img [ref=e310]
+    - generic [ref=e313]:
+      - heading "Ready to stop losing leads?" [level=2] [ref=e314]
+      - link "Book A Call" [ref=e315] [cursor=pointer]:
+        - /url: "#book"
+        - text: Book A Call
+        - img [ref=e316]
+      - paragraph [ref=e318]: Or take six months to think about it. Up to you.
+    - generic [ref=e319]:
+      - generic [ref=e320]:
+        - generic [ref=e321]: Book a free 20-minute call
+        - heading "Pick a time. We'll show you the rest." [level=2] [ref=e322]
+        - paragraph [ref=e323]: Live client accounts, real text messages from real leads, and exactly what your version would look like. No pitch deck.
+      - iframe [ref=e325]:
+        
+  - contentinfo [ref=e326]:
+    - generic [ref=e327]:
+      - generic [ref=e328]:
+        - generic [ref=e329]:
+          - text: Ready to get started?
+          - generic [ref=e330]: Eight days from this call to a live system.
+        - link "Book A Call" [ref=e331] [cursor=pointer]:
+          - /url: "#book"
+          - text: Book A Call
+          - img [ref=e332]
+      - generic [ref=e334]:
+        - generic [ref=e335]:
+          - link "Sybago — home" [ref=e336] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e337]: SYBAGO
+          - paragraph [ref=e338]: A website + lead-follow-up system for service contractors. $297/mo, no contracts, no setup fee.
+        - generic [ref=e339]:
+          - heading "Sybago" [level=4] [ref=e340]
+          - list [ref=e341]:
+            - listitem [ref=e342]:
+              - link "Pricing" [ref=e343] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e344]:
+              - link "Trades We Serve" [ref=e345] [cursor=pointer]:
+                - /url: "#trades"
+            - listitem [ref=e346]:
+              - link "About" [ref=e347] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e348]:
+              - link "FAQ" [ref=e349] [cursor=pointer]:
+                - /url: "#faq"
+            - listitem [ref=e350]:
+              - link "Book A Call" [ref=e351] [cursor=pointer]:
+                - /url: "#book"
+        - generic [ref=e352]:
+          - heading "Account" [level=4] [ref=e353]
+          - list [ref=e354]:
+            - listitem [ref=e355]:
+              - link "Log In" [ref=e356] [cursor=pointer]:
+                - /url: https://app.gohighlevel.com
+            - listitem [ref=e357]:
+              - link "Leave a Review" [ref=e358] [cursor=pointer]:
+                - /url: /leave-a-review.html
+            - listitem [ref=e359]:
+              - link "Contact" [ref=e360] [cursor=pointer]:
+                - /url: /contact-us.html
+            - listitem [ref=e361]:
+              - link "Call / Text Us" [ref=e362] [cursor=pointer]:
+                - /url: tel:[PHONE]
+        - generic [ref=e363]:
+          - heading "Follow JT" [level=4] [ref=e364]
+          - list [ref=e365]:
+            - listitem [ref=e366]:
+              - link "Instagram" [ref=e367] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e368]:
+              - link "YouTube" [ref=e369] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e370]:
+              - link "TikTok" [ref=e371] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e372]:
+        - generic [ref=e373]:
+          - text: Want to learn more?
+          - generic [ref=e374]: Same call, same calendar. We're not picky.
+        - link "Book A Call" [ref=e375] [cursor=pointer]:
+          - /url: "#book"
+          - text: Book A Call
+      - generic [ref=e377]:
+        - generic [ref=e378]: © 2026 Sybago. Built by people who answer their phones.
+        - generic [ref=e379]:
+          - link "Privacy" [ref=e380] [cursor=pointer]:
+            - /url: /privacy-policy.html
+          - link "Terms" [ref=e381] [cursor=pointer]:
+            - /url: /terms.html
+      - paragraph [ref=e382]: Small team, big results. Real human on the other end of the call.

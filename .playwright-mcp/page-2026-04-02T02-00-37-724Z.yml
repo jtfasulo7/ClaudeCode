@@ -1,0 +1,77 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - heading "Fasulostudio" [level=1] [ref=e5]
+    - paragraph [ref=e6]: AI Newsletter
+    - paragraph [ref=e7]: Week of April 1, 2026
+  - generic [ref=e8]:
+    - paragraph [ref=e9]: Section I
+    - heading "Tool Spotlight" [level=2] [ref=e10]
+    - generic [ref=e11]:
+      - heading "Perplexity Personal Computer" [level=3] [ref=e12]
+      - paragraph [ref=e13]: A 24/7 AI agent that runs locally on a dedicated Mac Mini, with direct access to your files, apps, and sessions — bridging Perplexity's cloud search with your local machine.
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: How to use it now
+        - paragraph [ref=e16]: Available to Perplexity Max subscribers ($200/mo). Join the waitlist at perplexity.ai/personal-computer-waitlist. It runs on Mac Mini hardware with always-on uptime — every action requires your approval and generates a full audit trail.
+      - paragraph [ref=e17]: The first major AI company to ship an always-on local agent with file system access — this is what "AI assistant" was always supposed to mean.
+    - generic [ref=e18]:
+      - heading "GPT-5.4 — Computer Use + Tool Search" [level=3] [ref=e19]
+      - paragraph [ref=e20]: OpenAI's March 5 release is the first mainline model with native computer-use capabilities and a new "Tool Search" system that lets the API version dynamically look up tool definitions mid-request.
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: How to use it now
+        - paragraph [ref=e23]: "GPT-5.4 Thinking is available now on Plus, Team, and Pro plans. The \"upfront plan\" feature lets you see the model's reasoning before it executes — adjust course mid-response by interrupting and redirecting. For developers: the Tool Search API cuts token costs significantly when passing many tool definitions."
+      - paragraph [ref=e24]: 33% fewer factual errors than GPT-5.2, and the computer-use capability puts it in direct competition with Anthropic's agent tooling.
+    - generic [ref=e25]:
+      - heading "OpenAI Codex Desktop App" [level=3] [ref=e26]
+      - paragraph [ref=e27]: A standalone desktop application for managing AI coding agents — not inside ChatGPT, but a dedicated workspace for orchestrating multi-agent development workflows.
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: How to use it now
+        - paragraph [ref=e30]: Download from OpenAI's developer tools page. It's designed to sit alongside your IDE — think of it as a project manager for AI coding agents that handles context, file access, and multi-step task orchestration in one interface.
+      - paragraph [ref=e31]: OpenAI is betting that AI coding needs its own app, not just a chat window — a direct response to Anthropic's Claude Code CLI.
+  - generic [ref=e34]:
+    - paragraph [ref=e35]: Section II
+    - heading "Quick Wins" [level=2] [ref=e36]
+    - table [ref=e38]:
+      - rowgroup [ref=e39]:
+        - row "01 GPT-5.4 Thinking now shows you its plan upfront before executing. If you see it going the wrong direction, interrupt and say \"stop — take this approach instead\" to redirect mid-response without starting over." [ref=e40]:
+          - cell "01" [ref=e41]
+          - cell "GPT-5.4 Thinking now shows you its plan upfront before executing. If you see it going the wrong direction, interrupt and say \"stop — take this approach instead\" to redirect mid-response without starting over." [ref=e42]
+    - table [ref=e44]:
+      - rowgroup [ref=e45]:
+        - row "02 Google Sheets now supports natural-language formulas via Gemini. Type what you want in plain English in the formula bar (e.g. \"sum revenue by quarter and highlight the highest\") — it writes the formula and applies conditional formatting automatically." [ref=e46]:
+          - cell "02" [ref=e47]
+          - cell "Google Sheets now supports natural-language formulas via Gemini. Type what you want in plain English in the formula bar (e.g. \"sum revenue by quarter and highlight the highest\") — it writes the formula and applies conditional formatting automatically." [ref=e48]
+    - table [ref=e50]:
+      - rowgroup [ref=e51]:
+        - row "03 If you use the GPT-5.4 API with many tools, switch to the new Tool Search mode — instead of sending all tool schemas upfront (which burns tokens), the model dynamically looks up only the tools it needs. Cuts costs 40-60% on tool-heavy agents." [ref=e52]:
+          - cell "03" [ref=e53]
+          - cell "If you use the GPT-5.4 API with many tools, switch to the new Tool Search mode — instead of sending all tool schemas upfront (which burns tokens), the model dynamically looks up only the tools it needs. Cuts costs 40-60% on tool-heavy agents." [ref=e54]
+    - table [ref=e56]:
+      - rowgroup [ref=e57]:
+        - row "04 Google Maps now supports \"Ask Maps\" — type complex queries like \"coffee shops near me that are quiet, have outlets, and are open past 10pm\" and Gemini returns curated results with reasoning. Way beyond the old keyword search." [ref=e58]:
+          - cell "04" [ref=e59]
+          - cell "Google Maps now supports \"Ask Maps\" — type complex queries like \"coffee shops near me that are quiet, have outlets, and are open past 10pm\" and Gemini returns curated results with reasoning. Way beyond the old keyword search." [ref=e60]
+    - table [ref=e62]:
+      - rowgroup [ref=e63]:
+        - row "05 DeepSeek V4 (1 trillion parameters) is now open-source. Run it locally via Ollama if you have a beefy GPU, or use it through API providers at a fraction of GPT-5.4's price. Best bang-for-buck reasoning model available right now." [ref=e64]:
+          - cell "05" [ref=e65]
+          - cell "DeepSeek V4 (1 trillion parameters) is now open-source. Run it locally via Ollama if you have a beefy GPU, or use it through API providers at a fraction of GPT-5.4's price. Best bang-for-buck reasoning model available right now." [ref=e66]
+  - generic [ref=e69]:
+    - paragraph [ref=e70]: Section III
+    - heading "Industry Moves" [level=2] [ref=e71]
+    - generic [ref=e72]:
+      - paragraph [ref=e73]: Anthropic
+      - paragraph [ref=e74]: Accidentally leaked details of "Claude Mythos" (codename Capybara) — an unreleased model class above Opus that scores dramatically higher on coding, reasoning, and cybersecurity benchmarks. Then leaked Claude Code's own source code via an npm packaging error days later.
+      - paragraph [ref=e75]: → Two security lapses in one week is rough, but the Mythos leak confirms Anthropic has a model significantly beyond current Opus — expect a controlled release to early-access customers soon.
+    - generic [ref=e76]:
+      - paragraph [ref=e77]: OpenAI
+      - paragraph [ref=e78]: Shipped GPT-5.4 Standard and GPT-5.4 Thinking in a 72-hour window (March 10-12), followed by GPT-5.4 mini and nano. The model includes native computer-use, 1M token context, and a new "Skills" feature — reusable workflows that ChatGPT applies automatically.
+      - paragraph [ref=e79]: → Skills could change how non-technical users interact with ChatGPT — save a workflow once, and it triggers automatically in future conversations.
+    - generic [ref=e80]:
+      - paragraph [ref=e81]: Google
+      - paragraph [ref=e82]: Gemini is now embedded directly in Google Sheets (natural-language formulas, 70.48% on SpreadsheetBench) and Maps ("Ask Maps" conversational queries + Immersive Navigation with 3D context). Also shipped Gemini 3.1 Flash-Lite during the same model avalanche week.
+      - paragraph [ref=e83]: → Google's play is distribution — instead of building a separate AI product, they're making Gemini invisible infrastructure inside tools billions already use.
+  - generic [ref=e84]:
+    - paragraph [ref=e85]: Fasulostudio · jtfasulo.com
+    - paragraph [ref=e86]:
+      - link "UNSUBSCRIBE" [ref=e87] [cursor=pointer]:
+        - /url: "#"
