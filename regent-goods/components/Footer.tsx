@@ -51,10 +51,10 @@ export function Footer() {
               </div>
               <div>
                 <a
-                  href="mailto:regentgoodsliquidation@gmail.com"
+                  href="mailto:regentgoodswholesale@gmail.com"
                   className="text-paper hover:text-mute transition-colors break-all"
                 >
-                  regentgoodsliquidation@gmail.com
+                  regentgoodswholesale@gmail.com
                 </a>
               </div>
               <div className="leading-relaxed">

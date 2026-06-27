@@ -165,7 +165,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            "We could not upload your files. Please try again, or send them directly to regentgoodsliquidation@gmail.com.",
+            "We could not upload your files. Please try again, or send them directly to regentgoodswholesale@gmail.com.",
         },
         { status: 502 },
       );

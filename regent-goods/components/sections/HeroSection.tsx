@@ -24,15 +24,14 @@ export function HeroSection() {
             </p>
 
             <h1 className="display mt-7 text-[44px] leading-[1.02] font-extrabold tracking-[-0.025em] sm:text-[60px] lg:text-[76px]">
-              Trending consumer product wholesale
+              Consumer product wholesale
               <br className="hidden sm:block" />{" "}
               <span className="text-mute">distributor and liquidation</span> buyer.
             </h1>
 
             <p className="mt-8 max-w-2xl text-[17px] leading-relaxed text-mute sm:text-[18px]">
-              We purchase wholesale inventory and liquidation pallets of
-              trending consumer products &mdash; supplying our e-commerce
-              resale operation across Whatnot, Amazon, and beyond.
+              We purchase wholesale and liquidation inventory &mdash; supplying
+              our e-commerce resale operation across Whatnot, Amazon, and beyond.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -65,7 +64,7 @@ export function HeroSection() {
             <div>
               <p className="eyebrow text-mute">Focus</p>
               <p className="mt-2 text-[15px] text-paper leading-snug">
-                Trending consumer goods
+                Consumer goods
                 <br />
                 <span className="text-mute">Wholesale &middot; Liquidation</span>
               </p>

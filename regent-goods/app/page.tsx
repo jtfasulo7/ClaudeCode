@@ -25,7 +25,7 @@ const organizationSchema = {
     addressCountry: "US",
   },
   telephone: "+14846661087",
-  email: "regentgoodsliquidation@gmail.com",
+  email: "regentgoodswholesale@gmail.com",
   founder: {
     "@type": "Person",
     name: "William Woolley",

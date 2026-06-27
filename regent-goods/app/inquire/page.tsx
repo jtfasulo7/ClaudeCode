@@ -78,10 +78,10 @@ export default function InquirePage() {
                     </p>
                     <p className="mt-1 text-[14px] text-text">
                       <a
-                        href="mailto:regentgoodsliquidation@gmail.com"
+                        href="mailto:regentgoodswholesale@gmail.com"
                         className="hover:text-ink transition-colors break-all"
                       >
-                        regentgoodsliquidation@gmail.com
+                        regentgoodswholesale@gmail.com
                       </a>
                     </p>
                   </div>
