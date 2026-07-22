@@ -220,6 +220,9 @@ export default function MultiStepForm() {
                   {!calLoaded && <div className="cal-loading">Loading your calendar…</div>}
                   <iframe
                     className="cal-iframe"
+                    // id must match the GHL booking id so form_embed.js can
+                    // post resize messages to the right iframe.
+                    id={config.ghlCalendarEmbedUrl.split('/').pop().split('?')[0]}
                     title="Book your free estimate"
                     src={config.ghlCalendarEmbedUrl}
                     onLoad={() => setCalLoaded(true)}

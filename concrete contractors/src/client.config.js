@@ -56,8 +56,10 @@ export const config = {
   ],
 
   // ── GHL wiring ────────────────────────────────────────────────────────────
-  // The client's booking calendar (LeadConnector widget embed URL):
-  ghlCalendarEmbedUrl: 'https://api.leadconnectorhq.com/widget/booking/REPLACE_ME',
+  // The client's booking calendar (LeadConnector widget embed URL).
+  // NOTE: this example is pre-wired to Sybago's own "Free Call With JT"
+  // calendar as a live demo — SWAP it for the client's booking widget per client.
+  ghlCalendarEmbedUrl: 'https://api.leadconnectorhq.com/widget/booking/FsCLXfMJ7yiiM7zMb2nP',
   // Where the Step-4 lead payload is POSTed (GHL inbound webhook, or any
   // endpoint that accepts a JSON body). This fires BEFORE the calendar loads,
   // so the lead is captured even if the visitor never books.
