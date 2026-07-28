@@ -1,0 +1,6 @@
+# source + rendered video/audio/images are too large for the repo
+*.mp4
+*.wav
+*.png
+work/fonts/
+work/rms.txt
