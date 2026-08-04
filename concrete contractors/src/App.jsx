@@ -2,6 +2,10 @@ import { useEffect } from 'react'
 import { config } from './client.config.js'
 import MultiStepForm from './components/MultiStepForm.jsx'
 
+// Config asset paths are written root-relative ('/photos/x.svg'); prefix them
+// with Vite's base so builds deployed under a subpath still resolve.
+const asset = (p) => import.meta.env.BASE_URL.replace(/\/$/, '') + p
+
 export default function App() {
   // Per-client theming: primary/accent become CSS variables. Only accents
   // change — layout never depends on these.
@@ -24,7 +28,7 @@ export default function App() {
       {/* ── SECTION 1 — Hero + multi-step form (first screen) ── */}
       <section className="hero" id="estimate-form">
         <div className="hero-inner">
-          <img className="logo" src={config.logoPath} alt={config.businessName} />
+          <img className="logo" src={asset(config.logoPath)} alt={config.businessName} />
           <p className="eyebrow">{config.businessName} — {config.city}&rsquo;s Concrete &amp; Paving Pros</p>
           <h1 className="hero-title">Get a <span>FREE</span> estimate now</h1>
           <p className="hero-sub">
@@ -77,7 +81,7 @@ function ProofPhotos() {
       <div className="photo-grid">
         {config.projectPhotos.slice(0, 4).map((src, i) => (
           <div className="photo" key={i}>
-            <img src={src} alt={`Recent ${config.businessName} project ${i + 1}`} loading="lazy" />
+            <img src={asset(src)} alt={`Recent ${config.businessName} project ${i + 1}`} loading="lazy" />
           </div>
         ))}
       </div>
