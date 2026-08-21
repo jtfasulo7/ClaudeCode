@@ -19,7 +19,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 const SLOTS = [1, 2, 3, 4, 5, 6] as const;
 const EXTS = ["jpg", "jpeg", "png", "webp"] as const;
 const CAPTIONS: Record<number, string> = {
-  1: "Driveway replacement",
+  1: "Covered patio & entry step — new pour",
   2: "New driveway pour",
   3: "Backyard patio",
   4: "Front entry stairs",
@@ -75,7 +75,11 @@ export function Gallery() {
         }
       />
 
-      <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-3">
+      <ul
+        className={`mt-8 grid gap-2.5 sm:gap-4 ${
+          jobs.length === 1 ? "grid-cols-1 sm:max-w-3xl" : "grid-cols-2 lg:grid-cols-3"
+        }`}
+      >
         {jobs.map((job) => (
           <li
             key={job.slot}
@@ -83,12 +87,12 @@ export function Gallery() {
           >
             {job.kind === "pair" && <BeforeAfter before={job.before} after={job.after} caption={CAPTIONS[job.slot]} />}
             {job.kind === "single" && (
-              <figure className="relative aspect-[4/3]">
+              <figure className={jobs.length === 1 ? "relative aspect-[16/10]" : "relative aspect-[4/3]"}>
                 <Image
                   src={job.src}
                   alt={`${CAPTIONS[job.slot] ?? "Concrete project"} by Montara Forge`}
                   fill
-                  sizes="(min-width: 1024px) 33vw, 50vw"
+                  sizes={jobs.length === 1 ? "(min-width: 768px) 768px, 100vw" : "(min-width: 1024px) 33vw, 50vw"}
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <Caption text={CAPTIONS[job.slot]} />

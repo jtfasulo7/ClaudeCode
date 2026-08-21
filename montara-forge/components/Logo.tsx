@@ -22,17 +22,25 @@ export function Logo({ className = "" }: { className?: string }) {
   const logo = findLogo();
 
   if (logo) {
+    // The Montara Forge mark is a round badge. On its own it's illegible at
+    // header size, so render it as a crisp circular icon beside the wordmark.
     return (
-      <span className={`inline-flex items-center ${className}`}>
+      <span
+        className={`inline-flex shrink-0 items-center gap-2 whitespace-nowrap select-none sm:gap-2.5 ${className}`}
+        aria-label={SITE.name}
+      >
         <Image
           src={logo.src}
-          alt={SITE.name}
-          width={180}
-          height={44}
+          alt=""
+          width={96}
+          height={96}
           priority
           unoptimized={logo.isSvg}
-          className="h-8 w-auto sm:h-10"
+          className="h-9 w-9 rounded-full ring-1 ring-gold/50 sm:h-11 sm:w-11"
         />
+        <span className="font-display text-[1.25rem] leading-none tracking-[0.04em] text-bone sm:text-[1.65rem]">
+          MONTARA <span className="text-gold">FORGE</span>
+        </span>
       </span>
     );
   }
