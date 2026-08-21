@@ -1,5 +1,7 @@
 # Montara Forge — Lead-Gen Landing Page
 
+**Live:** https://www.montaraforge.com (apex redirects to www) · Vercel project `montara-forge`
+
 Single-route Next.js landing page for Meta (Facebook/Instagram) ad traffic.
 Cold visitors land on `/`, complete a 5–6 step qualifying form (the hero on
 mobile), and immediately book an on-site estimate in an embedded GoHighLevel
@@ -195,8 +197,8 @@ lib/
 1. Create a new Vercel project from this directory (root = `montara-forge/`).
    Framework preset: Next.js. No special build settings.
 2. Add the env vars above.
-3. Attach the custom domain in **Vercel → Project → Settings → Domains**
-   and point DNS as Vercel instructs.
+3. Custom domain `montaraforge.com` is attached (GoDaddy DNS → Vercel A/CNAME);
+   apex 308-redirects to `www`. Manage in **Vercel → Project → Settings → Domains**.
 4. After the pixel exists, set `NEXT_PUBLIC_META_PIXEL_ID` and redeploy.
 
 Before launch, fill in the two `TODO`s in `app/privacy/page.tsx`

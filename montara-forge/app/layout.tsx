@@ -27,6 +27,7 @@ const body = Barlow({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.montaraforge.com"),
   title: `${SITE.name} — Free On-Site Concrete Estimates in Cedar City & Southern Utah`,
   description:
     "New driveways, driveway replacements, patios, sidewalks and stairs. Licensed & insured in Utah. Financing available. Book a free on-site estimate.",

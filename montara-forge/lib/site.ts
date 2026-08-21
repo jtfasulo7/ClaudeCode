@@ -4,6 +4,8 @@
  */
 export const SITE = {
   name: "Montara Forge",
+  /** Canonical production URL (Vercel: montaraforge.com → www). */
+  url: "https://www.montaraforge.com",
   tagline: "Concrete built to outlast the house.",
   phoneDisplay: "(435) 319-9628",
   phoneHref: "tel:+14353199628",
