@@ -19,10 +19,10 @@ import { SectionHeading } from "@/components/SectionHeading";
 const SLOTS = [1, 2, 3, 4, 5, 6] as const;
 const EXTS = ["jpg", "jpeg", "png", "webp"] as const;
 const CAPTIONS: Record<number, string> = {
-  1: "Covered patio & entry step — new pour",
-  2: "New driveway pour",
-  3: "Backyard patio",
-  4: "Front entry stairs",
+  1: "Front walkway & driveway — finished",
+  2: "Curved walkway with floating steps",
+  3: "Custom-home driveway — fresh pour",
+  4: "Covered patio & entry step",
   5: "Sidewalk & approach",
   6: "Broom-finish driveway",
 };

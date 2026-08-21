@@ -201,8 +201,7 @@ lib/
    apex 308-redirects to `www`. Manage in **Vercel → Project → Settings → Domains**.
 4. After the pixel exists, set `NEXT_PUBLIC_META_PIXEL_ID` and redeploy.
 
-Before launch, fill in the two `TODO`s in `app/privacy/page.tsx`
-(`BUSINESS_ADDRESS`, `CONTACT_EMAIL`).
+Privacy-policy contact details live in `app/privacy/page.tsx` (`BUSINESS_ADDRESS`, `CONTACT_EMAIL`).
 
 ### Vercel project settings that must stay default
 

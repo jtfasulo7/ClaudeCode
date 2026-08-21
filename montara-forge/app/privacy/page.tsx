@@ -9,9 +9,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// TODO(owner): fill in the business mailing address and a contact email.
-const BUSINESS_ADDRESS = "[Business mailing address — TODO]";
-const CONTACT_EMAIL = "[contact email — TODO]";
+const BUSINESS_ADDRESS = "2261 South Cottontail Circle, New Harmony, UT 84757";
+const CONTACT_EMAIL = "Russellharker990@gmail.com";
 const EFFECTIVE_DATE = "August 20, 2026";
 
 export default function PrivacyPage() {
@@ -151,7 +150,12 @@ export default function PrivacyPage() {
                 {SITE.phoneDisplay}
               </CallLink>
             </p>
-            <p>Email: {CONTACT_EMAIL}</p>
+            <p>
+              Email:{" "}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-bone underline underline-offset-2">
+                {CONTACT_EMAIL}
+              </a>
+            </p>
           </Section>
         </div>
 
