@@ -32,13 +32,21 @@ export const metadata: Metadata = {
   description:
     "New driveways, driveway replacements, patios, sidewalks and stairs. Licensed & insured in Utah. Financing available. Book a free on-site estimate.",
   // Paid-traffic landing page, not an SEO asset. Applies to every route.
+  openGraph: {
+    type: "website",
+    siteName: SITE.name,
+    title: "Free On-Site Concrete Estimates — Montara Forge",
+    description:
+      "New driveways, driveway replacements, patios, sidewalks and stairs in Cedar City & Southern Utah. Licensed & insured. Financing available.",
+    url: "/",
+  },
+  twitter: { card: "summary_large_image" },
   robots: {
     index: false,
     follow: false,
     nocache: true,
     googleBot: { index: false, follow: false },
   },
-  icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
