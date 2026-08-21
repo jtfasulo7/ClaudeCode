@@ -78,23 +78,23 @@ What the owner sees on every contact, with **zero** GHL configuration:
   PROJECT: Driveway Replacement | TEAR-OUT: Yes (replacing existing) | SIZE: Medium — ~400–1,000 sq ft | TIMELINE: ASAP | LOCATION: Cedar City 84720
   ```
 
-### ✅ TODO — custom field IDs
+### Custom fields (by key)
 
-At the top of `app/api/submit-lead/route.ts`, `CUSTOM_FIELD_IDS` holds
-placeholder IDs (`TODO_CUSTOM_FIELD_ID_…`). Create these custom fields in the
-sub-account (Settings → Custom Fields), then paste each field's ID:
+`CUSTOM_FIELD_KEYS` at the top of `app/api/submit-lead/route.ts` maps each
+answer to a GHL custom field **key** (no IDs needed). These six Single-line
+contact fields exist in the sub-account under the "Additional Info" folder:
 
-| Key | Suggested field name | Type |
+| Field name in GHL | Key | Merge field for SMS / email |
 |---|---|---|
-| `projectType` | Project Type | Text / dropdown |
-| `newOrReplacement` | New or Replacement | Text / dropdown |
-| `sizeRange` | Approx. Size | Text / dropdown |
-| `timeline` | Timeline | Text / dropdown |
-| `location` | Project Location | Text |
-| `estimateSummary` | Estimate Summary | Large text |
+| Project Type (Web) | `project_type_web` | `{{contact.project_type_web}}` |
+| Tear-Out (Web) | `tearout_web` | `{{contact.tearout_web}}` |
+| Approx Size (Web) | `approx_size_web` | `{{contact.approx_size_web}}` |
+| Timeline (Web) | `timeline_web` | `{{contact.timeline_web}}` |
+| Project Location (Web) | `project_location_web` | `{{contact.project_location_web}}` |
+| Estimate Summary (Web) | `estimate_summary_web` | `{{contact.estimate_summary_web}}` |
 
-Any entry still starting with `TODO` is skipped automatically, so the route
-works before this is done.
+If a field is renamed in GHL its key stays the same; if one is deleted, set
+its entry to `""` to skip it.
 
 ### Notifications are a GHL Workflow, not code
 

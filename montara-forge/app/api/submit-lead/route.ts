@@ -16,20 +16,21 @@ export const dynamic = "force-dynamic";
 /* ------------------------------------------------------------------------
  * GoHighLevel custom-field mapping
  *
- * TODO(owner): paste the real custom field IDs from the Montara Forge
- * sub-account (Settings → Custom Fields → click a field → copy its ID).
- * Any entry still starting with "TODO" is skipped automatically, so the
- * route works before the IDs are filled in — the full answer set is ALSO
- * written to a contact note and to tags (see below) as a zero-config
- * fallback, so the owner never misses the qualifying answers.
+ * Fields are addressed by their GHL "unique key" (Settings → Custom Fields →
+ * Key column, shown as {{contact.<key>}}). Keys are stable and human-readable,
+ * so no ID copy-paste is needed. These six fields live in the Montara Forge
+ * sub-account under the "Additional Info" folder.
+ *
+ * Any entry set to "" is skipped. The full answer set is ALSO written to a
+ * contact note and to tags as a zero-config fallback.
  * ---------------------------------------------------------------------- */
-const CUSTOM_FIELD_IDS = {
-  projectType: "TODO_CUSTOM_FIELD_ID_PROJECT_TYPE",
-  newOrReplacement: "TODO_CUSTOM_FIELD_ID_NEW_OR_REPLACEMENT",
-  sizeRange: "TODO_CUSTOM_FIELD_ID_SIZE_RANGE",
-  timeline: "TODO_CUSTOM_FIELD_ID_TIMELINE",
-  location: "TODO_CUSTOM_FIELD_ID_LOCATION",
-  estimateSummary: "TODO_CUSTOM_FIELD_ID_ESTIMATE_SUMMARY",
+const CUSTOM_FIELD_KEYS = {
+  projectType: "project_type_web",
+  newOrReplacement: "tearout_web",
+  sizeRange: "approx_size_web",
+  timeline: "timeline_web",
+  location: "project_location_web",
+  estimateSummary: "estimate_summary_web",
 } as const;
 
 /**
@@ -152,17 +153,17 @@ async function pushToGhl(d: Validated): Promise<void> {
 
   const summary = buildSummary(d);
 
-  const fieldValues: Record<keyof typeof CUSTOM_FIELD_IDS, string> = {
+  const fieldValues: Record<keyof typeof CUSTOM_FIELD_KEYS, string> = {
     projectType: LABELS.projectType[d.projectType],
-    newOrReplacement: LABELS.newOrReplacement[d.newOrReplacement],
+    newOrReplacement: d.newOrReplacement === "replacement" ? "Yes — replacing existing" : "No — new pour",
     sizeRange: LABELS.sizeRange[d.sizeRange],
     timeline: LABELS.timeline[d.timeline],
     location: d.location,
     estimateSummary: summary,
   };
-  const customFields = (Object.keys(CUSTOM_FIELD_IDS) as (keyof typeof CUSTOM_FIELD_IDS)[])
-    .filter((k) => !CUSTOM_FIELD_IDS[k].startsWith("TODO"))
-    .map((k) => ({ id: CUSTOM_FIELD_IDS[k], field_value: fieldValues[k] }));
+  const customFields = (Object.keys(CUSTOM_FIELD_KEYS) as (keyof typeof CUSTOM_FIELD_KEYS)[])
+    .filter((k) => CUSTOM_FIELD_KEYS[k].length > 0)
+    .map((k) => ({ key: CUSTOM_FIELD_KEYS[k], field_value: fieldValues[k] }));
 
   // Answer tags: visible on every contact with zero configuration, and
   // filterable in Smart Lists. Cheap insurance alongside the note.
