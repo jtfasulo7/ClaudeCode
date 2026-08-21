@@ -7,7 +7,6 @@ export function ServiceArea() {
     <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12">
         <SectionHeading
-          index="03"
           eyebrow="Service Area"
           title={
             <>

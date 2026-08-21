@@ -1,11 +1,9 @@
-/** Numbered section heading: "01 — RECENT WORK" eyebrow + display title. */
+/** Section heading: gold rule + eyebrow label + display title. */
 export function SectionHeading({
-  index,
   eyebrow,
   title,
   align = "left",
 }: {
-  index: string;
   eyebrow: string;
   title: React.ReactNode;
   align?: "left" | "center";
@@ -14,7 +12,6 @@ export function SectionHeading({
   return (
     <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       <p className={`eyebrow flex items-center gap-3 ${center ? "justify-center" : ""}`}>
-        <span className="text-bone-mute">{index}</span>
         <span aria-hidden="true" className="h-px w-8 bg-gold" />
         {eyebrow}
       </p>

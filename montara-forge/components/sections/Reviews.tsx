@@ -52,7 +52,6 @@ export function Reviews() {
     <section className="border-t border-line bg-ink-2">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <SectionHeading
-          index="04"
           eyebrow="What Neighbors Say"
           title={
             <>

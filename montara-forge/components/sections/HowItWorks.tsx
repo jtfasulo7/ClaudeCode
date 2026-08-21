@@ -23,7 +23,6 @@ export function HowItWorks() {
     <section className="border-y border-line bg-ink-2">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <SectionHeading
-          index="02"
           eyebrow="How It Works"
           title={
             <>
