@@ -201,3 +201,11 @@ lib/
 
 Before launch, fill in the two `TODO`s in `app/privacy/page.tsx`
 (`BUSINESS_ADDRESS`, `CONTACT_EMAIL`).
+
+### Vercel project settings that must stay default
+
+In **Settings → Build and Deployment**, keep Build Command, Output Directory
+and Install Command **Override = off** (Next.js defaults) and Root Directory
+= `montara-forge`. The repo-root `vercel.json` belongs to `jtfasulo-website`;
+if its values ever show up here as overrides, the build fails with
+"No Next.js version detected".
