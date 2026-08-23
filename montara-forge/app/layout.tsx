@@ -32,6 +32,8 @@ export const metadata: Metadata = {
   description:
     "New driveways, driveway replacements, patios, sidewalks and stairs. Licensed & insured in Utah. Financing available. Book a free on-site estimate.",
   // Paid-traffic landing page, not an SEO asset. Applies to every route.
+  // Meta Business Manager domain verification for montaraforge.com
+  verification: { other: { "facebook-domain-verification": "isiibsjx8v4vamosfm41bvqocdaau3" } },
   openGraph: {
     type: "website",
     siteName: SITE.name,
