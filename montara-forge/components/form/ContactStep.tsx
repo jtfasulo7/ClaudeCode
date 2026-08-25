@@ -185,16 +185,19 @@ export function ContactStep({
             className="mt-0.5 h-5 w-5 shrink-0 cursor-pointer accent-gold"
           />
           <span className="text-[0.8rem] leading-snug text-bone-mute">
-            By submitting, I agree to receive text messages from {SITE.name} about my estimate
-            request. Message &amp; data rates may apply. Reply STOP to opt out.{" "}
+            By checking this box, I agree to receive text messages from {SITE.name} about my
+            estimate request, including appointment confirmations, reminders, and follow-up about
+            my project. Consent is not a condition of purchase. Message frequency varies. Message
+            &amp; data rates may apply. Reply STOP to opt out or HELP for help. See our{" "}
             <Link
-              href="/privacy"
+              href="/privacy#sms-terms"
               target="_blank"
               rel="noopener"
               className="font-semibold text-bone underline underline-offset-2 hover:text-gold"
             >
-              Privacy Policy
+              Privacy Policy &amp; SMS Terms
             </Link>
+            .
           </span>
         </label>
         {errors.consent && (

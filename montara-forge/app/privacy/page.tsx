@@ -72,11 +72,17 @@ export default function PrivacyPage() {
             </ul>
           </Section>
 
-          <Section title="Text messaging (SMS) terms">
+          <Section id="sms-terms" title="Text messaging (SMS) terms">
             <p>
               By submitting our estimate form and checking the consent box, you agree to receive
               text messages from {SITE.name} about your estimate request, including appointment
-              confirmations, reminders, and follow-up regarding your project.
+              confirmations, reminders, and follow-up regarding your project. We do not send
+              marketing or promotional texts to numbers collected through this form.
+            </p>
+            <p>
+              Example message: &ldquo;{SITE.name}: Hi John — confirming your free on-site estimate
+              Tue 9/2 at 10:00 AM. Reply C to confirm or R to reschedule. Reply STOP to opt
+              out.&rdquo;
             </p>
             <ul className="list-disc space-y-1 pl-5">
               <li>
@@ -176,9 +182,17 @@ export default function PrivacyPage() {
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  id,
+  children,
+}: {
+  title: string;
+  id?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <section className="space-y-3">
+    <section id={id} className="scroll-mt-6 space-y-3">
       <h2 className="font-display text-2xl text-bone">{title}</h2>
       {children}
     </section>
