@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CallLink } from "@/components/CallLink";
 import { SITE } from "@/lib/site";
 
-/** Minimal footer: name, phone, license line, privacy link. Nothing else. */
+/** Minimal footer: name, phone, license line, legal links. Nothing else. */
 export function Footer() {
   return (
     <footer className="border-t border-line bg-ink-2 pb-24 pt-10 md:pb-10">
@@ -27,6 +27,12 @@ export function Footer() {
             className="text-bone-mute underline-offset-4 hover:text-bone hover:underline"
           >
             Privacy Policy
+          </Link>
+          <Link
+            href="/terms"
+            className="text-bone-mute underline-offset-4 hover:text-bone hover:underline"
+          >
+            Terms &amp; Conditions
           </Link>
           <p className="text-xs text-bone-mute/70">
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
