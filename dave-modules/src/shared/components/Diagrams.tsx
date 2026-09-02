@@ -440,7 +440,13 @@ export const VerifyBadge: React.FC<{ p: number; qr: number }> = ({ p, qr }) => {
 
 /* --------------------------------------------------------------- doc tile */
 
-/** Small document thumbnail used by every module's COA library grid. */
+/**
+ * Small document thumbnail used by every module's COA library grid.
+ *
+ * Rises and scales into place, then settles to exact identity — at which point
+ * the transform is dropped entirely so the tile sits on the pixel grid rather
+ * than holding a rest-state matrix.
+ */
 export const DocTile: React.FC<{ p: number; gold?: boolean }> = ({ p, gold = false }) => (
   <div
     style={{
@@ -449,6 +455,7 @@ export const DocTile: React.FC<{ p: number; gold?: boolean }> = ({ p, gold = fal
       borderRadius: 6,
       background: gold ? "linear-gradient(165deg,#F6F4EE,#E5DFCF)" : "linear-gradient(165deg,#EEEBE3,#DAD6CB)",
       opacity: p,
+      transform: p >= 1 ? undefined : `translateY(${(1 - p) * 22}px) scale(${0.9 + p * 0.1})`,
       boxShadow: gold ? `0 14px 34px rgba(0,0,0,0.5), 0 0 0 2px ${C.gold}` : "0 14px 34px rgba(0,0,0,0.45)",
       padding: 14,
       display: "flex",
