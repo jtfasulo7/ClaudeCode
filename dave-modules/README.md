@@ -8,8 +8,9 @@ saying, beat by beat.
 |---|---|---|---|
 | `Module1` | The Gray Market | 115.76s | `out/module-1.mp4` |
 | `Module3` | Getting the most from this community | 115.92s | `out/module-3.mp4` |
+| `Module5` | Beginner mistakes | 146.08s | `out/module-5.mp4` |
 
-Both are 1920x1080, 30fps.
+All are 1920x1080, 30fps.
 
 ## Why one project
 
@@ -27,33 +28,37 @@ src/
       Scene.tsx          per-scene entrance; settles dead still
       Type.tsx           Eyebrow / KeyWords / Statement / Rule
       Graphics.tsx       Vial, Globe, CoaSheet, PriceBar, CheckRow, Lock
-      Diagrams.tsx       PeptideChain, SearchBar, ThreadPost, NodeNetwork, TierLadder
+      Diagrams.tsx       PeptideChain, SearchBar, ThreadPost, NodeNetwork, TierLadder,
+                         ChapterNumber, Countdown, WalletAddress, DMCard, VerifyBadge
   modules/
     module1/  Module1.tsx + scenes/   (28 scenes)
     module3/  Module3.tsx + scenes/   (32 scenes)
+    module5/  Module5.tsx + scenes/   (32 scenes)
   Root.tsx               one <Composition> per module
 ```
 
 ## Pipeline
 
-1. **Audio** — VOs live in `public/` (`vo-module1.mp3`, `vo-module3.mp3`);
+1. **Audio** — VOs live in `public/` (`vo-module1.mp3`, `vo-module3.mp3`,
+   `vo-module5.mp3`);
    Remotion serves that directory. `work/<module>/audio.wav` is a 16kHz mono
    copy used only for transcription.
 2. **Transcript** —
    `py work/transcribe.py work/module3/audio.wav work/module3/transcript.json medium`
    (faster-whisper, CPU int8 — no torch, and openai-whisper does not install
    cleanly on Python 3.13).
-3. **Render** — `npm run render1` / `npm run render3`, or `npm start` for the
-   studio.
+3. **Render** — `npm run render1` / `render3` / `render5`, or `npm start` for
+   the studio.
 
 ## How the timing works
 
-Every scene boundary in `Module1.tsx` / `Module3.tsx` is a **word timestamp**
+Every scene boundary in each module's `ModuleN.tsx` is a **word timestamp**
 read out of the module's `transcript.json` — not a guess, not a fixed cadence.
 The same is true inside scenes: Module 1's `$600 / $800 / $1,000` bars land on
 frames 117 / 155 / 213 because that is where those numbers are spoken, and
 Module 3's three struck-through sources land on "Dave said it", "a member said
-it" and "a vendor said it" individually.
+it" and "a vendor said it" individually. Module 5's COA row spotlights fire on
+"compound", "batch number", "test date" and "sample information".
 
 Scenes overlap by 8 frames so each outgoing fade cross-dissolves into the
 incoming one instead of cutting through black.
@@ -99,8 +104,8 @@ bars filling, checks drawing, a lock swinging open.
 
 Education/research framing throughout, matching the VOs. No dosing, no
 administration, no injection imagery, no instruction to buy — the vial graphic is
-a sealed research vial, never shown in use. Module 1 closes on the "nothing here
-is medical advice" line from its script.
+a sealed research vial, never shown in use. Modules 1 and 5 close on the
+"nothing here is medical advice" line from their scripts.
 
 **Illustrative placeholders**, not real data — swap before publishing if that
 matters for the classroom:
@@ -109,3 +114,7 @@ matters for the classroom:
   (`99.1%`, `10.2 mg`, batch `A-2291`).
 - Module 3: the same COA values; the search results and comment text on the
   thread scene; the tier names on the engagement ladder.
+- Module 5: the COA row values and lab report ID (`LR-88214-C`); the wallet
+  address, which is a fabricated string used only to illustrate the "one wrong
+  character" point and is **not** a real or usable address; the flash-sale
+  countdown and the vendor-review quotes.

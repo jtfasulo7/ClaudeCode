@@ -5,7 +5,8 @@
   "scripts": {
     "start": "remotion studio",
     "render1": "remotion render src/index.ts Module1 out/module-1.mp4",
-    "render3": "remotion render src/index.ts Module3 out/module-3.mp4"
+    "render3": "remotion render src/index.ts Module3 out/module-3.mp4",
+    "render5": "remotion render src/index.ts Module5 out/module-5.mp4"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

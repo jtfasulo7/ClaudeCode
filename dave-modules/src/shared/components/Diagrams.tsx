@@ -247,3 +247,193 @@ export const TierLadder: React.FC<{
     })}
   </div>
 );
+
+/* ------------------------------------------------------------ chapter mark */
+
+/** Big numeral for the "First / Second / Third" spine of a module. */
+export const ChapterNumber: React.FC<{ n: string; label: string; p: number }> = ({ n, label, p }) => (
+  <div style={{ display: "flex", alignItems: "baseline", gap: 26, opacity: p, fontFamily: SANS }}>
+    <span
+      style={{
+        fontSize: 150,
+        fontWeight: 800,
+        color: C.goldBright,
+        letterSpacing: -6,
+        lineHeight: 0.9,
+        fontVariantNumeric: "tabular-nums",
+      }}
+    >
+      {n}
+    </span>
+    <span style={{ fontSize: 30, letterSpacing: 5, textTransform: "uppercase", color: C.textFaint }}>{label}</span>
+  </div>
+);
+
+/* ----------------------------------------------------------------- countdown */
+
+/**
+ * Urgency UI, the thing the script warns about. Ticks once per second on a
+ * whole-second boundary and uses tabular figures, so the digits swap in place
+ * without the row reflowing.
+ */
+export const Countdown: React.FC<{ secondsLeft: number; p: number }> = ({ secondsLeft, p }) => {
+  const m = Math.max(0, Math.floor(secondsLeft / 60));
+  const s = Math.max(0, Math.floor(secondsLeft % 60));
+  return (
+    <div
+      style={{
+        opacity: p,
+        padding: "30px 46px",
+        borderRadius: 14,
+        border: `1.5px solid rgba(180,72,60,0.55)`,
+        background: "rgba(180,72,60,0.09)",
+        textAlign: "center",
+        fontFamily: SANS,
+      }}
+    >
+      <div style={{ fontSize: 22, letterSpacing: 3.4, textTransform: "uppercase", color: C.red }}>Flash sale ends</div>
+      <div
+        style={{
+          fontSize: 92,
+          fontWeight: 800,
+          color: C.text,
+          marginTop: 10,
+          letterSpacing: -2,
+          fontVariantNumeric: "tabular-nums",
+        }}
+      >
+        {String(m).padStart(2, "0")}:{String(s).padStart(2, "0")}
+      </div>
+    </div>
+  );
+};
+
+/* ------------------------------------------------------------ wallet address */
+
+const MONO = "ui-monospace, Consolas, 'Courier New', monospace";
+
+/** A wallet string with one character flagged — the "one wrong character" beat. */
+export const WalletAddress: React.FC<{
+  addr: string;
+  badIndex?: number;
+  showBad: number;
+  w?: number;
+}> = ({ addr, badIndex = -1, showBad, w = 1160 }) => (
+  <div
+    style={{
+      width: w,
+      padding: "30px 34px",
+      borderRadius: 14,
+      background: C.panel,
+      border: `1px solid ${showBad > 0.4 ? "rgba(180,72,60,0.55)" : C.line}`,
+      fontFamily: MONO,
+      fontSize: 38,
+      letterSpacing: 1,
+      color: C.textDim,
+      wordBreak: "break-all",
+      lineHeight: 1.5,
+      textAlign: "center",
+    }}
+  >
+    {addr.split("").map((ch, i) => {
+      const bad = i === badIndex && showBad > 0.4;
+      return (
+        <span
+          key={i}
+          style={{
+            color: bad ? C.red : C.textDim,
+            background: bad ? "rgba(180,72,60,0.22)" : "transparent",
+            fontWeight: bad ? 700 : 400,
+          }}
+        >
+          {ch}
+        </span>
+      );
+    })}
+  </div>
+);
+
+/* ------------------------------------------------------------------ DM card */
+
+export const DMCard: React.FC<{
+  who: string;
+  text: string;
+  p: number;
+  flagged?: number;
+  w?: number;
+}> = ({ who, text, p, flagged = 0, w = 820 }) => (
+  <div
+    style={{
+      width: w,
+      opacity: p,
+      padding: "26px 30px",
+      borderRadius: 16,
+      background: C.panel,
+      border: `1px solid ${flagged > 0.4 ? "rgba(180,72,60,0.55)" : C.line}`,
+      display: "flex",
+      gap: 20,
+      alignItems: "flex-start",
+      fontFamily: SANS,
+    }}
+  >
+    <div
+      style={{
+        width: 56,
+        height: 56,
+        borderRadius: 28,
+        flexShrink: 0,
+        background: flagged > 0.4 ? "rgba(180,72,60,0.18)" : "rgba(255,255,255,0.05)",
+        border: `1px solid ${flagged > 0.4 ? C.red : C.line}`,
+      }}
+    />
+    <div style={{ flex: 1 }}>
+      <div style={{ fontSize: 24, color: flagged > 0.4 ? C.red : C.textFaint, letterSpacing: 1.4 }}>{who}</div>
+      <div style={{ fontSize: 30, color: C.text, marginTop: 8, lineHeight: 1.35 }}>{text}</div>
+    </div>
+  </div>
+);
+
+/* ------------------------------------------------------------- verify badge */
+
+/** Verification number / QR / report ID block from a lab report. */
+export const VerifyBadge: React.FC<{ p: number; qr: number }> = ({ p, qr }) => {
+  const cells = [
+    [1, 1, 1, 0, 1, 0, 1, 1, 1],
+    [1, 0, 1, 0, 0, 1, 1, 0, 1],
+    [1, 1, 1, 0, 1, 1, 1, 1, 1],
+    [0, 0, 0, 1, 0, 1, 0, 0, 0],
+    [1, 1, 0, 1, 1, 0, 0, 1, 1],
+    [0, 1, 1, 0, 0, 1, 1, 0, 1],
+    [1, 1, 1, 0, 1, 0, 1, 1, 1],
+    [1, 0, 1, 1, 0, 1, 1, 0, 0],
+    [1, 1, 1, 0, 1, 1, 0, 1, 1],
+  ];
+  const c = 14;
+  return (
+    <div style={{ opacity: p, display: "flex", alignItems: "center", gap: 30, fontFamily: SANS }}>
+      <svg width={c * 9} height={c * 9}>
+        {cells.map((row, y) =>
+          row.map((v, x) => {
+            const on = v === 1 && qr > (y * 9 + x) / 81;
+            return on ? <rect key={`${x}-${y}`} x={x * c} y={y * c} width={c} height={c} fill={C.gold} /> : null;
+          }),
+        )}
+      </svg>
+      <div>
+        <div style={{ fontSize: 20, letterSpacing: 2.6, textTransform: "uppercase", color: C.textFaint }}>Report ID</div>
+        <div
+          style={{
+            fontSize: 40,
+            fontWeight: 700,
+            color: C.text,
+            marginTop: 6,
+            fontFamily: MONO,
+            letterSpacing: 1,
+          }}
+        >
+          LR-88214-C
+        </div>
+      </div>
+    </div>
+  );
+};
