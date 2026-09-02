@@ -437,3 +437,29 @@ export const VerifyBadge: React.FC<{ p: number; qr: number }> = ({ p, qr }) => {
     </div>
   );
 };
+
+/* --------------------------------------------------------------- doc tile */
+
+/** Small document thumbnail used by every module's COA library grid. */
+export const DocTile: React.FC<{ p: number; gold?: boolean }> = ({ p, gold = false }) => (
+  <div
+    style={{
+      width: 148,
+      height: 192,
+      borderRadius: 6,
+      background: gold ? "linear-gradient(165deg,#F6F4EE,#E5DFCF)" : "linear-gradient(165deg,#EEEBE3,#DAD6CB)",
+      opacity: p,
+      boxShadow: gold ? `0 14px 34px rgba(0,0,0,0.5), 0 0 0 2px ${C.gold}` : "0 14px 34px rgba(0,0,0,0.45)",
+      padding: 14,
+      display: "flex",
+      flexDirection: "column",
+      gap: 7,
+    }}
+  >
+    <div style={{ height: 7, width: "62%", background: "#9A8A4F", borderRadius: 2, opacity: 0.7 }} />
+    <div style={{ height: 5, width: "88%", background: "#C6C0B0", borderRadius: 2 }} />
+    <div style={{ height: 5, width: "74%", background: "#C6C0B0", borderRadius: 2 }} />
+    <div style={{ height: 5, width: "80%", background: "#C6C0B0", borderRadius: 2 }} />
+    <div style={{ marginTop: "auto", height: 22, width: 22, borderRadius: 11, border: `2px solid ${C.goldDim}` }} />
+  </div>
+);

@@ -3,32 +3,8 @@ import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { Scene, useIn, useRamp } from "../../../shared/components/Scene";
 import { Eyebrow, KeyWords } from "../../../shared/components/Type";
 import { Lock, Panel } from "../../../shared/components/Graphics";
+import { DocTile } from "../../../shared/components/Diagrams";
 import { C, SANS } from "../../../shared/theme";
-
-/* A small document thumbnail for the library grid. */
-const MiniDoc: React.FC<{ p: number; gold?: boolean }> = ({ p, gold = false }) => (
-  <div
-    style={{
-      width: 148,
-      height: 192,
-      borderRadius: 6,
-      background: gold ? "linear-gradient(165deg,#F6F4EE,#E5DFCF)" : "linear-gradient(165deg,#EEEBE3,#DAD6CB)",
-      opacity: p,
-      transform: `translateY(${(1 - p) * 22}px) scale(${0.9 + p * 0.1})`,
-      boxShadow: gold ? `0 14px 34px rgba(0,0,0,0.5), 0 0 0 2px ${C.gold}` : "0 14px 34px rgba(0,0,0,0.45)",
-      padding: 14,
-      display: "flex",
-      flexDirection: "column",
-      gap: 7,
-    }}
-  >
-    <div style={{ height: 7, width: "62%", background: "#9A8A4F", borderRadius: 2, opacity: 0.7 }} />
-    <div style={{ height: 5, width: "88%", background: "#C6C0B0", borderRadius: 2 }} />
-    <div style={{ height: 5, width: "74%", background: "#C6C0B0", borderRadius: 2 }} />
-    <div style={{ height: 5, width: "80%", background: "#C6C0B0", borderRadius: 2 }} />
-    <div style={{ marginTop: "auto", height: 22, width: 22, borderRadius: 11, border: `2px solid ${C.goldDim}` }} />
-  </div>
-);
 
 /* 17 — 71.85-76.35  "Inside Peps by Dave, we also have a trusted vendor classroom." */
 export const TrustedVendorClassroom: React.FC<{ dur: number }> = ({ dur }) => {
@@ -216,7 +192,7 @@ export const COALibrary: React.FC<{ dur: number }> = ({ dur }) => {
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 46 }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 148px)", gap: 26 }}>
           {cells.map((p, i) => (
-            <MiniDoc key={i} p={p} gold={i === 7} />
+            <DocTile key={i} p={p} gold={i === 7} />
           ))}
         </div>
         <div style={{ opacity: cap }}>
@@ -237,7 +213,7 @@ export const TestingDocs: React.FC<{ dur: number }> = ({ dur }) => {
         {/* Scaled well up — this beat is meant to read as a document closeup,
             and the library thumbnail size is far too small to carry a shot. */}
         <div style={{ opacity: doc, transform: `scale(${(0.92 + doc * 0.08) * 2.3}) rotate(-2deg)`, flexShrink: 0 }}>
-          <MiniDoc p={1} gold />
+          <DocTile p={1} gold />
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 30, width: 700 }}>
           <Eyebrow delay={4}>Collected and reviewed</Eyebrow>

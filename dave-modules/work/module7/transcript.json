@@ -1,0 +1,1571 @@
+{
+  "language": "en",
+  "duration": 87.12,
+  "model": "medium",
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 3.82,
+      "text": " If you're completely new to the gray market, don't over-complicate it.",
+      "words": [
+        {
+          "word": " If",
+          "start": 0.0,
+          "end": 0.2,
+          "probability": 0.7701208591461182
+        },
+        {
+          "word": " you're",
+          "start": 0.2,
+          "end": 0.38,
+          "probability": 0.954308032989502
+        },
+        {
+          "word": " completely",
+          "start": 0.38,
+          "end": 0.9,
+          "probability": 0.9823256134986877
+        },
+        {
+          "word": " new",
+          "start": 0.9,
+          "end": 1.26,
+          "probability": 0.9952085614204407
+        },
+        {
+          "word": " to",
+          "start": 1.26,
+          "end": 1.42,
+          "probability": 0.9956001043319702
+        },
+        {
+          "word": " the",
+          "start": 1.42,
+          "end": 1.6,
+          "probability": 0.9909706115722656
+        },
+        {
+          "word": " gray",
+          "start": 1.6,
+          "end": 1.74,
+          "probability": 0.5799946784973145
+        },
+        {
+          "word": " market,",
+          "start": 1.74,
+          "end": 2.18,
+          "probability": 0.9962604641914368
+        },
+        {
+          "word": " don't",
+          "start": 2.36,
+          "end": 2.62,
+          "probability": 0.9947047829627991
+        },
+        {
+          "word": " over",
+          "start": 2.62,
+          "end": 2.9,
+          "probability": 0.9834157228469849
+        },
+        {
+          "word": "-complicate",
+          "start": 2.9,
+          "end": 3.4,
+          "probability": 0.7874099761247635
+        },
+        {
+          "word": " it.",
+          "start": 3.4,
+          "end": 3.82,
+          "probability": 0.9921350479125977
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 4.3,
+      "end": 9.2,
+      "text": " If you've already watched the earlier videos, you probably understand the basics, what a",
+      "words": [
+        {
+          "word": " If",
+          "start": 4.3,
+          "end": 4.42,
+          "probability": 0.9819095134735107
+        },
+        {
+          "word": " you've",
+          "start": 4.42,
+          "end": 4.66,
+          "probability": 0.9931305646896362
+        },
+        {
+          "word": " already",
+          "start": 4.66,
+          "end": 4.96,
+          "probability": 0.9951007962226868
+        },
+        {
+          "word": " watched",
+          "start": 4.96,
+          "end": 5.24,
+          "probability": 0.9913809895515442
+        },
+        {
+          "word": " the",
+          "start": 5.24,
+          "end": 5.48,
+          "probability": 0.9904159307479858
+        },
+        {
+          "word": " earlier",
+          "start": 5.48,
+          "end": 5.74,
+          "probability": 0.9935812950134277
+        },
+        {
+          "word": " videos,",
+          "start": 5.74,
+          "end": 6.22,
+          "probability": 0.9941304326057434
+        },
+        {
+          "word": " you",
+          "start": 6.52,
+          "end": 6.7,
+          "probability": 0.9969348907470703
+        },
+        {
+          "word": " probably",
+          "start": 6.7,
+          "end": 7.08,
+          "probability": 0.9783861041069031
+        },
+        {
+          "word": " understand",
+          "start": 7.08,
+          "end": 7.6,
+          "probability": 0.9964426159858704
+        },
+        {
+          "word": " the",
+          "start": 7.6,
+          "end": 7.84,
+          "probability": 0.99793940782547
+        },
+        {
+          "word": " basics,",
+          "start": 7.84,
+          "end": 8.3,
+          "probability": 0.9979263544082642
+        },
+        {
+          "word": " what",
+          "start": 8.72,
+          "end": 8.9,
+          "probability": 0.9923884272575378
+        },
+        {
+          "word": " a",
+          "start": 8.9,
+          "end": 9.2,
+          "probability": 0.9911609888076782
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 9.2,
+      "end": 13.48,
+      "text": " COA is, why testing matters, and why prices can vary so much.",
+      "words": [
+        {
+          "word": " COA",
+          "start": 9.2,
+          "end": 9.46,
+          "probability": 0.8534098565578461
+        },
+        {
+          "word": " is,",
+          "start": 9.46,
+          "end": 10.02,
+          "probability": 0.995489776134491
+        },
+        {
+          "word": " why",
+          "start": 10.18,
+          "end": 10.36,
+          "probability": 0.9948615431785583
+        },
+        {
+          "word": " testing",
+          "start": 10.36,
+          "end": 10.68,
+          "probability": 0.9979106783866882
+        },
+        {
+          "word": " matters,",
+          "start": 10.68,
+          "end": 11.2,
+          "probability": 0.99908447265625
+        },
+        {
+          "word": " and",
+          "start": 11.2,
+          "end": 11.58,
+          "probability": 0.9971542358398438
+        },
+        {
+          "word": " why",
+          "start": 11.58,
+          "end": 11.82,
+          "probability": 0.998698353767395
+        },
+        {
+          "word": " prices",
+          "start": 11.82,
+          "end": 12.16,
+          "probability": 0.9975101947784424
+        },
+        {
+          "word": " can",
+          "start": 12.16,
+          "end": 12.5,
+          "probability": 0.9986457228660583
+        },
+        {
+          "word": " vary",
+          "start": 12.5,
+          "end": 12.78,
+          "probability": 0.9975964426994324
+        },
+        {
+          "word": " so",
+          "start": 12.78,
+          "end": 13.06,
+          "probability": 0.985081136226654
+        },
+        {
+          "word": " much.",
+          "start": 13.06,
+          "end": 13.48,
+          "probability": 0.9991656541824341
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 14.2,
+      "end": 17.74,
+      "text": " Your next step is simply to keep engaging inside the community.",
+      "words": [
+        {
+          "word": " Your",
+          "start": 14.2,
+          "end": 14.4,
+          "probability": 0.9912716746330261
+        },
+        {
+          "word": " next",
+          "start": 14.4,
+          "end": 14.8,
+          "probability": 0.9994857311248779
+        },
+        {
+          "word": " step",
+          "start": 14.8,
+          "end": 15.06,
+          "probability": 0.99932861328125
+        },
+        {
+          "word": " is",
+          "start": 15.06,
+          "end": 15.28,
+          "probability": 0.9990547299385071
+        },
+        {
+          "word": " simply",
+          "start": 15.28,
+          "end": 15.58,
+          "probability": 0.9954648613929749
+        },
+        {
+          "word": " to",
+          "start": 15.58,
+          "end": 15.82,
+          "probability": 0.9984737038612366
+        },
+        {
+          "word": " keep",
+          "start": 15.82,
+          "end": 16.04,
+          "probability": 0.9981641173362732
+        },
+        {
+          "word": " engaging",
+          "start": 16.04,
+          "end": 16.5,
+          "probability": 0.9976937174797058
+        },
+        {
+          "word": " inside",
+          "start": 16.5,
+          "end": 16.96,
+          "probability": 0.9962303042411804
+        },
+        {
+          "word": " the",
+          "start": 16.96,
+          "end": 17.2,
+          "probability": 0.9986780285835266
+        },
+        {
+          "word": " community.",
+          "start": 17.2,
+          "end": 17.74,
+          "probability": 0.9840019941329956
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 18.2,
+      "end": 22.36,
+      "text": " Once you unlock the trusted vendor access classroom, you'll be able to see the",
+      "words": [
+        {
+          "word": " Once",
+          "start": 18.2,
+          "end": 18.44,
+          "probability": 0.9972021579742432
+        },
+        {
+          "word": " you",
+          "start": 18.44,
+          "end": 18.64,
+          "probability": 0.9994413256645203
+        },
+        {
+          "word": " unlock",
+          "start": 18.64,
+          "end": 19.0,
+          "probability": 0.9967561364173889
+        },
+        {
+          "word": " the",
+          "start": 19.0,
+          "end": 19.26,
+          "probability": 0.9940183162689209
+        },
+        {
+          "word": " trusted",
+          "start": 19.26,
+          "end": 19.6,
+          "probability": 0.48028379678726196
+        },
+        {
+          "word": " vendor",
+          "start": 19.6,
+          "end": 19.98,
+          "probability": 0.8674710392951965
+        },
+        {
+          "word": " access",
+          "start": 19.98,
+          "end": 20.38,
+          "probability": 0.9915189146995544
+        },
+        {
+          "word": " classroom,",
+          "start": 20.38,
+          "end": 20.92,
+          "probability": 0.9931480288505554
+        },
+        {
+          "word": " you'll",
+          "start": 21.26,
+          "end": 21.5,
+          "probability": 0.9900989234447479
+        },
+        {
+          "word": " be",
+          "start": 21.5,
+          "end": 21.68,
+          "probability": 0.9995566010475159
+        },
+        {
+          "word": " able",
+          "start": 21.68,
+          "end": 21.84,
+          "probability": 0.999813973903656
+        },
+        {
+          "word": " to",
+          "start": 21.84,
+          "end": 22.02,
+          "probability": 0.9997707009315491
+        },
+        {
+          "word": " see",
+          "start": 22.02,
+          "end": 22.16,
+          "probability": 0.9996121525764465
+        },
+        {
+          "word": " the",
+          "start": 22.16,
+          "end": 22.36,
+          "probability": 0.9984872341156006
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 22.36,
+      "end": 26.94,
+      "text": " vendors we've collected, their contact information, available price lists, and other",
+      "words": [
+        {
+          "word": " vendors",
+          "start": 22.36,
+          "end": 22.62,
+          "probability": 0.9933517575263977
+        },
+        {
+          "word": " we've",
+          "start": 22.62,
+          "end": 22.94,
+          "probability": 0.9907374083995819
+        },
+        {
+          "word": " collected,",
+          "start": 22.94,
+          "end": 23.4,
+          "probability": 0.9977377653121948
+        },
+        {
+          "word": " their",
+          "start": 23.82,
+          "end": 23.92,
+          "probability": 0.9893977642059326
+        },
+        {
+          "word": " contact",
+          "start": 23.92,
+          "end": 24.28,
+          "probability": 0.9978686571121216
+        },
+        {
+          "word": " information,",
+          "start": 24.28,
+          "end": 24.88,
+          "probability": 0.9963454604148865
+        },
+        {
+          "word": " available",
+          "start": 25.32,
+          "end": 25.7,
+          "probability": 0.9983488321304321
+        },
+        {
+          "word": " price",
+          "start": 25.7,
+          "end": 26.08,
+          "probability": 0.9905686974525452
+        },
+        {
+          "word": " lists,",
+          "start": 26.08,
+          "end": 26.46,
+          "probability": 0.9928431510925293
+        },
+        {
+          "word": " and",
+          "start": 26.52,
+          "end": 26.72,
+          "probability": 0.999078631401062
+        },
+        {
+          "word": " other",
+          "start": 26.72,
+          "end": 26.94,
+          "probability": 0.9992528557777405
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 26.94,
+      "end": 28.12,
+      "text": " important details.",
+      "words": [
+        {
+          "word": " important",
+          "start": 26.94,
+          "end": 27.48,
+          "probability": 0.9997053742408752
+        },
+        {
+          "word": " details.",
+          "start": 27.48,
+          "end": 28.12,
+          "probability": 0.9984754920005798
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 29.0,
+      "end": 34.26,
+      "text": " Before trusting any vendor, check the COA results library and review the testing we",
+      "words": [
+        {
+          "word": " Before",
+          "start": 29.0,
+          "end": 29.4,
+          "probability": 0.7907212376594543
+        },
+        {
+          "word": " trusting",
+          "start": 29.4,
+          "end": 29.8,
+          "probability": 0.9839053750038147
+        },
+        {
+          "word": " any",
+          "start": 29.8,
+          "end": 30.2,
+          "probability": 0.9945031404495239
+        },
+        {
+          "word": " vendor,",
+          "start": 30.2,
+          "end": 30.56,
+          "probability": 0.9801029562950134
+        },
+        {
+          "word": " check",
+          "start": 30.98,
+          "end": 31.16,
+          "probability": 0.9762767553329468
+        },
+        {
+          "word": " the",
+          "start": 31.16,
+          "end": 31.5,
+          "probability": 0.9958487749099731
+        },
+        {
+          "word": " COA",
+          "start": 31.5,
+          "end": 31.92,
+          "probability": 0.8348988592624664
+        },
+        {
+          "word": " results",
+          "start": 31.92,
+          "end": 32.28,
+          "probability": 0.8095800876617432
+        },
+        {
+          "word": " library",
+          "start": 32.28,
+          "end": 32.84,
+          "probability": 0.9753068089485168
+        },
+        {
+          "word": " and",
+          "start": 32.84,
+          "end": 33.18,
+          "probability": 0.8876991868019104
+        },
+        {
+          "word": " review",
+          "start": 33.18,
+          "end": 33.56,
+          "probability": 0.9972032308578491
+        },
+        {
+          "word": " the",
+          "start": 33.56,
+          "end": 33.84,
+          "probability": 0.9960447549819946
+        },
+        {
+          "word": " testing",
+          "start": 33.84,
+          "end": 34.08,
+          "probability": 0.9960629343986511
+        },
+        {
+          "word": " we",
+          "start": 34.08,
+          "end": 34.26,
+          "probability": 0.9660388231277466
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 34.26,
+      "end": 34.9,
+      "text": " have available.",
+      "words": [
+        {
+          "word": " have",
+          "start": 34.26,
+          "end": 34.42,
+          "probability": 0.9991711378097534
+        },
+        {
+          "word": " available.",
+          "start": 34.42,
+          "end": 34.9,
+          "probability": 0.9983031749725342
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 35.7,
+      "end": 38.84,
+      "text": " Always verify the vendor's official contact information.",
+      "words": [
+        {
+          "word": " Always",
+          "start": 35.7,
+          "end": 36.16,
+          "probability": 0.9905896186828613
+        },
+        {
+          "word": " verify",
+          "start": 36.16,
+          "end": 36.68,
+          "probability": 0.9864409565925598
+        },
+        {
+          "word": " the",
+          "start": 36.68,
+          "end": 36.9,
+          "probability": 0.9977300763130188
+        },
+        {
+          "word": " vendor's",
+          "start": 36.9,
+          "end": 37.4,
+          "probability": 0.8125942051410675
+        },
+        {
+          "word": " official",
+          "start": 37.4,
+          "end": 37.74,
+          "probability": 0.9936854243278503
+        },
+        {
+          "word": " contact",
+          "start": 37.74,
+          "end": 38.16,
+          "probability": 0.9957664012908936
+        },
+        {
+          "word": " information.",
+          "start": 38.16,
+          "end": 38.84,
+          "probability": 0.998012900352478
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 39.44,
+      "end": 43.06,
+      "text": " Don't respond to random DMs from someone claiming to be a vendor.",
+      "words": [
+        {
+          "word": " Don't",
+          "start": 39.44,
+          "end": 39.76,
+          "probability": 0.9976513087749481
+        },
+        {
+          "word": " respond",
+          "start": 39.76,
+          "end": 40.14,
+          "probability": 0.9976261258125305
+        },
+        {
+          "word": " to",
+          "start": 40.14,
+          "end": 40.36,
+          "probability": 0.9996514320373535
+        },
+        {
+          "word": " random",
+          "start": 40.36,
+          "end": 40.74,
+          "probability": 0.9975934624671936
+        },
+        {
+          "word": " DMs",
+          "start": 40.74,
+          "end": 41.32,
+          "probability": 0.774770587682724
+        },
+        {
+          "word": " from",
+          "start": 41.32,
+          "end": 41.5,
+          "probability": 0.9973648190498352
+        },
+        {
+          "word": " someone",
+          "start": 41.5,
+          "end": 41.86,
+          "probability": 0.9986650943756104
+        },
+        {
+          "word": " claiming",
+          "start": 41.86,
+          "end": 42.26,
+          "probability": 0.9977558255195618
+        },
+        {
+          "word": " to",
+          "start": 42.26,
+          "end": 42.46,
+          "probability": 0.9996755123138428
+        },
+        {
+          "word": " be",
+          "start": 42.46,
+          "end": 42.62,
+          "probability": 0.9997983574867249
+        },
+        {
+          "word": " a",
+          "start": 42.62,
+          "end": 42.74,
+          "probability": 0.9994217157363892
+        },
+        {
+          "word": " vendor.",
+          "start": 42.74,
+          "end": 43.06,
+          "probability": 0.9985244870185852
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 43.52,
+      "end": 45.54,
+      "text": " And don't feel like you need to rush.",
+      "words": [
+        {
+          "word": " And",
+          "start": 43.52,
+          "end": 43.86,
+          "probability": 0.9494962692260742
+        },
+        {
+          "word": " don't",
+          "start": 43.86,
+          "end": 44.1,
+          "probability": 0.9941968619823456
+        },
+        {
+          "word": " feel",
+          "start": 44.1,
+          "end": 44.32,
+          "probability": 0.9984105825424194
+        },
+        {
+          "word": " like",
+          "start": 44.32,
+          "end": 44.52,
+          "probability": 0.9990473389625549
+        },
+        {
+          "word": " you",
+          "start": 44.52,
+          "end": 44.7,
+          "probability": 0.9992781281471252
+        },
+        {
+          "word": " need",
+          "start": 44.7,
+          "end": 44.84,
+          "probability": 0.9995705485343933
+        },
+        {
+          "word": " to",
+          "start": 44.84,
+          "end": 45.1,
+          "probability": 0.999243974685669
+        },
+        {
+          "word": " rush.",
+          "start": 45.1,
+          "end": 45.54,
+          "probability": 0.9990361928939819
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 46.08,
+      "end": 51.24,
+      "text": " Take your time, ask questions, compare the information, check what's actually",
+      "words": [
+        {
+          "word": " Take",
+          "start": 46.08,
+          "end": 46.28,
+          "probability": 0.9957789182662964
+        },
+        {
+          "word": " your",
+          "start": 46.28,
+          "end": 46.56,
+          "probability": 0.9983906745910645
+        },
+        {
+          "word": " time,",
+          "start": 46.56,
+          "end": 46.98,
+          "probability": 0.9996559619903564
+        },
+        {
+          "word": " ask",
+          "start": 47.14,
+          "end": 47.5,
+          "probability": 0.9903430938720703
+        },
+        {
+          "word": " questions,",
+          "start": 47.5,
+          "end": 48.16,
+          "probability": 0.9974972605705261
+        },
+        {
+          "word": " compare",
+          "start": 48.56,
+          "end": 48.78,
+          "probability": 0.9945078492164612
+        },
+        {
+          "word": " the",
+          "start": 48.78,
+          "end": 49.06,
+          "probability": 0.9979897737503052
+        },
+        {
+          "word": " information,",
+          "start": 49.06,
+          "end": 49.68,
+          "probability": 0.999118983745575
+        },
+        {
+          "word": " check",
+          "start": 50.06,
+          "end": 50.38,
+          "probability": 0.9915211200714111
+        },
+        {
+          "word": " what's",
+          "start": 50.38,
+          "end": 50.9,
+          "probability": 0.9969418048858643
+        },
+        {
+          "word": " actually",
+          "start": 50.9,
+          "end": 51.24,
+          "probability": 0.9981094598770142
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 51.24,
+      "end": 55.2,
+      "text": " available, and understand what you're looking at before making any decision.",
+      "words": [
+        {
+          "word": " available,",
+          "start": 51.24,
+          "end": 51.82,
+          "probability": 0.9995294809341431
+        },
+        {
+          "word": " and",
+          "start": 51.92,
+          "end": 52.3,
+          "probability": 0.9950620532035828
+        },
+        {
+          "word": " understand",
+          "start": 52.3,
+          "end": 52.8,
+          "probability": 0.9991525411605835
+        },
+        {
+          "word": " what",
+          "start": 52.8,
+          "end": 52.96,
+          "probability": 0.9992954730987549
+        },
+        {
+          "word": " you're",
+          "start": 52.96,
+          "end": 53.18,
+          "probability": 0.9974456429481506
+        },
+        {
+          "word": " looking",
+          "start": 53.18,
+          "end": 53.42,
+          "probability": 0.9994542002677917
+        },
+        {
+          "word": " at",
+          "start": 53.42,
+          "end": 53.7,
+          "probability": 0.9994364380836487
+        },
+        {
+          "word": " before",
+          "start": 53.7,
+          "end": 53.96,
+          "probability": 0.9828491806983948
+        },
+        {
+          "word": " making",
+          "start": 53.96,
+          "end": 54.32,
+          "probability": 0.9994122982025146
+        },
+        {
+          "word": " any",
+          "start": 54.32,
+          "end": 54.7,
+          "probability": 0.9992640614509583
+        },
+        {
+          "word": " decision.",
+          "start": 54.7,
+          "end": 55.2,
+          "probability": 0.9959879517555237
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 55.720000000000006,
+      "end": 60.1,
+      "text": " I also recommend starting cautiously rather than putting a large amount of money at",
+      "words": [
+        {
+          "word": " I",
+          "start": 55.620000000000005,
+          "end": 55.9,
+          "probability": 0.919905960559845
+        },
+        {
+          "word": " also",
+          "start": 55.9,
+          "end": 56.3,
+          "probability": 0.9955999851226807
+        },
+        {
+          "word": " recommend",
+          "start": 56.3,
+          "end": 56.88,
+          "probability": 0.9960389137268066
+        },
+        {
+          "word": " starting",
+          "start": 56.88,
+          "end": 57.38,
+          "probability": 0.9884465932846069
+        },
+        {
+          "word": " cautiously",
+          "start": 57.38,
+          "end": 58.08,
+          "probability": 0.9959962368011475
+        },
+        {
+          "word": " rather",
+          "start": 58.08,
+          "end": 58.44,
+          "probability": 0.8755002021789551
+        },
+        {
+          "word": " than",
+          "start": 58.44,
+          "end": 58.66,
+          "probability": 0.9993559718132019
+        },
+        {
+          "word": " putting",
+          "start": 58.66,
+          "end": 58.88,
+          "probability": 0.998802900314331
+        },
+        {
+          "word": " a",
+          "start": 58.88,
+          "end": 59.1,
+          "probability": 0.9990142583847046
+        },
+        {
+          "word": " large",
+          "start": 59.1,
+          "end": 59.26,
+          "probability": 0.9982514977455139
+        },
+        {
+          "word": " amount",
+          "start": 59.26,
+          "end": 59.46,
+          "probability": 0.998568058013916
+        },
+        {
+          "word": " of",
+          "start": 59.46,
+          "end": 59.64,
+          "probability": 0.9995062351226807
+        },
+        {
+          "word": " money",
+          "start": 59.64,
+          "end": 59.86,
+          "probability": 0.9994140863418579
+        },
+        {
+          "word": " at",
+          "start": 59.86,
+          "end": 60.1,
+          "probability": 0.9984637498855591
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 60.1,
+      "end": 62.26,
+      "text": " risk with someone you've never dealt with before.",
+      "words": [
+        {
+          "word": " risk",
+          "start": 60.1,
+          "end": 60.3,
+          "probability": 0.9953983426094055
+        },
+        {
+          "word": " with",
+          "start": 60.3,
+          "end": 60.52,
+          "probability": 0.9981676340103149
+        },
+        {
+          "word": " someone",
+          "start": 60.52,
+          "end": 60.8,
+          "probability": 0.9988560676574707
+        },
+        {
+          "word": " you've",
+          "start": 60.8,
+          "end": 61.02,
+          "probability": 0.9908203780651093
+        },
+        {
+          "word": " never",
+          "start": 61.02,
+          "end": 61.24,
+          "probability": 0.999004065990448
+        },
+        {
+          "word": " dealt",
+          "start": 61.24,
+          "end": 61.48,
+          "probability": 0.99947589635849
+        },
+        {
+          "word": " with",
+          "start": 61.48,
+          "end": 61.72,
+          "probability": 0.9982505440711975
+        },
+        {
+          "word": " before.",
+          "start": 61.72,
+          "end": 62.26,
+          "probability": 0.9969948530197144
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 62.84,
+      "end": 65.12,
+      "text": " And remember, I'm here to help.",
+      "words": [
+        {
+          "word": " And",
+          "start": 62.84,
+          "end": 63.16,
+          "probability": 0.9694724082946777
+        },
+        {
+          "word": " remember,",
+          "start": 63.16,
+          "end": 63.64,
+          "probability": 0.95940101146698
+        },
+        {
+          "word": " I'm",
+          "start": 64.1,
+          "end": 64.38,
+          "probability": 0.9822803437709808
+        },
+        {
+          "word": " here",
+          "start": 64.38,
+          "end": 64.58,
+          "probability": 0.9969913959503174
+        },
+        {
+          "word": " to",
+          "start": 64.58,
+          "end": 64.8,
+          "probability": 0.9993425011634827
+        },
+        {
+          "word": " help.",
+          "start": 64.8,
+          "end": 65.12,
+          "probability": 0.9981824159622192
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 65.68,
+      "end": 69.58,
+      "text": " If something in the vendor classroom is confusing, you don't understand a price",
+      "words": [
+        {
+          "word": " If",
+          "start": 65.68,
+          "end": 65.82,
+          "probability": 0.9892676472663879
+        },
+        {
+          "word": " something",
+          "start": 65.82,
+          "end": 66.18,
+          "probability": 0.9976256489753723
+        },
+        {
+          "word": " in",
+          "start": 66.18,
+          "end": 66.34,
+          "probability": 0.9979369640350342
+        },
+        {
+          "word": " the",
+          "start": 66.34,
+          "end": 66.5,
+          "probability": 0.9987748265266418
+        },
+        {
+          "word": " vendor",
+          "start": 66.5,
+          "end": 66.74,
+          "probability": 0.946435272693634
+        },
+        {
+          "word": " classroom",
+          "start": 66.74,
+          "end": 67.18,
+          "probability": 0.9931764006614685
+        },
+        {
+          "word": " is",
+          "start": 67.18,
+          "end": 67.48,
+          "probability": 0.9989920258522034
+        },
+        {
+          "word": " confusing,",
+          "start": 67.48,
+          "end": 68.04,
+          "probability": 0.9989891648292542
+        },
+        {
+          "word": " you",
+          "start": 68.28,
+          "end": 68.42,
+          "probability": 0.9930880665779114
+        },
+        {
+          "word": " don't",
+          "start": 68.42,
+          "end": 68.66,
+          "probability": 0.9994176924228668
+        },
+        {
+          "word": " understand",
+          "start": 68.66,
+          "end": 69.08,
+          "probability": 0.9990745782852173
+        },
+        {
+          "word": " a",
+          "start": 69.08,
+          "end": 69.36,
+          "probability": 0.9921942949295044
+        },
+        {
+          "word": " price",
+          "start": 69.36,
+          "end": 69.58,
+          "probability": 0.9979676604270935
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 69.58,
+      "end": 74.0,
+      "text": " sheet, you're unsure about a COA, or you simply don't know what something",
+      "words": [
+        {
+          "word": " sheet,",
+          "start": 69.58,
+          "end": 69.82,
+          "probability": 0.9920572638511658
+        },
+        {
+          "word": " you're",
+          "start": 70.12,
+          "end": 70.38,
+          "probability": 0.9877168536186218
+        },
+        {
+          "word": " unsure",
+          "start": 70.38,
+          "end": 70.8,
+          "probability": 0.9987165927886963
+        },
+        {
+          "word": " about",
+          "start": 70.8,
+          "end": 71.1,
+          "probability": 0.9996590614318848
+        },
+        {
+          "word": " a",
+          "start": 71.1,
+          "end": 71.4,
+          "probability": 0.9945507645606995
+        },
+        {
+          "word": " COA,",
+          "start": 71.4,
+          "end": 72.02,
+          "probability": 0.8344628512859344
+        },
+        {
+          "word": " or",
+          "start": 72.02,
+          "end": 72.28,
+          "probability": 0.9983295798301697
+        },
+        {
+          "word": " you",
+          "start": 72.28,
+          "end": 72.5,
+          "probability": 0.9981417655944824
+        },
+        {
+          "word": " simply",
+          "start": 72.5,
+          "end": 72.82,
+          "probability": 0.9989897608757019
+        },
+        {
+          "word": " don't",
+          "start": 72.82,
+          "end": 73.2,
+          "probability": 0.9990329444408417
+        },
+        {
+          "word": " know",
+          "start": 73.2,
+          "end": 73.44,
+          "probability": 0.9996381998062134
+        },
+        {
+          "word": " what",
+          "start": 73.44,
+          "end": 73.68,
+          "probability": 0.9993903636932373
+        },
+        {
+          "word": " something",
+          "start": 73.68,
+          "end": 74.0,
+          "probability": 0.9932250380516052
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 74.0,
+      "end": 76.04,
+      "text": " means, send me a message.",
+      "words": [
+        {
+          "word": " means,",
+          "start": 74.0,
+          "end": 74.56,
+          "probability": 0.9991106390953064
+        },
+        {
+          "word": " send",
+          "start": 75.08,
+          "end": 75.3,
+          "probability": 0.991940438747406
+        },
+        {
+          "word": " me",
+          "start": 75.3,
+          "end": 75.56,
+          "probability": 0.9997361302375793
+        },
+        {
+          "word": " a",
+          "start": 75.56,
+          "end": 75.7,
+          "probability": 0.9993023872375488
+        },
+        {
+          "word": " message.",
+          "start": 75.7,
+          "end": 76.04,
+          "probability": 0.999213695526123
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 76.66,
+      "end": 81.12,
+      "text": " The whole point of Peps by Dave is to help you become more educated and more",
+      "words": [
+        {
+          "word": " The",
+          "start": 76.66,
+          "end": 76.9,
+          "probability": 0.9942329525947571
+        },
+        {
+          "word": " whole",
+          "start": 76.9,
+          "end": 77.14,
+          "probability": 0.9994544386863708
+        },
+        {
+          "word": " point",
+          "start": 77.14,
+          "end": 77.38,
+          "probability": 0.9994305968284607
+        },
+        {
+          "word": " of",
+          "start": 77.38,
+          "end": 77.58,
+          "probability": 0.9995875954627991
+        },
+        {
+          "word": " Peps",
+          "start": 77.58,
+          "end": 77.82,
+          "probability": 0.734174370765686
+        },
+        {
+          "word": " by",
+          "start": 77.82,
+          "end": 78.14,
+          "probability": 0.880330502986908
+        },
+        {
+          "word": " Dave",
+          "start": 78.14,
+          "end": 78.42,
+          "probability": 0.9869198799133301
+        },
+        {
+          "word": " is",
+          "start": 78.42,
+          "end": 78.62,
+          "probability": 0.988321840763092
+        },
+        {
+          "word": " to",
+          "start": 78.62,
+          "end": 78.82,
+          "probability": 0.9995467066764832
+        },
+        {
+          "word": " help",
+          "start": 78.82,
+          "end": 78.94,
+          "probability": 0.999841570854187
+        },
+        {
+          "word": " you",
+          "start": 78.94,
+          "end": 79.2,
+          "probability": 0.9995926022529602
+        },
+        {
+          "word": " become",
+          "start": 79.2,
+          "end": 79.44,
+          "probability": 0.9983605742454529
+        },
+        {
+          "word": " more",
+          "start": 79.44,
+          "end": 79.78,
+          "probability": 0.9991993308067322
+        },
+        {
+          "word": " educated",
+          "start": 79.78,
+          "end": 80.32,
+          "probability": 0.9994669556617737
+        },
+        {
+          "word": " and",
+          "start": 80.32,
+          "end": 80.8,
+          "probability": 0.9787753820419312
+        },
+        {
+          "word": " more",
+          "start": 80.8,
+          "end": 81.12,
+          "probability": 0.9994004964828491
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 81.12,
+      "end": 83.32,
+      "text": " confident when researching the gray market.",
+      "words": [
+        {
+          "word": " confident",
+          "start": 81.12,
+          "end": 81.56,
+          "probability": 0.9991942048072815
+        },
+        {
+          "word": " when",
+          "start": 81.56,
+          "end": 81.84,
+          "probability": 0.9953438639640808
+        },
+        {
+          "word": " researching",
+          "start": 81.84,
+          "end": 82.36,
+          "probability": 0.9987296462059021
+        },
+        {
+          "word": " the",
+          "start": 82.36,
+          "end": 82.66,
+          "probability": 0.9967201352119446
+        },
+        {
+          "word": " gray",
+          "start": 82.66,
+          "end": 82.82,
+          "probability": 0.7633500099182129
+        },
+        {
+          "word": " market.",
+          "start": 82.82,
+          "end": 83.32,
+          "probability": 0.9985198378562927
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 83.32,
+      "end": 87.04,
+      "text": " And as always, nothing here is medical advice.",
+      "words": [
+        {
+          "word": " And",
+          "start": 83.32,
+          "end": 84.22,
+          "probability": 0.8202303051948547
+        },
+        {
+          "word": " as",
+          "start": 84.22,
+          "end": 84.54,
+          "probability": 0.9554250240325928
+        },
+        {
+          "word": " always,",
+          "start": 84.54,
+          "end": 85.2,
+          "probability": 0.998247504234314
+        },
+        {
+          "word": " nothing",
+          "start": 85.36,
+          "end": 85.68,
+          "probability": 0.9230477213859558
+        },
+        {
+          "word": " here",
+          "start": 85.68,
+          "end": 86.04,
+          "probability": 0.9971181154251099
+        },
+        {
+          "word": " is",
+          "start": 86.04,
+          "end": 86.24,
+          "probability": 0.9990416169166565
+        },
+        {
+          "word": " medical",
+          "start": 86.24,
+          "end": 86.62,
+          "probability": 0.9954636693000793
+        },
+        {
+          "word": " advice.",
+          "start": 86.62,
+          "end": 87.04,
+          "probability": 0.9946464896202087
+        }
+      ]
+    }
+  ]
+}

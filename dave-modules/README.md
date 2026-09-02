@@ -9,6 +9,7 @@ saying, beat by beat.
 | `Module1` | The Gray Market | 115.76s | `out/module-1.mp4` |
 | `Module3` | Getting the most from this community | 115.92s | `out/module-3.mp4` |
 | `Module5` | Beginner mistakes | 146.08s | `out/module-5.mp4` |
+| `Module7` | Where to go from here | 87.12s | `out/module-7.mp4` |
 
 All are 1920x1080, 30fps.
 
@@ -29,25 +30,28 @@ src/
       Type.tsx           Eyebrow / KeyWords / Statement / Rule
       Graphics.tsx       Vial, Globe, CoaSheet, PriceBar, CheckRow, Lock
       Diagrams.tsx       PeptideChain, SearchBar, ThreadPost, NodeNetwork, TierLadder,
-                         ChapterNumber, Countdown, WalletAddress, DMCard, VerifyBadge
+                         ChapterNumber, Countdown, WalletAddress, DMCard,
+                         VerifyBadge, DocTile
   modules/
     module1/  Module1.tsx + scenes/   (28 scenes)
     module3/  Module3.tsx + scenes/   (32 scenes)
     module5/  Module5.tsx + scenes/   (32 scenes)
+    module7/  Module7.tsx + scenes/   (22 scenes)
   Root.tsx               one <Composition> per module
 ```
 
 ## Pipeline
 
 1. **Audio** — VOs live in `public/` (`vo-module1.mp3`, `vo-module3.mp3`,
-   `vo-module5.mp3`);
+   `vo-module5.mp3`, `vo-module7.mp3`);
    Remotion serves that directory. `work/<module>/audio.wav` is a 16kHz mono
    copy used only for transcription.
 2. **Transcript** —
    `py work/transcribe.py work/module3/audio.wav work/module3/transcript.json medium`
    (faster-whisper, CPU int8 — no torch, and openai-whisper does not install
    cleanly on Python 3.13).
-3. **Render** — `npm run render1` / `render3` / `render5`, or `npm start` for
+3. **Render** — `npm run render1` / `render3` / `render5` / `render7`, or
+   `npm start` for
    the studio.
 
 ## How the timing works
@@ -114,6 +118,7 @@ matters for the classroom:
   (`99.1%`, `10.2 mg`, batch `A-2291`).
 - Module 3: the same COA values; the search results and comment text on the
   thread scene; the tier names on the engagement ladder.
+- Module 7: the vendor rows and "official contact on file" labels.
 - Module 5: the COA row values and lab report ID (`LR-88214-C`); the wallet
   address, which is a fabricated string used only to illustrate the "one wrong
   character" point and is **not** a real or usable address; the flash-sale

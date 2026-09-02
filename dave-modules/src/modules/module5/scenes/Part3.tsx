@@ -152,9 +152,9 @@ export const CompareVendors: React.FC<{ dur: number }> = ({ dur }) => {
     <Scene dur={dur} enter="rise">
       <Center gap={42}>
         <Eyebrow delay={4}>You'll be able to compare</Eyebrow>
-        <div style={{ display: "flex", gap: 26 }}>
+        <div style={{ display: "flex", gap: 26, alignItems: "stretch" }}>
           {names.map((n, i) => (
-            <div key={i} style={{ opacity: cols[i] }}>
+            <div key={i} style={{ opacity: cols[i], display: "flex" }}>
               <Panel width={380} pad={36} glow={i === 2}>
                 <div style={{ fontFamily: SANS, fontSize: 22, letterSpacing: 2.6, color: C.textFaint, textTransform: "uppercase" }}>
                   {`0${i + 1}`}

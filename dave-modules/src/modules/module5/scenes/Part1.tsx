@@ -3,7 +3,7 @@ import { AbsoluteFill } from "remotion";
 import { Scene, useIn, useRamp } from "../../../shared/components/Scene";
 import { Eyebrow, KeyWords, Rule, Statement } from "../../../shared/components/Type";
 import { CoaSheet, Panel } from "../../../shared/components/Graphics";
-import { ChapterNumber, VerifyBadge } from "../../../shared/components/Diagrams";
+import { ChapterNumber, DocTile, VerifyBadge } from "../../../shared/components/Diagrams";
 import { C, SANS, SERIF } from "../../../shared/theme";
 
 const Center: React.FC<{ children: React.ReactNode; gap?: number }> = ({ children, gap = 28 }) => (
@@ -18,30 +18,6 @@ export const COA_ROWS = [
   { label: "Test date", value: "2026-07-14" },
   { label: "Purity", value: "99.1%" },
 ];
-
-/** Small document tile for the library grid. */
-export const DocTile: React.FC<{ p: number; gold?: boolean }> = ({ p, gold = false }) => (
-  <div
-    style={{
-      width: 148,
-      height: 192,
-      borderRadius: 6,
-      background: gold ? "linear-gradient(165deg,#F6F4EE,#E5DFCF)" : "linear-gradient(165deg,#EEEBE3,#DAD6CB)",
-      opacity: p,
-      boxShadow: gold ? `0 14px 34px rgba(0,0,0,0.5), 0 0 0 2px ${C.gold}` : "0 14px 34px rgba(0,0,0,0.45)",
-      padding: 14,
-      display: "flex",
-      flexDirection: "column",
-      gap: 7,
-    }}
-  >
-    <div style={{ height: 7, width: "62%", background: "#9A8A4F", borderRadius: 2, opacity: 0.7 }} />
-    <div style={{ height: 5, width: "88%", background: "#C6C0B0", borderRadius: 2 }} />
-    <div style={{ height: 5, width: "74%", background: "#C6C0B0", borderRadius: 2 }} />
-    <div style={{ height: 5, width: "80%", background: "#C6C0B0", borderRadius: 2 }} />
-    <div style={{ marginTop: "auto", height: 22, width: 22, borderRadius: 11, border: `2px solid ${C.goldDim}` }} />
-  </div>
-);
 
 /* 1 — 0.00-7.90  "one of the most important videos... mistakes beginners make" */
 export const TitleOpen: React.FC<{ dur: number }> = ({ dur }) => {
