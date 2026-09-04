@@ -10,7 +10,7 @@ saying, beat by beat.
 | `Module3` | Getting the most from this community | 115.92s | `out/module-3.mp4` |
 | `Module5` | Beginner mistakes | 146.08s | `out/module-5.mp4` |
 | `Module7` | Where to go from here | 87.12s | `out/module-7.mp4` |
-| `StartHere` | New to peptides (v2 motion language + score) | 98.88s | `out/start-here.mp4` |
+| `StartHere` | New to peptides (v2 motion language + score) | 98.99s | `out/start-here.mp4` |
 
 All are 1920x1080, 30fps.
 
