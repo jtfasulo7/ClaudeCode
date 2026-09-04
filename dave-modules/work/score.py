@@ -312,7 +312,11 @@ def build(dur_s, vo_path):
 
     # --- Level. Target a quiet bed; the VO is the programme.
     rms = np.sqrt((bed ** 2).mean())
-    bed *= (10 ** (-26.0 / 20.0)) / max(rms, 1e-9)
+    # Sits 11.7 dB under the voice — the ratio approved on the raw VO. The
+    # processed VO lands quieter (higher crest factor, so it cannot be pushed
+    # without compressing a voice that was deliberately processed), and the
+    # whole mix is normalised to -16 LUFS after render instead.
+    bed *= (10 ** (-30.2 / 20.0)) / max(rms, 1e-9)
 
     # Safety limiter — soft knee, should barely engage.
     peak = np.abs(bed).max()

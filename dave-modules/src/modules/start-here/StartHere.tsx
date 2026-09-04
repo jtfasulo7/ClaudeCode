@@ -71,7 +71,7 @@ const CUT: { at: number; c: React.FC<{ dur: number }> }[] = [
   { at: 93.1, c: EndCard },
 ];
 
-const END = 98.88;
+const END = 98.94;
 
 export const STARTHERE_FRAMES = sec(END);
 
