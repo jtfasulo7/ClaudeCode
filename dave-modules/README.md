@@ -10,6 +10,7 @@ saying, beat by beat.
 | `Module3` | Getting the most from this community | 115.92s | `out/module-3.mp4` |
 | `Module5` | Beginner mistakes | 146.08s | `out/module-5.mp4` |
 | `Module7` | Where to go from here | 87.12s | `out/module-7.mp4` |
+| `StartHere` | New to peptides (v2 motion language + score) | 98.88s | `out/start-here.mp4` |
 
 All are 1920x1080, 30fps.
 
@@ -29,6 +30,10 @@ src/
       Scene.tsx          per-scene entrance; settles dead still
       Type.tsx           Eyebrow / KeyWords / Statement / Rule
       Graphics.tsx       Vial, Globe, CoaSheet, PriceBar, CheckRow, Lock
+      motion.ts          v2: six asymmetric bezier curves + entrance archetypes
+      Shot.tsx           v2 scene wrapper (varied entrances, hard settle)
+      Kinetic.tsx        v2 typography — mask reveals, track-in, CountUp, Chip
+      StageV2.tsx        v2 backdrop, LightSweep, grain, progress
       Diagrams.tsx       PeptideChain, SearchBar, ThreadPost, NodeNetwork, TierLadder,
                          ChapterNumber, Countdown, WalletAddress, DMCard,
                          VerifyBadge, DocTile
@@ -37,6 +42,7 @@ src/
     module3/  Module3.tsx + scenes/   (32 scenes)
     module5/  Module5.tsx + scenes/   (32 scenes)
     module7/  Module7.tsx + scenes/   (22 scenes)
+    start-here/ StartHere.tsx + scenes/ (21 scenes, v2 language)
   Root.tsx               one <Composition> per module
 ```
 
@@ -123,3 +129,41 @@ matters for the classroom:
   address, which is a fabricated string used only to illustrate the "one wrong
   character" point and is **not** a real or usable address; the flash-sale
   countdown and the vendor-review quotes.
+
+
+## The score (StartHere onward)
+
+`work/score.py` synthesises an original bed. There is no licensed source and
+Higgsfield's audio model is speech-only, so the music is generated here — which
+means it is unambiguously the client's, and unlike a stock track it is composed
+against the cut sheet.
+
+72 BPM, D natural minor, no drums, no build, no drop. Five additive layers:
+sustained drone, sub swell every two bars, stacked fifths breathing on
+out-of-phase LFOs, struck bells with stretched inharmonic partials, faint tape
+air. Nine harmonic sections crossfade on the script's turns rather than on a bar
+grid, and the seven bell strikes land on the seven risk words individually — the
+same frames the seven nodes land on screen.
+
+It is side-chained to the actual voiceover (envelope derived from the VO's own
+RMS, fast attack / slow release), so the bed drops ~5.3 dB under speech and
+lifts in the gaps. Baked in, so Remotion just plays it flat.
+
+Regenerate with:
+
+```
+py work/score.py work/start-here/audio.wav public/score-start-here.wav 98.88
+```
+
+Seeded, so reruns are byte-identical.
+
+## What was tried and cut
+
+- **@remotion/light-leaks** — screen-blends a warm bloom; on a near-black
+  palette it lifts the blacks and washes the frame orange even at 0.14 opacity.
+  Reads as a filter on top rather than light in the scene. `LightSweep` in
+  StageV2 does the specular job properly instead.
+- **@remotion/sfx** — ships meme sounds (vine-boom, wilhelm-scream). Wrong
+  register entirely. Transition punctuation is baked into the score instead.
+- **TransitionSeries** — shortens the timeline, which would walk the picture off
+  the narration over 99 seconds. Scenes stay absolutely positioned.
