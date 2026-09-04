@@ -1,0 +1,1701 @@
+{
+  "language": "en",
+  "duration": 105.68,
+  "model": "medium",
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 3.8,
+      "text": " The next thing every beginner should understand is basic peptide handling.",
+      "words": [
+        {
+          "word": " The",
+          "start": 0.0,
+          "end": 0.2,
+          "probability": 0.926943302154541
+        },
+        {
+          "word": " next",
+          "start": 0.2,
+          "end": 0.42,
+          "probability": 0.9963823556900024
+        },
+        {
+          "word": " thing",
+          "start": 0.42,
+          "end": 0.68,
+          "probability": 0.9970244765281677
+        },
+        {
+          "word": " every",
+          "start": 0.68,
+          "end": 1.08,
+          "probability": 0.985483705997467
+        },
+        {
+          "word": " beginner",
+          "start": 1.08,
+          "end": 1.36,
+          "probability": 0.9851555228233337
+        },
+        {
+          "word": " should",
+          "start": 1.36,
+          "end": 1.62,
+          "probability": 0.9974907636642456
+        },
+        {
+          "word": " understand",
+          "start": 1.62,
+          "end": 2.16,
+          "probability": 0.9976605176925659
+        },
+        {
+          "word": " is",
+          "start": 2.16,
+          "end": 2.42,
+          "probability": 0.9826388359069824
+        },
+        {
+          "word": " basic",
+          "start": 2.42,
+          "end": 2.84,
+          "probability": 0.9585425853729248
+        },
+        {
+          "word": " peptide",
+          "start": 2.84,
+          "end": 3.36,
+          "probability": 0.9932121336460114
+        },
+        {
+          "word": " handling.",
+          "start": 3.36,
+          "end": 3.8,
+          "probability": 0.9961789846420288
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 4.54,
+      "end": 7.04,
+      "text": " Because even if a product was manufactured correctly,",
+      "words": [
+        {
+          "word": " Because",
+          "start": 4.54,
+          "end": 4.62,
+          "probability": 0.9621191620826721
+        },
+        {
+          "word": " even",
+          "start": 4.62,
+          "end": 4.96,
+          "probability": 0.9716227650642395
+        },
+        {
+          "word": " if",
+          "start": 4.96,
+          "end": 5.14,
+          "probability": 0.9975554347038269
+        },
+        {
+          "word": " a",
+          "start": 5.14,
+          "end": 5.34,
+          "probability": 0.9961357712745667
+        },
+        {
+          "word": " product",
+          "start": 5.34,
+          "end": 5.52,
+          "probability": 0.9994105100631714
+        },
+        {
+          "word": " was",
+          "start": 5.52,
+          "end": 5.78,
+          "probability": 0.993206262588501
+        },
+        {
+          "word": " manufactured",
+          "start": 5.78,
+          "end": 6.32,
+          "probability": 0.9971436858177185
+        },
+        {
+          "word": " correctly,",
+          "start": 6.32,
+          "end": 7.04,
+          "probability": 0.9965709447860718
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 7.52,
+      "end": 11.22,
+      "text": " poor handling, storage or contamination can still cause problems.",
+      "words": [
+        {
+          "word": " poor",
+          "start": 7.52,
+          "end": 7.68,
+          "probability": 0.9893402457237244
+        },
+        {
+          "word": " handling,",
+          "start": 7.68,
+          "end": 8.12,
+          "probability": 0.9981116056442261
+        },
+        {
+          "word": " storage",
+          "start": 8.38,
+          "end": 8.76,
+          "probability": 0.99912029504776
+        },
+        {
+          "word": " or",
+          "start": 8.76,
+          "end": 9.0,
+          "probability": 0.6247283220291138
+        },
+        {
+          "word": " contamination",
+          "start": 9.0,
+          "end": 9.62,
+          "probability": 0.9984219074249268
+        },
+        {
+          "word": " can",
+          "start": 9.62,
+          "end": 9.98,
+          "probability": 0.9809737801551819
+        },
+        {
+          "word": " still",
+          "start": 9.98,
+          "end": 10.32,
+          "probability": 0.9985944628715515
+        },
+        {
+          "word": " cause",
+          "start": 10.32,
+          "end": 10.64,
+          "probability": 0.9987989664077759
+        },
+        {
+          "word": " problems.",
+          "start": 10.64,
+          "end": 11.22,
+          "probability": 0.9984706044197083
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 12.3,
+      "end": 16.84,
+      "text": " A lot of peptides come as a dry, freeze-dried material called lyophilized powder.",
+      "words": [
+        {
+          "word": " A",
+          "start": 12.3,
+          "end": 12.32,
+          "probability": 0.9892205595970154
+        },
+        {
+          "word": " lot",
+          "start": 12.32,
+          "end": 12.5,
+          "probability": 0.9992051720619202
+        },
+        {
+          "word": " of",
+          "start": 12.5,
+          "end": 12.7,
+          "probability": 0.9988774657249451
+        },
+        {
+          "word": " peptides",
+          "start": 12.7,
+          "end": 13.18,
+          "probability": 0.9940882623195648
+        },
+        {
+          "word": " come",
+          "start": 13.18,
+          "end": 13.4,
+          "probability": 0.9654794931411743
+        },
+        {
+          "word": " as",
+          "start": 13.4,
+          "end": 13.56,
+          "probability": 0.9929690957069397
+        },
+        {
+          "word": " a",
+          "start": 13.56,
+          "end": 13.8,
+          "probability": 0.9891993403434753
+        },
+        {
+          "word": " dry,",
+          "start": 13.8,
+          "end": 14.1,
+          "probability": 0.993860125541687
+        },
+        {
+          "word": " freeze",
+          "start": 14.4,
+          "end": 14.6,
+          "probability": 0.9944803714752197
+        },
+        {
+          "word": "-dried",
+          "start": 14.6,
+          "end": 14.84,
+          "probability": 0.9133001764615377
+        },
+        {
+          "word": " material",
+          "start": 14.84,
+          "end": 15.38,
+          "probability": 0.9879177212715149
+        },
+        {
+          "word": " called",
+          "start": 15.38,
+          "end": 15.72,
+          "probability": 0.9764858484268188
+        },
+        {
+          "word": " lyophilized",
+          "start": 15.72,
+          "end": 16.46,
+          "probability": 0.8668142110109329
+        },
+        {
+          "word": " powder.",
+          "start": 16.46,
+          "end": 16.84,
+          "probability": 0.9972238540649414
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 17.5,
+      "end": 19.96,
+      "text": " You might also hear people refer to it as a puck.",
+      "words": [
+        {
+          "word": " You",
+          "start": 17.5,
+          "end": 17.52,
+          "probability": 0.9754237532615662
+        },
+        {
+          "word": " might",
+          "start": 17.52,
+          "end": 17.74,
+          "probability": 0.9948874115943909
+        },
+        {
+          "word": " also",
+          "start": 17.74,
+          "end": 18.04,
+          "probability": 0.998130738735199
+        },
+        {
+          "word": " hear",
+          "start": 18.04,
+          "end": 18.22,
+          "probability": 0.9963777661323547
+        },
+        {
+          "word": " people",
+          "start": 18.22,
+          "end": 18.54,
+          "probability": 0.9982308745384216
+        },
+        {
+          "word": " refer",
+          "start": 18.54,
+          "end": 18.92,
+          "probability": 0.9968382120132446
+        },
+        {
+          "word": " to",
+          "start": 18.92,
+          "end": 19.08,
+          "probability": 0.99822598695755
+        },
+        {
+          "word": " it",
+          "start": 19.08,
+          "end": 19.22,
+          "probability": 0.9984185695648193
+        },
+        {
+          "word": " as",
+          "start": 19.22,
+          "end": 19.42,
+          "probability": 0.9966854453086853
+        },
+        {
+          "word": " a",
+          "start": 19.42,
+          "end": 19.68,
+          "probability": 0.9885974526405334
+        },
+        {
+          "word": " puck.",
+          "start": 19.68,
+          "end": 19.96,
+          "probability": 0.48232078552246094
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 21.26,
+      "end": 24.68,
+      "text": " Reconstitution simply means adding an appropriate sterile diluent",
+      "words": [
+        {
+          "word": " Reconstitution",
+          "start": 21.26,
+          "end": 21.86,
+          "probability": 0.9783385396003723
+        },
+        {
+          "word": " simply",
+          "start": 21.86,
+          "end": 22.26,
+          "probability": 0.9942532181739807
+        },
+        {
+          "word": " means",
+          "start": 22.26,
+          "end": 22.62,
+          "probability": 0.9995529055595398
+        },
+        {
+          "word": " adding",
+          "start": 22.62,
+          "end": 22.96,
+          "probability": 0.9959327578544617
+        },
+        {
+          "word": " an",
+          "start": 22.96,
+          "end": 23.18,
+          "probability": 0.9908137917518616
+        },
+        {
+          "word": " appropriate",
+          "start": 23.18,
+          "end": 23.74,
+          "probability": 0.9987467527389526
+        },
+        {
+          "word": " sterile",
+          "start": 23.74,
+          "end": 24.28,
+          "probability": 0.9960626661777496
+        },
+        {
+          "word": " diluent",
+          "start": 24.28,
+          "end": 24.68,
+          "probability": 0.9697126150131226
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 24.68,
+      "end": 27.4,
+      "text": " to turn that dry material into a liquid solution.",
+      "words": [
+        {
+          "word": " to",
+          "start": 24.68,
+          "end": 24.9,
+          "probability": 0.9899479150772095
+        },
+        {
+          "word": " turn",
+          "start": 24.9,
+          "end": 25.12,
+          "probability": 0.9991717338562012
+        },
+        {
+          "word": " that",
+          "start": 25.12,
+          "end": 25.42,
+          "probability": 0.9966249465942383
+        },
+        {
+          "word": " dry",
+          "start": 25.42,
+          "end": 25.6,
+          "probability": 0.9962700605392456
+        },
+        {
+          "word": " material",
+          "start": 25.6,
+          "end": 26.12,
+          "probability": 0.9985296726226807
+        },
+        {
+          "word": " into",
+          "start": 26.12,
+          "end": 26.4,
+          "probability": 0.9973526000976562
+        },
+        {
+          "word": " a",
+          "start": 26.4,
+          "end": 26.6,
+          "probability": 0.9991427659988403
+        },
+        {
+          "word": " liquid",
+          "start": 26.6,
+          "end": 26.82,
+          "probability": 0.9992461204528809
+        },
+        {
+          "word": " solution.",
+          "start": 26.82,
+          "end": 27.4,
+          "probability": 0.9997912049293518
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 28.040000000000003,
+      "end": 31.48,
+      "text": " But this is where you have to understand that sterility matters.",
+      "words": [
+        {
+          "word": " But",
+          "start": 27.94,
+          "end": 28.3,
+          "probability": 0.7324079275131226
+        },
+        {
+          "word": " this",
+          "start": 28.3,
+          "end": 28.68,
+          "probability": 0.9894160032272339
+        },
+        {
+          "word": " is",
+          "start": 28.68,
+          "end": 28.84,
+          "probability": 0.9983709454536438
+        },
+        {
+          "word": " where",
+          "start": 28.84,
+          "end": 28.96,
+          "probability": 0.9971538782119751
+        },
+        {
+          "word": " you",
+          "start": 28.96,
+          "end": 29.1,
+          "probability": 0.9989874958992004
+        },
+        {
+          "word": " have",
+          "start": 29.1,
+          "end": 29.36,
+          "probability": 0.9968885779380798
+        },
+        {
+          "word": " to",
+          "start": 29.36,
+          "end": 29.56,
+          "probability": 0.9994301199913025
+        },
+        {
+          "word": " understand",
+          "start": 29.56,
+          "end": 30.0,
+          "probability": 0.999414324760437
+        },
+        {
+          "word": " that",
+          "start": 30.0,
+          "end": 30.36,
+          "probability": 0.9938576817512512
+        },
+        {
+          "word": " sterility",
+          "start": 30.36,
+          "end": 30.84,
+          "probability": 0.9935421943664551
+        },
+        {
+          "word": " matters.",
+          "start": 30.84,
+          "end": 31.48,
+          "probability": 0.9981423616409302
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 32.42,
+      "end": 35.84,
+      "text": " Anything involving injectable products carries contamination risks,",
+      "words": [
+        {
+          "word": " Anything",
+          "start": 32.42,
+          "end": 32.68,
+          "probability": 0.92057865858078
+        },
+        {
+          "word": " involving",
+          "start": 32.68,
+          "end": 33.16,
+          "probability": 0.9985966086387634
+        },
+        {
+          "word": " injectable",
+          "start": 33.16,
+          "end": 33.78,
+          "probability": 0.9925477206707001
+        },
+        {
+          "word": " products",
+          "start": 33.78,
+          "end": 34.2,
+          "probability": 0.9965362548828125
+        },
+        {
+          "word": " carries",
+          "start": 34.2,
+          "end": 34.58,
+          "probability": 0.9919523596763611
+        },
+        {
+          "word": " contamination",
+          "start": 34.58,
+          "end": 35.32,
+          "probability": 0.9958047270774841
+        },
+        {
+          "word": " risks,",
+          "start": 35.32,
+          "end": 35.84,
+          "probability": 0.9951102137565613
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 35.88,
+      "end": 38.1,
+      "text": " so it should never be treated casually.",
+      "words": [
+        {
+          "word": " so",
+          "start": 35.88,
+          "end": 36.28,
+          "probability": 0.9960792660713196
+        },
+        {
+          "word": " it",
+          "start": 36.28,
+          "end": 36.42,
+          "probability": 0.9965987801551819
+        },
+        {
+          "word": " should",
+          "start": 36.42,
+          "end": 36.6,
+          "probability": 0.9992795586585999
+        },
+        {
+          "word": " never",
+          "start": 36.6,
+          "end": 36.88,
+          "probability": 0.9987484216690063
+        },
+        {
+          "word": " be",
+          "start": 36.88,
+          "end": 37.26,
+          "probability": 0.9992260932922363
+        },
+        {
+          "word": " treated",
+          "start": 37.26,
+          "end": 37.46,
+          "probability": 0.9993158578872681
+        },
+        {
+          "word": " casually.",
+          "start": 37.46,
+          "end": 38.1,
+          "probability": 0.9768579006195068
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 39.08,
+      "end": 41.4,
+      "text": " Storage is also extremely important.",
+      "words": [
+        {
+          "word": " Storage",
+          "start": 39.08,
+          "end": 39.44,
+          "probability": 0.9946876764297485
+        },
+        {
+          "word": " is",
+          "start": 39.44,
+          "end": 39.72,
+          "probability": 0.9988683462142944
+        },
+        {
+          "word": " also",
+          "start": 39.72,
+          "end": 40.1,
+          "probability": 0.9985389709472656
+        },
+        {
+          "word": " extremely",
+          "start": 40.1,
+          "end": 40.72,
+          "probability": 0.9977838397026062
+        },
+        {
+          "word": " important.",
+          "start": 40.72,
+          "end": 41.4,
+          "probability": 0.9996236562728882
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 42.26,
+      "end": 46.5,
+      "text": " Different peptides can have different stability requirements and things like temperature,",
+      "words": [
+        {
+          "word": " Different",
+          "start": 42.26,
+          "end": 42.62,
+          "probability": 0.9988275170326233
+        },
+        {
+          "word": " peptides",
+          "start": 42.62,
+          "end": 43.14,
+          "probability": 0.9975181818008423
+        },
+        {
+          "word": " can",
+          "start": 43.14,
+          "end": 43.32,
+          "probability": 0.9986557960510254
+        },
+        {
+          "word": " have",
+          "start": 43.32,
+          "end": 43.56,
+          "probability": 0.9994879961013794
+        },
+        {
+          "word": " different",
+          "start": 43.56,
+          "end": 43.94,
+          "probability": 0.9981720447540283
+        },
+        {
+          "word": " stability",
+          "start": 43.94,
+          "end": 44.46,
+          "probability": 0.9990284442901611
+        },
+        {
+          "word": " requirements",
+          "start": 44.46,
+          "end": 44.98,
+          "probability": 0.9990594983100891
+        },
+        {
+          "word": " and",
+          "start": 44.98,
+          "end": 45.52,
+          "probability": 0.2776164710521698
+        },
+        {
+          "word": " things",
+          "start": 45.52,
+          "end": 45.72,
+          "probability": 0.9988131523132324
+        },
+        {
+          "word": " like",
+          "start": 45.72,
+          "end": 46.0,
+          "probability": 0.9971664547920227
+        },
+        {
+          "word": " temperature,",
+          "start": 46.0,
+          "end": 46.5,
+          "probability": 0.9950399994850159
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 46.84,
+      "end": 51.56,
+      "text": " light, moisture, time and repeated temperature changes can potentially affect the product.",
+      "words": [
+        {
+          "word": " light,",
+          "start": 46.84,
+          "end": 47.04,
+          "probability": 0.9959976673126221
+        },
+        {
+          "word": " moisture,",
+          "start": 47.34,
+          "end": 47.66,
+          "probability": 0.997672975063324
+        },
+        {
+          "word": " time",
+          "start": 47.94,
+          "end": 48.18,
+          "probability": 0.9987425208091736
+        },
+        {
+          "word": " and",
+          "start": 48.18,
+          "end": 48.54,
+          "probability": 0.6148788928985596
+        },
+        {
+          "word": " repeated",
+          "start": 48.54,
+          "end": 48.98,
+          "probability": 0.9953356385231018
+        },
+        {
+          "word": " temperature",
+          "start": 48.98,
+          "end": 49.44,
+          "probability": 0.9981358051300049
+        },
+        {
+          "word": " changes",
+          "start": 49.44,
+          "end": 49.8,
+          "probability": 0.9978516101837158
+        },
+        {
+          "word": " can",
+          "start": 49.8,
+          "end": 50.12,
+          "probability": 0.9883551597595215
+        },
+        {
+          "word": " potentially",
+          "start": 50.12,
+          "end": 50.66,
+          "probability": 0.9989345669746399
+        },
+        {
+          "word": " affect",
+          "start": 50.66,
+          "end": 50.98,
+          "probability": 0.9859822988510132
+        },
+        {
+          "word": " the",
+          "start": 50.98,
+          "end": 51.24,
+          "probability": 0.9987671375274658
+        },
+        {
+          "word": " product.",
+          "start": 51.24,
+          "end": 51.56,
+          "probability": 0.9986977577209473
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 52.04,
+      "end": 56.88,
+      "text": " So never assume every peptide should be stored or handled exactly the same way.",
+      "words": [
+        {
+          "word": " So",
+          "start": 52.04,
+          "end": 52.34,
+          "probability": 0.9922852516174316
+        },
+        {
+          "word": " never",
+          "start": 52.34,
+          "end": 52.58,
+          "probability": 0.874453067779541
+        },
+        {
+          "word": " assume",
+          "start": 52.58,
+          "end": 53.08,
+          "probability": 0.9992515444755554
+        },
+        {
+          "word": " every",
+          "start": 53.08,
+          "end": 53.5,
+          "probability": 0.9943040013313293
+        },
+        {
+          "word": " peptide",
+          "start": 53.5,
+          "end": 53.98,
+          "probability": 0.9978438019752502
+        },
+        {
+          "word": " should",
+          "start": 53.98,
+          "end": 54.12,
+          "probability": 0.9989333748817444
+        },
+        {
+          "word": " be",
+          "start": 54.12,
+          "end": 54.42,
+          "probability": 0.9997760653495789
+        },
+        {
+          "word": " stored",
+          "start": 54.42,
+          "end": 54.64,
+          "probability": 0.999409556388855
+        },
+        {
+          "word": " or",
+          "start": 54.64,
+          "end": 55.04,
+          "probability": 0.9973059892654419
+        },
+        {
+          "word": " handled",
+          "start": 55.04,
+          "end": 55.38,
+          "probability": 0.9984482526779175
+        },
+        {
+          "word": " exactly",
+          "start": 55.38,
+          "end": 55.98,
+          "probability": 0.9929914474487305
+        },
+        {
+          "word": " the",
+          "start": 55.98,
+          "end": 56.28,
+          "probability": 0.9988358616828918
+        },
+        {
+          "word": " same",
+          "start": 56.28,
+          "end": 56.5,
+          "probability": 0.9997978806495667
+        },
+        {
+          "word": " way.",
+          "start": 56.5,
+          "end": 56.88,
+          "probability": 0.9986485838890076
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 57.4,
+      "end": 60.12,
+      "text": " You should also know when something looks questionable.",
+      "words": [
+        {
+          "word": " You",
+          "start": 57.4,
+          "end": 57.64,
+          "probability": 0.8950440287590027
+        },
+        {
+          "word": " should",
+          "start": 57.64,
+          "end": 57.84,
+          "probability": 0.9970355033874512
+        },
+        {
+          "word": " also",
+          "start": 57.84,
+          "end": 58.2,
+          "probability": 0.995093584060669
+        },
+        {
+          "word": " know",
+          "start": 58.2,
+          "end": 58.4,
+          "probability": 0.9983935952186584
+        },
+        {
+          "word": " when",
+          "start": 58.4,
+          "end": 58.58,
+          "probability": 0.9833183288574219
+        },
+        {
+          "word": " something",
+          "start": 58.58,
+          "end": 58.96,
+          "probability": 0.9980443716049194
+        },
+        {
+          "word": " looks",
+          "start": 58.96,
+          "end": 59.36,
+          "probability": 0.9969090819358826
+        },
+        {
+          "word": " questionable.",
+          "start": 59.36,
+          "end": 60.12,
+          "probability": 0.9940965175628662
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 60.64,
+      "end": 66.42,
+      "text": " Things like damaged seals, cracked vials, unexpected particles, unusual discoloration",
+      "words": [
+        {
+          "word": " Things",
+          "start": 60.64,
+          "end": 60.9,
+          "probability": 0.9910048246383667
+        },
+        {
+          "word": " like",
+          "start": 60.9,
+          "end": 61.18,
+          "probability": 0.9945583343505859
+        },
+        {
+          "word": " damaged",
+          "start": 61.18,
+          "end": 61.66,
+          "probability": 0.9889907836914062
+        },
+        {
+          "word": " seals,",
+          "start": 61.66,
+          "end": 62.24,
+          "probability": 0.9732834100723267
+        },
+        {
+          "word": " cracked",
+          "start": 62.52,
+          "end": 62.7,
+          "probability": 0.9984316229820251
+        },
+        {
+          "word": " vials,",
+          "start": 62.7,
+          "end": 63.24,
+          "probability": 0.9816854000091553
+        },
+        {
+          "word": " unexpected",
+          "start": 63.64,
+          "end": 64.0,
+          "probability": 0.9954255223274231
+        },
+        {
+          "word": " particles,",
+          "start": 64.0,
+          "end": 64.68,
+          "probability": 0.9966980218887329
+        },
+        {
+          "word": " unusual",
+          "start": 65.2,
+          "end": 65.66,
+          "probability": 0.9923439621925354
+        },
+        {
+          "word": " discoloration",
+          "start": 65.66,
+          "end": 66.42,
+          "probability": 0.9919909437497457
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 66.42,
+      "end": 70.62,
+      "text": " or a product that was stored improperly should always be taken seriously.",
+      "words": [
+        {
+          "word": " or",
+          "start": 66.42,
+          "end": 66.9,
+          "probability": 0.4651152491569519
+        },
+        {
+          "word": " a",
+          "start": 66.9,
+          "end": 67.16,
+          "probability": 0.9961930513381958
+        },
+        {
+          "word": " product",
+          "start": 67.16,
+          "end": 67.42,
+          "probability": 0.9993778467178345
+        },
+        {
+          "word": " that",
+          "start": 67.42,
+          "end": 67.6,
+          "probability": 0.9976661205291748
+        },
+        {
+          "word": " was",
+          "start": 67.6,
+          "end": 67.88,
+          "probability": 0.9945682287216187
+        },
+        {
+          "word": " stored",
+          "start": 67.88,
+          "end": 68.08,
+          "probability": 0.9989557266235352
+        },
+        {
+          "word": " improperly",
+          "start": 68.08,
+          "end": 68.78,
+          "probability": 0.9816313087940216
+        },
+        {
+          "word": " should",
+          "start": 68.78,
+          "end": 68.98,
+          "probability": 0.9647389650344849
+        },
+        {
+          "word": " always",
+          "start": 68.98,
+          "end": 69.4,
+          "probability": 0.9986609220504761
+        },
+        {
+          "word": " be",
+          "start": 69.4,
+          "end": 69.68,
+          "probability": 0.9994878768920898
+        },
+        {
+          "word": " taken",
+          "start": 69.68,
+          "end": 69.92,
+          "probability": 0.9997145533561707
+        },
+        {
+          "word": " seriously.",
+          "start": 69.92,
+          "end": 70.62,
+          "probability": 0.9977293610572815
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 71.64,
+      "end": 75.74,
+      "text": " But another important thing to understand is that appearance alone cannot tell you if",
+      "words": [
+        {
+          "word": " But",
+          "start": 71.64,
+          "end": 71.78,
+          "probability": 0.9934946894645691
+        },
+        {
+          "word": " another",
+          "start": 71.78,
+          "end": 72.06,
+          "probability": 0.9901058077812195
+        },
+        {
+          "word": " important",
+          "start": 72.06,
+          "end": 72.52,
+          "probability": 0.9996352195739746
+        },
+        {
+          "word": " thing",
+          "start": 72.52,
+          "end": 72.74,
+          "probability": 0.9993283748626709
+        },
+        {
+          "word": " to",
+          "start": 72.74,
+          "end": 72.96,
+          "probability": 0.9993131160736084
+        },
+        {
+          "word": " understand",
+          "start": 72.96,
+          "end": 73.44,
+          "probability": 0.9995793700218201
+        },
+        {
+          "word": " is",
+          "start": 73.44,
+          "end": 73.64,
+          "probability": 0.9945631623268127
+        },
+        {
+          "word": " that",
+          "start": 73.64,
+          "end": 73.86,
+          "probability": 0.9959631562232971
+        },
+        {
+          "word": " appearance",
+          "start": 73.86,
+          "end": 74.26,
+          "probability": 0.981155514717102
+        },
+        {
+          "word": " alone",
+          "start": 74.26,
+          "end": 74.72,
+          "probability": 0.9987040758132935
+        },
+        {
+          "word": " cannot",
+          "start": 74.72,
+          "end": 75.12,
+          "probability": 0.9908890128135681
+        },
+        {
+          "word": " tell",
+          "start": 75.12,
+          "end": 75.46,
+          "probability": 0.9993200302124023
+        },
+        {
+          "word": " you",
+          "start": 75.46,
+          "end": 75.58,
+          "probability": 0.9989643096923828
+        },
+        {
+          "word": " if",
+          "start": 75.58,
+          "end": 75.74,
+          "probability": 0.996242880821228
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 75.74,
+      "end": 79.38,
+      "text": " something is safe. Something can look completely normal",
+      "words": [
+        {
+          "word": " something",
+          "start": 75.74,
+          "end": 76.0,
+          "probability": 0.9994244575500488
+        },
+        {
+          "word": " is",
+          "start": 76.0,
+          "end": 76.32,
+          "probability": 0.9994121789932251
+        },
+        {
+          "word": " safe.",
+          "start": 76.32,
+          "end": 76.66,
+          "probability": 0.998256266117096
+        },
+        {
+          "word": " Something",
+          "start": 77.48,
+          "end": 77.8,
+          "probability": 0.9966222047805786
+        },
+        {
+          "word": " can",
+          "start": 77.8,
+          "end": 78.04,
+          "probability": 0.9990411400794983
+        },
+        {
+          "word": " look",
+          "start": 78.04,
+          "end": 78.28,
+          "probability": 0.9992560744285583
+        },
+        {
+          "word": " completely",
+          "start": 78.28,
+          "end": 78.9,
+          "probability": 0.9988670349121094
+        },
+        {
+          "word": " normal",
+          "start": 78.9,
+          "end": 79.38,
+          "probability": 0.9995871186256409
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 79.38,
+      "end": 83.28,
+      "text": " and still have a quality or contamination issue you cannot see.",
+      "words": [
+        {
+          "word": " and",
+          "start": 79.38,
+          "end": 79.84,
+          "probability": 0.9920889139175415
+        },
+        {
+          "word": " still",
+          "start": 79.84,
+          "end": 80.12,
+          "probability": 0.9998477697372437
+        },
+        {
+          "word": " have",
+          "start": 80.12,
+          "end": 80.32,
+          "probability": 0.9995917677879333
+        },
+        {
+          "word": " a",
+          "start": 80.32,
+          "end": 80.52,
+          "probability": 0.9962641596794128
+        },
+        {
+          "word": " quality",
+          "start": 80.52,
+          "end": 80.8,
+          "probability": 0.9996405839920044
+        },
+        {
+          "word": " or",
+          "start": 80.8,
+          "end": 81.06,
+          "probability": 0.9968848824501038
+        },
+        {
+          "word": " contamination",
+          "start": 81.06,
+          "end": 81.62,
+          "probability": 0.9986060261726379
+        },
+        {
+          "word": " issue",
+          "start": 81.62,
+          "end": 82.0,
+          "probability": 0.9965468049049377
+        },
+        {
+          "word": " you",
+          "start": 82.0,
+          "end": 82.3,
+          "probability": 0.8706355094909668
+        },
+        {
+          "word": " cannot",
+          "start": 82.3,
+          "end": 82.62,
+          "probability": 0.9952126741409302
+        },
+        {
+          "word": " see.",
+          "start": 82.62,
+          "end": 83.28,
+          "probability": 0.9978026747703552
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 84.0,
+      "end": 87.92,
+      "text": " That's why proper handling is more than just knowing how to reconstitute something.",
+      "words": [
+        {
+          "word": " That's",
+          "start": 84.0,
+          "end": 84.44,
+          "probability": 0.9596671760082245
+        },
+        {
+          "word": " why",
+          "start": 84.44,
+          "end": 84.64,
+          "probability": 0.9978470802307129
+        },
+        {
+          "word": " proper",
+          "start": 84.64,
+          "end": 84.9,
+          "probability": 0.9944039583206177
+        },
+        {
+          "word": " handling",
+          "start": 84.9,
+          "end": 85.3,
+          "probability": 0.9975602626800537
+        },
+        {
+          "word": " is",
+          "start": 85.3,
+          "end": 85.56,
+          "probability": 0.9973642230033875
+        },
+        {
+          "word": " more",
+          "start": 85.56,
+          "end": 85.8,
+          "probability": 0.9988503456115723
+        },
+        {
+          "word": " than",
+          "start": 85.8,
+          "end": 85.96,
+          "probability": 0.9985471367835999
+        },
+        {
+          "word": " just",
+          "start": 85.96,
+          "end": 86.2,
+          "probability": 0.9968650937080383
+        },
+        {
+          "word": " knowing",
+          "start": 86.2,
+          "end": 86.38,
+          "probability": 0.996711015701294
+        },
+        {
+          "word": " how",
+          "start": 86.38,
+          "end": 86.64,
+          "probability": 0.9973791837692261
+        },
+        {
+          "word": " to",
+          "start": 86.64,
+          "end": 86.9,
+          "probability": 0.9991635084152222
+        },
+        {
+          "word": " reconstitute",
+          "start": 86.9,
+          "end": 87.52,
+          "probability": 0.9879936277866364
+        },
+        {
+          "word": " something.",
+          "start": 87.52,
+          "end": 87.92,
+          "probability": 0.9917269945144653
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 88.66,
+      "end": 94.68,
+      "text": " It's understanding storage, sterility, contamination, stability and most importantly,",
+      "words": [
+        {
+          "word": " It's",
+          "start": 88.66,
+          "end": 88.88,
+          "probability": 0.9782770872116089
+        },
+        {
+          "word": " understanding",
+          "start": 88.88,
+          "end": 89.36,
+          "probability": 0.9959574341773987
+        },
+        {
+          "word": " storage,",
+          "start": 89.36,
+          "end": 90.08,
+          "probability": 0.976442277431488
+        },
+        {
+          "word": " sterility,",
+          "start": 90.46,
+          "end": 90.96,
+          "probability": 0.8879535496234894
+        },
+        {
+          "word": " contamination,",
+          "start": 91.5,
+          "end": 92.06,
+          "probability": 0.9981398582458496
+        },
+        {
+          "word": " stability",
+          "start": 92.66,
+          "end": 93.02,
+          "probability": 0.9969436526298523
+        },
+        {
+          "word": " and",
+          "start": 93.02,
+          "end": 93.68,
+          "probability": 0.3072076439857483
+        },
+        {
+          "word": " most",
+          "start": 93.68,
+          "end": 94.08,
+          "probability": 0.5831723213195801
+        },
+        {
+          "word": " importantly,",
+          "start": 94.08,
+          "end": 94.68,
+          "probability": 0.9970948696136475
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 95.54,
+      "end": 98.76,
+      "text": " knowing when you should stop and ask questions instead of guessing.",
+      "words": [
+        {
+          "word": " knowing",
+          "start": 95.54,
+          "end": 95.68,
+          "probability": 0.992084801197052
+        },
+        {
+          "word": " when",
+          "start": 95.68,
+          "end": 95.9,
+          "probability": 0.9959697723388672
+        },
+        {
+          "word": " you",
+          "start": 95.9,
+          "end": 96.14,
+          "probability": 0.9978818297386169
+        },
+        {
+          "word": " should",
+          "start": 96.14,
+          "end": 96.34,
+          "probability": 0.9993500113487244
+        },
+        {
+          "word": " stop",
+          "start": 96.34,
+          "end": 96.58,
+          "probability": 0.9990585446357727
+        },
+        {
+          "word": " and",
+          "start": 96.58,
+          "end": 96.86,
+          "probability": 0.9950459003448486
+        },
+        {
+          "word": " ask",
+          "start": 96.86,
+          "end": 97.1,
+          "probability": 0.997638463973999
+        },
+        {
+          "word": " questions",
+          "start": 97.1,
+          "end": 97.7,
+          "probability": 0.9965536594390869
+        },
+        {
+          "word": " instead",
+          "start": 97.7,
+          "end": 98.16,
+          "probability": 0.9661204218864441
+        },
+        {
+          "word": " of",
+          "start": 98.16,
+          "end": 98.42,
+          "probability": 0.9994257688522339
+        },
+        {
+          "word": " guessing.",
+          "start": 98.42,
+          "end": 98.76,
+          "probability": 0.998151957988739
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 99.98,
+      "end": 103.4,
+      "text": " If you ever don't understand something, ask in the community.",
+      "words": [
+        {
+          "word": " If",
+          "start": 99.98,
+          "end": 100.12,
+          "probability": 0.9873197078704834
+        },
+        {
+          "word": " you",
+          "start": 100.12,
+          "end": 100.36,
+          "probability": 0.999160885810852
+        },
+        {
+          "word": " ever",
+          "start": 100.36,
+          "end": 100.6,
+          "probability": 0.9968947172164917
+        },
+        {
+          "word": " don't",
+          "start": 100.6,
+          "end": 101.08,
+          "probability": 0.9978339076042175
+        },
+        {
+          "word": " understand",
+          "start": 101.08,
+          "end": 101.38,
+          "probability": 0.9987553358078003
+        },
+        {
+          "word": " something,",
+          "start": 101.38,
+          "end": 101.9,
+          "probability": 0.9957165122032166
+        },
+        {
+          "word": " ask",
+          "start": 102.46,
+          "end": 102.62,
+          "probability": 0.9852828979492188
+        },
+        {
+          "word": " in",
+          "start": 102.62,
+          "end": 102.78,
+          "probability": 0.9965986609458923
+        },
+        {
+          "word": " the",
+          "start": 102.78,
+          "end": 102.96,
+          "probability": 0.9994244575500488
+        },
+        {
+          "word": " community.",
+          "start": 102.96,
+          "end": 103.4,
+          "probability": 0.9904424548149109
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 104.22,
+      "end": 105.66,
+      "text": " We're here to help you learn.",
+      "words": [
+        {
+          "word": " We're",
+          "start": 104.22,
+          "end": 104.56,
+          "probability": 0.9795944392681122
+        },
+        {
+          "word": " here",
+          "start": 104.56,
+          "end": 104.68,
+          "probability": 0.9963188171386719
+        },
+        {
+          "word": " to",
+          "start": 104.68,
+          "end": 104.92,
+          "probability": 0.9989504814147949
+        },
+        {
+          "word": " help",
+          "start": 104.92,
+          "end": 105.06,
+          "probability": 0.9993520379066467
+        },
+        {
+          "word": " you",
+          "start": 105.06,
+          "end": 105.36,
+          "probability": 0.9985711574554443
+        },
+        {
+          "word": " learn.",
+          "start": 105.36,
+          "end": 105.66,
+          "probability": 0.994455873966217
+        }
+      ]
+    }
+  ]
+}

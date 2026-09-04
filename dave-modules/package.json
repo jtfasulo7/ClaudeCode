@@ -8,7 +8,8 @@
     "render3": "remotion render src/index.ts Module3 out/module-3.mp4",
     "render5": "remotion render src/index.ts Module5 out/module-5.mp4",
     "render7": "remotion render src/index.ts Module7 out/module-7.mp4",
-    "render-start-here": "remotion render src/index.ts StartHere out/start-here.mp4"
+    "render-start-here": "remotion render src/index.ts StartHere out/start-here.mp4",
+    "render-handling": "remotion render src/index.ts Handling out/handling.mp4"
   },
   "dependencies": {
     "@remotion/animation-utils": "^4.0.520",

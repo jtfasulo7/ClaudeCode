@@ -24,7 +24,8 @@ TECHNIQUE
   way under speech. Baked into the file so Remotion just plays it flat.
 
 Usage:
-  py work/score.py work/start-here/audio.wav public/score-start-here.wav 98.88
+  py work/score.py work/start-here/audio.wav public/score-start-here.wav 98.94 start-here
+  py work/score.py work/handling/audio.wav   public/score-handling.wav    107.60 handling
 """
 
 import math
@@ -249,76 +250,102 @@ def duck_envelope(vo_path, n_out, floor=0.34, look_s=0.18, rel_s=0.55):
 # --------------------------------------------------------------------- cue
 
 
-def build(dur_s, vo_path):
+# ------------------------------------------------------------------ scores
+#
+# One entry per film. Sections are (start, end, drone_root, pad_chord) and
+# crossfade into each other; bells are placed on specific spoken words so the
+# score hits the picture rather than running underneath it.
+
+SCORES = {
+    "start-here": {
+        "sections": [
+            (0.0, 4.6, "D2", ["D3", "F3", "A3"]),
+            (4.6, 17.2, "D2", ["D3", "F3", "A4"]),
+            (17.2, 25.0, "Bb2", ["Bb3", "D4", "F4"]),
+            (25.0, 38.5, "D2", ["D3", "A3", "D4"]),
+            (38.5, 49.3, "A2", ["A3", "C4", "E4"]),
+            (49.3, 62.7, "G2", ["G3", "Bb3", "D4"]),
+            (62.7, 74.0, "F2", ["F3", "A3", "C4"]),
+            (74.0, 89.8, "D2", ["D3", "F3", "A3"]),
+            (89.8, 999.0, "D2", ["D3", "A3", "D5"]),
+        ],
+        "ambient": [(5.2, "D5"), (13.0, "A4"), (26.0, "F4"), (33.0, "D5"),
+                    (63.4, "F4"), (69.2, "A4"), (75.0, "D5"), (90.4, "A4"), (94.0, "D5")],
+        "accents": [(55.3, "D5"), (56.4, "F5"), (57.4, "A4"), (58.2, "C5"),
+                    (59.4, "D5"), (60.2, "F5"), (61.2, "A5")],
+        "hits": [17.2, 25.05, 38.55, 49.35, 62.75, 74.1, 93.1],
+        "quiet": (55.0, 62.0),
+    },
+    # Handling. Heavier centre of gravity than Start Here — this film is about
+    # risk, so it sits in Gm/Am longer and only resolves to F at the recap.
+    "handling": {
+        "sections": [
+            (0.0, 7.4, "D2", ["D3", "F3", "A3"]),        # open
+            (7.4, 17.4, "G2", ["G3", "Bb3", "D4"]),      # poor handling — weight
+            (17.4, 28.0, "D2", ["D3", "A3", "D4"]),      # definitions — neutral
+            (28.0, 38.9, "A2", ["A3", "C4", "E4"]),      # sterility — tension
+            (38.9, 52.0, "Bb2", ["Bb3", "D4", "F4"]),    # storage — informative lift
+            (52.0, 60.5, "D2", ["D3", "F3", "A3"]),      # never assume — home
+            (60.5, 71.5, "G2", ["G3", "Bb3", "D4"]),     # red flags — weight
+            (71.5, 84.0, "A2", ["A3", "C4", "E4"]),      # cannot see — tension
+            (84.0, 100.0, "F2", ["F3", "A3", "C4"]),     # the recap — warmest
+            (100.0, 999.0, "D2", ["D3", "A3", "D5"]),    # close — resolve
+        ],
+        "ambient": [(5.0, "D5"), (18.5, "A4"), (22.0, "F4"), (40.0, "D5"),
+                    (53.0, "A4"), (78.0, "F4"), (101.0, "A4"), (104.6, "D5")],
+        # Bells on the four red flags, then on the four pillars of the recap.
+        "accents": [(61.2, "D5"), (62.5, "F5"), (63.6, "A4"), (65.2, "C5"),
+                    (89.4, "D5"), (90.5, "F5"), (91.5, "A4"), (92.7, "C5")],
+        "hits": [17.4, 28.0, 38.9, 60.5, 71.5, 84.0, 103.9],
+        "quiet": (61.0, 66.0),
+    },
+}
+
+
+def build(dur_s, vo_path, name):
+    cfg = SCORES[name]
     n = int(dur_s * SR)
     bed = np.zeros(n)
 
-    # --- Harmonic sections, keyed to the narrative, not to a bar grid.
-    #     (start, end, root, chord)
-    sections = [
-        (0.0, 4.6, "D2", ["D3", "F3", "A3"]),        # open — home
-        (4.6, 17.2, "D2", ["D3", "F3", "A4"]),       # definition — open, airy
-        (17.2, 25.0, "Bb2", ["Bb3", "D4", "F4"]),    # "doesn't tell you" — lift
-        (25.0, 38.5, "D2", ["D3", "A3", "D4"]),      # channels — neutral fifths
-        (38.5, 49.3, "A2", ["A3", "C4", "E4"]),      # careful — tension
-        (49.3, 62.7, "G2", ["G3", "Bb3", "D4"]),     # the seven — weight
-        (62.7, 74.0, "F2", ["F3", "A3", "C4"]),      # the goal — warmest
-        (74.0, 89.8, "D2", ["D3", "F3", "A3"]),      # guidance — home
-        (89.8, dur_s, "D2", ["D3", "A3", "D5"]),     # close — resolve, open
-    ]
-
-    for start, end, root, chord in sections:
+    for start, end, root, chord in cfg["sections"]:
+        end = min(end, dur_s)
+        if start >= dur_s:
+            continue
         seg = max(0.5, end - start + 2.2)  # overlap so changes crossfade
         place(bed, drone(seg, root, amp=0.42), max(0.0, start - 1.0))
         place(bed, pad(seg, chord, amp=0.20), max(0.0, start - 1.0))
 
-    # --- Sub pulse: every 2 bars at 72bpm = 6.667s. Skipped in the densest
-    #     stretch so the seven-item list is left clear.
+    # Sub pulse every two bars at 72bpm, skipped where the picture is densest.
     bar2 = 240.0 / 72.0
+    q0, q1 = cfg["quiet"]
     tt = 1.2
     while tt < dur_s - 2:
-        if not (55.0 < tt < 62.0):
+        if not (q0 < tt < q1):
             place(bed, sub_pulse(amp=0.30), tt)
         tt += bar2
 
-    # --- Bell figure. Sparse everywhere, then one note per risk word so the
-    #     score hits the picture rather than just running underneath it.
-    ambient_bells = [
-        (5.2, "D5"), (13.0, "A4"), (26.0, "F4"), (33.0, "D5"),
-        (63.4, "F4"), (69.2, "A4"), (75.0, "D5"), (90.4, "A4"), (94.0, "D5"),
-    ]
-    for at, note in ambient_bells:
+    for at, note in cfg["ambient"]:
         if at < dur_s:
             place(bed, bell(note, amp=0.20), at)
 
-    seven = [
-        (55.3, "D5"), (56.4, "F5"), (57.4, "A4"), (58.2, "C5"),
-        (59.4, "D5"), (60.2, "F5"), (61.2, "A5"),
-    ]
-    for at, note in seven:
-        place(bed, bell(note, amp=0.26, dur=2.6), at)
+    for at, note in cfg["accents"]:
+        if at < dur_s:
+            place(bed, bell(note, amp=0.26, dur=2.6), at)
 
-    # --- Chapter punctuation. Placed slightly BEFORE the cut so the swell
-    #     resolves on it rather than starting there.
-    for at in (17.2, 25.05, 38.55, 49.35, 62.75, 74.1, 93.1):
+    for at in cfg["hits"]:
         if at < dur_s:
             place(bed, transition_hit(amp=0.15), max(0.0, at - 0.85))
 
     bed += air(dur_s, amp=0.010)
 
-    # --- Duck under the voice, then trim the head and tail.
     bed *= duck_envelope(vo_path, n)
     bed = fade(bed, 2.0, 4.5)
 
-    # --- Level. Target a quiet bed; the VO is the programme.
-    rms = np.sqrt((bed ** 2).mean())
     # Sits 11.7 dB under the voice — the ratio approved on the raw VO. The
-    # processed VO lands quieter (higher crest factor, so it cannot be pushed
-    # without compressing a voice that was deliberately processed), and the
-    # whole mix is normalised to -16 LUFS after render instead.
+    # whole mix is normalised to -16 LUFS after render.
+    rms = np.sqrt((bed ** 2).mean())
     bed *= (10 ** (-30.2 / 20.0)) / max(rms, 1e-9)
 
-    # Safety limiter — soft knee, should barely engage.
     peak = np.abs(bed).max()
     if peak > 0.89:
         bed = np.tanh(bed * (0.89 / peak) * 1.15) * 0.89
@@ -341,7 +368,8 @@ if __name__ == "__main__":
     out = sys.argv[2]
     dur = float(sys.argv[3])
     np.random.seed(7)  # deterministic — reruns produce an identical score
-    sig = build(dur, vo)
+    name = sys.argv[4] if len(sys.argv) > 4 else "start-here"
+    sig = build(dur, vo, name)
     write_wav(out, sig)
     rms_db = 20 * math.log10(max(np.sqrt((sig ** 2).mean()), 1e-9))
     peak_db = 20 * math.log10(max(np.abs(sig).max(), 1e-9))

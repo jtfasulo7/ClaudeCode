@@ -11,6 +11,7 @@ saying, beat by beat.
 | `Module5` | Beginner mistakes | 146.08s | `out/module-5.mp4` |
 | `Module7` | Where to go from here | 87.12s | `out/module-7.mp4` |
 | `StartHere` | New to peptides (v2 motion language + score) | 98.99s | `out/start-here.mp4` |
+| `Handling` | Handling basics — storage, sterility, appearance | 107.65s | `out/handling.mp4` |
 
 All are 1920x1080, 30fps.
 
@@ -43,6 +44,7 @@ src/
     module5/  Module5.tsx + scenes/   (32 scenes)
     module7/  Module7.tsx + scenes/   (22 scenes)
     start-here/ StartHere.tsx + scenes/ (21 scenes, v2 language)
+    handling/   Handling.tsx + scenes/   (22 scenes, v2 language)
   Root.tsx               one <Composition> per module
 ```
 
@@ -124,6 +126,11 @@ matters for the classroom:
   (`99.1%`, `10.2 mg`, batch `A-2291`).
 - Module 3: the same COA values; the search results and comment text on the
   thread scene; the tier names on the engagement ladder.
+- Handling: the vial graphic is illustrative and always sealed and at rest. No
+  needle, syringe, hands, volumes or quantities appear anywhere in the film;
+  reconstitution is treated strictly as a terminology definition, per the brief.
+  The "not medical advice" line on its end card is NOT in that script — it was
+  added for series consistency given the subject, and can be removed.
 - Module 7: the vendor rows and "official contact on file" labels.
 - Module 5: the COA row values and lab report ID (`LR-88214-C`); the wallet
   address, which is a fabricated string used only to illustrate the "one wrong
@@ -148,6 +155,10 @@ same frames the seven nodes land on screen.
 It is side-chained to the actual voiceover (envelope derived from the VO's own
 RMS, fast attack / slow release), so the bed drops ~5.3 dB under speech and
 lifts in the gaps. Baked in, so Remotion just plays it flat.
+
+Each film has its own entry in the `SCORES` dict in score.py — sections, bell
+placements and transition hits per module. Handling sits in Gm/Am longer than
+Start Here because its subject is risk, and only resolves to F at the recap.
 
 Regenerate with:
 
