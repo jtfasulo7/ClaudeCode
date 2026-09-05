@@ -276,6 +276,31 @@ SCORES = {
         "hits": [17.2, 25.05, 38.55, 49.35, 62.75, 74.1, 93.1],
         "quiet": (55.0, 62.0),
     },
+    # Module 2 — testing / COAs. The dramatic spine is the vendor-chain
+    # problem, so it sinks into Gm there and only resolves to F when the script
+    # supplies the answer (independent testing).
+    "module2": {
+        "sections": [
+            (0.0, 12.1, "D2", ["D3", "F3", "A3"]),       # definition — home
+            (12.1, 20.6, "Bb2", ["Bb3", "D4", "F4"]),    # confusion — lift
+            (20.6, 29.0, "A2", ["A3", "C4", "E4"]),      # the question — tension
+            (29.0, 39.8, "G2", ["G3", "Bb3", "D4"]),     # vendor chain — weight
+            (39.8, 53.0, "F2", ["F3", "A3", "C4"]),      # independent — the answer
+            (53.0, 77.6, "D2", ["D3", "A3", "D4"]),      # test types — neutral
+            (77.6, 91.3, "A2", ["A3", "C4", "E4"]),      # the 99% warning — tension
+            (91.3, 102.4, "Bb2", ["Bb3", "D4", "F4"]),   # what to check — lift
+            (102.4, 999.0, "D2", ["D3", "A3", "D5"]),    # close — resolve
+        ],
+        "ambient": [(6.5, "D5"), (21.5, "A4"), (44.5, "F4"), (54.0, "D5"),
+                    (79.0, "A4"), (103.5, "F4"), (108.0, "D5")],
+        # Bells on the four links of the vendor chain, the three test types,
+        # then four of the COA check items.
+        "accents": [(29.8, "D5"), (31.1, "F5"), (32.2, "A4"), (33.6, "C5"),
+                    (55.9, "D5"), (61.1, "F5"), (67.1, "A4"),
+                    (93.6, "D5"), (95.5, "F5"), (96.7, "A4"), (98.5, "C5")],
+        "hits": [12.1, 25.9, 29.0, 39.8, 53.0, 77.6, 91.3, 106.6],
+        "quiet": (29.0, 35.5),
+    },
     # Handling. Heavier centre of gravity than Start Here — this film is about
     # risk, so it sits in Gm/Am longer and only resolves to F at the recap.
     "handling": {

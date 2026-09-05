@@ -12,6 +12,7 @@ saying, beat by beat.
 | `Module7` | Where to go from here | 87.12s | `out/module-7.mp4` |
 | `StartHere` | New to peptides (v2 motion language + score) | 98.99s | `out/start-here.mp4` |
 | `Handling` | Handling basics — storage, sterility, appearance | 107.65s | `out/handling.mp4` |
+| `Module2` | Understanding testing — COAs and who selects the sample | 111.66s | `out/module-2.mp4` |
 
 All are 1920x1080, 30fps.
 
@@ -45,6 +46,7 @@ src/
     module7/  Module7.tsx + scenes/   (22 scenes)
     start-here/ StartHere.tsx + scenes/ (21 scenes, v2 language)
     handling/   Handling.tsx + scenes/   (22 scenes, v2 language)
+    module2/    Module2.tsx + scenes/    (24 scenes, v2 language)
   Root.tsx               one <Composition> per module
 ```
 
@@ -126,6 +128,9 @@ matters for the classroom:
   (`99.1%`, `10.2 mg`, batch `A-2291`).
 - Module 3: the same COA values; the search results and comment text on the
   thread scene; the tier names on the engagement ladder.
+- Module 2: the COA row values (Independent / 2026-08-11 / 99.1% / 10.2 mg) are
+  illustrative. Its end card also carries the added "not medical advice" line,
+  which is not in that script either.
 - Handling: the vial graphic is illustrative and always sealed and at rest. No
   needle, syringe, hands, volumes or quantities appear anywhere in the film;
   reconstitution is treated strictly as a terminology definition, per the brief.

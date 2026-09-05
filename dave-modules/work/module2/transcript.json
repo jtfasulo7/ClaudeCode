@@ -1,0 +1,2059 @@
+{
+  "language": "en",
+  "duration": 109.92,
+  "model": "medium",
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 4.36,
+      "text": " If you're going to learn about peptides, one of the most important things you can understand",
+      "words": [
+        {
+          "word": " If",
+          "start": 0.0,
+          "end": 0.18,
+          "probability": 0.7951406240463257
+        },
+        {
+          "word": " you're",
+          "start": 0.18,
+          "end": 0.36,
+          "probability": 0.9055668115615845
+        },
+        {
+          "word": " going",
+          "start": 0.36,
+          "end": 0.56,
+          "probability": 0.9973025321960449
+        },
+        {
+          "word": " to",
+          "start": 0.56,
+          "end": 0.68,
+          "probability": 0.9982218146324158
+        },
+        {
+          "word": " learn",
+          "start": 0.68,
+          "end": 0.86,
+          "probability": 0.9962279796600342
+        },
+        {
+          "word": " about",
+          "start": 0.86,
+          "end": 1.2,
+          "probability": 0.9975833892822266
+        },
+        {
+          "word": " peptides,",
+          "start": 1.2,
+          "end": 1.88,
+          "probability": 0.9840857684612274
+        },
+        {
+          "word": " one",
+          "start": 2.18,
+          "end": 2.2,
+          "probability": 0.9840101599693298
+        },
+        {
+          "word": " of",
+          "start": 2.2,
+          "end": 2.32,
+          "probability": 0.9970284104347229
+        },
+        {
+          "word": " the",
+          "start": 2.32,
+          "end": 2.46,
+          "probability": 0.9980105757713318
+        },
+        {
+          "word": " most",
+          "start": 2.46,
+          "end": 2.64,
+          "probability": 0.9925641417503357
+        },
+        {
+          "word": " important",
+          "start": 2.64,
+          "end": 3.16,
+          "probability": 0.9991151690483093
+        },
+        {
+          "word": " things",
+          "start": 3.16,
+          "end": 3.46,
+          "probability": 0.9911490678787231
+        },
+        {
+          "word": " you",
+          "start": 3.46,
+          "end": 3.56,
+          "probability": 0.9907105565071106
+        },
+        {
+          "word": " can",
+          "start": 3.56,
+          "end": 3.78,
+          "probability": 0.99513840675354
+        },
+        {
+          "word": " understand",
+          "start": 3.78,
+          "end": 4.36,
+          "probability": 0.9972706437110901
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 4.36,
+      "end": 5.26,
+      "text": " is testing.",
+      "words": [
+        {
+          "word": " is",
+          "start": 4.36,
+          "end": 4.66,
+          "probability": 0.9903006553649902
+        },
+        {
+          "word": " testing.",
+          "start": 4.66,
+          "end": 5.26,
+          "probability": 0.9419222474098206
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 5.96,
+      "end": 8.82,
+      "text": " You're going to see the term COA all the time.",
+      "words": [
+        {
+          "word": " You're",
+          "start": 5.96,
+          "end": 6.1,
+          "probability": 0.979678750038147
+        },
+        {
+          "word": " going",
+          "start": 6.1,
+          "end": 6.24,
+          "probability": 0.9984170198440552
+        },
+        {
+          "word": " to",
+          "start": 6.24,
+          "end": 6.44,
+          "probability": 0.9989810585975647
+        },
+        {
+          "word": " see",
+          "start": 6.44,
+          "end": 6.6,
+          "probability": 0.9980113506317139
+        },
+        {
+          "word": " the",
+          "start": 6.6,
+          "end": 6.8,
+          "probability": 0.9945083260536194
+        },
+        {
+          "word": " term",
+          "start": 6.8,
+          "end": 7.08,
+          "probability": 0.8056958317756653
+        },
+        {
+          "word": " COA",
+          "start": 7.08,
+          "end": 7.76,
+          "probability": 0.7967961728572845
+        },
+        {
+          "word": " all",
+          "start": 7.76,
+          "end": 8.1,
+          "probability": 0.991212785243988
+        },
+        {
+          "word": " the",
+          "start": 8.1,
+          "end": 8.36,
+          "probability": 0.9986948370933533
+        },
+        {
+          "word": " time.",
+          "start": 8.36,
+          "end": 8.82,
+          "probability": 0.9995597004890442
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 9.4,
+      "end": 11.7,
+      "text": " COA stands for certificate of analysis.",
+      "words": [
+        {
+          "word": " COA",
+          "start": 9.4,
+          "end": 9.88,
+          "probability": 0.9877336025238037
+        },
+        {
+          "word": " stands",
+          "start": 9.88,
+          "end": 10.22,
+          "probability": 0.996809184551239
+        },
+        {
+          "word": " for",
+          "start": 10.22,
+          "end": 10.44,
+          "probability": 0.9994044303894043
+        },
+        {
+          "word": " certificate",
+          "start": 10.44,
+          "end": 10.92,
+          "probability": 0.648134708404541
+        },
+        {
+          "word": " of",
+          "start": 10.92,
+          "end": 11.18,
+          "probability": 0.9982944130897522
+        },
+        {
+          "word": " analysis.",
+          "start": 11.18,
+          "end": 11.7,
+          "probability": 0.9962875843048096
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 12.22,
+      "end": 14.58,
+      "text": " But here's where a lot of beginners get confused.",
+      "words": [
+        {
+          "word": " But",
+          "start": 12.22,
+          "end": 12.38,
+          "probability": 0.9873823523521423
+        },
+        {
+          "word": " here's",
+          "start": 12.38,
+          "end": 12.66,
+          "probability": 0.9776721000671387
+        },
+        {
+          "word": " where",
+          "start": 12.66,
+          "end": 12.86,
+          "probability": 0.9961885809898376
+        },
+        {
+          "word": " a",
+          "start": 12.86,
+          "end": 12.92,
+          "probability": 0.9979820251464844
+        },
+        {
+          "word": " lot",
+          "start": 12.92,
+          "end": 13.08,
+          "probability": 0.9996762275695801
+        },
+        {
+          "word": " of",
+          "start": 13.08,
+          "end": 13.34,
+          "probability": 0.9991156458854675
+        },
+        {
+          "word": " beginners",
+          "start": 13.34,
+          "end": 13.62,
+          "probability": 0.9918447136878967
+        },
+        {
+          "word": " get",
+          "start": 13.62,
+          "end": 13.9,
+          "probability": 0.9980390667915344
+        },
+        {
+          "word": " confused.",
+          "start": 13.9,
+          "end": 14.58,
+          "probability": 0.9990955591201782
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 15.12,
+      "end": 19.92,
+      "text": " Just because a vendor posts a COA does not automatically mean you can trust the product.",
+      "words": [
+        {
+          "word": " Just",
+          "start": 15.12,
+          "end": 15.4,
+          "probability": 0.995254635810852
+        },
+        {
+          "word": " because",
+          "start": 15.4,
+          "end": 15.74,
+          "probability": 0.9990077614784241
+        },
+        {
+          "word": " a",
+          "start": 15.74,
+          "end": 15.92,
+          "probability": 0.994891881942749
+        },
+        {
+          "word": " vendor",
+          "start": 15.92,
+          "end": 16.12,
+          "probability": 0.9984397292137146
+        },
+        {
+          "word": " posts",
+          "start": 16.12,
+          "end": 16.52,
+          "probability": 0.9757453799247742
+        },
+        {
+          "word": " a",
+          "start": 16.52,
+          "end": 16.84,
+          "probability": 0.9556494951248169
+        },
+        {
+          "word": " COA",
+          "start": 16.84,
+          "end": 17.28,
+          "probability": 0.9950934052467346
+        },
+        {
+          "word": " does",
+          "start": 17.28,
+          "end": 17.48,
+          "probability": 0.8805012702941895
+        },
+        {
+          "word": " not",
+          "start": 17.48,
+          "end": 17.7,
+          "probability": 0.9995402097702026
+        },
+        {
+          "word": " automatically",
+          "start": 17.7,
+          "end": 18.32,
+          "probability": 0.9994391798973083
+        },
+        {
+          "word": " mean",
+          "start": 18.32,
+          "end": 18.66,
+          "probability": 0.998273491859436
+        },
+        {
+          "word": " you",
+          "start": 18.66,
+          "end": 18.8,
+          "probability": 0.9963973164558411
+        },
+        {
+          "word": " can",
+          "start": 18.8,
+          "end": 19.06,
+          "probability": 0.9994015693664551
+        },
+        {
+          "word": " trust",
+          "start": 19.06,
+          "end": 19.3,
+          "probability": 0.9986155033111572
+        },
+        {
+          "word": " the",
+          "start": 19.3,
+          "end": 19.6,
+          "probability": 0.9986672401428223
+        },
+        {
+          "word": " product.",
+          "start": 19.6,
+          "end": 19.92,
+          "probability": 0.9992838501930237
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 20.68,
+      "end": 25.48,
+      "text": " The report itself could be legitimate, but you still have to ask an important question.",
+      "words": [
+        {
+          "word": " The",
+          "start": 20.68,
+          "end": 20.9,
+          "probability": 0.9974263310432434
+        },
+        {
+          "word": " report",
+          "start": 20.9,
+          "end": 21.14,
+          "probability": 0.9988829493522644
+        },
+        {
+          "word": " itself",
+          "start": 21.14,
+          "end": 21.56,
+          "probability": 0.9987308382987976
+        },
+        {
+          "word": " could",
+          "start": 21.56,
+          "end": 21.8,
+          "probability": 0.996199905872345
+        },
+        {
+          "word": " be",
+          "start": 21.8,
+          "end": 22.06,
+          "probability": 0.9995610117912292
+        },
+        {
+          "word": " legitimate,",
+          "start": 22.06,
+          "end": 22.52,
+          "probability": 0.9991493225097656
+        },
+        {
+          "word": " but",
+          "start": 22.52,
+          "end": 22.94,
+          "probability": 0.997401237487793
+        },
+        {
+          "word": " you",
+          "start": 22.94,
+          "end": 23.22,
+          "probability": 0.9993507266044617
+        },
+        {
+          "word": " still",
+          "start": 23.22,
+          "end": 23.48,
+          "probability": 0.9987695813179016
+        },
+        {
+          "word": " have",
+          "start": 23.48,
+          "end": 23.68,
+          "probability": 0.9988417029380798
+        },
+        {
+          "word": " to",
+          "start": 23.68,
+          "end": 23.88,
+          "probability": 0.9994869232177734
+        },
+        {
+          "word": " ask",
+          "start": 23.88,
+          "end": 24.08,
+          "probability": 0.9996408224105835
+        },
+        {
+          "word": " an",
+          "start": 24.08,
+          "end": 24.44,
+          "probability": 0.9983385801315308
+        },
+        {
+          "word": " important",
+          "start": 24.44,
+          "end": 24.88,
+          "probability": 0.9995879530906677
+        },
+        {
+          "word": " question.",
+          "start": 24.88,
+          "end": 25.48,
+          "probability": 0.9994981288909912
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 25.96,
+      "end": 28.36,
+      "text": " Who selected the sample that was tested?",
+      "words": [
+        {
+          "word": " Who",
+          "start": 25.96,
+          "end": 26.34,
+          "probability": 0.9610694050788879
+        },
+        {
+          "word": " selected",
+          "start": 26.34,
+          "end": 26.86,
+          "probability": 0.9840549826622009
+        },
+        {
+          "word": " the",
+          "start": 26.86,
+          "end": 27.2,
+          "probability": 0.9969359636306763
+        },
+        {
+          "word": " sample",
+          "start": 27.2,
+          "end": 27.48,
+          "probability": 0.9997125267982483
+        },
+        {
+          "word": " that",
+          "start": 27.48,
+          "end": 27.68,
+          "probability": 0.9981951117515564
+        },
+        {
+          "word": " was",
+          "start": 27.68,
+          "end": 27.94,
+          "probability": 0.9992594122886658
+        },
+        {
+          "word": " tested?",
+          "start": 27.94,
+          "end": 28.36,
+          "probability": 0.9990459084510803
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 29.24,
+      "end": 33.9,
+      "text": " If the vendor chooses the vial, sends it to the lab, pays for the test and then posts",
+      "words": [
+        {
+          "word": " If",
+          "start": 29.04,
+          "end": 29.32,
+          "probability": 0.49441075325012207
+        },
+        {
+          "word": " the",
+          "start": 29.32,
+          "end": 29.54,
+          "probability": 0.9888483285903931
+        },
+        {
+          "word": " vendor",
+          "start": 29.54,
+          "end": 29.78,
+          "probability": 0.9774416089057922
+        },
+        {
+          "word": " chooses",
+          "start": 29.78,
+          "end": 30.24,
+          "probability": 0.9809311032295227
+        },
+        {
+          "word": " the",
+          "start": 30.24,
+          "end": 30.52,
+          "probability": 0.9923122525215149
+        },
+        {
+          "word": " vial,",
+          "start": 30.52,
+          "end": 30.9,
+          "probability": 0.8560129106044769
+        },
+        {
+          "word": " sends",
+          "start": 31.08,
+          "end": 31.3,
+          "probability": 0.9798772931098938
+        },
+        {
+          "word": " it",
+          "start": 31.3,
+          "end": 31.48,
+          "probability": 0.9952400922775269
+        },
+        {
+          "word": " to",
+          "start": 31.48,
+          "end": 31.64,
+          "probability": 0.9957677125930786
+        },
+        {
+          "word": " the",
+          "start": 31.64,
+          "end": 31.82,
+          "probability": 0.9974753260612488
+        },
+        {
+          "word": " lab,",
+          "start": 31.82,
+          "end": 32.04,
+          "probability": 0.995415449142456
+        },
+        {
+          "word": " pays",
+          "start": 32.16,
+          "end": 32.48,
+          "probability": 0.9943519830703735
+        },
+        {
+          "word": " for",
+          "start": 32.48,
+          "end": 32.72,
+          "probability": 0.9973689317703247
+        },
+        {
+          "word": " the",
+          "start": 32.72,
+          "end": 32.96,
+          "probability": 0.9966726303100586
+        },
+        {
+          "word": " test",
+          "start": 32.96,
+          "end": 33.16,
+          "probability": 0.9939854741096497
+        },
+        {
+          "word": " and",
+          "start": 33.16,
+          "end": 33.3,
+          "probability": 0.5719486474990845
+        },
+        {
+          "word": " then",
+          "start": 33.3,
+          "end": 33.56,
+          "probability": 0.9940932393074036
+        },
+        {
+          "word": " posts",
+          "start": 33.56,
+          "end": 33.9,
+          "probability": 0.9660738110542297
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 33.9,
+      "end": 38.86,
+      "text": " the best result, that test may not tell you the full story about everything they're currently",
+      "words": [
+        {
+          "word": " the",
+          "start": 33.9,
+          "end": 34.16,
+          "probability": 0.9939716458320618
+        },
+        {
+          "word": " best",
+          "start": 34.16,
+          "end": 34.38,
+          "probability": 0.9948590993881226
+        },
+        {
+          "word": " result,",
+          "start": 34.38,
+          "end": 34.84,
+          "probability": 0.9837720990180969
+        },
+        {
+          "word": " that",
+          "start": 35.42,
+          "end": 35.66,
+          "probability": 0.9674040079116821
+        },
+        {
+          "word": " test",
+          "start": 35.66,
+          "end": 35.9,
+          "probability": 0.993914783000946
+        },
+        {
+          "word": " may",
+          "start": 35.9,
+          "end": 36.12,
+          "probability": 0.9961118102073669
+        },
+        {
+          "word": " not",
+          "start": 36.12,
+          "end": 36.36,
+          "probability": 0.9991663694381714
+        },
+        {
+          "word": " tell",
+          "start": 36.36,
+          "end": 36.5,
+          "probability": 0.9981830716133118
+        },
+        {
+          "word": " you",
+          "start": 36.5,
+          "end": 36.7,
+          "probability": 0.9979913234710693
+        },
+        {
+          "word": " the",
+          "start": 36.7,
+          "end": 36.86,
+          "probability": 0.998006284236908
+        },
+        {
+          "word": " full",
+          "start": 36.86,
+          "end": 37.1,
+          "probability": 0.983735203742981
+        },
+        {
+          "word": " story",
+          "start": 37.1,
+          "end": 37.42,
+          "probability": 0.9990097284317017
+        },
+        {
+          "word": " about",
+          "start": 37.42,
+          "end": 37.7,
+          "probability": 0.994097113609314
+        },
+        {
+          "word": " everything",
+          "start": 37.7,
+          "end": 38.1,
+          "probability": 0.9979288578033447
+        },
+        {
+          "word": " they're",
+          "start": 38.1,
+          "end": 38.38,
+          "probability": 0.9037507474422455
+        },
+        {
+          "word": " currently",
+          "start": 38.38,
+          "end": 38.86,
+          "probability": 0.9989965558052063
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 38.86,
+      "end": 39.28,
+      "text": " selling.",
+      "words": [
+        {
+          "word": " selling.",
+          "start": 38.86,
+          "end": 39.28,
+          "probability": 0.9980265498161316
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 39.88,
+      "end": 42.66,
+      "text": " That's why independent third-party testing matters.",
+      "words": [
+        {
+          "word": " That's",
+          "start": 39.88,
+          "end": 40.1,
+          "probability": 0.9889202415943146
+        },
+        {
+          "word": " why",
+          "start": 40.1,
+          "end": 40.36,
+          "probability": 0.9985507130622864
+        },
+        {
+          "word": " independent",
+          "start": 40.36,
+          "end": 41.0,
+          "probability": 0.9812119007110596
+        },
+        {
+          "word": " third",
+          "start": 41.0,
+          "end": 41.44,
+          "probability": 0.8963714838027954
+        },
+        {
+          "word": "-party",
+          "start": 41.44,
+          "end": 41.68,
+          "probability": 0.7132014036178589
+        },
+        {
+          "word": " testing",
+          "start": 41.68,
+          "end": 42.06,
+          "probability": 0.9984147548675537
+        },
+        {
+          "word": " matters.",
+          "start": 42.06,
+          "end": 42.66,
+          "probability": 0.9979840517044067
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 43.56,
+      "end": 48.0,
+      "text": " Ideally, the person selecting and submitting the sample is independent from the seller.",
+      "words": [
+        {
+          "word": " Ideally,",
+          "start": 43.56,
+          "end": 43.98,
+          "probability": 0.9906142950057983
+        },
+        {
+          "word": " the",
+          "start": 44.3,
+          "end": 44.4,
+          "probability": 0.9981866478919983
+        },
+        {
+          "word": " person",
+          "start": 44.4,
+          "end": 44.7,
+          "probability": 0.9967880249023438
+        },
+        {
+          "word": " selecting",
+          "start": 44.7,
+          "end": 45.14,
+          "probability": 0.9963105320930481
+        },
+        {
+          "word": " and",
+          "start": 45.14,
+          "end": 45.44,
+          "probability": 0.9971634745597839
+        },
+        {
+          "word": " submitting",
+          "start": 45.44,
+          "end": 45.76,
+          "probability": 0.998673677444458
+        },
+        {
+          "word": " the",
+          "start": 45.76,
+          "end": 46.06,
+          "probability": 0.9979853630065918
+        },
+        {
+          "word": " sample",
+          "start": 46.06,
+          "end": 46.34,
+          "probability": 0.9988778233528137
+        },
+        {
+          "word": " is",
+          "start": 46.34,
+          "end": 46.68,
+          "probability": 0.9959595799446106
+        },
+        {
+          "word": " independent",
+          "start": 46.68,
+          "end": 47.24,
+          "probability": 0.9949400424957275
+        },
+        {
+          "word": " from",
+          "start": 47.24,
+          "end": 47.52,
+          "probability": 0.9983916878700256
+        },
+        {
+          "word": " the",
+          "start": 47.52,
+          "end": 47.78,
+          "probability": 0.9984149932861328
+        },
+        {
+          "word": " seller.",
+          "start": 47.78,
+          "end": 48.0,
+          "probability": 0.9909772872924805
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 48.72,
+      "end": 52.46,
+      "text": " That removes some of the incentive to only test a perfect sample.",
+      "words": [
+        {
+          "word": " That",
+          "start": 48.72,
+          "end": 48.94,
+          "probability": 0.9838781356811523
+        },
+        {
+          "word": " removes",
+          "start": 48.94,
+          "end": 49.38,
+          "probability": 0.9729244112968445
+        },
+        {
+          "word": " some",
+          "start": 49.38,
+          "end": 49.62,
+          "probability": 0.9978390336036682
+        },
+        {
+          "word": " of",
+          "start": 49.62,
+          "end": 49.82,
+          "probability": 0.9984592199325562
+        },
+        {
+          "word": " the",
+          "start": 49.82,
+          "end": 50.04,
+          "probability": 0.9994364380836487
+        },
+        {
+          "word": " incentive",
+          "start": 50.04,
+          "end": 50.4,
+          "probability": 0.9981426000595093
+        },
+        {
+          "word": " to",
+          "start": 50.4,
+          "end": 50.66,
+          "probability": 0.9983886480331421
+        },
+        {
+          "word": " only",
+          "start": 50.66,
+          "end": 51.0,
+          "probability": 0.9956839084625244
+        },
+        {
+          "word": " test",
+          "start": 51.0,
+          "end": 51.28,
+          "probability": 0.9977133274078369
+        },
+        {
+          "word": " a",
+          "start": 51.28,
+          "end": 51.62,
+          "probability": 0.9747921824455261
+        },
+        {
+          "word": " perfect",
+          "start": 51.62,
+          "end": 51.94,
+          "probability": 0.986626923084259
+        },
+        {
+          "word": " sample.",
+          "start": 51.94,
+          "end": 52.46,
+          "probability": 0.9966626763343811
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 53.08,
+      "end": 55.24,
+      "text": " There are also different types of testing.",
+      "words": [
+        {
+          "word": " There",
+          "start": 53.08,
+          "end": 53.22,
+          "probability": 0.9955289959907532
+        },
+        {
+          "word": " are",
+          "start": 53.22,
+          "end": 53.5,
+          "probability": 0.9988507032394409
+        },
+        {
+          "word": " also",
+          "start": 53.5,
+          "end": 53.8,
+          "probability": 0.9973861575126648
+        },
+        {
+          "word": " different",
+          "start": 53.8,
+          "end": 54.22,
+          "probability": 0.9984637498855591
+        },
+        {
+          "word": " types",
+          "start": 54.22,
+          "end": 54.54,
+          "probability": 0.9988316893577576
+        },
+        {
+          "word": " of",
+          "start": 54.54,
+          "end": 54.8,
+          "probability": 0.9997039437294006
+        },
+        {
+          "word": " testing.",
+          "start": 54.8,
+          "end": 55.24,
+          "probability": 0.9980509281158447
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 55.86,
+      "end": 60.0,
+      "text": " Identity testing helps determine whether the compound is actually what it claims to",
+      "words": [
+        {
+          "word": " Identity",
+          "start": 55.86,
+          "end": 56.38,
+          "probability": 0.9379631876945496
+        },
+        {
+          "word": " testing",
+          "start": 56.38,
+          "end": 56.7,
+          "probability": 0.981417715549469
+        },
+        {
+          "word": " helps",
+          "start": 56.7,
+          "end": 57.02,
+          "probability": 0.9938691258430481
+        },
+        {
+          "word": " determine",
+          "start": 57.02,
+          "end": 57.52,
+          "probability": 0.9859867691993713
+        },
+        {
+          "word": " whether",
+          "start": 57.52,
+          "end": 57.78,
+          "probability": 0.9921532273292542
+        },
+        {
+          "word": " the",
+          "start": 57.78,
+          "end": 58.04,
+          "probability": 0.9983317255973816
+        },
+        {
+          "word": " compound",
+          "start": 58.04,
+          "end": 58.38,
+          "probability": 0.9974767565727234
+        },
+        {
+          "word": " is",
+          "start": 58.38,
+          "end": 58.62,
+          "probability": 0.9959783554077148
+        },
+        {
+          "word": " actually",
+          "start": 58.62,
+          "end": 59.08,
+          "probability": 0.9944879412651062
+        },
+        {
+          "word": " what",
+          "start": 59.08,
+          "end": 59.28,
+          "probability": 0.9952231049537659
+        },
+        {
+          "word": " it",
+          "start": 59.28,
+          "end": 59.5,
+          "probability": 0.9971742630004883
+        },
+        {
+          "word": " claims",
+          "start": 59.5,
+          "end": 59.74,
+          "probability": 0.9976701140403748
+        },
+        {
+          "word": " to",
+          "start": 59.74,
+          "end": 60.0,
+          "probability": 0.9980948567390442
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 60.0,
+      "end": 60.82,
+      "text": " be.",
+      "words": [
+        {
+          "word": " be.",
+          "start": 60.0,
+          "end": 60.82,
+          "probability": 0.9979268312454224
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 61.12,
+      "end": 65.82,
+      "text": " Purity testing looks at how clean the sample is and how much unwanted material may be",
+      "words": [
+        {
+          "word": " Purity",
+          "start": 61.12,
+          "end": 61.32,
+          "probability": 0.9762448668479919
+        },
+        {
+          "word": " testing",
+          "start": 61.32,
+          "end": 61.7,
+          "probability": 0.9919880628585815
+        },
+        {
+          "word": " looks",
+          "start": 61.7,
+          "end": 61.94,
+          "probability": 0.9932764768600464
+        },
+        {
+          "word": " at",
+          "start": 61.94,
+          "end": 62.12,
+          "probability": 0.9987139701843262
+        },
+        {
+          "word": " how",
+          "start": 62.12,
+          "end": 62.38,
+          "probability": 0.9985215067863464
+        },
+        {
+          "word": " clean",
+          "start": 62.38,
+          "end": 62.58,
+          "probability": 0.9153367280960083
+        },
+        {
+          "word": " the",
+          "start": 62.58,
+          "end": 62.82,
+          "probability": 0.9967477321624756
+        },
+        {
+          "word": " sample",
+          "start": 62.82,
+          "end": 63.14,
+          "probability": 0.9979007244110107
+        },
+        {
+          "word": " is",
+          "start": 63.14,
+          "end": 63.58,
+          "probability": 0.9965213537216187
+        },
+        {
+          "word": " and",
+          "start": 63.58,
+          "end": 63.86,
+          "probability": 0.8813710808753967
+        },
+        {
+          "word": " how",
+          "start": 63.86,
+          "end": 64.08,
+          "probability": 0.9990125894546509
+        },
+        {
+          "word": " much",
+          "start": 64.08,
+          "end": 64.32,
+          "probability": 0.998427152633667
+        },
+        {
+          "word": " unwanted",
+          "start": 64.32,
+          "end": 64.78,
+          "probability": 0.9977219700813293
+        },
+        {
+          "word": " material",
+          "start": 64.78,
+          "end": 65.36,
+          "probability": 0.9982811212539673
+        },
+        {
+          "word": " may",
+          "start": 65.36,
+          "end": 65.6,
+          "probability": 0.9920010566711426
+        },
+        {
+          "word": " be",
+          "start": 65.6,
+          "end": 65.82,
+          "probability": 0.9989603757858276
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 65.82,
+      "end": 66.28,
+      "text": " present.",
+      "words": [
+        {
+          "word": " present.",
+          "start": 65.82,
+          "end": 66.28,
+          "probability": 0.9982472658157349
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 67.06,
+      "end": 71.24,
+      "text": " Quantity testing looks at how much of the actual compound is inside the vial.",
+      "words": [
+        {
+          "word": " Quantity",
+          "start": 67.06,
+          "end": 67.36,
+          "probability": 0.9895466566085815
+        },
+        {
+          "word": " testing",
+          "start": 67.36,
+          "end": 67.72,
+          "probability": 0.9954860806465149
+        },
+        {
+          "word": " looks",
+          "start": 67.72,
+          "end": 67.98,
+          "probability": 0.9939799308776855
+        },
+        {
+          "word": " at",
+          "start": 67.98,
+          "end": 68.16,
+          "probability": 0.9992547631263733
+        },
+        {
+          "word": " how",
+          "start": 68.16,
+          "end": 68.46,
+          "probability": 0.9992068409919739
+        },
+        {
+          "word": " much",
+          "start": 68.46,
+          "end": 68.68,
+          "probability": 0.9997292160987854
+        },
+        {
+          "word": " of",
+          "start": 68.68,
+          "end": 68.82,
+          "probability": 0.9985485672950745
+        },
+        {
+          "word": " the",
+          "start": 68.82,
+          "end": 69.04,
+          "probability": 0.9998565912246704
+        },
+        {
+          "word": " actual",
+          "start": 69.04,
+          "end": 69.38,
+          "probability": 0.9975726008415222
+        },
+        {
+          "word": " compound",
+          "start": 69.38,
+          "end": 69.84,
+          "probability": 0.9986822009086609
+        },
+        {
+          "word": " is",
+          "start": 69.84,
+          "end": 70.16,
+          "probability": 0.9983816146850586
+        },
+        {
+          "word": " inside",
+          "start": 70.16,
+          "end": 70.56,
+          "probability": 0.9981202483177185
+        },
+        {
+          "word": " the",
+          "start": 70.56,
+          "end": 70.82,
+          "probability": 0.9971675276756287
+        },
+        {
+          "word": " vial.",
+          "start": 70.82,
+          "end": 71.24,
+          "probability": 0.9127439558506012
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 71.46,
+      "end": 75.56,
+      "text": " And depending on the situation, there can also be testing for things like sterility",
+      "words": [
+        {
+          "word": " And",
+          "start": 71.46,
+          "end": 71.72,
+          "probability": 0.9698964357376099
+        },
+        {
+          "word": " depending",
+          "start": 71.72,
+          "end": 71.94,
+          "probability": 0.9644786715507507
+        },
+        {
+          "word": " on",
+          "start": 71.94,
+          "end": 72.14,
+          "probability": 0.9994764924049377
+        },
+        {
+          "word": " the",
+          "start": 72.14,
+          "end": 72.34,
+          "probability": 0.9995836615562439
+        },
+        {
+          "word": " situation,",
+          "start": 72.34,
+          "end": 72.94,
+          "probability": 0.999263346195221
+        },
+        {
+          "word": " there",
+          "start": 73.12,
+          "end": 73.26,
+          "probability": 0.8011502027511597
+        },
+        {
+          "word": " can",
+          "start": 73.26,
+          "end": 73.42,
+          "probability": 0.9986221790313721
+        },
+        {
+          "word": " also",
+          "start": 73.42,
+          "end": 73.7,
+          "probability": 0.9952878952026367
+        },
+        {
+          "word": " be",
+          "start": 73.7,
+          "end": 73.94,
+          "probability": 0.9994179010391235
+        },
+        {
+          "word": " testing",
+          "start": 73.94,
+          "end": 74.18,
+          "probability": 0.9976515173912048
+        },
+        {
+          "word": " for",
+          "start": 74.18,
+          "end": 74.48,
+          "probability": 0.9987789988517761
+        },
+        {
+          "word": " things",
+          "start": 74.48,
+          "end": 74.68,
+          "probability": 0.9990134239196777
+        },
+        {
+          "word": " like",
+          "start": 74.68,
+          "end": 75.04,
+          "probability": 0.9982675313949585
+        },
+        {
+          "word": " sterility",
+          "start": 75.04,
+          "end": 75.56,
+          "probability": 0.9936818778514862
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 75.56,
+      "end": 76.84,
+      "text": " or endotoxins.",
+      "words": [
+        {
+          "word": " or",
+          "start": 75.56,
+          "end": 75.86,
+          "probability": 0.9860592484474182
+        },
+        {
+          "word": " endotoxins.",
+          "start": 75.86,
+          "end": 76.84,
+          "probability": 0.9916797429323196
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 77.76,
+      "end": 80.84,
+      "text": " One thing I really want you to remember is this.",
+      "words": [
+        {
+          "word": " One",
+          "start": 77.76,
+          "end": 77.92,
+          "probability": 0.9854376316070557
+        },
+        {
+          "word": " thing",
+          "start": 77.92,
+          "end": 78.06,
+          "probability": 0.9993366599082947
+        },
+        {
+          "word": " I",
+          "start": 78.06,
+          "end": 78.24,
+          "probability": 0.9924315214157104
+        },
+        {
+          "word": " really",
+          "start": 78.24,
+          "end": 78.66,
+          "probability": 0.9979572296142578
+        },
+        {
+          "word": " want",
+          "start": 78.66,
+          "end": 78.86,
+          "probability": 0.9995203018188477
+        },
+        {
+          "word": " you",
+          "start": 78.86,
+          "end": 79.0,
+          "probability": 0.9991807341575623
+        },
+        {
+          "word": " to",
+          "start": 79.0,
+          "end": 79.26,
+          "probability": 0.9996668100357056
+        },
+        {
+          "word": " remember",
+          "start": 79.26,
+          "end": 79.52,
+          "probability": 0.9995594620704651
+        },
+        {
+          "word": " is",
+          "start": 79.52,
+          "end": 79.82,
+          "probability": 0.9901621341705322
+        },
+        {
+          "word": " this.",
+          "start": 79.82,
+          "end": 80.84,
+          "probability": 0.9799884557723999
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 81.04,
+      "end": 84.48,
+      "text": " Seeing 99% purity does not tell you everything.",
+      "words": [
+        {
+          "word": " Seeing",
+          "start": 81.04,
+          "end": 81.32,
+          "probability": 0.9509435892105103
+        },
+        {
+          "word": " 99",
+          "start": 81.32,
+          "end": 82.02,
+          "probability": 0.9104820489883423
+        },
+        {
+          "word": "%",
+          "start": 82.02,
+          "end": 82.54,
+          "probability": 0.8556142449378967
+        },
+        {
+          "word": " purity",
+          "start": 82.54,
+          "end": 82.98,
+          "probability": 0.9855076670646667
+        },
+        {
+          "word": " does",
+          "start": 82.98,
+          "end": 83.36,
+          "probability": 0.9873215556144714
+        },
+        {
+          "word": " not",
+          "start": 83.36,
+          "end": 83.66,
+          "probability": 0.9990087747573853
+        },
+        {
+          "word": " tell",
+          "start": 83.66,
+          "end": 83.86,
+          "probability": 0.9992523789405823
+        },
+        {
+          "word": " you",
+          "start": 83.86,
+          "end": 84.08,
+          "probability": 0.9996758699417114
+        },
+        {
+          "word": " everything.",
+          "start": 84.08,
+          "end": 84.48,
+          "probability": 0.9975626468658447
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 85.24000000000001,
+      "end": 89.52,
+      "text": " A vial could test very high for purity but still contain a different amount than what",
+      "words": [
+        {
+          "word": " A",
+          "start": 85.14,
+          "end": 85.44,
+          "probability": 0.9391225576400757
+        },
+        {
+          "word": " vial",
+          "start": 85.44,
+          "end": 85.64,
+          "probability": 0.9180096983909607
+        },
+        {
+          "word": " could",
+          "start": 85.64,
+          "end": 85.84,
+          "probability": 0.9910278916358948
+        },
+        {
+          "word": " test",
+          "start": 85.84,
+          "end": 86.08,
+          "probability": 0.9942668080329895
+        },
+        {
+          "word": " very",
+          "start": 86.08,
+          "end": 86.44,
+          "probability": 0.9966609477996826
+        },
+        {
+          "word": " high",
+          "start": 86.44,
+          "end": 86.62,
+          "probability": 0.9975394010543823
+        },
+        {
+          "word": " for",
+          "start": 86.62,
+          "end": 86.88,
+          "probability": 0.9968570470809937
+        },
+        {
+          "word": " purity",
+          "start": 86.88,
+          "end": 87.22,
+          "probability": 0.9755915999412537
+        },
+        {
+          "word": " but",
+          "start": 87.22,
+          "end": 87.68,
+          "probability": 0.47757863998413086
+        },
+        {
+          "word": " still",
+          "start": 87.68,
+          "end": 87.98,
+          "probability": 0.9974246025085449
+        },
+        {
+          "word": " contain",
+          "start": 87.98,
+          "end": 88.3,
+          "probability": 0.9952791929244995
+        },
+        {
+          "word": " a",
+          "start": 88.3,
+          "end": 88.56,
+          "probability": 0.9968208074569702
+        },
+        {
+          "word": " different",
+          "start": 88.56,
+          "end": 88.78,
+          "probability": 0.9988003969192505
+        },
+        {
+          "word": " amount",
+          "start": 88.78,
+          "end": 89.14,
+          "probability": 0.9976165294647217
+        },
+        {
+          "word": " than",
+          "start": 89.14,
+          "end": 89.32,
+          "probability": 0.9845743775367737
+        },
+        {
+          "word": " what",
+          "start": 89.32,
+          "end": 89.52,
+          "probability": 0.9963687658309937
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 89.52,
+      "end": 90.56,
+      "text": " the label claims.",
+      "words": [
+        {
+          "word": " the",
+          "start": 89.52,
+          "end": 89.74,
+          "probability": 0.9967371821403503
+        },
+        {
+          "word": " label",
+          "start": 89.74,
+          "end": 89.98,
+          "probability": 0.9932299852371216
+        },
+        {
+          "word": " claims.",
+          "start": 89.98,
+          "end": 90.56,
+          "probability": 0.9975895881652832
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 91.44,
+      "end": 97.32,
+      "text": " When you look at a COA, check the laboratory, test date, sample information, testing method,",
+      "words": [
+        {
+          "word": " When",
+          "start": 91.44,
+          "end": 91.56,
+          "probability": 0.9954847097396851
+        },
+        {
+          "word": " you",
+          "start": 91.56,
+          "end": 91.76,
+          "probability": 0.9993440508842468
+        },
+        {
+          "word": " look",
+          "start": 91.76,
+          "end": 91.9,
+          "probability": 0.9985904097557068
+        },
+        {
+          "word": " at",
+          "start": 91.9,
+          "end": 92.1,
+          "probability": 0.9973551034927368
+        },
+        {
+          "word": " a",
+          "start": 92.1,
+          "end": 92.28,
+          "probability": 0.9806504845619202
+        },
+        {
+          "word": " COA,",
+          "start": 92.28,
+          "end": 92.88,
+          "probability": 0.906692773103714
+        },
+        {
+          "word": " check",
+          "start": 93.2,
+          "end": 93.32,
+          "probability": 0.9970073103904724
+        },
+        {
+          "word": " the",
+          "start": 93.32,
+          "end": 93.56,
+          "probability": 0.9974923133850098
+        },
+        {
+          "word": " laboratory,",
+          "start": 93.56,
+          "end": 94.12,
+          "probability": 0.9934872388839722
+        },
+        {
+          "word": " test",
+          "start": 94.48,
+          "end": 94.68,
+          "probability": 0.9939397573471069
+        },
+        {
+          "word": " date,",
+          "start": 94.68,
+          "end": 94.94,
+          "probability": 0.9779441952705383
+        },
+        {
+          "word": " sample",
+          "start": 95.5,
+          "end": 95.64,
+          "probability": 0.998181939125061
+        },
+        {
+          "word": " information,",
+          "start": 95.64,
+          "end": 96.26,
+          "probability": 0.9988003969192505
+        },
+        {
+          "word": " testing",
+          "start": 96.74,
+          "end": 96.9,
+          "probability": 0.9984337687492371
+        },
+        {
+          "word": " method,",
+          "start": 96.9,
+          "end": 97.32,
+          "probability": 0.9972735047340393
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "start": 97.64,
+      "end": 101.96,
+      "text": " purity, quantity and whether the report can actually be verified.",
+      "words": [
+        {
+          "word": " purity,",
+          "start": 97.64,
+          "end": 98.04,
+          "probability": 0.9984145164489746
+        },
+        {
+          "word": " quantity",
+          "start": 98.52,
+          "end": 98.88,
+          "probability": 0.996322751045227
+        },
+        {
+          "word": " and",
+          "start": 98.88,
+          "end": 99.56,
+          "probability": 0.47427549958229065
+        },
+        {
+          "word": " whether",
+          "start": 99.56,
+          "end": 99.82,
+          "probability": 0.992566704750061
+        },
+        {
+          "word": " the",
+          "start": 99.82,
+          "end": 100.14,
+          "probability": 0.9989725351333618
+        },
+        {
+          "word": " report",
+          "start": 100.14,
+          "end": 100.42,
+          "probability": 0.9987961053848267
+        },
+        {
+          "word": " can",
+          "start": 100.42,
+          "end": 100.72,
+          "probability": 0.9985170960426331
+        },
+        {
+          "word": " actually",
+          "start": 100.72,
+          "end": 101.18,
+          "probability": 0.9947010278701782
+        },
+        {
+          "word": " be",
+          "start": 101.18,
+          "end": 101.5,
+          "probability": 0.9981379508972168
+        },
+        {
+          "word": " verified.",
+          "start": 101.5,
+          "end": 101.96,
+          "probability": 0.9995158910751343
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "start": 102.52,
+      "end": 107.78,
+      "text": " The goal is to stop looking at a COA as just a piece of paper and start understanding",
+      "words": [
+        {
+          "word": " The",
+          "start": 102.52,
+          "end": 102.72,
+          "probability": 0.9970447421073914
+        },
+        {
+          "word": " goal",
+          "start": 102.72,
+          "end": 102.96,
+          "probability": 0.9983993172645569
+        },
+        {
+          "word": " is",
+          "start": 102.96,
+          "end": 103.2,
+          "probability": 0.9988445043563843
+        },
+        {
+          "word": " to",
+          "start": 103.2,
+          "end": 103.38,
+          "probability": 0.995804488658905
+        },
+        {
+          "word": " stop",
+          "start": 103.38,
+          "end": 103.58,
+          "probability": 0.9988376498222351
+        },
+        {
+          "word": " looking",
+          "start": 103.58,
+          "end": 103.92,
+          "probability": 0.9983028173446655
+        },
+        {
+          "word": " at",
+          "start": 103.92,
+          "end": 104.12,
+          "probability": 0.9976568222045898
+        },
+        {
+          "word": " a",
+          "start": 104.12,
+          "end": 104.28,
+          "probability": 0.9476406574249268
+        },
+        {
+          "word": " COA",
+          "start": 104.28,
+          "end": 104.66,
+          "probability": 0.9962298572063446
+        },
+        {
+          "word": " as",
+          "start": 104.66,
+          "end": 104.9,
+          "probability": 0.9610177874565125
+        },
+        {
+          "word": " just",
+          "start": 104.9,
+          "end": 105.18,
+          "probability": 0.9805574417114258
+        },
+        {
+          "word": " a",
+          "start": 105.18,
+          "end": 105.36,
+          "probability": 0.992962658405304
+        },
+        {
+          "word": " piece",
+          "start": 105.36,
+          "end": 105.48,
+          "probability": 0.9981887936592102
+        },
+        {
+          "word": " of",
+          "start": 105.48,
+          "end": 105.76,
+          "probability": 0.9995552897453308
+        },
+        {
+          "word": " paper",
+          "start": 105.76,
+          "end": 106.08,
+          "probability": 0.9994614720344543
+        },
+        {
+          "word": " and",
+          "start": 106.08,
+          "end": 106.8,
+          "probability": 0.7188020348548889
+        },
+        {
+          "word": " start",
+          "start": 106.8,
+          "end": 107.16,
+          "probability": 0.9964503049850464
+        },
+        {
+          "word": " understanding",
+          "start": 107.16,
+          "end": 107.78,
+          "probability": 0.9964430928230286
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "start": 107.78,
+      "end": 109.9,
+      "text": " what the results actually mean.",
+      "words": [
+        {
+          "word": " what",
+          "start": 107.78,
+          "end": 108.14,
+          "probability": 0.9979733824729919
+        },
+        {
+          "word": " the",
+          "start": 108.14,
+          "end": 108.44,
+          "probability": 0.9982389211654663
+        },
+        {
+          "word": " results",
+          "start": 108.44,
+          "end": 108.76,
+          "probability": 0.9977266192436218
+        },
+        {
+          "word": " actually",
+          "start": 108.76,
+          "end": 109.42,
+          "probability": 0.9977927207946777
+        },
+        {
+          "word": " mean.",
+          "start": 109.42,
+          "end": 109.9,
+          "probability": 0.9971633553504944
+        }
+      ]
+    }
+  ]
+}

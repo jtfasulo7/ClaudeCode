@@ -6,6 +6,7 @@ import { Module5, MODULE5_FRAMES } from "./modules/module5/Module5";
 import { Module7, MODULE7_FRAMES } from "./modules/module7/Module7";
 import { StartHere, STARTHERE_FRAMES } from "./modules/start-here/StartHere";
 import { Handling, HANDLING_FRAMES } from "./modules/handling/Handling";
+import { Module2, MODULE2_FRAMES } from "./modules/module2/Module2";
 import { FPS } from "./shared/theme";
 
 /**
@@ -59,6 +60,14 @@ export const RemotionRoot: React.FC = () => (
       id="Handling"
       component={Handling}
       durationInFrames={HANDLING_FRAMES}
+      fps={FPS}
+      width={1920}
+      height={1080}
+    />
+    <Composition
+      id="Module2"
+      component={Module2}
+      durationInFrames={MODULE2_FRAMES}
       fps={FPS}
       width={1920}
       height={1080}
