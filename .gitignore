@@ -1,5 +1,9 @@
 # Environment
+# NOTE: bare ".env" only matches a file literally named .env — it does NOT
+# match .env.vercel, which is how that file ended up tracked. Use .env* .
 .env
+.env*
+!.env.example
 .env.local
 .env.*.local
 
