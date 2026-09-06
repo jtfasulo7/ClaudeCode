@@ -13,6 +13,7 @@ saying, beat by beat.
 | `StartHere` | New to peptides (v2 motion language + score) | 98.99s | `out/start-here.mp4` |
 | `Handling` | Handling basics — storage, sterility, appearance | 107.65s | `out/handling.mp4` |
 | `Module2` | Understanding testing — COAs and who selects the sample | 111.66s | `out/module-2.mp4` |
+| `Onboarding` | Welcome / how to use the community | 70.72s | `out/onboarding.mp4` |
 
 All are 1920x1080, 30fps.
 
@@ -36,6 +37,7 @@ src/
       Shot.tsx           v2 scene wrapper (varied entrances, hard settle)
       Kinetic.tsx        v2 typography — mask reveals, track-in, CountUp, Chip
       StageV2.tsx        v2 backdrop, LightSweep, grain, progress
+      Onboard.tsx        Phone, AppTile, Bell, TabBar, UnlockLock, LinkPair, GrowthBars
       Diagrams.tsx       PeptideChain, SearchBar, ThreadPost, NodeNetwork, TierLadder,
                          ChapterNumber, Countdown, WalletAddress, DMCard,
                          VerifyBadge, DocTile
@@ -47,6 +49,7 @@ src/
     start-here/ StartHere.tsx + scenes/ (21 scenes, v2 language)
     handling/   Handling.tsx + scenes/   (22 scenes, v2 language)
     module2/    Module2.tsx + scenes/    (24 scenes, v2 language)
+    onboarding/ Onboarding.tsx + scenes/ (20 scenes, v2 language)
   Root.tsx               one <Composition> per module
 ```
 
@@ -76,6 +79,37 @@ it" and "a vendor said it" individually. Module 5's COA row spotlights fire on
 
 Scenes overlap by 8 frames so each outgoing fade cross-dissolves into the
 incoming one instead of cutting through black.
+
+## The onboarding film
+
+The only welcome piece in the set, and the only one whose job is orientation
+rather than teaching. Two halves and one hinge:
+
+- **0 to 38.7s** describes an interface. Install the app, turn notifications
+  on, here are the two tabs. The bed stays plain and instructional under it.
+- **38.7s is the hinge** — vendor access unlocks through participating. That
+  is where the film stops describing a product and starts explaining a
+  decision, and the score moves to A minor to ask it.
+- **43.2s onward answers it.** F major, the warmest passage in the film, sits
+  under "relationships, not a list" — the one idea worth remembering.
+
+G minor arrives exactly once, for the medical-advice line, because a caution
+should land differently from a welcome.
+
+**Transcription note.** Whisper hears "school app". The platform is Skool, so
+that is what the screen says. The audio is untouched.
+
+**A timing rule this film added.** A beat that settles as its shot begins
+fading has not been shown, it has been flashed. Six scenes originally put
+their headline on the last word of the line, which placed it under the cut —
+`GrowingFast` settled at frame 89 of a shot that starts fading at 84, so it
+never finished arriving at all. Where a word lands too near a boundary the
+reveal now moves to the start of its phrase, and a graphic carries the word
+instead: the final bar turning gold does the work "growing" used to.
+
+The check is worth rerunning after any re-cut — for each scene, compare the
+latest animation delay against `dur - 9`. Anything under about 14 frames of
+hold is not readable at 30fps.
 
 ## Stillness
 

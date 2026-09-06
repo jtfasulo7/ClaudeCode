@@ -7,6 +7,7 @@ import { Module7, MODULE7_FRAMES } from "./modules/module7/Module7";
 import { StartHere, STARTHERE_FRAMES } from "./modules/start-here/StartHere";
 import { Handling, HANDLING_FRAMES } from "./modules/handling/Handling";
 import { Module2, MODULE2_FRAMES } from "./modules/module2/Module2";
+import { Onboarding, ONBOARDING_FRAMES } from "./modules/onboarding/Onboarding";
 import { FPS } from "./shared/theme";
 
 /**
@@ -16,6 +17,14 @@ import { FPS } from "./shared/theme";
  */
 export const RemotionRoot: React.FC = () => (
   <>
+    <Composition
+      id="Onboarding"
+      component={Onboarding}
+      durationInFrames={ONBOARDING_FRAMES}
+      fps={FPS}
+      width={1920}
+      height={1080}
+    />
     <Composition
       id="Module1"
       component={Module1}

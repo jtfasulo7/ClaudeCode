@@ -324,6 +324,46 @@ SCORES = {
         "hits": [17.4, 28.0, 38.9, 60.5, 71.5, 84.0, 103.9],
         "quiet": (61.0, 66.0),
     },
+    # Onboarding. The only welcome film in the set, so it is the warmest: it
+    # spends far more time in Bb and F than the teaching modules, which live in
+    # D minor and only visit the relative major to resolve.
+    #
+    # The hinge is the vendor unlock at 38.7s. Before it the film describes an
+    # interface, so the bed stays plain and instructional. A2 asks the question
+    # under "unlocked through participating", and F answers it under
+    # "relationships" — the warmest passage in the film sits under the reason
+    # the room is built the way it is, which is the one idea worth remembering.
+    #
+    # G minor arrives only for the medical-advice line. A caution should land
+    # differently from a welcome, and weight does that without alarm.
+    "onboarding": {
+        "sections": [
+            (0.0, 4.2, "D2", ["D3", "F3", "A3"]),        # welcome — home
+            (4.2, 14.5, "D2", ["D3", "F3", "A4"]),       # app, notifications — plain
+            (14.5, 21.8, "Bb2", ["Bb3", "D4", "F4"]),    # the community — inviting
+            (21.8, 28.0, "F2", ["F3", "A3", "C4"]),      # introduce yourself — warm
+            (28.0, 38.7, "D2", ["D3", "A3", "D4"]),      # classroom — steady
+            (38.7, 43.2, "A2", ["A3", "C4", "E4"]),      # the unlock — the question
+            (43.2, 51.4, "F2", ["F3", "A3", "C4"]),      # relationships — the answer
+            (51.4, 58.3, "Bb2", ["Bb3", "D4", "F4"]),    # growing — momentum
+            (58.3, 62.6, "D2", ["D3", "F3", "A3"]),      # ask, share, take part
+            (62.6, 68.5, "G2", ["G3", "Bb3", "D4"]),     # not medical advice — weight
+            (68.5, 999.0, "D2", ["D3", "A3", "D5"]),     # welcome in — resolve
+        ],
+        "ambient": [(5.0, "D5"), (16.0, "A4"), (24.0, "F4"), (30.0, "D5"),
+                    (45.0, "F4"), (52.5, "A4"), (69.5, "F4"), (71.4, "D5")],
+        # Bells only where a word deserves one: the four classroom topics, the
+        # moment access unlocks, and the three closing calls to action. Any more
+        # and they stop being punctuation and start being a melody the voice has
+        # to talk over.
+        "accents": [(33.1, "D5"), (34.2, "F5"), (35.9, "A4"), (36.8, "C5"),
+                    (39.7, "D5"),
+                    (58.3, "D5"), (59.4, "F5"), (61.1, "A5")],
+        "hits": [14.5, 28.0, 38.7, 43.2, 51.4, 62.6, 71.6],
+        # Under the disclaimer. The line should be heard flat, with the bed out
+        # of its way.
+        "quiet": (63.6, 68.2),
+    },
 }
 
 

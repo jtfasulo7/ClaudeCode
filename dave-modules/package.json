@@ -10,7 +10,8 @@
     "render7": "remotion render src/index.ts Module7 out/module-7.mp4",
     "render-start-here": "remotion render src/index.ts StartHere out/start-here.mp4",
     "render-handling": "remotion render src/index.ts Handling out/handling.mp4",
-    "render2": "remotion render src/index.ts Module2 out/module-2.mp4"
+    "render2": "remotion render src/index.ts Module2 out/module-2.mp4",
+    "render-onboarding": "remotion render Onboarding out/onboarding.mp4"
   },
   "dependencies": {
     "@remotion/animation-utils": "^4.0.520",
