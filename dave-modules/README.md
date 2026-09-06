@@ -111,6 +111,53 @@ The check is worth rerunning after any re-cut — for each scene, compare the
 latest animation delay against `dur - 9`. Anything under about 14 frames of
 hold is not readable at 30fps.
 
+## Verifying stillness — read this before trusting a measurement
+
+The obvious test is wrong. Extracting a window with
+
+```
+ffmpeg -ss 13.3 -t 0.4 -i out/x.mp4 -vsync 0 f%02d.png
+```
+
+can hand back **the same frame repeatedly**, and every stillness check then
+passes vacuously — identical files are identical. That happened here and the
+first "byte-identical, nothing is drifting" result meant nothing.
+
+Select by frame NUMBER instead, and confirm the frames actually differ before
+concluding anything from the fact that they do not:
+
+```
+ffmpeg -i out/x.mp4 -vf "select='between(n\,399\,408)'" -vsync 0 f%02d.png
+```
+
+Ten distinct hashes means the extraction is sound. Only then is a PSNR of
+`inf` on a cropped text region evidence of anything.
+
+## Ambient motion vs stillness
+
+The onboarding film adds a `Motes` layer that drifts continuously, so its
+frames are deliberately **not** byte-identical any more. The rule did not
+change; it got a boundary:
+
+- Anything carrying meaning — type, diagrams, chips — animates in and settles
+  to exactly identity. Verified by cropping to a text region and comparing
+  true consecutive frames: PSNR `inf`.
+- One ambient layer, behind everything, under 6% opacity, carrying no
+  information, is allowed to keep moving. That is what makes the frame feel
+  alive without the letters vibrating.
+
+**`transformOrNone` has a trap.** It drops the transform once an animation
+settles, which is right when the resting state is identity — that is what stops
+the element resampling every frame. It is WRONG whenever the resting state is
+offset or rotated: `CardFan` fans five cards out to ±168px, and dropping the
+transform collapsed all five back onto each other, so the fan rendered as a
+single card. A constant transform is not what shimmers; a constantly changing
+sub-pixel one is. Keep it applied and release only `willChange`.
+
+**Every shot must be wrapped in `<Stack>`.** `<Shot>` is a plain `AbsoluteFill`,
+so a bare `<div>` inside it lands top-left. Two scenes shipped that way before
+anyone noticed.
+
 ## Stillness
 
 Text and graphics **animate in, then stop dead**. This was a deliberate rewrite:

@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Sequence, staticFile } from "remotion";
 import { GrainV2, ProgressV2, StageV2 } from "../../shared/components/StageV2";
+import { Motes } from "../../shared/components/OnboardFx";
 import { sec } from "../../shared/theme";
 
 import {
@@ -75,6 +76,9 @@ export const ONBOARDING_FRAMES = sec(END);
 export const Onboarding: React.FC = () => (
   <AbsoluteFill>
     <StageV2 />
+    {/* The one layer allowed to keep moving: behind everything, under 8%
+        opacity, carrying no information. Depth rather than activity. */}
+    <Motes n={30} opacity={0.055} />
 
     {CUT.map(({ at, c: Comp }, i) => {
       const from = sec(at);
