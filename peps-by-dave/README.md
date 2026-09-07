@@ -5,7 +5,11 @@ dependencies: `index.html`, `terms.html`, `privacy-policy.html`.
 
 ## Deploying
 
-Its **own Vercel project**, with the root directory set to `peps-by-dave`.
+Its **own Vercel project**, root directory `peps-by-dave`, on its own
+`*.vercel.app` URL. It is not part of jtfasulo.com and does not need a custom
+domain to work — every link on the site is root-relative (`/terms`,
+`/privacy-policy`, `/media/...`), so it is correct on whatever hostname Vercel
+gives it. A custom domain can be added later without touching the markup.
 
 > **Turn the Build and Install Command overrides OFF.** A new Vercel project
 > created from this monorepo inherits the repo-root `vercel.json`, which builds
@@ -30,6 +34,20 @@ them can be published by accident. Search for `[[` and replace:
 | `[[JURISDICTION]]` | Governing law, e.g. "the State of Utah" |
 | `[[EFFECTIVE_DATE]]` | The date these were published |
 | `[[SKOOL_URL]]` | The community's join link |
+
+## Open question: is joining free or paid?
+
+**These need to agree and currently do not.** The Skool ad creative says
+"100% free to join". The site says "Hosted on Skool. Cancel any time." and
+Terms §4 describes a renewing paid membership.
+
+One of them is wrong, and it is the kind of wrong that a customer notices at
+exactly the moment they were about to trust you. Settle it and fix whichever
+side is stale:
+
+- **If joining is free** — cut the billing language from Terms §4, and change
+  the hero note from "Cancel any time" to "Free to join".
+- **If it is paid** — the ad creative needs changing, not the site.
 
 ## These are drafts, not legal advice
 

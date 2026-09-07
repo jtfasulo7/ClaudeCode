@@ -71,7 +71,41 @@ a { color:var(--accent-d); }
 .btn-ghost:hover { border-color:rgba(var(--accent-rgb),.5); }
 
 /* ------------------------------------------------------------- hero ----- */
-.hero { padding:5.5rem 0 3.5rem; }
+/* Two columns on a wide screen: the words lead, Dave fills the space to their
+   right. The columns are bottom-aligned so he stands on the same baseline the
+   copy ends on rather than floating in the middle of it. */
+.hero { padding:5rem 0 0; }
+.hero-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:1.5rem; align-items:end; }
+.hero-copy { padding-bottom:3.5rem; }
+
+.hero-figure { position:relative; justify-self:end; align-self:end; margin:0; }
+/* A soft gold bloom behind him, so a cut-out portrait does not read as a
+   sticker pasted onto the page. */
+.hero-figure::before {
+  content:''; position:absolute; z-index:0;
+  left:50%; bottom:0; width:118%; height:78%; transform:translateX(-50%);
+  background:radial-gradient(60% 60% at 50% 70%, rgba(214,175,82,.16), transparent 70%);
+  filter:blur(6px); pointer-events:none;
+}
+.hero-figure img {
+  position:relative; z-index:1; display:block;
+  height:min(66vh, 560px); width:auto; max-width:100%;
+  /* Faded out at the foot rather than stopped with a hard edge — the portrait
+     has no natural bottom, so without this it looks amputated. */
+  -webkit-mask-image:linear-gradient(180deg, #000 72%, transparent 99%);
+  mask-image:linear-gradient(180deg, #000 72%, transparent 99%);
+}
+
+@media (max-width:880px){
+  /* Below the CTA, not above it. A portrait between the headline and the button
+     pushes the one thing this page is for below the fold. */
+  .hero { padding-top:3.5rem; }
+  .hero-grid { grid-template-columns:1fr; gap:0; }
+  .hero-copy { padding-bottom:1.5rem; }
+  .hero-figure { justify-self:center; }
+  .hero-figure img { height:min(38vh, 300px); }
+  .hero-figure::before { height:70%; }
+}
 .eyebrow {
   font-size:.7rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
   color:var(--accent); margin:0 0 .9rem;
@@ -133,7 +167,8 @@ ul.plain svg { width:18px; height:18px; flex:0 0 18px; margin-top:.28rem; color:
 </nav>
 
 <header class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+   <div class="hero-copy">
     <p class="eyebrow">Private community</p>
     <h1>Peptide education,<br>in plain English.</h1>
     <p class="lede">
@@ -146,6 +181,15 @@ ul.plain svg { width:18px; height:18px; flex:0 0 18px; margin-top:.28rem; color:
       <a class="btn btn-ghost" href="#inside">See what's inside</a>
     </div>
     <p class="cta-note">Hosted on Skool. Cancel any time.</p>
+   </div>
+
+   <figure class="hero-figure">
+     <!-- WebP only: it is 68 KB against a megabyte for the same cut-out as PNG,
+          and alpha-channel WebP has been supported everywhere for years. -->
+     <img src="/media/dave.webp" width="487" height="977"
+          alt="Dave, who runs the Peps by Dave community"
+          loading="eager" decoding="async">
+   </figure>
   </div>
 </header>
 
