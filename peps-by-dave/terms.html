@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service — Peps by Dave</title>
+<meta name="description" content="The terms that apply to the Peps by Dave community, this website, and the social media accounts we publish to.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0B0B0C; --surface-solid:#16151A;
+  --accent:#D6AF52; --accent-d:#F0D89B; --accent-rgb:214,175,82;
+  --t1:#F6F2E8; --t2:rgba(246,242,232,.72); --t3:rgba(246,242,232,.50);
+  --hairline:rgba(246,242,232,.11);
+  --ff:'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r-sm:10px; --r-md:14px;
+}
+/* The nav is sticky, so an anchor jump would otherwise land the heading
+   underneath it — on a numbered legal document that reads as the wrong
+   section. */
+html { scroll-padding-top:76px; }
+*, *::before, *::after { box-sizing:border-box; }
+body {
+  margin:0; font-family:var(--ff); color:var(--t1); line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  background:radial-gradient(900px 520px at 15% -10%, rgba(214,175,82,.08), transparent 60%), var(--bg);
+  background-attachment:fixed;
+}
+a { color:var(--accent-d); }
+.wrap { max-width:48rem; margin:0 auto; padding:0 1.5rem; }
+
+.nav { position:sticky; top:0; z-index:50; backdrop-filter:blur(12px);
+  background:rgba(11,11,12,.72); border-bottom:1px solid var(--hairline); }
+.nav-in { display:flex; align-items:center; height:60px; }
+.brand { font-weight:800; letter-spacing:-.02em; text-decoration:none; color:var(--t1); }
+.brand span { color:var(--accent); }
+
+header.head { padding:3.5rem 0 1.5rem; }
+.eyebrow { font-size:.7rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 .8rem; }
+h1 { font-size:clamp(1.9rem,4.4vw,2.7rem); letter-spacing:-.03em; font-weight:800; margin:0; }
+.meta { color:var(--t3); font-size:.88rem; margin-top:.7rem; }
+
+main { padding-bottom:4rem; }
+h2 { font-size:1.12rem; font-weight:700; letter-spacing:-.01em; margin:2.4rem 0 .6rem; }
+h2 .n { color:var(--accent); font-variant-numeric:tabular-nums; margin-right:.5rem; }
+p, li { color:var(--t2); }
+p { margin:0 0 .9rem; }
+ul { padding-left:1.15rem; margin:0 0 .9rem; }
+li { margin-bottom:.45rem; }
+strong { color:var(--t1); }
+
+/* The disclaimer that matters most is a panel, not a paragraph. For anything
+   health adjacent the caveat has to be as findable as the claim. */
+.callout { border:1px solid rgba(var(--accent-rgb),.35); background:rgba(var(--accent-rgb),.07);
+  border-radius:var(--r-md); padding:1.15rem 1.25rem; margin:1.4rem 0; }
+.callout p:last-child { margin-bottom:0; }
+
+.toc { background:var(--surface-solid); border:1px solid var(--hairline);
+  border-radius:var(--r-md); padding:1.1rem 1.25rem; margin:1.8rem 0 0; }
+.toc p { font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--t3); margin:0 0 .6rem; }
+.toc ol { margin:0; padding-left:1.15rem; columns:2; column-gap:1.5rem; }
+.toc li { margin-bottom:.3rem; font-size:.9rem; }
+.toc a { text-decoration:none; color:var(--t2); }
+.toc a:hover { color:var(--t1); }
+@media (max-width:620px){ .toc ol { columns:1; } }
+
+.footer { border-top:1px solid var(--hairline); padding:2rem 0 3rem; }
+.footer a { color:var(--t2); text-decoration:none; font-size:.9rem; margin-right:1.5rem; }
+.footer a:hover { color:var(--t1); }
+
+/* Every unresolved business fact is marked the same way, so none of them can be
+   published by accident. */
+.ph { color:var(--accent); background:rgba(var(--accent-rgb),.12);
+  padding:0 .25rem; border-radius:4px; font-weight:600; }
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap nav-in"><a class="brand" href="/">Peps by <span>Dave</span></a></div></nav>
+
+<header class="head">
+  <div class="wrap">
+    <p class="eyebrow">Legal</p>
+    <h1>Terms of Service</h1>
+    <p class="meta">Last updated <span class="ph">[[EFFECTIVE_DATE]]</span> · Operated by <span class="ph">[[LEGAL_ENTITY]]</span></p>
+
+    <div class="toc">
+      <p>Contents</p>
+      <ol>
+        <li><a href="#accept">Agreeing to these terms</a></li>
+        <li><a href="#what">What Peps by Dave is</a></li>
+        <li><a href="#medical">Not medical advice</a></li>
+        <li><a href="#membership">Membership and payment</a></li>
+        <li><a href="#conduct">How to behave</a></li>
+        <li><a href="#ip">Who owns what</a></li>
+        <li><a href="#social">Our social media publishing</a></li>
+        <li><a href="#thirdparty">Third-party platforms</a></li>
+        <li><a href="#warranty">Disclaimers</a></li>
+        <li><a href="#liability">Limits on liability</a></li>
+        <li><a href="#ending">Ending your membership</a></li>
+        <li><a href="#changes">Changes to these terms</a></li>
+        <li><a href="#law">Governing law</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <h2 id="accept"><span class="n">1</span>Agreeing to these terms</h2>
+  <p>
+    These terms are between you and <span class="ph">[[LEGAL_ENTITY]]</span> ("we", "us"), and
+    they cover this website, the Peps by Dave community, and any material we publish. By using
+    the site or joining the community you accept them. If you do not, please do not use either.
+  </p>
+  <p>You must be at least 18 to join.</p>
+
+  <h2 id="what"><span class="n">2</span>What Peps by Dave is</h2>
+  <p>
+    Peps by Dave is an <strong>educational community</strong> about peptide research. We publish
+    written and video material, and we host a private discussion space on Skool.
+  </p>
+  <p>What we are not, and do not do:</p>
+  <ul>
+    <li>We are not a medical practice, pharmacy, clinic or laboratory.</li>
+    <li>We do not sell, supply, source, import or ship peptides or any other substance.</li>
+    <li>We do not provide dosing, administration or protocol guidance.</li>
+    <li>We do not prescribe, diagnose or treat anything.</li>
+  </ul>
+
+  <h2 id="medical"><span class="n">3</span>Not medical advice</h2>
+  <div class="callout">
+    <p>
+      <strong>Everything we publish is general information.</strong> It is not medical advice,
+      not a diagnosis and not a treatment plan, and it is not a substitute for a qualified
+      healthcare professional who knows your history.
+    </p>
+    <p>
+      Never start, stop or change anything you are taking because of something you read here or
+      in the community. Speak to your doctor first. If you think you are having a medical
+      emergency, contact your local emergency service.
+    </p>
+    <p>
+      Many peptides are not approved for human use in most jurisdictions and are sold for
+      laboratory research only. Establishing what is lawful where you live is your
+      responsibility, not ours.
+    </p>
+  </div>
+
+  <h2 id="membership"><span class="n">4</span>Membership and payment</h2>
+  <p>
+    Membership is hosted and billed through <strong>Skool</strong>. Prices, billing dates and the
+    cancellation process are shown there at the point you join, and Skool's own terms apply to
+    that transaction alongside these.
+  </p>
+  <ul>
+    <li>Membership renews on the cycle shown at checkout until you cancel.</li>
+    <li>You can cancel at any time from your Skool account. Cancelling stops future billing and
+        your access continues to the end of the period you have paid for.</li>
+    <li>Refunds are handled as described at the point of sale and under Skool's policies.</li>
+  </ul>
+
+  <h2 id="conduct"><span class="n">5</span>How to behave</h2>
+  <p>Inside the community, please do not:</p>
+  <ul>
+    <li>Give or request dosing, protocol or administration instructions.</li>
+    <li>Offer to sell, buy or source substances, or advertise vendors.</li>
+    <li>Present yourself as a clinician, or give what amounts to medical advice.</li>
+    <li>Share other members' posts or personal details outside the community.</li>
+    <li>Post anything unlawful, harassing, or that infringes someone's rights.</li>
+  </ul>
+  <p>We may remove content or end a membership that breaks these rules.</p>
+
+  <h2 id="ip"><span class="n">6</span>Who owns what</h2>
+  <p>
+    The material we publish — text, video, graphics and course content — belongs to us or our
+    licensors. Your membership buys you personal access to it, not ownership. Please do not
+    copy, resell, republish or feed it into a training set without written permission.
+  </p>
+  <p>
+    What you post in the community remains yours. By posting it you give us permission to
+    display it within the community and to keep it there for other members.
+  </p>
+
+  <h2 id="social"><span class="n">7</span>Our social media publishing</h2>
+  <p>
+    We publish short-form video to our own social media accounts — including TikTok, Instagram,
+    Facebook and YouTube — and we use an <strong>internal publishing tool</strong> we operate to
+    do it. It exists so one finished video can be posted to several of our own accounts without
+    doing it by hand four times.
+  </p>
+  <p>How that tool works, plainly:</p>
+  <ul>
+    <li>It publishes <strong>only to accounts we own and have personally connected</strong>. It
+        never posts to a member's account, and it is not offered to members as a service.</li>
+    <li>It publishes <strong>only content we have created and uploaded</strong> ourselves. It does
+        not repost, scrape or redistribute anyone else's material.</li>
+    <li>Each account is connected through that platform's own official authorisation flow, by the
+        person who holds the account. That authorisation can be withdrawn at any time from the
+        platform's own settings.</li>
+    <li>Before anything is published, the person operating the tool chooses the audience and
+        declares whether the post is commercial. Nothing is posted automatically or on a
+        schedule without a person pressing publish.</li>
+    <li>Drafting help: to write a caption for each platform, still frames from the video and any
+        notes we type are sent to <strong>Anthropic's Claude API</strong>. A person reviews and
+        edits every caption before it is used.</li>
+  </ul>
+  <p>
+    When we publish to those platforms we are also bound by their rules, including each
+    platform's community guidelines and, on TikTok, its
+    <a href="https://www.tiktok.com/legal/page/global/bc-policy/en" target="_blank" rel="noopener">Branded Content Policy</a>
+    and
+    <a href="https://www.tiktok.com/legal/page/global/music-usage-confirmation/en" target="_blank" rel="noopener">Music Usage Confirmation</a>.
+    Where a post is promotional or a paid partnership, we disclose it using the platform's own
+    labelling.
+  </p>
+  <p>
+    Anything we post on social media is subject to the same disclaimer as the rest of our
+    material: it is education, not medical advice. See section 3.
+  </p>
+  <p>
+    How that tool handles data — including the access tokens for our own accounts — is described
+    in our <a href="/privacy-policy#automation">Privacy Policy</a>.
+  </p>
+
+  <h2 id="thirdparty"><span class="n">8</span>Third-party platforms</h2>
+  <p>
+    We rely on services we do not control — Skool for the community, Stripe for payments,
+    and the social platforms above. Their terms apply to your use of them alongside ours, and we
+    are not responsible for their availability, decisions or content. Links we publish to other
+    sites are not endorsements.
+  </p>
+
+  <h2 id="warranty"><span class="n">9</span>Disclaimers</h2>
+  <p>
+    The site and the community are provided "as is". We take real care over what we publish, but
+    we do not warrant that it is complete, current, or free of error — research moves, and some
+    of what is written today will be revised later. To the extent the law allows, we exclude
+    implied warranties.
+  </p>
+
+  <h2 id="liability"><span class="n">10</span>Limits on liability</h2>
+  <p>
+    To the extent the law allows, we are not liable for indirect or consequential loss, and our
+    total liability to you for any claim connected with these terms is limited to what you paid
+    us in the twelve months before it arose.
+  </p>
+  <p>
+    Nothing here excludes liability that cannot lawfully be excluded — including for death or
+    personal injury caused by negligence, or for fraud.
+  </p>
+
+  <h2 id="ending"><span class="n">11</span>Ending your membership</h2>
+  <p>
+    You can leave at any time through Skool. We may suspend or end access if these terms are
+    broken, or if we have to stop operating the community — in which case we will give you
+    reasonable notice and stop billing you.
+  </p>
+
+  <h2 id="changes"><span class="n">12</span>Changes to these terms</h2>
+  <p>
+    We may update these terms. The date at the top always shows the current version, and if a
+    change materially affects you we will say so in the community rather than leaving you to
+    notice.
+  </p>
+
+  <h2 id="law"><span class="n">13</span>Governing law</h2>
+  <p>
+    These terms are governed by the laws of <span class="ph">[[JURISDICTION]]</span>, and the
+    courts of <span class="ph">[[JURISDICTION]]</span> have exclusive jurisdiction over any
+    dispute — without affecting any right you have to bring a claim where you live.
+  </p>
+
+  <h2 id="contact"><span class="n">14</span>Contact</h2>
+  <p>
+    <span class="ph">[[LEGAL_ENTITY]]</span><br>
+    <span class="ph">[[POSTAL_ADDRESS]]</span><br>
+    <a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a>
+  </p>
+
+</div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a href="/">Home</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="mailto:[[CONTACT_EMAIL]]">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
