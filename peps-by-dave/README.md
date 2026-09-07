@@ -21,19 +21,24 @@ gives it. A custom domain can be added later without touching the markup.
 Those paths are what the legal links and the TikTok app submission point at, so
 do not rename the files.
 
-## Before this goes live
+## The details, as published
 
-Every unresolved fact is marked `[[LIKE_THIS]]` and rendered in gold, so none of
-them can be published by accident. Search for `[[` and replace:
-
-| Placeholder | What it needs |
+| | |
 |---|---|
-| `[[LEGAL_ENTITY]]` | The registered name that operates the business |
-| `[[POSTAL_ADDRESS]]` | A real address — required for a valid privacy policy |
-| `[[CONTACT_EMAIL]]` | A monitored address |
-| `[[JURISDICTION]]` | Governing law, e.g. "the State of Utah" |
-| `[[EFFECTIVE_DATE]]` | The date these were published |
-| `[[SKOOL_URL]]` | The community's join link |
+| Legal entity | Sybago LLC |
+| Notice address | 116 W 9th St, Wilmington, DE 19801 |
+| Contact | pepsbydave@gmail.com |
+| Governing law | the State of Delaware |
+| Effective date | September 7, 2026 |
+| Join link | https://www.skool.com/pepsbydave-3539/about |
+
+**Delaware because the entity is a Delaware LLC** — the Wilmington address is a
+registered-agent one, so its home jurisdiction is the natural governing law. If
+Sybago LLC is actually operated from another state, a lawyer may prefer that
+state instead; it is a one-line change in Terms §13.
+
+The date is spelled out rather than written 9/7/2026, which is September to one
+reader and July to another.
 
 ## Nothing states a price
 
