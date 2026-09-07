@@ -35,19 +35,15 @@ them can be published by accident. Search for `[[` and replace:
 | `[[EFFECTIVE_DATE]]` | The date these were published |
 | `[[SKOOL_URL]]` | The community's join link |
 
-## Open question: is joining free or paid?
+## Nothing states a price
 
-**These need to agree and currently do not.** The Skool ad creative says
-"100% free to join". The site says "Hosted on Skool. Cancel any time." and
-Terms §4 describes a renewing paid membership.
+By decision, no page says the community is free OR paid. The site refers to
+joining and nothing else; Terms §4 says membership is managed on Skool and
+defers any charges, renewal and cancellation to whatever is shown at the point
+of joining. That is true either way, so it cannot go stale if the model
+changes.
 
-One of them is wrong, and it is the kind of wrong that a customer notices at
-exactly the moment they were about to trust you. Settle it and fix whichever
-side is stale:
-
-- **If joining is free** — cut the billing language from Terms §4, and change
-  the hero note from "Cancel any time" to "Free to join".
-- **If it is paid** — the ad creative needs changing, not the site.
+If a price is ever stated on the site, it has to be stated in Terms §4 too.
 
 ## These are drafts, not legal advice
 
