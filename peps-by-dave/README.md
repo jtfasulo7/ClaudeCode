@@ -91,6 +91,35 @@ which is its own kind of tell on a site a platform reviewer reads. Restyling
 them changed **presentation only** — the text of both documents is byte-for-byte
 what it was, and must stay that way unless the change is a deliberate legal one.
 
+## The research list is real, and has to stay real
+
+`#studies` carries five citations, each linking to PubMed. **Every one was
+resolved against PubMed’s own API** — author, journal, year and title read back
+from the record rather than recalled — and every link was followed to confirm
+it loads. On a page whose whole argument is that you should not take claims on
+trust, an invented citation is the worst thing that could be published.
+
+**If you add a row, verify it the same way.** Do not write a citation from
+memory, and do not link a publisher page when the abstract is paywalled —
+PubMed is free to read, which is the point of listing it at all.
+
+The five disagree with each other on purpose: three large trials, one peptide
+approved for a single narrow indication, and BPC-157, whose systematic review
+found 35 preclinical studies against one clinical. That last row is the section
+working — it shows a peptide can be everywhere online and still have almost no
+human evidence. Keep a row like it if the list ever changes.
+
+| PMID | Peptide |
+|---|---|
+| 37366315 | Retatrutide, NEJM 2023, phase 2 |
+| 35658024 | Tirzepatide, NEJM 2022, SURMOUNT-1 |
+| 33567185 | Semaglutide, NEJM 2021, STEP 1 |
+| 41545261 | Tesamorelin, Obes Res Clin Pract 2026 |
+| 40756949 | BPC-157, HSS J 2025, systematic review |
+
+The standing note under the list says that listing a study is not a
+recommendation. Keep it.
+
 ## Two things not to undo
 
 **The headline lines have padding that looks wrong and is not.** Each line sits

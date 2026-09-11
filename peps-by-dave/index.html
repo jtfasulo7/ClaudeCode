@@ -91,6 +91,15 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
   outline:2px solid var(--accent); outline-offset:3px; border-radius:3px;
 }
 
+/* Used by the study links to tell a screen reader the destination opens in a
+   new tab. It was referenced before it existed, which renders the hint on
+   screen for everyone — the failure mode of a visually-hidden class is that it
+   is not hidden. */
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
 .wrap { width:100%; max-width:72rem; margin:0 auto; padding:0 clamp(1.25rem, 5vw, 2.5rem); }
 .measure { max-width:38rem; }
 
@@ -310,18 +319,59 @@ h2 {
   .card .mark svg { width:104px; height:104px; }
 }
 
-/* ------------------------------------------------------------ statement */
-/* One large typographic beat between sections. It reinforces the position
-   the disclaimer takes anyway, and gives the eye somewhere to rest. */
-.statement { padding:var(--gap-section) 0; border-top:1px solid var(--hairline-soft); }
-.statement p.big {
-  font-family:var(--ff-display);
-  font-variation-settings:'opsz' 120, 'wght' 500, 'SOFT' 0, 'WONK' 0;
-  font-size:var(--step-3); line-height:1.14; letter-spacing:-.03em;
-  margin:0; max-width:22ch; font-weight:400;
+/* ------------------------------------------------------------ studies -- */
+/* Rows rather than cards: a citation is a line of reference text, and boxing
+   each one would make five of them look like five products. The hairlines do
+   what a bibliography's do. */
+.studies { margin-top:clamp(1.8rem, 4vh, 2.8rem); border-top:1px solid var(--hairline); }
+
+.study {
+  position:relative; display:grid; align-items:baseline;
+  grid-template-columns:minmax(0,10rem) minmax(0,1fr) auto;
+  gap:clamp(.5rem, 2.5vw, 2rem);
+  padding:clamp(1.3rem, 2.6vh, 1.9rem) 0;
+  border-bottom:1px solid var(--hairline);
+  text-decoration:none; color:inherit;
 }
-.statement p.big em { font-style:italic; color:var(--accent-d); }
-.statement p.small { margin:1.4rem 0 0; color:var(--t2); font-weight:300; max-width:34rem; }
+/* Fades in rather than switching, and sits behind the text. */
+.study::before {
+  content:''; position:absolute; inset:0 -1.25rem; z-index:-1;
+  background:linear-gradient(90deg, rgba(var(--accent-rgb),.07), transparent 76%);
+  opacity:0; transition:opacity .55s var(--ease);
+}
+.study:hover::before, .study:focus-visible::before { opacity:1; }
+
+.study-peptide {
+  font-size:.66rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--accent); padding-top:.4rem;
+}
+.study-title {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:var(--step-1); line-height:1.24; letter-spacing:-.015em;
+  display:block;   /* inline elements ignore vertical margin */
+  margin:0 0 .45rem; font-weight:400;
+  transition:color .55s var(--ease);
+}
+.study:hover .study-title, .study:focus-visible .study-title { color:var(--accent-d); }
+.study-meta { margin:0; color:var(--t3); font-size:var(--step--1); font-weight:500; }
+.study-note { margin:.5rem 0 0; color:var(--t2); font-weight:300; font-size:var(--step--1); line-height:1.6; }
+
+/* The arrow is the only affordance saying these leave the site. It travels on
+   hover so the row feels like it is handing you somewhere to go. */
+.study-go {
+  align-self:center; color:var(--accent); opacity:.55;
+  transition:opacity .55s var(--ease), transform .55s var(--ease);
+}
+.study-go svg { width:18px; height:18px; display:block; }
+.study:hover .study-go, .study:focus-visible .study-go { opacity:1; transform:translate3d(3px,-3px,0); }
+
+.studies-note { margin:1.4rem 0 0; color:var(--t3); font-size:var(--step--1); max-width:44rem; }
+
+@media (max-width:760px){
+  .study { grid-template-columns:minmax(0,1fr) auto; row-gap:.35rem; }
+  .study-peptide { grid-column:1 / -1; padding-top:0; }
+}
 
 /* ------------------------------------------------------------- notice -- */
 /* For anything health adjacent the caveat has to be as findable as the claim,
@@ -397,6 +447,7 @@ h1 .ln:nth-child(2) > span { animation-delay:.26s; }
     <a class="brand" href="/">Peps by <em>Dave</em></a>
     <span class="nav-sp"></span>
     <a class="lnk" href="#inside">What&rsquo;s inside</a>
+    <a class="lnk" href="#studies">Research</a>
   </div>
 </nav>
 
@@ -470,12 +521,74 @@ h1 .ln:nth-child(2) > span { animation-delay:.26s; }
   </div>
 </section>
 
-<section class="statement reveal">
+<section class="section reveal" id="studies">
   <div class="wrap">
-    <p class="big rise">We don&rsquo;t sell anything<br><em>you would put in your body.</em></p>
-    <p class="small rise" style="--d:.1s">
-      No suppliers, no sourcing, no dosing. That is not caution, it is the point. A community
-      that starts recommending products loses the ability to tell you the truth about them.
+    <div class="sec-head">
+      <h2 class="rise">Educate yourself</h2>
+      <p class="sub rise measure" style="--d:.08s">Five papers worth your evening, and the reason we would rather you read them than take our word for anything.</p>
+    </div>
+
+    <div class="studies">
+      <a class="study rise" style="--d:.18s"
+         href="https://pubmed.ncbi.nlm.nih.gov/37366315/" target="_blank" rel="noopener">
+        <span class="study-peptide">Retatrutide</span>
+        <span>
+          <span class="study-title">Triple&ndash;Hormone-Receptor Agonist Retatrutide for Obesity &mdash; A Phase 2 Trial</span>
+          <p class="study-meta">Jastreboff et al. &middot; New England Journal of Medicine &middot; 2023</p>
+          <p class="study-note">The trial the headlines came from. 338 adults, 48 weeks, dose-dependent results. Phase 2 means it has not yet been through the larger confirmatory stage.</p>
+        </span>
+        <span class="study-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg><span class="sr-only"> (opens PubMed in a new tab)</span></span>
+      </a>
+
+      <a class="study rise" style="--d:.24s"
+         href="https://pubmed.ncbi.nlm.nih.gov/35658024/" target="_blank" rel="noopener">
+        <span class="study-peptide">Tirzepatide</span>
+        <span>
+          <span class="study-title">Tirzepatide Once Weekly for the Treatment of Obesity</span>
+          <p class="study-meta">Jastreboff et al. &middot; New England Journal of Medicine &middot; 2022</p>
+          <p class="study-note">SURMOUNT-1. A phase 3 trial, which is a materially stronger kind of evidence than the row above it &mdash; worth reading the two side by side for exactly that reason.</p>
+        </span>
+        <span class="study-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg><span class="sr-only"> (opens PubMed in a new tab)</span></span>
+      </a>
+
+      <a class="study rise" style="--d:.30s"
+         href="https://pubmed.ncbi.nlm.nih.gov/33567185/" target="_blank" rel="noopener">
+        <span class="study-peptide">Semaglutide</span>
+        <span>
+          <span class="study-title">Once-Weekly Semaglutide in Adults with Overweight or Obesity</span>
+          <p class="study-meta">Wilding et al. &middot; New England Journal of Medicine &middot; 2021</p>
+          <p class="study-note">STEP 1. The trial behind the drug most people have heard of, and a useful baseline for judging every claim made since.</p>
+        </span>
+        <span class="study-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg><span class="sr-only"> (opens PubMed in a new tab)</span></span>
+      </a>
+
+      <a class="study rise" style="--d:.36s"
+         href="https://pubmed.ncbi.nlm.nih.gov/41545261/" target="_blank" rel="noopener">
+        <span class="study-peptide">Tesamorelin</span>
+        <span>
+          <span class="study-title">Body composition, hepatic fat, metabolic and safety outcomes of tesamorelin in HIV-associated lipodystrophy</span>
+          <p class="study-meta">Badran et al. &middot; Obesity Research &amp; Clinical Practice &middot; 2026</p>
+          <p class="study-note">A meta-analysis of a peptide that is actually approved, for one narrow indication. Approval is specific, never general.</p>
+        </span>
+        <span class="study-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg><span class="sr-only"> (opens PubMed in a new tab)</span></span>
+      </a>
+
+      <a class="study rise" style="--d:.42s"
+         href="https://pubmed.ncbi.nlm.nih.gov/40756949/" target="_blank" rel="noopener">
+        <span class="study-peptide">BPC-157</span>
+        <span>
+          <span class="study-title">Emerging Use of BPC-157 in Orthopaedic Sports Medicine: A Systematic Review</span>
+          <p class="study-meta">Vasireddi et al. &middot; HSS Journal &middot; 2025</p>
+          <p class="study-note">Read this one last. Of 36 included studies, 35 were preclinical and one was clinical. A peptide can be everywhere online and still have almost no human evidence behind it.</p>
+        </span>
+        <span class="study-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg><span class="sr-only"> (opens PubMed in a new tab)</span></span>
+      </a>
+    </div>
+
+    <p class="studies-note rise" style="--d:.5s">
+      Every link goes to PubMed, where the abstract is free to read. Listing a study is not a
+      recommendation of anything in it, and a paper existing is not the same as a question being
+      settled.
     </p>
   </div>
 </section>
