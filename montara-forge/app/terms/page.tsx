@@ -47,8 +47,8 @@ export default function TermsPage() {
             <p>
               {SITE.name} is a licensed and insured concrete contractor serving{" "}
               {SITE.towns.slice(0, -1).join(", ")} and {SITE.towns.at(-1)}, {SITE.state}. This
-              website exists to let you request a free on-site estimate and, if you choose, book a
-              time for that estimate.
+              website exists to let you request a free on-site estimate, which we arrange with you
+              by phone.
             </p>
           </Section>
 
@@ -73,7 +73,7 @@ export default function TermsPage() {
 
           <Section title="Scheduling and appointments">
             <p>
-              Appointment times booked through this site are reserved for you, but may need to move
+              Appointment times we agree with you are reserved for you, but may need to move
               for weather, site conditions, or scheduling conflicts. We will contact you to
               reschedule if that happens. Please give us as much notice as you can if you need to
               cancel or move an appointment.

@@ -31,8 +31,8 @@ export function Hero() {
 
           {/* Subline is desktop/tablet only — on phones the form itself is the hero. */}
           <p className="animate-rise mt-4 hidden max-w-xl text-bone-mute [animation-delay:120ms] sm:block sm:text-lg sm:leading-relaxed">
-            Tell us about your project in 30 seconds, pick a time, and we&rsquo;ll come out,
-            measure, and hand you a firm price. No sales runaround.
+            Tell us about your project in 30 seconds and we&rsquo;ll call you back to arrange
+            a visit — then come out, measure, and hand you a firm price. No sales runaround.
           </p>
 
           {/* Desktop-only trust cues (mobile gets the compact strip under the form) */}

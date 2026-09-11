@@ -19,7 +19,7 @@ import { SITE } from "@/lib/site";
 import { OptionStep } from "./OptionStep";
 import { LocationStep } from "./LocationStep";
 import { ContactStep, type ContactValues } from "./ContactStep";
-import { BookingCalendar } from "@/components/BookingCalendar";
+import { ThankYou } from "@/components/ThankYou";
 import { ArrowLeftIcon, ShieldIcon } from "@/components/icons";
 
 type StepId = "project" | "newOrReplacement" | "size" | "timeline" | "location" | "contact";
@@ -62,6 +62,10 @@ export function LeadForm() {
   const [direction, setDirection] = useState<"forward" | "back">("forward");
   const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
   const [submittedFirstName, setSubmittedFirstName] = useState("");
+  /* Whether the lead actually reached the CRM. Only false on a real failure,
+     which the success screen has to be honest about now that the booking
+     widget is not there to capture them a second time. */
+  const [captured, setCaptured] = useState(true);
   const [touched, setTouched] = useState(false);
 
   const steps = useMemo(() => stepsFor(answers.projectType), [answers.projectType]);
@@ -135,6 +139,12 @@ export function LeadForm() {
       website: contact.website,
     };
 
+    // Assume the worst and let a successful response say otherwise: a thrown
+    // fetch, a non-OK status and a route reporting captured:false all have to
+    // land on the same screen, and defaulting to true would make a silent
+    // network failure look like a booked callback.
+    let captured = false;
+
     try {
       const res = await fetch("/api/submit-lead", {
         method: "POST",
@@ -144,25 +154,29 @@ export function LeadForm() {
       });
       if (!res.ok) {
         console.error("[lead] submit returned", res.status, await res.text().catch(() => ""));
+      } else {
+        // The route answers captured:false when the CRM push failed. It is
+        // still a 200 — the request worked, the lead just is not saved.
+        const body = await res.json().catch(() => null);
+        captured = body?.captured !== false;
       }
       // Lead fires once the request has returned — capture happened (or was
-      // logged server-side). Never fire on calendar render.
-      pixel.lead({ content_name: payload.projectType });
+      // logged server-side). Never fire on the success screen rendering.
+      if (captured) pixel.lead({ content_name: payload.projectType });
     } catch (err) {
-      // Network failure. We still advance: the booking widget captures the
-      // contact a second time, so the visitor is not lost.
       console.error("[lead] submit failed", err);
     } finally {
       setSubmittedFirstName(payload.firstName);
+      setCaptured(captured);
       setStatus("done");
     }
   };
 
-  // ---- success state: swap in the calendar, same card, no navigation -----
+  // ---- success state: swap in the thank-you, same card, no navigation ----
   if (status === "done") {
     return (
       <FormShell>
-        <BookingCalendar firstName={submittedFirstName} />
+        <ThankYou firstName={submittedFirstName} captured={captured} />
       </FormShell>
     );
   }
@@ -269,7 +283,7 @@ export function LeadForm() {
   );
 }
 
-/** The card every state renders inside, so the swap to the calendar is seamless. */
+/** The card every state renders inside, so the swap to the thank-you is seamless. */
 function FormShell({ children }: { children: React.ReactNode }) {
   return (
     <div

@@ -3,8 +3,8 @@ import { META_PIXEL_ID, pixelEnabled } from "@/lib/pixel";
 
 /**
  * Meta Pixel base code. Renders NOTHING unless NEXT_PUBLIC_META_PIXEL_ID is
- * set (see lib/pixel.ts). PageView fires inline here; Lead and Schedule are
- * fired from the form and calendar via the `pixel` helper.
+ * set (see lib/pixel.ts). PageView fires inline here; Lead and Contact are
+ * fired from the form and the call links via the `pixel` helper.
  */
 export function MetaPixel() {
   if (!pixelEnabled) return null;

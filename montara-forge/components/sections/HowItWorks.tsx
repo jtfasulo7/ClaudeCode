@@ -8,8 +8,8 @@ const STEPS = [
   },
   {
     n: "2",
-    title: "Pick a time",
-    body: "Choose a slot that works for you right on the page. We'll text to confirm.",
+    title: "We call you back",
+    body: "A real person calls to talk through the job and set a time that suits you.",
   },
   {
     n: "3",

@@ -226,7 +226,7 @@ export function ContactStep({
         )}
       </button>
       <p className="text-center text-xs text-bone-mute">
-        Next: pick a time for your on-site visit. No pressure, no obligation.
+        Next: we call you to arrange your on-site visit. No pressure, no obligation.
       </p>
     </form>
   );

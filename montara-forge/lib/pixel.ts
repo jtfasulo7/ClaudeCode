@@ -12,8 +12,12 @@
  * Events fired:
  *   PageView  — on load (inline in the base snippet, components/MetaPixel.tsx)
  *   Lead      — after /api/submit-lead returns (form success)
- *   Schedule  — when the GHL booking widget confirms an appointment
- *               (components/BookingCalendar.tsx, via postMessage listener)
+ *   Contact   — tap-to-call clicks (components/CallLink.tsx)
+ *
+ * Schedule was fired by the booking calendar, which is no longer part of the
+ * flow — the form ends on a callback promise instead. `schedule()` is kept
+ * because it is the correct event for an appointment and would be needed again
+ * the moment booking returns, but nothing calls it today.
  */
 
 declare global {
@@ -49,7 +53,11 @@ export const pixel = {
   lead(params?: EventParams): void {
     fbq("track", "Lead", params);
   },
-  /** Fire only when the GHL widget confirms a booking. */
+  /**
+   * UNUSED. The booking calendar that fired this was removed from the flow.
+   * Kept as the correct event for a confirmed appointment; wire it back up if
+   * scheduling returns, and never fire it on a page merely rendering.
+   */
   schedule(params?: EventParams): void {
     fbq("track", "Schedule", params);
   },

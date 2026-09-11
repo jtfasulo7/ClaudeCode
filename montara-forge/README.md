@@ -4,8 +4,12 @@
 
 Single-route Next.js landing page for Meta (Facebook/Instagram) ad traffic.
 Cold visitors land on `/`, complete a 5–6 step qualifying form (the hero on
-mobile), and immediately book an on-site estimate in an embedded GoHighLevel
-calendar. The lead is captured in GHL **before** the calendar shows.
+mobile), and the lead is pushed straight into GoHighLevel. The form then ends on
+a thank-you card promising a callback.
+
+**There is no booking calendar.** There was one — a GoHighLevel widget shown
+after submit — and it was removed deliberately; see *Why the calendar is gone*
+below before adding one back.
 
 **Stack:** Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · TypeScript.
 No UI libraries, no animation libraries, self-hosted fonts via `next/font`.
@@ -21,9 +25,10 @@ npm run dev                  # http://localhost:3000
 npm run build && npm start   # production check
 ```
 
-Without any env vars the page is fully functional: the form works, the API
-route logs the lead server-side (with a loud "NOT pushed to CRM" error) and
-still returns success, and the visitor reaches the calendar.
+Without any env vars the form still works and the API route logs the lead
+server-side with a loud "NOT pushed to CRM" error. It returns HTTP 200 with
+`captured: false`, and the visitor gets the "call us" variant of the thank-you
+card rather than a promise of a callback nobody can make.
 
 ---
 
@@ -34,7 +39,6 @@ still returns success, and the visitor reaches the calendar.
 | `GHL_API_TOKEN` | Server only | LeadConnector API v2 token (Private Integration token or Location API key) for the Montara Forge sub-account. |
 | `GHL_LOCATION_ID` | Server only | The sub-account (location) ID. |
 | `NEXT_PUBLIC_META_PIXEL_ID` | Public | **Leave unset for now.** Set when the Montara Forge Meta Pixel is created → redeploy. With it unset, no pixel code renders at all. |
-| `NEXT_PUBLIC_DEBUG_GHL_MESSAGES` | Dev only | Set to `1` locally to log every `postMessage` from the booking iframe (used to verify the Schedule event — see below). |
 | `NEXT_PUBLIC_SHOW_PLACEHOLDERS` | Optional | Set to `1` to show the gallery's gray placeholder tiles in production before photos exist (off by default — section is hidden instead). |
 
 `.env.example` documents all of these. `NEXT_PUBLIC_*` values are baked in
@@ -104,13 +108,37 @@ Build a Workflow in the sub-account triggered by **Contact Tag Added →
 `website-lead-montara`** that texts the owner (and optionally the lead). This
 route deliberately does not send SMS/email itself.
 
-### Booking calendar
+### Why the calendar is gone
 
-The post-submit calendar is the LeadConnector booking widget
-`REVIxrBeiG6KXr4keDf6`, loaded via `link.msgsndr.com/js/form_embed.js`
-(`components/BookingCalendar.tsx`). The widget auto-resizes the iframe on
-mobile via postMessage; a 640px min-height keeps the card from collapsing
-before the script runs.
+The flow used to end in the LeadConnector booking widget `REVIxrBeiG6KXr4keDf6`
+(`components/BookingCalendar.tsx`, deleted — recoverable from git history).
+Leads now get a callback instead of self-scheduling.
+
+**Removing it did not touch lead capture**, and that was checked rather than
+assumed: the POST to `/api/submit-lead` fires on the contact step, is awaited,
+and only then does `status` become `"done"`. The calendar was purely downstream
+of that state. Nothing in it fed back into the submission.
+
+**What it DID change is the failure path, and this is the part worth
+remembering.** The route used to swallow a failed CRM push and return success,
+on the explicit reasoning that *"the booking widget captures their contact a
+second time, so nothing is lost"*. That second capture no longer exists — the
+API push is now the only one there is. So:
+
+- `pushToGhl()` returns a **boolean**, not void. It must mean "the contact
+  reached the CRM", which is why the missing-credentials branch returns `false`
+  rather than just logging: that branch returns early WITHOUT throwing, so a
+  try/catch alone would have called it a success.
+- The route answers `{ ok: true, captured }`. Still never an error status — a
+  cold lead can do nothing with a 500 — but the flag travels back.
+- `ThankYou` renders a different card when `captured` is false: the phone
+  number, and no promise of a call. Promising a callback for a lead we never
+  saved is a lie the visitor acts on by waiting.
+- The client defaults `captured` to **false** and only a good response sets it
+  true, so a thrown fetch and a non-OK status land on the same honest screen.
+
+If you put a calendar back, revert the copy with it — the hero, How It Works
+step 2, `ContactStep`'s teaser and `/terms` all describe a callback now.
 
 ---
 
@@ -124,18 +152,14 @@ When set:
 | Event | Fires when |
 |---|---|
 | `PageView` | On load (inline in the base snippet) |
-| `Lead` | After `/api/submit-lead` returns — i.e. once the lead is captured, **not** on calendar render |
-| `Schedule` | When the booking iframe posts a booking-confirmation message |
+| `Lead` | After `/api/submit-lead` returns AND reports `captured: true` — never for a lead that failed to save |
 | `Contact` | Tap-to-call clicks |
 
-**TODO — verify the Schedule trigger.** The booking widget's confirmation
-`postMessage` shape is undocumented. `BookingCalendar.tsx` uses a conservative
-detector (message type mentions *booking/appointment* **and**
-*confirm/success/booked/complete*). To verify: run locally with
-`NEXT_PUBLIC_DEBUG_GHL_MESSAGES=1`, complete a test booking, read the console
-log of iframe messages, and tighten `looksLikeBookingConfirmation()` to the
-exact string. It is guaranteed **not** to fire merely because the calendar
-rendered.
+`pixel.schedule()` still exists in `lib/pixel.ts` but **nothing calls it** —
+it was fired by the booking widget. It is kept because `Schedule` is the right
+event for a confirmed appointment and would be needed again if booking returns.
+If you wire it back up, fire it on a real confirmation, never on a component
+rendering.
 
 ---
 
@@ -165,7 +189,7 @@ app/
 components/
   Header / Footer / StickyBar / Logo / CallLink / icons / SectionHeading
   MetaPixel.tsx           base code (renders null when unset)
-  BookingCalendar.tsx     success state + GHL widget + Schedule listener
+  ThankYou.tsx            success state — callback promise, or "call us" if capture failed
   ScrollToFormButton.tsx  every repeated CTA scrolls to #estimate-form
   form/LeadForm.tsx       multi-step state machine (conditional step 2)
   form/OptionStep.tsx     tap-card radio group

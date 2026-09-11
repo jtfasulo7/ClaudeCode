@@ -139,7 +139,15 @@ async function ghl(path: string, token: string, body: unknown) {
   return json as Record<string, unknown> | null;
 }
 
-async function pushToGhl(d: Validated): Promise<void> {
+/**
+ * @returns whether the contact actually reached the CRM.
+ *
+ * Not void, and not "did it throw": an unconfigured deployment returns early
+ * without throwing, which is precisely the case where the lead exists nowhere
+ * but a log line. The caller shows a different screen when this is false, so
+ * it has to mean the contact was written.
+ */
+async function pushToGhl(d: Validated): Promise<boolean> {
   const token = process.env.GHL_API_TOKEN?.trim();
   const locationId = process.env.GHL_LOCATION_ID?.trim();
   if (!token || !locationId) {
@@ -148,7 +156,7 @@ async function pushToGhl(d: Validated): Promise<void> {
       buildSummary(d),
       d.phone,
     );
-    return;
+    return false;
   }
 
   const summary = buildSummary(d);
@@ -202,6 +210,11 @@ async function pushToGhl(d: Validated): Promise<void> {
   } else {
     console.error("[submit-lead] upsert succeeded but no contact id in response", upsert);
   }
+
+  /* The contact is written and tagged, which is what triggers the owner's
+     notification workflow. A failed NOTE does not make this false — the lead is
+     reachable and the answers are on the contact as tags and custom fields. */
+  return true;
 }
 
 export async function POST(req: Request) {
@@ -222,17 +235,22 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: v.error }, { status: 400 });
   }
 
+  let captured = false;
   try {
-    await pushToGhl(v.data);
+    captured = await pushToGhl(v.data);
   } catch (err) {
-    // Never show a cold lead an error. Log loudly so it's caught in Vercel
-    // logs / alerts, but the visitor continues to the calendar. The booking
-    // widget captures their contact a second time, so nothing is lost.
+    // Still not an error response — a cold lead can do nothing with a 500, and
+    // the request itself was fine. But `captured` travels back so the success
+    // screen can stop promising a call we have no way to make.
+    //
+    // This used to be swallowed silently, on the reasoning that the booking
+    // widget took their contact a second time. That widget is gone, so this is
+    // now the only capture there is.
     console.error("[submit-lead] GHL PUSH FAILED — LEAD NOT IN CRM:", {
       error: err instanceof Error ? err.message : String(err),
       lead: { ...v.data, phone: v.data.phone },
     });
   }
 
-  return NextResponse.json({ ok: true, firstName: v.data.firstName });
+  return NextResponse.json({ ok: true, captured, firstName: v.data.firstName });
 }

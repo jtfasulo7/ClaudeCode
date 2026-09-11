@@ -52,9 +52,6 @@ export default function PrivacyPage() {
                 Project details you provide — project type, approximate size, timeline, and the
                 project location (city, ZIP, or address)
               </li>
-              <li>
-                An appointment time, if you book one through our scheduling calendar
-              </li>
             </ul>
             <p>
               Our website may also use standard analytics or advertising measurement tools (such

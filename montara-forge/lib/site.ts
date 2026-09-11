@@ -19,12 +19,6 @@ export const SITE = {
     "New Harmony",
     "Paragonah",
   ],
-  /** GoHighLevel booking widget (post-submit calendar). */
-  ghl: {
-    bookingWidgetId: "REVIxrBeiG6KXr4keDf6",
-    bookingIframeId: "REVIxrBeiG6KXr4keDf6_1787266224908",
-    embedScriptSrc: "https://link.msgsndr.com/js/form_embed.js",
-  },
   /** DOM id of the form card — every CTA on the page scrolls here. */
   formAnchorId: "estimate-form",
 } as const;
