@@ -91,6 +91,23 @@ which is its own kind of tell on a site a platform reviewer reads. Restyling
 them changed **presentation only** — the text of both documents is byte-for-byte
 what it was, and must stay that way unless the change is a deliberate legal one.
 
+## Where the join lives
+
+Three touchpoints, and each is placed for a reason:
+
+1. **The sticky nav.** The only persistent one. Below 560px the two section
+   links are hidden and the button is kept — losing a shortcut to a section
+   costs a scroll, losing the join costs the visit.
+2. **The hero**, at `.btn-lg`. Its neighbour "See what’s inside" is a quiet
+   borderless link on purpose: it points at a section on this same page, so it
+   has no business competing with the button that leaves for the community.
+3. **The closing band**, which is a panel rather than a loose button. It sits
+   directly under the medical disclaimer, and anything unframed placed after a
+   wall of caveats reads as a footnote to them.
+
+The sheen sweep belongs to `.btn-primary` and nothing else, so the gold is the
+only thing on the page that moves that way.
+
 ## The research list is real, and has to stay real
 
 `#studies` carries five citations, each linking to PubMed. **Every one was
