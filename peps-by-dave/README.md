@@ -58,17 +58,29 @@ separates "smooth" from "silky".
 - `prefers-reduced-motion` collapses every duration to `.001ms` and lands the
   reveal elements at their final state rather than leaving them invisible.
 
-**The index, not a card grid.** "What's inside" is an editorial index: title
-against description, separated by hairline rules. Four bordered boxes in an
-`auto-fit minmax` grid is the single most recognisable generated-page shape
-there is; an index reads as edited instead.
+**The cards are cards on purpose, and none of it is default.** "What’s inside"
+went index, then back to cards by decision. What made the FIRST set of cards
+read as stock was every value being a default: a 14px radius, 1.3rem of
+padding, one flat fill, an even 1px border, a small literal icon above the
+heading, and `auto-fit minmax` choosing the columns. The current set changes
+each of those deliberately:
 
-It carried 0# numbers at first, and they were removed by decision. They had
-been doing two jobs — sequence, and a left gutter that set the alignment — so
-removing the markup alone would have left that gutter behind as an empty
-column. The grid closed to two columns, the hover nudge moved from the number
-to the title, and index titles now hang off the same left edge as the section
-heading above them, which is what the numbers had been doing.
+- **Light has a direction.** A gradient runs down the surface and the TOP edge
+  is lit while the other three stay dark. A flat fill inside an even border is
+  a rectangle; this reads as a panel with something above it.
+- **Padding is roughly doubled.** Cramped padding is the clearest tell of a
+  cheap card, and space is the cheapest luxury on the page.
+- **The icon is a watermark**, large and faint and bled off the corner, not a
+  badge above the heading.
+- **The category label is the utility half.** Four cards of prose get read in
+  order; four labelled cards get scanned, which is what someone deciding
+  whether to join is actually doing.
+- **Two explicit columns, never `auto-fit`** — the layout is chosen rather
+  than derived from the viewport.
+
+Hover fades a pseudo-element and translates the card. **Do not move the gold
+wash onto the card’s own `background` or animate its `box-shadow`** — those
+repaint every frame, where opacity and transform composite.
 
 **Grain.** A fixed, pointer-inert `feTurbulence` layer at ~3% over both page
 types. On a near-black ground a flat fill reads as an empty canvas; grain gives

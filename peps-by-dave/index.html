@@ -235,43 +235,79 @@ h2 {
 }
 .sub { color:var(--t2); margin:.7rem 0 0; font-weight:300; font-size:var(--step-1); }
 
-/* ---------------------------------------------------- editorial index -- */
-/* Four bordered boxes in an auto-fit grid is the single most recognisable
-   "generated page" shape there is. An index reads as edited instead: the
-   numbers give order, the rules give rhythm, and the type does the work. */
-.index { border-top:1px solid var(--hairline); }
-.idx {
-  /* Title against description. Without the number gutter the title column can
-     be wider, which is what stops a two-word heading sitting in a thin strip
-     with the paragraph crowding it. */
-  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);
-  gap:clamp(.4rem, 3vw, 3rem); align-items:baseline;
-  padding:clamp(1.6rem, 3.4vh, 2.4rem) 0;
-  border-bottom:1px solid var(--hairline);
-  position:relative;
+/* ------------------------------------------------------------- cards -- */
+/* Two explicit columns. `auto-fit minmax` is the shape that makes a grid look
+   derived rather than designed, and it hands the column count to the viewport
+   instead of to the content. */
+.cards {
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:clamp(.9rem, 1.8vw, 1.4rem);
 }
-/* The gold wash on hover is a pseudo-element rather than a background change,
-   so it can fade rather than switch. */
-.idx::before {
-  content:''; position:absolute; inset:0 -1.25rem; z-index:-1;
-  background:linear-gradient(90deg, rgba(var(--accent-rgb),.06), transparent 72%);
-  opacity:0; transition:opacity .55s var(--ease);
+
+.card {
+  position:relative; overflow:hidden; isolation:isolate;
+  border-radius:22px;
+  /* Light has a direction: the surface falls off downward, and the top edge is
+     lit while the other three stay dark. A flat fill inside an even border is a
+     rectangle — this is a panel with something above it. */
+  background:
+    linear-gradient(168deg, rgba(246,242,232,.062), rgba(246,242,232,.022) 52%, rgba(246,242,232,.012));
+  border:1px solid var(--hairline-soft);
+  border-top-color:rgba(246,242,232,.16);
+  /* Space is the cheapest luxury available. The first version used 1.3rem and
+     that alone is most of what made it read as stock. */
+  padding:clamp(1.6rem, 2.6vw, 2.4rem);
+  transition:transform .6s var(--ease), border-color .6s var(--ease);
 }
-.idx:hover::before { opacity:1; }
-.idx h3 {
+
+/* The gold wash and the lift are separate layers so only opacity and transform
+   ever animate. Fading a pseudo-element costs a composite; transitioning the
+   card's own background or shadow costs a repaint on every frame of the hover. */
+.card::before {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:radial-gradient(120% 90% at 12% 0%, rgba(var(--accent-rgb),.16), transparent 62%);
+  opacity:0; transition:opacity .6s var(--ease);
+}
+.card:hover { transform:translateY(-3px); border-top-color:rgba(var(--accent-rgb),.45); }
+.card:hover::before { opacity:1; }
+
+/* The icon as watermark: large, faint, bled off the corner. A small literal
+   icon sitting above the heading is the stock arrangement and reads as clip
+   art at any size. */
+.card .mark {
+  position:absolute; right:-18px; bottom:-22px; z-index:-1; pointer-events:none;
+  color:var(--accent); opacity:.07;
+  transition:opacity .6s var(--ease), transform .6s var(--ease);
+}
+.card .mark svg { width:132px; height:132px; display:block; }
+.card:hover .mark { opacity:.13; transform:translate3d(-4px,-4px,0) rotate(-3deg); }
+
+/* The label is the utility half. Four cards of prose get read in order; four
+   labelled cards get scanned, which is what someone deciding whether to join
+   is actually doing. */
+.card .label {
+  display:flex; align-items:center; gap:.6rem;
+  font-size:.64rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 1.1rem;
+}
+.card .label::after {
+  content:''; height:1px; flex:1 1 auto;
+  background:linear-gradient(90deg, rgba(var(--accent-rgb),.34), transparent);
+}
+
+.card h3 {
   font-family:var(--ff-display);
   font-variation-settings:'opsz' 60, 'wght' 600, 'SOFT' 0, 'WONK' 0;
-  font-size:var(--step-2); line-height:1.14; letter-spacing:-.022em;
-  margin:0; font-weight:400;
-  transition:color .55s var(--ease), transform .55s var(--ease);
+  font-size:var(--step-2); line-height:1.12; letter-spacing:-.022em;
+  margin:0 0 .7rem; font-weight:400;
+  transition:color .6s var(--ease);
 }
-/* The nudge the number used to make on hover now belongs to the title. */
-.idx:hover h3 { color:var(--accent-d); transform:translateX(4px); }
-.idx p { margin:0; color:var(--t2); font-weight:300; }
+.card:hover h3 { color:var(--accent-d); }
+.card p { margin:0; color:var(--t2); font-weight:300; font-size:var(--step-0); }
 
 @media (max-width:760px){
-  .idx { grid-template-columns:1fr; }
-  .idx p { padding-top:.6rem; }
+  .cards { grid-template-columns:1fr; }
+  .card .mark svg { width:104px; height:104px; }
 }
 
 /* ------------------------------------------------------------ statement */
@@ -402,23 +438,31 @@ h1 .ln:nth-child(2) > span { animation-delay:.26s; }
       <p class="sub rise measure" style="--d:.08s">Material you work through at your own pace, and people to ask when it stops making sense.</p>
     </div>
 
-    <div class="index">
-      <article class="idx rise" style="--d:.18s">
+    <div class="cards">
+      <article class="card rise" style="--d:.18s">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H19v16H5.5A1.5 1.5 0 0 1 4 18.5Z"/><path d="M8 8h7M8 12h7"/></svg></span>
+        <p class="label">Foundations</p>
         <h3>Where to start</h3>
         <p>What a peptide actually is, how they get studied, and the vocabulary you need before any paper makes sense. No assumed background.</p>
       </article>
 
-      <article class="idx rise" style="--d:.24s">
+      <article class="card rise" style="--d:.24s">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5 9 11l3.5 3.3L21 6"/><path d="M15 6h6v6"/></svg></span>
+        <p class="label">Method</p>
         <h3>How to read a study</h3>
         <p>Sample size, controls, who funded it, and why a result in twelve mice is not a result in you. This part stays useful long after you have forgotten the specifics.</p>
       </article>
 
-      <article class="idx rise" style="--d:.30s">
+      <article class="card rise" style="--d:.30s">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19a6 6 0 0 1 12 0"/><path d="M16.5 6.2a3 3 0 0 1 0 5.6M19 4a6 6 0 0 1 0 10"/></svg></span>
+        <p class="label">Community</p>
         <h3>Somewhere to ask</h3>
         <p>Questions answered by people willing to say nobody knows yet, which turns out to be the honest answer more often than the internet admits.</p>
       </article>
 
-      <article class="idx rise" style="--d:.36s">
+      <article class="card rise" style="--d:.36s">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5"/><rect x="5" y="12" width="14" height="8" rx="1.5"/></svg></span>
+        <p class="label">Claims</p>
         <h3>Where the claims come from</h3>
         <p>How a small finding becomes a headline and then a product page. Watch that happen a few times and it stops working on you.</p>
       </article>
