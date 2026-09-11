@@ -58,10 +58,17 @@ separates "smooth" from "silky".
 - `prefers-reduced-motion` collapses every duration to `.001ms` and lands the
   reveal elements at their final state rather than leaving them invisible.
 
-**The index, not a card grid.** "What's inside" is a numbered editorial index
-with hairline rules. Four bordered boxes in an `auto-fit minmax` grid is the
-single most recognisable generated-page shape there is; an index reads as
-edited instead. If you add an item, add a number — the sequence is the point.
+**The index, not a card grid.** "What's inside" is an editorial index: title
+against description, separated by hairline rules. Four bordered boxes in an
+`auto-fit minmax` grid is the single most recognisable generated-page shape
+there is; an index reads as edited instead.
+
+It carried 0# numbers at first, and they were removed by decision. They had
+been doing two jobs — sequence, and a left gutter that set the alignment — so
+removing the markup alone would have left that gutter behind as an empty
+column. The grid closed to two columns, the hover nudge moved from the number
+to the title, and index titles now hang off the same left edge as the section
+heading above them, which is what the numbers had been doing.
 
 **Grain.** A fixed, pointer-inert `feTurbulence` layer at ~3% over both page
 types. On a near-black ground a flat fill reads as an empty canvas; grain gives

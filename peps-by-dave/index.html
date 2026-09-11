@@ -214,11 +214,7 @@ h1 .it {
 .section { padding:var(--gap-section) 0; }
 .section + .section { border-top:1px solid var(--hairline-soft); }
 
-.sec-head { display:flex; align-items:baseline; gap:1rem; margin-bottom:clamp(2rem,5vh,3.5rem); }
-.sec-num {
-  font-family:var(--ff); font-size:.68rem; font-weight:700; letter-spacing:.2em;
-  color:var(--accent); flex:0 0 auto; padding-top:.35rem;
-}
+.sec-head { margin-bottom:clamp(2rem,5vh,3.5rem); }
 h2 {
   font-family:var(--ff-display);
   font-variation-settings:'opsz' 90, 'wght' 600, 'SOFT' 0, 'WONK' 0;
@@ -233,8 +229,11 @@ h2 {
    numbers give order, the rules give rhythm, and the type does the work. */
 .index { border-top:1px solid var(--hairline); }
 .idx {
-  display:grid; grid-template-columns:3.5rem minmax(0,1fr) minmax(0,1.15fr);
-  gap:clamp(.6rem, 3vw, 2.5rem); align-items:start;
+  /* Title against description. Without the number gutter the title column can
+     be wider, which is what stops a two-word heading sitting in a thin strip
+     with the paragraph crowding it. */
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);
+  gap:clamp(.4rem, 3vw, 3rem); align-items:baseline;
   padding:clamp(1.6rem, 3.4vh, 2.4rem) 0;
   border-bottom:1px solid var(--hairline);
   position:relative;
@@ -247,25 +246,20 @@ h2 {
   opacity:0; transition:opacity .55s var(--ease);
 }
 .idx:hover::before { opacity:1; }
-.idx-n {
-  font-size:.72rem; font-weight:700; letter-spacing:.16em; color:var(--accent);
-  font-variant-numeric:tabular-nums; padding-top:.55rem;
-  transition:transform .55s var(--ease);
-}
-.idx:hover .idx-n { transform:translateX(4px); }
 .idx h3 {
   font-family:var(--ff-display);
   font-variation-settings:'opsz' 60, 'wght' 600, 'SOFT' 0, 'WONK' 0;
   font-size:var(--step-2); line-height:1.14; letter-spacing:-.022em;
   margin:0; font-weight:400;
-  transition:color .55s var(--ease);
+  transition:color .55s var(--ease), transform .55s var(--ease);
 }
-.idx:hover h3 { color:var(--accent-d); }
-.idx p { margin:0; color:var(--t2); font-weight:300; padding-top:.35rem; }
+/* The nudge the number used to make on hover now belongs to the title. */
+.idx:hover h3 { color:var(--accent-d); transform:translateX(4px); }
+.idx p { margin:0; color:var(--t2); font-weight:300; }
 
 @media (max-width:760px){
-  .idx { grid-template-columns:2.5rem minmax(0,1fr); }
-  .idx p { grid-column:2; padding-top:.6rem; }
+  .idx { grid-template-columns:1fr; }
+  .idx p { padding-top:.6rem; }
 }
 
 /* ------------------------------------------------------------ statement */
@@ -388,34 +382,27 @@ h1 .ln:nth-child(2) > span { animation-delay:.26s; }
 <section class="section reveal" id="inside">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num rise">01</span>
-      <div>
-        <h2 class="rise" style="--d:.06s">What&rsquo;s inside</h2>
-        <p class="sub rise measure" style="--d:.12s">Structured material, and people to ask when it does not make sense.</p>
-      </div>
+      <h2 class="rise">What&rsquo;s inside</h2>
+      <p class="sub rise measure" style="--d:.08s">Structured material, and people to ask when it does not make sense.</p>
     </div>
 
     <div class="index">
       <article class="idx rise" style="--d:.18s">
-        <span class="idx-n">01</span>
         <h3>The fundamentals</h3>
         <p>What peptides are, how they are studied, and the vocabulary you need before any of the research is readable.</p>
       </article>
 
       <article class="idx rise" style="--d:.24s">
-        <span class="idx-n">02</span>
         <h3>How to read a study</h3>
         <p>Sample sizes, controls, funding, and the difference between a finding and a headline. The skill that outlasts any single topic.</p>
       </article>
 
       <article class="idx rise" style="--d:.30s">
-        <span class="idx-n">03</span>
         <h3>A room to ask in</h3>
         <p>A moderated community where questions get answered by people who will tell you when the honest answer is &ldquo;nobody knows yet&rdquo;.</p>
       </article>
 
       <article class="idx rise" style="--d:.36s">
-        <span class="idx-n">04</span>
         <h3>Sorting signal from noise</h3>
         <p>How claims get made and repeated online, and the questions worth asking before you believe any of them.</p>
       </article>
@@ -436,10 +423,7 @@ h1 .ln:nth-child(2) > span { animation-delay:.26s; }
 <section class="section reveal" id="important">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num rise">02</span>
-      <div>
-        <h2 class="rise" style="--d:.06s">Please read this part</h2>
-      </div>
+      <h2 class="rise">Please read this part</h2>
     </div>
 
     <div class="notice rise" style="--d:.12s">
