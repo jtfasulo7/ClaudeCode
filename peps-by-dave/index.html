@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Peps by Dave — peptide education, in plain English</title>
-<meta name="description" content="A private community for people who want to understand peptides properly: the research, the terminology, and how to read a study without being sold to.">
+<title>Peps by Dave — read the peptide research yourself</title>
+<meta name="description" content="A private community for people who would rather read the peptide studies and judge them than take a shop's word for it.">
 <meta name="theme-color" content="#0B0B0C">
 
 <meta property="og:title" content="Peps by Dave">
-<meta property="og:description" content="Peptide education, in plain English. A private community for people who want to understand the research rather than be sold to.">
+<meta property="og:description" content="A private community for people who would rather read the peptide studies and judge them than take a shop's word for it.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -171,7 +171,19 @@ h1 {
   font-size:var(--step-4); line-height:1.02; letter-spacing:-.032em;
   margin:0; font-weight:400;
 }
-h1 .ln { display:block; overflow:hidden; }
+h1 .ln {
+  display:block;
+  /* The clip that makes the line reveal possible. It is also what was cutting
+     the descenders off, so the box is opened below the baseline and the space
+     is given straight back — the line spacing is unchanged, the g just has
+     somewhere to go. */
+  overflow:hidden;
+  /* The ink of this face drops .238em below the baseline in italic, .225em
+     roman — measured off the rendered glyphs, not taken from the metrics.
+     .36em clears both at every size on the scale. */
+  padding-bottom:.36em;
+  margin-bottom:-.36em;
+}
 h1 .ln > span { display:block; }
 h1 .it {
   font-variation-settings:'opsz' 144, 'wght' 400, 'SOFT' 0, 'WONK' 0;
@@ -318,7 +330,10 @@ h2 {
    one orchestrated entrance instead of a reveal that has already happened by
    the time anyone sees it. */
 @keyframes riseIn { from { opacity:0; transform:translate3d(0,26px,0); } to { opacity:1; transform:none; } }
-@keyframes lineIn { from { transform:translate3d(0,105%,0); } to { transform:none; } }
+/* The offset has to clear the clip box, which is now .36em taller than the line
+   it holds. At 105% the tops of the glyphs would sit inside that padding,
+   visible before the reveal runs. */
+@keyframes lineIn { from { transform:translate3d(0,145%,0); } to { transform:none; } }
 @keyframes figIn  { from { opacity:0; transform:translate3d(0,34px,0) scale(.985); } to { opacity:1; transform:none; } }
 
 .hero .eyebrow  { animation:riseIn .9s var(--ease) .05s both; }
@@ -354,13 +369,14 @@ h1 .ln:nth-child(2) > span { animation-delay:.26s; }
    <div class="hero-copy">
     <p class="eyebrow">Private community</p>
     <h1>
-      <span class="ln"><span>Peptide education,</span></span>
-      <span class="ln"><span class="it">in plain English.</span></span>
+      <span class="ln"><span>Read the peptide</span></span>
+      <span class="ln"><span class="it">research yourself.</span></span>
     </h1>
     <p class="lede measure">
-      Most of what is written about peptides is either a sales page or a paper you need a
-      biochemistry degree to read. This is a community for the middle ground &mdash; understanding
-      the research, the terminology, and how to tell a real study from a marketing claim.
+      Search any peptide and you get two kinds of result: shops, and papers written for people
+      who already know the field. Neither one helps you decide anything. This is where the
+      research gets read properly, with the terminology explained and the weak studies called
+      weak.
     </p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://www.skool.com/pepsbydave-3539/about">Join the community</a>
@@ -383,28 +399,28 @@ h1 .ln:nth-child(2) > span { animation-delay:.26s; }
   <div class="wrap">
     <div class="sec-head">
       <h2 class="rise">What&rsquo;s inside</h2>
-      <p class="sub rise measure" style="--d:.08s">Structured material, and people to ask when it does not make sense.</p>
+      <p class="sub rise measure" style="--d:.08s">Material you work through at your own pace, and people to ask when it stops making sense.</p>
     </div>
 
     <div class="index">
       <article class="idx rise" style="--d:.18s">
-        <h3>The fundamentals</h3>
-        <p>What peptides are, how they are studied, and the vocabulary you need before any of the research is readable.</p>
+        <h3>Where to start</h3>
+        <p>What a peptide actually is, how they get studied, and the vocabulary you need before any paper makes sense. No assumed background.</p>
       </article>
 
       <article class="idx rise" style="--d:.24s">
         <h3>How to read a study</h3>
-        <p>Sample sizes, controls, funding, and the difference between a finding and a headline. The skill that outlasts any single topic.</p>
+        <p>Sample size, controls, who funded it, and why a result in twelve mice is not a result in you. This part stays useful long after you have forgotten the specifics.</p>
       </article>
 
       <article class="idx rise" style="--d:.30s">
-        <h3>A room to ask in</h3>
-        <p>A moderated community where questions get answered by people who will tell you when the honest answer is &ldquo;nobody knows yet&rdquo;.</p>
+        <h3>Somewhere to ask</h3>
+        <p>Questions answered by people willing to say nobody knows yet, which turns out to be the honest answer more often than the internet admits.</p>
       </article>
 
       <article class="idx rise" style="--d:.36s">
-        <h3>Sorting signal from noise</h3>
-        <p>How claims get made and repeated online, and the questions worth asking before you believe any of them.</p>
+        <h3>Where the claims come from</h3>
+        <p>How a small finding becomes a headline and then a product page. Watch that happen a few times and it stops working on you.</p>
       </article>
     </div>
   </div>
@@ -412,10 +428,10 @@ h1 .ln:nth-child(2) > span { animation-delay:.26s; }
 
 <section class="statement reveal">
   <div class="wrap">
-    <p class="big rise">We don&rsquo;t sell peptides.<br><em>We explain them.</em></p>
+    <p class="big rise">We don&rsquo;t sell anything<br><em>you would put in your body.</em></p>
     <p class="small rise" style="--d:.1s">
-      No supply, no sourcing, no dosing guidance &mdash; just the research, read carefully and
-      explained in language you can actually use.
+      No suppliers, no sourcing, no dosing. That is not caution, it is the point. A community
+      that starts recommending products loses the ability to tell you the truth about them.
     </p>
   </div>
 </section>

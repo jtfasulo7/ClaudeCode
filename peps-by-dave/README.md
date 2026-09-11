@@ -79,6 +79,27 @@ which is its own kind of tell on a site a platform reviewer reads. Restyling
 them changed **presentation only** — the text of both documents is byte-for-byte
 what it was, and must stay that way unless the change is a deliberate legal one.
 
+## Two things not to undo
+
+**The headline lines have padding that looks wrong and is not.** Each line sits
+in an `overflow:hidden` wrapper so it can slide up on load. That clip box is
+only as tall as the line box, and at `line-height:1.02` it lands just under the
+baseline, shaving the descenders off — the p in "peptide", the y in
+"yourself". `.ln` therefore carries `padding-bottom:.36em` with an equal
+negative margin: the box opens below the baseline, the space is given straight
+back, and every gap on the page is unchanged. The .36em is measured, not
+guessed — the ink of this face drops .225em below the baseline roman and
+.238em italic. **If you remove the padding the descenders get cut again, and if
+you change it, change the 145% offset in `@keyframes lineIn` too** — that
+offset exists to clear the taller box, and at 105% the tops of the glyphs sit
+visible inside the padding before the reveal runs.
+
+**The disclaimer is not written for tone.** Every other line of copy on the page
+was rewritten to sound like a person rather than a generator. The three
+paragraphs inside `.notice` were deliberately left alone. They are the one
+place where being plain and repetitive beats being well written, and this is a
+health-adjacent business.
+
 ## The details, as published
 
 | | |
