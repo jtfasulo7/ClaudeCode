@@ -21,6 +21,57 @@ gives it. A custom domain can be added later without touching the markup.
 Those paths are what the legal links and the TikTok app submission point at, so
 do not rename the files.
 
+## The design system
+
+Every page shares one set of decisions. That shared restraint is the design —
+a page reads expensive when nothing on it is arbitrary, and cheap the moment
+two things disagree for no reason.
+
+**Type.** `Fraunces` for display, `Manrope` for everything else. Both variable,
+both from Google Fonts, one request.
+
+- **`opsz` is the whole point of Fraunces.** Its optical-size axis is pushed to
+  144 at headline sizes and dropped to 40–60 for smaller headings. The same
+  font at `opsz 14` is a duller typeface — the thick/thin contrast that makes
+  the hero look typeset rather than typed only exists at the top of that axis.
+- **`WONK` is pinned to 0.** The playful axis undercuts a page whose subject is
+  reading research honestly.
+- **Inter was removed deliberately.** It is the default that makes a page look
+  generated rather than designed.
+
+**Scale.** Six fluid steps (`--step--1` … `--step-4`), each a `clamp()` on the
+same ratio. Nothing on any page sets a font size outside them.
+
+**Motion.** One easing curve, `--ease: cubic-bezier(.22,1,.36,1)`, on
+everything. Mixed curves read as several hands at work, which is most of what
+separates "smooth" from "silky".
+
+- The hero plays **on load** with staggered delays — an orchestrated entrance
+  rather than a scroll reveal that has already finished before anyone sees it.
+  The headline animates line by line out of `overflow:hidden` wrappers.
+- Everything below plays on scroll via `IntersectionObserver`, and each section
+  is **unobserved once it fires**. Nothing keeps watching what has already run.
+- **Only `transform` and `opacity` are ever animated.** Both composite. Nothing
+  animates `box-shadow`, `filter` or `backdrop-filter` — those three are what
+  turn a reveal into a stutter, and the nav's `backdrop-filter` is on an
+  element that never moves.
+- `prefers-reduced-motion` collapses every duration to `.001ms` and lands the
+  reveal elements at their final state rather than leaving them invisible.
+
+**The index, not a card grid.** "What's inside" is a numbered editorial index
+with hairline rules. Four bordered boxes in an `auto-fit minmax` grid is the
+single most recognisable generated-page shape there is; an index reads as
+edited instead. If you add an item, add a number — the sequence is the point.
+
+**Grain.** A fixed, pointer-inert `feTurbulence` layer at ~3% over both page
+types. On a near-black ground a flat fill reads as an empty canvas; grain gives
+it a surface. It is static, so it composites once and costs nothing per frame.
+
+**The legal pages share all of it.** They were plainer than the front page,
+which is its own kind of tell on a site a platform reviewer reads. Restyling
+them changed **presentation only** — the text of both documents is byte-for-byte
+what it was, and must stay that way unless the change is a deliberate legal one.
+
 ## The details, as published
 
 | | |
