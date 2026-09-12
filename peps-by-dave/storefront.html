@@ -57,7 +57,8 @@ body {
     radial-gradient(900px 520px at 92% 4%, rgba(214,175,82,.055), transparent 64%),
     var(--bg);
   background-attachment:fixed;
-  overflow-x:hidden;
+  overflow-x:clip;   /* not hidden: that can promote body to the scroller,
+                        which silently disables scroll-padding on html */
 }
 body::after {
   content:''; position:fixed; inset:0; z-index:60; pointer-events:none;
@@ -589,6 +590,7 @@ h1 {
      it costs nothing while scrolling. "All" lights only at the very top, which
      is why the sentinel above the first group is watched too. */
   (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     var chips = [].slice.call(document.querySelectorAll('.chip'));
     if (!chips.length || !('IntersectionObserver' in window)) return;
 
@@ -613,15 +615,63 @@ h1 {
     }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
     groups.forEach(function (g) { io.observe(g); });
 
-    /* Clicking a chip scrolls it into view in its own strip as well, so the
-       active chip is never the one just off the edge of the screen. */
+    var strip = document.querySelector('.chips');
+    var nav = document.querySelector('.nav');
+    var bar = document.querySelector('.chipbar');
+
+    /* How far down the page a heading has to land to clear whatever is pinned
+       above it. Measured at click time rather than read from a CSS variable,
+       because the chip bar is only sticky under 760px and the nav can change
+       height with the font. */
+    function stickyOffset() {
+      var h = nav ? nav.offsetHeight : 0;
+      if (bar && getComputedStyle(bar).position === 'sticky') h += bar.offsetHeight;
+      return h + 12;
+    }
+
+    /* Centre the chip in its OWN strip by writing scrollLeft. The previous
+       version used scrollIntoView, which also scrolls the page — and since the
+       chip sits at the top, that cancelled the jump that had just started. */
+    function centreChip(c) {
+      if (!strip) return;
+      var target = c.offsetLeft - (strip.clientWidth - c.offsetWidth) / 2;
+      var max = strip.scrollWidth - strip.clientWidth;
+      var left = Math.max(0, Math.min(max, target));
+      if (typeof strip.scrollTo === 'function') {
+        strip.scrollTo({ left: left, behavior: reduce.matches ? 'auto' : 'smooth' });
+      } else {
+        strip.scrollLeft = left;
+      }
+    }
+
     chips.forEach(function (c) {
-      c.addEventListener('click', function () {
+      c.addEventListener('click', function (ev) {
+        var id = (c.getAttribute('href') || '').slice(1);
+        var target = id && document.getElementById(id);
+        if (!target) return;
+
+        /* Driving the scroll rather than leaving it to the fragment: the
+           landing offset then comes from the bars' real heights instead of
+           scroll-padding, which is ignored whenever body rather than html turns
+           out to be the scrolling element. */
+        ev.preventDefault();
+
         chips.forEach(function (o) { o.removeAttribute('aria-current'); });
         c.setAttribute('aria-current', 'true');
-        setTimeout(function () {
-          c.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }, 60);
+
+        var y = target.getBoundingClientRect().top + window.pageYOffset - stickyOffset();
+        var top = Math.max(0, Math.round(y));
+        if (window.scrollTo.length === 0 || typeof window.scrollTo === 'function') {
+          try {
+            window.scrollTo({ top: top, behavior: reduce.matches ? 'auto' : 'smooth' });
+          } catch (e) {
+            window.scrollTo(0, top);          // older Safari: no options object
+          }
+        }
+        centreChip(c);
+
+        // Keep the URL honest without adding a history entry per tap.
+        if (window.history && history.replaceState) history.replaceState(null, '', '#' + id);
       });
     });
   }());
