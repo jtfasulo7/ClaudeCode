@@ -119,25 +119,6 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
 .btn-primary:hover::after { transform:translateX(120%); }
 .btn-sm { font-size:.8rem; padding:.6rem 1.15rem; }
 
-/* ============================================================== head === */
-.head { padding:clamp(3rem, 8vh, 5.5rem) 0 0; }
-.eyebrow {
-  display:flex; align-items:center; gap:.7rem;
-  font-size:.68rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-  color:var(--accent); margin:0 0 1.3rem;
-}
-.eyebrow::after { content:''; height:1px; flex:1 1 auto; max-width:5rem; background:linear-gradient(90deg, rgba(var(--accent-rgb),.5), transparent); }
-h1 {
-  font-family:var(--ff-display);
-  font-variation-settings:'opsz' 144, 'wght' 600, 'SOFT' 0, 'WONK' 0;
-  font-size:var(--step-4); line-height:1.02; letter-spacing:-.032em;
-  margin:0; font-weight:400;
-}
-h1 .it {
-  font-variation-settings:'opsz' 144, 'wght' 400, 'SOFT' 0, 'WONK' 0;
-  font-style:italic; color:var(--accent-d);
-}
-.lede { font-size:var(--step-1); line-height:1.55; color:var(--t2); margin:1.5rem 0 0; font-weight:300; }
 
 /* ------------------------------------------------------- disclosure ---- */
 /* Amazon requires the affiliate relationship to be disclosed clearly and near
@@ -156,9 +137,14 @@ h1 .it {
 
 /* =========================================================== sections == */
 .section { padding:var(--gap-section) 0; }
+/* The page opens straight onto this now, so it carries the breathing room the
+   header used to provide above it. */
+.section:first-of-type { padding-top:clamp(2.5rem, 7vh, 4.5rem); }
 .section + .section { border-top:1px solid var(--hairline-soft); }
 .sec-head { margin-bottom:clamp(1.8rem,4vh,2.6rem); }
-h2 {
+/* h1 and h2 share this. The page's only h1 is now a section heading, so it
+   takes the section-heading size rather than the old hero's. */
+h1, h2 {
   font-family:var(--ff-display);
   font-variation-settings:'opsz' 90, 'wght' 600, 'SOFT' 0, 'WONK' 0;
   font-size:var(--step-3); line-height:1.06; letter-spacing:-.028em;
@@ -293,9 +279,6 @@ h2 {
   transition-delay:var(--d, 0s);
 }
 @keyframes riseIn { from { opacity:0; transform:translate3d(0,26px,0); } to { opacity:1; transform:none; } }
-.head .eyebrow { animation:riseIn .9s var(--ease) .05s both; }
-.head h1       { animation:riseIn 1s var(--ease) .14s both; }
-.head .lede    { animation:riseIn .95s var(--ease) .3s both; }
 
 @media (prefers-reduced-motion:reduce) {
   *, *::before, *::after {
@@ -319,18 +302,6 @@ h2 {
   </div>
 </nav>
 
-<header class="head">
-  <div class="wrap">
-    <p class="eyebrow">Storefront</p>
-    <h1>The kit, <span class="it">not the compounds.</span></h1>
-    <p class="lede measure">
-      Books worth owning and the ordinary equipment that comes up constantly in the community.
-      Everything here is bought from Amazon, by you, from Amazon.
-    </p>
-
-  </div>
-</header>
-
 <!-- ============================================================================
      ADDING A PRODUCT
      Each card is one <article class="product">. To make a slot live:
@@ -347,8 +318,8 @@ h2 {
 <section class="section reveal" id="shop">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="rise">The kit</h2>
-      <p class="sub rise measure" style="--d:.08s">Ordinary equipment and consumables, bought from Amazon. Listed because they come up, not as a suggestion to use them.</p>
+      <h1 class="rise">The kit</h1>
+      <p class="sub rise measure" style="--d:.08s">Ordinary equipment and consumables. Listed because they come up, not as a suggestion to use them.</p>
     </div>
 
     <div class="products">
