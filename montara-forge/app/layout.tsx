@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Big_Shoulders, Barlow } from "next/font/google";
 import { MetaPixel } from "@/components/MetaPixel";
+import { AttributionProbe } from "@/components/AttributionProbe";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col bg-ink text-bone">
         {children}
         <MetaPixel />
+        <AttributionProbe />
       </body>
     </html>
   );

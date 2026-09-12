@@ -9,6 +9,7 @@ import {
   type LeadPayload,
 } from "@/lib/form";
 import { toE164 } from "@/lib/phone";
+import { type Attribution, describe as describeAttribution } from "@/lib/attribution";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -43,7 +44,47 @@ const LEAD_TAG = "website-lead-montara";
 const GHL_BASE = "https://services.leadconnectorhq.com";
 const GHL_VERSION = "2021-07-28";
 
-type Validated = Omit<LeadPayload, "website" | "phone"> & { phone: string };
+type Validated = Omit<LeadPayload, "website" | "phone" | "attribution"> & {
+  phone: string;
+  attribution: Attribution | null;
+};
+
+/* The channel values the client is allowed to assert.
+   It arrives from the browser, so it is checked against a list rather than
+   trusted — an unknown value would otherwise become an arbitrary CRM tag. */
+const CHANNELS = new Set([
+  "meta-paid", "meta-organic", "search", "referral", "direct", "unknown",
+]);
+
+/**
+ * Attribution, cleaned. Every field optional, every failure silent: this is
+ * annotation on a lead and must never be able to reject one.
+ */
+function validateAttribution(v: unknown): Attribution | null {
+  if (!v || typeof v !== "object") return null;
+  const a = v as Record<string, unknown>;
+
+  const utmIn = (a.utm && typeof a.utm === "object" ? a.utm : {}) as Record<string, unknown>;
+  const utm: Record<string, string> = {};
+  for (const k of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
+    const val = clean(utmIn[k], 200);
+    if (val) utm[k] = val;
+  }
+
+  const channel = clean(a.channel, 20);
+  const out: Attribution = {
+    channel: CHANNELS.has(channel) ? (channel as Attribution["channel"]) : "unknown",
+    // Presence is the signal, and the value is never displayed — so it is
+    // stored only as a flag rather than kept in full.
+    ...(clean(a.fbclid, 300) ? { fbclid: "present" } : {}),
+    ...(clean(a.gclid, 300) ? { gclid: "present" } : {}),
+    ...(Object.keys(utm).length ? { utm } : {}),
+    referrer: clean(a.referrer, 500),
+    landingPath: clean(a.landingPath, 200),
+    firstSeen: clean(a.firstSeen, 40),
+  };
+  return out;
+}
 
 function clean(v: unknown, max = 120): string {
   if (typeof v !== "string") return "";
@@ -54,6 +95,7 @@ function clean(v: unknown, max = 120): string {
 function validate(body: unknown): { ok: true; data: Validated } | { ok: false; error: string } {
   if (!body || typeof body !== "object") return { ok: false, error: "Invalid body" };
   const b = body as Record<string, unknown>;
+  const attribution = validateAttribution(b.attribution);
 
   const firstName = clean(b.firstName, 60);
   const lastName = clean(b.lastName, 60);
@@ -85,6 +127,7 @@ function validate(body: unknown): { ok: true; data: Validated } | { ok: false; e
       timeline: b.timeline,
       location,
       inServiceArea: b.inServiceArea === true,
+      attribution,
     },
   };
 }
@@ -111,6 +154,11 @@ function buildNote(d: Validated): string {
     `Location:   ${d.location}${d.inServiceArea ? "" : "  ⚠ outside listed service area — confirm on call"}`,
     "",
     `Submitted:  ${new Date().toLocaleString("en-US", { timeZone: "America/Denver" })} MT`,
+    "",
+    "— WHERE THIS LEAD CAME FROM —",
+    d.attribution
+      ? describeAttribution(d.attribution)
+      : "Not recorded (older page cached, or storage blocked in the browser).",
   ].join("\n");
 }
 
@@ -177,6 +225,12 @@ async function pushToGhl(d: Validated): Promise<boolean> {
   // filterable in Smart Lists. Cheap insurance alongside the note.
   const tags = [
     LEAD_TAG,
+    /* WHERE IT CAME FROM, on the contact itself.
+       Written as a tag because tags need no configuration — this is filterable
+       in a Smart List on the very next lead, whereas a custom field has to be
+       created in GHL first. On 2026-09-11 the CRM took three leads and Meta
+       attributed one, and nothing recorded anywhere could say why. */
+    `src-${d.attribution?.channel ?? "unknown"}`,
     `project-${d.projectType}`,
     d.newOrReplacement === "replacement" ? "tear-out-yes" : "tear-out-no",
     `size-${d.sizeRange}`,

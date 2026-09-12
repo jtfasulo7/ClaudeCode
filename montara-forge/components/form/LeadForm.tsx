@@ -14,6 +14,7 @@ import {
   type Timeline,
 } from "@/lib/form";
 import { isInServiceArea } from "@/lib/service-area";
+import { readAttribution } from "@/lib/attribution";
 import { pixel } from "@/lib/pixel";
 import { SITE } from "@/lib/site";
 import { OptionStep } from "./OptionStep";
@@ -137,6 +138,9 @@ export function LeadForm() {
       location: answers.location.trim(),
       inServiceArea: isInServiceArea(answers.location),
       website: contact.website,
+      /* First touch of this visit, not a fresh read. Re-reading the referrer
+         here would return our own URL and relabel every ad click as direct. */
+      attribution: readAttribution() ?? undefined,
     };
 
     // Assume the worst and let a successful response say otherwise: a thrown

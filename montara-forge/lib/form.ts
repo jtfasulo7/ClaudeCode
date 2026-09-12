@@ -105,6 +105,19 @@ export interface LeadPayload {
   inServiceArea: boolean;
   /** Honeypot — real users never fill this. */
   website?: string;
+  /* Where this visit came from, captured on its FIRST page view — see
+     lib/attribution.ts. Optional: an older cached bundle, a blocked
+     sessionStorage or a bot will all omit it, and none of those may cost us
+     the lead. */
+  attribution?: {
+    channel?: string;
+    fbclid?: string;
+    gclid?: string;
+    utm?: Record<string, string>;
+    referrer?: string;
+    landingPath?: string;
+    firstSeen?: string;
+  };
 }
 
 export function isOneOf<T extends string>(list: readonly T[], v: unknown): v is T {
