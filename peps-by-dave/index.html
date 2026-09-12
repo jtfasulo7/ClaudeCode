@@ -127,7 +127,9 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
   font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
   font-size:1.12rem; letter-spacing:-.015em; text-decoration:none; color:var(--t1);
 }
-.brand em { font-style:normal; color:var(--accent); }
+/* The whole wordmark is one colour. "Dave" used to take the gold accent;
+   the element is kept so restoring it is a one-word change. */
+.brand em { font-style:normal; color:inherit; }
 .nav-sp { flex:1 1 auto; }
 .nav .lnk {
   color:var(--t2); text-decoration:none; font-size:var(--step--1); font-weight:500;
