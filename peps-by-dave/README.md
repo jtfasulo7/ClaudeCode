@@ -137,6 +137,41 @@ human evidence. Keep a row like it if the list ever changes.
 The standing note under the list says that listing a study is not a
 recommendation. Keep it.
 
+## The storefront (/storefront)
+
+Amazon affiliate links. **A skeleton** — six slots, no live URLs. Each renders a
+dashed 'Link to be added' block rather than an `href='#'`, because a
+placeholder dressed as a live link is a broken link with better manners: it
+looks clickable, goes nowhere, and the first person to find out is a visitor.
+
+To make a slot live, replace the `.slot-empty` div with an anchor and drop
+`is-empty` from the article. **The anchor needs
+`rel='nofollow sponsored noopener'`** — Google requires paid links to be
+marked and Amazon’s agreement requires the relationship to be clear. There is a
+comment block in the file with the exact markup.
+
+**The disclosure sits above the first product, not in the footer.** Amazon’s
+operating agreement asks for it near the links and the FTC asks for it
+regardless. Moving it down the page breaks both. The required sentence is
+'As an Amazon Associate… earns from qualifying purchases' — keep that wording.
+
+### The line this page must not cross
+
+The categories are **reading and general equipment**. Nothing listed is a
+peptide, and the page says so twice.
+
+That is not squeamishness, it is consistency: Terms §5 states 'We do not sell,
+supply, source, import or ship peptides or any other substance', and the
+community’s whole credibility rests on not earning money from the compounds it
+discusses. **Listing an actual peptide, or a 'research chemical' vendor, would
+contradict Terms §5 and has to be a deliberate decision taken with the legal
+pages rewritten to match** — not something slipped in as one more card.
+
+Injection supplies are the genuine grey area. They are ordinary retail goods,
+but the medical disclaimer says we give no administration guidance, and a
+syringe listing sits close to that line. Left out of the skeleton on purpose;
+add it only knowingly.
+
 ## Two things not to undo
 
 **The headline lines have padding that looks wrong and is not.** Each line sits

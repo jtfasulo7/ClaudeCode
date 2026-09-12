@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storefront — Peps by Dave</title>
+<meta name="description" content="Books, storage and handling kit Dave actually uses. Amazon affiliate links; we do not sell or supply peptides.">
+<meta name="theme-color" content="#0B0B0C">
+
+<meta property="og:title" content="Storefront — Peps by Dave">
+<meta property="og:description" content="Books, storage and handling kit. Amazon affiliate links; we do not sell or supply peptides.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..40,0&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================ tokens ====
+   The same set the homepage uses, verbatim. A second page that redefines its
+   own scale is how a site starts to feel like two sites. */
+:root {
+  --bg:#0B0B0C;
+  --accent:#D6AF52; --accent-b:#E8C87A; --accent-d:#F0D89B; --accent-rgb:214,175,82;
+  --on-accent:#1B1505;
+  --t1:#F6F2E8; --t2:rgba(246,242,232,.70); --t3:rgba(246,242,232,.44);
+  --hairline:rgba(246,242,232,.10);
+  --hairline-soft:rgba(246,242,232,.06);
+
+  --ff-display:'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --ff:'Manrope', ui-sans-serif, system-ui, sans-serif;
+
+  --ease:cubic-bezier(.22,1,.36,1);
+  --dur:.9s;
+
+  --step--1:clamp(.82rem, .79rem + .14vw, .89rem);
+  --step-0: clamp(1rem, .96rem + .2vw, 1.09rem);
+  --step-1: clamp(1.2rem, 1.11rem + .42vw, 1.45rem);
+  --step-2: clamp(1.5rem, 1.32rem + .9vw, 2.1rem);
+  --step-3: clamp(2rem, 1.62rem + 1.9vw, 3.2rem);
+  --step-4: clamp(2.6rem, 1.9rem + 3.5vw, 5rem);
+
+  --gap-section:clamp(4rem, 9vh, 7rem);
+}
+
+*, *::before, *::after { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; scroll-padding-top:88px; }
+body {
+  margin:0; font-family:var(--ff); font-weight:400;
+  color:var(--t1); line-height:1.65; font-size:var(--step-0);
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  background:
+    radial-gradient(1100px 620px at 12% -12%, rgba(214,175,82,.11), transparent 62%),
+    radial-gradient(900px 520px at 92% 4%, rgba(214,175,82,.055), transparent 64%),
+    var(--bg);
+  background-attachment:fixed;
+  overflow-x:hidden;
+}
+body::after {
+  content:''; position:fixed; inset:0; z-index:60; pointer-events:none;
+  opacity:.028; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img { max-width:100%; display:block; }
+a { color:var(--accent-d); text-underline-offset:.25em; }
+::selection { background:rgba(var(--accent-rgb),.28); color:var(--t1); }
+:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+.wrap { width:100%; max-width:72rem; margin:0 auto; padding:0 clamp(1.25rem, 5vw, 2.5rem); }
+.measure { max-width:38rem; }
+
+/* ============================================================== nav ==== */
+.nav {
+  position:sticky; top:0; z-index:50;
+  background:rgba(11,11,12,.72); backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--hairline);
+}
+.nav-in { display:flex; align-items:center; gap:1rem; height:68px; }
+@media (max-width:560px){ .nav .lnk { display:none; } }
+.brand {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:1.12rem; letter-spacing:-.015em; text-decoration:none; color:var(--t1);
+}
+.brand em { font-style:normal; color:var(--accent); }
+.nav-sp { flex:1 1 auto; }
+.nav .lnk {
+  color:var(--t2); text-decoration:none; font-size:var(--step--1); font-weight:500;
+  transition:color .35s var(--ease);
+}
+.nav .lnk:hover, .nav .lnk[aria-current="page"] { color:var(--t1); }
+
+/* ============================================================ buttons == */
+.btn {
+  position:relative; overflow:hidden;
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  text-decoration:none; font-family:var(--ff); font-weight:700;
+  font-size:var(--step--1); padding:.95rem 1.6rem; border-radius:999px;
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease), color .35s var(--ease);
+}
+.btn-primary {
+  background:linear-gradient(175deg, var(--accent-b), var(--accent) 62%, #C79E43);
+  color:var(--on-accent);
+  box-shadow:0 1px 0 rgba(255,255,255,.22) inset, 0 10px 30px -12px rgba(var(--accent-rgb),.6);
+}
+.btn-primary:hover { transform:translateY(-2px); }
+.btn-primary::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(105deg, transparent 38%, rgba(255,255,255,.55) 50%, transparent 62%);
+  transform:translateX(-120%); transition:transform .9s var(--ease);
+}
+.btn-primary:hover::after { transform:translateX(120%); }
+.btn-sm { font-size:.8rem; padding:.6rem 1.15rem; }
+
+/* ============================================================== head === */
+.head { padding:clamp(3rem, 8vh, 5.5rem) 0 0; }
+.eyebrow {
+  display:flex; align-items:center; gap:.7rem;
+  font-size:.68rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 1.3rem;
+}
+.eyebrow::after { content:''; height:1px; flex:1 1 auto; max-width:5rem; background:linear-gradient(90deg, rgba(var(--accent-rgb),.5), transparent); }
+h1 {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 144, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:var(--step-4); line-height:1.02; letter-spacing:-.032em;
+  margin:0; font-weight:400;
+}
+h1 .it {
+  font-variation-settings:'opsz' 144, 'wght' 400, 'SOFT' 0, 'WONK' 0;
+  font-style:italic; color:var(--accent-d);
+}
+.lede { font-size:var(--step-1); line-height:1.55; color:var(--t2); margin:1.5rem 0 0; font-weight:300; }
+
+/* ------------------------------------------------------- disclosure ---- */
+/* Amazon requires the affiliate relationship to be disclosed clearly and near
+   the links, and the FTC requires it regardless of what Amazon asks for. It is
+   a panel above the first product for that reason, not a footnote. */
+.disclosure {
+  margin-top:clamp(2rem, 5vh, 3rem);
+  padding:clamp(1.2rem, 2.6vw, 1.7rem);
+  border-radius:18px;
+  border:1px solid rgba(var(--accent-rgb),.26);
+  background:linear-gradient(180deg, rgba(var(--accent-rgb),.075), rgba(var(--accent-rgb),.03));
+}
+.disclosure p { margin:0; color:var(--t2); font-size:var(--step--1); line-height:1.7; }
+.disclosure p + p { margin-top:.7rem; }
+.disclosure strong { color:var(--t1); font-weight:700; }
+
+/* =========================================================== sections == */
+.section { padding:var(--gap-section) 0; }
+.section + .section { border-top:1px solid var(--hairline-soft); }
+.sec-head { margin-bottom:clamp(1.8rem,4vh,2.6rem); }
+h2 {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 90, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:var(--step-3); line-height:1.06; letter-spacing:-.028em;
+  margin:0; font-weight:400;
+}
+.sub { color:var(--t2); margin:.7rem 0 0; font-weight:300; font-size:var(--step-1); }
+
+/* ------------------------------------------------------------ product -- */
+/* The same surface as the homepage cards: gradient falling downward, top edge
+   lit, generous padding, watermark bled off the corner. */
+.products {
+  display:grid; grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:clamp(.9rem, 1.8vw, 1.4rem);
+}
+@media (max-width:980px){ .products { grid-template-columns:repeat(2, minmax(0,1fr)); } }
+@media (max-width:640px){ .products { grid-template-columns:1fr; } }
+
+.product {
+  position:relative; overflow:hidden; isolation:isolate;
+  display:flex; flex-direction:column;
+  border-radius:22px;
+  background:linear-gradient(168deg, rgba(246,242,232,.062), rgba(246,242,232,.022) 52%, rgba(246,242,232,.012));
+  border:1px solid var(--hairline-soft);
+  border-top-color:rgba(246,242,232,.16);
+  padding:clamp(1.4rem, 2.2vw, 1.9rem);
+  transition:transform .6s var(--ease), border-color .6s var(--ease);
+}
+.product::before {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:radial-gradient(120% 90% at 12% 0%, rgba(var(--accent-rgb),.16), transparent 62%);
+  opacity:0; transition:opacity .6s var(--ease);
+}
+.product:hover { transform:translateY(-3px); border-top-color:rgba(var(--accent-rgb),.45); }
+.product:hover::before { opacity:1; }
+
+.product .label {
+  display:flex; align-items:center; gap:.6rem;
+  font-size:.62rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 .9rem;
+}
+.product .label::after {
+  content:''; height:1px; flex:1 1 auto;
+  background:linear-gradient(90deg, rgba(var(--accent-rgb),.34), transparent);
+}
+.product h3 {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 50, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:var(--step-1); line-height:1.16; letter-spacing:-.018em;
+  margin:0 0 .55rem; font-weight:400;
+}
+.product p { margin:0 0 1.3rem; color:var(--t2); font-weight:300; font-size:var(--step--1); line-height:1.6; }
+.product .foot { margin-top:auto; }
+.product .btn { width:100%; }
+
+/* An empty slot states that it is empty. A placeholder dressed as a live link
+   is a broken link with better manners — it looks clickable, goes nowhere, and
+   the first person to find out is a visitor. */
+.slot-empty {
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  width:100%; padding:.95rem 1.2rem; border-radius:999px;
+  border:1px dashed var(--hairline); color:var(--t3);
+  font-size:var(--step--1); font-weight:600;
+}
+.product.is-empty { opacity:.72; }
+.product.is-empty:hover { transform:none; border-top-color:rgba(246,242,232,.16); }
+.product.is-empty:hover::before { opacity:0; }
+
+/* ------------------------------------------------------------- notice -- */
+.notice {
+  padding:clamp(1.5rem,3vw,2.2rem); border-radius:18px;
+  border:1px solid rgba(var(--accent-rgb),.26);
+  background:linear-gradient(180deg, rgba(var(--accent-rgb),.075), rgba(var(--accent-rgb),.03));
+}
+.notice h3 {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  margin:0 0 .9rem; font-size:var(--step-1); font-weight:400; color:var(--accent-d);
+  letter-spacing:-.015em;
+}
+.notice p { margin:0 0 .9rem; color:var(--t2); font-size:var(--step--1); line-height:1.72; }
+.notice p:last-child { margin-bottom:0; }
+.notice strong { color:var(--t1); font-weight:700; }
+
+/* ------------------------------------------------------------- footer -- */
+.footer { border-top:1px solid var(--hairline-soft); padding:3.5rem 0 4rem; }
+.footer-in { display:flex; flex-wrap:wrap; gap:1rem 2.2rem; align-items:baseline; }
+.footer a { color:var(--t2); text-decoration:none; font-size:var(--step--1); transition:color .35s var(--ease); }
+.footer a:hover { color:var(--t1); }
+.footer .small { color:var(--t3); font-size:.8rem; }
+
+/* ============================================================= motion == */
+.rise { opacity:0; transform:translate3d(0, 22px, 0); }
+.in .rise {
+  opacity:1; transform:translate3d(0,0,0);
+  transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  transition-delay:var(--d, 0s);
+}
+@keyframes riseIn { from { opacity:0; transform:translate3d(0,26px,0); } to { opacity:1; transform:none; } }
+.head .eyebrow { animation:riseIn .9s var(--ease) .05s both; }
+.head h1       { animation:riseIn 1s var(--ease) .14s both; }
+.head .lede    { animation:riseIn .95s var(--ease) .3s both; }
+.head .disclosure { animation:riseIn .95s var(--ease) .42s both; }
+
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration:.001ms !important; animation-delay:0s !important;
+    transition-duration:.001ms !important;
+  }
+  .rise { opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">Peps by <em>Dave</em></a>
+    <span class="nav-sp"></span>
+    <a class="lnk" href="/#inside">What&rsquo;s inside</a>
+    <a class="lnk" href="/#studies">Research</a>
+    <a class="lnk" href="/storefront" aria-current="page">Storefront</a>
+    <a class="btn btn-primary btn-sm" href="https://www.skool.com/pepsbydave-3539/about">Join</a>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap">
+    <p class="eyebrow">Storefront</p>
+    <h1>The kit, <span class="it">not the compounds.</span></h1>
+    <p class="lede measure">
+      Books worth owning and the ordinary equipment that comes up constantly in the community.
+      Everything here is bought from Amazon, by you, from Amazon.
+    </p>
+
+    <!-- Required, and required to be HERE rather than in the footer. Amazon's
+         operating agreement asks for the disclosure to sit near the links, and
+         the FTC asks for it whether or not Amazon does. -->
+    <div class="disclosure">
+      <p>
+        <strong>Affiliate disclosure.</strong> As an Amazon Associate, Peps by Dave earns from
+        qualifying purchases. If you buy through a link on this page, Amazon pays us a small
+        commission and you pay exactly the same price you would have paid anyway.
+      </p>
+      <p>
+        A commission is not a recommendation, and nothing on this page is a medical
+        recommendation of any kind. <strong>We do not sell, supply, source or ship peptides</strong>
+        &mdash; nothing on this page is a peptide, and none of it will be.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================================
+     ADDING A PRODUCT
+     Each card is one <article class="product">. To make a slot live:
+       1. Replace the <div class="slot-empty"> with:
+          <a class="btn btn-primary" href="AMAZON_AFFILIATE_URL"
+             target="_blank" rel="nofollow sponsored noopener">View on Amazon</a>
+       2. Remove `is-empty` from the article's class list.
+     `rel="nofollow sponsored"` is not optional — Google requires paid links to
+     be marked, and Amazon's agreement requires the relationship to be clear.
+     Do NOT write product claims here. Describe what the thing is and why it
+     comes up; leave what it does to the manufacturer's own page.
+============================================================================= -->
+
+<section class="section reveal" id="reading">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rise">Reading</h2>
+      <p class="sub rise measure" style="--d:.08s">The books behind most of what gets discussed in the community. Start here if you want to argue with us properly.</p>
+    </div>
+
+    <div class="products">
+      <article class="product rise is-empty" style="--d:.14s">
+        <p class="label">Statistics</p>
+        <h3>How to read a clinical trial</h3>
+        <p>A plain guide to sample size, controls and confidence intervals &mdash; the skill the whole community is built around.</p>
+        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+      </article>
+
+      <article class="product rise is-empty" style="--d:.2s">
+        <p class="label">Evidence</p>
+        <h3>Bad science, and how to spot it</h3>
+        <p>How a finding becomes a headline becomes a product page, written by someone who has watched it happen for a living.</p>
+        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+      </article>
+
+      <article class="product rise is-empty" style="--d:.26s">
+        <p class="label">Reference</p>
+        <h3>Peptide and protein chemistry primer</h3>
+        <p>For when the vocabulary in a paper runs ahead of you and you want the actual definition rather than a forum's.</p>
+        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="storage">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rise">Storage and handling</h2>
+      <p class="sub rise measure" style="--d:.08s">Ordinary equipment. None of it is specific to any compound, and none of it is a reason to obtain one.</p>
+    </div>
+
+    <div class="products">
+      <article class="product rise is-empty" style="--d:.14s">
+        <p class="label">Cold chain</p>
+        <h3>Fridge thermometer</h3>
+        <p>Most storage guidance assumes you know your fridge's real temperature. Almost nobody does.</p>
+        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+      </article>
+
+      <article class="product rise is-empty" style="--d:.2s">
+        <p class="label">Organisation</p>
+        <h3>Labels and a marker that survives cold</h3>
+        <p>An unlabelled vial in a cold fridge is a guess, and guessing is the one thing this community exists to reduce.</p>
+        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+      </article>
+
+      <article class="product rise is-empty" style="--d:.26s">
+        <p class="label">Notes</p>
+        <h3>A lab notebook</h3>
+        <p>Paper, numbered pages, dated entries. Unglamorous, and the difference between a record and a memory.</p>
+        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="terms-note">
+  <div class="wrap">
+    <div class="notice rise">
+      <h3>What this page is and is not</h3>
+      <p>
+        Peps by Dave is an <strong>educational community</strong>. This page lists general
+        equipment and reading, and links to Amazon, where the sale is between you and Amazon.
+        Nothing here is medical advice, a diagnosis or a treatment plan.
+      </p>
+      <p>
+        We do not provide dosing or administration guidance. Many peptides are not approved for
+        human use in most jurisdictions and are sold for laboratory research only. What is legal
+        is your responsibility to establish where you live.
+      </p>
+      <p>
+        Never start, stop or change anything you are taking based on something you read in a
+        community. Talk to your doctor.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <a href="/">Home</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="mailto:pepsbydave@gmail.com">Contact</a>
+    <span class="nav-sp"></span>
+    <span class="small">&copy; <span id="yr">2026</span> Sybago LLC. Educational content only &mdash; not medical advice.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* Same reveal as the homepage: IntersectionObserver rather than a scroll
+     listener, and each section unobserved the moment it fires. */
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var targets = document.querySelectorAll('.reveal');
+
+    if (reduce.matches || !('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+
+    targets.forEach(function (el) { io.observe(el); });
+  }());
+</script>
+</body>
+</html>
