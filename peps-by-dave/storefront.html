@@ -144,7 +144,7 @@ h1 .it {
    the links, and the FTC requires it regardless of what Amazon asks for. It is
    a panel above the first product for that reason, not a footnote. */
 .disclosure {
-  margin-top:clamp(2rem, 5vh, 3rem);
+  margin-top:clamp(1.2rem, 3vh, 1.8rem);
   padding:clamp(1.2rem, 2.6vw, 1.7rem);
   border-radius:18px;
   border:1px solid rgba(var(--accent-rgb),.26);
@@ -176,6 +176,12 @@ h2 {
 @media (max-width:980px){ .products { grid-template-columns:repeat(2, minmax(0,1fr)); } }
 @media (max-width:640px){ .products { grid-template-columns:1fr; } }
 
+/* Four cards in a three-column row strands one on a line of its own. A section
+   that holds four gets two columns instead — a different count per section
+   reads as a decision, where a stranded card reads as unfinished. */
+.products.two-up { grid-template-columns:repeat(2, minmax(0,1fr)); }
+@media (max-width:640px){ .products.two-up { grid-template-columns:1fr; } }
+
 .product {
   position:relative; overflow:hidden; isolation:isolate;
   display:flex; flex-direction:column;
@@ -183,8 +189,38 @@ h2 {
   background:linear-gradient(168deg, rgba(246,242,232,.062), rgba(246,242,232,.022) 52%, rgba(246,242,232,.012));
   border:1px solid var(--hairline-soft);
   border-top-color:rgba(246,242,232,.16);
-  padding:clamp(1.4rem, 2.2vw, 1.9rem);
+  padding:clamp(1rem, 1.5vw, 1.3rem);
   transition:transform .6s var(--ease), border-color .6s var(--ease);
+}
+
+/* The product plate.
+   Amazon shoots on white and this page is near-black, so a raw image reads as
+   scraped. A warm ivory plate with the product floating inside padding reads as
+   a display case, and the gradient keeps it inside the same palette as the rest
+   of the page rather than introducing a second, colder white. */
+.product .shot {
+  display:block; position:relative; aspect-ratio:1/1;
+  border-radius:15px; overflow:hidden;
+  background:linear-gradient(180deg, #FBF8F1, #E7E1D4);
+  box-shadow:inset 0 0 0 1px rgba(11,11,12,.07);
+  margin-bottom:1.1rem;
+}
+.product .shot img {
+  width:100%; height:100%; object-fit:contain; padding:11%;
+  /* Only transform animates. Scaling the image inside a clipped plate is one
+     composited layer, where animating width or padding would relayout. */
+  transition:transform .8s var(--ease);
+}
+.product:hover .shot img { transform:scale(1.05); }
+
+/* An empty plate states that it is empty rather than showing a broken frame. */
+.product .shot.is-blank {
+  display:grid; place-items:center;
+  background:rgba(246,242,232,.04);
+  box-shadow:inset 0 0 0 1px var(--hairline);
+}
+.product .shot.is-blank span {
+  font-size:var(--step--1); color:var(--t3); font-weight:600;
 }
 .product::before {
   content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
@@ -196,8 +232,8 @@ h2 {
 
 .product .label {
   display:flex; align-items:center; gap:.6rem;
-  font-size:.62rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-  color:var(--accent); margin:0 0 .9rem;
+  font-size:.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 .6rem;
 }
 .product .label::after {
   content:''; height:1px; flex:1 1 auto;
@@ -205,11 +241,11 @@ h2 {
 }
 .product h3 {
   font-family:var(--ff-display);
-  font-variation-settings:'opsz' 50, 'wght' 600, 'SOFT' 0, 'WONK' 0;
-  font-size:var(--step-1); line-height:1.16; letter-spacing:-.018em;
-  margin:0 0 .55rem; font-weight:400;
+  font-variation-settings:'opsz' 44, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:var(--step-1); line-height:1.14; letter-spacing:-.018em;
+  margin:0 0 .5rem; font-weight:400;
 }
-.product p { margin:0 0 1.3rem; color:var(--t2); font-weight:300; font-size:var(--step--1); line-height:1.6; }
+.product > p:not(.label) { margin:0 0 1.2rem; color:var(--t2); font-weight:300; font-size:var(--step--1); line-height:1.58; }
 .product .foot { margin-top:auto; }
 .product .btn { width:100%; }
 
@@ -260,7 +296,6 @@ h2 {
 .head .eyebrow { animation:riseIn .9s var(--ease) .05s both; }
 .head h1       { animation:riseIn 1s var(--ease) .14s both; }
 .head .lede    { animation:riseIn .95s var(--ease) .3s both; }
-.head .disclosure { animation:riseIn .95s var(--ease) .42s both; }
 
 @media (prefers-reduced-motion:reduce) {
   *, *::before, *::after {
@@ -293,24 +328,6 @@ h2 {
       Everything here is bought from Amazon, by you, from Amazon.
     </p>
 
-    <!-- The disclosure belongs HERE, above the first product, not in the footer.
-         Amazon's operating agreement makes the "As an Amazon Associate…"
-         sentence a condition of the programme, and the FTC requires a material
-         connection to be disclosed near the endorsement whether or not Amazon
-         asks. A footer is not "near". Reword the surrounding copy freely; that
-         one sentence stays. -->
-    <div class="disclosure">
-      <p>
-        <strong>Buying through these links helps.</strong> As an Amazon Associate, Peps by Dave
-        earns from qualifying purchases. Amazon pays that commission out of its own margin, so
-        you pay the same price you would have paid searching for the thing yourself.
-      </p>
-      <p>
-        It funds the unglamorous half of running this: the hours spent reading papers properly,
-        writing them up so they are usable, and answering questions when a study stops making
-        sense. A commission is not a recommendation, and nothing on this page is medical advice.
-      </p>
-    </div>
   </div>
 </header>
 
@@ -327,65 +344,140 @@ h2 {
      comes up; leave what it does to the manufacturer's own page.
 ============================================================================= -->
 
-<section class="section reveal" id="reading">
+<section class="section reveal" id="shop">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="rise">Reading</h2>
-      <p class="sub rise measure" style="--d:.08s">The books behind most of what gets discussed in the community. Start here if you want to argue with us properly.</p>
+      <h2 class="rise">The kit</h2>
+      <p class="sub rise measure" style="--d:.08s">Ordinary equipment and consumables, bought from Amazon. Listed because they come up, not as a suggestion to use them.</p>
     </div>
 
     <div class="products">
-      <article class="product rise is-empty" style="--d:.14s">
-        <p class="label">Statistics</p>
-        <h3>How to read a clinical trial</h3>
-        <p>A plain guide to sample size, controls and confidence intervals &mdash; the skill the whole community is built around.</p>
+      <article class="product rise is-empty" style="--d:.12s">
+        <div class="shot is-blank"><span>Image to follow</span></div>
+        <p class="label">Consumables</p>
+        <h3>U100 1&nbsp;ml syringes, 31G</h3>
+        <p>Graduated 1&nbsp;cc barrels with a fixed 5/16&Prime; 31-gauge needle, sold in bulk for laboratory use.</p>
         <div class="foot"><div class="slot-empty">Link to be added</div></div>
       </article>
 
-      <article class="product rise is-empty" style="--d:.2s">
-        <p class="label">Evidence</p>
-        <h3>Bad science, and how to spot it</h3>
-        <p>How a finding becomes a headline becomes a product page, written by someone who has watched it happen for a living.</p>
-        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+      <article class="product rise" style="--d:.17s">
+        <a class="shot" href="https://link.amazon/B0aSabLH2" target="_blank" rel="nofollow sponsored noopener" tabindex="-1" aria-hidden="true">
+          <img src="https://m.media-amazon.com/images/I/81lhpf7NMOL._AC_SL500_.jpg" alt="Box of Care Touch individually wrapped alcohol prep pads"
+               loading="lazy" decoding="async" width="500" height="500">
+        </a>
+        <p class="label">Consumables</p>
+        <h3>Care Touch alcohol prep pads</h3>
+        <p>Four hundred individually wrapped 70% isopropyl pads. The thing you always run out of first.</p>
+        <div class="foot">
+          <a class="btn btn-primary" href="https://link.amazon/B0aSabLH2" target="_blank" rel="nofollow sponsored noopener">
+            View on Amazon<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
       </article>
 
-      <article class="product rise is-empty" style="--d:.26s">
-        <p class="label">Reference</p>
-        <h3>Peptide and protein chemistry primer</h3>
-        <p>For when the vocabulary in a paper runs ahead of you and you want the actual definition rather than a forum's.</p>
-        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+      <article class="product rise" style="--d:.22s">
+        <a class="shot" href="https://link.amazon/B001y2LSt" target="_blank" rel="nofollow sponsored noopener" tabindex="-1" aria-hidden="true">
+          <img src="https://m.media-amazon.com/images/I/71iE26B7ERL._AC_SL500_.jpg" alt="Oakridge one gallon sharps disposal container"
+               loading="lazy" decoding="async" width="500" height="500">
+        </a>
+        <p class="label">Disposal</p>
+        <h3>Oakridge 1-gallon sharps container</h3>
+        <p>CDC-certified, pop-up lid, two to a pack. Sharps do not belong in a household bin.</p>
+        <div class="foot">
+          <a class="btn btn-primary" href="https://link.amazon/B001y2LSt" target="_blank" rel="nofollow sponsored noopener">
+            View on Amazon<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
       </article>
-    </div>
-  </div>
-</section>
 
-<section class="section reveal" id="storage">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="rise">Storage and handling</h2>
-      <p class="sub rise measure" style="--d:.08s">Ordinary equipment. None of it is specific to any compound, and none of it is a reason to obtain one.</p>
-    </div>
-
-    <div class="products">
-      <article class="product rise is-empty" style="--d:.14s">
+      <article class="product rise" style="--d:.27s">
+        <a class="shot" href="https://link.amazon/B02aVZ30C" target="_blank" rel="nofollow sponsored noopener" tabindex="-1" aria-hidden="true">
+          <img src="https://m.media-amazon.com/images/I/71lCPxbXICL._AC_SL500_.jpg" alt="Upstreman BR321 black mini fridge with freezer compartment"
+               loading="lazy" decoding="async" width="500" height="500">
+        </a>
         <p class="label">Cold chain</p>
-        <h3>Fridge thermometer</h3>
-        <p>Most storage guidance assumes you know your fridge's real temperature. Almost nobody does.</p>
-        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+        <h3>Upstreman BR321 mini fridge</h3>
+        <p>A thermostat you can set and read, rather than a dial marked one to five.</p>
+        <div class="foot">
+          <a class="btn btn-primary" href="https://link.amazon/B02aVZ30C" target="_blank" rel="nofollow sponsored noopener">
+            View on Amazon<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
       </article>
 
-      <article class="product rise is-empty" style="--d:.2s">
+      <article class="product rise" style="--d:.32s">
+        <a class="shot" href="https://link.amazon/B0fBoyst9" target="_blank" rel="nofollow sponsored noopener" tabindex="-1" aria-hidden="true">
+          <img src="https://m.media-amazon.com/images/I/61P4Y%2B9JvQL._AC_SL500_.jpg" alt="BougeRV CRPRO 21 quart portable 12 volt refrigerator"
+               loading="lazy" decoding="async" width="500" height="500">
+        </a>
+        <p class="label">Cold chain</p>
+        <h3>BougeRV CRPRO 21QT portable fridge</h3>
+        <p>A compressor fridge on 12&nbsp;V, down to &minus;8&thinsp;&deg;F. Holds temperature in a car or a garage.</p>
+        <div class="foot">
+          <a class="btn btn-primary" href="https://link.amazon/B0fBoyst9" target="_blank" rel="nofollow sponsored noopener">
+            View on Amazon<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="product rise" style="--d:.37s">
+        <a class="shot" href="https://link.amazon/B00lQnsoE" target="_blank" rel="nofollow sponsored noopener" tabindex="-1" aria-hidden="true">
+          <img src="https://m.media-amazon.com/images/I/71RsSryFM4L._AC_SL500_.jpg" alt="YOUSHARES insulated travel case with digital temperature display"
+               loading="lazy" decoding="async" width="500" height="500">
+        </a>
+        <p class="label">Transport</p>
+        <h3>YOUSHARES insulated travel case</h3>
+        <p>A small insulated case with the temperature shown on the lid, read from inside rather than hoped at.</p>
+        <div class="foot">
+          <a class="btn btn-primary" href="https://link.amazon/B00lQnsoE" target="_blank" rel="nofollow sponsored noopener">
+            View on Amazon<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="product rise" style="--d:.42s">
+        <a class="shot" href="https://link.amazon/B07bTsqwy" target="_blank" rel="nofollow sponsored noopener" tabindex="-1" aria-hidden="true">
+          <img src="https://m.media-amazon.com/images/I/61UNq0X0rwL._AC_SL500_.jpg" alt="Govee H5179 WiFi thermometer and hygrometer"
+               loading="lazy" decoding="async" width="500" height="500">
+        </a>
+        <p class="label">Monitoring</p>
+        <h3>Govee H5179 WiFi thermometer</h3>
+        <p>Logs temperature and humidity and alerts you when either leaves the range you set.</p>
+        <div class="foot">
+          <a class="btn btn-primary" href="https://link.amazon/B07bTsqwy" target="_blank" rel="nofollow sponsored noopener">
+            View on Amazon<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="product rise" style="--d:.47s">
+        <a class="shot" href="https://link.amazon/B0dg3frnB" target="_blank" rel="nofollow sponsored noopener" tabindex="-1" aria-hidden="true">
+          <img src="https://m.media-amazon.com/images/I/61xFPCvYgQL._AC_SL500_.jpg" alt="Nelko P21 Bluetooth label printer in white"
+               loading="lazy" decoding="async" width="500" height="500">
+        </a>
         <p class="label">Organisation</p>
-        <h3>Labels and a marker that survives cold</h3>
-        <p>An unlabelled vial in a cold fridge is a guess, and guessing is the one thing this community exists to reduce.</p>
-        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+        <h3>Nelko P21 label maker</h3>
+        <p>Prints adhesive labels from your phone. An unlabelled vial in a cold fridge is a guess.</p>
+        <div class="foot">
+          <a class="btn btn-primary" href="https://link.amazon/B0dg3frnB" target="_blank" rel="nofollow sponsored noopener">
+            View on Amazon<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
       </article>
 
-      <article class="product rise is-empty" style="--d:.26s">
-        <p class="label">Notes</p>
-        <h3>A lab notebook</h3>
-        <p>Paper, numbered pages, dated entries. Unglamorous, and the difference between a record and a memory.</p>
-        <div class="foot"><div class="slot-empty">Link to be added</div></div>
+      <article class="product rise" style="--d:.52s">
+        <a class="shot" href="https://link.amazon/B04VqeH5Q" target="_blank" rel="nofollow sponsored noopener" tabindex="-1" aria-hidden="true">
+          <img src="https://m.media-amazon.com/images/I/81SXFYWYeCL._AC_SL500_.jpg" alt="Black Pelican 1400 protective case with foam insert"
+               loading="lazy" decoding="async" width="500" height="500">
+        </a>
+        <p class="label">Transport</p>
+        <h3>Pelican 1400 case with foam</h3>
+        <p>Sealed and crushproof, with pluck foam you cut to fit whatever goes inside it.</p>
+        <div class="foot">
+          <a class="btn btn-primary" href="https://link.amazon/B04VqeH5Q" target="_blank" rel="nofollow sponsored noopener">
+            View on Amazon<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        </div>
       </article>
     </div>
   </div>
@@ -412,6 +504,22 @@ h2 {
       <p>
         Never start, stop or change anything you are taking based on something you read in a
         community. Talk to your doctor.
+      </p>
+    </div>
+
+    <!-- Moved here from above the first product by request. The required
+         sentence is untouched and still leads the panel; that one is a
+         condition of the Associates programme rather than copy. -->
+    <div class="disclosure">
+      <p>
+        <strong>Buying through these links helps.</strong> As an Amazon Associate, Peps by Dave
+        earns from qualifying purchases. Amazon pays that commission out of its own margin, so
+        you pay the same price you would have paid searching for the thing yourself.
+      </p>
+      <p>
+        It funds the unglamorous half of running this: the hours spent reading papers properly,
+        writing them up so they are usable, and answering questions when a study stops making
+        sense. A commission is not a recommendation, and nothing on this page is medical advice.
       </p>
     </div>
   </div>

@@ -160,9 +160,13 @@ export function LeadForm() {
         const body = await res.json().catch(() => null);
         captured = body?.captured !== false;
       }
-      // Lead fires once the request has returned — capture happened (or was
-      // logged server-side). Never fire on the success screen rendering.
-      if (captured) pixel.lead({ content_name: payload.projectType });
+      /* Fires whenever the submission itself completed, NOT only when the CRM
+         write succeeded. Gating it on `captured` was a mistake: the visitor
+         filled the form either way, and that action is precisely what Meta
+         should be optimising toward. Our backend failing is our problem, not a
+         signal about them — and losing the Lead event on top of losing the lead
+         makes the ads worse at finding the next one. */
+      pixel.lead({ content_name: payload.projectType });
     } catch (err) {
       console.error("[lead] submit failed", err);
     } finally {
