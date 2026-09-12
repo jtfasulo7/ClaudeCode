@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- viewport-fit=cover: without it the page starts BELOW the notch inset and
+     the sticky header can never reach the true top of the screen. With it, the
+     nav pads itself by env(safe-area-inset-top) and paints that strip. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Storefront — Peps by Dave</title>
 <meta name="description" content="The equipment and consumables that make peptide storage, handling and travel work. Amazon affiliate links; we do not sell or supply peptides.">
 <meta name="theme-color" content="#0B0B0C">
@@ -40,11 +43,17 @@
 
   --nav-h:68px;
   --chips-h:56px;
+  /* Zero everywhere but a notched phone, where it is the height of the strip
+     the system reserves at the top of the screen. */
+  --safe-top:env(safe-area-inset-top, 0px);
 }
 
 *, *::before, *::after { box-sizing:border-box; }
 /* Anchors land clear of BOTH sticky bars. */
-html { -webkit-text-size-adjust:100%; scroll-padding-top:calc(var(--nav-h) + var(--chips-h) + 12px); scroll-behavior:smooth; }
+html {
+  -webkit-text-size-adjust:100%; scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav-h) + var(--chips-h) + var(--safe-top) + 12px);
+}
 @media (prefers-reduced-motion:reduce){ html { scroll-behavior:auto; } }
 
 body {
@@ -82,6 +91,9 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
 /* ============================================================== nav ==== */
 .nav {
   position:sticky; top:0; z-index:50;
+  /* The padding is what puts the nav's background INTO the notch strip; the
+     links stay below it because padding sits inside the background box. */
+  padding-top:var(--safe-top);
   background:rgba(11,11,12,.82); backdrop-filter:blur(14px) saturate(140%);
   border-bottom:1px solid var(--hairline);
 }
@@ -147,10 +159,23 @@ h1 {
 }
 @media (max-width:760px){
   .chipbar {
-    position:sticky; top:var(--nav-h); margin-top:1.2rem;
-    background:rgba(11,11,12,.9); backdrop-filter:blur(14px) saturate(140%);
+    /* Flush under the nav, inset included. NO margin-top: sticky clamps the
+       MARGIN box, so a margin here reappears as a transparent gap between the
+       two bars once the bar pins, with the page scrolling through it. The
+       spacing it used to provide is on .hero's padding-bottom instead. */
+    position:sticky; top:calc(var(--nav-h) + var(--safe-top)); margin-top:0;
+    /* Opaque, not translucent-over-blur: backdrop-filter is missing in several
+       Android WebViews and is dropped under reduced-transparency and
+       battery-saver modes, and without it .9 alpha is a window onto the page
+       sliding past underneath. */
+    background:var(--bg);
     border-bottom:1px solid var(--hairline-soft);
   }
+  /* Same reasoning for the nav, which sits over the same moving content. */
+  .nav { background:var(--bg); backdrop-filter:none; }
+  /* The space the chip bar's margin used to hold, moved somewhere that cannot
+     turn into a gap when the bar sticks. */
+  .hero { padding-bottom:1.2rem; }
   /* Bleed the scroller to the screen edges so the last chip does not look cut
      off mid-word, while the first still lines up with the text above it. */
   .chipbar .wrap { padding-right:0; }
@@ -309,7 +334,12 @@ h1 {
 .hero h1        { animation:riseIn .95s var(--ease) .05s both; }
 .hero .sub      { animation:riseIn .95s var(--ease) .16s both; }
 .disclosure-top { animation:riseIn .95s var(--ease) .26s both; }
-.chipbar        { animation:riseIn .95s var(--ease) .34s both; }
+/* The entry animation runs on the INNER wrapper, never on .chipbar itself.
+   A transform on a sticky element is applied after its position is resolved,
+   so animating the bar directly slid the pinned bar 26px down the screen for
+   the first 1.3s of every page load — a gap under the nav with the page
+   scrolling through it. The wrapper moves; the sticky box stays put. */
+.chipbar .wrap  { animation:riseIn .95s var(--ease) .34s both; }
 
 @media (prefers-reduced-motion:reduce) {
   *, *::before, *::after {
