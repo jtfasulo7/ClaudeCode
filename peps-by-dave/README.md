@@ -137,7 +137,7 @@ human evidence. Keep a row like it if the list ever changes.
 The standing note under the list says that listing a study is not a
 recommendation. Keep it.
 
-## The storefront (/storefront)
+## The supplies page (/supplies)
 
 Amazon affiliate links. **A skeleton** — six slots, no live URLs. Each renders a
 dashed 'Link to be added' block rather than an `href='#'`, because a
