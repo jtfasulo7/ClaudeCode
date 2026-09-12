@@ -260,6 +260,8 @@ h2 {
 .head .eyebrow { animation:riseIn .9s var(--ease) .05s both; }
 .head h1       { animation:riseIn 1s var(--ease) .14s both; }
 .head .lede    { animation:riseIn .95s var(--ease) .3s both; }
+/* .head .disclosure keeps its delay slot — the panel is expected back before
+   any live affiliate link ships, and its styles are still below. */
 .head .disclosure { animation:riseIn .95s var(--ease) .42s both; }
 
 @media (prefers-reduced-motion:reduce) {
@@ -293,21 +295,34 @@ h2 {
       Everything here is bought from Amazon, by you, from Amazon.
     </p>
 
-    <!-- Required, and required to be HERE rather than in the footer. Amazon's
-         operating agreement asks for the disclosure to sit near the links, and
-         the FTC asks for it whether or not Amazon does. -->
-    <div class="disclosure">
-      <p>
-        <strong>Affiliate disclosure.</strong> As an Amazon Associate, Peps by Dave earns from
-        qualifying purchases. If you buy through a link on this page, Amazon pays us a small
-        commission and you pay exactly the same price you would have paid anyway.
-      </p>
-      <p>
-        A commission is not a recommendation, and nothing on this page is a medical
-        recommendation of any kind. <strong>We do not sell, supply, source or ship peptides</strong>
-        &mdash; nothing on this page is a peptide, and none of it will be.
-      </p>
-    </div>
+    <!-- ======================================================================
+         THE AFFILIATE DISCLOSURE BELONGS HERE, AND IT IS CURRENTLY ABSENT.
+
+         It was removed while every slot on this page is empty: with no paid
+         link there is no material connection to disclose. That changes the
+         moment the first real Amazon URL goes in.
+
+         BEFORE PUBLISHING A LIVE AFFILIATE LINK, put this back:
+
+           <div class="disclosure">
+             <p><strong>Affiliate disclosure.</strong> As an Amazon Associate,
+             Peps by Dave earns from qualifying purchases. If you buy through a
+             link on this page, Amazon pays us a small commission and you pay
+             exactly the same price you would have paid anyway.</p>
+           </div>
+
+         The .disclosure styles are still in the stylesheet, so this is a paste.
+
+         Two separate reasons, and neither is a matter of taste:
+           - Amazon's Associates Operating Agreement makes that sentence a
+             condition of the programme. Missing it is grounds for terminating
+             the account and withholding fees already earned.
+           - The FTC's endorsement rules require a material connection to be
+             disclosed clearly and near the endorsement, regardless of what
+             Amazon asks for.
+
+         It goes ABOVE the first product. A footer is not "near the links".
+    ====================================================================== -->
   </div>
 </header>
 
@@ -396,6 +411,10 @@ h2 {
         Peps by Dave is an <strong>educational community</strong>. This page lists general
         equipment and reading, and links to Amazon, where the sale is between you and Amazon.
         Nothing here is medical advice, a diagnosis or a treatment plan.
+      </p>
+      <p>
+        <strong>We do not sell, supply, source or ship peptides.</strong> Nothing on this page is
+        a peptide, and none of it will be.
       </p>
       <p>
         We do not provide dosing or administration guidance. Many peptides are not approved for

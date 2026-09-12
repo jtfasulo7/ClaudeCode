@@ -150,10 +150,23 @@ To make a slot live, replace the `.slot-empty` div with an anchor and drop
 marked and Amazon’s agreement requires the relationship to be clear. There is a
 comment block in the file with the exact markup.
 
-**The disclosure sits above the first product, not in the footer.** Amazon’s
-operating agreement asks for it near the links and the FTC asks for it
-regardless. Moving it down the page breaks both. The required sentence is
-'As an Amazon Associate… earns from qualifying purchases' — keep that wording.
+**The affiliate disclosure is currently REMOVED, and has to come back before
+the first live link.** It was taken out while every slot is empty: with no paid
+link on the page there is no material connection to disclose. That stops being
+true the moment a real Amazon URL goes in.
+
+The markup to paste back is in a comment at the exact insertion point in
+`storefront.html`, and the `.disclosure` styles are still in the stylesheet, so
+restoring it is a paste. Two reasons it is not optional once links are live:
+
+- **Amazon’s Associates Operating Agreement** makes the 'As an Amazon
+  Associate… earns from qualifying purchases' sentence a condition of the
+  programme. Missing it is grounds for terminating the account and withholding
+  fees already earned — which costs more than the disclosure ever would.
+- **The FTC endorsement rules** require a material connection to be disclosed
+  clearly and near the endorsement, whatever Amazon asks for.
+
+It belongs ABOVE the first product. A footer is not 'near the links'.
 
 ### The line this page must not cross
 
