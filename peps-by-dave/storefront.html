@@ -260,8 +260,6 @@ h2 {
 .head .eyebrow { animation:riseIn .9s var(--ease) .05s both; }
 .head h1       { animation:riseIn 1s var(--ease) .14s both; }
 .head .lede    { animation:riseIn .95s var(--ease) .3s both; }
-/* .head .disclosure keeps its delay slot — the panel is expected back before
-   any live affiliate link ships, and its styles are still below. */
 .head .disclosure { animation:riseIn .95s var(--ease) .42s both; }
 
 @media (prefers-reduced-motion:reduce) {
@@ -295,34 +293,24 @@ h2 {
       Everything here is bought from Amazon, by you, from Amazon.
     </p>
 
-    <!-- ======================================================================
-         THE AFFILIATE DISCLOSURE BELONGS HERE, AND IT IS CURRENTLY ABSENT.
-
-         It was removed while every slot on this page is empty: with no paid
-         link there is no material connection to disclose. That changes the
-         moment the first real Amazon URL goes in.
-
-         BEFORE PUBLISHING A LIVE AFFILIATE LINK, put this back:
-
-           <div class="disclosure">
-             <p><strong>Affiliate disclosure.</strong> As an Amazon Associate,
-             Peps by Dave earns from qualifying purchases. If you buy through a
-             link on this page, Amazon pays us a small commission and you pay
-             exactly the same price you would have paid anyway.</p>
-           </div>
-
-         The .disclosure styles are still in the stylesheet, so this is a paste.
-
-         Two separate reasons, and neither is a matter of taste:
-           - Amazon's Associates Operating Agreement makes that sentence a
-             condition of the programme. Missing it is grounds for terminating
-             the account and withholding fees already earned.
-           - The FTC's endorsement rules require a material connection to be
-             disclosed clearly and near the endorsement, regardless of what
-             Amazon asks for.
-
-         It goes ABOVE the first product. A footer is not "near the links".
-    ====================================================================== -->
+    <!-- The disclosure belongs HERE, above the first product, not in the footer.
+         Amazon's operating agreement makes the "As an Amazon Associate…"
+         sentence a condition of the programme, and the FTC requires a material
+         connection to be disclosed near the endorsement whether or not Amazon
+         asks. A footer is not "near". Reword the surrounding copy freely; that
+         one sentence stays. -->
+    <div class="disclosure">
+      <p>
+        <strong>Buying through these links helps.</strong> As an Amazon Associate, Peps by Dave
+        earns from qualifying purchases. Amazon pays that commission out of its own margin, so
+        you pay the same price you would have paid searching for the thing yourself.
+      </p>
+      <p>
+        It funds the unglamorous half of running this: the hours spent reading papers properly,
+        writing them up so they are usable, and answering questions when a study stops making
+        sense. A commission is not a recommendation, and nothing on this page is medical advice.
+      </p>
+    </div>
   </div>
 </header>
 
