@@ -86,11 +86,14 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
 /* The links used to be hidden below 560px to make room for the Join button.
    With the button gone they fit, and hiding navigation to protect a CTA that is
    no longer there would just be a habit. */
-@media (max-width:430px){ .nav .lnk { font-size:.78rem; } }
+/* Mobile shows the wordmark and nothing else. Same 560px breakpoint the
+   homepage uses, so the two headers do not disagree about what a phone is. */
+@media (max-width:560px){ .nav .lnk { display:none; } }
 .brand {
   font-family:var(--ff-display);
   font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
   font-size:1.12rem; letter-spacing:-.015em; text-decoration:none; color:var(--t1);
+  white-space:nowrap;   /* never "Peps by" over "Dave" */
 }
 /* The whole wordmark is one colour. "Dave" used to take the gold accent;
    the element is kept so restoring it is a one-word change. */
