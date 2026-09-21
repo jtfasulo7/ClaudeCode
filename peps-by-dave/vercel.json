@@ -4,6 +4,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/calculator.html",
+      "destination": "/calculator",
+      "permanent": true
+    },
+    {
       "source": "/storefront",
       "destination": "/supplies",
       "permanent": true

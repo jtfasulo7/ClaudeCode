@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- viewport-fit=cover: without it the page starts BELOW the notch inset and
+     the sticky header can never reach the true top of the screen. With it, the
+     nav pads itself by env(safe-area-inset-top) and paints that strip. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reconstitution Calculator — Peps by Dave</title>
+<meta name="description" content="Convert a vial size, bacteriostatic water volume and a dose you already have into units on a U-100 insulin syringe. Arithmetic only — no dosing guidance.">
+<meta name="theme-color" content="#0B0B0C">
+
+<meta property="og:title" content="Reconstitution Calculator — Peps by Dave">
+<meta property="og:description" content="Turn mg, ml and mcg into units on a U-100 syringe. Arithmetic only.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..40,0&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================ tokens ==== */
+:root {
+  --bg:#0B0B0C;
+  --accent:#D6AF52; --accent-b:#E8C87A; --accent-d:#F0D89B; --accent-rgb:214,175,82;
+  --on-accent:#1B1505;
+  --t1:#F6F2E8; --t2:rgba(246,242,232,.70); --t3:rgba(246,242,232,.44);
+  --hairline:rgba(246,242,232,.10);
+  --hairline-soft:rgba(246,242,232,.06);
+
+  /* Warning states. Amber for "check this", red for "this will not work" —
+     both chosen to stay legible on the near-black ground. */
+  --warn:#E8C87A; --warn-bg:rgba(232,200,122,.10); --warn-line:rgba(232,200,122,.38);
+  --stop:#E88A6E; --stop-bg:rgba(232,138,110,.11); --stop-line:rgba(232,138,110,.40);
+
+  --ff-display:'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --ff:'Manrope', ui-sans-serif, system-ui, sans-serif;
+
+  --ease:cubic-bezier(.22,1,.36,1);
+  --dur:.9s;
+
+  --step--1:clamp(.82rem, .79rem + .14vw, .89rem);
+  --step-0: clamp(1rem, .96rem + .2vw, 1.09rem);
+  --step-1: clamp(1.2rem, 1.11rem + .42vw, 1.45rem);
+  --step-2: clamp(1.5rem, 1.32rem + .9vw, 2.1rem);
+  --step-3: clamp(2rem, 1.62rem + 1.9vw, 3.2rem);
+
+  --nav-h:68px;
+  /* Zero everywhere but a notched phone, where it is the height of the strip
+     the system reserves at the top of the screen. */
+  --safe-top:env(safe-area-inset-top, 0px);
+
+  --r-sm:10px; --r-md:16px;
+}
+
+*, *::before, *::after { box-sizing:border-box; }
+html {
+  -webkit-text-size-adjust:100%; scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav-h) + var(--safe-top) + 16px);
+}
+@media (prefers-reduced-motion:reduce){ html { scroll-behavior:auto; } }
+
+body {
+  margin:0; font-family:var(--ff); font-weight:400;
+  color:var(--t1); line-height:1.65; font-size:var(--step-0);
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  background:
+    radial-gradient(1100px 620px at 12% -12%, rgba(214,175,82,.11), transparent 62%),
+    radial-gradient(900px 520px at 92% 4%, rgba(214,175,82,.055), transparent 64%),
+    var(--bg);
+  background-attachment:fixed;
+  overflow-x:clip;   /* not hidden: that can promote body to the scroller,
+                        which silently disables scroll-padding on html */
+}
+body::after {
+  content:''; position:fixed; inset:0; z-index:60; pointer-events:none;
+  opacity:.028; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img { max-width:100%; display:block; }
+a { color:var(--accent-d); text-underline-offset:.25em; }
+::selection { background:rgba(var(--accent-rgb),.28); color:var(--t1); }
+:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:6px; }
+
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+.wrap { width:100%; max-width:72rem; margin:0 auto; padding:0 clamp(1.25rem, 5vw, 2.5rem); }
+.measure { max-width:44rem; }
+
+/* ============================================================== nav ==== */
+.nav {
+  position:sticky; top:0; z-index:50;
+  padding-top:var(--safe-top);
+  background:rgba(11,11,12,.82); backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--hairline);
+}
+.nav-in { display:flex; align-items:center; gap:.35rem; height:var(--nav-h); }
+.brand {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:1.12rem; letter-spacing:-.015em; text-decoration:none; color:var(--t1);
+  white-space:nowrap;   /* never "Peps by" over "Dave" */
+  display:inline-flex; align-items:center; min-height:44px;
+}
+.brand em { font-style:normal; color:inherit; }
+.nav-sp { flex:1 1 auto; }
+.nav .lnk {
+  color:var(--t2); text-decoration:none; font-size:var(--step--1); font-weight:500;
+  display:inline-flex; align-items:center; min-height:44px; padding:0 .6rem;
+  transition:color .35s var(--ease);
+}
+.nav .lnk:hover, .nav .lnk[aria-current="page"] { color:var(--t1); }
+/* Four links now. Below 620px they would crowd the brand, so they go — the
+   page is reachable from the footer and from the home page either way. */
+@media (max-width:620px){ .nav .lnk { display:none; } }
+
+/* ============================================================== hero === */
+.hero { padding:clamp(2.2rem, 6vh, 3.4rem) 0 0; }
+h1 {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 110, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:var(--step-3); line-height:1.04; letter-spacing:-.03em;
+  margin:0; font-weight:400;
+}
+.hero .sub { color:var(--t2); margin:.9rem 0 0; font-weight:300; font-size:var(--step-1); line-height:1.5; }
+/* A line, not a banner. It defers to the full notice at the foot. */
+.hero .disclosure-top {
+  margin:1rem 0 0; font-size:var(--step--1); color:var(--t3); line-height:1.6; max-width:44rem;
+}
+.hero .disclosure-top a { color:var(--t2); text-decoration:underline; text-decoration-color:rgba(246,242,232,.28); }
+.hero .disclosure-top a:hover { color:var(--t1); }
+
+/* ========================================================= calculator == */
+.calc { padding:clamp(1.6rem, 5vh, 2.6rem) 0 0; }
+
+.calc-grid {
+  display:grid; gap:1rem;
+  grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr);
+  align-items:start;
+}
+@media (max-width:900px){ .calc-grid { grid-template-columns:1fr; } }
+
+.card {
+  border:1px solid var(--hairline); border-radius:var(--r-md);
+  background:rgba(246,242,232,.028);
+  padding:clamp(1.1rem, 3vw, 1.6rem);
+}
+
+.field { margin:0 0 1.35rem; }
+.field:last-child { margin-bottom:0; }
+.field > label, .field > .lbl {
+  display:block; margin:0 0 .5rem;
+  font-size:.7rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--t3);
+}
+.field .hint { display:block; margin:.45rem 0 0; font-size:.78rem; color:var(--t3); line-height:1.5; }
+
+/* Number inputs. A unit sits inside the field rather than beside it, so the
+   number and what it means can never be separated by a line wrap. */
+.inp-wrap { position:relative; display:flex; align-items:center; }
+.inp-wrap input {
+  width:100%; font:inherit; font-size:1.05rem; font-weight:600; color:var(--t1);
+  background:rgba(11,11,12,.55); border:1px solid var(--hairline);
+  border-radius:var(--r-sm); padding:.7rem 3.6rem .7rem .85rem; min-height:48px;
+  transition:border-color .25s var(--ease), background .25s var(--ease);
+  -moz-appearance:textfield;
+}
+.inp-wrap input::-webkit-outer-spin-button,
+.inp-wrap input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.inp-wrap input:focus { border-color:rgba(var(--accent-rgb),.5); background:rgba(11,11,12,.75); outline:none; }
+.inp-wrap input:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.inp-wrap .unit {
+  position:absolute; right:.9rem; pointer-events:none;
+  font-size:.82rem; font-weight:700; letter-spacing:.06em; color:var(--t3);
+}
+
+/* Preset chips. These carry PRODUCT facts — the sizes vials and water actually
+   come in — never a suggested amount to take. */
+.presets { display:flex; flex-wrap:wrap; gap:.4rem; margin:.55rem 0 0; }
+.preset {
+  font:inherit; font-size:.8rem; font-weight:600; cursor:pointer;
+  color:var(--t2); background:transparent;
+  border:1px solid var(--hairline); border-radius:999px;
+  padding:.4rem .75rem; min-height:36px;
+  transition:color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+}
+.preset:hover { color:var(--t1); border-color:rgba(var(--accent-rgb),.4); }
+.preset[aria-pressed="true"] {
+  color:var(--on-accent); background:var(--accent); border-color:transparent;
+}
+
+/* Segmented control: syringe size, and the mcg/mg unit toggle. */
+.seg { display:flex; gap:.35rem; flex-wrap:wrap; }
+.seg button {
+  flex:1 1 0; min-width:0; font:inherit; font-size:.84rem; font-weight:700; cursor:pointer;
+  color:var(--t2); background:rgba(11,11,12,.5);
+  border:1px solid var(--hairline); border-radius:var(--r-sm);
+  padding:.55rem .5rem; min-height:44px;
+  transition:color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+}
+.seg button small { display:block; font-size:.68rem; font-weight:600; color:var(--t3); letter-spacing:.04em; }
+.seg button:hover { color:var(--t1); border-color:rgba(var(--accent-rgb),.4); }
+.seg button[aria-pressed="true"] { color:var(--on-accent); background:var(--accent); border-color:transparent; }
+.seg button[aria-pressed="true"] small { color:rgba(27,21,5,.72); }
+.seg-sm button { flex:0 0 auto; padding:.4rem .9rem; min-height:40px; }
+
+/* ------------------------------------------------------------- results -- */
+.result-head {
+  font-size:.7rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--t3); margin:0 0 .6rem;
+}
+.readout { text-align:center; padding:.4rem 0 .2rem; }
+.readout .big {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 110, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:clamp(2.6rem, 1.9rem + 3.2vw, 4.2rem); line-height:1;
+  letter-spacing:-.03em; color:var(--accent-d); display:block;
+  font-variant-numeric:tabular-nums;
+}
+.readout .big.is-void { color:var(--t3); }
+.readout .big-unit {
+  display:block; margin-top:.35rem;
+  font-size:.74rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--t2);
+}
+.readout .sub-line { margin:.7rem 0 0; font-size:.86rem; color:var(--t2); line-height:1.55; }
+
+/* The syringe. Just the number drawn — the fill is the computed volume as a
+   fraction of the barrel, so it cannot disagree with the figure above it. */
+.syr { margin:1.2rem 0 0; }
+.syr svg { width:100%; height:auto; display:block; overflow:visible; }
+.syr-caption {
+  margin:.5rem 0 0; text-align:center; font-size:.76rem; color:var(--t3);
+  font-variant-numeric:tabular-nums;
+}
+
+/* Secondary figures. */
+.facts { list-style:none; margin:1.3rem 0 0; padding:1.1rem 0 0; border-top:1px solid var(--hairline-soft); display:grid; gap:.7rem; }
+.facts li { display:flex; align-items:baseline; gap:.75rem; font-size:.86rem; }
+.facts .k { color:var(--t3); flex:1 1 auto; }
+.facts .v { color:var(--t1); font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+
+/* Callouts. Colour is never the only signal — each one names itself. */
+.note {
+  margin:1.1rem 0 0; padding:.75rem .9rem; border-radius:var(--r-sm);
+  border:1px solid; font-size:.84rem; line-height:1.55;
+}
+.note b { font-weight:800; }
+.note[data-level="warn"] { color:var(--warn); background:var(--warn-bg); border-color:var(--warn-line); }
+.note[data-level="stop"] { color:var(--stop); background:var(--stop-bg); border-color:var(--stop-line); }
+.note[hidden] { display:none; }
+
+/* Anything driven by a fingertip gets the full 44px. Keyed on the pointer,
+   not the viewport — a touchscreen laptop needs this as much as a phone, and
+   a narrow window on a desktop does not. */
+@media (pointer:coarse) {
+  .preset { min-height:44px; padding:.55rem .9rem; }
+  .seg-sm button { min-height:44px; }
+}
+
+/* ============================================================ sections == */
+.section { padding:clamp(2.4rem, 7vh, 3.6rem) 0 0; }
+.section-h {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:var(--step-2); letter-spacing:-.02em; margin:0 0 .9rem; font-weight:400;
+}
+.section p { color:var(--t2); margin:0 0 .9rem; }
+
+.formula {
+  margin:1rem 0; padding:1rem 1.1rem; border-radius:var(--r-sm);
+  border:1px solid var(--hairline); background:rgba(11,11,12,.45);
+  font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:.84rem; line-height:1.9; color:var(--t1); overflow-x:auto;
+}
+.formula .c { color:var(--t3); }
+
+/* The long-form notice, matching the one on /supplies. */
+.notice {
+  border:1px solid var(--hairline); border-radius:var(--r-md);
+  background:rgba(246,242,232,.02); padding:clamp(1.1rem, 3vw, 1.6rem);
+}
+.notice h2 {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:var(--step-1); margin:0 0 .7rem; font-weight:400; letter-spacing:-.01em;
+}
+.notice p { margin:0; color:var(--t2); font-size:var(--step--1); line-height:1.7; }
+.notice p + p { margin-top:.7rem; }
+.notice strong { color:var(--t1); font-weight:700; }
+
+/* ============================================================= footer == */
+.footer { margin-top:clamp(3rem, 9vh, 5rem); border-top:1px solid var(--hairline-soft); padding:2.5rem 0 3.5rem; }
+.footer-in { display:flex; flex-wrap:wrap; gap:.2rem 1.4rem; align-items:center; }
+.footer a {
+  color:var(--t2); text-decoration:none; font-size:var(--step--1);
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:44px; min-width:44px; padding:0 .45rem;
+  transition:color .35s var(--ease);
+}
+.footer a:hover { color:var(--t1); }
+.footer .small { color:var(--t3); font-size:.8rem; }
+.footer .nav-sp { flex:1 1 auto; }
+
+/* ============================================================= motion == */
+.rise { opacity:0; transform:translate3d(0, 22px, 0); }
+.in .rise {
+  opacity:1; transform:translate3d(0,0,0);
+  transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  transition-delay:var(--d, 0s);
+}
+@keyframes riseIn { from { opacity:0; transform:translate3d(0,26px,0); } to { opacity:1; transform:none; } }
+.hero h1        { animation:riseIn .95s var(--ease) .05s both; }
+.hero .sub      { animation:riseIn .95s var(--ease) .16s both; }
+.disclosure-top { animation:riseIn .95s var(--ease) .26s both; }
+.calc .calc-grid{ animation:riseIn .95s var(--ease) .34s both; }
+
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration:.001ms !important; animation-delay:0s !important;
+    transition-duration:.001ms !important;
+  }
+  .rise { opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">Peps by <em>Dave</em></a>
+    <span class="nav-sp"></span>
+    <a class="lnk" href="/#inside">What&rsquo;s inside</a>
+    <a class="lnk" href="/#studies">Research</a>
+    <a class="lnk" href="/calculator" aria-current="page">Calculator</a>
+    <a class="lnk" href="/supplies">Supplies</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1>Reconstitution calculator</h1>
+    <p class="sub measure">Work out what a vial becomes once it is mixed, and where that lands on a U&#8209;100 insulin syringe.</p>
+    <p class="disclosure-top">
+      This is arithmetic, not advice. It converts numbers <em>you</em> enter and never suggests
+      an amount to take. <a href="#what-this-is">What this tool is and is not &darr;</a>
+    </p>
+  </div>
+</header>
+
+<main class="calc">
+  <div class="wrap">
+    <div class="calc-grid">
+
+      <!-- ===================================================== inputs === -->
+      <section class="card" aria-labelledby="inputs-h">
+        <h2 id="inputs-h" class="sr-only">Your numbers</h2>
+
+        <div class="field">
+          <label for="vial">Peptide in the vial</label>
+          <div class="inp-wrap">
+            <input type="number" id="vial" inputmode="decimal" min="0" step="any" value="5"
+                   autocomplete="off" aria-describedby="vial-hint">
+            <span class="unit" aria-hidden="true">mg</span>
+          </div>
+          <div class="presets" id="vial-presets" role="group" aria-label="Common vial sizes"></div>
+          <span class="hint" id="vial-hint">The figure printed on the vial, before anything is added to it.</span>
+        </div>
+
+        <div class="field">
+          <label for="water">Bacteriostatic water added</label>
+          <div class="inp-wrap">
+            <input type="number" id="water" inputmode="decimal" min="0" step="any" value="2"
+                   autocomplete="off" aria-describedby="water-hint">
+            <span class="unit" aria-hidden="true">ml</span>
+          </div>
+          <div class="presets" id="water-presets" role="group" aria-label="Common water volumes"></div>
+          <span class="hint" id="water-hint">More water makes a weaker mix and a bigger draw. It does not change how much peptide is in the vial.</span>
+        </div>
+
+        <div class="field">
+          <span class="lbl" id="syr-lbl">Syringe</span>
+          <div class="seg" id="syringe" role="group" aria-labelledby="syr-lbl"></div>
+          <span class="hint">U&#8209;100 insulin syringes, where 100 units is 1&nbsp;ml. Every figure here assumes that marking.</span>
+        </div>
+
+        <div class="field">
+          <label for="dose">Amount per injection</label>
+          <div class="inp-wrap">
+            <input type="number" id="dose" inputmode="decimal" min="0" step="any" value="250"
+                   autocomplete="off" aria-describedby="dose-hint">
+            <span class="unit" id="dose-unit" aria-hidden="true">mcg</span>
+          </div>
+          <div class="seg seg-sm" id="dose-units" role="group" aria-label="Units for the amount" style="margin-top:.55rem">
+            <button type="button" data-unit="mcg" aria-pressed="true">mcg</button>
+            <button type="button" data-unit="mg" aria-pressed="false">mg</button>
+          </div>
+          <span class="hint" id="dose-hint">
+            Your number, not ours &mdash; this page has no suggested amount and deliberately
+            offers no shortcuts here. 1&nbsp;mg is 1,000&nbsp;mcg.
+          </span>
+        </div>
+      </section>
+
+      <!-- ==================================================== results === -->
+      <section class="card" aria-labelledby="result-h">
+        <p class="result-head" id="result-h">Draw to</p>
+
+        <div class="readout">
+          <output class="big" id="out-units" for="vial water dose syringe">&mdash;</output>
+          <span class="big-unit">units on the syringe</span>
+          <p class="sub-line" id="out-mark">Enter your numbers to see where that lands.</p>
+        </div>
+
+        <div class="syr" id="syr-vis" aria-hidden="true">
+          <svg viewBox="0 0 320 64" role="presentation">
+            <!-- barrel -->
+            <rect x="8" y="16" width="266" height="30" rx="5"
+                  fill="rgba(11,11,12,.6)" stroke="rgba(246,242,232,.18)" stroke-width="1.5"/>
+            <!-- the drawn liquid -->
+            <rect id="syr-fill" x="9.5" y="17.5" width="0" height="27" rx="4" fill="rgba(214,175,82,.42)"/>
+            <!-- needle + plunger stub -->
+            <rect x="274" y="28" width="12" height="6" rx="2" fill="rgba(246,242,232,.22)"/>
+            <path d="M286 31h26" stroke="rgba(246,242,232,.3)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 31H2" stroke="rgba(246,242,232,.3)" stroke-width="2" stroke-linecap="round"/>
+            <g id="syr-ticks" stroke="rgba(246,242,232,.3)" stroke-width="1"></g>
+            <g id="syr-labels" fill="rgba(246,242,232,.44)" font-size="8"
+               font-family="ui-monospace, monospace" text-anchor="middle"></g>
+            <!-- where to stop -->
+            <line id="syr-mark" x1="0" y1="10" x2="0" y2="52"
+                  stroke="var(--accent-d)" stroke-width="2" stroke-linecap="round" opacity="0"/>
+          </svg>
+          <p class="syr-caption" id="syr-caption"></p>
+        </div>
+
+        <div class="note" id="note" data-level="warn" hidden role="status"></div>
+
+        <ul class="facts">
+          <li><span class="k">Volume drawn</span><span class="v" id="out-ml">&mdash;</span></li>
+          <li><span class="k">Concentration</span><span class="v" id="out-conc">&mdash;</span></li>
+          <li><span class="k">Per unit on the syringe</span><span class="v" id="out-per-unit">&mdash;</span></li>
+          <li><span class="k">Injections in this vial</span><span class="v" id="out-doses">&mdash;</span></li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<!-- ======================================================== how it works -->
+<section class="section" id="how">
+  <div class="wrap measure">
+    <h2 class="section-h">How the number is worked out</h2>
+    <p>
+      There is no secret to it. A U&#8209;100 syringe is marked so that 100 units is one
+      millilitre, which makes one unit exactly 0.01&nbsp;ml. Everything else follows from that.
+    </p>
+    <div class="formula">
+<span class="c">// how strong the mix is</span><br>
+mcg per unit = (vial mg &times; 1000) &divide; (water ml &times; 100)<br><br>
+<span class="c">// where to stop the plunger</span><br>
+units = amount in mcg &divide; mcg per unit<br><br>
+<span class="c">// and the volume that represents</span><br>
+ml = units &divide; 100
+    </div>
+    <p>
+      Worked through with the numbers this page opens on: a 5&nbsp;mg vial is 5,000&nbsp;mcg.
+      Add 2&nbsp;ml of bacteriostatic water and it becomes 2,500&nbsp;mcg per ml, or
+      25&nbsp;mcg in every unit. An amount of 250&nbsp;mcg is therefore 10 units &mdash;
+      a tenth of a millilitre.
+    </p>
+    <p>
+      The water volume never changes how much peptide you have. It only changes how far
+      along the barrel a given amount sits, which is why a small amount out of a thin mix
+      can land below the first marking and stop being measurable.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================== the notice -->
+<section class="section" id="what-this-is">
+  <div class="wrap measure">
+    <div class="notice">
+      <h2>What this tool is, and what it is not</h2>
+      <p>
+        <strong>It is a unit converter.</strong> You supply the vial size, the water volume
+        and the amount you are working with; it returns the same amount expressed in syringe
+        units. It has no opinion about any of those numbers and it cannot tell whether they
+        are sensible.
+      </p>
+      <p>
+        <strong>It is not dosing guidance.</strong> Peps by Dave does not provide dosing,
+        administration or protocol guidance, and nothing on this page suggests an amount to
+        use. That is why there are no shortcut buttons beside the amount field: the vial and
+        water shortcuts describe products you can buy, whereas a pre&#8209;filled amount would
+        read as a recommendation, which this is not.
+      </p>
+      <p>
+        <strong>We do not sell, supply, source, import or ship peptides.</strong> Many peptides
+        are not approved for human use and are sold for laboratory research only. Check the law
+        where you live, and talk to a qualified clinician about anything you intend to do with
+        your own body.
+      </p>
+      <p>
+        Arithmetic can be right and still be the wrong thing to act on. Read the
+        <a href="/terms">Terms of Service</a> before relying on anything here.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <a href="/">Home</a>
+    <a href="/calculator">Calculator</a>
+    <a href="/supplies">Supplies</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="mailto:pepsbydave@gmail.com">Contact</a>
+    <span class="nav-sp"></span>
+    <span class="small">&copy; <span id="yr">2026</span> Sybago LLC. Educational content only &mdash; not medical advice.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ==========================================================================
+   THE CALCULATOR
+
+   One rule underpins the whole file: a U-100 syringe is marked so 100 units
+   is 1 ml, therefore one unit is 0.01 ml. Every figure below is that fact
+   plus division.
+
+   State lives in `s`. Nothing is stored between visits — there is no reason
+   for this page to remember what somebody was measuring.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var UNITS_PER_ML = 100;            // U-100. The only syringe scale here.
+
+  /* Sizes vials and bacteriostatic water are actually SOLD in. These describe
+     products, not amounts to take, which is why they are offered as shortcuts
+     while the amount field deliberately has none. */
+  var VIAL_PRESETS  = [2, 5, 10, 15, 20, 30];
+  var WATER_PRESETS = [1, 2, 3, 5];
+
+  var SYRINGES = [
+    { ml: 0.3, units: 30  },
+    { ml: 0.5, units: 50  },
+    { ml: 1.0, units: 100 }
+  ];
+
+  var s = { vial: 5, water: 2, dose: 250, doseUnit: 'mcg', syringe: 2 };
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ------------------------------------------------------------ helpers -- */
+
+  /* Trailing zeros make a readout look like false precision, so they go.
+     toFixed first, because toPrecision would turn 100 into 1.0e+2. */
+  function trim(n, dp) {
+    if (!isFinite(n)) return '—';
+    return parseFloat(n.toFixed(dp)).toLocaleString('en-US', { maximumFractionDigits: dp });
+  }
+
+  function doseInMcg() {
+    return s.doseUnit === 'mg' ? s.dose * 1000 : s.dose;
+  }
+
+  /* ---------------------------------------------------------- the maths -- */
+  function compute() {
+    var vial = s.vial, water = s.water, mcg = doseInMcg();
+    var syr = SYRINGES[s.syringe];
+
+    // Every figure downstream divides by one of these, so an incomplete form
+    // is reported as incomplete rather than as Infinity or NaN.
+    if (!(vial > 0) || !(water > 0) || !(mcg > 0)) return { ok: false };
+
+    var mcgPerMl   = (vial * 1000) / water;
+    var mcgPerUnit = mcgPerMl / UNITS_PER_ML;
+    var units      = mcg / mcgPerUnit;
+
+    return {
+      ok: true,
+      units: units,
+      ml: units / UNITS_PER_ML,
+      mcgPerUnit: mcgPerUnit,
+      mgPerMl: vial / water,
+      doses: (vial * 1000) / mcg,
+      capacity: syr.units,
+      overflows: units > syr.units,
+      // Below two units the gap between markings is a large share of the
+      // amount itself, so the arithmetic stays right while the measurement
+      // stops being trustworthy. Worth saying out loud.
+      tiny: units > 0 && units < 2
+    };
+  }
+
+  /* ------------------------------------------------------------- render -- */
+  function render() {
+    var r = compute();
+
+    var elUnits = $('out-units'), elMark = $('out-mark'), note = $('note');
+
+    if (!r.ok) {
+      elUnits.textContent = '—';
+      elUnits.classList.add('is-void');
+      elMark.textContent = 'Fill in all four numbers to see where that lands.';
+      ['out-ml', 'out-conc', 'out-per-unit', 'out-doses'].forEach(function (id) {
+        $(id).textContent = '—';
+      });
+      note.hidden = true;
+      drawSyringe(null);
+      return;
+    }
+
+    elUnits.classList.remove('is-void');
+    elUnits.textContent = trim(r.units, 2);
+
+    /* Syringes are marked in whole units, so a figure between two of them is
+       something the reader has to resolve at the barrel. Saying which two is
+       more use than a number to two decimal places on its own. */
+    var lo = Math.floor(r.units), hi = Math.ceil(r.units);
+    elMark.textContent = (lo === hi)
+      ? 'Exactly on the ' + lo + ' mark.'
+      : 'Between the ' + lo + ' and ' + hi + ' marks.';
+
+    $('out-ml').textContent       = trim(r.ml, 3) + ' ml';
+    $('out-conc').textContent     = trim(r.mgPerMl, 3) + ' mg/ml';
+    $('out-per-unit').textContent = trim(r.mcgPerUnit, 2) + ' mcg';
+    $('out-doses').textContent    = trim(Math.floor(r.doses), 0) +
+      (Math.floor(r.doses) === 1 ? ' injection' : ' injections');
+
+    if (r.overflows) {
+      note.hidden = false;
+      note.setAttribute('data-level', 'stop');
+      note.innerHTML = '<b>Will not fit.</b> That is ' + trim(r.units, 1) +
+        ' units, and this syringe holds ' + r.capacity +
+        '. Use a larger syringe, or add less water so the mix is stronger.';
+    } else if (r.tiny) {
+      note.hidden = false;
+      note.setAttribute('data-level', 'warn');
+      note.innerHTML = '<b>Hard to measure.</b> Under two units sits inside the first marking, ' +
+        'where a small slip is a large share of the amount. More water makes the same amount ' +
+        'span more of the barrel.';
+    } else {
+      note.hidden = true;
+    }
+
+    drawSyringe(r);
+  }
+
+  /* ------------------------------------------------------------ syringe -- */
+  var BARREL_X = 9.5, BARREL_W = 263;
+
+  function drawSyringe(r) {
+    var cap = SYRINGES[s.syringe].units;
+    var ticks = $('syr-ticks'), labels = $('syr-labels');
+
+    // Redrawn on every change: the tick spacing belongs to the selected
+    // syringe, so a stale scale would put the marker in the wrong place.
+    ticks.innerHTML = '';
+    labels.innerHTML = '';
+
+    var step = cap / 10;
+    for (var i = 0; i <= 10; i++) {
+      var x = BARREL_X + (BARREL_W * (i / 10));
+      var major = (i % 5 === 0);
+      ticks.insertAdjacentHTML('beforeend',
+        '<line x1="' + x.toFixed(2) + '" y1="16" x2="' + x.toFixed(2) + '" y2="' +
+        (major ? 26 : 22) + '"/>');
+      if (major) {
+        labels.insertAdjacentHTML('beforeend',
+          '<text x="' + x.toFixed(2) + '" y="58">' + Math.round(step * i) + '</text>');
+      }
+    }
+
+    var fill = $('syr-fill'), mark = $('syr-mark'), cap2 = $('syr-caption');
+
+    if (!r || !r.ok) {
+      fill.setAttribute('width', '0');
+      mark.setAttribute('opacity', '0');
+      cap2.textContent = '';
+      return;
+    }
+
+    // Clamped so an over-capacity draw fills the barrel rather than painting
+    // outside it — the callout is what reports the overflow, not a broken graphic.
+    var frac = Math.max(0, Math.min(1, r.units / cap));
+    fill.setAttribute('width', (BARREL_W * frac).toFixed(2));
+    fill.setAttribute('fill', r.overflows ? 'rgba(232,138,110,.40)' : 'rgba(214,175,82,.42)');
+
+    var x = BARREL_X + BARREL_W * frac;
+    mark.setAttribute('x1', x.toFixed(2));
+    mark.setAttribute('x2', x.toFixed(2));
+    mark.setAttribute('opacity', r.overflows ? '0' : '1');
+
+    cap2.textContent = SYRINGES[s.syringe].ml.toFixed(1).replace(/\.0$/, '') +
+      ' ml syringe · ' + cap + ' units full scale';
+  }
+
+  /* ---------------------------------------------------------- the chips -- */
+  function buildPresets(host, values, suffix, key) {
+    values.forEach(function (v) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'preset';
+      b.textContent = v + ' ' + suffix;
+      b.setAttribute('aria-pressed', String(s[key] === v));
+      b.addEventListener('click', function () {
+        s[key] = v;
+        $(key === 'vial' ? 'vial' : 'water').value = String(v);
+        syncPresets(host, values, key);
+        render();
+      });
+      host.appendChild(b);
+    });
+  }
+
+  function syncPresets(host, values, key) {
+    Array.prototype.forEach.call(host.querySelectorAll('.preset'), function (b, i) {
+      b.setAttribute('aria-pressed', String(values[i] === s[key]));
+    });
+  }
+
+  function buildSyringes() {
+    var host = $('syringe');
+    SYRINGES.forEach(function (sy, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.innerHTML = sy.ml.toFixed(1).replace(/\.0$/, '') + ' ml<small>' + sy.units + ' units</small>';
+      b.setAttribute('aria-pressed', String(i === s.syringe));
+      b.addEventListener('click', function () {
+        s.syringe = i;
+        Array.prototype.forEach.call(host.children, function (c, j) {
+          c.setAttribute('aria-pressed', String(j === i));
+        });
+        render();
+      });
+      host.appendChild(b);
+    });
+  }
+
+  /* ---------------------------------------------------------- the wiring -- */
+  function bindNumber(id, key) {
+    var el = $(id);
+    el.addEventListener('input', function () {
+      var v = parseFloat(el.value);
+      s[key] = isFinite(v) ? v : 0;
+      if (key === 'vial')  syncPresets($('vial-presets'),  VIAL_PRESETS,  'vial');
+      if (key === 'water') syncPresets($('water-presets'), WATER_PRESETS, 'water');
+      render();
+    });
+  }
+
+  buildPresets($('vial-presets'),  VIAL_PRESETS,  'mg', 'vial');
+  buildPresets($('water-presets'), WATER_PRESETS, 'ml', 'water');
+  buildSyringes();
+  bindNumber('vial', 'vial');
+  bindNumber('water', 'water');
+  bindNumber('dose', 'dose');
+
+  Array.prototype.forEach.call($('dose-units').children, function (b) {
+    b.addEventListener('click', function () {
+      var u = b.getAttribute('data-unit');
+      if (u === s.doseUnit) return;
+
+      /* Carry the VALUE across rather than the number. Somebody who typed 250
+         mcg and taps "mg" means 0.25 mg, not 250 mg — a thousandfold jump that
+         the readout would report with a completely straight face. */
+      s.dose = (u === 'mg') ? s.dose / 1000 : s.dose * 1000;
+      s.doseUnit = u;
+      $('dose').value = String(parseFloat(s.dose.toFixed(6)));
+      $('dose-unit').textContent = u;
+
+      Array.prototype.forEach.call($('dose-units').children, function (o) {
+        o.setAttribute('aria-pressed', String(o === b));
+      });
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
