@@ -262,67 +262,6 @@ h1 {
   .seg-sm button { min-height:44px; }
 }
 
-/* ====================================================== peptide table == */
-.ref-tools { display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; margin:0 0 1rem; }
-.ref-search { position:relative; flex:1 1 240px; min-width:0; }
-.ref-search input {
-  width:100%; font:inherit; font-size:.92rem; color:var(--t1);
-  background:rgba(11,11,12,.55); border:1px solid var(--hairline);
-  border-radius:var(--r-sm); padding:.6rem .85rem; min-height:44px;
-}
-.ref-search input:focus { border-color:rgba(var(--accent-rgb),.5); outline:none; }
-.ref-search input:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
-.ref-filters { display:flex; flex-wrap:wrap; gap:.4rem; }
-
-/* The table scrolls inside its own box. The page body must never scroll
-   sideways, and eight columns will not fit a phone however they are sized. */
-.ref-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:var(--r-md); border:1px solid var(--hairline); }
-table.ref { width:100%; border-collapse:collapse; font-size:.86rem; min-width:720px; }
-table.ref th, table.ref td { padding:.7rem .8rem; text-align:left; vertical-align:top; }
-table.ref thead th {
-  position:sticky; top:0; z-index:1;
-  background:#141415; color:var(--t3);
-  font-size:.66rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
-  border-bottom:1px solid var(--hairline); white-space:nowrap;
-}
-table.ref tbody tr { border-top:1px solid var(--hairline-soft); }
-table.ref tbody tr:hover { background:rgba(246,242,232,.02); }
-table.ref .nm { color:var(--t1); font-weight:700; }
-table.ref .alt { display:block; color:var(--t3); font-size:.76rem; font-weight:400; margin-top:.15rem; }
-table.ref td { color:var(--t2); }
-table.ref .num { font-variant-numeric:tabular-nums; white-space:nowrap; }
-
-/* Evidence tier. Colour plus the word — the word is what carries it. */
-.tier {
-  display:inline-block; white-space:nowrap;
-  font-size:.64rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
-  padding:.24rem .5rem; border-radius:999px; border:1px solid;
-}
-.tier[data-t="approved"] { color:#7FD6A2; background:rgba(127,214,162,.10); border-color:rgba(127,214,162,.34); }
-.tier[data-t="trial"]    { color:var(--accent-d); background:rgba(var(--accent-rgb),.10); border-color:rgba(var(--accent-rgb),.36); }
-.tier[data-t="animal"]   { color:#E8C87A; background:rgba(232,200,122,.10); border-color:rgba(232,200,122,.34); }
-.tier[data-t="none"]     { color:#E88A6E; background:rgba(232,138,110,.10); border-color:rgba(232,138,110,.34); }
-
-/* Where no human dose exists, the cell says so rather than sitting empty —
-   an empty cell reads as missing data, which is a different claim. */
-.no-dose { color:#E88A6E; font-style:italic; }
-
-.ref-use {
-  font:inherit; font-size:.74rem; font-weight:700; cursor:pointer; white-space:nowrap;
-  color:var(--t2); background:transparent;
-  border:1px solid var(--hairline); border-radius:999px;
-  padding:.3rem .6rem; min-height:32px;
-  transition:color .2s var(--ease), border-color .2s var(--ease);
-}
-.ref-use:hover { color:var(--accent-d); border-color:rgba(var(--accent-rgb),.45); }
-@media (pointer:coarse){ .ref-use { min-height:44px; padding:.5rem .8rem; } }
-
-.ref-empty { padding:1.6rem; text-align:center; color:var(--t3); font-size:.88rem; }
-.ref-count { margin:.8rem 0 0; font-size:.78rem; color:var(--t3); }
-.ref-legend { margin:1rem 0 0; display:flex; flex-wrap:wrap; gap:.5rem 1.1rem; font-size:.76rem; color:var(--t3); }
-.ref-legend span { display:inline-flex; align-items:center; gap:.4rem; }
-.ref-legend i { width:9px; height:9px; border-radius:50%; display:inline-block; }
-
 /* ============================================================ sections == */
 .section { padding:clamp(2.4rem, 7vh, 3.6rem) 0 0; }
 .section-h {
@@ -542,61 +481,6 @@ ml = units &divide; 100
   </div>
 </section>
 
-<!-- ====================================================== peptide table -->
-<section class="section" id="reference">
-  <div class="wrap">
-    <h2 class="section-h">Peptide reference</h2>
-    <p class="measure">
-      What each one is, how strong the evidence behind it actually is, and the numbers you
-      need to mix it. Pick a row and its vial size drops straight into the calculator above.
-    </p>
-
-    <div class="ref-tools">
-      <div class="ref-search">
-        <label class="sr-only" for="ref-q">Search peptides</label>
-        <input type="search" id="ref-q" placeholder="Search by name or what it does…" autocomplete="off">
-      </div>
-      <div class="ref-filters" id="ref-filters" role="group" aria-label="Filter by category"></div>
-    </div>
-
-    <div class="ref-scroll">
-      <table class="ref">
-        <caption class="sr-only">Peptides, their evidence level, published dosing where it exists, and reconstitution figures</caption>
-        <thead>
-          <tr>
-            <th scope="col">Peptide</th>
-            <th scope="col">Class</th>
-            <th scope="col">Evidence</th>
-            <th scope="col">Published human dosing</th>
-            <th scope="col">Half-life</th>
-            <th scope="col">Vial sizes</th>
-            <th scope="col">Storage</th>
-            <th scope="col"><span class="sr-only">Load into calculator</span></th>
-          </tr>
-        </thead>
-        <tbody id="ref-body"></tbody>
-      </table>
-    </div>
-
-    <p class="ref-count" id="ref-count"></p>
-
-    <div class="ref-legend">
-      <span><i style="background:#7FD6A2"></i> Approved — a licensed medicine with a published schedule</span>
-      <span><i style="background:#F0D89B"></i> Trial — not approved, but human trial data exists</span>
-      <span><i style="background:#E8C87A"></i> Animal only — no human dosing has ever been established</span>
-      <span><i style="background:#E88A6E"></i> No human data</span>
-    </div>
-
-    <p class="measure" style="margin-top:1.4rem; color:var(--t3); font-size:var(--step--1); line-height:1.7">
-      Every figure in the dosing column is what a named trial administered, under supervision,
-      to a selected group of people. It is a record of what was studied, not a recommendation
-      and not a starting point. Where a row says no human dosing has been established, that is
-      the finding &mdash; numbers for those compounds do circulate, but they come from forums
-      rather than trials, and nobody has measured what they do in a person.
-    </p>
-  </div>
-</section>
-
 <!-- =========================================================== the notice -->
 <section class="section" id="what-this-is">
   <div class="wrap measure">
@@ -609,9 +493,9 @@ ml = units &divide; 100
         are sensible.
       </p>
       <p>
-        <strong>It does not recommend an amount.</strong> Nothing here suggests what to take.
-        That is why there are no shortcut buttons beside the amount field, and why selecting a
-        peptide from the table below fills in its vial size and never its dose: the vial and
+        <strong>It is not dosing guidance.</strong> Peps by Dave does not provide dosing,
+        administration or protocol guidance, and nothing on this page suggests an amount to
+        use. That is why there are no shortcut buttons beside the amount field: the vial and
         water shortcuts describe products you can buy, whereas a pre&#8209;filled amount would
         read as a recommendation, which this is not.
       </p>
@@ -620,13 +504,6 @@ ml = units &divide; 100
         are not approved for human use and are sold for laboratory research only. Check the law
         where you live, and talk to a qualified clinician about anything you intend to do with
         your own body.
-      </p>
-      <p>
-        <strong>The dosing column reports trials, not recommendations.</strong> Every figure in
-        the reference table is what a named study gave to selected participants under medical
-        supervision. Your circumstances are not theirs. Where a row says no human dosing has
-        been established, no trial has ever set one &mdash; numbers for those compounds
-        circulate anyway, and they come from forums rather than research.
       </p>
       <p>
         Arithmetic can be right and still be the wrong thing to act on. Read the
@@ -910,214 +787,6 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   });
 
   render();
-
-  /* ======================================================================
-     THE REFERENCE TABLE
-
-     The "tier" field is load-bearing. Below "trial" no number is printed,
-     because none has been established in humans and a tidy table cell is a
-     very persuasive way to imply otherwise.
-     ====================================================================== */
-  var PEPTIDES = [
-    {
-      name: 'Semaglutide', alt: 'Ozempic · Wegovy', cat: 'Metabolic',
-      klass: 'GLP-1 receptor agonist', tier: 'approved',
-      dose: '0.25 mg weekly for 4 weeks, then stepped up at 4-week intervals to 2.4 mg weekly',
-      cite: 'STEP-1, NEJM 2021',
-      half: '~7 days', vials: [2, 5, 10],
-      storage: 'Fridge 2–8°C. Once mixed, weeks rather than months.'
-    },
-    {
-      name: 'Tirzepatide', alt: 'Mounjaro · Zepbound', cat: 'Metabolic',
-      klass: 'GIP + GLP-1 dual agonist', tier: 'approved',
-      dose: '2.5 mg weekly for 4 weeks, then stepped up at 4-week intervals to a maximum of 15 mg weekly',
-      cite: 'SURMOUNT-1, NEJM 2022',
-      half: '~5 days', vials: [5, 10, 15, 20, 30],
-      storage: 'Fridge 2–8°C. Protect from light.'
-    },
-    {
-      name: 'Retatrutide', alt: 'LY3437943', cat: 'Metabolic',
-      klass: 'GLP-1 + GIP + glucagon triple agonist', tier: 'trial',
-      dose: 'Trial arms of 1, 4, 8 and 12 mg weekly, each reached by gradual escalation',
-      cite: 'Phase 2 obesity trial, NEJM 2023',
-      half: '~6 days', vials: [5, 10, 15, 20],
-      storage: 'Lyophilised: freezer, dark. Mixed: fridge.'
-    },
-    {
-      name: 'Tesamorelin', alt: 'Egrifta', cat: 'Growth hormone',
-      klass: 'GHRH analogue', tier: 'approved',
-      dose: '2 mg daily, subcutaneous — the licensed schedule for HIV-associated lipodystrophy',
-      cite: 'Falutz et al., NEJM 2007',
-      half: '~26–38 minutes', vials: [1, 2],
-      storage: 'Fridge once mixed; use promptly.'
-    },
-    {
-      name: 'Ipamorelin', alt: null, cat: 'Growth hormone',
-      klass: 'Selective ghrelin receptor agonist', tier: 'trial',
-      dose: 'Studied in a Phase 2 trial for post-operative ileus and not pursued further. No schedule was ever licensed.',
-      cite: 'Phase 2 ileus trial, 2012',
-      half: '~2 hours', vials: [2, 5, 10],
-      storage: 'Lyophilised: freezer. Mixed: fridge, weeks.'
-    },
-    {
-      name: 'CJC-1295', alt: 'with or without DAC', cat: 'Growth hormone',
-      klass: 'GHRH analogue', tier: 'trial',
-      dose: 'Early-phase pharmacokinetic studies only. No efficacy schedule has been established in humans.',
-      cite: 'Phase 1 PK studies, JCEM 2006',
-      half: 'DAC ~6–8 days · without DAC ~30 min', vials: [2, 5, 10],
-      storage: 'Lyophilised: freezer, dark.'
-    },
-    {
-      name: 'BPC-157', alt: 'Pentadecapeptide BPC 157', cat: 'Repair',
-      klass: 'Synthetic gastric peptide fragment', tier: 'animal',
-      dose: null,
-      cite: 'Rodent studies only; no published human trial',
-      half: 'Not established in humans', vials: [5, 10],
-      storage: 'Lyophilised: freezer, dark.'
-    },
-    {
-      name: 'TB-500', alt: 'Thymosin β4 fragment', cat: 'Repair',
-      klass: 'Actin-binding peptide fragment', tier: 'animal',
-      dose: null,
-      cite: 'Animal studies; WADA-prohibited in sport',
-      half: 'Not established in humans', vials: [2, 5, 10],
-      storage: 'Lyophilised: freezer, dark.'
-    },
-    {
-      name: 'Melanotan II', alt: null, cat: 'Other',
-      klass: 'Non-selective melanocortin agonist', tier: 'none',
-      dose: null,
-      cite: 'No approval anywhere; documented adverse reports',
-      half: '~1 hour', vials: [10],
-      storage: 'Lyophilised: freezer, dark.'
-    }
-  ];
-
-  var TIER_LABEL = { approved:'Approved', trial:'Trial data', animal:'Animal only', none:'No human data' };
-  var refQuery = '', refCat = 'All';
-
-  function refCats() {
-    var seen = ['All'];
-    PEPTIDES.forEach(function (p) { if (seen.indexOf(p.cat) === -1) seen.push(p.cat); });
-    return seen;
-  }
-
-  function refMatches(p) {
-    if (refCat !== 'All' && p.cat !== refCat) return false;
-    if (!refQuery) return true;
-    var hay = (p.name + ' ' + (p.alt || '') + ' ' + p.klass + ' ' + p.cat).toLowerCase();
-    return hay.indexOf(refQuery) !== -1;
-  }
-
-  function renderTable() {
-    var body = document.getElementById('ref-body');
-    var rows = PEPTIDES.filter(refMatches);
-    body.innerHTML = '';
-
-    if (!rows.length) {
-      body.innerHTML = '<tr><td colspan="8" class="ref-empty">Nothing matches that.</td></tr>';
-      document.getElementById('ref-count').textContent = '';
-      return;
-    }
-
-    rows.forEach(function (p) {
-      var tr = document.createElement('tr');
-
-      /* textContent throughout rather than innerHTML with interpolation: this
-         data is ours today, but a table that builds markup from its rows is
-         one careless paste away from being an injection point. */
-      var td = function (cls) { var e = document.createElement('td'); if (cls) e.className = cls; return e; };
-
-      var name = td();
-      var nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = p.name;
-      name.appendChild(nm);
-      if (p.alt) { var a = document.createElement('span'); a.className = 'alt'; a.textContent = p.alt; name.appendChild(a); }
-      tr.appendChild(name);
-
-      var kl = td(); kl.textContent = p.klass; tr.appendChild(kl);
-
-      var ev = td();
-      var pill = document.createElement('span');
-      pill.className = 'tier';
-      pill.setAttribute('data-t', p.tier);
-      pill.textContent = TIER_LABEL[p.tier];
-      ev.appendChild(pill);
-      tr.appendChild(ev);
-
-      var ds = td();
-      if (p.dose) {
-        ds.textContent = p.dose;
-      } else {
-        var nd = document.createElement('span');
-        nd.className = 'no-dose';
-        nd.textContent = 'No human dosing established.';
-        ds.appendChild(nd);
-      }
-      var c = document.createElement('span');
-      c.className = 'alt';
-      c.textContent = p.cite;
-      ds.appendChild(c);
-      tr.appendChild(ds);
-
-      var hf = td('num'); hf.textContent = p.half; tr.appendChild(hf);
-      var vl = td('num'); vl.textContent = p.vials.join(' · ') + ' mg'; tr.appendChild(vl);
-      var st = td(); st.textContent = p.storage; tr.appendChild(st);
-
-      var use = td();
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'ref-use';
-      btn.textContent = 'Use ' + p.vials[0] + ' mg';
-      btn.setAttribute('aria-label', 'Put a ' + p.vials[0] + ' mg ' + p.name + ' vial into the calculator');
-      btn.addEventListener('click', function () {
-        // Only the VIAL SIZE crosses over. The amount field is never touched:
-        // prefilling it from a trial arm would turn a record of what was
-        // studied into a suggestion, which is the one thing this page does not do.
-        s.vial = p.vials[0];
-        document.getElementById('vial').value = String(p.vials[0]);
-        syncPresets(document.getElementById('vial-presets'), VIAL_PRESETS, 'vial');
-        render();
-        document.getElementById('top').scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth' });
-      });
-      use.appendChild(btn);
-      tr.appendChild(use);
-
-      body.appendChild(tr);
-    });
-
-    document.getElementById('ref-count').textContent =
-      rows.length + ' of ' + PEPTIDES.length + ' shown';
-  }
-
-  function reduceMotion() {
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }
-
-  (function buildFilters() {
-    var host = document.getElementById('ref-filters');
-    refCats().forEach(function (cat) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'preset';
-      b.textContent = cat;
-      b.setAttribute('aria-pressed', String(cat === refCat));
-      b.addEventListener('click', function () {
-        refCat = cat;
-        Array.prototype.forEach.call(host.children, function (o) {
-          o.setAttribute('aria-pressed', String(o === b));
-        });
-        renderTable();
-      });
-      host.appendChild(b);
-    });
-  })();
-
-  document.getElementById('ref-q').addEventListener('input', function () {
-    refQuery = this.value.trim().toLowerCase();
-    renderTable();
-  });
-
-  renderTable();
 })();
 </script>
 
