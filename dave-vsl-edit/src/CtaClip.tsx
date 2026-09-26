@@ -36,11 +36,13 @@ import {C, fontFamily, sec} from './theme';
 
 const VO_SECONDS = 2.48;
 
-/** Where the voice peaks, in seconds, measured from the file itself. */
+/** Where the voice peaks, in seconds, measured from the file itself.
+ *  (There is a second gap at 0.63-0.68s; nothing lands on it since the
+ *  reassurance line was removed, so it is recorded here rather than kept as an
+ *  unused field.) */
 const BEAT = {
   onset: 0.03,
   loudest: 0.38,
-  settle: 0.68,
 };
 
 export const CtaClip: React.FC = () => {
@@ -83,13 +85,6 @@ export const CtaClip: React.FC = () => {
     fps,
     config: {damping: 15, stiffness: 190},
     durationInFrames: 20,
-  });
-
-  const sub = spring({
-    frame: frame - sec(BEAT.settle),
-    fps,
-    config: {damping: 26, stiffness: 150},
-    durationInFrames: 18,
   });
 
   /* A single specular pass over the button, once, slowly, well after it has
@@ -213,20 +208,10 @@ export const CtaClip: React.FC = () => {
             />
           </div>
 
-          {/* reassurance */}
-          <div
-            style={{
-              fontSize: 34,
-              fontWeight: 600,
-              color: C.muted,
-              marginTop: 38,
-              letterSpacing: 0.3,
-              opacity: sub,
-              transform: `translateY(${(1 - sub) * 8}px)`,
-            }}
-          >
-            Free · takes 10 seconds
-          </div>
+          {/* The reassurance line ("Free · takes 10 seconds") was removed on
+              request. Nothing replaces it: the button is now the last thing on
+              screen as well as the loudest, which is a stronger close than a
+              qualifier underneath it. */}
         </div>
       </AbsoluteFill>
     </AbsoluteFill>
