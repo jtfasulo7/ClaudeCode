@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Terms of Service — Peps by Dave</title>
 <meta name="description" content="The terms that apply to the Peps by Dave community, this website, and the social media accounts we publish to.">
-<meta name="theme-color" content="#0B0B0C">
+<meta name="theme-color" content="#123B31">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..40,0&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
@@ -13,11 +13,14 @@
 /* Same tokens, same type scale, same easing as the homepage. A legal page that
    looks cheaper than the page selling to you is its own kind of tell. */
 :root {
-  --bg:#0B0B0C; --surface-solid:#141317;
-  --accent:#D6AF52; --accent-d:#F0D89B; --accent-rgb:214,175,82;
-  --t1:#F6F2E8; --t2:rgba(246,242,232,.70); --t3:rgba(246,242,232,.44);
-  --hairline:rgba(246,242,232,.10);
-  --hairline-soft:rgba(246,242,232,.06);
+  --bg:#123B31; --surface-solid:#16463A;
+  --accent:#A7CBB7; --accent-d:#CDE4D7; --accent-rgb:167,203,183;
+  /* Cream is the brand's second colour and the only solid fill: the button
+     is cream with deep-green type, exactly as the brand lockup draws it. */
+  --fill:#F5F1E7; --fill-rgb:245,241,231;
+  --t1:#F5F1E7; --t2:rgba(245,241,231,.70); --t3:rgba(245,241,231,.44);
+  --hairline:rgba(245,241,231,.10);
+  --hairline-soft:rgba(245,241,231,.06);
   --ff-display:'Fraunces', 'Iowan Old Style', Georgia, serif;
   --ff:'Manrope', ui-sans-serif, system-ui, sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
@@ -35,7 +38,7 @@ body {
   margin:0; font-family:var(--ff); font-weight:400; color:var(--t1);
   line-height:1.75; font-size:var(--step-0);
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  background:radial-gradient(1000px 560px at 12% -12%, rgba(214,175,82,.085), transparent 62%), var(--bg);
+  background:radial-gradient(1000px 560px at 12% -12%, rgba(167,203,183,.085), transparent 62%), var(--bg);
   background-attachment:fixed;
 }
 /* The same film of grain the homepage wears, so the two feel like one surface. */
@@ -51,18 +54,23 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
 
 .nav {
   position:sticky; top:0; z-index:50; backdrop-filter:blur(14px) saturate(140%);
-  background:rgba(11,11,12,.72); border-bottom:1px solid var(--hairline);
+  background:rgba(18,59,49,.72); border-bottom:1px solid var(--hairline);
 }
 .nav-in { display:flex; align-items:center; height:68px; }
+/* The wordmark follows the brand lockup: tracked-out sans over a smaller,
+   wider "PEPTIDE COMMUNITY" line. Fraunces stays for headlines — the lockup
+   is the one place the identity is set in the sans. */
 .brand {
-  font-family:var(--ff-display);
-  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
-  font-size:1.12rem; letter-spacing:-.015em; text-decoration:none; color:var(--t1);
+  display:inline-flex; flex-direction:column; gap:.18em;
+  font-family:var(--ff); font-weight:600;
+  font-size:1.02rem; letter-spacing:.11em; text-decoration:none; color:var(--t1);
   white-space:nowrap;   /* never "Peps by" over "Dave" */
+  line-height:1;
 }
-/* The whole wordmark is one colour. "Dave" used to take the gold accent;
-   the element is kept so restoring it is a one-word change. */
-.brand span { color:inherit; }
+.brand-sub {
+  font-size:.52rem; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--accent);
+}
 
 header.head { padding:clamp(3rem,8vh,5rem) 0 1.5rem; }
 .eyebrow {
@@ -125,7 +133,7 @@ strong { color:var(--t1); font-weight:700; }
 </head>
 <body>
 
-<nav class="nav"><div class="wrap nav-in"><a class="brand" href="/">Peps by <span>Dave</span></a></div></nav>
+<nav class="nav"><div class="wrap nav-in"><a class="brand" href="/"><span>Peps by Dave</span><span class="brand-sub">Peptide Community</span></a></div></nav>
 
 <header class="head">
   <div class="wrap">

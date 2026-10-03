@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Peps by Dave — read the peptide research yourself</title>
 <meta name="description" content="A private community for people who would rather read the peptide studies and judge them than take a shop's word for it.">
-<meta name="theme-color" content="#0B0B0C">
+<meta name="theme-color" content="#123B31">
 
 <meta property="og:title" content="Peps by Dave">
 <meta property="og:description" content="A private community for people who would rather read the peptide studies and judge them than take a shop's word for it.">
@@ -31,13 +31,16 @@
    restraint is the whole design — a page reads expensive when nothing on it
    is arbitrary. */
 :root {
-  --bg:#0B0B0C; --bg-2:#0F0E11;
-  --surface:rgba(246,242,232,.035);
-  --accent:#D6AF52; --accent-b:#E8C87A; --accent-d:#F0D89B; --accent-rgb:214,175,82;
-  --on-accent:#1B1505;
-  --t1:#F6F2E8; --t2:rgba(246,242,232,.70); --t3:rgba(246,242,232,.44);
-  --hairline:rgba(246,242,232,.10);
-  --hairline-soft:rgba(246,242,232,.06);
+  --bg:#123B31; --bg-2:#0E2F27;
+  --surface:rgba(245,241,231,.035);
+  --accent:#A7CBB7; --accent-b:#FFFDF6; --accent-d:#CDE4D7; --accent-rgb:167,203,183;
+  /* Cream is the brand's second colour and the only solid fill: the button
+     is cream with deep-green type, exactly as the brand lockup draws it. */
+  --fill:#F5F1E7; --fill-rgb:245,241,231;
+  --on-accent:#0E362E;
+  --t1:#F5F1E7; --t2:rgba(245,241,231,.70); --t3:rgba(245,241,231,.44);
+  --hairline:rgba(245,241,231,.10);
+  --hairline-soft:rgba(245,241,231,.06);
 
   --ff-display:'Fraunces', 'Iowan Old Style', Georgia, serif;
   --ff:'Manrope', ui-sans-serif, system-ui, sans-serif;
@@ -68,8 +71,8 @@ body {
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
   background:
-    radial-gradient(1100px 620px at 12% -12%, rgba(214,175,82,.11), transparent 62%),
-    radial-gradient(900px 520px at 92% 4%, rgba(214,175,82,.055), transparent 64%),
+    radial-gradient(1100px 620px at 12% -12%, rgba(167,203,183,.11), transparent 62%),
+    radial-gradient(900px 520px at 92% 4%, rgba(167,203,183,.055), transparent 64%),
     var(--bg);
   background-attachment:fixed;
   overflow-x:hidden;
@@ -117,7 +120,7 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
   transition:background .5s var(--ease), border-color .5s var(--ease), backdrop-filter .5s var(--ease);
 }
 .nav.is-stuck {
-  background:rgba(11,11,12,.72);
+  background:rgba(18,59,49,.72);
   backdrop-filter:blur(14px) saturate(140%);
   border-bottom-color:var(--hairline);
 }
@@ -133,15 +136,20 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
 @media (max-width:560px){
   .nav .lnk { display:none; }
 }
+/* The wordmark follows the brand lockup: tracked-out sans over a smaller,
+   wider "PEPTIDE COMMUNITY" line. Fraunces stays for headlines — the lockup
+   is the one place the identity is set in the sans. */
 .brand {
-  font-family:var(--ff-display);
-  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
-  font-size:1.12rem; letter-spacing:-.015em; text-decoration:none; color:var(--t1);
+  display:inline-flex; flex-direction:column; gap:.18em;
+  font-family:var(--ff); font-weight:600;
+  font-size:1.02rem; letter-spacing:.11em; text-decoration:none; color:var(--t1);
   white-space:nowrap;   /* never "Peps by" over "Dave" */
+  line-height:1;
 }
-/* The whole wordmark is one colour. "Dave" used to take the gold accent;
-   the element is kept so restoring it is a one-word change. */
-.brand em { font-style:normal; color:inherit; }
+.brand-sub {
+  font-size:.52rem; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--accent);
+}
 .nav-sp { flex:1 1 auto; }
 .nav .lnk {
   color:var(--t2); text-decoration:none; font-size:var(--step--1); font-weight:500;
@@ -158,16 +166,16 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
   transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease), color .35s var(--ease);
 }
 .btn-primary {
-  background:linear-gradient(175deg, var(--accent-b), var(--accent) 62%, #C79E43);
+  background:linear-gradient(175deg, var(--accent-b), var(--fill) 62%, #E6E1D1);
   color:var(--on-accent);
-  box-shadow:0 1px 0 rgba(255,255,255,.22) inset, 0 10px 30px -12px rgba(var(--accent-rgb),.6);
+  box-shadow:0 1px 0 rgba(255,255,255,.22) inset, 0 10px 30px -12px rgba(var(--fill-rgb),.45);
 }
-.btn-primary:hover { transform:translateY(-2px); box-shadow:0 1px 0 rgba(255,255,255,.28) inset, 0 18px 40px -14px rgba(var(--accent-rgb),.75); }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 1px 0 rgba(255,255,255,.28) inset, 0 18px 40px -14px rgba(var(--fill-rgb),.6); }
 /* A slow sheen crossing the face on hover. One flourish, on the one element
    the whole page exists to get pressed. */
 .btn-primary::after {
   content:''; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(105deg, transparent 38%, rgba(255,255,255,.55) 50%, transparent 62%);
+  background:linear-gradient(105deg, transparent 38%, rgba(14,54,46,.13) 50%, transparent 62%);
   transform:translateX(-120%);
   transition:transform .9s var(--ease);
 }
@@ -236,7 +244,7 @@ h1 .it {
 .hero-figure::before {
   content:''; position:absolute; z-index:0;
   left:50%; bottom:0; width:124%; height:80%; transform:translateX(-50%);
-  background:radial-gradient(58% 58% at 50% 68%, rgba(214,175,82,.19), transparent 70%);
+  background:radial-gradient(58% 58% at 50% 68%, rgba(167,203,183,.19), transparent 70%);
   filter:blur(10px); pointer-events:none;
 }
 .hero-figure img {
@@ -287,9 +295,9 @@ h2 {
      lit while the other three stay dark. A flat fill inside an even border is a
      rectangle — this is a panel with something above it. */
   background:
-    linear-gradient(168deg, rgba(246,242,232,.062), rgba(246,242,232,.022) 52%, rgba(246,242,232,.012));
+    linear-gradient(168deg, rgba(245,241,231,.062), rgba(245,241,231,.022) 52%, rgba(245,241,231,.012));
   border:1px solid var(--hairline-soft);
-  border-top-color:rgba(246,242,232,.16);
+  border-top-color:rgba(245,241,231,.16);
   /* Space is the cheapest luxury available. The first version used 1.3rem and
      that alone is most of what made it read as stock. */
   padding:clamp(1.6rem, 2.6vw, 2.4rem);
@@ -431,7 +439,7 @@ h2 {
   border-top-color:rgba(var(--accent-rgb),.3);
   background:
     radial-gradient(120% 140% at 50% 0%, rgba(var(--accent-rgb),.11), transparent 60%),
-    linear-gradient(180deg, rgba(246,242,232,.045), rgba(246,242,232,.015));
+    linear-gradient(180deg, rgba(245,241,231,.045), rgba(245,241,231,.015));
 }
 .close h3 {
   font-family:var(--ff-display);
@@ -493,7 +501,7 @@ h1 .ln:nth-child(2) > span { animation-delay:.26s; }
 
 <nav class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="/">Peps by <em>Dave</em></a>
+    <a class="brand" href="/"><span>Peps by Dave</span><span class="brand-sub">Peptide Community</span></a>
     <span class="nav-sp"></span>
     <a class="lnk" href="#inside">What&rsquo;s inside</a>
     <a class="lnk" href="#studies">Research</a>

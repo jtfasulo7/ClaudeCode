@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Supplies — Peps by Dave</title>
 <meta name="description" content="The equipment and consumables that make peptide storage, handling and travel work. Amazon affiliate links; we do not sell or supply peptides.">
-<meta name="theme-color" content="#0B0B0C">
+<meta name="theme-color" content="#123B31">
 
 <meta property="og:title" content="Supplies — Peps by Dave">
 <meta property="og:description" content="The equipment and consumables that make peptide storage, handling and travel work.">
@@ -22,12 +22,15 @@
 <style>
 /* ============================================================ tokens ==== */
 :root {
-  --bg:#0B0B0C;
-  --accent:#D6AF52; --accent-b:#E8C87A; --accent-d:#F0D89B; --accent-rgb:214,175,82;
-  --on-accent:#1B1505;
-  --t1:#F6F2E8; --t2:rgba(246,242,232,.70); --t3:rgba(246,242,232,.44);
-  --hairline:rgba(246,242,232,.10);
-  --hairline-soft:rgba(246,242,232,.06);
+  --bg:#123B31;
+  --accent:#A7CBB7; --accent-b:#FFFDF6; --accent-d:#CDE4D7; --accent-rgb:167,203,183;
+  /* Cream is the brand's second colour and the only solid fill: the button
+     is cream with deep-green type, exactly as the brand lockup draws it. */
+  --fill:#F5F1E7; --fill-rgb:245,241,231;
+  --on-accent:#0E362E;
+  --t1:#F5F1E7; --t2:rgba(245,241,231,.70); --t3:rgba(245,241,231,.44);
+  --hairline:rgba(245,241,231,.10);
+  --hairline-soft:rgba(245,241,231,.06);
 
   --ff-display:'Fraunces', 'Iowan Old Style', Georgia, serif;
   --ff:'Manrope', ui-sans-serif, system-ui, sans-serif;
@@ -62,8 +65,8 @@ body {
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
   background:
-    radial-gradient(1100px 620px at 12% -12%, rgba(214,175,82,.11), transparent 62%),
-    radial-gradient(900px 520px at 92% 4%, rgba(214,175,82,.055), transparent 64%),
+    radial-gradient(1100px 620px at 12% -12%, rgba(167,203,183,.11), transparent 62%),
+    radial-gradient(900px 520px at 92% 4%, rgba(167,203,183,.055), transparent 64%),
     var(--bg);
   background-attachment:fixed;
   overflow-x:clip;   /* not hidden: that can promote body to the scroller,
@@ -94,18 +97,24 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
   /* The padding is what puts the nav's background INTO the notch strip; the
      links stay below it because padding sits inside the background box. */
   padding-top:var(--safe-top);
-  background:rgba(11,11,12,.82); backdrop-filter:blur(14px) saturate(140%);
+  background:rgba(18,59,49,.82); backdrop-filter:blur(14px) saturate(140%);
   border-bottom:1px solid var(--hairline);
 }
 .nav-in { display:flex; align-items:center; gap:.35rem; height:var(--nav-h); }
+/* The wordmark follows the brand lockup: tracked-out sans over a smaller,
+   wider "PEPTIDE COMMUNITY" line. Fraunces stays for headlines — the lockup
+   is the one place the identity is set in the sans. */
 .brand {
-  font-family:var(--ff-display);
-  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
-  font-size:1.12rem; letter-spacing:-.015em; text-decoration:none; color:var(--t1);
+  display:inline-flex; flex-direction:column; gap:.18em;
+  font-family:var(--ff); font-weight:600;
+  font-size:1.02rem; letter-spacing:.11em; text-decoration:none; color:var(--t1);
   white-space:nowrap;   /* never "Peps by" over "Dave" */
-  display:inline-flex; align-items:center; min-height:44px;
+  line-height:1;
 }
-.brand em { font-style:normal; color:inherit; }
+.brand-sub {
+  font-size:.52rem; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--accent);
+}
 .nav-sp { flex:1 1 auto; }
 /* Tap targets: every nav link is at least 44px tall. */
 .nav .lnk {
@@ -130,7 +139,7 @@ h1 {
 .disclosure-top {
   margin:1.2rem 0 0; font-size:.82rem; line-height:1.55; color:var(--t3); max-width:46rem;
 }
-.disclosure-top a { color:var(--t2); text-decoration:underline; text-decoration-color:rgba(246,242,232,.28); }
+.disclosure-top a { color:var(--t2); text-decoration:underline; text-decoration-color:rgba(245,241,231,.28); }
 .disclosure-top a:hover { color:var(--t1); }
 
 /* ============================================================= chips === */
@@ -149,12 +158,12 @@ h1 {
   min-height:44px; padding:0 1.05rem; border-radius:999px;
   font-size:.86rem; font-weight:600; letter-spacing:.01em;
   color:var(--t2); text-decoration:none; white-space:nowrap;
-  border:1px solid var(--hairline); background:rgba(246,242,232,.035);
+  border:1px solid var(--hairline); background:rgba(245,241,231,.035);
   transition:color .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
 }
 .chip:hover { color:var(--t1); border-color:rgba(var(--accent-rgb),.35); }
 .chip[aria-current="true"] {
-  color:var(--on-accent); background:linear-gradient(175deg, var(--accent-b), var(--accent));
+  color:var(--on-accent); background:linear-gradient(175deg, var(--accent-b), var(--fill));
   border-color:transparent;
 }
 @media (max-width:760px){
@@ -201,9 +210,9 @@ h1 {
   position:relative; isolation:isolate;
   display:flex; flex-direction:column;
   border-radius:22px; overflow:hidden;
-  background:linear-gradient(168deg, rgba(246,242,232,.062), rgba(246,242,232,.022) 52%, rgba(246,242,232,.012));
+  background:linear-gradient(168deg, rgba(245,241,231,.062), rgba(245,241,231,.022) 52%, rgba(245,241,231,.012));
   border:1px solid var(--hairline-soft);
-  border-top-color:rgba(246,242,232,.16);
+  border-top-color:rgba(245,241,231,.16);
   padding:clamp(1rem, 1.5vw, 1.3rem);
   transition:transform .6s var(--ease), border-color .6s var(--ease);
 }
@@ -220,7 +229,7 @@ h1 {
   position:relative; aspect-ratio:1/1;
   border-radius:15px; overflow:hidden;
   background:linear-gradient(180deg, #FBF8F1, #E7E1D4);
-  box-shadow:inset 0 0 0 1px rgba(11,11,12,.07);
+  box-shadow:inset 0 0 0 1px rgba(18,59,49,.07);
   margin-bottom:.9rem;
 }
 .shot img { width:100%; height:100%; object-fit:contain; padding:11%; transition:transform .8s var(--ease); }
@@ -234,7 +243,7 @@ h1 {
   min-width:2rem; height:1.6rem; padding:0 .5rem; border-radius:999px;
   font-size:.76rem; font-weight:800; letter-spacing:.04em;
   color:#4A3A12; background:rgba(255,255,255,.72);
-  box-shadow:inset 0 0 0 1px rgba(11,11,12,.12);
+  box-shadow:inset 0 0 0 1px rgba(18,59,49,.12);
   backdrop-filter:blur(4px);
 }
 
@@ -269,14 +278,14 @@ h1 {
   width:100%; min-height:48px; padding:.85rem 1.2rem;
   border-radius:999px; text-decoration:none;
   font-family:var(--ff); font-weight:700; font-size:var(--step--1); letter-spacing:.005em;
-  background:linear-gradient(175deg, var(--accent-b), var(--accent) 62%, #C79E43);
+  background:linear-gradient(175deg, var(--accent-b), var(--fill) 62%, #E6E1D1);
   color:var(--on-accent);
-  box-shadow:0 1px 0 rgba(255,255,255,.22) inset, 0 10px 30px -12px rgba(var(--accent-rgb),.6);
+  box-shadow:0 1px 0 rgba(255,255,255,.22) inset, 0 10px 30px -12px rgba(var(--fill-rgb),.45);
   transition:filter .35s var(--ease), box-shadow .5s var(--ease);
 }
 .cta::after { content:''; position:absolute; inset:-100vmax; z-index:-1; }
 .product { contain:paint; }   /* keeps that overlay inside its own card */
-.cta:hover { filter:brightness(1.05); box-shadow:0 1px 0 rgba(255,255,255,.28) inset, 0 16px 38px -14px rgba(var(--accent-rgb),.75); }
+.cta:hover { filter:brightness(1.05); box-shadow:0 1px 0 rgba(255,255,255,.28) inset, 0 16px 38px -14px rgba(var(--fill-rgb),.6); }
 .cta span[aria-hidden] { transition:transform .4s var(--ease); }
 .product:hover .cta span[aria-hidden] { transform:translateX(3px); }
 
@@ -354,7 +363,7 @@ h1 {
 
 <nav class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="/">Peps by <em>Dave</em></a>
+    <a class="brand" href="/"><span>Peps by Dave</span><span class="brand-sub">Peptide Community</span></a>
     <span class="nav-sp"></span>
     <a class="lnk" href="/#inside">What&rsquo;s inside</a>
     <a class="lnk" href="/#studies">Research</a>

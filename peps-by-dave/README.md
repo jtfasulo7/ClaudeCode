@@ -1,7 +1,8 @@
 # Peps by Dave — website
 
-Static site for the Peps by Dave community. Three pages, no build step, no
-dependencies: `index.html`, `terms.html`, `privacy-policy.html`.
+Static site for the Peps by Dave community. No build step, no dependencies:
+`index.html`, `calculator.html`, `supplies.html`, `terms.html`,
+`privacy-policy.html`, and the hidden `vendor-chat-test.html`.
 
 ## Deploying
 
@@ -38,6 +39,31 @@ both from Google Fonts, one request.
   reading research honestly.
 - **Inter was removed deliberately.** It is the default that makes a page look
   generated rather than designed.
+
+**Colour.** Two brand colours and one derived tone, taken from the brand
+lockup: forest green `#123B31` as the ground and cream `#F5F1E7` as the type.
+The site was near-black and gold until the lockup settled the identity; the
+swap was palette-only, and no layout, spacing or motion decision below changed
+with it.
+
+- **Cream is the only solid fill.** `--fill` is the button, drawn cream with
+  deep-green type (`--on-accent: #0E362E`) exactly as the lockup draws it.
+  **The sheen on `.btn-primary` is tinted green, not white** — a white sweep
+  over a cream face is invisible, which is the one place the old gold rule
+  does not port across.
+- **`--accent` is a pale sage `#A7CBB7`, and it is derived, not a third brand
+  colour.** It carries the role the gold had in small type — eyebrows, section
+  numbers, category labels, link colour, hairline gradients. Setting those in
+  cream would make them the same colour as the headings and flatten the
+  hierarchy the page depends on; the lockup itself has no small-type tone to
+  copy, so one is lightened out of the brand green.
+- **`--warn` stays amber.** It is the calculator's overflow warning, and a
+  warning rendered in a colour the page already uses for ordinary accents is
+  not a warning. It is a functional colour, not part of the identity.
+- **The wordmark is the one place the identity is set in the sans.** Manrope,
+  tracked to `.11em`, over a smaller `PEPTIDE COMMUNITY` line at `.26em`.
+  Fraunces still owns every headline — the lockup's own display face is a
+  high-contrast serif, so the two agree.
 
 **Scale.** Six fluid steps (`--step--1` … `--step-4`), each a `clamp()` on the
 same ratio. Nothing on any page sets a font size outside them.
@@ -78,13 +104,13 @@ each of those deliberately:
 - **Two explicit columns, never `auto-fit`** — the layout is chosen rather
   than derived from the viewport.
 
-Hover fades a pseudo-element and translates the card. **Do not move the gold
+Hover fades a pseudo-element and translates the card. **Do not move the sage
 wash onto the card’s own `background` or animate its `box-shadow`** — those
 repaint every frame, where opacity and transform composite.
 
 **Grain.** A fixed, pointer-inert `feTurbulence` layer at ~3% over both page
-types. On a near-black ground a flat fill reads as an empty canvas; grain gives
-it a surface. It is static, so it composites once and costs nothing per frame.
+types. On a flat forest ground a single fill reads as an empty canvas; grain
+gives it a surface. It is static, so it composites once and costs nothing per frame.
 
 **The legal pages share all of it.** They were plainer than the front page,
 which is its own kind of tell on a site a platform reviewer reads. Restyling
@@ -105,7 +131,7 @@ Three touchpoints, and each is placed for a reason:
    directly under the medical disclaimer, and anything unframed placed after a
    wall of caveats reads as a footnote to them.
 
-The sheen sweep belongs to `.btn-primary` and nothing else, so the gold is the
+The sheen sweep belongs to `.btn-primary` and nothing else, so the cream is the
 only thing on the page that moves that way.
 
 ## The research list is real, and has to stay real
@@ -261,3 +287,31 @@ built in `../sybago-website` (`lib/social/`, `api/social-publish.js`,
 `api/tiktok-auth.js`). If that tool changes what it stores or who it sends data
 to, these two sections have to change with it — a privacy policy that describes
 last month's behaviour is worse than none.
+
+## The vendor chat test page (/vendor-chat-test)
+
+An internal page for trialling Chatwoot live chat without putting a widget in
+front of visitors. **It is deliberately unreachable:** not in the nav, not in
+the footer, not in any sitemap, and it carries
+`<meta name="robots" content="noindex, nofollow">`. Leave it that way — the
+moment it is linked, the trial is live to the public.
+
+**Chatwoot loads on this page only.** The snippet sits immediately before
+`</body>` as its own `<script>`; nothing about live chat belongs in the shared
+chrome of the other five pages.
+
+**The launcher is a button in the middle of the page, not the corner bubble.**
+Three parts, and all three are needed:
+
+1. `window.chatwootSettings = { hideMessageBubble: true }` **before** the
+   snippet — the SDK reads it at `run()` time, so declaring it afterwards is
+   too late and the bubble appears anyway.
+2. `#chat-open`, which calls `window.$chatwoot.toggle('open')`.
+3. The button starts `disabled` and is enabled on the `chatwoot:ready` event.
+   That event is the only point at which `$chatwoot.toggle` exists, so a click
+   before it would be a no-op the visitor reads as a broken button.
+
+**The chat panel itself still opens against the right edge.** That is
+Chatwoot's own placement; `position` only chooses left or right, so the panel
+cannot be centred from our side without overriding the SDK's styles. Only the
+launcher moved.

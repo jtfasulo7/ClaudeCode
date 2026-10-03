@@ -7,7 +7,7 @@
 <!-- Internal test page. It is deliberately absent from the nav, the footer links
      and any sitemap, and this page alone carries the Chatwoot widget. -->
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0B0B0C">
+<meta name="theme-color" content="#123B31">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..40,0&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
@@ -15,11 +15,15 @@
 /* Same tokens, type scale and easing as every other page. Only the rules this
    page actually uses are here — it has no table of contents and no callouts. */
 :root {
-  --bg:#0B0B0C;
-  --accent:#D6AF52; --accent-d:#F0D89B; --accent-rgb:214,175,82;
-  --t1:#F6F2E8; --t2:rgba(246,242,232,.70); --t3:rgba(246,242,232,.44);
-  --hairline:rgba(246,242,232,.10);
-  --hairline-soft:rgba(246,242,232,.06);
+  --bg:#123B31;
+  --accent:#A7CBB7; --accent-b:#FFFDF6; --accent-d:#CDE4D7; --accent-rgb:167,203,183;
+  --on-accent:#0E362E;
+  /* Cream is the brand's second colour and the only solid fill: the button
+     is cream with deep-green type, exactly as the brand lockup draws it. */
+  --fill:#F5F1E7; --fill-rgb:245,241,231;
+  --t1:#F5F1E7; --t2:rgba(245,241,231,.70); --t3:rgba(245,241,231,.44);
+  --hairline:rgba(245,241,231,.10);
+  --hairline-soft:rgba(245,241,231,.06);
   --ff-display:'Fraunces', 'Iowan Old Style', Georgia, serif;
   --ff:'Manrope', ui-sans-serif, system-ui, sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
@@ -33,7 +37,7 @@ body {
   margin:0; font-family:var(--ff); font-weight:400; color:var(--t1);
   line-height:1.75; font-size:var(--step-0);
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  background:radial-gradient(1000px 560px at 12% -12%, rgba(214,175,82,.085), transparent 62%), var(--bg);
+  background:radial-gradient(1000px 560px at 12% -12%, rgba(167,203,183,.085), transparent 62%), var(--bg);
   background-attachment:fixed;
   min-height:100vh; display:flex; flex-direction:column;
 }
@@ -51,16 +55,23 @@ a { color:var(--accent-d); text-underline-offset:.25em; }
 
 .nav {
   position:sticky; top:0; z-index:50; backdrop-filter:blur(14px) saturate(140%);
-  background:rgba(11,11,12,.72); border-bottom:1px solid var(--hairline);
+  background:rgba(18,59,49,.72); border-bottom:1px solid var(--hairline);
 }
 .nav-in { display:flex; align-items:center; height:68px; }
+/* The wordmark follows the brand lockup: tracked-out sans over a smaller,
+   wider "PEPTIDE COMMUNITY" line. Fraunces stays for headlines — the lockup
+   is the one place the identity is set in the sans. */
 .brand {
-  font-family:var(--ff-display);
-  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
-  font-size:1.12rem; letter-spacing:-.015em; text-decoration:none; color:var(--t1);
-  white-space:nowrap;
+  display:inline-flex; flex-direction:column; gap:.18em;
+  font-family:var(--ff); font-weight:600;
+  font-size:1.02rem; letter-spacing:.11em; text-decoration:none; color:var(--t1);
+  white-space:nowrap;   /* never "Peps by" over "Dave" */
+  line-height:1;
 }
-.brand span { color:inherit; }
+.brand-sub {
+  font-size:.52rem; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--accent);
+}
 
 header.head { padding:clamp(3rem,8vh,5rem) 0 1.5rem; }
 .eyebrow {
@@ -75,8 +86,36 @@ h1 {
   font-size:var(--step-3); line-height:1.05; letter-spacing:-.03em;
   margin:0; font-weight:400;
 }
-main { flex:1 0 auto; padding-bottom:5rem; }
-p { color:var(--t2); font-weight:300; margin:1.4rem 0 0; }
+/* The page exists to be a launcher, so its one control sits in the middle of
+   the field rather than down in a corner. */
+main { flex:1 0 auto; display:flex; align-items:center; padding:clamp(2rem,6vh,4rem) 0 5rem; }
+.panel { text-align:center; }
+p { color:var(--t2); font-weight:300; margin:0 auto; max-width:34rem; }
+
+.chat-btn {
+  margin-top:2.4rem;
+  position:relative; overflow:hidden;
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-family:var(--ff); font-weight:700; font-size:var(--step--1); letter-spacing:.005em;
+  padding:1.05rem 2rem; border-radius:999px; border:0; cursor:pointer;
+  background:linear-gradient(175deg, var(--accent-b), var(--fill) 62%, #E6E1D1);
+  color:var(--on-accent);
+  box-shadow:0 1px 0 rgba(255,255,255,.22) inset, 0 10px 30px -12px rgba(var(--fill-rgb),.45);
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease), opacity .3s var(--ease);
+}
+.chat-btn:hover { transform:translateY(-2px); box-shadow:0 1px 0 rgba(255,255,255,.28) inset, 0 18px 40px -14px rgba(var(--fill-rgb),.6); }
+/* The same sheen the site's primary button wears, tinted green so it reads on
+   a cream face. */
+.chat-btn::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(105deg, transparent 38%, rgba(14,54,46,.13) 50%, transparent 62%);
+  transform:translateX(-120%); transition:transform .9s var(--ease);
+}
+.chat-btn:hover::after { transform:translateX(120%); }
+/* Disabled until the SDK says it is ready, so a click can never land on a
+   widget that has not finished loading. */
+.chat-btn[disabled] { opacity:.45; cursor:progress; transform:none; }
+.chat-note { font-size:var(--step--1); color:var(--t3); margin-top:1.1rem; }
 
 .footer { border-top:1px solid var(--hairline-soft); padding:2.5rem 0 3.5rem; }
 .footer a { color:var(--t2); text-decoration:none; font-size:var(--step--1); margin-right:1.8rem; transition:color .35s var(--ease); }
@@ -89,7 +128,7 @@ p { color:var(--t2); font-weight:300; margin:1.4rem 0 0; }
 </head>
 <body>
 
-<nav class="nav"><div class="wrap nav-in"><a class="brand" href="/">Peps by <span>Dave</span></a></div></nav>
+<nav class="nav"><div class="wrap nav-in"><a class="brand" href="/"><span>Peps by Dave</span><span class="brand-sub">Peptide Community</span></a></div></nav>
 
 <header class="head">
   <div class="wrap">
@@ -99,8 +138,13 @@ p { color:var(--t2); font-weight:300; margin:1.4rem 0 0; }
 </header>
 
 <main>
-  <div class="wrap">
-    <p>Internal test page. Click the chat bubble in the bottom-right corner to message the vendor.</p>
+  <div class="wrap panel">
+    <p>Internal test page. Click the button below to message the vendor.</p>
+    <button class="chat-btn" id="chat-open" type="button" disabled>
+      Message the vendor
+      <span aria-hidden="true">&rarr;</span>
+    </button>
+    <p class="chat-note" id="chat-note">Loading chat&hellip;</p>
   </div>
 </main>
 
@@ -111,7 +155,14 @@ p { color:var(--t2); font-weight:300; margin:1.4rem 0 0; }
   </div>
 </footer>
 
-<!-- Chatwoot live chat — this page only, loaded last so it never blocks render. -->
+<!-- Chatwoot live chat — this page only, loaded last so it never blocks render.
+     hideMessageBubble suppresses the default corner launcher; the button in the
+     middle of the page opens the widget instead. These settings are read by the
+     SDK at run() time, so they have to be declared before the snippet. -->
+<script>
+  window.chatwootSettings = { hideMessageBubble: true };
+</script>
+
 <script>
   (function(d,t) {
     var BASE_URL="https://app.chatwoot.com";
@@ -126,6 +177,22 @@ p { color:var(--t2); font-weight:300; margin:1.4rem 0 0; }
       })
     }
   })(document,"script");
+</script>
+
+<!-- The launcher. chatwoot:ready fires once the widget iframe is live, which is
+     the only point at which $chatwoot.toggle exists. -->
+<script>
+  (function () {
+    var btn  = document.getElementById('chat-open');
+    var note = document.getElementById('chat-note');
+    window.addEventListener('chatwoot:ready', function () {
+      btn.disabled = false;
+      note.textContent = 'Connected to Chatwoot.';
+    });
+    btn.addEventListener('click', function () {
+      if (window.$chatwoot) window.$chatwoot.toggle('open');
+    });
+  })();
 </script>
 
 </body>
