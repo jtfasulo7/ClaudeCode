@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendor Chat (Test) — Peps by Dave</title>
+<!-- Internal test page. It is deliberately absent from the nav, the footer links
+     and any sitemap, and this page alone carries the Chatwoot widget. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..40,0&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+<style>
+/* Same tokens, type scale and easing as every other page. Only the rules this
+   page actually uses are here — it has no table of contents and no callouts. */
+:root {
+  --bg:#0B0B0C;
+  --accent:#D6AF52; --accent-d:#F0D89B; --accent-rgb:214,175,82;
+  --t1:#F6F2E8; --t2:rgba(246,242,232,.70); --t3:rgba(246,242,232,.44);
+  --hairline:rgba(246,242,232,.10);
+  --hairline-soft:rgba(246,242,232,.06);
+  --ff-display:'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --ff:'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --step--1:clamp(.82rem, .79rem + .14vw, .89rem);
+  --step-0: clamp(1rem, .96rem + .2vw, 1.05rem);
+  --step-3: clamp(1.9rem, 1.55rem + 1.7vw, 2.9rem);
+}
+html { -webkit-text-size-adjust:100%; }
+*, *::before, *::after { box-sizing:border-box; }
+body {
+  margin:0; font-family:var(--ff); font-weight:400; color:var(--t1);
+  line-height:1.75; font-size:var(--step-0);
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  background:radial-gradient(1000px 560px at 12% -12%, rgba(214,175,82,.085), transparent 62%), var(--bg);
+  background-attachment:fixed;
+  min-height:100vh; display:flex; flex-direction:column;
+}
+/* The same film of grain the rest of the site wears. Sits under the widget's
+   own layer, which Chatwoot mounts at a far higher z-index. */
+body::after {
+  content:''; position:fixed; inset:0; z-index:60; pointer-events:none;
+  opacity:.028; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a { color:var(--accent-d); text-underline-offset:.25em; }
+::selection { background:rgba(var(--accent-rgb),.28); color:var(--t1); }
+:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+.wrap { width:100%; max-width:46rem; margin:0 auto; padding:0 clamp(1.25rem,5vw,2rem); }
+
+.nav {
+  position:sticky; top:0; z-index:50; backdrop-filter:blur(14px) saturate(140%);
+  background:rgba(11,11,12,.72); border-bottom:1px solid var(--hairline);
+}
+.nav-in { display:flex; align-items:center; height:68px; }
+.brand {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 40, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:1.12rem; letter-spacing:-.015em; text-decoration:none; color:var(--t1);
+  white-space:nowrap;
+}
+.brand span { color:inherit; }
+
+header.head { padding:clamp(3rem,8vh,5rem) 0 1.5rem; }
+.eyebrow {
+  display:flex; align-items:center; gap:.7rem;
+  font-size:.68rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 1.1rem;
+}
+.eyebrow::after { content:''; height:1px; flex:1 1 auto; max-width:5rem; background:linear-gradient(90deg, rgba(var(--accent-rgb),.5), transparent); }
+h1 {
+  font-family:var(--ff-display);
+  font-variation-settings:'opsz' 144, 'wght' 600, 'SOFT' 0, 'WONK' 0;
+  font-size:var(--step-3); line-height:1.05; letter-spacing:-.03em;
+  margin:0; font-weight:400;
+}
+main { flex:1 0 auto; padding-bottom:5rem; }
+p { color:var(--t2); font-weight:300; margin:1.4rem 0 0; }
+
+.footer { border-top:1px solid var(--hairline-soft); padding:2.5rem 0 3.5rem; }
+.footer a { color:var(--t2); text-decoration:none; font-size:var(--step--1); margin-right:1.8rem; transition:color .35s var(--ease); }
+.footer a:hover { color:var(--t1); }
+
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap nav-in"><a class="brand" href="/">Peps by <span>Dave</span></a></div></nav>
+
+<header class="head">
+  <div class="wrap">
+    <p class="eyebrow">Internal</p>
+    <h1>Peps by Dave — Vendor Chat (Test)</h1>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p>Internal test page. Click the chat bubble in the bottom-right corner to message the vendor.</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a href="/">Home</a>
+    <a href="mailto:pepsbydave@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<!-- Chatwoot live chat — this page only, loaded last so it never blocks render. -->
+<script>
+  (function(d,t) {
+    var BASE_URL="https://app.chatwoot.com";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'fAgzCbUSLjKJWTc63afr44qh',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");
+</script>
+
+</body>
+</html>
