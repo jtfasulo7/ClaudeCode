@@ -1,0 +1,3 @@
+[submodule "nfl-edge"]
+	path = nfl-edge
+	url = https://github.com/jtfasulo7/nfl-edge.git
