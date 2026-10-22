@@ -31,7 +31,7 @@ export function Logo({ className = "" }: { className?: string }) {
       >
         <Image
           src={logo.src}
-          alt=""
+          alt="Montara Forge"
           width={96}
           height={96}
           priority
