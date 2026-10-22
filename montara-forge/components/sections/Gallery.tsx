@@ -28,8 +28,48 @@ const CAPTIONS: Record<number, string> = {
 
 type JobImage =
   | { kind: "pair"; slot: number; before: string; after: string }
-  | { kind: "single"; slot: number; src: string }
+  | { kind: "single"; slot: number; src: string; aspect: number | null }
   | { kind: "placeholder"; slot: number };
+
+/** Width ÷ height of a JPEG or PNG, read from its header. null if unknown. */
+function imageAspect(file: string): number | null {
+  try {
+    const b = fs.readFileSync(file);
+    if (b[0] === 0x89 && b.toString("ascii", 1, 4) === "PNG") {
+      return b.readUInt32BE(16) / b.readUInt32BE(20);
+    }
+    if (b[0] === 0xff && b[1] === 0xd8) {
+      let i = 2;
+      while (i < b.length - 9) {
+        if (b[i] !== 0xff) return null;
+        const marker = b[i + 1];
+        // SOF0–SOF15 carry the frame size (C4, C8 and CC are not frames).
+        if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) {
+          return b.readUInt16BE(i + 7) / b.readUInt16BE(i + 5);
+        }
+        i += 2 + b.readUInt16BE(i + 2);
+      }
+    }
+  } catch {}
+  return null;
+}
+
+/** A 4:3 tile filled with object-cover draws a wider photo wider than the tile
+ *  (the sides are cropped), so the browser has to be told the DRAWN width or it
+ *  downloads a file sized for the tile and upscales it. 1 for 4:3 or taller. */
+const TILE_ASPECT = 4 / 3;
+function coverScale(aspect: number | null): number {
+  return aspect ? Math.max(1, aspect / TILE_ASPECT) : 1;
+}
+
+function tileSizes(count: number, aspect: number | null): string {
+  const k = coverScale(aspect);
+  const px = (n: number) => `${Math.ceil(n * k)}px`;
+  const vw = (n: number) => `${Math.ceil(n * k)}vw`;
+  if (count === 1) return `(min-width: 768px) ${px(768)}, ${vw(100)}`;
+  if (count === 3) return `(min-width: 1152px) ${px(384)}, ${vw(33)}`;
+  return `(min-width: 1024px) ${vw(33)}, ${vw(50)}`;
+}
 
 function find(dir: string, base: string): string | null {
   for (const ext of EXTS) {
@@ -47,7 +87,10 @@ function loadJobs(): JobImage[] {
     const after = find(dir, `job-${slot}-after`);
     const single = find(dir, `job-${slot}`);
     if (before && after) found.push({ kind: "pair", slot, before, after });
-    else if (after ?? single) found.push({ kind: "single", slot, src: (after ?? single)! });
+    else if (after ?? single) {
+      const src = (after ?? single)!;
+      found.push({ kind: "single", slot, src, aspect: imageAspect(path.join(dir, path.basename(src))) });
+    }
   }
   if (found.length > 0) return found;
   if (process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_SHOW_PLACEHOLDERS === "1") {
@@ -96,13 +139,7 @@ export function Gallery() {
                   src={job.src}
                   alt={`${CAPTIONS[job.slot] ?? "Concrete project"} by Montara Forge`}
                   fill
-                  sizes={
-                    jobs.length === 1
-                      ? "(min-width: 768px) 768px, 100vw"
-                      : jobs.length === 3
-                        ? "(min-width: 1152px) 384px, 33vw"
-                        : "(min-width: 1024px) 33vw, 50vw"
-                  }
+                  sizes={tileSizes(jobs.length, job.aspect)}
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <Caption text={CAPTIONS[job.slot]} />
