@@ -19,7 +19,6 @@ import { SectionHeading } from "@/components/SectionHeading";
 const SLOTS = [1, 2, 3, 4, 5, 6] as const;
 const EXTS = ["jpg", "jpeg", "png", "webp"] as const;
 const CAPTIONS: Record<number, string> = {
-  1: "Front walkway & driveway — finished",
   2: "Curved walkway with floating steps",
   3: "Custom-home driveway — fresh pour",
   4: "Covered patio & entry step",
@@ -74,9 +73,15 @@ export function Gallery() {
         }
       />
 
+      {/* Three photos sit in one row at every width, equal columns filling the
+          content width, so none is left alone on a second line. */}
       <ul
-        className={`mt-8 grid gap-2.5 sm:gap-4 ${
-          jobs.length === 1 ? "grid-cols-1 sm:max-w-3xl" : "grid-cols-2 lg:grid-cols-3"
+        className={`mt-8 grid gap-2 sm:gap-4 ${
+          jobs.length === 1
+            ? "grid-cols-1 sm:max-w-3xl"
+            : jobs.length === 3
+              ? "grid-cols-3"
+              : "grid-cols-2 lg:grid-cols-3"
         }`}
       >
         {jobs.map((job) => (
@@ -91,7 +96,13 @@ export function Gallery() {
                   src={job.src}
                   alt={`${CAPTIONS[job.slot] ?? "Concrete project"} by Montara Forge`}
                   fill
-                  sizes={jobs.length === 1 ? "(min-width: 768px) 768px, 100vw" : "(min-width: 1024px) 33vw, 50vw"}
+                  sizes={
+                    jobs.length === 1
+                      ? "(min-width: 768px) 768px, 100vw"
+                      : jobs.length === 3
+                        ? "(min-width: 1152px) 384px, 33vw"
+                        : "(min-width: 1024px) 33vw, 50vw"
+                  }
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <Caption text={CAPTIONS[job.slot]} />
@@ -122,7 +133,7 @@ export function Gallery() {
 function Caption({ text }: { text?: string }) {
   if (!text) return null;
   return (
-    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent px-3 pb-2.5 pt-8 text-xs font-semibold tracking-wide text-bone">
+    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent px-2 pb-1.5 pt-6 text-[0.6rem] font-semibold leading-tight tracking-wide text-bone sm:px-3 sm:pb-2.5 sm:pt-8 sm:text-xs">
       {text}
     </figcaption>
   );
