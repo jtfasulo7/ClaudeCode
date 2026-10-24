@@ -132,6 +132,9 @@ async function pushToGhl(r: Review): Promise<boolean> {
   });
 
   const contact = (upsert?.contact ?? null) as { id?: string } | null;
+  // Logged so a review that "went nowhere" can be found: `new: false` means it
+  // landed on a contact that already had this phone number, under its old date.
+  const isNew = (upsert as { new?: boolean } | null)?.new;
   if (!contact?.id) {
     console.error("[submit-review] upsert succeeded but no contact id in response", upsert);
     return false;
@@ -147,6 +150,7 @@ async function pushToGhl(r: Review): Promise<boolean> {
   } catch (err) {
     console.error("[submit-review] review note saved but tags failed:", err);
   }
+  console.log(`[submit-review] stored on contact ${contact.id} (${isNew ? "new contact" : "existing contact"}), ${r.rating} stars`);
   return true;
 }
 
@@ -160,6 +164,7 @@ export async function POST(req: Request) {
 
   // Honeypot: bots fill every field. Pretend success, do nothing.
   if (body && typeof body === "object" && clean((body as Record<string, unknown>).website)) {
+    console.warn("[submit-review] honeypot field was filled — treated as spam, NOT stored");
     return NextResponse.json({ ok: true });
   }
 
