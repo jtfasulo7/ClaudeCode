@@ -9,8 +9,8 @@ import russell from "@/public/images/team/russell.jpg";
  */
 const POINTS = [
   "Owner of Montara Forge",
-  "Runs a small crew",
-  "Reaches out to you himself",
+  "I run a small crew",
+  "I reach out to you myself",
 ];
 
 export function MeetTheOwner() {
@@ -33,14 +33,14 @@ export function MeetTheOwner() {
             eyebrow="Meet the Owner"
             title={
               <>
-                This is Russell. <span className="text-gold">He owns Montara Forge.</span>
+                I&rsquo;m Russell. <span className="text-gold">I own Montara Forge.</span>
               </>
             }
           />
           <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-bone-mute">
-            Russell runs a small crew, and you deal with him directly. When you send in
-            your project, he&rsquo;s the one who reaches out &mdash; not a call center,
-            not a salesperson.
+            I run a small crew, and you deal with me directly. When you send in your
+            project, I&rsquo;m the one who reaches out &mdash; not a call center, not a
+            salesperson.
           </p>
           <ul className="mt-6 grid gap-2.5">
             {POINTS.map((point) => (
