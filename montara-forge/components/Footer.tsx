@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CallLink } from "@/components/CallLink";
 import { SITE } from "@/lib/site";
 
-/** Minimal footer: name, phone, license line, legal links. Nothing else. */
+/** Minimal footer: name, phone, license line, review + legal links. Nothing else. */
 export function Footer() {
   return (
     <footer className="border-t border-line bg-ink-2 pb-24 pt-10 md:pb-10">
@@ -22,6 +22,12 @@ export function Footer() {
           <CallLink className="font-semibold text-bone underline-offset-4 hover:text-gold hover:underline">
             {SITE.phoneDisplay}
           </CallLink>
+          <Link
+            href="/review"
+            className="text-bone-mute underline-offset-4 hover:text-bone hover:underline"
+          >
+            Leave a Review
+          </Link>
           <Link
             href="/privacy"
             className="text-bone-mute underline-offset-4 hover:text-bone hover:underline"
