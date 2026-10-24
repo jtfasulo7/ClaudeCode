@@ -4,6 +4,7 @@ import { StickyBar } from "@/components/StickyBar";
 import { Hero } from "@/components/sections/Hero";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { Gallery } from "@/components/sections/Gallery";
+import { MeetTheOwner } from "@/components/sections/MeetTheOwner";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { ServiceArea } from "@/components/sections/ServiceArea";
 import { SeasonCta } from "@/components/sections/SeasonCta";
@@ -12,7 +13,7 @@ import { SHOW_REVIEWS } from "@/lib/site";
 
 /**
  * The one route. Order is the conversion argument:
- *   form → proof → process → locality → urgency + repeat CTA → footer
+ *   form → proof → owner → process → locality → urgency + repeat CTA → footer
  */
 export default function Page() {
   return (
@@ -22,6 +23,7 @@ export default function Page() {
         <Hero />
         <TrustStrip />
         <Gallery />
+        <MeetTheOwner />
         <HowItWorks />
         <ServiceArea />
         {/*

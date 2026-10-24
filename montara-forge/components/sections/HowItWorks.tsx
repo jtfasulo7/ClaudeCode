@@ -31,16 +31,7 @@ export function HowItWorks() {
           }
         />
 
-        {/* Owner line. The empty slot on the left is where Russell's photo goes;
-            it renders nothing until then. */}
-        <div className="mt-6 flex items-center gap-3 sm:mt-8">
-          {/* TODO: JT — add Russell's photo here */}
-          <p className="text-[0.95rem] font-semibold text-bone">
-            Russell, owner. <span className="font-normal text-bone-mute">He does every estimate himself.</span>
-          </p>
-        </div>
-
-        <ol className="mt-5 grid gap-4 sm:mt-6 sm:grid-cols-3 sm:gap-6">
+        <ol className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-3 sm:gap-6">
           {STEPS.map((s, i) => (
             <li
               key={s.n}
