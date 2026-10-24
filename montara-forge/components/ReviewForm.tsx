@@ -81,7 +81,7 @@ export function ReviewForm() {
           <CheckIcon className="h-6 w-6" />
         </span>
         <h2 className="mt-4 font-display text-3xl text-bone">Thank you, {values.firstName.trim()}.</h2>
-        <p className="mt-2 text-bone-mute">Your review is in. I really appreciate it.</p>
+        <p className="mt-2 text-bone-mute">Your review is in. Russell really appreciates it.</p>
       </div>
     );
   }
@@ -91,7 +91,7 @@ export function ReviewForm() {
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-5 rounded-xl border border-line bg-ink-2 p-5 sm:p-7">
       <fieldset>
-        <legend className="mb-2 text-[0.95rem] font-semibold text-bone">How did I do?</legend>
+        <legend className="mb-2 text-[0.95rem] font-semibold text-bone">How did we do?</legend>
         <div
           id="review-rating"
           tabIndex={-1}
@@ -130,7 +130,7 @@ export function ReviewForm() {
           name="review"
           rows={5}
           maxLength={4000}
-          placeholder="What did I do for you, and how did it turn out?"
+          placeholder="What did Russell and the crew do for you, and how did it turn out?"
           value={values.review}
           onChange={(e) => set("review", e.target.value)}
           aria-invalid={!!errors.review}
@@ -173,7 +173,7 @@ export function ReviewForm() {
         </Field>
       </div>
 
-      <Field id="review-phone" label="Phone" hint="So I can match your review to your job. Never shown publicly." error={errors.phone}>
+      <Field id="review-phone" label="Phone" hint="So we can match your review to your job. Never shown publicly." error={errors.phone}>
         <input
           id="review-phone"
           name="phone"
@@ -237,12 +237,12 @@ export function ReviewForm() {
           disabled={submitting}
           className="mt-0.5 h-5 w-5 shrink-0 accent-[var(--color-gold)]"
         />
-        It&rsquo;s OK to share my review on the {SITE.name} website, with my first name and last initial.
+        It&rsquo;s OK for {SITE.name} to share my review on its website, with my first name and last initial.
       </label>
 
       {status === "failed" && (
         <p role="alert" className="rounded-lg border border-danger/40 bg-danger/10 px-4 py-3 text-sm text-danger">
-          Sorry, your review didn&rsquo;t go through. Please try again, or call or text me at{" "}
+          Sorry, your review didn&rsquo;t go through. Please try again, or call or text Russell at{" "}
           <CallLink className="font-semibold underline">{SITE.phoneDisplay}</CallLink>.
         </p>
       )}

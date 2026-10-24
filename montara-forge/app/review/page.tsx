@@ -35,7 +35,7 @@ export default function ReviewPage() {
           How did your concrete <span className="text-gold">turn out?</span>
         </h1>
         <p className="mt-3 text-bone-mute">
-          Thanks for trusting me with your project. A few words about how it went go a long way for a small crew like mine.
+          Thanks for choosing {SITE.name}. A few words about the job go a long way for a small crew.
         </p>
 
         <div className="mt-8">
