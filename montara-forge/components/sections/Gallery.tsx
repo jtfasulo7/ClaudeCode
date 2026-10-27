@@ -19,6 +19,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 const SLOTS = [1, 2, 3, 4, 5, 6] as const;
 const EXTS = ["jpg", "jpeg", "png", "webp"] as const;
 const CAPTIONS: Record<number, string> = {
+  1: "Driveway pour — broom finish",
   2: "Curved walkway with floating steps",
   3: "Custom-home driveway — fresh pour",
   4: "Covered patio & entry step",
@@ -68,6 +69,7 @@ function tileSizes(count: number, aspect: number | null): string {
   const vw = (n: number) => `${Math.ceil(n * k)}vw`;
   if (count === 1) return `(min-width: 768px) ${px(768)}, ${vw(100)}`;
   if (count === 3) return `(min-width: 1152px) ${px(384)}, ${vw(33)}`;
+  if (count === 4) return `(min-width: 1152px) ${px(288)}, (min-width: 1024px) ${vw(25)}, ${vw(50)}`;
   return `(min-width: 1024px) ${vw(33)}, ${vw(50)}`;
 }
 
@@ -116,15 +118,17 @@ export function Gallery() {
         }
       />
 
-      {/* Three photos sit in one row at every width, equal columns filling the
-          content width, so none is left alone on a second line. */}
+      {/* Three photos sit in one row at every width, and four make a 2×2 grid
+          that becomes one row on desktop, so none is left alone on a line. */}
       <ul
         className={`mt-8 grid gap-2 sm:gap-4 ${
           jobs.length === 1
             ? "grid-cols-1 sm:max-w-3xl"
             : jobs.length === 3
               ? "grid-cols-3"
-              : "grid-cols-2 lg:grid-cols-3"
+              : jobs.length === 4
+                ? "grid-cols-2 lg:grid-cols-4"
+                : "grid-cols-2 lg:grid-cols-3"
         }`}
       >
         {jobs.map((job) => (
