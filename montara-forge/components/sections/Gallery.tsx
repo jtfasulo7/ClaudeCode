@@ -67,10 +67,11 @@ function tileSizes(count: number, aspect: number | null): string {
   const k = coverScale(aspect);
   const px = (n: number) => `${Math.ceil(n * k)}px`;
   const vw = (n: number) => `${Math.ceil(n * k)}vw`;
+  // Below 640px every layout is one full-width column.
   if (count === 1) return `(min-width: 768px) ${px(768)}, ${vw(100)}`;
-  if (count === 3) return `(min-width: 1152px) ${px(384)}, ${vw(33)}`;
-  if (count === 4) return `(min-width: 1152px) ${px(288)}, (min-width: 1024px) ${vw(25)}, ${vw(50)}`;
-  return `(min-width: 1024px) ${vw(33)}, ${vw(50)}`;
+  if (count === 3) return `(min-width: 1152px) ${px(384)}, (min-width: 640px) ${vw(33)}, ${vw(100)}`;
+  if (count === 4) return `(min-width: 1152px) ${px(288)}, (min-width: 1024px) ${vw(25)}, (min-width: 640px) ${vw(50)}, ${vw(100)}`;
+  return `(min-width: 1024px) ${vw(33)}, (min-width: 640px) ${vw(50)}, ${vw(100)}`;
 }
 
 function find(dir: string, base: string): string | null {
@@ -118,17 +119,18 @@ export function Gallery() {
         }
       />
 
-      {/* Three photos sit in one row at every width, and four make a 2×2 grid
-          that becomes one row on desktop, so none is left alone on a line. */}
+      {/* Phones: one full-width column, so each photo is as big as possible.
+          From sm up, three sit in one row and four make a 2×2 grid that
+          becomes one row on desktop, so none is left alone on a line. */}
       <ul
-        className={`mt-8 grid gap-2 sm:gap-4 ${
+        className={`mt-8 grid grid-cols-1 gap-3 sm:gap-4 ${
           jobs.length === 1
-            ? "grid-cols-1 sm:max-w-3xl"
+            ? "sm:max-w-3xl"
             : jobs.length === 3
-              ? "grid-cols-3"
+              ? "sm:grid-cols-3"
               : jobs.length === 4
-                ? "grid-cols-2 lg:grid-cols-4"
-                : "grid-cols-2 lg:grid-cols-3"
+                ? "sm:grid-cols-2 lg:grid-cols-4"
+                : "sm:grid-cols-2 lg:grid-cols-3"
         }`}
       >
         {jobs.map((job) => (
@@ -174,7 +176,7 @@ export function Gallery() {
 function Caption({ text }: { text?: string }) {
   if (!text) return null;
   return (
-    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent px-2 pb-1.5 pt-6 text-[0.6rem] font-semibold leading-tight tracking-wide text-bone sm:px-3 sm:pb-2.5 sm:pt-8 sm:text-xs">
+    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent px-3.5 pb-3 pt-8 text-sm font-semibold leading-tight tracking-wide text-bone sm:px-3 sm:pb-2.5 sm:text-xs">
       {text}
     </figcaption>
   );
@@ -190,7 +192,7 @@ function BeforeAfter({ before, after, caption }: { before: string; after: string
             src={before}
             alt={`Before: ${caption ?? "concrete project"}`}
             fill
-            sizes="(min-width: 1024px) 17vw, 25vw"
+            sizes="(min-width: 1024px) 17vw, (min-width: 640px) 25vw, 50vw"
             className="object-cover grayscale-[35%]"
           />
           <Tag>Before</Tag>
@@ -200,7 +202,7 @@ function BeforeAfter({ before, after, caption }: { before: string; after: string
             src={after}
             alt={`After: ${caption ?? "concrete project"} by Montara Forge`}
             fill
-            sizes="(min-width: 1024px) 17vw, 25vw"
+            sizes="(min-width: 1024px) 17vw, (min-width: 640px) 25vw, 50vw"
             className="object-cover"
           />
           <Tag gold>After</Tag>
