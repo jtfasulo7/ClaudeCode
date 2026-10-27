@@ -71,7 +71,6 @@ export function LeadForm() {
 
   const steps = useMemo(() => stepsFor(answers.projectType), [answers.projectType]);
   const stepId = steps[Math.min(stepIndex, steps.length - 1)];
-  const total = steps.length;
 
   const headingRef = useRef<HTMLHeadingElement>(null);
   const timerRef = useRef<number | null>(null);
@@ -198,30 +197,8 @@ export function LeadForm() {
 
   return (
     <FormShell>
-      {/* Progress */}
-      <div className="flex items-center justify-between gap-4">
-        <p className="eyebrow">
-          Step <span className="text-bone">{stepIndex + 1}</span> of {total}
-        </p>
-        <p className="text-xs font-medium text-bone-mute">Free · No obligation · ~30 seconds</p>
-      </div>
-      <div
-        className="mt-2.5 flex gap-1"
-        role="progressbar"
-        aria-valuemin={1}
-        aria-valuemax={total}
-        aria-valuenow={stepIndex + 1}
-        aria-label="Form progress"
-      >
-        {steps.map((s, i) => (
-          <span
-            key={s}
-            className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-              i <= stepIndex ? "bg-gold" : "bg-line-strong"
-            }`}
-          />
-        ))}
-      </div>
+      {/* No step counter or progress bar, on purpose: testing whether hiding progress lifts completion. */}
+      <p className="text-xs font-medium text-bone-mute">Free · No obligation · ~30 seconds</p>
 
       {/* Step body (re-mounted per step so the enter animation replays) */}
       <div
