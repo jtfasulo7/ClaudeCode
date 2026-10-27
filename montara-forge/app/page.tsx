@@ -13,7 +13,7 @@ import { SHOW_REVIEWS } from "@/lib/site";
 
 /**
  * The one route. Order is the conversion argument:
- *   form → proof → owner → process → locality → urgency + repeat CTA → footer
+ *   form → proof (work, then reviews) → owner → process → locality → urgency + repeat CTA → footer
  */
 export default function Page() {
   return (
@@ -23,11 +23,11 @@ export default function Page() {
         <Hero />
         <TrustStrip />
         <Gallery />
+        {/* Real customer reviews; gated by SHOW_REVIEWS (lib/site.ts). */}
+        {SHOW_REVIEWS && <Reviews />}
         <MeetTheOwner />
         <HowItWorks />
         <ServiceArea />
-        {/* Real customer reviews; gated by SHOW_REVIEWS (lib/site.ts). */}
-        {SHOW_REVIEWS && <Reviews />}
         <SeasonCta />
       </main>
       <Footer />
