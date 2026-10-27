@@ -3,7 +3,6 @@ import {
   LABELS,
   NEW_OR_REPLACEMENT,
   PROJECT_TYPES,
-  SIZE_RANGES,
   TIMELINES,
   isOneOf,
   type LeadPayload,
@@ -28,7 +27,6 @@ export const dynamic = "force-dynamic";
 const CUSTOM_FIELD_KEYS = {
   projectType: "project_type_web",
   newOrReplacement: "tearout_web",
-  sizeRange: "approx_size_web",
   timeline: "timeline_web",
   location: "project_location_web",
   estimateSummary: "estimate_summary_web",
@@ -110,7 +108,6 @@ function validate(body: unknown): { ok: true; data: Validated } | { ok: false; e
   if (!isOneOf(PROJECT_TYPES, b.projectType)) return { ok: false, error: "Invalid project type" };
   if (!isOneOf(NEW_OR_REPLACEMENT, b.newOrReplacement))
     return { ok: false, error: "Invalid new/replacement value" };
-  if (!isOneOf(SIZE_RANGES, b.sizeRange)) return { ok: false, error: "Invalid size range" };
   if (!isOneOf(TIMELINES, b.timeline)) return { ok: false, error: "Invalid timeline" };
   if (!location) return { ok: false, error: "Location is required" };
 
@@ -123,7 +120,6 @@ function validate(body: unknown): { ok: true; data: Validated } | { ok: false; e
       email,
       projectType: b.projectType,
       newOrReplacement: b.newOrReplacement,
-      sizeRange: b.sizeRange,
       timeline: b.timeline,
       location,
       inServiceArea: b.inServiceArea === true,
@@ -137,7 +133,6 @@ function buildSummary(d: Validated): string {
   return [
     `PROJECT: ${LABELS.projectType[d.projectType]}`,
     `TEAR-OUT: ${d.newOrReplacement === "replacement" ? "Yes (replacing existing)" : "No (new pour)"}`,
-    `SIZE: ${LABELS.sizeRange[d.sizeRange]}`,
     `TIMELINE: ${LABELS.timeline[d.timeline]}`,
     `LOCATION: ${d.location}${d.inServiceArea ? "" : " (outside listed area — confirm)"}`,
   ].join(" | ");
@@ -149,7 +144,6 @@ function buildNote(d: Validated): string {
     "",
     `Project:    ${LABELS.projectType[d.projectType]}`,
     `Tear-out:   ${LABELS.newOrReplacement[d.newOrReplacement]}`,
-    `Size:       ${LABELS.sizeRange[d.sizeRange]}`,
     `Timeline:   ${LABELS.timeline[d.timeline]}`,
     `Location:   ${d.location}${d.inServiceArea ? "" : "  ⚠ outside listed service area — confirm on call"}`,
     "",
@@ -212,7 +206,6 @@ async function pushToGhl(d: Validated): Promise<boolean> {
   const fieldValues: Record<keyof typeof CUSTOM_FIELD_KEYS, string> = {
     projectType: LABELS.projectType[d.projectType],
     newOrReplacement: d.newOrReplacement === "replacement" ? "Yes — replacing existing" : "No — new pour",
-    sizeRange: LABELS.sizeRange[d.sizeRange],
     timeline: LABELS.timeline[d.timeline],
     location: d.location,
     estimateSummary: summary,
@@ -233,7 +226,6 @@ async function pushToGhl(d: Validated): Promise<boolean> {
     `src-${d.attribution?.channel ?? "unknown"}`,
     `project-${d.projectType}`,
     d.newOrReplacement === "replacement" ? "tear-out-yes" : "tear-out-no",
-    `size-${d.sizeRange}`,
     `timeline-${d.timeline}`,
   ];
 

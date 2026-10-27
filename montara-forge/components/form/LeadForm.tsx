@@ -5,12 +5,10 @@ import {
   IMPLIED_NEW_OR_REPLACEMENT,
   NEW_OR_REPLACEMENT_OPTIONS,
   PROJECT_OPTIONS,
-  SIZE_OPTIONS,
   TIMELINE_OPTIONS,
   type LeadPayload,
   type NewOrReplacement,
   type ProjectType,
-  type SizeRange,
   type Timeline,
 } from "@/lib/form";
 import { isInServiceArea } from "@/lib/service-area";
@@ -23,12 +21,11 @@ import { ContactStep, type ContactValues } from "./ContactStep";
 import { ThankYou } from "@/components/ThankYou";
 import { ArrowLeftIcon, ShieldIcon } from "@/components/icons";
 
-type StepId = "project" | "newOrReplacement" | "size" | "timeline" | "location" | "contact";
+type StepId = "project" | "newOrReplacement" | "timeline" | "location" | "contact";
 
 interface Answers {
   projectType?: ProjectType;
   newOrReplacement?: NewOrReplacement;
-  sizeRange?: SizeRange;
   timeline?: Timeline;
   location: string;
 }
@@ -36,7 +33,6 @@ interface Answers {
 const QUESTION: Record<StepId, string> = {
   project: "What's your project?",
   newOrReplacement: "New pour or replacing existing concrete?",
-  size: "About how big is the area?",
   timeline: "When are you hoping to get this done?",
   location: "Where's the project located?",
   contact: "Where should we send your estimate details?",
@@ -48,7 +44,6 @@ function stepsFor(projectType?: ProjectType): StepId[] {
   return [
     "project",
     ...(needsStep2 ? (["newOrReplacement"] as const) : []),
-    "size",
     "timeline",
     "location",
     "contact",
@@ -111,10 +106,6 @@ export function LeadForm() {
     setAnswers((a) => ({ ...a, newOrReplacement: value }));
     advanceSoon();
   };
-  const pickSize = (value: SizeRange) => {
-    setAnswers((a) => ({ ...a, sizeRange: value }));
-    advanceSoon();
-  };
   const pickTimeline = (value: Timeline) => {
     setAnswers((a) => ({ ...a, timeline: value }));
     advanceSoon();
@@ -132,7 +123,6 @@ export function LeadForm() {
       email: contact.email.trim() || undefined,
       projectType: answers.projectType!,
       newOrReplacement: answers.newOrReplacement!,
-      sizeRange: answers.sizeRange!,
       timeline: answers.timeline!,
       location: answers.location.trim(),
       inServiceArea: isInServiceArea(answers.location),
@@ -191,7 +181,6 @@ export function LeadForm() {
   const selected = {
     project: answers.projectType,
     newOrReplacement: answers.newOrReplacement,
-    size: answers.sizeRange,
     timeline: answers.timeline,
   };
 
@@ -224,9 +213,6 @@ export function LeadForm() {
               value={selected.newOrReplacement}
               onSelect={pickNewOrReplacement}
             />
-          )}
-          {stepId === "size" && (
-            <OptionStep name="sizeRange" options={SIZE_OPTIONS} value={selected.size} onSelect={pickSize} />
           )}
           {stepId === "timeline" && (
             <OptionStep name="timeline" options={TIMELINE_OPTIONS} value={selected.timeline} onSelect={pickTimeline} />
