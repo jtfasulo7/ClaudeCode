@@ -1,53 +1,51 @@
 import { SectionHeading } from "@/components/SectionHeading";
 
 /**
- * REVIEWS — BUILT BUT DISABLED.
+ * REVIEWS — real customer reviews only, rendered when SHOW_REVIEWS
+ * (lib/site.ts) is true.
  *
- * Montara Forge has not collected reviews yet, so this section is NOT
- * rendered (see SHOW_REVIEWS in lib/site.ts — it's `false`). The entries
- * below are layout placeholders ONLY. Before enabling:
+ * Every entry must be a real, attributable review the client has collected
+ * (name, plus town/project only as the customer gave them). Never add
+ * placeholder or invented reviews.
  *
- *   1. Replace every entry in REVIEWS with a real, attributable review the
- *      client has collected (name + town as the customer gave permission).
- *   2. Flip SHOW_REVIEWS to `true` in lib/site.ts.
- *
- * Deliberately no star rating or review count anywhere — add those only
- * if/when the client has a real Google Business Profile rating to cite.
+ * Stars are per review, as the customer rated it. No aggregate rating or
+ * review count anywhere — add those only if/when the client has a real
+ * Google Business Profile rating to cite.
  */
 
 interface Review {
   quote: string;
   name: string;
-  town: string;
-  project: string;
+  /** 1–5, as the customer rated it. */
+  rating: number;
+  town?: string;
+  project?: string;
 }
 
-// PLACEHOLDER COPY — replace with real reviews before enabling.
 const REVIEWS: Review[] = [
   {
     quote:
-      "[Placeholder] Showed up when they said they would, measured everything, and the price they quoted is the price we paid.",
-    name: "Customer Name",
-    town: "Cedar City",
-    project: "Driveway replacement",
-  },
-  {
-    quote:
-      "[Placeholder] Tear-out and new pour done in two days. Clean edges, clean yard when they left.",
-    name: "Customer Name",
-    town: "St. George",
-    project: "New driveway",
-  },
-  {
-    quote:
-      "[Placeholder] Patio looks better than the renderings. Would hire again for the front walk.",
-    name: "Customer Name",
-    town: "Parowan",
-    project: "Patio",
+      "Russell and his team arrived promptly as promised and worked tirelessly and professionally to complete the job. I couldn’t help but feel they were working harder than necessary, perhaps because compared to other contractors and builders we’ve hired, they stood out for their meticulous attention to detail and genuine concern for my plans.",
+    name: "Scott McDonell",
+    rating: 5,
   },
 ];
 
+function Stars({ rating }: { rating: number }) {
+  return (
+    <p className="flex gap-0.5 text-lg leading-none" role="img" aria-label={`${rating} out of 5 stars`}>
+      {[1, 2, 3, 4, 5].map((n) => (
+        <span key={n} aria-hidden="true" className={n <= rating ? "text-gold" : "text-bone/20"}>
+          ★
+        </span>
+      ))}
+    </p>
+  );
+}
+
 export function Reviews() {
+  // One review reads as a single wide card; three or more fill the grid.
+  const layout = REVIEWS.length === 1 ? "max-w-2xl" : "sm:grid-cols-2 lg:grid-cols-3";
   return (
     <section className="border-t border-line bg-ink-2">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
@@ -59,20 +57,18 @@ export function Reviews() {
             </>
           }
         />
-        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+        <ul className={`mt-8 grid gap-4 ${layout}`}>
           {REVIEWS.map((r) => (
-            <li key={r.quote} className="flex flex-col rounded-xl border border-line bg-ink p-5">
-              <span aria-hidden="true" className="font-display text-5xl leading-none text-gold">
-                &ldquo;
-              </span>
-              <blockquote className="mt-1 flex-1 text-[0.95rem] leading-relaxed text-bone">
-                {r.quote}
+            <li key={r.quote} className="flex flex-col rounded-xl border border-line bg-ink p-5 sm:p-6">
+              <Stars rating={r.rating} />
+              <blockquote className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-bone sm:text-base">
+                &ldquo;{r.quote}&rdquo;
               </blockquote>
               <footer className="mt-4 border-t border-line pt-3 text-sm">
                 <p className="font-semibold text-bone">{r.name}</p>
-                <p className="text-bone-mute">
-                  {r.town} · {r.project}
-                </p>
+                {(r.town || r.project) && (
+                  <p className="text-bone-mute">{[r.town, r.project].filter(Boolean).join(" · ")}</p>
+                )}
               </footer>
             </li>
           ))}

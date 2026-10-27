@@ -26,11 +26,7 @@ export default function Page() {
         <MeetTheOwner />
         <HowItWorks />
         <ServiceArea />
-        {/*
-          Reviews are gated behind SHOW_REVIEWS (lib/site.ts), currently
-          `false` — the client has no collected reviews yet. Enable once real
-          reviews are in components/sections/Reviews.tsx.
-        */}
+        {/* Real customer reviews; gated by SHOW_REVIEWS (lib/site.ts). */}
         {SHOW_REVIEWS && <Reviews />}
         <SeasonCta />
       </main>

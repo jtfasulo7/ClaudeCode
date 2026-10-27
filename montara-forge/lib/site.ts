@@ -26,9 +26,8 @@ export const SITE = {
 /**
  * FEATURE FLAG — Reviews / testimonials section.
  *
- * Montara Forge has no collected reviews yet, so the <Reviews /> component is
- * built but NOT rendered. Flip this to `true` (and replace the placeholder
- * entries in components/Reviews.tsx with real, attributable reviews) once the
- * client has collected them. Do not enable with fabricated reviews.
+ * On since the first real review came in (Scott McDonell, 5★). The reviews
+ * themselves live in components/sections/Reviews.tsx. Never fill the section
+ * with fabricated reviews.
  */
-export const SHOW_REVIEWS = false;
+export const SHOW_REVIEWS = true;
