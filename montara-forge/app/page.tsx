@@ -10,6 +10,7 @@ import { ServiceArea } from "@/components/sections/ServiceArea";
 import { SeasonCta } from "@/components/sections/SeasonCta";
 import { Reviews } from "@/components/sections/Reviews";
 import { SHOW_REVIEWS } from "@/lib/site";
+import { Clarity } from "@/components/Clarity";
 
 /**
  * The one route. Order is the conversion argument:
@@ -32,6 +33,8 @@ export default function Page() {
       </main>
       <Footer />
       <StickyBar />
+      {/* Landing page only — not in the root layout, so the other routes aren't recorded. */}
+      <Clarity />
     </>
   );
 }
